@@ -10,7 +10,7 @@
   <%= link_to "sign_in", new_user_session_path%>|
   <%= link_to "sign_up", new_user_registration_path%>
   <% if current_user %>
-    |  <%= current_user.email %> |
+    |  <%= link_to current_user.role, edit_user_registration_path %> |
     <%= link_to "sign out", destroy_user_session_path, :method => :delete %>
   <% end %>
 <%= yield %>

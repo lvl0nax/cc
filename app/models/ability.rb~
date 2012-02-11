@@ -9,7 +9,7 @@ class Ability
          can :manage, :all
        else
          can :read, Page
-         cannot :update, User.role
+         cannot :update, user.role
 
        end
     #

@@ -48,7 +48,10 @@ class User
 
   def role?(role)
 
-      return self.role.to_s == role.to_s
+    if !!current_user
+      return current_user.role.to_s == role.to_s
+    end
+
 
   end
 

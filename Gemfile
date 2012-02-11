@@ -18,6 +18,7 @@ gem 'devise'
 gem 'cancan'
 gem 'nifty-generators'
 
+
 =begin
 gem 'cancan'
 gem 'activerecord'

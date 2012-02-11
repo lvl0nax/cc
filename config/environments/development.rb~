@@ -41,7 +41,7 @@ TestMongoid::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "webtech.spb.ru",
+    domain: webtech.spb.ru,
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "lvl0nax@gmail.com",

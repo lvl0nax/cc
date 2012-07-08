@@ -9,7 +9,7 @@ class User
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
-
+  field :role
   field :name
   validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false

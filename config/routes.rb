@@ -1,4 +1,7 @@
 TestMongoid::Application.routes.draw do
+  resources :pages
+
+
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -52,7 +55,7 @@ TestMongoid::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
 
-  root :to => 'users'
+  #root :to => 'users'
 
   # See how all your routes lay out with "rake routes"
 

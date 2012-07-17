@@ -2900,3 +2900,257 @@ MONGODB (0ms) test_mongoid_development['users'].find({}).limit(-1).sort([[:_id, 
 MONGODB (0ms) test_mongoid_development['users'].update({"_id"=>BSON::ObjectId('4f34dc6972828b1d45000003')}, {"$set"=>{"role"=>{"_id"=>BSON::ObjectId('4f35ffec72828b2483000001'), "name"=>"admin"}}})
 MONGODB (0ms) test_mongoid_development['users'].find({}).limit(-1).sort([[:_id, :asc]])
 MONGODB (0ms) test_mongoid_development['users'].find({}).limit(-1).sort([[:_id, :asc]])
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2012-07-14 10:35:50 +0400
+  Processing by PagesController#new as HTML
+Completed 500 Internal Server Error in 85ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.4ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-07-14 10:35:56 +0400
+Served asset /rails.png - 200 OK (4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-14 10:36:28 +0400
+  Processing by PagesController#index as HTML
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (17ms) test_mongoid_development['$cmd'].find({:create=>"pages"}).limit(-1)
+MONGODB (0ms) test_mongoid_development['pages'].find({})
+Rendered pages/index.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 199ms (Views: 140.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /application.css - 200 OK (1ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /pages.css - 200 OK (4ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /pages.js - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /jquery.js - 200 OK (5ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /spages.css - 200 OK (2ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /spages.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-07-14 10:36:29 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-07-14 10:36:42 +0400
+  Processing by Devise::RegistrationsController#new as HTML
+Completed 500 Internal Server Error in 5ms
+
+NameError (uninitialized constant Registration):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.0ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-07-14 11:13:50 +0400
+  Processing by Devise::RegistrationsController#new as HTML
+Completed 500 Internal Server Error in 5ms
+
+NameError (uninitialized constant Registration):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-07-14 11:24:44 +0400
+  Processing by Devise::RegistrationsController#new as HTML
+Completed 500 Internal Server Error in 5ms
+
+NameError (uninitialized constant Registration):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+  Processing by PagesController#index as HTML
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['pages'].find({})
+Rendered pages/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 86ms (Views: 76.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /scaffolds.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /pages.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /spages.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /pages.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /spages.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-07-14 11:26:20 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-07-14 11:26:23 +0400
+  Processing by Devise::RegistrationsController#new as HTML
+Completed 500 Internal Server Error in 5ms
+
+NameError (uninitialized constant Registration):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.2ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-14 11:27:51 +0400
+  Processing by PagesController#index as HTML
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['pages'].find({})
+Rendered pages/index.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 92ms (Views: 83.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /pages.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /jquery.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /spages.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /pages.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /spages.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:52 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-07-14 11:27:53 +0400
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (6.0ms)
+Rendered devise/registrations/new.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 82ms (Views: 60.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-14 11:27:54 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)

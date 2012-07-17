@@ -9,8 +9,11 @@ class Ability
          can :manage, :all
        else
          can :read, :all
-
-
+         #can :read, :role
+         #can :update, :user, :id => user.id
+         #can :read, User, User.juristic do |u|
+         # u.role == :juristic || u.id == user.id
+         #end 
        end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

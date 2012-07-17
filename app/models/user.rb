@@ -10,6 +10,7 @@ class User
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
   field :name
+  
   validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
@@ -32,6 +33,8 @@ class User
   field :last_sign_in_ip,    :type => String
 
   embeds_one :role
+  index "role.name"
+  index :name, :unique => true, :background => true
 
   ## Confirmable
   # field :confirmation_token,   :type => String
@@ -48,9 +51,15 @@ class User
   # field :authentication_token, :type => String
 
   def role?(role)
+      return self.role.try(:name).to_s == role.to_s
+  end
 
-      return self.role.to_s == role.to_s
+  def role_name
+    return self.role.name
+  end
 
+  def juristic
+    User.where(:role.name == "juristic")
   end
 
 end

@@ -2900,3 +2900,76 @@ MONGODB (0ms) test_mongoid_development['users'].find({}).limit(-1).sort([[:_id, 
 MONGODB (0ms) test_mongoid_development['users'].update({"_id"=>BSON::ObjectId('4f34dc6972828b1d45000003')}, {"$set"=>{"role"=>{"_id"=>BSON::ObjectId('4f35ffec72828b2483000001'), "name"=>"admin"}}})
 MONGODB (0ms) test_mongoid_development['users'].find({}).limit(-1).sort([[:_id, :asc]])
 MONGODB (0ms) test_mongoid_development['users'].find({}).limit(-1).sort([[:_id, :asc]])
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (164ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (107ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2012-02-11 14:51:04 +0400
+Served asset /rails.png - 304 Not Modified (283ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-02-11 14:51:40 +0400
+  Processing by PagesController#index as HTML
+MONGODB (305ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (12ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('4f34dc6972828b1d45000003')}).limit(-1).sort([[:_id, :asc]])
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['pages'].find({})
+Rendered pages/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 1089ms (Views: 586.5ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /spages.css - 304 Not Modified (49ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /scaffolds.css - 304 Not Modified (12ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /pages.css - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /jquery.js - 304 Not Modified (89ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /pages.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-02-11 14:51:44 +0400
+Served asset /spages.js - 304 Not Modified (3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-02-11 14:51:48 +0400
+  Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rDatQaeET9U8PZAPo3WX2C9gPAhAmGI3snmTjiTfABA="}
+Completed 500 Internal Server Error in 6ms
+
+NameError (uninitialized constant Session):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.6ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (39ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+MONGODB (280ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (31ms) test_mongoid_development['users'].find({}).limit(-1).sort([[:_id, :asc]])
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (28ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)

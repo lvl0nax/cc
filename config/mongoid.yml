@@ -1,6 +1,7 @@
 development:
   host: localhost
   database: test_mongoid_development
+  autocreate_indexes: true
 
 test:
   host: localhost
@@ -8,6 +9,7 @@ test:
 
 # set these environment variables on your prod server
 production:
+  autocreate_indexes: true
   host: <%= ENV['MONGOID_HOST'] %>
   port: <%= ENV['MONGOID_PORT'] %>
   username: <%= ENV['MONGOID_USERNAME'] %>

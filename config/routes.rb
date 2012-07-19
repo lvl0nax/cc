@@ -1,4 +1,8 @@
 TestMongoid::Application.routes.draw do
+  resources :resumes
+
+  resources :compinfos
+
   resources :pages
 
   devise_for :users, :controllers => {:registrations => 'registrations'}

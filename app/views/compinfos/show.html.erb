@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @compinfo.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @compinfo.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_compinfo_path(@compinfo) %> |
+<%= link_to 'Back', compinfos_path %>

@@ -33,6 +33,8 @@ class User
   field :last_sign_in_ip,    :type => String
 
   embeds_one :role
+  embeds_one :compinfo
+  embeds_one :resume
   index "role.name"
   index :name, :unique => true, :background => true
 

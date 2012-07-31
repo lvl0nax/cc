@@ -154,7 +154,7 @@ DEPENDENCIES
   execjs
   jquery-rails
   json
-  mongoid
+  mongoid (= 2.4.11)
   nifty-generators
   rails (= 3.1.3)
   rspec-rails

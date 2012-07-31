@@ -1,4 +1,14 @@
 TestMongoid::Application.routes.draw do
+  resources :requests
+
+  resources :trainings
+
+  resources :grants
+
+  resources :conferences
+
+  resources :events
+
   resources :resumes
 
   resources :compinfos

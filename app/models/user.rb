@@ -35,9 +35,15 @@ class User
   embeds_one :role
   embeds_one :compinfo
   embeds_one :resume
-  index "role.name"
-  index :name, :unique => true, :background => true
 
+  references_many :trainings
+
+
+  # index "role.name"
+   index :name, :unique => true, :background => true
+  # index({ name: 1 }, { unique: true, background: true })
+  
+  # TODO: Make roles as array. Its for nice view
   ## Confirmable
   # field :confirmation_token,   :type => String
   # field :confirmed_at,         :type => Time

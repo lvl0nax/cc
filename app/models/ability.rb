@@ -4,21 +4,37 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
+
+
+    ### TODO: do like case
       user ||= User.new # guest user (not logged in)
+      # case user.role.name.to_sym
+      # when :admin
+      #   can :manage, :all
+      # when :employer
+      #   can :read, :all
+      # when :employee
+      #   can :read, :all
+      # else
+      # end        
+        
       if user.role? (:admin)
         can :manage, :all
-      elseif user.role? (:employee) # who want to find job
+      elsif user.role? (:employee) # who want to find job
+
+          
 
       
-      elseif user.role? (:empolyer) # who can create vacancy 
+      elsif user.role? (:empolyer) # who can create vacancy 
         can :read, :all
+        can :create, Training
          #can :read, :role
          #can :update, :user, :id => user.id
          #can :read, User, User.juristic do |u|
          # u.role == :juristic || u.id == user.id
          #end 
       else
-
+        can :read, :all
       end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

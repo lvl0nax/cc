@@ -12,7 +12,7 @@ gem 'json'
 gem 'rspec-rails'
 gem 'database_cleaner'
 
-gem 'mongoid'
+gem 'mongoid', '2.4.11'
 gem 'bson_ext', :require => false
 gem 'devise'
 gem 'cancan'

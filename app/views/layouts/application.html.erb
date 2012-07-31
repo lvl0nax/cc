@@ -7,13 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "sign_in", new_user_session_path%>|
-  <%= link_to "sign_up", new_user_registration_path%>
+
   <% if current_user %>
-    |  <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
+    <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
     <%= link_to "sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to "sign_in", new_user_session_path%>|
+    <%= link_to "sign_up", new_user_registration_path%>
   <% end %>
-<%= yield %>
+  <p> test </p>
+  <div class = "menu">
+    <p> test2 </p>
+    <%= link_to "Гранты", grants_path %>
+    <%= link_to "Мероприятия", events_path %>
+    <%= link_to "Конференции", conferences_path %>
+    <%= link_to "Стажировки", trainings_path %>
+  </div>
+  <%= yield %>
 
 </body>
 </html>

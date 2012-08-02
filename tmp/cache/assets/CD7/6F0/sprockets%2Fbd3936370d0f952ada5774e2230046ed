@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343838880.3620899:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343929021.5850072:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%5cf78e8266c8cd3ad463003f386fb6b1I"logical_path;
+F"%d680eff2d54aff421609bfeee678970cI"logical_path;
 F"scaffolds.cssI"pathname;
 FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
 FI"content_type;

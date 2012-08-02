@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343838880.795862:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343929021.9065897:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%576f920c06aae33ccffd512604712d76I"logical_path;
+F"%df553cbf38d5f228eb665f1c0a783f90I"logical_path;
 F"trainings.jsI"pathname;
 FI"5$root/app/assets/javascripts/trainings.js.coffee;
 FI"content_type;

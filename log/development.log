@@ -8774,3 +8774,1114 @@ Served asset /trainings.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 20:55:56 +0400
 Served asset /application.js - 304 Not Modified (1ms)
+MONGODB [DEBUG] Logging level is currently :debug which could negatively impact client-side performance. You should set your logging level no lower than :info in production.
+MONGODB (0ms) admin['$cmd'].find({:ismaster=>1}).limit(-1)
+
+
+Started GET "/trainings/50181d9149c8621a9d000008" for 127.0.0.1 at 2012-08-02 21:34:32 +0400
+
+ActionController::RoutingError (undefined local variable or method `requestable' for Training:Class):
+  app/models/training.rb:5:in `<class:Training>'
+  app/models/training.rb:1:in `<top (required)>'
+  app/controllers/trainings_controller.rb:1:in `<top (required)>'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (8.4ms)
+
+
+Started GET "/trainings/50181d9149c8621a9d000008" for 127.0.0.1 at 2012-08-02 21:36:08 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50181d9149c8621a9d000008"}
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+Completed 500 Internal Server Error in 20ms
+
+Mongoid::Errors::InvalidOptions (Invalid option :invers_of provided to relation :requestable. Valid options are: autosave, foreign_key, index, polymorphic, class_name, extend, inverse_class_name, inverse_of, name, relation, validate.):
+  app/models/request.rb:5:in `<class:Request>'
+  app/models/request.rb:1:in `<top (required)>'
+  app/controllers/trainings_controller.rb:18:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.9ms)
+
+
+Started GET "/trainings/50181d9149c8621a9d000008" for 127.0.0.1 at 2012-08-02 21:36:40 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50181d9149c8621a9d000008"}
+MONGODB (1ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+Rendered trainings/show.html.erb within layouts/application (29.3ms)
+Completed 500 Internal Server Error in 64ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <p id="notice"><%= notice %></p>
+    2: 
+    3: <%= @training.description %>
+    4: <% @request.each do |r|%>
+    5:   <%= r.content %>
+    6: <% end %>
+    7: <%= link_to 'Подать заявку', new_request_path(:refer => @training, :type => @training.class) %>
+  app/views/trainings/show.html.erb:4:in `_app_views_trainings_show_html_erb__774875535_93254080'
+  app/controllers/trainings_controller.rb:19:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.4ms)
+
+
+Started GET "/trainings/50181d9149c8621a9d000008" for 127.0.0.1 at 2012-08-02 21:37:01 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50181d9149c8621a9d000008"}
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['requests'].find({"requestable_id"=>BSON::ObjectId('50181d9149c8621a9d000008')})
+Rendered trainings/show.html.erb within layouts/application (4.2ms)
+Compiled application.css  (3ms)  (pid 19840)
+Compiled compinfos.css  (20ms)  (pid 19840)
+Compiled conferences.css  (1ms)  (pid 19840)
+Compiled events.css  (15ms)  (pid 19840)
+Compiled grants.css  (2ms)  (pid 19840)
+Compiled pages.css  (12ms)  (pid 19840)
+Compiled requests.css  (4ms)  (pid 19840)
+Compiled resumes.css  (2ms)  (pid 19840)
+Compiled roles.css  (1ms)  (pid 19840)
+Compiled scaffolds.css  (15ms)  (pid 19840)
+Compiled spages.css  (1ms)  (pid 19840)
+Compiled trainings.css  (1ms)  (pid 19840)
+Compiled application.js  (6ms)  (pid 19840)
+Compiled jquery.js  (19ms)  (pid 19840)
+Compiled jquery_ujs.js  (1ms)  (pid 19840)
+Compiled compinfos.js  (121ms)  (pid 19840)
+Compiled conferences.js  (0ms)  (pid 19840)
+Compiled events.js  (0ms)  (pid 19840)
+Compiled grants.js  (0ms)  (pid 19840)
+Compiled pages.js  (0ms)  (pid 19840)
+Compiled requests.js  (0ms)  (pid 19840)
+Compiled resumes.js  (0ms)  (pid 19840)
+Compiled roles.js  (15ms)  (pid 19840)
+Compiled spages.js  (0ms)  (pid 19840)
+Compiled trainings.js  (0ms)  (pid 19840)
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 651ms (Views: 636.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /grants.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /conferences.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /pages.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /compinfos.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /events.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /requests.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /resumes.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /roles.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /spages.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /trainings.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /compinfos.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /conferences.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /events.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /grants.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /pages.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /requests.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /resumes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /roles.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /spages.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /trainings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:02 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/requests/new?refer=50181d9149c8621a9d000008&type=Training" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+  Processing by RequestsController#new as HTML
+  Parameters: {"refer"=>"50181d9149c8621a9d000008", "type"=>"Training"}
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+Rendered requests/_form.html.erb (3.4ms)
+Rendered requests/new.html.erb within layouts/application (8.2ms)
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 100ms (Views: 84.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /compinfos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /grants.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /conferences.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /requests.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /roles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /trainings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /compinfos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /conferences.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /grants.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /requests.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /trainings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:12 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+  Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BbnsAUvUQqJusEsv75znlaeV+uyRmGlhbkmBjhhU9oY=", "request"=>{"content"=>"1111111", "type"=>"Training", "ref"=>"50181d9149c8621a9d000008"}, "commit"=>"Create Request"}
+MONGODB (1ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+MONGODB (1ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['requests'].insert([{"_id"=>BSON::ObjectId('501abacf49c8624d80000002'), "_type"=>"Request", "content"=>"1111111", "type"=>"Training", "ref"=>"50181d9149c8621a9d000008"}])
+MONGODB (0ms) test_mongoid_development['requests'].update({"_id"=>BSON::ObjectId('501abacf49c8624d80000002')}, {"$set"=>{"requestable_id"=>BSON::ObjectId('50181d9149c8621a9d000008'), "requestable_type"=>"Training"}})
+Redirected to http://localhost:3000/requests/501abacf49c8624d80000002
+Completed 302 Found in 29ms
+
+
+Started GET "/requests/501abacf49c8624d80000002" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+  Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"501abacf49c8624d80000002"}
+MONGODB (1ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['requests'].find({:_id=>BSON::ObjectId('501abacf49c8624d80000002')}).limit(-1).sort([[:_id, :asc]])
+Rendered requests/show.html.erb within layouts/application (1.6ms)
+MONGODB (31ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 93ms (Views: 89.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /compinfos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /conferences.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /grants.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /requests.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /roles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /trainings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /compinfos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /conferences.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /grants.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /requests.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /trainings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:19 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/trainings" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+  Processing by TrainingsController#index as HTML
+MONGODB (1ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({})
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Rendered trainings/index.html.erb within layouts/application (75.4ms)
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 100ms (Views: 99.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /compinfos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /conferences.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /grants.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /requests.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /roles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /trainings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /compinfos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /conferences.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /grants.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /requests.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /trainings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:21 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/trainings/50181d9149c8621a9d000008" for 127.0.0.1 at 2012-08-02 21:37:22 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50181d9149c8621a9d000008"}
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['requests'].find({"requestable_id"=>BSON::ObjectId('50181d9149c8621a9d000008')})
+Rendered trainings/show.html.erb within layouts/application (3.9ms)
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 69ms (Views: 53.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /compinfos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /conferences.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /grants.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /requests.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /roles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /trainings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /compinfos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /conferences.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /grants.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /requests.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /trainings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:23 +0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/requests/new?refer=50181d9149c8621a9d000008&type=Training" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+  Processing by RequestsController#new as HTML
+  Parameters: {"refer"=>"50181d9149c8621a9d000008", "type"=>"Training"}
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+Rendered requests/_form.html.erb (2.6ms)
+Rendered requests/new.html.erb within layouts/application (3.4ms)
+MONGODB (26ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 97ms (Views: 81.6ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /compinfos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /grants.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /conferences.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /requests.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /roles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /trainings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /compinfos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /conferences.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /grants.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /requests.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /trainings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:25 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2012-08-02 21:37:30 +0400
+  Processing by RequestsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BbnsAUvUQqJusEsv75znlaeV+uyRmGlhbkmBjhhU9oY=", "request"=>{"content"=>"22222", "type"=>"Training", "ref"=>"50181d9149c8621a9d000008"}, "commit"=>"Create Request"}
+MONGODB (1ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+MONGODB (1ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['requests'].insert([{"_id"=>BSON::ObjectId('501abada49c8624d80000004'), "_type"=>"Request", "content"=>"22222", "type"=>"Training", "ref"=>"50181d9149c8621a9d000008"}])
+MONGODB (0ms) test_mongoid_development['requests'].update({"_id"=>BSON::ObjectId('501abada49c8624d80000004')}, {"$set"=>{"requestable_id"=>BSON::ObjectId('50181d9149c8621a9d000008'), "requestable_type"=>"Training"}})
+Redirected to http://localhost:3000/requests/501abada49c8624d80000004
+Completed 302 Found in 56ms
+
+
+Started GET "/requests/501abada49c8624d80000004" for 127.0.0.1 at 2012-08-02 21:37:30 +0400
+  Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"501abada49c8624d80000004"}
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['requests'].find({:_id=>BSON::ObjectId('501abada49c8624d80000004')}).limit(-1).sort([[:_id, :asc]])
+Rendered requests/show.html.erb within layouts/application (1.3ms)
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 56ms (Views: 52.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /compinfos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /grants.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /conferences.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /requests.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /roles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /trainings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /compinfos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /conferences.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /grants.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /requests.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:31 +0400
+Served asset /trainings.js - 304 Not Modified (0ms)
+
+
+Started GET "/trainings" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+  Processing by TrainingsController#index as HTML
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({})
+MONGODB (28ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Rendered trainings/index.html.erb within layouts/application (66.0ms)
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 91ms (Views: 91.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /compinfos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /conferences.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /requests.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /grants.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /roles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /trainings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /compinfos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /conferences.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /grants.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /requests.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /trainings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:32 +0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/trainings/50181d9149c8621a9d000008" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50181d9149c8621a9d000008"}
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['trainings'].find({:_id=>BSON::ObjectId('50181d9149c8621a9d000008')}).limit(-1).sort([[:_id, :asc]])
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['requests'].find({"requestable_id"=>BSON::ObjectId('50181d9149c8621a9d000008')})
+Rendered trainings/show.html.erb within layouts/application (3.9ms)
+MONGODB (0ms) test_mongoid_development['system.namespaces'].find({})
+MONGODB (0ms) test_mongoid_development['users'].find({:_id=>BSON::ObjectId('50163e3c49c86274ef000015')}).limit(-1).sort([[:_id, :asc]])
+Completed 200 OK in 99ms (Views: 53.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/compinfos.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /compinfos.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /conferences.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /grants.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /events.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /pages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /requests.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /resumes.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /roles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /trainings.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.css?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /spages.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/compinfos.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /compinfos.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /events.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/conferences.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /conferences.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grants.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /grants.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/requests.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /requests.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roles.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /roles.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/resumes.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /resumes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/spages.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /spages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/trainings.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /trainings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-02 21:37:34 +0400
+Served asset /application.js - 304 Not Modified (2ms)

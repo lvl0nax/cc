@@ -2,6 +2,7 @@ class Request
   include Mongoid::Document
   referenced_in :user
   referenced_in :training
+  referenced_in :requestable, :inverse_of => :request, polymorphic: true
   #field :user_id
   #field :evant_id
   field :content

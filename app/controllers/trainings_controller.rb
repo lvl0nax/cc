@@ -15,7 +15,7 @@ class TrainingsController < ApplicationController
   # GET /trainings/1.json
   def show
     @training = Training.find(params[:id])
-    @request = @training.requests.first
+    @requests = @training.requests
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @training }

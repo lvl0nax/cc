@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343838880.736664:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343929021.8652608:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%6cd10d058b50bd047f8754f1ea8ef392I"logical_path;
+F"%6930d109978695e003f0a51840674f63I"logical_path;
 F"events.jsI"pathname;
 FI"2$root/app/assets/javascripts/events.js.coffee;
 FI"content_type;

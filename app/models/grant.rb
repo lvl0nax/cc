@@ -1,6 +1,6 @@
 class Grant
   include Mongoid::Document
-
+  references_many :requests, as: :requestable
   field :title
   field :description
   field :hyperlink, :type => String # Link to external site with/without registration to event

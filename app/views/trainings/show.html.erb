@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <%= @training.description %>
-<% if @request %>
-  <%= @request.content %>
+<% @requests.each do |r|%>
+  <%= r.content %>
 <% end %>
 <%= link_to 'Подать заявку', new_request_path(:refer => @training, :type => @training.class) %>
 <%= link_to 'Edit', edit_training_path(@training) %> |

@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343838880.688631:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343929021.8568404:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%baba0018940b4ed47e4fc6d711420eeeI"logical_path;
+F"%ded1623404681b266cf58923d33b4a49I"logical_path;
 F"compinfos.jsI"pathname;
 FI"5$root/app/assets/javascripts/compinfos.js.coffee;
 FI"content_type;

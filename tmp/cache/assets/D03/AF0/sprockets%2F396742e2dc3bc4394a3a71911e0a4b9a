@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343838880.7871704:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343929021.898477:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%42806fd7b1a21e861a61ccc28c32c586I"logical_path;
+F"%f904992efad148e2559212f6daabb211I"logical_path;
 F"roles.jsI"pathname;
 FI"1$root/app/assets/javascripts/roles.js.coffee;
 FI"content_type;

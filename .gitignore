@@ -1,0 +1,4 @@
+.bundle
+db/*.yml
+log/*.log
+tmp/**/*

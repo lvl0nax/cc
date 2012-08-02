@@ -24,7 +24,8 @@ class RequestsController < ApplicationController
   # GET /requests/new
   # GET /requests/new.json
   def new
-    @request = Request.new
+    @request = Request.new(:ref => params[:refer], :type => params[:type])
+    @event = Training.find(params[:refer])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,9 +42,10 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(params[:request])
-
+    @event = Training.find(params[:request][:ref])
     respond_to do |format|
       if @request.save
+        @event.requests << @request
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
         format.json { render json: @request, status: :created, location: @request }
       else
@@ -51,6 +53,7 @@ class RequestsController < ApplicationController
         format.json { render json: @request.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /requests/1

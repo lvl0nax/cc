@@ -15,7 +15,7 @@ class TrainingsController < ApplicationController
   # GET /trainings/1.json
   def show
     @training = Training.find(params[:id])
-
+    @request = @training.requests.first
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @training }
@@ -45,7 +45,7 @@ class TrainingsController < ApplicationController
 
     respond_to do |format|
       if @training.save
-        current_user.trainings = [@training]
+        current_user.trainings << @training
         format.html { redirect_to @training, notice: 'Training was successfully created.' }
         format.json { render json: @training, status: :created, location: @training }
       else

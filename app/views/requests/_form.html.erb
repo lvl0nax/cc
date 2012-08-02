@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+  <%= @event.title %>
+
+  <div><%= f.label :content %><br />
+  <%= f.text_area :content %></div>
+  <div><%= f.text_field :type %></div>
+  <div><%= f.text_field :ref %></div>
 
   <div class="actions">
     <%= f.submit %>

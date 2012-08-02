@@ -1,8 +1,16 @@
 class Request
   include Mongoid::Document
-  field :user_id
-  field :evant_id
-  field :evant_name
+  referenced_in :user
+  referenced_in :training
+  #field :user_id
+  #field :evant_id
+  field :content
+  #field :evant_name
+  field :status
+
+  field :type
+  field :ref
+
 
   ### TODO:
   # FIELD - date for event

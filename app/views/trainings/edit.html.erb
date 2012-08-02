@@ -1,6 +1,9 @@
 <h1>Editing training</h1>
 
-<%= render 'form' %>
+<%= @request.content %>
+
+<div><%= f.label :status %><br />
+<%= f.select :status, "<option>Просмотрено</option><option>Одобрить</option><option>Отказать</option>" %></div>
 
 <%= link_to 'Show', @training %> |
 <%= link_to 'Back', trainings_path %>

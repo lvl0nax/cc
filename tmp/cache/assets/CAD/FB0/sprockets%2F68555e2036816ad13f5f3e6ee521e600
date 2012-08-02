@@ -1,0 +1,30 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1343838880.7474375:@value{I"
+class:EFI"BundledAsset;
+FI"id;
+F"%22bddd16a55c09a118937575f79f277cI"logical_path;
+F"grants.jsI"pathname;
+FI"2$root/app/assets/javascripts/grants.js.coffee;
+FI"content_type;
+FI"application/javascript;
+FI"
+mtime;
+FI"2012-07-29T11:44:18+04:00;
+FI"	body;
+FI"%(function() {
+
+
+
+}).call(this);
+;
+TI"asset_paths;
+F[I"2$root/app/assets/javascripts/grants.js.coffee;
+FI"dependency_paths;
+F[{I"	path;
+FI"2$root/app/assets/javascripts/grants.js.coffee;
+FI"
+mtime;
+FIu:	TimeßÄê*±
+:@_zoneI"MSK;
+T:nano_numiâ:nano_deni:submicro"dê:offseti@8I"hexdigest;
+F"%f50e3d51579225e3370988d160060f33I"_version;
+F"%0868aba5d4b750d3a9421721ea3d9b9c

@@ -37,12 +37,13 @@ class User
   embeds_one :resume
 
   references_many :trainings
+  references_many :requests
 
 
   # index "role.name"
    index :name, :unique => true, :background => true
   # index({ name: 1 }, { unique: true, background: true })
-  
+
   # TODO: Make roles as array. Its for nice view
   ## Confirmable
   # field :confirmation_token,   :type => String

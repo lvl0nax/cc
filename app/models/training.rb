@@ -2,6 +2,7 @@ class Training
   include Mongoid::Document
 
   referenced_in :user
+  references_many :requests
   #belongs_to :user
 
   field :title

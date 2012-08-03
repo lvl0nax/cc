@@ -36,13 +36,13 @@ class User
   embeds_one :compinfo
   embeds_one :resume
 
-  references_many :trainings
-  references_many :requests
+  has_many :trainings
+  has_many :requests
 
 
   # index "role.name"
-   index :name, :unique => true, :background => true
-  # index({ name: 1 }, { unique: true, background: true })
+  # index :name, :unique => true, :background => true
+   index({ name: 1 }, { unique: true, background: true })
 
   # TODO: Make roles as array. Its for nice view
   ## Confirmable

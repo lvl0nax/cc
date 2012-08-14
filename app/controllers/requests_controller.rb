@@ -43,9 +43,11 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(params[:request])
     @event = Training.find(params[:request][:ref])
+
     respond_to do |format|
       if @request.save
         @event.requests << @request
+        current_user.requests << @request
         format.html { redirect_to @request, notice: 'Request was successfully created.' }
         format.json { render json: @request, status: :created, location: @request }
       else

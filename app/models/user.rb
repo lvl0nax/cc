@@ -67,6 +67,11 @@ class User
     return self.role.name
   end
 
+  #TODO: testing!!!
+  def requested_event(evnt)
+    !!self.requests.detect {|r| r.requestable_id == evnt._id}
+  end
+
   def juristic
     User.where(:role.name == "juristic")
   end

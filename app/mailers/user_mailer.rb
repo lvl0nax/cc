@@ -1,10 +1,11 @@
+
+
 class UserMailer < ActionMailer::Base
   default from: "from@example.com"
 
   def info_email(user)
-  	@user = user #initiate user
-  	mail (:to => user.email,
-  		:subject => "Календарь событий")
+  	#@user = user #initiate user #user.email,
+  	mail(to: "lvl0nax@gmail.com")
   end
 
   def spamer

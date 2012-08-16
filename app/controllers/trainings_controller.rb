@@ -16,6 +16,7 @@ class TrainingsController < ApplicationController
   def show
     @training = Training.find(params[:id])
     @requests = @training.requests
+    UserMailer.info_email(current_user).deliver
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @training }
@@ -81,5 +82,9 @@ class TrainingsController < ApplicationController
       format.html { redirect_to trainings_url }
       format.json { head :ok }
     end
+  end
+
+  def send_mail
+    UserMailer.info_email(current_user).deliver
   end
 end

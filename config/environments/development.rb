@@ -25,6 +25,9 @@ TestMongoid::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
 
+
+
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -41,11 +44,11 @@ TestMongoid::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "webtech.spb.ru",
+    domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "lvl0nax@gmail.com",
-    password: "asdfasdf"
+    user_name: "monax.spam@gmail.com",
+    password: "code4fun"
   }
 
   #we should use

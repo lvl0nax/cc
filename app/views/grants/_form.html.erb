@@ -1,17 +1,15 @@
-<%= form_for(@grant) do |f| %>
-  <% if @grant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@grant.errors.count, "error") %> prohibited this grant from being saved:</h2>
-
-      <ul>
-      <% @grant.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@grant) do |f| %>
+  <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
+  <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "60"} %>
+  <%= f.input :photo, :label => "КАРТИНКА"  %>
+  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ"  %>
+  <%= f.input :start_date, :label => "НАЧАЛО" , :as => :datetime %>
+  <%= f.input :end_date, :label => "КОНЕЦ" , :as => :datetime %>
+  <%= f.input :nation, :label => "СТРАНА"  %>
+  <%= f.input :request_date, :label => "СРОК ПОДАЧИ ЗАЯВОК" , :as => :datetime %>
+  <%= f.input :direction, :label => "СФЕРА" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes %>
+  <%= f.input :end_point, :label => "ЦЕЛЬ" , :collection => ["ИССЛЕДОВАТЕЛЬСКАЯ ДЕЯТЕЛЬНОСТЬ", "ОБУЧЕНИЕ", "РЕАЛИЗАЦИЯ ПРОЕКТА", "ЛЮБАЯ"], :as => :check_boxes, :wrapper_html => { :class => 'end_point' } %>  
+  
+ 
+  <%= f.button :submit, :value => "ДОБАВИТЬ", :class => "grant_button" %>
 <% end %>

@@ -10,6 +10,7 @@ class User
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
   field :name
+  mount_uploader :photo, ImageUploader
   
   validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false

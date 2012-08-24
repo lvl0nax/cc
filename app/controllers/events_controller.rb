@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   # GET /events.json
   load_and_authorize_resource
   def index
+    # TODO: where date more or equal now
     @events = Event.all
 
     respond_to do |format|

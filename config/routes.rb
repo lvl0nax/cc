@@ -1,4 +1,6 @@
 TestMongoid::Application.routes.draw do
+  resources :areas
+
   resources :requests
 
   resources :trainings
@@ -73,7 +75,7 @@ TestMongoid::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#index'
+  root :to => 'events#index'
 
   #root :to => 'users'
 

@@ -1,17 +1,20 @@
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@event) do |f| %>
+  <div class="name_form">ЯРМАРКА ВАКАНСИЙ, ПРЕЗЕНТАЦИЯ, МАСTЕР-КЛАСС, КЕЙС-ТУРНИР, КОНФЕРЕНЦИЯ</div>
+  <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
+  <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "60"} %>
+  <%= f.input :photo, :label => "КАРТИНКА"  %>
+  <%= f.input :nation, :label => "СТРАНА"  %>
+  <%= f.input :city, :label => "ГОРОД"  %>
+  <%= f.input :street, :label => "УЛИЦА", :wrapper_html => { :class => 'strt' } %>
+  <%= f.input :building, :label => "ДОМ", :wrapper_html => { :class => 'house' } %>
+  <%= f.input :place, :label => "МЕСТО"  %>
+  <%= f.input :start_date, :label => "НАЧАЛО" , :as => :datetime %>
+  <%= f.input :end_date, :label => "КОНЕЦ" , :as => :datetime %>
+  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ"  %>
+  <%= f.input :request_date, :label => "СРОК ПОДАЧИ ЗАЯВОК" , :as => :datetime %>
+  <%= f.input :areas, :label => "СФЕРА" , :collection => Area.all, :as => :check_boxes %>
+  <%= f.input :kind, :label => "" , :collection => ["НАУЧНАЯ КОНФЕРЕНЦИЯ", "КАРЬЕРНОЕ СОБЫТИЕ" ], :as => :check_boxes %>
+  
+  <%= f.button :submit, :value => "ДОБАВИТЬ" %>
 <% end %>

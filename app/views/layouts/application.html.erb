@@ -6,24 +6,84 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <body>
+    <div id="container">
+      <div id="content_top">
+        <div class="login">
+          <% if current_user %>
+            <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
+            <%= link_to "sign out", destroy_user_session_path, :method => :delete %> |
+            <%= link_to "сферы", areas_path %> 
+            
+          <% else %>
+            <%= link_to "sign_in", new_user_session_path%>|
+            <%= link_to "sign_up", new_user_registration_path%>
+          <% end %>
+        </div>
 
-  <% if current_user %>
-    <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
-    <%= link_to "sign out", destroy_user_session_path, :method => :delete %> |
-    
-  <% else %>
-    <%= link_to "sign_in", new_user_session_path%>|
-    <%= link_to "sign_up", new_user_registration_path%>
-  <% end %>
+        <div class="header">
+          <div class="logo">
 
-  <div class = "menu">
-    <%= link_to "Гранты", grants_path %>
-    <%= link_to "Мероприятия", events_path %>
-    <%= link_to "Конференции", conferences_path %>
-    <%= link_to "Стажировки", trainings_path %>
-  </div>
-  <%= yield %>
+          </div>
 
-</body>
+          <div class="social">
+          </div>
+
+          <div class="create_links">
+            <div class="cr create_training"><%= link_to "Стажировку", new_training_path %></div>
+            <div class="cr create_event"><%= link_to "Событие", new_event_path %></div>
+            <div class="cr create_grant"><%= link_to "Грант", new_grant_path %></div>
+          </div>
+
+
+          <div class="buttons">
+            <%= link_to( new_user_registration_path ) do %>
+              <div class="registration">
+                РЕГИСТРАЦИЯ
+              </div>
+            <% end %>
+            <div class="add">
+              ДОБАВИТЬ
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="content-body">
+        <div class = "menu">
+          <div class="trainings">
+            <%= link_to "СТАЖИРОВКИ", trainings_path %>
+          </div>
+          <div class="events">
+            <%= link_to "СОБЫТИЯ", events_path %>
+          </div>
+          <div class="grants">
+            <%= link_to "ГРАНТЫ", grants_path %>
+          </div>
+        </div>
+        <%= yield %>
+      </div>
+
+      <div id="content-footer">
+        <div class="about">
+          <p> Этот сайт посвящен Центру Карьеры – центру, который организует всевозможные мероприятия для поиска работы и стажировки в ведущих компаниях города 
+Петербурга, Москвы и других городах России, различные семинары и тренинги для успешной карьеры в любой сфере.</p>
+        </div>
+      </div>
+        <div id="footer-links" class="top-border">
+          
+              <div class="link1 right-border">О ЦЕНТРЕ КАРЬЕРЫ</div>
+              <div class="link right-border">КОМАНДА</div>
+              <div class="link right-border">УСЛУГИ</div>
+              <div class="link right-border">ПРАВИЛА ПОЛьЗОВАНИЯ</div>
+              <div class="link right-border">КОНТАКТЫ</div>
+              <div class="link6"></div>
+          
+        </div>
+
+      <div id="overlay"></div>
+      <div id="popup-wrap"><div class="popup-top"></div><div class="popup-content"></div></div>
+    </div>
+  </body>
 </html>

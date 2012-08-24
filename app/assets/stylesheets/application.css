@@ -5,3 +5,195 @@
  *= require_self
  *= require_tree . 
 */
+/* reset */
+html,body,div,span,h1,h2,h3,h4,b,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,p,table,caption,tbody,thead,tr,th,td, ul, li, ol{margin:0;padding:0;outline:none;}
+table {border-collapse:collapse;border-spacing:0; font-size:inherit;font:100%;}
+fieldset,img {border:0;}
+caption,th,td{text-align:left;}
+ul,ol{list-style: none}
+input,button,textarea,select,em,th,optgroup,option {font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
+/* global styles */
+
+html, body {height:100%; color: #58595b}
+body{font: 13px Helvetica,sans-serif;background: #4B93D6}
+
+#container{min-height:100%;min-width:1100px;position:relative;overflow:hidden}
+
+#content_top{
+  height: 185px;
+}
+.login {
+  width:100%;
+  background-image: url(/assets/1.png);
+  background-size: 100%;
+  text-align: center;
+  font-size: 15px;
+  height: 30px;
+}
+
+#content-body{margin:0 auto;width:1100px; position: relative;z-index: 2; padding-bottom: 100px}
+#content-footer{color: #77a38a; z-index: 10; position: absolute; bottom: 30px; left: 50%; margin: 0 0 0 -550px; width: 1100px; height: 30px; padding: 20px 0 15px}
+#footer-links{color: #77a38a; z-index: 10; position: absolute; bottom: 0; left: 0; margin: 0; width: 100%; height: 30px; padding: 0}
+
+
+.top-border{border-top-color: #77a38a; border-top-style: solid; border-top-width: 2px;}
+.right-border{ border-right-color: #77a38a; border-right-style: solid; border-right-width: 2px; padding-left: 20px; padding-right: 20px;}
+
+.link1 {display: inline; padding-top: 9px; padding-bottom: 7px; height: 30px; padding-left: 170px;}
+.link {display: inline; padding-top: 9px; padding-bottom: 7px; height: 30px;}
+.link6 {display: inline; line-height: 30px;}
+
+
+.header {height: 155px;}
+.logo { 
+  position: absolute; 
+  background-image: url(/assets/logo.png); 
+  top: 0; left:65px; 
+  height: 200px; width: 200px; 
+  background-size: contain;
+}
+.social{
+  position: absolute;
+  background-image: url(/assets/icons.png); 
+  top:55px; left:240px; 
+  height: 150px; width: 150px; 
+}
+
+.create_links{
+  height: 20px;
+  width: 800px;
+  position: absolute;
+  top: 135px;
+  left: 240px;
+}
+.cr{
+  display: inline-block;
+  height: 20px;
+  width: 150px;
+  border: 1px solid red;
+  margin-right: 100px;
+  text-align: center;
+}
+.cr a{
+  width: 150px;
+}
+
+.registration {
+  position: absolute; 
+  top: 65px; right: 105px;
+  border: 2px solid #e3e3e3;
+  /*padding-left: 30px ;*/
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  width: 135px;
+  height: 50px;
+  font-weight: bold;
+}
+.buttons div:hover {background-color: #e8fff1; color: black;}
+.add {
+  position: absolute; 
+  top: 125px; right: 105px;
+  border: 2px solid #e3e3e3;
+  /*padding-left: 30px;*/
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+  width: 135px;
+  height: 50px;
+  font-weight: bold;
+} 
+
+.trainings{
+  margin-top: 5px;
+  width: 100%;
+  background-image: url(/assets/stag.png);
+  background-size: 100%;
+  height: 20px;
+}
+.events{
+  width: 100%;
+  margin-top: 5px;
+  background-image: url(/assets/event.png);
+  background-size: 100%;
+  height: 20px;
+}
+.grants{
+  width: 100%;
+  margin-top: 5px;
+  background-image: url(/assets/grant.png);
+  background-size: 100%;
+  height: 20px;
+}
+
+.simple_form{
+  position: relative;
+  margin-top: 10px;
+  background-image: url(/assets/3.png);
+  background-size: 100%;
+  font-size: 16px;
+  height: 100%;
+}
+.name_form{font-size: 16px; position: absolute; top: 10px; left: 10px; color: white;}
+.input{ margin: 10px 0 0 10px;}
+.first_field{padding-top: 40px; width: 98%;}
+.first_field input{width: 90%; margin-left: 4px;}
+.btn{
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background-color: #96b977;
+  font-size: 20px
+}
+/* edit and create new item*/
+label.control-label{  padding-right: 10px;  float: left;}
+
+#event_nation{  margin-left: 27px;  width: 285px;}
+#training_nation{  margin-left: 27px;  width: 285px;}
+#grant_nation{  margin-left: 27px;  width: 558px;}
+
+#event_city{margin-left: 36px; width: 285px;}
+#training_city{margin-left: 36px; width: 285px;}
+
+.strt{float: left;}
+#event_street{margin-left: 36px; width: 200px;}
+#training_street{margin-left: 36px; width: 200px;}
+
+.house label{ margin-left: 10px;}
+#event_building{width: 25px;}
+#training_building{width: 25px;}
+
+#event_place{margin-left: 32px; width: 285px;}
+#training_place{margin-left: 32px; width: 285px;}
+
+#event_start_date_1i{margin-left: 23px;}
+#training_start_date_1i{margin-left: 23px;}
+#grant_start_date_1i{margin-left: 23px;}
+
+#event_end_date_1i{margin-left: 35px;}
+#training_end_date_1i{margin-left: 35px;}
+#grant_end_date_1i{margin-left: 35px;}
+.datetime select{ padding-right: 10px; margin-right: 9px; margin-left: 9px;}
+
+#event_hyperlink{width:334px;}
+#training_hyperlink{width:334px;}
+#grant_hyperlink{width:334px;}
+
+#event_request_date_1i{ margin-left: 17px;}
+#training_request_date_1i{margin-left: 17px;}
+
+.checkbox input {margin: 0 5px 0 15px;}
+.check_boxes label.control-label{padding-right: 30px;}
+
+#event_kind__{margin-bottom: 15px;}
+#training_salary_type_{margin-bottom: 15px;}
+
+.end_point label.control-label{padding-right: 42px; }
+#grant_end_point__{margin-bottom: 45px;}
+
+/*show item*/
+img {border: 1px solid green;}

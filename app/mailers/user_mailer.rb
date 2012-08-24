@@ -1,7 +1,7 @@
 
 
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "monax.spam@gmail.com"
 
   def info_email(user)
   	#@user = user #initiate user #user.email,

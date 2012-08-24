@@ -1,37 +1,19 @@
-<%= form_for(@training) do |f| %>
-  <% if @training.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@training.errors.count, "error") %> prohibited this training from being saved:</h2>
-
-      <ul>
-      <% @training.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :hyperlink %><br />
-    <%= f.text_field :hyperlink %>
-  </div>
-
-  <div class="field">
-    <%= f.label :cond %><br />
-    <%= f.text_area :cond %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@training) do |f| %>
+  <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field'} %>
+  <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "60"} %>
+  <%= f.input :photo, :label => "КАРТИНКА"  %>
+  <%= f.input :nation, :label => "СТРАНА"  %>
+  <%= f.input :city, :label => "ГОРОД"  %>
+  <%= f.input :street, :label => "УЛИЦА", :wrapper_html => { :class => 'strt' }   %>
+  <%= f.input :building, :label => "ДОМ" , :wrapper_html => { :class => 'house' }  %>
+  <%= f.input :place, :label => "МЕСТО"  %>
+  <%= f.input :start_date, :label => "НАЧАЛО" , :as => :datetime %>
+  <%= f.input :end_date, :label => "КОНЕЦ" , :as => :datetime %>
+  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ"  %>
+  <%= f.input :request_date, :label => "СРОК ПОДАЧИ ЗАЯВОК" , :as => :datetime %>
+  <%= f.input :areas, :label => "СФЕРА" , :collection => Area.all, :as => :check_boxes %>
+  <%= f.input :employment, :label => "ЗАНЯТОСТЬ" , :collection => ["ЧАСТИЧНАЯ", "ПОЛНАЯ", "УДАЛЕННАЯ"], :as => :check_boxes %>
+  <%= f.input :salary_type, :label => "" , :collection => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ" ], :as => :check_boxes %>
+   
+  <%= f.button :submit, :value => "ДОБАВИТЬ" %>
 <% end %>

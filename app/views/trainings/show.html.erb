@@ -1,6 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<%= @training.description %>
+<h1> <%= @training.title %> - СТАЖИРОВКА </h1>
+<div> <%= @training.description %> </div>
+<div> <%=image_tag @training.photo.url %> </div>
+<div> C <%= @training.start_date.to_formatted_s(:db) %> </div>
+<div> ДО <%= @training.end_date.to_formatted_s(:db) %> </div>
+
+<div> Окончание подачи заявок <%= @training.request_date.to_formatted_s(:db) %> </div>
+<div> <%= @training.hyperlink %> </div>
+<div> ДОБАВИЛ <%= @training.user.name %> </div>
+<div> 
+	<%= @training.place %> 
+	<%= @training.nation %> 
+	<%= @training.city %> 
+	<%= @training.street %> 
+	<%= @training.building %> 
+</div>
+
+
 <%= link_to 'Подать заявку', new_request_path(:refer => @training, :type => @training.class) %>
 <%= link_to 'Edit', edit_training_path(@training) %> |
 <%= link_to 'Back', trainings_path %>

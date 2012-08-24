@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
+<h1> <%= @event.title %> - СОБЫТИЕ </h1>
+<div> <%= @event.description %> </div>
+<div> <%=image_tag @event.photo.url %> </div>
+<div> C <%= @event.start_date.to_formatted_s(:db) %> </div>
+<div> ДО <%= @event.end_date.to_formatted_s(:db) %> </div>
+
+<div> Окончание подачи заявок <%= @event.request_date.to_formatted_s(:db) %> </div>
+<div> <%= @event.hyperlink %> </div>
+<div> ДОБАВИЛ <%= @event.user.name %> </div>
+<div> 
+	<%= @event.place %> 
+	<%= @event.nation %> 
+	<%= @event.city %> 
+	<%= @event.street %> 
+	<%= @event.building %> 
+</div>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

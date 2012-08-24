@@ -18,7 +18,11 @@ gem 'devise'
 gem 'cancan'
 gem 'nifty-generators'
 
+gem "tlsmail"
+gem "simple_form"
 
+gem "carrierwave"
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 =begin
 gem 'cancan'
 gem 'activerecord'

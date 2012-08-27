@@ -1,8 +1,11 @@
 class Grant
   include Mongoid::Document
+  include Mongoid::MultiParameterAttributes
   has_many :requests, as: :requestable
-  belongs_to :user
+  has_and_belongs_to_many :users #participants, class_name: "User", inverse_of: :gractivity
+  #belongs_to :user
   field :title
+  field :owner
   field :description
   field :nation
   field :hyperlink, :type => String # Link to external site with/without registration to event

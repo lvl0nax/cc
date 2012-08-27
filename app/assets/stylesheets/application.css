@@ -196,4 +196,48 @@ label.control-label{  padding-right: 10px;  float: left;}
 #grant_end_point__{margin-bottom: 45px;}
 
 /*show item*/
-img {border: 1px solid green;}
+.evshow{margin-top: 10px; border-top: 3px solid #76a38a ; border-left: 3px solid #76a38a; border-right: 3px solid #76a38a; border-bottom: 15px solid #76a38a;}
+.grshow{margin-top: 10px; border-top: 3px solid #333f3f ; border-left: 3px solid #333f3f; border-right: 3px solid #333f3f; border-bottom: 15px solid #333f3f;}
+.trshow{margin-top: 10px; border-top: 3px solid #c9db57 ; border-left: 3px solid #c9db57; border-right: 3px solid #c9db57; border-bottom: 15px solid #c9db57;}
+.yellow_letter{color: #c9db57; font-size: 20px; margin-top: 15px; margin-bottom: 5px;}
+.black_letter{color: #333f3f; font-size: 20px; margin-top: 15px; margin-bottom: 5px;}
+.green_letter{color: #76a38a; font-size: 20px; margin-top: 15px; margin-bottom: 5px;}
+.evshow table {margin-left: 20px; }
+.trshow table {margin-left: 20px; }
+.grshow table {margin-left: 20px; }
+.item_title{padding-left: 20px;}
+.evimage{width: 500px; }
+img {border: 1px solid green; width: 540px;}
+.lcolumn{ width: 50%; vertical-align: top;} /* position: absolute; top: 30px; left: 0px;}*/
+.rcolumn{ width: 40%; vertical-align: top;}/* position: absolute; top: 30px; right: 0px;}*/
+.lcolumn2{ width: 43%; vertical-align: top; } /* position: absolute; top: 30px; left: 0px;}*/
+.rcolumn2{ width: 42%; vertical-align: top;}/* position: absolute; top: 30px; right: 0px;}*/
+table.test{/*border: 2px solid red;*/}
+.eventimage img{width: 150px;}
+.eventimage {padding-right: 20px;}
+
+.items{
+}
+.templ{
+  width: 208px; height: 206px; 
+  border-left:1px solid; 
+  border-right:1px solid; 
+  border-top:1px solid; 
+  border-bottom:3px solid; 
+  padding: 20px 20px 0;
+  margin: 13px;
+  /*float: left;*/
+  display: inline-table;
+}
+.temp_date{float:left;}
+.temp_type{float:right;}
+.temp_img img{width:200px; height: 140px;}
+.temp_img {text-align: center}
+.temp_name{font-size: 20px; padding-top: 5px;}
+.month_name {font-size: 48px;}
+.month_number {font-size: 148px;padding: 85px 0 0 0px;text-align: right;}
+.temp_training{color:#c9db57;border-color:#c9db57}
+.temp_event{color:#333f3f;border-color:#333f3f}
+.temp_grant{color:#76a38a;border-color:#76a38a}
+
+.month_number{color:#c9db57;}

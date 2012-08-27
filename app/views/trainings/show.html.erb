@@ -1,27 +1,50 @@
 <p id="notice"><%= notice %></p>
+<div class="evshow">
+  <div class="item_title yellow_letter"> <%= @training.title %> - СТАЖИРОВКА </div>
+  <table class="test">
+    <tr>
+      <td rowspan="2" valign = "top"><div class="eventimage"> <%=image_tag @training.photo.url %> </div></td>
+      <td colspan="2"> <%= @training.description %> </td>
+    </tr>
+    <tr>
+      <td class="lcolumn2">
+        <div> 
+          <% @training.salary_type.each do |s| %> 
+            <%= s unless s.blank? %>
+          <%end%>
+        </div>
+        <div class="yellow_letter"> C <%= l @training.start_date, :format => :long %> 
+        </br>ДО <%= @training.end_date.to_formatted_s(:long) %>
+        </div>
+        <div class="user_show"> ДОБАВИЛ <p><%= @training.user.name %></p> </div>
+      </td>
+      <td class="rcolumn2">
+        <div> 
+          <% @training.employment.each do |e| %>
+            <%= e unless e.blank? %>
+          <%end%> 
+        </div>
+        <div class = "yellow_letter" > ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК: </div>
+        <%= @training.request_date.to_formatted_s(:db) %>
+        <div> <%= @training.hyperlink %> </div>
+        <div> 
+          <%= @training.place %> 
+          <%= @training.nation %> 
+          <%= @training.city %> 
+          <%= @training.street %> 
+          <%= @training.building %> 
+        </div>
+      </td>  
+    </tr>
+  </table>  
 
-<h1> <%= @training.title %> - СТАЖИРОВКА </h1>
-<div> <%= @training.description %> </div>
-<div> <%=image_tag @training.photo.url %> </div>
-<div> C <%= @training.start_date.to_formatted_s(:db) %> </div>
-<div> ДО <%= @training.end_date.to_formatted_s(:db) %> </div>
 
-<div> Окончание подачи заявок <%= @training.request_date.to_formatted_s(:db) %> </div>
-<div> <%= @training.hyperlink %> </div>
-<div> ДОБАВИЛ <%= @training.user.name %> </div>
-<div> 
-	<%= @training.place %> 
-	<%= @training.nation %> 
-	<%= @training.city %> 
-	<%= @training.street %> 
-	<%= @training.building %> 
+
+  <%= link_to 'Подать заявку', new_request_path(:refer => @training, :type => @training.class) %>
+  <%= link_to 'Edit', edit_training_path(@training) %> |
+  <%= link_to 'Back', trainings_path %>
+  </br>
+  <% @requests.each do |r|%>
+    <%= link_to r.content, r %>
+  <% end %>
 </div>
-
-
-<%= link_to 'Подать заявку', new_request_path(:refer => @training, :type => @training.class) %>
-<%= link_to 'Edit', edit_training_path(@training) %> |
-<%= link_to 'Back', trainings_path %>
-</br>
-<% @requests.each do |r|%>
-  <%= link_to r.content, r %>
-<% end %>

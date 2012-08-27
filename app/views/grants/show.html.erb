@@ -1,15 +1,23 @@
 <p id="notice"><%= notice %></p>
-<h1> <%= @grant.title %> - ГРАНТ </h1>
-<div> <%= @grant.description %> </div>
-<div> <%=image_tag @grant.photo.url %> </div>
-<div> C <%= @grant.start_date.to_formatted_s(:db) %> </div>
-<div> ДО <%= @grant.end_date.to_formatted_s(:db) %> </div>
-
-<div> Окончание подачи заявок <%= @grant.request_date.to_formatted_s(:db) %> </div>
-<div> <%= @grant.hyperlink %> </div>
-<div> ДОБАВИЛ <%= @grant.user.name %> </div>
-
+<div class="grshow">
+	<div class="item_title black_letter"> <%= @grant.title %> - ГРАНТ </div>
+  <table><tr>
+    <td class="lcolumn">	
+      <div class="evimage">  <%=image_tag @grant.photo.url %> </div>
+      <div class="black_letter"> C <%= @grant.start_date.to_formatted_s(:db) %> </br>
+        ДО <%= @grant.end_date.to_formatted_s(:db) %> </div>
+  		<div> ДОБАВИЛ <%= @grant.user.name %> </div>
+    </td>
+    <td class="rcolumn">
+      <div> <%= @grant.description %> </div>
+      <div class="black_letter"> СРОК ПОДАЧИ ЗАЯВОК:  </div>
+      <%= @grant.request_date.to_formatted_s(:db) %>
+      <div> <%= @grant.hyperlink %> </div>
+    </td>
+  </tr>
+  </table> 
 
 
 <%= link_to 'Edit', edit_grant_path(@grant) %> |
 <%= link_to 'Back', grants_path %>
+</div>

@@ -1,15 +1,32 @@
 TestMongoid::Application.routes.draw do
+  resources :months
+
   resources :areas
 
   resources :requests
 
-  resources :trainings
+  resources :trainings do
+    member do
+      get 'add_participant'
+    end
+  end
 
-  resources :grants
+  resources :grants do
+    member do
+      get 'add_participant'
+    end
+  end
 
   resources :conferences
 
-  resources :events
+  resources :events do
+    member do
+      get 'add_participant'
+    end
+    collection do
+      get 'activities'
+    end
+  end
 
   resources :resumes
 
@@ -17,12 +34,17 @@ TestMongoid::Application.routes.draw do
 
   resources :pages
 
-  devise_for :users, :controllers => {:registrations => 'registrations'}
 
   devise_for :users, :controllers => { 
     :registrations => "registrations",
     :sessions => "sessions"
   }
+
+  #devise_for :users do
+  #  get "/activities" => "devise/registrations#activities"
+  #end
+  
+
 
   #resources :users, :only => [:show, :index]
 

@@ -4,8 +4,13 @@ class EventsController < ApplicationController
   load_and_authorize_resource
   def index
     # TODO: where date more or equal now
-    @events = Event.all
-
+    now = DateTime.now
+    @items = []
+    @items.concat( Event.where(:start_date.gte => now).to_a)
+    @items.concat( Grant.where(:start_date.gte => now).to_a)
+    @items.concat( Training.where(:start_date.gte => now).to_a)
+    @items.concat( Month.all.to_a)
+    @items.sort!{|x,y| x.start_date <=> y.start_date}
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -16,7 +21,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-
+    @owner = User.find(@event.owner)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -43,9 +48,10 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-
+    @event.write_attributes(owner: current_user.id)
     respond_to do |format|
       if @event.save
+        #current_user.events << @event
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
@@ -80,6 +86,22 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :ok }
+    end
+  end
+
+  def add_participant
+    current_user.events << @event
+    redirect_to @event
+  end
+
+#TODO: before filter for this method
+  def activities
+    logger.debug "--------------------------------------------"
+    @actions = current_user.actions
+    logger.debug @actions
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @actions }
     end
   end
 end

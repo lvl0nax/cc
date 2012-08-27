@@ -4,6 +4,7 @@
   <title>TestMongoid</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-1.8.0.min.js" %>
   <%= csrf_meta_tags %>
 </head>
   <body>
@@ -14,7 +15,10 @@
             <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
             <%= link_to "sign out", destroy_user_session_path, :method => :delete %> |
             <%= link_to "сферы", areas_path %> 
-            
+            <%= link_to "events", activities_events_path%>
+            <% current_user.events.each do |e| %>
+              <%= e.title %>
+            <% end %>
           <% else %>
             <%= link_to "sign_in", new_user_session_path%>|
             <%= link_to "sign_up", new_user_registration_path%>
@@ -52,15 +56,26 @@
 
       <div id="content-body">
         <div class = "menu">
-          <div class="trainings">
-            <%= link_to "СТАЖИРОВКИ", trainings_path %>
-          </div>
-          <div class="events">
-            <%= link_to "СОБЫТИЯ", events_path %>
-          </div>
-          <div class="grants">
-            <%= link_to "ГРАНТЫ", grants_path %>
-          </div>
+
+          <%= simple_form_for events_path, :method => 'get' do %>
+          
+            <div class="trainings">
+              <%= link_to "СТАЖИРОВКИ", trainings_path %>
+              <input type="checkbox" checked="checked" class="training_checkbox" />
+            </div>
+            <div class="events">
+              <%= link_to "СОБЫТИЯ", events_path %>
+              <input type="checkbox" checked="checked" class="event_checkbox" onclick="$('.temp_event').toggle();"/>
+              
+            </div>
+            <div class="grants">
+              <%= link_to "ГРАНТЫ", grants_path%>
+              <input type="checkbox" checked="checked" class="grant_checkbox"/>
+
+            </div>
+
+          <% end %>
+
         </div>
         <%= yield %>
       </div>

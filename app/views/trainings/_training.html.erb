@@ -1,0 +1,15 @@
+<li class="temp_training templ" data-type="event">
+	<div class="temp_date"> <%= training.start_date.to_formatted_s(:long) %></div>
+	<div class="temp_type">
+		стажировка
+	</div>
+	<div class="temp_img">
+		<%= image_tag training.photo.url %>
+	</div>
+	<div class="temp_place">
+		<%= training.place %>
+	</div>
+	<div class="temp_name">
+		<%= training.title %>
+	</div>
+</li>

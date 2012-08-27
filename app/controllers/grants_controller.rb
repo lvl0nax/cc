@@ -41,9 +41,10 @@ class GrantsController < ApplicationController
   # POST /grants.json
   def create
     @grant = Grant.new(params[:grant])
-
+    @grant.owner = current_user
     respond_to do |format|
       if @grant.save
+        #current_user.grants << @grant
         format.html { redirect_to @grant, notice: 'Grant was successfully created.' }
         format.json { render json: @grant, status: :created, location: @grant }
       else
@@ -79,5 +80,10 @@ class GrantsController < ApplicationController
       format.html { redirect_to grants_url }
       format.json { head :ok }
     end
+  end
+
+  def add_participant
+    current_user.grants << @grant
+    redirect_to @grant
   end
 end

@@ -1,0 +1,15 @@
+<li class="temp_grant templ" data-type="grant">
+	<div class="temp_date"> <%= grant.start_date.to_formatted_s(:long) %></div>
+	<div class="temp_type">
+		грант
+	</div>
+	<div class="temp_img">
+		<%= image_tag grant.photo.url %>
+	</div>
+	<div class="temp_place">
+		bla bla bla
+	</div>
+	<div class="temp_name">
+		<%= grant.title %>
+	</div>
+</li>

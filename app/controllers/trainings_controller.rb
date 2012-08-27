@@ -43,10 +43,11 @@ class TrainingsController < ApplicationController
   # POST /trainings.json
   def create
     @training = Training.create(params[:training])
-
+    @training.owner = current_user
     respond_to do |format|
       if @training.save
-        current_user.trainings << @training
+        #current_user.trainings << @training
+
         format.html { redirect_to @training, notice: 'Training was successfully created.' }
         format.json { render json: @training, status: :created, location: @training }
       else
@@ -86,5 +87,10 @@ class TrainingsController < ApplicationController
 
   def send_mail
     UserMailer.info_email(current_user).deliver
+  end
+
+  def add_participant
+    current_user.trainings << @training
+    redirect_to @training
   end
 end

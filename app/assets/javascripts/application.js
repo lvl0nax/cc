@@ -7,3 +7,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//onclick="$('.temp_event').hide();"
+$(function() {
+$('.trainings input:checkbox').click(function() {
+	$('.temp_month').toggle();
+});
+});
+$('.trainings input:checkbox').click(function() {
+	if (this.checked)
+		$(".temp_event").show();
+	else
+  	$(".temp_event").hide();
+});

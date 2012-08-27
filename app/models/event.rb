@@ -1,7 +1,10 @@
 class Event
   include Mongoid::Document
+  include Mongoid::MultiParameterAttributes
   has_many :requests, as: :requestable
-  belongs_to :user
+  #belongs_to :user
+  has_and_belongs_to_many :users#, class_name: "User", inverse_of: :evactivity
+
   field :title
   field :description
   field :hyperlink, :type => String # Link to external site with/without registration to event
@@ -18,6 +21,8 @@ class Event
   field :request_date, :type => DateTime
   field :kind, :type => Array
   mount_uploader :photo, ImageUploader
+  
+
   #field :area_types, :type => Array
 
 

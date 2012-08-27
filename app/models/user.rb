@@ -37,10 +37,14 @@ class User
   embeds_one :compinfo
   embeds_one :resume
 
-  has_many :trainings
+  has_and_belongs_to_many :trainings
+  has_and_belongs_to_many :grants
+  has_and_belongs_to_many :events
   has_many :requests
 
-
+  #has_and_belongs_to_many :evactivities, class_name: "Event", inverse_of: :participant
+  #has_and_belongs_to_many :gractivities, class_name: "Grant", inverse_of: :participant
+  #has_and_belongs_to_many :tractivities, class_name: "Training", inverse_of: :participant
   # index "role.name"
   # index :name, :unique => true, :background => true
    index({ name: 1 }, { unique: true, background: true })
@@ -75,6 +79,15 @@ class User
 
   def juristic
     User.where(:role.name == "juristic")
+  end
+
+  def actions
+    actions = []
+    actions.concat( Event.all_in(:id => self.event_ids).to_a)
+    actions.concat( Grant.all_in(:id => self.grant_ids).to_a)
+    actions.concat( Training.all_in(:id => self.training_ids).to_a)
+    actions.concat( Month.all.to_a) # TODO: add months only when month has any action
+    return actions.sort!{|x,y| x.start_date <=> y.start_date}
   end
 
 end

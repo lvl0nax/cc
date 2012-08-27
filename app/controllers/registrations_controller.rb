@@ -24,4 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
       redirect_to root_path 
     end
   end
+
+  
+
 end

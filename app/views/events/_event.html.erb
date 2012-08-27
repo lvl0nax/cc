@@ -1,0 +1,15 @@
+<li class="temp_event templ" data-type="event" data-kind="<%= event.kind%>">
+	<div class="temp_date"> <%= event.start_date.to_formatted_s(:long) %></div>
+	<div class="temp_type">
+		событие
+	</div>
+	<div class="temp_img">
+		<%= image_tag event.photo.url %>
+	</div>
+	<div class="temp_place">
+		<%= event.place %>
+	</div>
+	<div class="temp_name">
+		<%= event.title %>
+	</div>
+</li>

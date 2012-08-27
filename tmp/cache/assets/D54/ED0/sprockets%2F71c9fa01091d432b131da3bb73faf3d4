@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346081569.5177245:@value{	I"length:EFiï'I"digest;
-F"%a78fc71e85e6655ac9dc7548a2abeca2I"source;
-FI"ï'/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346092792.4625533:@value{	I"length:EFi-I"digest;
+F"%fda413515cbf22a713dcbf3e11d6dbe9I"source;
+FI"-/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -270,6 +270,25 @@ table.test{/*border: 2px solid red;*/}
 .temp_grant{color:#76a38a;border-color:#76a38a}
 
 .month_number{color:#c9db57;}
+.fs-map-zone{position: relative; z-index: 2; margin: -10px 0 0}
+#save-panel{padding: 5px; background: #f2f2f2; position: relative; z-index: 1; margin: -36px 0 10px}
+#map-userpic{position: absolute; top: 50%; width: 48px; padding: 6px; height: 66px; left: 50%;margin: -78px 0 0 -30px; z-index: 10; background:  url("i/marker-user.png")}
+#search-area{position: absolute; top: 3px; z-index: 10; right: 0}
+#search-area input{width: 150px; padding: 4px; position: relative; top: -1px}
+.geomap{width: 440px; height: 239px; background-color: #f2f2f2; position: relative; overflow: hidden}
+#geomap-info{position: absolute; top: 40px; left: 50%; margin:  0 0 0 -115px; width: 230px; z-index: 10}
+.geomap-info-title{font-size: 15px; padding: 0 0 5px; border-bottom: 1px solid #e8e8e8; margin: 0 0 5px}
+.geomap-info-title img{margin: 0 5px 0 0}
+.geomap-info-content{padding: 0 0 10px;}
+#geomap-title .fs-edit-anketa{top: 1px; vertical-align: top;}
+.geomap-block{margin: 0 0 5px;}
+.geomap-block img{position: relative; top: 2px; margin: 0 3px 0 0}
+.geomap-block .geomap-distance{color: #f15a2a}
+
+#geomap-overlay{position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 5}
+#stylesheet-geo{display: none}
+#geo-map-zone{overflow: hidden; height: 300px; position: relative;}
+#geo-map{height: 300px;}
 /* line 1, ../../app/assets/stylesheets/scaffolds.css.scss */
 body {
   background-color: #fff;
@@ -351,4 +370,4 @@ div.field, div.actions {
 }
 ;
 FI"_version;
-F"%03f8a81b5893f8e00b94629a1d7868a1
+F"%883cdc7636a5278f06ec5735a5fbd3a8

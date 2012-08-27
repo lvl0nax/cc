@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346081569.5162957:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346092792.4035552:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%03f8a81b5893f8e00b94629a1d7868a1I"logical_path;
+F"%883cdc7636a5278f06ec5735a5fbd3a8I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,7 +9,7 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-08-27T19:29:51+04:00;
+FI"2012-08-27T22:35:35+04:00;
 FI"	body;
 FI"!/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
@@ -283,11 +283,12 @@ table.test{/*border: 2px solid red;*/}
 .month_number{color:#c9db57;}
 ;
 FI"asset_paths;
-F[I"1$root/app/assets/stylesheets/application.css;
+F[I"1$root/app/assets/stylesheets/application.css;
 FI"0$root/app/assets/stylesheets/areas.css.scss;
 FI"4$root/app/assets/stylesheets/compinfos.css.scss;
 FI"6$root/app/assets/stylesheets/conferences.css.scss;
 FI"1$root/app/assets/stylesheets/events.css.scss;
+FI")$root/app/assets/stylesheets/geo.css;
 FI"1$root/app/assets/stylesheets/grants.css.scss;
 FI"1$root/app/assets/stylesheets/months.css.scss;
 FI"0$root/app/assets/stylesheets/pages.css.scss;
@@ -298,7 +299,7 @@ FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
 FI"1$root/app/assets/stylesheets/spages.css.scss;
 FI"4$root/app/assets/stylesheets/trainings.css.scss;
 FI"dependency_paths;
-F[{I"	path;
+F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
@@ -309,10 +310,10 @@ F"%04e7258a9ba242e0821d534141054144{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;
-FIu;nÄÏ¬∑‚
+FIu;rÄ«C7é
 ;I"MSK;
-T;i√;i;"ñ0;i@8I"hexdigest;
-F"%6d372b4e1bbcda6bc9cf375212bd6ac2{I"	path;
+T;iÌ;i;"tê;i@8I"hexdigest;
+F"%de1105ce35b59a4d4626bf14fefd9773{I"	path;
 FI"0$root/app/assets/stylesheets/areas.css.scss;
 FI"
 mtime;
@@ -341,6 +342,12 @@ FIu;QÄxÅﬁ
 ;I"MSK;
 T;iÌ;i;"tê;i@8I"hexdigest;
 F"%bc4a444780940939072f337a0d2bc7e4{I"	path;
+FI")$root/app/assets/stylesheets/geo.css;
+FI"
+mtime;
+FIu;rÄ  ês;I"MSK;
+T;i@8I"hexdigest;
+F"%cc2ef5be1bb5d1613e31e2f23b01514b{I"	path;
 FI"1$root/app/assets/stylesheets/grants.css.scss;
 FI"
 mtime;

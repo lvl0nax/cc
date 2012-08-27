@@ -21,3 +21,12 @@
 <%= link_to 'Edit', edit_grant_path(@grant) %> |
 <%= link_to 'Back', grants_path %>
 </div>
+
+<script type="text/javascript">
+ $(window).load(function(){
+    /*geocoder = new google.maps.Geocoder();
+    geo.setLoc("59.93365223894488","30.300378486327617");
+    geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});*/
+    geo.init(false, {latitude: 59.93124, longitude: 30.35943, map: 'gm'});
+  });
+</script>

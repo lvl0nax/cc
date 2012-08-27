@@ -24,6 +24,8 @@ $(function() {
 		$('.create_links').show();
 		$('.add').addClass("add_select");
 	});
+
+	
 });/*
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)

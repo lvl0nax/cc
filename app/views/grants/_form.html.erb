@@ -1,3 +1,4 @@
+ <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <%= simple_form_for(@grant) do |f| %>
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
   <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "60"} %>
@@ -10,14 +11,32 @@
   <%= f.input :direction, :label => "СФЕРА" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes %>
   <%= f.input :end_point, :label => "ЦЕЛЬ" , :collection => ["ИССЛЕДОВАТЕЛЬСКАЯ ДЕЯТЕЛЬНОСТЬ", "ОБУЧЕНИЕ", "РЕАЛИЗАЦИЯ ПРОЕКТА", "ЛЮБАЯ"], :as => :check_boxes, :wrapper_html => { :class => 'end_point' } %>  
   
+  <div id="geo-map-zone">
+    <div id="search-area" class="h" style="">
+        <input type="text" value="" class="form-input search-address">
+        <a class="btn1 btn-mini search-btn">Поиск</a>
+    </div>
+    <div style="margin-top: 40px; display: none;" class="fs-inner-box h" id="geomap-info"></div>
+    <div id="geo-map"></div>
+    
+  </div>
  
   <%= f.button :submit, :value => "ДОБАВИТЬ", :class => "grant_button" %>
+
+
 <% end %>
+
 
 <script>
   $(function() {
     $('.create_links').show();
     $('.create_grant').addClass("cr_select");
     $('.add').addClass("add_select");
+  });
+
+  $(window).load(function(){
+    geocoder = new google.maps.Geocoder();
+    geo.setLoc("59.93365223894488","30.300378486327617");
+    geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
   });
 </script>

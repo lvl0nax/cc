@@ -9,21 +9,25 @@
 //= require_tree .
 //onclick="$('.temp_event').hide();"
 $(function() {
-	$('.trainings input:checkbox').click(function() {
+	/*$('.trainings input:checkbox').click(function() {
 		$('.temp_month').toggle();
-		alert($('#events_search').serialize());
 	});
-
+*/
 	$('#events_search').submit( function () {
 		alert("test");
 		$.get(this.action, $(this).serialize(), null, 'script');
 		return false;
 	});
 
-});
+
+	$('.add').click( function(){
+		$('.create_links').show();
+		$('.add').addClass("add_select");
+	});
+});/*
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)
 		$(".temp_event").show();
 	else
   	$(".temp_event").hide();
-});
+});*/

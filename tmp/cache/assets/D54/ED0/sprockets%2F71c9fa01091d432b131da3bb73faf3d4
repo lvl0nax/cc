@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346078906.1303573:@value{	I"length:EFiP&I"digest;
-F"%4f7ace778dd5c544ced524709325c619I"source;
-FI"P&/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346081569.5177245:@value{	I"length:EFiï'I"digest;
+F"%a78fc71e85e6655ac9dc7548a2abeca2I"source;
+FI"ï'/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -17,7 +17,7 @@ input,button,textarea,select,em,th,optgroup,option {font-family:inherit;font-siz
 
 html, body {height:100%; color: #58595b}
 body{font: 13px Helvetica,sans-serif;background: #4B93D6}
-
+a:hover{background-color: white !important; color: black !important;}
 #container{min-height:100%;min-width:1100px;position:relative;overflow:hidden}
 
 #content_top{
@@ -60,20 +60,27 @@ body{font: 13px Helvetica,sans-serif;background: #4B93D6}
   height: 150px; width: 150px; 
 }
 
+.create_links a{text-decoration: none;}
 .create_links{
   height: 20px;
   width: 800px;
   position: absolute;
-  top: 135px;
-  left: 240px;
+  top: 157px;
+  left: 355px;
+  display: none;
 }
 .cr{
   display: inline-block;
   height: 20px;
   width: 150px;
-  border: 1px solid red;
+  /*border: 1px solid;*/
   margin-right: 100px;
   text-align: center;
+  color: black;
+}
+.cr_select{
+  background-image: url(/assets/rotate.png); 
+  background-size: 100%;
 }
 .cr a{
   width: 150px;
@@ -81,7 +88,7 @@ body{font: 13px Helvetica,sans-serif;background: #4B93D6}
 
 .registration {
   position: absolute; 
-  top: 65px; right: 105px;
+  top: 65px; right: 98px;
   border: 2px solid #e3e3e3;
   /*padding-left: 30px ;*/
   text-align: center;
@@ -91,10 +98,10 @@ body{font: 13px Helvetica,sans-serif;background: #4B93D6}
   height: 50px;
   font-weight: bold;
 }
-.buttons div:hover {background-color: #e8fff1; color: black;}
+.buttons div:hover {background-color: #e8fff1; color: black;cursor: pointer;}
 .add {
   position: absolute; 
-  top: 125px; right: 105px;
+  top: 125px; right: 98px;
   border: 2px solid #e3e3e3;
   /*padding-left: 30px;*/
   line-height: 50px;
@@ -104,10 +111,13 @@ body{font: 13px Helvetica,sans-serif;background: #4B93D6}
   height: 50px;
   font-weight: bold;
 } 
+.add_select{background-color: #7fa986;}
+
+.search_button{text-align: center;}
 .search_button input{
-  width: 1075px;
+  width: 100%;
   margin-top: 5px;
-  margin-left: 12px;
+  /*margin-left: 12px;*/
   background-color: #fff !important;
   border-color: #c3c3c3;
   height:25px;
@@ -140,7 +150,9 @@ body{font: 13px Helvetica,sans-serif;background: #4B93D6}
 
 .search_training.input{margin: 5px;}
 
-
+#new_training{margin-top: -19px;}
+#new_event{margin-top: -19px;}
+#new_grant{margin-top: -19px;}
 .simple_form{
   position: relative;
   margin-top: 10px;
@@ -339,4 +351,4 @@ div.field, div.actions {
 }
 ;
 FI"_version;
-F"%2b7827bb1cb876e8279b1678b301835a
+F"%03f8a81b5893f8e00b94629a1d7868a1

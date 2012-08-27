@@ -33,7 +33,23 @@ class Event
   # FIELD - Email to owners of the event 
   #
   # VALIDATIONS - required fields
-
+  def self.search(event_kinds, areas)
+    t = self.all #TODO: select events from current date to year later
+    if event_kinds
+      event_kinds[:kind].delete("")
+      #event_kinds[:kind]
+      t = t.in(kind: event_kinds[:kind])
+      logger.debug "++++++++++++++++++++++++++++++++"
+      logger.debug t
+    end
+    if areas
+      areas[:areas].delete("")
+      t = t.any_in(:areas => areas[:areas])
+    end
+    logger.debug "**********************************"
+    logger.debug t
+    return t
+  end
 
 
 end

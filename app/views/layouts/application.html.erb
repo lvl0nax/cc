@@ -55,47 +55,26 @@
       </div>
 
       <div id="content-body">
-        <div class = "menu">
-
-          <%= simple_form_for events_path, :method => 'get' do %>
-          
-            <div class="trainings">
-              <%= link_to "СТАЖИРОВКИ", trainings_path %>
-              <input type="checkbox" checked="checked" class="training_checkbox" />
-            </div>
-            <div class="events">
-              <%= link_to "СОБЫТИЯ", events_path %>
-              <input type="checkbox" checked="checked" class="event_checkbox" onclick="$('.temp_event').toggle();"/>
-              
-            </div>
-            <div class="grants">
-              <%= link_to "ГРАНТЫ", grants_path%>
-              <input type="checkbox" checked="checked" class="grant_checkbox"/>
-
-            </div>
-
-          <% end %>
-
-        </div>
+        
         <%= yield %>
       </div>
 
       <div id="content-footer">
         <div class="about">
           <p> Этот сайт посвящен Центру Карьеры – центру, который организует всевозможные мероприятия для поиска работы и стажировки в ведущих компаниях города 
-Петербурга, Москвы и других городах России, различные семинары и тренинги для успешной карьеры в любой сфере.</p>
+          Петербурга, Москвы и других городах России, различные семинары и тренинги для успешной карьеры в любой сфере.</p>
         </div>
       </div>
-        <div id="footer-links" class="top-border">
-          
-              <div class="link1 right-border">О ЦЕНТРЕ КАРЬЕРЫ</div>
-              <div class="link right-border">КОМАНДА</div>
-              <div class="link right-border">УСЛУГИ</div>
-              <div class="link right-border">ПРАВИЛА ПОЛьЗОВАНИЯ</div>
-              <div class="link right-border">КОНТАКТЫ</div>
-              <div class="link6"></div>
-          
-        </div>
+      <div id="footer-links" class="top-border">
+        
+            <div class="link1 right-border">О ЦЕНТРЕ КАРЬЕРЫ</div>
+            <div class="link right-border">КОМАНДА</div>
+            <div class="link right-border">УСЛУГИ</div>
+            <div class="link right-border">ПРАВИЛА ПОЛьЗОВАНИЯ</div>
+            <div class="link right-border">КОНТАКТЫ</div>
+            <div class="link6"></div>
+        
+      </div>
 
       <div id="overlay"></div>
       <div id="popup-wrap"><div class="popup-top"></div><div class="popup-content"></div></div>

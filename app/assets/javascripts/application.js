@@ -9,9 +9,17 @@
 //= require_tree .
 //onclick="$('.temp_event').hide();"
 $(function() {
-$('.trainings input:checkbox').click(function() {
-	$('.temp_month').toggle();
-});
+	$('.trainings input:checkbox').click(function() {
+		$('.temp_month').toggle();
+		alert($('#events_search').serialize());
+	});
+
+	$('#events_search').submit( function () {
+		alert("test");
+		$.get(this.action, $(this).serialize(), null, 'script');
+		return false;
+	});
+
 });
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)

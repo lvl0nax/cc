@@ -35,4 +35,18 @@ class Training
   #
   # VALIDATIONS - required fields
 
+  def self.search(salary_types, areas)
+    t = self.all
+    if salary_types
+      salary_types[:salary_type].delete("")
+      #event_kinds[:kind]
+      t = t.in(salary_type: salary_types[:salary_type])
+    end
+    if areas
+      areas[:areas].delete("")
+      t = t.any_in(:areas => areas[:areas])
+    end
+    return t
+  end
+
 end

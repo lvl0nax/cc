@@ -24,5 +24,14 @@ class Grant
   #
   #
   # VALIDATIONS - required fields
-
+  def self.search(areas)
+    t = self.all
+    if areas
+      areas[:direction].delete("")
+      t = t.any_in(:direction => areas[:direction])
+    end
+    logger.debug "**********************************"
+    logger.debug t
+    return t
+  end
 end

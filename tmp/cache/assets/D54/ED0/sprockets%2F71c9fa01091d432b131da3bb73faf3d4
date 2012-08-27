@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1345976560.9052722:@value{	I"length:EFiÕ$I"digest;
-F"%c99c1ffaff8997422c48b6c59211854cI"source;
-FI"Õ$/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346078906.1303573:@value{	I"length:EFiP&I"digest;
+F"%4f7ace778dd5c544ced524709325c619I"source;
+FI"P&/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -104,28 +104,42 @@ body{font: 13px Helvetica,sans-serif;background: #4B93D6}
   height: 50px;
   font-weight: bold;
 } 
+.search_button input{
+  width: 1075px;
+  margin-top: 5px;
+  margin-left: 12px;
+  background-color: #fff !important;
+  border-color: #c3c3c3;
+  height:25px;
+
+}
+.search_button input:hover{background-color: #e8ddd1; color: black; cursor: pointer;}
 
 .trainings{
   margin-top: 5px;
   width: 100%;
   background-image: url(/assets/stag.png);
   background-size: 100%;
-  height: 20px;
+  /*height: 85px;*/
 }
 .events{
   width: 100%;
   margin-top: 5px;
   background-image: url(/assets/event.png);
   background-size: 100%;
-  height: 20px;
+  /*height: 80px;*/
 }
 .grants{
   width: 100%;
   margin-top: 5px;
   background-image: url(/assets/grant.png);
   background-size: 100%;
-  height: 20px;
+  /*height: 80px;*/
+  color:white;
 }
+
+.search_training.input{margin: 5px;}
+
 
 .simple_form{
   position: relative;
@@ -226,14 +240,16 @@ table.test{/*border: 2px solid red;*/}
   border-top:1px solid; 
   border-bottom:3px solid; 
   padding: 20px 20px 0;
-  margin: 13px;
+  margin: 12px;
   /*float: left;*/
-  display: inline-table;
+  /*display: inline-table;*/
+  display: inline-block;
+  vertical-align: top;
 }
 .temp_date{float:left;}
 .temp_type{float:right;}
 .temp_img img{width:200px; height: 140px;}
-.temp_img {text-align: center}
+.temp_img {text-align: center; height: 163px;}
 .temp_name{font-size: 20px; padding-top: 5px;}
 .month_name {font-size: 48px;}
 .month_number {font-size: 148px;padding: 85px 0 0 0px;text-align: right;}
@@ -323,4 +339,4 @@ div.field, div.actions {
 }
 ;
 FI"_version;
-F"%682144c2adf3dd0fcc859ce3f607947b
+F"%2b7827bb1cb876e8279b1678b301835a

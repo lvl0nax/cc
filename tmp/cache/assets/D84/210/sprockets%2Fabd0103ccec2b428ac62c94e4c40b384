@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346003670.9216669:@value{	I"length:EFiCsI"digest;
-F"%bd3fcdebc27db95cfb05407364384400I"source;
-FI"Cs/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346072411.6885998:@value{	I"length:EFiþsI"digest;
+F"%7b5a350797acb48b86dd5761d8e8f1d4I"source;
+FI"þs/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -9711,9 +9711,17 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 //
 //onclick="$('.temp_event').hide();"
 $(function() {
-$('.trainings input:checkbox').click(function() {
-	$('.temp_month').toggle();
-});
+	$('.trainings input:checkbox').click(function() {
+		$('.temp_month').toggle();
+		alert($('#events_search').serialize());
+	});
+
+	$('#events_search').submit( function () {
+		alert("test");
+		$.get(this.action, $(this).serialize(), null, 'script');
+		return false;
+	});
+
 });
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)
@@ -9723,4 +9731,4 @@ $('.trainings input:checkbox').click(function() {
 });
 ;
 TI"_version;
-F"%5fe250ef92a4bf14ee5699e8a2385a4f
+F"%fb00d164b7d7e09d3e66689cb1bf6b72

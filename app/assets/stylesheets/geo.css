@@ -15,5 +15,5 @@
 
 #geomap-overlay{position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 5}
 #stylesheet-geo{display: none}
-#geo-map-zone{overflow: hidden; height: 300px; position: relative;}
-#geo-map{height: 300px;}
+#geo-map-zone{overflow: hidden; height: 300px; width:300px; position: relative; float: right;}
+#geo-map{height: 300px; width:300;}

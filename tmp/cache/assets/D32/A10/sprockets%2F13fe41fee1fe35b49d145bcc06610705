@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346092792.4035552:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346780984.001971:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%883cdc7636a5278f06ec5735a5fbd3a8I"logical_path;
+F"%ebf22e4ecb80818351cd905f2765bb62I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-08-27T22:35:35+04:00;
+FI"2012-09-04T21:49:37+04:00;
 FI"	body;
-FI"!/*
+FI"Ô!/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -281,6 +281,24 @@ table.test{/*border: 2px solid red;*/}
 .temp_grant{color:#76a38a;border-color:#76a38a}
 
 .month_number{color:#c9db57;}
+
+#popup-wrap{
+  /*background-color: red;*/
+  position: absolute;
+  z-index: 100;
+  /*width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  /*display: none;*/
+}
+
+.grant-popup{
+  width: 1080px;
+  height: 600px;
+  top: 184px;
+  left: 70px;
+}
 ;
 FI"asset_paths;
 F[I"1$root/app/assets/stylesheets/application.css;
@@ -303,10 +321,10 @@ F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	TimeoÄπô6w
+FIu:	Timeë Äe‚U∆
 :@_zoneI"MSK;
-T:nano_numi;:nano_deni:submicro"Çp:offseti@8I"hexdigest;
-F"%04e7258a9ba242e0821d534141054144{I"	path;
+T:nano_numiÄ:nano_deni:submicro"d:offseti@8I"hexdigest;
+F"%f4d2e6ede61882a397c33f5337acc933{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;
@@ -345,9 +363,10 @@ F"%bc4a444780940939072f337a0d2bc7e4{I"	path;
 FI")$root/app/assets/stylesheets/geo.css;
 FI"
 mtime;
-FIu;rÄ  ês;I"MSK;
-T;i@8I"hexdigest;
-F"%cc2ef5be1bb5d1613e31e2f23b01514b{I"	path;
+FIu;% Äx<ô
+;I"MSK;
+T;i=;i;"1p;i@8I"hexdigest;
+F"%d2dbac8bbc678d9217b140a98b3654b4{I"	path;
 FI"1$root/app/assets/stylesheets/grants.css.scss;
 FI"
 mtime;

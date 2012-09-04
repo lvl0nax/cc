@@ -1,8 +1,17 @@
-
+ <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 <%= simple_form_for(@event) do |f| %>
   <div class="name_form">ЯРМАРКА ВАКАНСИЙ, ПРЕЗЕНТАЦИЯ, МАСTЕР-КЛАСС, КЕЙС-ТУРНИР, КОНФЕРЕНЦИЯ</div>
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
   <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "60"} %>
+  <div id="geo-map-zone">
+    <div id="search-area" class="h" style="">
+        <input type="text" value="" class="form-input search-address">
+        <a class="btn1 btn-mini search-btn">Поиск</a>
+    </div>
+    <div style="margin-top: 40px; display: none;" class="fs-inner-box h" id="geomap-info"></div>
+    <div id="geo-map"></div>
+    
+  </div>
   <%= f.input :photo, :label => "КАРТИНКА"  %>
   <%= f.input :nation, :label => "СТРАНА"  %>
   <%= f.input :city, :label => "ГОРОД"  %>
@@ -24,5 +33,11 @@
     $('.create_links').show();
     $('.create_event').addClass("cr_select");
     $('.add').addClass("add_select");
+  });
+
+  $(window).load(function(){
+    geocoder = new google.maps.Geocoder();
+    geo.setLoc("59.93365223894488","30.300378486327617");
+    geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
   });
 </script>

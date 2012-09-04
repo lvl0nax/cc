@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346092792.8693779:@value{	I"length:EFi?ªI"digest;
-F"%90eed16c86ca47dd244b3a1e85cb1cb4I"source;
-FI"?ª/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346786761.391572:@value{	I"length:EFiß­I"digest;
+F"%9572f0d74a4e121fa257851630fba9daI"source;
+FI"ß­/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -10092,6 +10092,36 @@ $(function() {
 	$('.add').click( function(){
 		$('.create_links').show();
 		$('.add').addClass("add_select");
+		
+	});
+
+	$('.create_grant a').bind('click', function(){
+		$('#popup-wrap').load("/grants/new");
+		$('#popup-wrap').addClass("grant-popup");
+		return false;
+	});
+
+	$('.create_training a').bind('click', function(){
+		$('#popup-wrap').load("/trainings/new");
+		$('#popup-wrap').addClass("grant-popup");
+		return false;
+	});
+
+	$('.create_event a').bind('click', function(){
+		$('#popup-wrap').addClass("grant-popup");
+		$('.add').addClass("add_select");
+		$('.create_links').show();
+    $('.create_event').addClass("cr_select");
+    $('.create_training').removeClass("cr_select");
+    $('.create_grant').removeClass("cr_select");
+		//$('#popup-wrap').load("/events/new");
+		$('#popup-wrap').load("/grants/new", function(){
+        geocoder = new google.maps.Geocoder();
+        geo.setLoc("59.93365223894488","30.300378486327617");
+        geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"})
+		});
+
+		return false;
 	});
 
 	
@@ -10105,4 +10135,4 @@ $('.trainings input:checkbox').click(function() {
 ;
 ;
 TI"_version;
-F"%3eaf87a20a60ff1401bb2ce8daffff5f
+F"%ab941ce428032897f4a0f23584ace18e

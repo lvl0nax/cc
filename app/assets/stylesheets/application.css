@@ -269,3 +269,21 @@ table.test{/*border: 2px solid red;*/}
 .temp_grant{color:#76a38a;border-color:#76a38a}
 
 .month_number{color:#c9db57;}
+
+#popup-wrap{
+  /*background-color: red;*/
+  position: absolute;
+  z-index: 100;
+  /*width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  /*display: none;*/
+}
+
+.grant-popup{
+  width: 1080px;
+  height: 600px;
+  top: 184px;
+  left: 70px;
+}

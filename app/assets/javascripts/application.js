@@ -69,6 +69,12 @@ $(function() {
 		return false;
 	});
 
+	$('.registration').bind('click', function(){
+		$(this).addClass("reg-select");
+		$('#popup-wrap').addClass("reg-popup").load("/users/sign_up", function(){
+        
+		});
+	});
 	
 });/*
 $('.trainings input:checkbox').click(function() {

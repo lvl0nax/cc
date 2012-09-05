@@ -1,5 +1,13 @@
 class RegistrationsController < Devise::RegistrationsController
   
+  def new
+    @user = User.new
+    respond_to do |format|
+      format.html { render :layout => false }# new.html.erb
+      format.json { render json: @user }
+    end
+  end
+
   # add some code to devise method CREATE
   def create  
     temp = User.count

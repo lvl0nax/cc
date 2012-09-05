@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346844771.0895123:@value{	I"length:EFiÀ/I"digest;
-F"%c3c4f92ac248710d8a4dea4c25b5f37eI"source;
-FI"À//*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346874252.9451985:@value{	I"length:EFi,0I"digest;
+F"%6d02816ad936edc943e5a8f05f0afc94I"source;
+FI",0/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -270,19 +270,13 @@ table.test{/*border: 2px solid red;*/}
 .for_clear{clear:left;}
 
 #popup-wrap{
-  /*background-color: red;*/
   position: absolute;
   z-index: 100;
-  /*width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-  /*display: none;*/
 }
 
 .grant-popup{
   width: 1080px;
-  height: 600px;
+  min-height: 600px;
   top: 184px;
   left: 70px;
 }
@@ -319,6 +313,20 @@ table.test{/*border: 2px solid red;*/}
    box-shadow: 0px 0px 5px #e74949;
   -webkit-box-shadow: 0px 0px 5px #e74949;
   -moz-box-shadow: 0px 0px 5px #e74949;
+}
+
+.reg-select{
+  background-image: url(/assets/1.png);
+  background-size: 100%;
+  color: white;
+}
+
+.reg-popup{
+  width: 600px;
+  min-height: 400px;
+  top: 154px;
+  left: 70px;
+  background-color: red;
 }
 .fs-map-zone{position: relative; z-index: 2; margin: -10px 0 0}
 #save-panel{padding: 5px; background: #f2f2f2; position: relative; z-index: 1; margin: -36px 0 10px}
@@ -406,4 +414,4 @@ div.field, div.actions {
 }
 ;
 FI"_version;
-F"%38f40b33d6c5960c15b3389b04a90293
+F"%e36ae75d584a1a6893727f8450cd635f

@@ -269,15 +269,13 @@ table.test{/*border: 2px solid red;*/}
 .for_clear{clear:left;}
 
 #popup-wrap{
-
   position: absolute;
   z-index: 100;
-
 }
 
 .grant-popup{
   width: 1080px;
-  height: 600px;
+  min-height: 600px;
   top: 184px;
   left: 70px;
 }
@@ -314,4 +312,19 @@ table.test{/*border: 2px solid red;*/}
    box-shadow: 0px 0px 5px #e74949;
   -webkit-box-shadow: 0px 0px 5px #e74949;
   -moz-box-shadow: 0px 0px 5px #e74949;
+}
+
+.reg-select{
+  background-image: url(/assets/1.png);
+  background-size: 100%;
+  color: white;
+}
+
+.reg-popup{
+  width: 600px;
+  min-height: 400px;
+  top: 117px;
+  right: 90px;
+  background-color: white;
+  border: 1px solid #333f3f;
 }

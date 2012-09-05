@@ -1,4 +1,6 @@
 .bundle
 db/*.yml
 log/*.log
+log/*.*
 tmp/**/*
+/public/uploads/**/*

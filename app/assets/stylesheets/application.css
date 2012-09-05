@@ -269,14 +269,10 @@ table.test{/*border: 2px solid red;*/}
 .for_clear{clear:left;}
 
 #popup-wrap{
-  /*background-color: red;*/
+
   position: absolute;
   z-index: 100;
-  /*width: 0;
-  height: 0;
-  top: 0;
-  left: 0;
-  /*display: none;*/
+
 }
 
 .grant-popup{

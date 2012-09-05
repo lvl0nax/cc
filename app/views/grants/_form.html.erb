@@ -1,6 +1,7 @@
 <%= simple_form_for(@grant) do |f| %>
+  <div id="close">X</div>
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
-  <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "60"} %>
+  <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "55"} %>
   <%= f.input :photo, :label => "КАРТИНКА"  %>
   <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ"  %>
   <%= f.input :start_date, :label => "НАЧАЛО" , :as => :datetime %>

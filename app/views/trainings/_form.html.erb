@@ -1,4 +1,5 @@
  <%= simple_form_for(@training) do |f| %>
+  <div id="close">X</div>
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field'} %>
   <div id="geo-map-zone">
     <div id="search-area" class="h" style="">
@@ -6,10 +7,9 @@
         <a class="btn1 btn-mini search-btn">Поиск</a>
     </div>
     <div style="margin-top: 40px; display: none;" class="fs-inner-box h" id="geomap-info"></div>
-    <div id="geo-map"></div>
-    
+    <div id="geo-map"></div>  
   </div>
-  <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "60"} %>
+  <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "55"} %>
   <%= f.input :photo, :label => "КАРТИНКА"  %>
   <%= f.input :nation, :label => "СТРАНА"  %>
   <%= f.input :city, :label => "ГОРОД"  %>

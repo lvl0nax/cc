@@ -16,7 +16,8 @@ input,button,textarea,select,em,th,optgroup,option {font-family:inherit;font-siz
 
 html, body {height:100%; color: #58595b}
 body{font: 13px Helvetica,sans-serif;background: #4B93D6}
-a:hover{background-color: white !important; color: black !important;}
+a {text-decoration: none; color: black;}
+a:hover{ color: #444;}
 #container{min-height:100%;min-width:1100px;position:relative;overflow:hidden}
 
 #content_top{
@@ -73,17 +74,12 @@ a:hover{background-color: white !important; color: black !important;}
   height: 20px;
   width: 150px;
   /*border: 1px solid;*/
-  margin-right: 100px;
+  margin-right: 75px;
   text-align: center;
   color: black;
 }
-.cr_select{
-  background-image: url(/assets/rotate.png); 
-  background-size: 100%;
-}
-.cr a{
-  width: 150px;
-}
+.cr_select{  background-image: url(/assets/rotate.png); background-size: 100%;}
+.cr a{  width: 150px;}
 
 .registration {
   position: absolute; 
@@ -163,7 +159,7 @@ a:hover{background-color: white !important; color: black !important;}
 .name_form{font-size: 16px; position: absolute; top: 10px; left: 10px; color: white;}
 .input{ margin: 10px 0 0 10px;}
 .first_field{padding-top: 40px; width: 98%;}
-.first_field input{width: 90%; margin-left: 4px;}
+.first_field input{width: 89%; margin-left: 4px;}
 .btn{
   position: absolute;
   bottom: 10px;
@@ -178,23 +174,23 @@ a:hover{background-color: white !important; color: black !important;}
 /* edit and create new item*/
 label.control-label{  padding-right: 10px;  float: left;}
 
-#event_nation{  margin-left: 27px;  width: 285px;}
-#training_nation{  margin-left: 27px;  width: 285px;}
-#grant_nation{  margin-left: 27px;  width: 558px;}
+#event_nation{  margin-left: 25px;  width: 287px;}
+#training_nation{  margin-left: 25px;  width: 287px;}
+#grant_nation{  margin-left: 25px;  width: 558px;}
 
-#event_city{margin-left: 36px; width: 285px;}
-#training_city{margin-left: 36px; width: 285px;}
+#event_city{margin-left: 33px; width: 287px;}
+#training_city{margin-left: 33px; width: 287px;}
 
 .strt{float: left;}
-#event_street{margin-left: 36px; width: 200px;}
-#training_street{margin-left: 36px; width: 200px;}
+#event_street{margin-left: 32px; width: 200px;}
+#training_street{margin-left: 32px; width: 200px;}
 
 .house label{ margin-left: 10px;}
 #event_building{width: 25px;}
 #training_building{width: 25px;}
 
-#event_place{margin-left: 32px; width: 285px;}
-#training_place{margin-left: 32px; width: 285px;}
+#event_place{margin-left: 32px; width: 288px;}
+#training_place{margin-left: 32px; width: 288px;}
 
 #event_start_date_1i{margin-left: 23px;}
 #training_start_date_1i{margin-left: 23px;}
@@ -203,7 +199,7 @@ label.control-label{  padding-right: 10px;  float: left;}
 #event_end_date_1i{margin-left: 35px;}
 #training_end_date_1i{margin-left: 35px;}
 #grant_end_date_1i{margin-left: 35px;}
-.datetime select{ padding-right: 10px; margin-right: 9px; margin-left: 9px;}
+.datetime select{ margin-right: 9px; margin-left: 9px;}
 
 #event_hyperlink{width:334px;}
 #training_hyperlink{width:334px;}
@@ -270,6 +266,8 @@ table.test{/*border: 2px solid red;*/}
 
 .month_number{color:#c9db57;}
 
+.for_clear{clear:left;}
+
 #popup-wrap{
   /*background-color: red;*/
   position: absolute;
@@ -286,4 +284,38 @@ table.test{/*border: 2px solid red;*/}
   height: 600px;
   top: 184px;
   left: 70px;
+}
+
+.inactive{
+  position: fixed;
+  min-height: 900px;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  opacity: 0.9;
+  background-color: black;
+}
+
+#close{
+  padding-left: 4px;
+  padding-right: 4px;
+  position: absolute;
+  top:10px;
+  right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  color: white;
+  background-color: #e74949;
+  -moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;
+}
+
+#close:hover{
+  font-size: 18px;
+  color: white;
+  background-color: #e74949;
+  -moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;
+   box-shadow: 0px 0px 5px #e74949;
+  -webkit-box-shadow: 0px 0px 5px #e74949;
+  -moz-box-shadow: 0px 0px 5px #e74949;
 }

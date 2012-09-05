@@ -3,85 +3,84 @@
 <head>
   <title>TestMongoid</title>
   <%= stylesheet_link_tag    "application.css" %>
-  <%= stylesheet_link_tag    "geo" %>
   <%= javascript_include_tag "application.js" %>
-  <%= javascript_include_tag "jquery-1.8.0.min.js" %>
-   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
-  <%= javascript_include_tag "geo" %>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 
   <%= csrf_meta_tags %>
 </head>
   <body>
     <div id="container">
-      <div id="content_top">
-        <div class="login">
-          <% if current_user %>
-            <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
-            <%= link_to "sign out", destroy_user_session_path, :method => :delete %> |
-            <%= link_to "сферы", areas_path %> 
-            <%= link_to "events", activities_events_path%>
-            <% current_user.events.each do |e| %>
-              <%= e.title %>
+      <div id="content-wrap">
+        <div id="content_top">
+          <div class="login">
+            <% if current_user %>
+              <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
+              <%= link_to "sign out", destroy_user_session_path, :method => :delete %> |
+              <%= link_to "сферы", areas_path %> 
+              <%= link_to "events", activities_events_path%>
+              <% current_user.events.each do |e| %>
+                <%= e.title %>
+              <% end %>
+            <% else %>
+              <%= link_to "sign_in", new_user_session_path%>|
+              <%= link_to "sign_up", new_user_registration_path%>
             <% end %>
-          <% else %>
-            <%= link_to "sign_in", new_user_session_path%>|
-            <%= link_to "sign_up", new_user_registration_path%>
-          <% end %>
-        </div>
-
-        <div class="header">
-          <div class="logo">
-
           </div>
 
-          <div class="social">
-          </div>
+          <div class="header">
+            <div class="logo">
 
-          <div class="create_links">
-            <div class="cr create_training"><%= link_to "СТАЖИРОВКУ", new_training_path %></div>
-            <div class="cr create_event"><%= link_to "СОБЫТИЕ", new_event_path %></div>
-            <div class="cr create_grant"><%= link_to "ГРАНТ", new_grant_path %></div>
-          </div>
+            </div>
+
+            <div class="social">
+            </div>
+
+            <div class="create_links">
+              <div class="cr create_training"><%= link_to "СТАЖИРОВКУ", new_training_path %></div>
+              <div class="cr create_event"><%= link_to "СОБЫТИЕ", new_event_path %></div>
+              <div class="cr create_grant"><%= link_to "ГРАНТ", new_grant_path %></div>
+            </div>
 
 
-          <div class="buttons">
-            <%= link_to( new_user_registration_path ) do %>
-              <div class="registration">
-                РЕГИСТРАЦИЯ
+            <div class="buttons">
+              <%= link_to( new_user_registration_path ) do %>
+                <div class="registration">
+                  РЕГИСТРАЦИЯ
+                </div>
+              <% end %>
+              <div class="add">
+                ДОБАВИТЬ
               </div>
-            <% end %>
-            <div class="add">
-              ДОБАВИТЬ
             </div>
           </div>
+
         </div>
 
-      </div>
-
-      <div id="content-body">
-        
-        <%= yield %>
-      </div>
-
-      <div id="content-footer">
-        <div class="about">
-          <p> Этот сайт посвящен Центру Карьеры – центру, который организует всевозможные мероприятия для поиска работы и стажировки в ведущих компаниях города 
-          Петербурга, Москвы и других городах России, различные семинары и тренинги для успешной карьеры в любой сфере.</p>
+        <div id="content-body">
+          
+          <%= yield %>
         </div>
-      </div>
-      <div id="footer-links" class="top-border">
-        
-            <div class="link1 right-border">О ЦЕНТРЕ КАРЬЕРЫ</div>
-            <div class="link right-border">КОМАНДА</div>
-            <div class="link right-border">УСЛУГИ</div>
-            <div class="link right-border">ПРАВИЛА ПОЛьЗОВАНИЯ</div>
-            <div class="link right-border">КОНТАКТЫ</div>
-            <div class="link6"></div>
-        
-      </div>
 
-      <div id="overlay"></div>
-      <div id="popup-wrap"><div class="popup-top"></div><div class="popup-content"></div></div>
+        <div id="content-footer">
+          <div class="about">
+            <p> Этот сайт посвящен Центру Карьеры – центру, который организует всевозможные мероприятия для поиска работы и стажировки в ведущих компаниях города 
+            Петербурга, Москвы и других городах России, различные семинары и тренинги для успешной карьеры в любой сфере.</p>
+          </div>
+        </div>
+        <div id="footer-links" class="top-border">
+          
+              <div class="link1 right-border">О ЦЕНТРЕ КАРЬЕРЫ</div>
+              <div class="link right-border">КОМАНДА</div>
+              <div class="link right-border">УСЛУГИ</div>
+              <div class="link right-border">ПРАВИЛА ПОЛьЗОВАНИЯ</div>
+              <div class="link right-border">КОНТАКТЫ</div>
+              <div class="link6"></div>
+          
+        </div>
+
+        <div id="overlay"></div>
+      </div>  
+      <div id="popup-wrap"><div class="popup-top"></div><div class="popup-content"></div><div class="for_clear"></div></div>
     </div>
   </body>
 </html>

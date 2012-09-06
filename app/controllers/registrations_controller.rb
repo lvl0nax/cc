@@ -10,14 +10,19 @@ class RegistrationsController < Devise::RegistrationsController
 
   # add some code to devise method CREATE
   def create  
-    temp = User.count
-  	super
+    role = params[:user][:role]
+    if role == "employer" or role == "employee"
+      temp = User.count
+    	super
 
-  	if temp == 0
-      @user.role = Role.new(:name => "admin")
-  	else
-      @user.role = Role.new(:name => params[:user][:role])
-  	end
+    	if temp == 0
+        @user.role = Role.new(:name => "admin")
+    	else
+        @user.role = Role.new(:name => params[:user][:role])
+    	end
+    else
+      raise "ERROR! incorrect user params!"
+    end
   end
 
   def profile

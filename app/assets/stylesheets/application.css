@@ -91,8 +91,43 @@ a:hover{ color: #444;}
   font-size: 16px;
   width: 135px;
   height: 50px;
-  font-weight: bold;
+
 }
+
+.comp-button{
+  position: absolute; 
+  top: 65px; right: 435px;
+  border: 2px solid #e3e3e3;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
+  z-index: 100;
+}
+.person-button{
+  position: absolute; 
+  top: 65px; right: 235px;
+  border: 2px solid #e3e3e3;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
+  z-index: 100;
+
+}
+.rselected{
+  box-shadow:  0px 0px 5px #444;
+  -webkit-box-shadow:  0px 0px 5px #444;
+  -moz-box-shadow:  0px 0px 5px #444;
+
+  color: black;
+}
+
+.h{display: none;}
+.reg-buttons{font-size: 14px; display: none; color:#e3e3e3;}
+
 .buttons div:hover {background-color: #e8fff1; color: black;cursor: pointer;}
 .add {
   position: absolute; 
@@ -104,7 +139,7 @@ a:hover{ color: #444;}
   font-size: 16px;
   width: 135px;
   height: 50px;
-  font-weight: bold;
+
 } 
 .add_select{background-color: #7fa986;}
 
@@ -321,10 +356,21 @@ table.test{/*border: 2px solid red;*/}
 }
 
 .reg-popup{
-  width: 600px;
+  width: 537px;
   min-height: 400px;
   top: 117px;
-  right: 90px;
+  right: 98px;
   background-color: white;
-  border: 1px solid #333f3f;
+  border: 2px solid #e3e3e3;
+}
+.reg-inputs{width: 400px; margin-left: 20px; margin-top: 10px;}
+.reg-popup label {float: left; margin: 5px;}
+.reg-popup input {float: right;}
+.reg-popup .submit{text-align: center;}
+.reg-popup .submit input{
+  width: 100%;
+  background-image: url(/assets/1.png);
+  background-size: 101%;
+  color: white;
+  cursor: pointer;
 }

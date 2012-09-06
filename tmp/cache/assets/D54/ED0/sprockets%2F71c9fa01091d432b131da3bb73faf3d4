@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346874252.9451985:@value{	I"length:EFi,0I"digest;
-F"%6d02816ad936edc943e5a8f05f0afc94I"source;
-FI",0/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346934682.8281877:@value{	I"length:EFiè3I"digest;
+F"%06ac5ce8b9bce976b03ad82c800acf68I"source;
+FI"è3/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -92,8 +92,43 @@ a:hover{ color: #444;}
   font-size: 16px;
   width: 135px;
   height: 50px;
-  font-weight: bold;
+
 }
+
+.comp-button{
+  position: absolute; 
+  top: 65px; right: 435px;
+  border: 2px solid #e3e3e3;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
+  z-index: 100;
+}
+.person-button{
+  position: absolute; 
+  top: 65px; right: 235px;
+  border: 2px solid #e3e3e3;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  width: 200px;
+  height: 50px;
+  z-index: 100;
+
+}
+.rselected{
+  box-shadow:  0px 0px 5px #444;
+  -webkit-box-shadow:  0px 0px 5px #444;
+  -moz-box-shadow:  0px 0px 5px #444;
+
+  color: black;
+}
+
+.h{display: none;}
+.reg-buttons{font-size: 14px; display: none; color:#e3e3e3;}
+
 .buttons div:hover {background-color: #e8fff1; color: black;cursor: pointer;}
 .add {
   position: absolute; 
@@ -105,7 +140,7 @@ a:hover{ color: #444;}
   font-size: 16px;
   width: 135px;
   height: 50px;
-  font-weight: bold;
+
 } 
 .add_select{background-color: #7fa986;}
 
@@ -322,11 +357,23 @@ table.test{/*border: 2px solid red;*/}
 }
 
 .reg-popup{
-  width: 600px;
+  width: 537px;
   min-height: 400px;
-  top: 154px;
-  left: 70px;
-  background-color: red;
+  top: 117px;
+  right: 98px;
+  background-color: white;
+  border: 2px solid #e3e3e3;
+}
+.reg-inputs{width: 400px; margin-left: 20px; margin-top: 10px;}
+.reg-popup label {float: left; margin: 5px;}
+.reg-popup input {float: right;}
+.reg-popup .submit{text-align: center;}
+.reg-popup .submit input{
+  width: 100%;
+  background-image: url(/assets/1.png);
+  background-size: 101%;
+  color: white;
+  cursor: pointer;
 }
 .fs-map-zone{position: relative; z-index: 2; margin: -10px 0 0}
 #save-panel{padding: 5px; background: #f2f2f2; position: relative; z-index: 1; margin: -36px 0 10px}
@@ -414,4 +461,4 @@ div.field, div.actions {
 }
 ;
 FI"_version;
-F"%e36ae75d584a1a6893727f8450cd635f
+F"%88263b3e7d91a692f33ab76d02a84c68

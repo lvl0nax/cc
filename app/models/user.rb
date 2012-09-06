@@ -50,6 +50,8 @@ class User
    index({ name: 1 }, { unique: true, background: true })
 
   # TODO: Make roles as array. Its for nice view
+
+  
   ## Confirmable
   # field :confirmation_token,   :type => String
   # field :confirmed_at,         :type => Time

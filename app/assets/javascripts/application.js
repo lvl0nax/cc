@@ -28,11 +28,21 @@ $(function() {
 
 	$(document).on('click',"#close" ,function() {
 		$('.create_links').hide();
+		$('.reg-buttons').hide();
+		$('#popup-wrap').html("").removeClass();
+		$('.create_grant').removeClass("cr_select");
+	    $('.create_event').removeClass("cr_select");
+	    $('.create_training').removeClass("cr_select");
+	    $('.add').removeClass("add_select");
+	    $('.registration').removeClass("reg-select");
+	});
+	$(document).on('click',"#close-reg" ,function() {
+		$('.create_links').hide();
 		$('#popup-wrap').html("").removeClass("grant-popup");
 		$('.create_grant').removeClass("cr_select");
-    $('.create_event').removeClass("cr_select");
-    $('.create_training').removeClass("cr_select");
-    $('.add').removeClass("add_select");
+	    $('.create_event').removeClass("cr_select");
+	    $('.create_training').removeClass("cr_select");
+	    $('.add').removeClass("add_select");
 	});
 
 	$('.create_grant a').bind('click', function(){
@@ -71,11 +81,22 @@ $(function() {
 
 	$('.registration').bind('click', function(){
 		$(this).addClass("reg-select");
+		$(".reg-buttons").show();
 		$('#popup-wrap').addClass("reg-popup").load("/users/sign_up", function(){
         
 		});
 	});
 	
+	$('.person-button').bind("click", function(){
+		$('#user_role').val("employee");
+		$(this).addClass("rselected");
+		$('.comp-button').removeClass("rselected");
+	});
+	$('.comp-button').bind("click", function(){
+		$('#user_role').val("employer");
+		$(this).addClass("rselected");
+		$('.person-button').removeClass("rselected");
+	});
 });/*
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)

@@ -23,7 +23,7 @@ $(function() {
 	$('.add').on("click", function(){
 		$('.create_links').show();
 		$('.add').addClass("add_select");
-		
+		$(".reg-buttons").hide();
 	});
 
 	$(document).on('click',"#close" ,function() {
@@ -36,27 +36,21 @@ $(function() {
 	    $('.add').removeClass("add_select");
 	    $('.registration').removeClass("reg-select");
 	});
-	$(document).on('click',"#close-reg" ,function() {
-		$('.create_links').hide();
-		$('#popup-wrap').html("").removeClass("grant-popup");
-		$('.create_grant').removeClass("cr_select");
-	    $('.create_event').removeClass("cr_select");
-	    $('.create_training').removeClass("cr_select");
-	    $('.add').removeClass("add_select");
-	});
+
 
 	$('.create_grant a').bind('click', function(){
-		$('#container').css("min-height", "900px");
-		$('#popup-wrap').addClass("grant-popup");
+		/*$('#container').css("min-height", "900px");*/
+		$(".reg-buttons").hide();
     $('.create_grant').addClass("cr_select");
     $('.create_event').removeClass("cr_select");
     $('.create_training').removeClass("cr_select");
-		$('#popup-wrap').load("/grants/new");
+		$('#popup-wrap').removeClass("reg-popup").addClass("grant-popup").load("/grants/new");
 		return false;
 	});
 
 	$('.create_training a').bind('click', function(){
-		$('#popup-wrap').addClass("grant-popup").load("/trainings/new", function(){
+		$(".reg-buttons").hide();
+		$('#popup-wrap').removeClass("reg-popup").addClass("grant-popup").load("/trainings/new", function(){
         geocoder = new google.maps.Geocoder();
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
@@ -68,7 +62,8 @@ $(function() {
 	});
 
 	$('.create_event a').bind('click', function(){
-		$('#popup-wrap').addClass("grant-popup").load("/events/new", function(){
+		$(".reg-buttons").hide();
+		$('#popup-wrap').removeClass("reg-popup").addClass("grant-popup").load("/events/new", function(){
         geocoder = new google.maps.Geocoder();
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
@@ -81,9 +76,9 @@ $(function() {
 
 	$('.registration').bind('click', function(){
 		$(this).addClass("reg-select");
+		$('.create_links').hide();
 		$(".reg-buttons").show();
-		$('#popup-wrap').addClass("reg-popup").load("/users/sign_up", function(){
-        
+		$('#popup-wrap').removeClass("grant-popup").addClass("reg-popup").load("/users/sign_up", function(){
 		});
 	});
 	

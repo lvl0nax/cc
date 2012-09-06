@@ -12,7 +12,7 @@
 /config/*.yml
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
+#/log/*.log
 /tmp
 
 *.rbc
@@ -23,12 +23,13 @@ capybara-*.html
 /.bundle
 /vendor/bundle
 /log/*
-/tmp/*
-/db/*.sqlite3
+/log
 /public/system/*
 /public/uploads/*
+/public/uploads
 /coverage/
 /spec/tmp/*
 **.orig
 rerun.txt
 pickle-email-*.html
+.gitignore

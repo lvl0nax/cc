@@ -357,15 +357,18 @@ table.test{/*border: 2px solid red;*/}
 
 .reg-popup{
   width: 537px;
-  min-height: 400px;
+  min-height: 110px;
   top: 117px;
   right: 98px;
   background-color: white;
   border: 2px solid #e3e3e3;
 }
 .reg-inputs{width: 400px; margin-left: 20px; margin-top: 10px;}
-.reg-popup label {float: left; margin: 5px;}
-.reg-popup input {float: right;}
+/*.reg-popup label {float: left; margin: 5px;}
+.reg-popup input {float: right;margin: 5px;}*/
+.reg-popup .for_clear{ height: 10px;}
+.reg-popup div label{float:left; display: inline-block;}
+.reg-popup div input{float:right;display: inline-block;}
 .reg-popup .submit{text-align: center;}
 .reg-popup .submit input{
   width: 100%;

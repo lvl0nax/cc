@@ -4,17 +4,22 @@
   <%= devise_error_messages! %>
 
   <div class="reg-inputs">
-    <div><%= f.label "E-MAIL" %><br />
+    <div><%= f.label "E-MAIL" %>
     <%= f.email_field :email, :size => 30 %></div>
+    <div class="for_clear"></div>
 
-    <div><%= f.label :ПАРОЛЬ %><br />
+
+    <div><%= f.label :ПАРОЛЬ %>
     <%= f.password_field :password, :size => 30 %></div>
+    <div class="for_clear"></div>
+  
 
-    <div><%= f.label "ПАРОЛЬ ЕЩЕ РАЗ" %><br />
+    <div><%= f.label "ПАРОЛЬ ЕЩЕ РАЗ" %>
     <%= f.password_field :password_confirmation, :size => 30 %></div>
+    <div class="for_clear"></div>
+
   </div>
   <div style="visibility: hidden;"<%= f.text_field :role, :value => "employee" %></div>
-  <div class="for_clear"></div>
-  <br/>
+
   <div class="submit"><%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ" %></div>
 <% end %>

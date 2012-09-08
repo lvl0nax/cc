@@ -273,7 +273,7 @@ table.test{/*border: 2px solid red;*/}
 .eventimage img{width: 150px;}
 .eventimage {padding-right: 20px;}
 
-.items{
+#items{
   text-align: center;
 }
 .templ{

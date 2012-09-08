@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347104208.086076:@value{	I"length:EFic2I"digest;
-F"%21b493b0a5b6bc99a99cf984155d7ffbI"source;
-FI"c2/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347104420.350711:@value{	I"length:EFiy2I"digest;
+F"%586f36e3efaaba73b3f96c813d37822fI"source;
+FI"y2/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -274,7 +274,8 @@ table.test{/*border: 2px solid red;*/}
 .eventimage img{width: 150px;}
 .eventimage {padding-right: 20px;}
 
-.items{
+#items{
+  text-align: center;
 }
 .templ{
   width: 208px; height: 206px; 
@@ -423,4 +424,4 @@ table.test{/*border: 2px solid red;*/}
 #geo-map{height: 380px; width:430;}
 ;
 FI"_version;
-F"%636014e5ae12b6f55e612ccc001c93b7
+F"%9bca9feeeeaeb733745d668bf3abf204

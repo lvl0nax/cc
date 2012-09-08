@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347104208.0850801:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347104420.349532:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%636014e5ae12b6f55e612ccc001c93b7I"logical_path;
+F"%9bca9feeeeaeb733745d668bf3abf204I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-08T15:36:42+04:00;
+FI"2012-09-08T15:40:17+04:00;
 FI"	body;
-FI"ø,/*
+FI"-/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -285,7 +285,8 @@ table.test{/*border: 2px solid red;*/}
 .eventimage img{width: 150px;}
 .eventimage {padding-right: 20px;}
 
-.items{
+#items{
+  text-align: center;
 }
 .templ{
   width: 208px; height: 206px; 
@@ -422,10 +423,10 @@ F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	Time!€ž#¨’
+FIu:	Time!€•;¡
 :@_zoneI"MSK;
-T:nano_numi7:nano_deni:submicro"‚0:offseti@8I"hexdigest;
-F"%43a5c7476eb220877da1c776b9c1ea30{I"	path;
+T:nano_numiJ:nano_deni:submicro"„ :offseti@8I"hexdigest;
+F"%63cde166eff6cf94620117e77d03633c{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;

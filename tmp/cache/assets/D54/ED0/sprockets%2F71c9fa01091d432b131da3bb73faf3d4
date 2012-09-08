@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347104420.350711:@value{	I"length:EFiy2I"digest;
-F"%586f36e3efaaba73b3f96c813d37822fI"source;
-FI"y2/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347131365.964561:@value{	I"length:EFiU3I"digest;
+F"%30ee118fabc9db279993da6cae5f694dI"source;
+FI"U3/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -67,8 +67,9 @@ a:hover{ color: #444;}
   width: 800px;
   position: absolute;
   top: 157px;
-  left: 355px;
+  left: 485px;
   display: none;
+  font-size: 20px;
 }
 .cr{
   display: inline-block;
@@ -179,8 +180,6 @@ a:hover{ color: #444;}
   color:white;
 }
 
-.search_training.input{margin: 5px;}
-
 #new_training{margin-top: -19px;}
 #new_event{margin-top: -19px;}
 #new_grant{margin-top: -19px;}
@@ -275,10 +274,10 @@ table.test{/*border: 2px solid red;*/}
 .eventimage {padding-right: 20px;}
 
 #items{
-  text-align: center;
+
 }
 .templ{
-  width: 208px; height: 206px; 
+  width: 240px; height: 215px; 
   border-left:1px solid; 
   border-right:1px solid; 
   border-top:1px solid; 
@@ -289,10 +288,11 @@ table.test{/*border: 2px solid red;*/}
   /*display: inline-table;*/
   display: inline-block;
   vertical-align: top;
+  text-align: left;
 }
 .temp_date{float:left;}
 .temp_type{float:right;}
-.temp_img img{width:200px; height: 140px;}
+.temp_img img{width:238px; height: 145px;}
 .temp_img {text-align: center; height: 163px;}
 .temp_name{font-size: 20px; padding-top: 5px;}
 .month_name {font-size: 48px;}
@@ -381,17 +381,17 @@ table.test{/*border: 2px solid red;*/}
 }
 
 .menu a{float:left; color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
-.mn {margin-top: 15px;};
+.mn {margin-top: 16px;};
 .menu div{margin: 5px 0 0 10px;}
 .menu{font-size: 15px; color: black}
-.select{position: relative;width:400px; display:inline-block;}
-.area-label-name{display: inline-block; margin-left: 10px;}
+.select{position: relative;width:450px; display:inline-block;}
+.area-label-name{display: inline-block; margin-left: 10px; line-height: 6px;}
 .area-label{
-  width:400px; margin:-8px 0 -8px 10px; padding-left: 40px;
+  width:450px; margin:-8px 0 -8px 10px; padding-left: 40px;
   background-color: white; border:1px solid black; cursor: pointer;
 }
 .dropdown{
-  width:440px; display: none; 
+  width:490px; display: none; 
   position: absolute; top: 8px; left:10px; 
   background-color: white;border: 1px solid black; border-top: none;
 }
@@ -403,6 +403,11 @@ table.test{/*border: 2px solid red;*/}
   -moz-box-shadow:  0px 0px 5px #444;
 }
 .evtype{display: inline-block; margin-left: 35px; padding-bottom: 10px;}
+.evtype .input{margin: 0 0 0 10px;}
+.search_grant .input{margin: 0 0 0 10px; padding-bottom: 10px;}
+.search_training .input{ padding-bottom: 10px;}
+.search_training .control-label{color: white;}
+.padd{padding-left: 65px;}
 .fs-map-zone{position: relative; z-index: 2; margin: -10px 0 0}
 #save-panel{padding: 5px; background: #f2f2f2; position: relative; z-index: 1; margin: -36px 0 10px}
 #map-userpic{position: absolute; top: 50%; width: 48px; padding: 6px; height: 66px; left: 50%;margin: -78px 0 0 -30px; z-index: 10; background:  url("i/marker-user.png")}
@@ -424,4 +429,4 @@ table.test{/*border: 2px solid red;*/}
 #geo-map{height: 380px; width:430;}
 ;
 FI"_version;
-F"%9bca9feeeeaeb733745d668bf3abf204
+F"%9da4e8b53ce53efd9a531025a217b427

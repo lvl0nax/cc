@@ -19,13 +19,23 @@
             <div class="for_clear"></div>
           </div>  
         </div>
+        <div class="area-label-name padd">КОМПАНИИ</div>
+        <div class="select">
+          <div id="trclick" class="area-label">ВСЕ</div>
+          <div class="dropdown ard">  
+            <%= simple_fields_for :companies_list do |f| %>
+              <%= f.input :companies, :label => false , :collection => User.employees, :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
+
+            <% end %>
+            <div class="for_clear"></div>
+          </div>  
+        </div>
           
           <%= simple_fields_for :training_salary_type do |f| %>  
-            <%= f.input :salary_type, :label => "ОПЛАТА" , :collection => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ" ], :as => :check_boxes, :required => false, :input_html => {:checked=> true, :title => "area"}%>
+            <%= f.input :salary_type, :label => "ОПЛАТА:" , :collection => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ" ], :as => :check_boxes, :required => false, :input_html => {:checked=> true, :title => "area"}%>
           <% end %>
         <div class="for_clear"></div>
-       <br/> 
-          
+                 
       </div>
     </div>
     <div class="events">

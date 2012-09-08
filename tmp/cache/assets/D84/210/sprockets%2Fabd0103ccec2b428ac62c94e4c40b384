@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347102013.1845772:@value{	I"length:EFi~HI"digest;
-F"%daf07c9db6cbacb6d1d339ad6dee7103I"source;
-FI"~H/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347103064.7491732:@value{	I"length:EFi\HI"digest;
+F"%4259a2e7286ceb86fde36416659e0ac1I"source;
+FI"\H/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -10099,7 +10099,7 @@ $(function() {
 
 	$('#trclick').bind('click', function () {
 		$('.ard').fadeIn();
-		$('.evshadow').addClass("shadow");
+		
 	});
 	$('#evclick').bind('click', function () {
 		$('.arde').fadeIn();
@@ -10117,4 +10117,4 @@ $('.trainings input:checkbox').click(function() {
 ;
 ;
 TI"_version;
-F"%fec00e9ed032afe802c2dbf64bfa303f
+F"%ecbd52007e3449f96ae1d62919d7ecf0

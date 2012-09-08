@@ -274,6 +274,7 @@ table.test{/*border: 2px solid red;*/}
 .eventimage {padding-right: 20px;}
 
 .items{
+  text-align: center;
 }
 .templ{
   width: 208px; height: 206px; 

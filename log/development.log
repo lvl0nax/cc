@@ -10193,3 +10193,289 @@ Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_di
 
 Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-08 15:20:38 +0400
 Served asset /grant.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-08 15:29:35 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6638ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6080ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4444ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6304ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.5243ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5682ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4075ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5164ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3681ms)
+Rendered collection (37.8ms)
+Rendered events/index.html.erb within layouts/application (292.3ms)
+Compiled application.css  (1ms)  (pid 23656)
+Completed 200 OK in 448ms (Views: 355.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /jquery.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /geo.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /geo.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /1.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /logo.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /icons.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /grant.png - 304 Not Modified (41ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset /event.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-08 15:29:36 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/grants/new" for 127.0.0.1 at 2012-09-08 15:29:45 +0400
+  Processing by GrantsController#new as HTML
+Rendered grants/_form.html.erb (64.5ms)
+Rendered grants/new.html.erb (75.4ms)
+Completed 200 OK in 90ms (Views: 89.2ms)
+
+
+Started GET "/assets/rotate.png" for 127.0.0.1 at 2012-09-08 15:29:45 +0400
+Served asset /rotate.png - 304 Not Modified (23ms)
+
+
+Started GET "/assets/3.png" for 127.0.0.1 at 2012-09-08 15:29:45 +0400
+Served asset /3.png - 304 Not Modified (19ms)
+
+
+Started GET "/grants/new" for 127.0.0.1 at 2012-09-08 15:30:02 +0400
+  Processing by GrantsController#new as HTML
+Rendered grants/_form.html.erb (31.8ms)
+Rendered grants/new.html.erb (32.5ms)
+Completed 200 OK in 36ms (Views: 34.8ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-08 15:30:05 +0400
+Served asset /1.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-09-08 15:30:05 +0400
+  Processing by RegistrationsController#new as HTML
+Rendered devise/registrations/new.html.erb (25.9ms)
+Completed 200 OK in 61ms (Views: 28.9ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-08 15:30:05 +0400
+Served asset /1.png - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-09-08 15:34:24 +0400
+  Processing by RegistrationsController#new as HTML
+Rendered devise/registrations/new.html.erb (4.2ms)
+Completed 200 OK in 39ms (Views: 7.0ms)
+
+
+Started GET "/grants/new" for 127.0.0.1 at 2012-09-08 15:34:27 +0400
+  Processing by GrantsController#new as HTML
+Rendered grants/_form.html.erb (30.1ms)
+Rendered grants/new.html.erb (30.6ms)
+Completed 200 OK in 34ms (Views: 32.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-08 15:36:03 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5021ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.4122ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2511ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.4244ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6108ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5348ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3290ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2501ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1953ms)
+Rendered collection (3.9ms)
+Rendered events/index.html.erb within layouts/application (31.0ms)
+Compiled application.css  (1ms)  (pid 23656)
+Completed 200 OK in 180ms (Views: 50.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /geo.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /1.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /logo.png - 304 Not Modified (8ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /event.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /grant.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset /icons.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-08 15:36:04 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-08 15:36:47 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8881ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.1041ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4590ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6320ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6847ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5376ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4027ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4547ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3631ms)
+Rendered collection (3.0ms)
+Rendered events/index.html.erb within layouts/application (29.9ms)
+Compiled application.css  (1ms)  (pid 23656)
+Completed 200 OK in 185ms (Views: 43.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /geo.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /1.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /event.png - 304 Not Modified (4ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /icons.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /grant.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-08 15:36:48 +0400
+Served asset  - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)

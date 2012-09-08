@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347103238.2433712:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347104208.0850801:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%c6c6de6a43df2dcc5d959c736f7c1410I"logical_path;
+F"%636014e5ae12b6f55e612ccc001c93b7I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-08T15:20:32+04:00;
+FI"2012-09-08T15:36:42+04:00;
 FI"	body;
-FI"ö,/*
+FI"ø,/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -45,7 +45,7 @@ a:hover{ color: #444;}
 }
 
 #content-body{margin:0 auto;width:1230px; position: relative;z-index: 2; padding-bottom: 100px}
-#content-footer{color: #77a38a; z-index: 10; position: absolute; bottom: 30px; left: 50%; margin: 0 0 0 -550px; width: 1100px; height: 30px; padding: 20px 0 15px}
+#content-footer{color: #77a38a; z-index: 10; position: absolute; bottom: 30px; left: 50%; margin: 0 0 0 -610px; width: 1230px; height: 30px; padding: 20px 0 15px}
 #footer-links{color: #77a38a; z-index: 10; position: absolute; bottom: 0; left: 0; margin: 0; width: 100%; height: 30px; padding: 0}
 
 
@@ -324,7 +324,7 @@ table.test{/*border: 2px solid red;*/}
   width: 1080px;
   min-height: 600px;
   top: 184px;
-  left: 70px;
+  right: 100px;
 }
 
 .inactive{
@@ -422,10 +422,10 @@ F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	Time!€GzR
+FIu:	Time!€ž#¨’
 :@_zoneI"MSK;
-T:nano_numi‘:nano_deni:submicro"@:offseti@8I"hexdigest;
-F"%9b440644f45f8657fab2c1df184a9c8c{I"	path;
+T:nano_numi7:nano_deni:submicro"‚0:offseti@8I"hexdigest;
+F"%43a5c7476eb220877da1c776b9c1ea30{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;

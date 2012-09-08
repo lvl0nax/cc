@@ -93,7 +93,7 @@ $(function() {
 
 	$('#trclick').bind('click', function () {
 		$('.ard').fadeIn();
-		$('.evshadow').addClass("shadow");
+		
 	});
 	$('#evclick').bind('click', function () {
 		$('.arde').fadeIn();

@@ -11,7 +11,12 @@ class RegistrationsController < Devise::RegistrationsController
   # add some code to devise method CREATE
   def create  
     role = params[:user][:role]
-    if role == "employer" or role == "employee"
+    logger.debug "000000000000000000000000000000000000000000000000000000"
+    logger.debug params[:user]
+    logger.debug params[:user][:role]
+    logger.debug role == "employer"
+    
+    if ((role == "employer") or (role == "employee"))
       temp = User.count
     	super
 

@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347101681.4803343:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347102191.4389665:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%f427aefe532f54162e13742775a58af5I"logical_path;
+F"%3e224f2a31af58617ded645774c0803aI"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-08T14:54:38+04:00;
+FI"2012-09-08T15:03:08+04:00;
 FI"	body;
-FI"‚,/*
+FI"˜,/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -402,7 +402,7 @@ table.test{/*border: 2px solid red;*/}
 }
 .dropdown{
   width:440px; display: none; 
-  position: absolute; top: 10px; left:10px; 
+  position: absolute; top: 8px; left:10px; 
   background-color: white;border: 1px solid black; border-top: none;
 }
 .dropdown label{width:100%; display: block; font-size: 13px;}
@@ -412,7 +412,7 @@ table.test{/*border: 2px solid red;*/}
   -webkit-box-shadow:  0px 0px 5px #444;
   -moz-box-shadow:  0px 0px 5px #444;
 }
-.evtype{display: inline-block; margin-left: 35px;}
+.evtype{display: inline-block; margin-left: 35px; padding-bottom: 10px;}
 ;
 FI"asset_paths;
 F[I"1$root/app/assets/stylesheets/application.css;
@@ -422,11 +422,10 @@ F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	Time
-!ÄHgb⁄
+FIu:	Time!Ä”´é
 :@_zoneI"MSK;
-T:nano_numiê:nano_deni:submicro"@:offseti@8I"hexdigest;
-F"%70556ae6bd24c807bf54774da0870f61{I"	path;
+T:nano_numi*:nano_deni:submicro"p:offseti@8I"hexdigest;
+F"%c9f64397161b31392d730fcbc2d54f44{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;

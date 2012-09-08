@@ -400,4 +400,4 @@ table.test{/*border: 2px solid red;*/}
   -webkit-box-shadow:  0px 0px 5px #444;
   -moz-box-shadow:  0px 0px 5px #444;
 }
-.evtype{display: inline-block; margin-left: 35px;}
+.evtype{display: inline-block; margin-left: 35px; padding-bottom: 10px;}

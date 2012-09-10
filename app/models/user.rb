@@ -12,9 +12,9 @@ class User
   field :name
   mount_uploader :photo, ImageUploader
   
-  validates_presence_of :name
-  validates_uniqueness_of :name, :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  #validates_presence_of :name
+  validates_uniqueness_of  :email, :case_sensitive => false
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :role_name
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
@@ -49,6 +49,7 @@ class User
   # index :name, :unique => true, :background => true
    index({ name: 1 }, { unique: true, background: true })
 
+   accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
   # TODO: Make roles as array. Its for nice view
 
   
@@ -79,8 +80,13 @@ class User
     !!self.requests.detect {|r| r.requestable_id == evnt._id}
   end
 
-  def juristic
-    User.where(:role.name == "juristic")
+  def self.employees
+    @@users = []
+    User.all.each{|u| @@users << u if u.try(:role_name) == "employee"}
+    @@users
+  end
+  def self.admins
+    where(role_name: "admin")
   end
 
   def actions

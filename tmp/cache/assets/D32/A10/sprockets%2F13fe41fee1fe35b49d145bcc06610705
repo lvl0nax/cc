@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1346952699.360139:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347131365.941542:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%e5b9f71af2ec377d656a95dcb2fcb9afI"logical_path;
+F"%9da4e8b53ce53efd9a531025a217b427I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-06T21:29:10+04:00;
+FI"2012-09-08T23:09:22+04:00;
 FI"	body;
-FI"c)/*
+FI"Í-/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -27,7 +27,7 @@ input,button,textarea,select,em,th,optgroup,option {font-family:inherit;font-siz
 /* global styles */
 
 html, body {height:100%; color: #58595b}
-body{font: 13px Helvetica,sans-serif;background: #4B93D6}
+body{font: 13px Helvetica,sans-serif;} /*background: #4B93D6*/
 a {text-decoration: none; color: black;}
 a:hover{ color: #444;}
 #container{min-height:100%;min-width:1100px;position:relative;overflow:hidden}
@@ -44,8 +44,8 @@ a:hover{ color: #444;}
   height: 30px;
 }
 
-#content-body{margin:0 auto;width:1100px; position: relative;z-index: 2; padding-bottom: 100px}
-#content-footer{color: #77a38a; z-index: 10; position: absolute; bottom: 30px; left: 50%; margin: 0 0 0 -550px; width: 1100px; height: 30px; padding: 20px 0 15px}
+#content-body{margin:0 auto;width:1230px; position: relative;z-index: 2; padding-bottom: 100px}
+#content-footer{color: #77a38a; z-index: 10; position: absolute; bottom: 30px; left: 50%; margin: 0 0 0 -610px; width: 1230px; height: 30px; padding: 20px 0 15px}
 #footer-links{color: #77a38a; z-index: 10; position: absolute; bottom: 0; left: 0; margin: 0; width: 100%; height: 30px; padding: 0}
 
 
@@ -78,8 +78,9 @@ a:hover{ color: #444;}
   width: 800px;
   position: absolute;
   top: 157px;
-  left: 355px;
+  left: 485px;
   display: none;
+  font-size: 20px;
 }
 .cr{
   display: inline-block;
@@ -190,8 +191,6 @@ a:hover{ color: #444;}
   color:white;
 }
 
-.search_training.input{margin: 5px;}
-
 #new_training{margin-top: -19px;}
 #new_event{margin-top: -19px;}
 #new_grant{margin-top: -19px;}
@@ -285,10 +284,11 @@ table.test{/*border: 2px solid red;*/}
 .eventimage img{width: 150px;}
 .eventimage {padding-right: 20px;}
 
-.items{
+#items{
+
 }
 .templ{
-  width: 208px; height: 206px; 
+  width: 240px; height: 215px; 
   border-left:1px solid; 
   border-right:1px solid; 
   border-top:1px solid; 
@@ -299,14 +299,15 @@ table.test{/*border: 2px solid red;*/}
   /*display: inline-table;*/
   display: inline-block;
   vertical-align: top;
+  text-align: left;
 }
 .temp_date{float:left;}
 .temp_type{float:right;}
-.temp_img img{width:200px; height: 140px;}
+.temp_img img{width:238px; height: 145px;}
 .temp_img {text-align: center; height: 163px;}
 .temp_name{font-size: 20px; padding-top: 5px;}
 .month_name {font-size: 48px;}
-.month_number {font-size: 148px;padding: 85px 0 0 0px;text-align: right;}
+.month_number {font-size: 148px;padding: 0;text-align: right;}
 .temp_training{color:#c9db57;border-color:#c9db57}
 .temp_event{color:#333f3f;border-color:#333f3f}
 .temp_grant{color:#76a38a;border-color:#76a38a}
@@ -324,7 +325,7 @@ table.test{/*border: 2px solid red;*/}
   width: 1080px;
   min-height: 600px;
   top: 184px;
-  left: 70px;
+  right: 100px;
 }
 
 .inactive{
@@ -389,67 +390,55 @@ table.test{/*border: 2px solid red;*/}
   color: white;
   cursor: pointer;
 }
+
+.menu a{float:left; color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
+.mn {margin-top: 16px;};
+.menu div{margin: 5px 0 0 10px;}
+.menu{font-size: 15px; color: black}
+.select{position: relative;width:450px; display:inline-block;}
+.area-label-name{display: inline-block; margin-left: 10px; line-height: 6px;}
+.area-label{
+  width:450px; margin:-8px 0 -8px 10px; padding-left: 40px;
+  background-color: white; border:1px solid black; cursor: pointer;
+}
+.dropdown{
+  width:490px; display: none; 
+  position: absolute; top: 8px; left:10px; 
+  background-color: white;border: 1px solid black; border-top: none;
+}
+.dropdown label{width:100%; display: block; font-size: 13px;}
+/*.search_training div.check_boxes label{float:left;}*/
+.shadow{
+  box-shadow:  0px 0px 5px #444;
+  -webkit-box-shadow:  0px 0px 5px #444;
+  -moz-box-shadow:  0px 0px 5px #444;
+}
+.evtype{display: inline-block; margin-left: 35px; padding-bottom: 10px;}
+.evtype .input{margin: 0 0 0 10px;}
+.search_grant .input{margin: 0 0 0 10px; padding-bottom: 10px;}
+.search_training .input{ padding-bottom: 10px;}
+.search_training .control-label{color: white;}
+.padd{padding-left: 65px;}
 ;
 FI"asset_paths;
-F[I"1$root/app/assets/stylesheets/application.css;
-FI"0$root/app/assets/stylesheets/areas.css.scss;
-FI"4$root/app/assets/stylesheets/compinfos.css.scss;
-FI"6$root/app/assets/stylesheets/conferences.css.scss;
-FI"1$root/app/assets/stylesheets/events.css.scss;
+F[I"1$root/app/assets/stylesheets/application.css;
 FI")$root/app/assets/stylesheets/geo.css;
-FI"1$root/app/assets/stylesheets/grants.css.scss;
-FI"1$root/app/assets/stylesheets/months.css.scss;
-FI"0$root/app/assets/stylesheets/pages.css.scss;
-FI"3$root/app/assets/stylesheets/requests.css.scss;
-FI"2$root/app/assets/stylesheets/resumes.css.scss;
-FI"0$root/app/assets/stylesheets/roles.css.scss;
-FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
-FI"1$root/app/assets/stylesheets/spages.css.scss;
-FI"4$root/app/assets/stylesheets/trainings.css.scss;
 FI"dependency_paths;
-F[{I"	path;
+F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	Time— Ää˚™t
+FIu:	Time!ÄX‘e%
 :@_zoneI"MSK;
-T:nano_numiê:nano_deni:submicro"ë :offseti@8I"hexdigest;
-F"%5a98670ab8da354ca51431404296d356{I"	path;
+T:nano_numi«:nano_deni:submicro"ê:offseti@8I"hexdigest;
+F"%19b593f375d27dd44227dac4b11afd22{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;
-FIu;– Ä˜Ö·È
+FIu;	!ÄûO[Á
 ;I"MSK;
-T;i|;i;"â ;i@8I"hexdigest;
-F"%de1105ce35b59a4d4626bf14fefd9773{I"	path;
-FI"0$root/app/assets/stylesheets/areas.css.scss;
-FI"
-mtime;
-FIu;ÎÄ#Ìö
-;I"MSK;
-T;iÂ;i;"HP;i@8I"hexdigest;
-F"%03daf9f4c684bcd0196572f41645f257{I"	path;
-FI"4$root/app/assets/stylesheets/compinfos.css.scss;
-FI"
-mtime;
-FIu;QÄ8ÁÄﬁ
-;I"MSK;
-T;iÌ;i;"tê;i@8I"hexdigest;
-F"%2c5ef9a68d9ae8566f1cd5fb04877cbc{I"	path;
-FI"6$root/app/assets/stylesheets/conferences.css.scss;
-FI"
-mtime;
-FIu;QÄxÅﬁ
-;I"MSK;
-T;iÌ;i;"tê;i@8I"hexdigest;
-F"%6936a3c265ac1fb6985bcb1327043fdb{I"	path;
-FI"1$root/app/assets/stylesheets/events.css.scss;
-FI"
-mtime;
-FIu;QÄxÅﬁ
-;I"MSK;
-T;iÌ;i;"tê;i@8I"hexdigest;
-F"%bc4a444780940939072f337a0d2bc7e4{I"	path;
+T;i;i;"x;i@8I"hexdigest;
+F"%6e24f2e2f9526f581b786cd267af0ce2{I"	path;
 FI")$root/app/assets/stylesheets/geo.css;
 FI"
 mtime;
@@ -457,68 +446,5 @@ FIu;± Äb
 ¶&
 ;I"MSK;
 T;ií;i;"eÄ;i@8I"hexdigest;
-F"%4dac81296efbda5a31022fe85d77815b{I"	path;
-FI"1$root/app/assets/stylesheets/grants.css.scss;
-FI"
-mtime;
-FIu;QÄxÅﬁ
-;I"MSK;
-T;iÌ;i;"tê;i@8I"hexdigest;
-F"%f6f682daecd25953efcade94ac9bef33{I"	path;
-FI"1$root/app/assets/stylesheets/months.css.scss;
-FI"
-mtime;
-FIu;(ÄfR¡Ÿ
-;I"MSK;
-T;i;i;"T;i@8I"hexdigest;
-F"%685b0982cdcd0e57cf9b13d13f53a911{I"	path;
-FI"0$root/app/assets/stylesheets/pages.css.scss;
-FI"
-mtime;
-FIu;Ä∏3¨
-;I"MSK;
-T;iÏ;i;"I ;i@8I"hexdigest;
-F"%f164b3db22d5ecfe4bff88ef6fe4730f{I"	path;
-FI"3$root/app/assets/stylesheets/requests.css.scss;
-FI"
-mtime;
-FIu;QÄÅﬁ
-;I"MSK;
-T;iÌ;i;"tê;i@8I"hexdigest;
-F"%da58b2644f9f7b206230b72efc817378{I"	path;
-FI"2$root/app/assets/stylesheets/resumes.css.scss;
-FI"
-mtime;
-FIu;QÄÅﬁ
-;I"MSK;
-T;iÌ;i;"tê;i@8I"hexdigest;
-F"%2cce74c95ac13cb69d64d67e004b5ece{I"	path;
-FI"0$root/app/assets/stylesheets/roles.css.scss;
-FI"
-mtime;
-FIu;QÄ∏%Åﬁ
-;I"MSK;
-T;iÏ;i;"tÄ;i@8I"hexdigest;
-F"%8f68033fa0173c6a1fe96c758c475ce7{I"	path;
-FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
-FI"
-mtime;
-FIu;™ Ä‚ugØ
-;I"MSK;
-T;i±;i;"îP;i@8I"hexdigest;
-F"%464987d8b24da4427a97d1d0b468442a{I"	path;
-FI"1$root/app/assets/stylesheets/spages.css.scss;
-FI"
-mtime;
-FIu;Ä‘Q 
-;I"MSK;
-T;iÒ;i;"$;i@8I"hexdigest;
-F"%a490d204d60fdb3309a2f889f040519f{I"	path;
-FI"4$root/app/assets/stylesheets/trainings.css.scss;
-FI"
-mtime;
-FIu;QÄ∏%Åﬁ
-;I"MSK;
-T;iÏ;i;"tÄ;i@8I"hexdigest;
-F"%848b9bac631de9e0c1df7af39ffb0216I"_version;
+F"%4dac81296efbda5a31022fe85d77815bI"_version;
 F"%0868aba5d4b750d3a9421721ea3d9b9c

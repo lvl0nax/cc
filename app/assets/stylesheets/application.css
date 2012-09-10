@@ -15,7 +15,7 @@ input,button,textarea,select,em,th,optgroup,option {font-family:inherit;font-siz
 /* global styles */
 
 html, body {height:100%; color: #58595b}
-body{font: 13px Helvetica,sans-serif;background: #4B93D6}
+body{font: 13px Helvetica,sans-serif;} /*background: #4B93D6*/
 a {text-decoration: none; color: black;}
 a:hover{ color: #444;}
 #container{min-height:100%;min-width:1100px;position:relative;overflow:hidden}
@@ -32,8 +32,8 @@ a:hover{ color: #444;}
   height: 30px;
 }
 
-#content-body{margin:0 auto;width:1100px; position: relative;z-index: 2; padding-bottom: 100px}
-#content-footer{color: #77a38a; z-index: 10; position: absolute; bottom: 30px; left: 50%; margin: 0 0 0 -550px; width: 1100px; height: 30px; padding: 20px 0 15px}
+#content-body{margin:0 auto;width:1230px; position: relative;z-index: 2; padding-bottom: 100px}
+#content-footer{color: #77a38a; z-index: 10; position: absolute; bottom: 30px; left: 50%; margin: 0 0 0 -610px; width: 1230px; height: 30px; padding: 20px 0 15px}
 #footer-links{color: #77a38a; z-index: 10; position: absolute; bottom: 0; left: 0; margin: 0; width: 100%; height: 30px; padding: 0}
 
 
@@ -66,8 +66,9 @@ a:hover{ color: #444;}
   width: 800px;
   position: absolute;
   top: 157px;
-  left: 355px;
+  left: 485px;
   display: none;
+  font-size: 17px;
 }
 .cr{
   display: inline-block;
@@ -78,7 +79,7 @@ a:hover{ color: #444;}
   text-align: center;
   color: black;
 }
-.cr_select{  background-image: url(/assets/rotate.png); background-size: 100%;}
+.cr_select{  background-image: url(/assets/rotate.png); background-size: 100%; color: white;}
 .cr a{  width: 150px;}
 
 .registration {
@@ -178,8 +179,6 @@ a:hover{ color: #444;}
   color:white;
 }
 
-.search_training.input{margin: 5px;}
-
 #new_training{margin-top: -19px;}
 #new_event{margin-top: -19px;}
 #new_grant{margin-top: -19px;}
@@ -273,10 +272,11 @@ table.test{/*border: 2px solid red;*/}
 .eventimage img{width: 150px;}
 .eventimage {padding-right: 20px;}
 
-.items{
+#items{
+
 }
 .templ{
-  width: 208px; height: 206px; 
+  width: 240px; height: 215px; 
   border-left:1px solid; 
   border-right:1px solid; 
   border-top:1px solid; 
@@ -287,14 +287,15 @@ table.test{/*border: 2px solid red;*/}
   /*display: inline-table;*/
   display: inline-block;
   vertical-align: top;
+  text-align: left;
 }
 .temp_date{float:left;}
 .temp_type{float:right;}
-.temp_img img{width:200px; height: 140px;}
+.temp_img img{width:238px; height: 145px;}
 .temp_img {text-align: center; height: 163px;}
 .temp_name{font-size: 20px; padding-top: 5px;}
 .month_name {font-size: 48px;}
-.month_number {font-size: 148px;padding: 85px 0 0 0px;text-align: right;}
+.month_number {font-size: 148px;padding: 0;text-align: right;}
 .temp_training{color:#c9db57;border-color:#c9db57}
 .temp_event{color:#333f3f;border-color:#333f3f}
 .temp_grant{color:#76a38a;border-color:#76a38a}
@@ -312,7 +313,7 @@ table.test{/*border: 2px solid red;*/}
   width: 1080px;
   min-height: 600px;
   top: 184px;
-  left: 70px;
+  right: 100px;
 }
 
 .inactive{
@@ -377,3 +378,32 @@ table.test{/*border: 2px solid red;*/}
   color: white;
   cursor: pointer;
 }
+
+.menu a{float:left; color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
+.mn {margin-top: 16px;};
+.menu div{margin: 5px 0 0 10px;}
+.menu{font-size: 15px; color: black}
+.select{position: relative;width:450px; display:inline-block;}
+.area-label-name{display: inline-block; margin-left: 10px; line-height: 6px;}
+.area-label{
+  width:450px; margin:-8px 0 -8px 10px; padding-left: 40px;
+  background-color: white; border:1px solid black; cursor: pointer;
+}
+.dropdown{
+  width:490px; display: none; 
+  position: absolute; top: 8px; left:10px; 
+  background-color: white;border: 1px solid black; border-top: none;
+}
+.dropdown label{width:100%; display: block; font-size: 13px;}
+/*.search_training div.check_boxes label{float:left;}*/
+.shadow{
+  box-shadow:  0px 0px 5px #444;
+  -webkit-box-shadow:  0px 0px 5px #444;
+  -moz-box-shadow:  0px 0px 5px #444;
+}
+.evtype{display: inline-block; margin-left: 35px; padding-bottom: 10px;}
+.evtype .input{margin: 0 0 0 10px;}
+.search_grant .input{margin: 0 0 0 10px; padding-bottom: 10px;}
+.search_training .input{ padding-bottom: 10px;}
+.search_training .control-label{color: white;}
+.padd{padding-left: 65px;}

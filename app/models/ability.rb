@@ -22,7 +22,7 @@ class Ability
         can :manage, :all
       elsif user.role? (:employee) # who want to find job
 
-          
+        can :read, :all  
 
       
       elsif user.role? (:empolyer) # who can create vacancy 

@@ -25,7 +25,7 @@ class Training
 
   mount_uploader :photo, ImageUploader
 
-  #attr_accessible :end_date, :start_date, :request_date
+  attr_accessible :name
   
 
   ### TODO :
@@ -47,6 +47,10 @@ class Training
       t = t.any_in(:areas => areas[:areas])
     end
     return t
+  end
+
+  def user
+    User.where(id: self.owner).first
   end
 
 end

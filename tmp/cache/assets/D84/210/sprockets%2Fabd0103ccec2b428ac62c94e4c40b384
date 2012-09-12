@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347431167.960488:@value{	I"length:EFi.KI"digest;
-F"%4a773d405ef5f7a5ede8e24db24342f2I"source;
-FI".K/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347433800.5901365:@value{	I"length:EFiœMI"digest;
+F"%1aff2de544821e1bfad5cb0151718233I"source;
+FI"œM/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -10110,23 +10110,42 @@ $(function() {
 
 	$(".select").click(function(event){ event.stopPropagation()});
 
+	$(document).on('click',".wait-click" ,function() {
+		if ($("#popup-wrap").is(".show-popup")) {
+			$("#popup-wrap").removeClass();
+			$("#container").removeClass("wait-click");
+		}
+	});
+
 	$('.temp_training').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+tmp, function(){
-			/*$('#container').bind('click', function () {$("#popup-wrap").removeClass();});*/
+			if ($("#container").is(".wait-click")){}
+			else { 	
+				$('#container').addClass("wait-click");}
 		});
+
 	});
 	$('.temp_event').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+tmp, function(){
+			if ($("#container").is(".wait-click")){}
+			else { 	
+				$('#container').addClass("wait-click");}
 		});
 	});
 	$('.temp_grant').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+tmp, function(){
+			if ($("#container").is(".wait-click")){}
+			else  
+				$('#container').addClass("wait-click");
 		});
 	});
 });/*
@@ -10139,4 +10158,4 @@ $('.trainings input:checkbox').click(function() {
 ;
 ;
 TI"_version;
-F"%6fa536491e1bf834425471eb04c6fad8
+F"%9b87892f2a32c48bae8f7b004f560256

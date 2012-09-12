@@ -104,23 +104,42 @@ $(function() {
 
 	$(".select").click(function(event){ event.stopPropagation()});
 
+	$(document).on('click',".wait-click" ,function() {
+		if ($("#popup-wrap").is(".show-popup")) {
+			$("#popup-wrap").removeClass();
+			$("#container").removeClass("wait-click");
+		}
+	});
+
 	$('.temp_training').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+tmp, function(){
-			/*$('#container').bind('click', function () {$("#popup-wrap").removeClass();});*/
+			if ($("#container").is(".wait-click")){}
+			else { 	
+				$('#container').addClass("wait-click");}
 		});
+
 	});
 	$('.temp_event').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+tmp, function(){
+			if ($("#container").is(".wait-click")){}
+			else { 	
+				$('#container').addClass("wait-click");}
 		});
 	});
 	$('.temp_grant').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+tmp, function(){
+			if ($("#container").is(".wait-click")){}
+			else  
+				$('#container').addClass("wait-click");
 		});
 	});
 });/*

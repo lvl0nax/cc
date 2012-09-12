@@ -13531,3 +13531,2168 @@ Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-10 23
   MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5476ms)
 Rendered trainings/show.html.erb (74.9ms)
 Completed 200 OK in 92ms (Views: 77.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 09:50:41 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (72.2933ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (56.1566ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (31.8894ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (5.7809ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (17.0918ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (11.5209ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5863ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (34.7598ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4430ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2933ms)
+Rendered collection (49.4ms)
+Rendered events/index.html.erb within layouts/application (627.2ms)
+Compiled application.css  (2ms)  (pid 6203)
+Compiled application.js  (7ms)  (pid 6203)
+Completed 200 OK in 1458ms (Views: 1062.6ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /geo.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /jquery.js - 200 OK (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /geo.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /logo.png - 200 OK (82ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /icons.png - 304 Not Modified (33ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /event.png - 304 Not Modified (31ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /grant.png - 304 Not Modified (11ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-12 09:50:43 +0400
+Served asset /stag.png - 304 Not Modified (18ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 09:50:52 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6282ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (18.7304ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5364ms)
+Completed 500 Internal Server Error in 64ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.5ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 09:51:03 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6964ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.3946ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6375ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.7730ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5403ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3824ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5586ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5364ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3719ms)
+Rendered collection (3.1ms)
+Rendered events/index.html.erb within layouts/application (46.7ms)
+Completed 200 OK in 179ms (Views: 54.7ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-12 09:51:03 +0400
+Served asset /geo.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 09:51:03 +0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 09:51:03 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 09:51:03 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 09:51:06 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8693ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.1034ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.3092ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.4375ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.4592ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3326ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2248ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.3815ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3293ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1962ms)
+Rendered collection (3.1ms)
+Rendered events/index.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 235ms (Views: 84.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /geo.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /1.png - 200 OK (47ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /grant.png - 200 OK (3ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 09:51:07 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:51:10 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7005ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4580ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5696ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (24.0011ms)
+Rendered trainings/show.html.erb (62.3ms)
+Completed 200 OK in 142ms (Views: 70.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 09:53:43 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7262ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.0715ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4218ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.7949ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6468ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4363ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3901ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6936ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5372ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3619ms)
+Rendered collection (3.1ms)
+Rendered events/index.html.erb within layouts/application (81.8ms)
+Compiled application.js  (2ms)  (pid 6203)
+Completed 200 OK in 243ms (Views: 99.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /application.js - 200 OK (2ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /logo.png - 200 OK (5ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /stag.png - 200 OK (1ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /grant.png - 200 OK (1ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 09:53:44 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:53:46 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (17.9172ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.8049ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5970ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5496ms)
+Rendered trainings/show.html.erb (68.8ms)
+Completed 200 OK in 117ms (Views: 71.1ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:53:48 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7725ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5050ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.6332ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.7439ms)
+Rendered trainings/show.html.erb (69.1ms)
+Completed 200 OK in 87ms (Views: 71.5ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:53:49 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5929ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5226ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.7422ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5963ms)
+Rendered trainings/show.html.erb (70.0ms)
+Completed 200 OK in 89ms (Views: 72.3ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:53:49 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8764ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.8309ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.4301ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.3095ms)
+Rendered trainings/show.html.erb (68.6ms)
+Completed 200 OK in 97ms (Views: 71.2ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:53:49 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0335ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.7350ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5393ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5350ms)
+Rendered trainings/show.html.erb (35.0ms)
+Completed 200 OK in 91ms (Views: 70.9ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:53:49 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5949ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5808ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5765ms)
+Rendered trainings/show.html.erb (34.9ms)
+Completed 200 OK in 86ms (Views: 37.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 09:55:00 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7415ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.1063ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4206ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6211ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6289ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5314ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3846ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5784ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5217ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3641ms)
+Rendered collection (3.1ms)
+Rendered events/index.html.erb within layouts/application (82.1ms)
+Compiled application.js  (2ms)  (pid 6203)
+Completed 200 OK in 241ms (Views: 100.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /application.css - 200 OK (1ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /logo.png - 200 OK (8ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /event.png - 200 OK (1ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 09:55:01 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:03 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7095ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4401ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5999ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5605ms)
+Rendered trainings/show.html.erb (68.6ms)
+Completed 200 OK in 86ms (Views: 70.9ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:04 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5143ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.2980ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5913ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5696ms)
+Rendered trainings/show.html.erb (69.5ms)
+Completed 200 OK in 86ms (Views: 71.7ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:07 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.4816ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.2930ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5851ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5684ms)
+Rendered trainings/show.html.erb (74.0ms)
+Completed 200 OK in 91ms (Views: 76.2ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:07 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5629ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5798ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5620ms)
+Rendered trainings/show.html.erb (70.2ms)
+Completed 200 OK in 87ms (Views: 72.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 09:55:49 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.4799ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.4063ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4411ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6120ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6602ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5498ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3877ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5922ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5486ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3712ms)
+Rendered collection (3.0ms)
+Rendered events/index.html.erb within layouts/application (82.0ms)
+Compiled application.js  (2ms)  (pid 6203)
+Completed 200 OK in 249ms (Views: 99.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-12 09:55:49 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-12 09:55:49 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 09:55:49 +0400
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 09:55:49 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 09:55:49 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 09:55:49 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-12 09:55:50 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-12 09:55:50 +0400
+Served asset /logo.png - 200 OK (2ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-12 09:55:50 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-12 09:55:50 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 09:55:50 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-12 09:55:50 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-12 09:55:50 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:51 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5636ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5753ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5422ms)
+Rendered trainings/show.html.erb (33.9ms)
+Completed 200 OK in 50ms (Views: 36.3ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:52 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8059ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.2999ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5720ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5407ms)
+Rendered trainings/show.html.erb (67.1ms)
+Completed 200 OK in 84ms (Views: 69.3ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:52 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7718ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5102ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.8738ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.8636ms)
+Rendered trainings/show.html.erb (80.4ms)
+Completed 200 OK in 98ms (Views: 82.9ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:53 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.1482ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.7944ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.4284ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5727ms)
+Rendered trainings/show.html.erb (72.8ms)
+Completed 200 OK in 95ms (Views: 75.2ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:53 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7479ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5200ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5803ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5369ms)
+Rendered trainings/show.html.erb (72.0ms)
+Completed 200 OK in 89ms (Views: 74.4ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:55:53 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0657ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.9322ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5758ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5388ms)
+Rendered trainings/show.html.erb (71.3ms)
+Completed 200 OK in 99ms (Views: 73.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 09:56:16 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6921ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.5755ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4094ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5951ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6452ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5417ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5331ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6330ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5319ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3643ms)
+Rendered collection (3.1ms)
+Rendered events/index.html.erb within layouts/application (83.2ms)
+Compiled application.js  (2ms)  (pid 6203)
+Completed 200 OK in 229ms (Views: 101.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-12 09:56:16 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-12 09:56:16 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 09:56:16 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 09:56:16 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 09:56:16 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 09:56:16 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-12 09:56:17 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-12 09:56:17 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-12 09:56:17 +0400
+Served asset /icons.png - 200 OK (1ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-12 09:56:17 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-12 09:56:17 +0400
+Served asset /event.png - 200 OK (3ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-12 09:56:17 +0400
+Served asset /grant.png - 200 OK (1ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 09:56:17 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:56:18 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5555ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4430ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5651ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5515ms)
+Rendered trainings/show.html.erb (34.0ms)
+Completed 200 OK in 51ms (Views: 36.3ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:56:19 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.7179ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.6092ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5529ms)
+Rendered trainings/show.html.erb (66.4ms)
+Completed 200 OK in 93ms (Views: 68.7ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:56:21 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6537ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.6306ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5834ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5541ms)
+Rendered trainings/show.html.erb (69.5ms)
+Completed 200 OK in 100ms (Views: 71.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 09:57:09 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5865ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.5829ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4220ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6132ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6297ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5336ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4375ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.9177ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5400ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3810ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (83.5ms)
+Compiled application.js  (3ms)  (pid 6203)
+Completed 200 OK in 230ms (Views: 101.4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 09:57:10 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 09:57:10 +0400
+Served asset  - 404 Not Found (4ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:13 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7412ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4430ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5991ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5310ms)
+Rendered trainings/show.html.erb (36.3ms)
+Completed 200 OK in 91ms (Views: 38.8ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:14 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5753ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.3271ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5825ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5388ms)
+Rendered trainings/show.html.erb (34.4ms)
+Completed 200 OK in 53ms (Views: 36.8ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:17 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9575ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.3147ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5827ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5789ms)
+Rendered trainings/show.html.erb (34.2ms)
+Completed 200 OK in 52ms (Views: 36.5ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:19 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6332ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.2990ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.4683ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5403ms)
+Rendered trainings/show.html.erb (34.1ms)
+Completed 200 OK in 61ms (Views: 37.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:19 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7720ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5431ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.4265ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.3130ms)
+Rendered trainings/show.html.erb (34.2ms)
+Completed 200 OK in 52ms (Views: 36.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:19 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5727ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.3281ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.6082ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.6554ms)
+Rendered trainings/show.html.erb (34.4ms)
+Completed 200 OK in 52ms (Views: 36.7ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:20 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7882ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.8144ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.7510ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.7796ms)
+Rendered trainings/show.html.erb (35.0ms)
+Completed 200 OK in 68ms (Views: 37.4ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:22 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6237ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4337ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5634ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.3762ms)
+Rendered trainings/show.html.erb (68.2ms)
+Completed 200 OK in 86ms (Views: 70.5ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:28 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6111ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4451ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5889ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5527ms)
+Rendered trainings/show.html.erb (71.2ms)
+Completed 200 OK in 89ms (Views: 73.9ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:28 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6456ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4461ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5922ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5765ms)
+Rendered trainings/show.html.erb (72.2ms)
+Completed 200 OK in 90ms (Views: 74.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 09:57:28 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6194ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4344ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5836ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5648ms)
+Rendered trainings/show.html.erb (73.5ms)
+Completed 200 OK in 91ms (Views: 75.8ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 09:57:39 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6812ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.7219ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.4098ms)
+Completed 500 Internal Server Error in 90ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 09:57:39 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.4082ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5662ms)
+Completed 500 Internal Server Error in 76ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 09:57:39 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5629ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5748ms)
+Completed 500 Internal Server Error in 74ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 09:57:39 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5498ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5710ms)
+Completed 500 Internal Server Error in 74ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:08:30 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0126ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.0288ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2520ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6056ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6585ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5679ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4332ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5748ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5319ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3660ms)
+Rendered collection (3.1ms)
+Rendered events/index.html.erb within layouts/application (82.4ms)
+Compiled application.js  (2ms)  (pid 6203)
+Completed 200 OK in 236ms (Views: 100.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 10:08:30 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 10:08:30 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:08:30 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 10:08:30 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:08:30 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:42 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5286ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.3352ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5679ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5565ms)
+Rendered trainings/show.html.erb (34.5ms)
+Completed 200 OK in 52ms (Views: 37.0ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:45 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9389ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5372ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5753ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5510ms)
+Rendered trainings/show.html.erb (34.4ms)
+Completed 200 OK in 53ms (Views: 36.8ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:46 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.4783ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.2985ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5877ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5476ms)
+Rendered trainings/show.html.erb (34.1ms)
+Completed 200 OK in 51ms (Views: 36.4ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:46 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6337ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4008ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.8774ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5896ms)
+Rendered trainings/show.html.erb (38.0ms)
+Completed 200 OK in 56ms (Views: 40.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:47 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9151ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4354ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5765ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5441ms)
+Rendered trainings/show.html.erb (34.3ms)
+Completed 200 OK in 53ms (Views: 36.8ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:48 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5662ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4466ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5918ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5610ms)
+Rendered trainings/show.html.erb (66.8ms)
+Completed 200 OK in 84ms (Views: 69.0ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:48 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5910ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.3157ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.6180ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5524ms)
+Rendered trainings/show.html.erb (71.0ms)
+Completed 200 OK in 88ms (Views: 73.3ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:08:48 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7465ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5252ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.8638ms)
+Completed 500 Internal Server Error in 78ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:08:49 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5701ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5476ms)
+Completed 500 Internal Server Error in 77ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:08:49 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.3893ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.4227ms)
+Completed 500 Internal Server Error in 74ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.8ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:52 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5698ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5815ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5562ms)
+Rendered trainings/show.html.erb (69.9ms)
+Completed 200 OK in 86ms (Views: 72.4ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:08:52 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7095ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.7801ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5915ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5591ms)
+Rendered trainings/show.html.erb (70.7ms)
+Completed 200 OK in 95ms (Views: 73.0ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:09:07 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7002ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5126ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.9067ms)
+Completed 500 Internal Server Error in 79ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/events/50392ab249c862b668000001" for 127.0.0.1 at 2012-09-12 10:09:13 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"50392ab249c862b668000001"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.5636ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.6635ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.4258ms)
+Rendered events/show.html.erb (7.7ms)
+Completed 200 OK in 93ms (Views: 15.3ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:09:13 +0400
+Served asset  - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:09:17 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.3948ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5729ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5620ms)
+Rendered trainings/show.html.erb (70.6ms)
+Completed 200 OK in 87ms (Views: 72.9ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:09:18 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7360ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5093ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (1.0180ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.7837ms)
+Rendered trainings/show.html.erb (74.9ms)
+Completed 200 OK in 93ms (Views: 77.5ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:09:19 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6142ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4356ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5794ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5691ms)
+Rendered trainings/show.html.erb (36.4ms)
+Completed 200 OK in 90ms (Views: 38.8ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:09:20 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.1873ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.8461ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5288ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5333ms)
+Rendered trainings/show.html.erb (34.7ms)
+Completed 200 OK in 100ms (Views: 37.1ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:09:20 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6084ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4380ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5844ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.3443ms)
+Rendered trainings/show.html.erb (42.5ms)
+Completed 200 OK in 97ms (Views: 44.8ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:09:20 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7088ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4306ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5717ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5484ms)
+Rendered trainings/show.html.erb (37.9ms)
+Completed 200 OK in 56ms (Views: 40.2ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:09:21 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9253ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.7894ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5691ms)
+Completed 500 Internal Server Error in 52ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:10:28 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7894ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.0679ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4096ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5970ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6351ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5248ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3989ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5758ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5202ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3583ms)
+Rendered collection (4.1ms)
+Rendered events/index.html.erb within layouts/application (49.1ms)
+Completed 200 OK in 197ms (Views: 57.9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 10:10:29 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 10:10:29 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 10:10:29 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:10:29 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:10:29 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:33 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7765ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.8337ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.7234ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.4566ms)
+Rendered trainings/show.html.erb (36.1ms)
+Completed 200 OK in 61ms (Views: 38.5ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:38 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6061ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4833ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5682ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5372ms)
+Rendered trainings/show.html.erb (34.3ms)
+Completed 200 OK in 52ms (Views: 36.5ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:38 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5052ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4935ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5724ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5641ms)
+Rendered trainings/show.html.erb (33.7ms)
+Completed 200 OK in 56ms (Views: 36.0ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:38 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7162ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4435ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.9999ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.4570ms)
+Rendered trainings/show.html.erb (72.3ms)
+Completed 200 OK in 90ms (Views: 74.7ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:45 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7694ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5026ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5925ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5424ms)
+Rendered trainings/show.html.erb (71.0ms)
+Completed 200 OK in 88ms (Views: 73.2ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:45 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7493ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.8111ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.4528ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.3054ms)
+Rendered trainings/show.html.erb (73.2ms)
+Completed 200 OK in 95ms (Views: 75.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:45 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5708ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4454ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5827ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5612ms)
+Rendered trainings/show.html.erb (72.0ms)
+Completed 200 OK in 89ms (Views: 74.4ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:53 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9058ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.8395ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.6158ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.6065ms)
+Rendered trainings/show.html.erb (77.1ms)
+Completed 200 OK in 103ms (Views: 79.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:54 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5956ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4411ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5953ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5419ms)
+Rendered trainings/show.html.erb (35.3ms)
+Completed 200 OK in 89ms (Views: 37.6ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:54 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6976ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5283ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.6306ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5929ms)
+Rendered trainings/show.html.erb (35.4ms)
+Completed 200 OK in 92ms (Views: 37.7ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:10:54 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7463ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.8204ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.8922ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.6242ms)
+Rendered trainings/show.html.erb (38.5ms)
+Completed 200 OK in 100ms (Views: 41.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:11:16 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7415ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.0846ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4466ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5906ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6785ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5128ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3870ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5643ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5248ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3076ms)
+Rendered collection (3.0ms)
+Rendered events/index.html.erb within layouts/application (46.5ms)
+Compiled application.js  (2ms)  (pid 6203)
+Completed 200 OK in 213ms (Views: 64.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 10:11:16 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 10:11:16 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 10:11:16 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:11:16 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:11:16 +0400
+Served asset  - 404 Not Found (6ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:11:18 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6936ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.5410ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5627ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5071ms)
+Rendered trainings/show.html.erb (35.9ms)
+Completed 200 OK in 54ms (Views: 38.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:11:25 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.2739ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.9677ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4432ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6013ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6771ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5260ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3958ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5615ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5310ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3719ms)
+Rendered collection (3.1ms)
+Rendered events/index.html.erb within layouts/application (45.8ms)
+Completed 200 OK in 232ms (Views: 88.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 10:11:26 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 10:11:26 +0400
+Served asset /geo.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:11:26 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 10:11:26 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:11:26 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:11:29 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7095ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.4292ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5631ms)
+Completed 500 Internal Server Error in 78ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6084ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6509ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.5181ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6554ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.7143ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5314ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4849ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6695ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5522ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3591ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (86.2ms)
+Completed 200 OK in 230ms (Views: 94.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /logo.png - 200 OK (7ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /grant.png - 200 OK (1ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /icons.png - 200 OK (4ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /stag.png - 200 OK (1ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset /event.png - 200 OK (1ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:14:09 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:14:11 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6196ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.4375ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5550ms)
+Completed 500 Internal Server Error in 77ms
+
+Mongoid::Errors::InvalidFind (
+Problem:
+  Calling Document.find with nil is invalid.
+Summary:
+  Document.find expects the parameters to be 1 or more ids, and will return a single document if 1 id is provided, otherwise an array of documents if multiple ids are provided.
+Resolution:
+  Most likely this is caused by passing parameters directly through to the find, and the parameter either is not present or the key from which it is accessed is incorrect.):
+  app/controllers/events_controller.rb:67:in `show'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.5ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6561ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=-1 skip=0 fields=nil (0.4897ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=-1 skip=0 fields=nil (1.0667ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} update={"$set"=>{"user_ids"=>[], "owner"=>#<User _id: 50163e3c49c86274ef000015, _type: nil, email: "lvl0nax@gmail.com", encrypted_password: "$2a$10$JsPiial7/ciHMfMWNqMh/OgP1iXNXJ/UxJ6kKYnF76MtWP.aMwW4C", name: "lvl0nax", photo_filename: nil, reset_password_token: "bsufYQbBrN1ZxuzyeXaw", reset_password_sent_at: 2012-07-31 16:22:17 UTC, remember_created_at: nil, sign_in_count: 4, current_sign_in_at: 2012-09-01 05:43:35 UTC, last_sign_in_at: 2012-08-09 18:18:57 UTC, current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", training_ids: [], grant_ids: [], event_ids: ["50392ab249c862b668000001"], activity_ids: ["5037453a49c862aa49000005", "50372f6a49c862aa49000004"], evactivity_ids: ["5037453a49c862aa49000005"], gractivity_ids: [], tractivity_ids: []>}} flags=[] (0.2537ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=-1 skip=0 fields=nil (1.7381ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} update={"$set"=>{"user_ids"=>[], "owner"=>"50163e3c49c86274ef000015"}} flags=[] (0.2577ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"$query"=>{}, "$orderby"=>{:_id=>-1}} flags=[] limit=-1 skip=0 fields=nil (1.1942ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:18:56 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8576ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.4876ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4969ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6068ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.9243ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5100ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2422ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6444ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.6018ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3641ms)
+Rendered collection (8.7ms)
+Rendered events/index.html.erb within layouts/application (301.7ms)
+Completed 200 OK in 495ms (Views: 388.5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:18:57 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:18:57 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:19:01 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6413ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.6254ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.6196ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.3734ms)
+Rendered events/show.html.erb (3.1ms)
+Completed 200 OK in 85ms (Views: 5.7ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:19:10 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.9804ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5813ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.6223ms)
+Rendered trainings/show.html.erb (70.1ms)
+Completed 200 OK in 100ms (Views: 72.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:19:44 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5419ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6003ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4227ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5016ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.9418ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5770ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3896ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5844ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5195ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3636ms)
+Rendered collection (3.0ms)
+Rendered events/index.html.erb within layouts/application (81.3ms)
+Compiled application.js  (3ms)  (pid 6781)
+Completed 200 OK in 231ms (Views: 102.5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:19:45 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:19:45 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:19:47 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6394ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4051ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (1.0381ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.7679ms)
+Rendered trainings/show.html.erb (38.6ms)
+Completed 200 OK in 56ms (Views: 41.2ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:19:48 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6187ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5558ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.6099ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.5746ms)
+Rendered events/show.html.erb (2.2ms)
+Completed 200 OK in 46ms (Views: 4.5ms)
+
+
+Started GET "/events/50392ab249c862b668000001" for 127.0.0.1 at 2012-09-12 10:19:49 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"50392ab249c862b668000001"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5143ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.4239ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.5329ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.3943ms)
+Rendered events/show.html.erb (2.0ms)
+Completed 200 OK in 43ms (Views: 4.3ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:19:49 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/events/50392ab249c862b668000001" for 127.0.0.1 at 2012-09-12 10:19:49 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"50392ab249c862b668000001"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7975ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.4902ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.5977ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.5739ms)
+Rendered events/show.html.erb (2.0ms)
+Completed 200 OK in 48ms (Views: 5.1ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:19:49 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/events/50392ab249c862b668000001" for 127.0.0.1 at 2012-09-12 10:19:50 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"50392ab249c862b668000001"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6506ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.4199ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.5891ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.4029ms)
+Rendered events/show.html.erb (1.9ms)
+Completed 200 OK in 45ms (Views: 4.3ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:19:50 +0400
+Served asset  - 404 Not Found (3ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:19:53 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7286ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.3014ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5484ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.4213ms)
+Rendered events/show.html.erb (2.2ms)
+Completed 200 OK in 45ms (Views: 4.5ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:19:53 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.4508ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.3002ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5569ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.3910ms)
+Rendered events/show.html.erb (2.1ms)
+Completed 200 OK in 45ms (Views: 4.4ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:19:54 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6456ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.4375ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5991ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.3958ms)
+Rendered events/show.html.erb (2.1ms)
+Completed 200 OK in 46ms (Views: 4.4ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:19:54 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7308ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5469ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.5665ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.4442ms)
+Rendered events/show.html.erb (2.2ms)
+Completed 200 OK in 82ms (Views: 4.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:26:07 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9096ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.5946ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4148ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6073ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6263ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5589ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3850ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5853ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5159ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3645ms)
+Rendered collection (3.0ms)
+Rendered events/index.html.erb within layouts/application (79.6ms)
+Compiled application.js  (2ms)  (pid 6781)
+Completed 200 OK in 221ms (Views: 97.1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:26:08 +0400
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:26:08 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:26:09 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5972ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.4575ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.9608ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.6044ms)
+Rendered trainings/show.html.erb (37.7ms)
+Completed 200 OK in 55ms (Views: 40.3ms)
+
+
+Started GET "/trainings/50368d6549c862f437000002" for 127.0.0.1 at 2012-09-12 10:26:11 +0400
+  Processing by TrainingsController#show as HTML
+  Parameters: {"id"=>"50368d6549c862f437000002"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8991ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={"_id"=>"50368d6549c862f437000002"} flags=[] limit=0 skip=0 fields=nil (0.7877ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5748ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=requests selector={"requestable_id"=>"50368d6549c862f437000002", "requestable_type"=>"Training", "requestable_field"=>{"$in"=>[:requests, nil]}} flags=[] limit=0 skip=0 fields=nil (0.5798ms)
+Rendered trainings/show.html.erb (34.1ms)
+Completed 200 OK in 58ms (Views: 36.4ms)
+
+
+Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 10:26:12 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"5037453a49c862aa49000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5138ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.2871ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"5037453a49c862aa49000005"} flags=[] limit=0 skip=0 fields=nil (0.4215ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.3462ms)
+Rendered events/show.html.erb (2.1ms)
+Completed 200 OK in 44ms (Views: 4.3ms)
+
+
+Started GET "/events/50392ab249c862b668000001" for 127.0.0.1 at 2012-09-12 10:26:15 +0400
+  Processing by EventsController#show as HTML
+  Parameters: {"id"=>"50392ab249c862b668000001"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6447ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.4311ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={"_id"=>"50392ab249c862b668000001"} flags=[] limit=0 skip=0 fields=nil (0.5376ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.3905ms)
+Rendered events/show.html.erb (2.0ms)
+Completed 200 OK in 45ms (Views: 4.5ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:26:15 +0400
+Served asset  - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-12 10:26:23 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8099ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.0619ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4098ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.4938ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6533ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5245ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3898ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5610ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5302ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3524ms)
+Rendered collection (3.0ms)
+Rendered events/index.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 187ms (Views: 53.5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-12 10:26:23 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-12 10:26:23 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/grants/new" for 127.0.0.1 at 2012-09-12 10:26:47 +0400
+  Processing by GrantsController#new as HTML
+Rendered grants/_form.html.erb (37.5ms)
+Rendered grants/new.html.erb (48.5ms)
+Completed 200 OK in 82ms (Views: 81.5ms)
+
+
+Started GET "/assets/rotate.png" for 127.0.0.1 at 2012-09-12 10:26:47 +0400
+Served asset /rotate.png - 304 Not Modified (27ms)
+
+
+Started GET "/assets/3.png" for 127.0.0.1 at 2012-09-12 10:26:47 +0400
+Served asset /3.png - 304 Not Modified (55ms)

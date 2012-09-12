@@ -1,5 +1,5 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347304304.521927:@value{	I"length:EFiŸ3I"digest;
-F"%35e6bcec385d9d8461b2831fce086e8eI"source;
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347429042.8460736:@value{	I"length:EFiŸ3I"digest;
+F"%f24cce19d4a3cfd8fa3895a169e77cb7I"source;
 FI"Ÿ3/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
@@ -321,7 +321,7 @@ table.test{/*border: 2px solid red;*/}
   width: 1080px;
   min-height: 200px;
   top: 460px;
-  right: 100px;
+  right: 140px;
   background-color: white;
 }
 
@@ -437,4 +437,4 @@ table.test{/*border: 2px solid red;*/}
 #geo-map{height: 380px; width:430;}
 ;
 FI"_version;
-F"%bd9d762d343c0a5cf1302b8920a199d8
+F"%5f288b476f523068d724a8a11de06b07

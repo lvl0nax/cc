@@ -89,6 +89,8 @@ $(function() {
 	$('#container').bind('click', function () {
 		$(".ard").fadeOut();
 		$(".arde").fadeOut();
+		/*if ($("#popup-wrap").is(".show-popup")) 
+			$("#popup-wrap").removeClass();*/
 	});
 
 	$('#trclick').bind('click', function () {
@@ -106,6 +108,19 @@ $(function() {
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+tmp, function(){
+			/*$('#container').bind('click', function () {$("#popup-wrap").removeClass();});*/
+		});
+	});
+	$('.temp_event').bind("click", function(){
+		tmp = $(this).data("content");
+		/*alert('test');*/
+		$('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+tmp, function(){
+		});
+	});
+	$('.temp_grant').bind("click", function(){
+		tmp = $(this).data("content");
+		/*alert('test');*/
+		$('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+tmp, function(){
 		});
 	});
 });/*

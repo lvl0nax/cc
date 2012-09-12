@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347304304.520822:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347429042.8437316:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%bd9d762d343c0a5cf1302b8920a199d8I"logical_path;
+F"%5f288b476f523068d724a8a11de06b07I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,7 +9,7 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-10T23:11:39+04:00;
+FI"2012-09-10T23:13:58+04:00;
 FI"	body;
 FI"4./*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
@@ -332,7 +332,7 @@ table.test{/*border: 2px solid red;*/}
   width: 1080px;
   min-height: 200px;
   top: 460px;
-  right: 100px;
+  right: 140px;
   background-color: white;
 }
 
@@ -436,10 +436,10 @@ F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	TimeS!€ùs.
+FIu:	TimeS!€«O­7
 :@_zoneI"MSK;
-T:nano_numiN:nano_deni:submicro"0:offseti@8I"hexdigest;
-F"%b8a9ab76195575a7281787a62196927c{I"	path;
+T:nano_numií:nano_deni:submicro"#p:offseti@8I"hexdigest;
+F"%19f2552e8b872174c2212c5cdf636c9c{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;

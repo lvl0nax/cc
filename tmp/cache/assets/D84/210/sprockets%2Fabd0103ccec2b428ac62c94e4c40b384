@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347303829.823843:@value{	I"length:EFiûHI"digest;
-F"%e859b017cdb235be4bd4511d9b7fe65eI"source;
-FI"ûH/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347431167.960488:@value{	I"length:EFi.KI"digest;
+F"%4a773d405ef5f7a5ede8e24db24342f2I"source;
+FI".K/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -10095,6 +10095,8 @@ $(function() {
 	$('#container').bind('click', function () {
 		$(".ard").fadeOut();
 		$(".arde").fadeOut();
+		/*if ($("#popup-wrap").is(".show-popup")) 
+			$("#popup-wrap").removeClass();*/
 	});
 
 	$('#trclick').bind('click', function () {
@@ -10112,6 +10114,19 @@ $(function() {
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+tmp, function(){
+			/*$('#container').bind('click', function () {$("#popup-wrap").removeClass();});*/
+		});
+	});
+	$('.temp_event').bind("click", function(){
+		tmp = $(this).data("content");
+		/*alert('test');*/
+		$('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+tmp, function(){
+		});
+	});
+	$('.temp_grant').bind("click", function(){
+		tmp = $(this).data("content");
+		/*alert('test');*/
+		$('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+tmp, function(){
 		});
 	});
 });/*
@@ -10124,4 +10139,4 @@ $('.trainings input:checkbox').click(function() {
 ;
 ;
 TI"_version;
-F"%a16c3684026c7a3c9270234cf1b017e2
+F"%6fa536491e1bf834425471eb04c6fad8

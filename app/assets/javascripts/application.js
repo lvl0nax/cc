@@ -106,7 +106,7 @@ $(function() {
 
 	$(document).on('click',".wait-click" ,function() {
 		if ($("#popup-wrap").is(".show-popup")) {
-			$("#popup-wrap").removeClass();
+			$("#popup-wrap").html("").removeClass();
 			$("#container").removeClass("wait-click");
 		}
 	});
@@ -120,8 +120,8 @@ $(function() {
 			else { 	
 				$('#container').addClass("wait-click");}
 		});
-
 	});
+
 	$('.temp_event').bind("click", function(){
 		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");

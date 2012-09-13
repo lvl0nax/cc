@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347103064.7491732:@value{	I"length:EFi\HI"digest;
-F"%4259a2e7286ceb86fde36416659e0ac1I"source;
-FI"\H/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347433800.5901365:@value{	I"length:EFiœMI"digest;
+F"%1aff2de544821e1bfad5cb0151718233I"source;
+FI"œM/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -10044,13 +10044,13 @@ $(function() {
     $('.create_grant').addClass("cr_select");
     $('.create_event').removeClass("cr_select");
     $('.create_training').removeClass("cr_select");
-		$('#popup-wrap').removeClass("reg-popup").addClass("grant-popup").load("/grants/new");
+		$('#popup-wrap').removeClass().addClass("grant-popup").load("/grants/new");
 		return false;
 	});
 
 	$('.create_training a').bind('click', function(){
 		$(".reg-buttons").hide();
-		$('#popup-wrap').removeClass("reg-popup").addClass("grant-popup").load("/trainings/new", function(){
+		$('#popup-wrap').removeClass().addClass("grant-popup").load("/trainings/new", function(){
         geocoder = new google.maps.Geocoder();
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
@@ -10063,7 +10063,7 @@ $(function() {
 
 	$('.create_event a').bind('click', function(){
 		$(".reg-buttons").hide();
-		$('#popup-wrap').removeClass("reg-popup").addClass("grant-popup").load("/events/new", function(){
+		$('#popup-wrap').removeClass().addClass("grant-popup").load("/events/new", function(){
         geocoder = new google.maps.Geocoder();
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
@@ -10078,7 +10078,7 @@ $(function() {
 		$(this).addClass("reg-select");
 		$('.create_links').hide();
 		$(".reg-buttons").show();
-		$('#popup-wrap').removeClass("grant-popup").addClass("reg-popup").load("/users/sign_up", function(){
+		$('#popup-wrap').removeClass().addClass("reg-popup").load("/users/sign_up", function(){
 		});
 	});
 	
@@ -10095,6 +10095,8 @@ $(function() {
 	$('#container').bind('click', function () {
 		$(".ard").fadeOut();
 		$(".arde").fadeOut();
+		/*if ($("#popup-wrap").is(".show-popup")) 
+			$("#popup-wrap").removeClass();*/
 	});
 
 	$('#trclick').bind('click', function () {
@@ -10107,6 +10109,45 @@ $(function() {
 
 
 	$(".select").click(function(event){ event.stopPropagation()});
+
+	$(document).on('click',".wait-click" ,function() {
+		if ($("#popup-wrap").is(".show-popup")) {
+			$("#popup-wrap").removeClass();
+			$("#container").removeClass("wait-click");
+		}
+	});
+
+	$('.temp_training').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
+		tmp = $(this).data("content");
+		/*alert('test');*/
+		$('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+tmp, function(){
+			if ($("#container").is(".wait-click")){}
+			else { 	
+				$('#container').addClass("wait-click");}
+		});
+
+	});
+	$('.temp_event').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
+		tmp = $(this).data("content");
+		/*alert('test');*/
+		$('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+tmp, function(){
+			if ($("#container").is(".wait-click")){}
+			else { 	
+				$('#container').addClass("wait-click");}
+		});
+	});
+	$('.temp_grant').bind("click", function(){
+		if ($("#container").is(".wait-click")){$("#container").removeClass();}
+		tmp = $(this).data("content");
+		/*alert('test');*/
+		$('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+tmp, function(){
+			if ($("#container").is(".wait-click")){}
+			else  
+				$('#container').addClass("wait-click");
+		});
+	});
 });/*
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)
@@ -10117,4 +10158,4 @@ $('.trainings input:checkbox').click(function() {
 ;
 ;
 TI"_version;
-F"%ecbd52007e3449f96ae1d62919d7ecf0
+F"%9b87892f2a32c48bae8f7b004f560256

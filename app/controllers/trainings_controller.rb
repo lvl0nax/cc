@@ -18,7 +18,7 @@ class TrainingsController < ApplicationController
     @requests = @training.requests
     #UserMailer.info_email(current_user).deliver
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => false }# show.html.erb
       format.json { render json: @training }
     end
   end

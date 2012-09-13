@@ -252,9 +252,9 @@ label.control-label{  padding-right: 10px;  float: left;}
 #grant_end_point__{margin-bottom: 45px;}
 
 /*show item*/
-.evshow{margin-top: 10px; border-top: 3px solid #76a38a ; border-left: 3px solid #76a38a; border-right: 3px solid #76a38a; border-bottom: 15px solid #76a38a;}
-.grshow{margin-top: 10px; border-top: 3px solid #333f3f ; border-left: 3px solid #333f3f; border-right: 3px solid #333f3f; border-bottom: 15px solid #333f3f;}
-.trshow{margin-top: 10px; border-top: 3px solid #c9db57 ; border-left: 3px solid #c9db57; border-right: 3px solid #c9db57; border-bottom: 15px solid #c9db57;}
+.evshow{ border-top: 3px solid #76a38a ; border-left: 3px solid #76a38a; border-right: 3px solid #76a38a; border-bottom: 15px solid #76a38a;}
+.grshow{ border-top: 3px solid #333f3f ; border-left: 3px solid #333f3f; border-right: 3px solid #333f3f; border-bottom: 15px solid #333f3f;}
+.trshow{ border-top: 3px solid #c9db57 ; border-left: 3px solid #c9db57; border-right: 3px solid #c9db57; border-bottom: 15px solid #c9db57;}
 .yellow_letter{color: #c9db57; font-size: 20px; margin-top: 15px; margin-bottom: 5px;}
 .black_letter{color: #333f3f; font-size: 20px; margin-top: 15px; margin-bottom: 5px;}
 .green_letter{color: #76a38a; font-size: 20px; margin-top: 15px; margin-bottom: 5px;}
@@ -314,6 +314,14 @@ table.test{/*border: 2px solid red;*/}
   min-height: 600px;
   top: 184px;
   right: 100px;
+}
+
+.show-popup{
+  width: 1080px;
+  min-height: 200px;
+  top: 460px;
+  right: 140px;
+  background-color: white;
 }
 
 .inactive{

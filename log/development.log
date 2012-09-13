@@ -17607,3 +17607,66 @@ Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 11:10
 Rendered events/show.html.erb (2.2ms)
 Completed 200 OK in 81ms (Views: 4.6ms)
 >>>>>>> acfe4f3bd4d94a723fe00d630f9f2e6f746aa994
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-13 17:33:46 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (105.0289ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (261.8437ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2406ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.2425ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.2530ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (2.3136ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (30.7140ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (96.1268ms)
+Rendered events/index.html.erb within layouts/application (812.1ms)
+Completed 500 Internal Server Error in 1345ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    23:         <div class="select">
+    24:           <div id="trclick" class="area-label">ВСЕ</div>
+    25:           <div class="dropdown ard">  
+    26:             <% unless User.employees.blank? %>
+    27:               <%= simple_fields_for :companies_list do |f| %>
+    28:                 <%= f.input :companies, :label => false , :collection => User.employees, :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
+    29:               <% end %>
+  app/models/user.rb:75:in `role_name'
+  app/models/user.rb:85:in `block in employees'
+  app/models/user.rb:85:in `employees'
+  app/views/events/index.html.erb:26:in `block in _app_views_events_index_html_erb__4006765514032033353_35655500'
+  app/views/events/index.html.erb:3:in `_app_views_events_index_html_erb__4006765514032033353_35655500'
+  app/controllers/events_controller.rb:54:in `index'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.2ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.4081ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.8619ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=test_mongoid_development command={:count=>:users, :query=>{}} (63.6528ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.9456ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0304ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (1.4277ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (1.9550ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (1.9462ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (1.7562ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=test_mongoid_development collection=users selector={"_id"=>"500531b272828b0e79000005"} flags=[:remove_first] (1.0600ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=test_mongoid_development collection=users selector={"_id"=>"5005323e72828b0ea6000003"} flags=[:remove_first] (0.0830ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=test_mongoid_development collection=users selector={"_id"=>"500538e872828b0ef1000003"} flags=[:remove_first] (0.0651ms)
+  MOPED: 127.0.0.1:27017 DELETE       database=test_mongoid_development collection=users selector={"_id"=>"50053e9472828b0f6900000f"} flags=[:remove_first] (0.0854ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.9027ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.8523ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6444ms)
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0762ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (1.3490ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (1.4088ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (2.0304ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (2.2750ms)

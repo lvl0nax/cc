@@ -23,9 +23,10 @@
         <div class="select">
           <div id="trclick" class="area-label">ВСЕ</div>
           <div class="dropdown ard">  
-            <%= simple_fields_for :companies_list do |f| %>
-              <%= f.input :companies, :label => false , :collection => User.employees, :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
-
+            <% unless User.employees.blank? %>
+              <%= simple_fields_for :companies_list do |f| %>
+                <%= f.input :companies, :label => false , :collection => User.employees, :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
+              <% end %>
             <% end %>
             <div class="for_clear"></div>
           </div>  

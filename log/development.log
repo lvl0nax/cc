@@ -17535,3 +17535,87 @@ Started GET "/events/5037453a49c862aa49000005" for 127.0.0.1 at 2012-09-12 11:10
   MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=0 skip=0 fields=nil (0.3898ms)
 Rendered events/show.html.erb (2.2ms)
 Completed 200 OK in 81ms (Views: 4.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-16 22:49:30 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (385.4709ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (92.4447ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (27.2474ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (15.8486ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (17.0240ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (11.6169ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.6919ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (34.7314ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.6840ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4745ms)
+Rendered collection (69.0ms)
+Rendered events/index.html.erb within layouts/application (583.2ms)
+Compiled application.js  (23ms)  (pid 24392)
+Completed 200 OK in 1801ms (Views: 1076.4ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-16 22:49:32 +0400
+Served asset /geo.css - 200 OK (9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-16 22:49:32 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-16 22:49:32 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-16 22:49:32 +0400
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-16 22:49:32 +0400
+Served asset /geo.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-16 22:49:32 +0400
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-16 22:49:43 +0400
+Served asset /1.png - 200 OK (42ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-16 22:49:43 +0400
+Served asset /logo.png - 200 OK (91ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-16 22:49:43 +0400
+Served asset /stag.png - 200 OK (70ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-16 22:49:43 +0400
+Served asset /icons.png - 200 OK (26ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-16 22:49:43 +0400
+Served asset /event.png - 200 OK (18ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-16 22:49:43 +0400
+Served asset /grant.png - 200 OK (2ms)
+
+
+Started GET "/assets/" for 127.0.0.1 at 2012-09-16 22:49:43 +0400
+Served asset  - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)

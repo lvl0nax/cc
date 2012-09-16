@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347433800.5901365:@value{	I"length:EFiœMI"digest;
-F"%1aff2de544821e1bfad5cb0151718233I"source;
-FI"œM/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347821372.8294413:@value{	I"length:EFi¥MI"digest;
+F"%9ad48bbf08afd166f519e23fc139fa52I"source;
+FI"¥M/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -10112,7 +10112,7 @@ $(function() {
 
 	$(document).on('click',".wait-click" ,function() {
 		if ($("#popup-wrap").is(".show-popup")) {
-			$("#popup-wrap").removeClass();
+			$("#popup-wrap").html("").removeClass();
 			$("#container").removeClass("wait-click");
 		}
 	});
@@ -10126,8 +10126,8 @@ $(function() {
 			else { 	
 				$('#container').addClass("wait-click");}
 		});
-
 	});
+
 	$('.temp_event').bind("click", function(){
 		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
@@ -10158,4 +10158,4 @@ $('.trainings input:checkbox').click(function() {
 ;
 ;
 TI"_version;
-F"%9b87892f2a32c48bae8f7b004f560256
+F"%3baa03e76408c648dd6440b0f43377bc

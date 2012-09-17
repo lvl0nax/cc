@@ -19,8 +19,10 @@
               <%= link_to "sign out", destroy_user_session_path, :method => :delete %> |
               <%= link_to "сферы", areas_path %> 
               <%= link_to "events", activities_events_path%>
-              <% current_user.events.each do |e| %>
-                <%= e.title %>
+              <% if current_user.resume %>
+                <%= link_to "resume", current_user %>
+              <% else %>
+                <%= link_to "resume", new_resume_path %>
               <% end %>
             <% else %>
               <%= link_to "sign_in", new_user_session_path%>|

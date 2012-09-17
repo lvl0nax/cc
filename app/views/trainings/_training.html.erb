@@ -4,7 +4,11 @@
 		стажировка
 	</div>
 	<div class="temp_img">
-		<%= image_tag training.photo.url %>
+		<% if training.photo.blank? %>
+      <%= image_tag "/assets/Untitled.jpg" %>
+    <% else %>
+      <%= image_tag training.photo.url %>
+    <% end %>
 	</div>
 	<div class="temp_place">
 		<%= training.place %>

@@ -1,25 +1,12 @@
-<%= form_for(@compinfo) do |f| %>
-  <% if @compinfo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@compinfo.errors.count, "error") %> prohibited this compinfo from being saved:</h2>
-
-      <ul>
-      <% @compinfo.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@compinfo) do |f| %>
+  <%= f.input :name, :label => "ИМЯ" %>
+  <%= f.input :photo, :label => "ЛОГОТИП"  %>
+  <%= f.input :city, :label => "ГОРОД"  %>
+  <%= f.input :street, :label => "УЛИЦА", :wrapper_html => { :class => 'strt' } %>
+  <%= f.input :building, :label => "ДОМ", :wrapper_html => { :class => 'house' } %>
+  <%= f.input :info, :label => "КОНТАКТНАЯ ИНФОРМАЦИЯ"  %>
+  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ"  %>
+  
+  <%= f.button :submit, :value => "ДОБАВИТЬ" %>
 <% end %>
+

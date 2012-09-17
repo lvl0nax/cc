@@ -4,7 +4,11 @@
 		грант
 	</div>
 	<div class="temp_img">
-		<%= image_tag grant.photo.url %>
+		<% if grant.photo.blank? %>
+      <%= image_tag "/assets/Untitled3.jpg" %>
+    <% else %>
+      <%= image_tag grant.photo.url %>
+    <% end %>
 	</div>
 	<div class="temp_place">
 		

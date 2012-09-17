@@ -415,3 +415,50 @@ table.test{/*border: 2px solid red;*/}
 .search_training .input{ padding-bottom: 10px;}
 .search_training .control-label{color: white;}
 .padd{padding-left: 65px;}
+
+#resume .simple_form{
+  background-color: white;
+  background-image: none;
+  color: black;
+}
+
+#resume .input {padding-left: 40px;}
+.line {height: 2px; width: 900px; background-color: #D9EB67; margin-top: 10px; margin-bottom: 10px;}
+#resume a{margin-left: 50px;}
+#resume label{float: left; line-height: 19px; width:150px;}
+#resume input{  width:600px;}
+#resume input.radio_buttons{  width:15px;}
+#resume .edu label{float: left; line-height: 19px; width:215px; padding-left: 160px;}
+#resume .edu input{  width:375px;}
+#resume .email label{float: left; line-height: 19px; width:240px; text-align: right;}
+#resume .email input{  width:510px;}
+#resume .tel label{float: left; line-height: 19px; width:240px;}
+#resume .tel input{  width:510px;}
+#resume .boolean label{width: 600px;}
+#resume .boolean input{width: 15px; float:right;}
+#resume .btn{
+  background-color: #333F3F;
+  position: static;
+  width: 100%;
+  height: 25px;
+  color: white;
+  line-height: 25px;
+  margin-top: 10px;
+}
+
+#resume-show {width: 940px; font-size: 17px}
+#resume .sms-label label {width: 310px;}
+
+#resume-show .line {height: 2px; width: 900px; background-color: #D9EB67; margin-top: 10px; margin-bottom: 10px;}
+#resume-show label{margin-left: 50px; line-height: 19px; width:200px; color:#76a38a;display: inline-block;}
+#resume-show div{line-height: 19px;  width:600px; display: inline-block; margin-bottom: 10px;}
+#resume-show label.edu {padding-left: 200px;}
+#resume-show div.edu {  width:400px;}
+#resume-show label.email {width: 575px;}
+#resume-show div.checkbox {  width:50px;}
+#resume-show label.sms {width: 300px;}
+#resume-show div.edu {  width:400px;}
+#resume-show .for_new_line{ display: block; padding: 0; margin: 0;}
+#resume-show label.email-show {width: 245px;text-align: right}
+#resume-show div.show {  width:400px; padding-left: 20px;}
+#resume-show label.phone-show {width: 245px;}

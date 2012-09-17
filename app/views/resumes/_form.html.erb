@@ -1,25 +1,33 @@
-<%= form_for(@resume) do |f| %>
-  <% if @resume.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
+<div id="resume">
+  <%= simple_form_for @resume do |f| %>
+    <%= f.input :name, :label => "ИМЯ" %>
+    <%= f.input :surname, :label => "ФАМИЛИЯ" %>
+    <%= f.input :gender, :label => "ПОЛ", :collection => ["мужской", "женский"], :as => :radio_buttons  %>
+    <div class="for_clear"></div>
+    <%= f.input :birthday, :label => "ДЕНЬ РОЖДЕНИЯ", :as => :date, :start_year => Date.today.year - 50,
+                              :end_year => Date.today.year - 10,
+                              :order => [:day, :month, :year] %>
+    <%= f.input :home, :label => "ГОРОД"  %>
+    <div class="line"></div>
+    <%= f.input :education, :label => "ОБРАЗОВАНИЕ"  %>
+    <%= f.input :university, :label => "ВУЗ", :wrapper_html =>{:class => "edu"} %>
+    <%= f.input :faculty, :label => "ФАКУЛЬТЕТ", :wrapper_html =>{:class => "edu"}  %>
+    <%= f.input :experation, :label => "ДАТА ОКОНЧАНИЯ", :wrapper_html =>{:class => "edu"}  %>
+    <div class="line"></div>
+    <%= f.input :description, :label => "ОПИСАНИЕ СЕБЯ", as: :text, :input_html => {:rows => "8", :cols => "65"}  %>
+    <div class="line"></div>
+    <%= f.input :delivery_email_enable, :as => :boolean, :label => "ПОДПИСАТЬСЯ НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ"  %>
+    <div class="for_clear"></div>
+    <%= f.input :delivery_email, :label => "E-MAIL"  %>
+    <div class="line"></div>
+    <%= f.input :delivery_phone_enable, :as => :boolean, :label => "ПОДПИСАТЬ НА SMS-РАССЫЛКУ", :wrapper_html =>{:class => "sms-label"}  %>
+    <div class="for_clear"></div>
+    <%= f.input :delivery_phone, :label => "ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН"  %>
+    <div class="line"></div>
+    
+    <%= link_to "СМЕНИТЬ ПАРОЛЬ", edit_registration_path(current_user)%>
 
-      <ul>
-      <% @resume.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+    <%= f.button :submit, :value => "СОХРАНИТЬ" %>
   <% end %>
+</div>  
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

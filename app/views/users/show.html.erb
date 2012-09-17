@@ -1,0 +1,30 @@
+<div id="resume-show"	>
+	<label>ИМЯ</label><div class = ""><%= @resume.name %></div>
+	
+	<label>ФАМИЛИЯ</label><div class = ""><%= @resume.surname %></div>
+	
+	<label>ПОЛ</label><div class = ""><%= @resume.gender %></div>
+	
+	<label>ДАТА РОЖДЕНИЯ</label><div class = ""><%= @resume.birthday %></div>
+	
+	<label>ГОРОД</label><div class = ""><%= @resume.home %></div>
+	<div class="line"></div>
+	<label>ОБРАЗОВАНИЕ</label><div class = ""><%= @resume.education %></div>
+	
+	<label class = "edu">ВУЗ</label><div class = "edu"><%= @resume.university %></div>
+	
+	<label class = "edu">ФАКУЛЬТЕТ</label><div class = "edu"><%= @resume.faculty %></div>
+	
+	<label class = "edu">ДАТА ОКОНЧАНИЯ</label><div class = "edu"><%= @resume.experation %></div>
+	<div class="line"></div>
+	<label>ОПИСАНИЕ СЕБЯ</label><div class = ""><%= @resume.description %></div>
+	<div class="line"></div>
+	<label class="email">ПОДПИСКА НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ</label><div class = "checkbox"><%= @resume.delivery_email_enable %></div>
+	<div class="for_new_line"></div>
+	<label class="email-show">E-MAIL</label><div class = "show"><%= @resume.delivery_email %></div>
+	<div class="line"></div>
+	<label class="sms">ПОДПИСКА НА SMS-РАССЫЛКУ</label><div class = "checkbox"><%= @resume.delivery_phone_enable %></div>
+	<div class="for_new_line"></div>
+	<label class="phone-show">ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН</label><div class = "show"><%= @resume.delivery_phone %></div>
+	<div class="line"></div>
+</div>

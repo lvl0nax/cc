@@ -41,10 +41,10 @@ class ResumesController < ApplicationController
   # POST /resumes.json
   def create
     @resume = Resume.new(params[:resume])
-
+    current_user.resume = @resume
     respond_to do |format|
-      if @resume.save
-        format.html { redirect_to @resume, notice: 'Resume was successfully created.' }
+      if current_user.save
+        format.html { redirect_to current_user.resume, notice: 'Resume was successfully created.' }
         format.json { render json: @resume, status: :created, location: @resume }
       else
         format.html { render action: "new" }

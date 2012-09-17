@@ -30,8 +30,17 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def show
+    @user = current_user
+    @resume = current_user.resume
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @resume }
+    end
+  end
+
   def profile
-    @user = Page.find(params[:user])
+    @user = current_user
 
     #checking for admin role.
     # if it's profile of the admin, you will be redirect to root

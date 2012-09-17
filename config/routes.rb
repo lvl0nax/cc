@@ -17,8 +17,6 @@ TestMongoid::Application.routes.draw do
     end
   end
 
-  resources :conferences
-
   resources :events do
     member do
       get 'add_participant'
@@ -46,7 +44,7 @@ TestMongoid::Application.routes.draw do
   
 
 
-  #resources :users, :only => [:show, :index]
+  resources :users, :only => [:show, :index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

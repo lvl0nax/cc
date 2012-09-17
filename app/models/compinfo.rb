@@ -7,7 +7,6 @@ class Compinfo
   field :building
   field :info
   field :hyperlink
-  field :email
   mount_uploader :photo, ImageUploader
   
 end

@@ -19,10 +19,13 @@
               <%= link_to "sign out", destroy_user_session_path, :method => :delete %> |
               <%= link_to "сферы", areas_path %> 
               <%= link_to "events", activities_events_path%>
-              <% if current_user.resume %>
-                <%= link_to "resume", current_user %>
-              <% else %>
-                <%= link_to "resume", new_resume_path %>
+                
+              <% unless current_user.role.try(:name)=='employer' %>
+                <% if current_user.resume %>
+                  <%= link_to "resume", current_user %>
+                <% else %>
+                  <%= link_to "resume", new_resume_path %>
+                <% end %>
               <% end %>
             <% else %>
               <%= link_to "sign_in", new_user_session_path%>|

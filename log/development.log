@@ -22638,3 +22638,93 @@ Served asset /logo.png - 200 OK (0ms)
 
 Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 01:43:57 +0400
 Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/users/50163e3c49c86274ef000015" for 127.0.0.1 at 2012-09-18 01:46:39 +0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"50163e3c49c86274ef000015"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7246ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.9987ms)
+Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 91ms (Views: 66.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 01:46:39 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 01:46:39 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 01:46:39 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 01:46:39 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 01:46:39 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 01:46:39 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 01:46:40 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 01:46:40 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 01:46:40 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/users/50163e3c49c86274ef000015" for 127.0.0.1 at 2012-09-18 01:47:24 +0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"50163e3c49c86274ef000015"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6704ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.4833ms)
+Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 79ms (Views: 62.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
+Served asset /icons.png - 200 OK (1ms)

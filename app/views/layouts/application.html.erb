@@ -15,21 +15,29 @@
         <div id="content_top">
           <div class="login">
             <% if current_user %>
-              <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
-              <%= link_to "sign out", destroy_user_session_path, :method => :delete %> |
-              <%= link_to "сферы", areas_path %> 
-              <%= link_to "events", activities_events_path%>
-                
-              <% unless current_user.role.try(:name)=='employer' %>
-                <% if current_user.resume %>
-                  <%= link_to "resume", current_user %>
-                <% else %>
-                  <%= link_to "resume", new_resume_path %>
+              <div class="text-to-right">
+                <% if current_user.role?(:admin) %>
+                  <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
+                  <%= link_to "сферы", areas_path %> 
+                  <%= link_to "events", activities_events_path%>
+                  <div class="vline">|</div>
+                <% end %>  
+                  
+                <%= link_to "МОЙ КАЛЕНДАРЬ", "#" %>
+                <div class="vline">|</div>
+                <% unless current_user.role.try(:name)=='employer' %>
+                  <% if current_user.resume %>
+                    <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", current_user %>
+                  <% else %>
+                    <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_resume_path %>
+                  <% end %>
                 <% end %>
-              <% end %>
+                <div class="vline">|</div>
+                <%= link_to "ВЫХОД", destroy_user_session_path, :method => :delete %>
+              </div>
             <% else %>
-              <%= link_to "sign_in", new_user_session_path%>|
-              <%= link_to "sign_up", new_user_registration_path%>
+              <div id="login"><%= link_to "ВОЙТИ", new_user_session_path, :id => "test"%></div>
+              <div id="login-form"></div>
             <% end %>
           </div>
 

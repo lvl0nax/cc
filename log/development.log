@@ -22728,3 +22728,1993 @@ Served asset /logo.png - 200 OK (0ms)
 
 Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 01:47:25 +0400
 Served asset /icons.png - 200 OK (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:40:42 +0400
+  Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (187.7389ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (58.8369ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (48.8114ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (9.3892ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (15.9800ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (23.1066ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (17.8931ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2434ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5274ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4148ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4101ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3030ms)
+Rendered collection (98.4ms)
+Rendered events/index.html.erb within layouts/application (498.2ms)
+Completed 200 OK in 1360ms (Views: 823.3ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /geo.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /geo.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /logo.png - 304 Not Modified (50ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /icons.png - 304 Not Modified (52ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /event.png - 304 Not Modified (38ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /stag.png - 304 Not Modified (12ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /grant.png - 304 Not Modified (19ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 10:40:44 +0400
+Served asset /Untitled2.jpg - 304 Not Modified (13ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:40:48 +0400
+  Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7298ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.9778ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.7794ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.3073ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6022ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.7193ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5314ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3827ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6216ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5751ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3917ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3717ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (35.3ms)
+Completed 200 OK in 221ms (Views: 60.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /geo.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /1.png - 200 OK (43ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /icons.png - 304 Not Modified (1ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /stag.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /grant.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /event.png - 304 Not Modified (4ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 10:40:49 +0400
+Served asset /Untitled2.jpg - 304 Not Modified (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mFxHiiq8ZIuy5AVUHeOlkJGwNmATnCIorYRhFV59zJ8="}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7553ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.6263ms)
+Redirected to http://localhost:3000/
+Completed 302 Found in 120ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.7911ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.5138ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6316ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6580ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5174ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4239ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6273ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7486ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4773ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3545ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (47.9ms)
+Completed 200 OK in 182ms (Views: 55.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+Served asset /geo.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 10:40:52 +0400
+Served asset /Untitled2.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:46:01 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8383ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.6623ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4404ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5980ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6480ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5407ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4108ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6654ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7460ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4339ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3629ms)
+Rendered collection (3.1ms)
+Rendered events/index.html.erb within layouts/application (46.9ms)
+Compiled application.js  (3ms)  (pid 3254)
+Completed 200 OK in 308ms (Views: 174.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:46:01 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:46:01 +0400
+Served asset /geo.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:46:01 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:46:01 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:46:01 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:46:01 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 10:46:02 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 10:46:02 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 10:46:02 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 10:46:02 +0400
+Served asset /stag.png - 200 OK (3ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 10:46:02 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 10:46:02 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 10:46:02 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.1790ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4029ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5920ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6359ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5598ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4361ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6869ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.8140ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4411ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3865ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (48.4ms)
+Completed 200 OK in 200ms (Views: 91.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 10:46:04 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 10:46:05 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links.erb (5.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 90ms (Views: 45.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:50:10 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6812ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6299ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2971ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6804ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.4470ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5231ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3870ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6216ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7331ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4270ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3612ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (46.4ms)
+Compiled application.js  (2ms)  (pid 3254)
+Completed 200 OK in 234ms (Views: 96.2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:11 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:50:16 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8950ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6025ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4222ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6030ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6580ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5498ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5455ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6750ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.9224ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3021ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2105ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (88.1ms)
+Completed 200 OK in 227ms (Views: 96.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /geo.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /1.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /logo.png - 304 Not Modified (6ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /icons.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /grant.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /event.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /Untitled2.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 10:50:17 +0400
+Served asset /stag.png - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:50:37 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5584ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.5856ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4101ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6015ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6387ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.7200ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5536ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6506ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6702ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3800ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2949ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (89.2ms)
+Completed 200 OK in 229ms (Views: 97.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:50:37 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:50:37 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:37 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:37 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:37 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:50:37 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 10:50:38 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 10:50:38 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 10:50:38 +0400
+Served asset /icons.png - 200 OK (9ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 10:50:38 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 10:50:38 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 10:50:38 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 10:50:38 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 10:50:39 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links.erb (0.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 45ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/sessions_controller.rb:8:in `block (2 levels) in new'
+  app/controllers/sessions_controller.rb:7:in `new'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:51:42 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7236ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6576ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.5636ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.8163ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.7024ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5851ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4692ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.9632ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.8590ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5558ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4432ms)
+Rendered collection (4.8ms)
+Rendered events/index.html.erb within layouts/application (50.1ms)
+Completed 200 OK in 230ms (Views: 93.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:51:42 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:51:42 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:51:42 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:51:42 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:51:42 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:51:42 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 10:51:43 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 10:51:43 +0400
+Served asset /logo.png - 200 OK (6ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 10:51:43 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 10:51:43 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 10:51:43 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 10:51:43 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 10:51:43 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 10:51:44 +0400
+  Processing by SessionsController#new as HTML
+Completed 500 Internal Server Error in 1ms
+
+NameError (uninitialized constant SessionsController::Session):
+  app/controllers/sessions_controller.rb:7:in `new'
+
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /home/monax/.rvm/gems/ruby-1.9.3-p0/gems/actionpack-3.1.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 10:59:59 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0767ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.0562ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.3188ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6022ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6397ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5207ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3641ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6340ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7496ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3803ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2842ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (50.8ms)
+Completed 200 OK in 221ms (Views: 59.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 10:59:59 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 10:59:59 +0400
+Served asset /geo.js - 200 OK (4ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 10:59:59 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 10:59:59 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 10:59:59 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 10:59:59 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:00:00 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:00:00 +0400
+Served asset /logo.png - 200 OK (8ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:00:00 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:00:00 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:00:00 +0400
+Served asset /grant.png - 200 OK (1ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:00:00 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:00:00 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:00:02 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links.erb (0.7ms)
+Rendered devise/sessions/new.html.erb (3.6ms)
+Completed 200 OK in 72ms (Views: 6.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:03:45 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.4523ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.3908ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4778ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.4325ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.4447ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3400ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2260ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4604ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7896ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4458ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3641ms)
+Rendered collection (3.4ms)
+Rendered events/index.html.erb within layouts/application (82.1ms)
+Completed 200 OK in 226ms (Views: 90.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /application.js - 200 OK (3ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /logo.png - 200 OK (14ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:03:46 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:03:47 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:03:48 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.8ms)
+Rendered devise/sessions/new.html.erb (4.1ms)
+Completed 200 OK in 38ms (Views: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7577ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6058ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4597ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5968ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6506ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5441ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3855ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6340ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7467ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4926ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3648ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (84.3ms)
+Completed 200 OK in 241ms (Views: 93.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /logo.png - 200 OK (3ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:08:18 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:08:19 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:08:28 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (1.4ms)
+Rendered devise/sessions/new.html.erb (5.7ms)
+Completed 200 OK in 51ms (Views: 9.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:10:38 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8981ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.4861ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4599ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.4849ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6442ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5465ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3994ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6216ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7443ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4404ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3455ms)
+Rendered collection (3.3ms)
+Rendered events/index.html.erb within layouts/application (46.7ms)
+Compiled application.css  (1ms)  (pid 3254)
+Completed 200 OK in 197ms (Views: 60.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:10:38 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:10:38 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:10:38 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:10:38 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:10:38 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:10:38 +0400
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:10:39 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:10:39 +0400
+Served asset /logo.png - 200 OK (13ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:10:39 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:10:39 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:10:39 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:10:39 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:10:39 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:10:41 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.4ms)
+Rendered devise/sessions/new.html.erb (3.3ms)
+Completed 200 OK in 70ms (Views: 6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:15:06 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5715ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.5994ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4344ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5951ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6566ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5927ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4780ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.9229ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7939ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4716ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3655ms)
+Rendered collection (3.7ms)
+Rendered events/index.html.erb within layouts/application (86.7ms)
+Compiled application.css  (1ms)  (pid 3254)
+Completed 200 OK in 235ms (Views: 100.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:15:06 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:15:06 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:15:06 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:15:06 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:15:06 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:15:06 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:15:07 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:15:07 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:15:07 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:15:07 +0400
+Served asset /grant.png - 200 OK (2ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:15:07 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:15:07 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:15:07 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:15:09 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.4ms)
+Rendered devise/sessions/new.html.erb (4.0ms)
+Completed 200 OK in 39ms (Views: 6.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:15:31 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6967ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.3991ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5918ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6475ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5317ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3846ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6220ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7446ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4840ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3703ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (86.1ms)
+Compiled application.css  (1ms)  (pid 3254)
+Completed 200 OK in 224ms (Views: 99.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:15:31 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:15:31 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:15:31 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:15:31 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:15:31 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:15:31 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:15:31 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:15:32 +0400
+Served asset /logo.png - 200 OK (5ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:15:32 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:15:32 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:15:32 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:15:32 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:15:32 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:15:33 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.4ms)
+Rendered devise/sessions/new.html.erb (3.3ms)
+Completed 200 OK in 39ms (Views: 5.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:20:38 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7124ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.8535ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4380ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6053ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.4699ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3929ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2925ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5114ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5994ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3104ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2511ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 204ms (Views: 53.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:20:38 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:20:38 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:20:38 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:20:38 +0400
+Served asset /geo.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:20:38 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:20:38 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:20:39 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:20:39 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:20:39 +0400
+Served asset /logo.png - 200 OK (3ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:20:39 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:20:39 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:20:39 +0400
+Served asset /event.png - 200 OK (3ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:20:39 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:20:40 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.4ms)
+Rendered devise/sessions/new.html.erb (4.2ms)
+Completed 200 OK in 73ms (Views: 41.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:21:05 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.2147ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.3176ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.4673ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.4957ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4117ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3011ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5853ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5944ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3011ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2580ms)
+Rendered collection (3.3ms)
+Rendered events/index.html.erb within layouts/application (79.1ms)
+Completed 200 OK in 217ms (Views: 87.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /geo.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:21:06 +0400
+Served asset /Untitled2.jpg - 200 OK (1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:21:08 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.4ms)
+Rendered devise/sessions/new.html.erb (3.9ms)
+Completed 200 OK in 71ms (Views: 6.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7603ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.5929ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4232ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6025ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6285ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5274ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3877ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7470ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7513ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4485ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3588ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (82.2ms)
+Compiled application.css  (1ms)  (pid 3254)
+Completed 200 OK in 225ms (Views: 95.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:21:54 +0400
+Served asset /logo.png - 200 OK (1ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:21:55 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:21:55 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:21:55 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:21:55 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:21:55 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:21:57 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.4ms)
+Rendered devise/sessions/new.html.erb (4.0ms)
+Completed 200 OK in 38ms (Views: 6.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:22:20 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.7186ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4208ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5953ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6759ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3347ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2260ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4590ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5462ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2837ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1922ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (46.4ms)
+Completed 200 OK in 179ms (Views: 54.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /grant.png - 200 OK (3ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:22:21 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:22:23 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.4ms)
+Rendered devise/sessions/new.html.erb (3.9ms)
+Completed 200 OK in 39ms (Views: 6.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:23:07 +0400
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e1SjGMKnH4jyAZeIUfKfvPPhWLCYx5kq2bYcJ1ghhRM=", "user"=>{"email"=>"lvl0nax@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ВОЙТИ"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.1148ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"email"=>"lvl0nax@gmail.com"} flags=[] limit=-1 skip=0 fields=nil (1.2116ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} update={"$set"=>{"last_sign_in_at"=>2012-09-17 17:03:39 UTC, "current_sign_in_at"=>2012-09-18 07:23:07 UTC, "sign_in_count"=>6}} flags=[] (0.2275ms)
+Redirected to http://localhost:3000/
+Completed 302 Found in 283ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:23:07 +0400
+  Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.6394ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6974ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4573ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6039ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.4439ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3345ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2351ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4392ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4129ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2618ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1953ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (32.9ms)
+Compiled application.css  (1ms)  (pid 3254)
+Completed 200 OK in 242ms (Views: 99.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:23:08 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:30:28 +0400
+  Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6111ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.4735ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.1842ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4101ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.4082ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6683ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5445ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3910ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6406ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5918ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4764ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3588ms)
+Rendered collection (3.4ms)
+Rendered events/index.html.erb within layouts/application (71.2ms)
+Completed 200 OK in 255ms (Views: 97.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:30:28 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:30:28 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:30:28 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:30:28 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:30:28 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:30:28 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:30:29 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:30:29 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:30:29 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:30:29 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:30:29 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:30:29 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:30:29 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:30:56 +0400
+  Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.8681ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6826ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4373ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6135ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6423ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5417ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4106ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4938ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5996ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4528ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3569ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 245ms (Views: 93.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /logo.png - 200 OK (7ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /icons.png - 200 OK (6ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:30:57 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+  Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.4964ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.3912ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6890ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4239ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6409ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6702ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5345ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4373ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6406ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5901ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4363ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3633ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (34.5ms)
+Compiled application.css  (1ms)  (pid 3254)
+Completed 200 OK in 248ms (Views: 64.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:32:16 +0400
+Served asset /logo.png - 200 OK (4ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:32:17 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:32:17 +0400
+Served asset /grant.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:32:17 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:32:17 +0400
+Served asset /stag.png - 200 OK (2ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:32:17 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:35:18 +0400
+  Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6762ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.4947ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (1.0016ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4282ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.5951ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.4439ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3347ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2325ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4649ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4070ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5550ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3695ms)
+Rendered collection (3.7ms)
+Rendered events/index.html.erb within layouts/application (75.8ms)
+Compiled application.css  (1ms)  (pid 3254)
+Completed 200 OK in 266ms (Views: 107.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /logo.png - 200 OK (9ms)
+
+
+Started GET "/assets/icons.png" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/event.png" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /event.png - 200 OK (0ms)
+
+
+Started GET "/assets/grant.png" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /grant.png - 200 OK (1ms)
+
+
+Started GET "/assets/stag.png" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /stag.png - 200 OK (0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 127.0.0.1 at 2012-09-18 11:35:19 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-09-18 11:35:31 +0400
+  Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"e1SjGMKnH4jyAZeIUfKfvPPhWLCYx5kq2bYcJ1ghhRM="}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5264ms)
+Redirected to http://localhost:3000/
+Completed 302 Found in 61ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:35:31 +0400
+  Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.5150ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4528ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6025ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6320ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5217ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3901ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6373ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.7458ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4921ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3729ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (51.2ms)
+Completed 200 OK in 199ms (Views: 59.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:35:31 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:35:33 +0400
+  Processing by SessionsController#new as HTML
+Rendered devise/shared/_links_for_login.erb (0.4ms)
+Rendered devise/sessions/new.html.erb (3.4ms)
+Completed 200 OK in 38ms (Views: 6.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-09-18 11:35:45 +0400
+  Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8vRXdEWloyJI1TMBqYAiLE868SEkJeC9BzPKbXzVXDY=", "user"=>{"email"=>"lvl0nax@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ВОЙТИ"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.4656ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"email"=>"lvl0nax@gmail.com"} flags=[] limit=-1 skip=0 fields=nil (0.4187ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} update={"$set"=>{"last_sign_in_at"=>2012-09-18 07:23:07 UTC, "current_sign_in_at"=>2012-09-18 07:35:45 UTC, "sign_in_count"=>7}} flags=[] (0.3698ms)
+Redirected to http://localhost:3000/
+Completed 302 Found in 227ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-09-18 11:35:45 +0400
+  Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"50163e3c49c86274ef000015"} flags=[] limit=-1 skip=0 fields=nil (0.5224ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.6931ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.4268ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.6070ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.6588ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5634ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3922ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.6189ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.5653ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5374ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3703ms)
+Rendered collection (3.2ms)
+Rendered events/index.html.erb within layouts/application (72.3ms)
+Completed 200 OK in 235ms (Views: 97.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-09-18 11:35:46 +0400
+Served asset /application.css - 304 Not Modified (0ms)

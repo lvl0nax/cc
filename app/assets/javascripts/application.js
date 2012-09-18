@@ -142,6 +142,11 @@ $(function() {
 				$('#container').addClass("wait-click");
 		});
 	});
+
+	$("#login").bind("click", function(){
+		$("#login-form").load("/users/sign_in");
+		return false;
+	});
 });/*
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)

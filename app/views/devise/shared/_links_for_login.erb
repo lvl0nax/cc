@@ -1,0 +1,3 @@
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "Забыли пароль?", new_password_path(resource_name) %>
+<% end -%>

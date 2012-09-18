@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347918197.8027215:@value{	I"length:EFié:I"digest;
-F"%eb6ddfaecafceee0331ff02c20614c48I"source;
-FI"é:/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347953719.0891633:@value{	I"length:EFi<I"digest;
+F"%b1654a38c2364d1a2dff397ce70179d2I"source;
+FI"</*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -30,7 +30,7 @@ a:hover{ color: #444;}
   background-size: 100%;
   text-align: center;
   font-size: 15px;
-  height: 30px;
+  height: 25px;
 }
 
 #content-body{margin:0 auto;width:1230px; position: relative;z-index: 2; padding-bottom: 100px}
@@ -463,6 +463,12 @@ table.test{/*border: 2px solid red;*/}
 #resume-show label.email-show {width: 245px;text-align: right}
 #resume-show div.show {  width:400px; padding-left: 20px;}
 #resume-show label.phone-show {width: 245px;}
+
+#login {display: inline-block;}
+#login-form {display: inline-block;}
+#login-form form {display: inline-block;}
+.vline{width: 1px; height: 22px; display: inline-block; background-color: black;overflow: hidden;}
+.text-to-right{text-align: right; margin-right: 10px; line-height: 25px;}
 .fs-map-zone{position: relative; z-index: 2; margin: -10px 0 0}
 #save-panel{padding: 5px; background: #f2f2f2; position: relative; z-index: 1; margin: -36px 0 10px}
 #map-userpic{position: absolute; top: 50%; width: 48px; padding: 6px; height: 66px; left: 50%;margin: -78px 0 0 -30px; z-index: 10; background:  url("i/marker-user.png")}
@@ -484,4 +490,4 @@ table.test{/*border: 2px solid red;*/}
 #geo-map{height: 380px; width:430;}
 ;
 FI"_version;
-F"%be9d606becc760137252d346192c3143
+F"%b3f5b1abef6914dd4c718cb4a668f055

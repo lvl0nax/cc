@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347918197.8016267:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347953719.0880437:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%be9d606becc760137252d346192c3143I"logical_path;
+F"%b3f5b1abef6914dd4c718cb4a668f055I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-18T01:43:11+04:00;
+FI"2012-09-18T11:35:04+04:00;
 FI"	body;
-FI"~5/*
+FI"›6/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -41,7 +41,7 @@ a:hover{ color: #444;}
   background-size: 100%;
   text-align: center;
   font-size: 15px;
-  height: 30px;
+  height: 25px;
 }
 
 #content-body{margin:0 auto;width:1230px; position: relative;z-index: 2; padding-bottom: 100px}
@@ -474,6 +474,12 @@ table.test{/*border: 2px solid red;*/}
 #resume-show label.email-show {width: 245px;text-align: right}
 #resume-show div.show {  width:400px; padding-left: 20px;}
 #resume-show label.phone-show {width: 245px;}
+
+#login {display: inline-block;}
+#login-form {display: inline-block;}
+#login-form form {display: inline-block;}
+.vline{width: 1px; height: 22px; display: inline-block; background-color: black;overflow: hidden;}
+.text-to-right{text-align: right; margin-right: 10px; line-height: 25px;}
 ;
 FI"asset_paths;
 F[I"1$root/app/assets/stylesheets/application.css;
@@ -483,10 +489,10 @@ F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	Time5"€»¿·¬
+FIu:	TimeG"€»ÖCŒ
 :@_zoneI"MSK;
-T:nano_numiº:nano_deni:submicro"D :offseti@8I"hexdigest;
-F"%14f5520bf12d6c0c98ea7efbaf6ed9a6{I"	path;
+T:nano_numi3:nano_deni:submicro"`:offseti@8I"hexdigest;
+F"%93bc28b1dff6ab0046817b608310d779{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;

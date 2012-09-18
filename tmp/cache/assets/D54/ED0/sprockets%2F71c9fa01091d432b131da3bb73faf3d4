@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347953719.0891633:@value{	I"length:EFi<I"digest;
-F"%b1654a38c2364d1a2dff397ce70179d2I"source;
-FI"</*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347958447.6608212:@value{	I"length:EFiÀ=I"digest;
+F"%dbe50c8c65a6413a5a2d382caf64168aI"source;
+FI"À=/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -392,19 +392,34 @@ table.test{/*border: 2px solid red;*/}
 .mn {margin-top: 16px;};
 .menu div{margin: 5px 0 0 10px;}
 .menu{font-size: 15px; color: black}
+.menu .select{color: #76a38a;}
 .select{position: relative;width:450px; display:inline-block;}
 .area-label-name{display: inline-block; margin-left: 10px; line-height: 6px;}
 .area-label{
-  width:450px; margin:-8px 0 -8px 10px; padding-left: 40px;
-  background-color: white; border:1px solid black; cursor: pointer;
+  width:490px; margin:-8px 0 -8px 10px; text-align: center;
+  background-color: white; /*border:1px solid black*/; cursor: pointer;
+}
+.drop-area-label{
+  color: inherit; margin: 0; text-align: center;
 }
 .dropdown{
-  width:490px; display: none; 
-  position: absolute; top: 8px; left:10px; 
-  background-color: white;border: 1px solid black; border-top: none;
+  width:490px; display: none; z-index: 10;
+  position: absolute; top: -8px; left:10px; 
+  background-color: white;/*border: 1px solid black; border-top: none;*/
+  box-shadow: 0px 0px 10px gray;
+  -webkit-box-shadow: 0px 0px 10px gray;
+  -moz-box-shadow: 0px 0px 10px gray;
 }
 .dropdown label{width:100%; display: block; font-size: 13px;}
 /*.search_training div.check_boxes label{float:left;}*/
+.dropdown .checkbox input {margin: 10px 10px 0 0;}
+.dropdown .checkbox label[input:checked] {color: black;}
+
+
+.ard{border:1px solid #c9db57;}
+.ardc{border:1px solid #c9db57;}
+.arde{border:1px solid #76a38a;}
+
 .shadow{
   box-shadow:  0px 0px 5px #444;
   -webkit-box-shadow:  0px 0px 5px #444;
@@ -490,4 +505,4 @@ table.test{/*border: 2px solid red;*/}
 #geo-map{height: 380px; width:430;}
 ;
 FI"_version;
-F"%b3f5b1abef6914dd4c718cb4a668f055
+F"%eabd55428b506f0cfdbde8eeacb7684b

@@ -12,8 +12,9 @@
         <div class="select">
           <div id="trclick" class="area-label">ВСЕ</div>
           <div class="dropdown ard">  
+            <div class="drop-area-label">ВСЕ</div>
             <%= simple_fields_for :training_areas do |f| %>
-              <%= f.input :areas, :label => false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
+              <%= f.input :areas, :label => false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :selected => true} %>
 
             <% end %>
             <div class="for_clear"></div>
@@ -21,8 +22,9 @@
         </div>
         <div class="area-label-name padd">КОМПАНИИ</div>
         <div class="select">
-          <div id="trclick" class="area-label">ВСЕ</div>
-          <div class="dropdown ard">  
+          <div id="trcclick" class="area-label">ВСЕ</div>
+          <div class="dropdown ardc">  
+            <div class="drop-area-label">ВСЕ</div>
             <% unless User.employees.blank? %>
               <%= simple_fields_for :companies_list do |f| %>
                 <%= f.input :companies, :label => false , :collection => User.employees, :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
@@ -49,6 +51,7 @@
         <div class="select">
           <div id="evclick" class="area-label">ВСЕ</div>
           <div class="dropdown arde">  
+            <div class="drop-area-label">ВСЕ</div>
             <%= simple_fields_for :training_areas do |f| %>
               <%= f.input :areas, :label =>false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true}, :wrapper_html => { :class => 'evshadow' } %>
 

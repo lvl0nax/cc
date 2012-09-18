@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347951010.8176122:@value{	I"length:EFiNI"digest;
-F"%124c7705d6e6135ca23d79ffea84a752I"source;
-FI"N/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347966134.87542:@value{	I"length:EFiÐPI"digest;
+F"%9dfe8a2d5994ea6a1d3c4e4bf3df0672I"source;
+FI"ÐP/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -10095,21 +10095,54 @@ $(function() {
 	$('#container').bind('click', function () {
 		$(".ard").fadeOut();
 		$(".arde").fadeOut();
+		$(".ardc").fadeOut();
 		/*if ($("#popup-wrap").is(".show-popup")) 
 			$("#popup-wrap").removeClass();*/
 	});
 
 	$('#trclick').bind('click', function () {
 		$('.ard').fadeIn();
-		
+		$(".arde").fadeOut();
+		$(".ardc").fadeOut();
+	});
+	$('#trcclick').bind('click', function () {
+		$('.ardc').fadeIn();
+		$(".ard").fadeOut();
+		$(".arde").fadeOut();
 	});
 	$('#evclick').bind('click', function () {
 		$('.arde').fadeIn();
+		$(".ard").fadeOut();
+		$(".ardc").fadeOut();
 	});
-
 
 	$(".select").click(function(event){ event.stopPropagation()});
 
+	$(".select div.input input.check_boxes").bind("click", function(){
+		if ($(this).attr('checked'))
+		{
+			$(this).attr('checked', 'checked').parent().css('color', '#76a38a');
+
+		}else{
+			
+			$(this).removeAttr('checked').parent().css('color', 'black');
+		}
+		
+
+	});
+/*
+	$(".select label.checkbox").bind("click", function(){
+		if ($(this).children.attr("ckecked"))
+			{
+				$(this).css("color", "#76a38a");
+			}
+		else
+			{
+				$(this).css("color", "black");
+			}
+	});
+
+*/
 	$(document).on('click',".wait-click" ,function() {
 		if ($("#popup-wrap").is(".show-popup")) {
 			$("#popup-wrap").html("").removeClass();
@@ -10163,4 +10196,4 @@ $('.trainings input:checkbox').click(function() {
 ;
 ;
 TI"_version;
-F"%6f29f5562a6e245ef58ca7ce8d153730
+F"%5a378f0b0e88b0ba61ab62c27eb5241e

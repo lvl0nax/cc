@@ -36,7 +36,9 @@ TestMongoid::Application.routes.draw do
   devise_for :users, :controllers => { 
     :registrations => "registrations",
     :sessions => "sessions"
-  }
+  } do
+    resources :resumes
+  end
 
   #devise_for :users do
   #  get "/activities" => "devise/registrations#activities"

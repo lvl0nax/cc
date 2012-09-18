@@ -15,7 +15,6 @@ class User
   #validates_presence_of :name
   validates_uniqueness_of  :email, :case_sensitive => false
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :role_name
-
   validates_presence_of :email
   validates_presence_of :encrypted_password
 
@@ -42,6 +41,7 @@ class User
   has_and_belongs_to_many :events
   has_many :requests
 
+  accepts_nested_attributes_for :resume, :autosave=> true
   #has_and_belongs_to_many :evactivities, class_name: "Event", inverse_of: :participant
   #has_and_belongs_to_many :gractivities, class_name: "Grant", inverse_of: :participant
   #has_and_belongs_to_many :tractivities, class_name: "Training", inverse_of: :participant

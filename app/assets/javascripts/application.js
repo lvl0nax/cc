@@ -89,21 +89,54 @@ $(function() {
 	$('#container').bind('click', function () {
 		$(".ard").fadeOut();
 		$(".arde").fadeOut();
+		$(".ardc").fadeOut();
 		/*if ($("#popup-wrap").is(".show-popup")) 
 			$("#popup-wrap").removeClass();*/
 	});
 
 	$('#trclick').bind('click', function () {
 		$('.ard').fadeIn();
-		
+		$(".arde").fadeOut();
+		$(".ardc").fadeOut();
+	});
+	$('#trcclick').bind('click', function () {
+		$('.ardc').fadeIn();
+		$(".ard").fadeOut();
+		$(".arde").fadeOut();
 	});
 	$('#evclick').bind('click', function () {
 		$('.arde').fadeIn();
+		$(".ard").fadeOut();
+		$(".ardc").fadeOut();
 	});
-
 
 	$(".select").click(function(event){ event.stopPropagation()});
 
+	$(".select div.input input.check_boxes").bind("click", function(){
+		if ($(this).attr('checked'))
+		{
+			$(this).attr('checked', 'checked').parent().css('color', '#76a38a');
+
+		}else{
+			
+			$(this).removeAttr('checked').parent().css('color', 'black');
+		}
+		
+
+	});
+/*
+	$(".select label.checkbox").bind("click", function(){
+		if ($(this).children.attr("ckecked"))
+			{
+				$(this).css("color", "#76a38a");
+			}
+		else
+			{
+				$(this).css("color", "black");
+			}
+	});
+
+*/
 	$(document).on('click',".wait-click" ,function() {
 		if ($("#popup-wrap").is(".show-popup")) {
 			$("#popup-wrap").html("").removeClass();

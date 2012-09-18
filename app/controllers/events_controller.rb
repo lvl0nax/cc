@@ -49,7 +49,8 @@ class EventsController < ApplicationController
       
       @items.concat( Month.all.to_a)
     end
-    @items.sort!{|x,y| x.start_date <=> y.start_date}
+
+    @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
     
     respond_to do |format|
       format.html # index.html.erb

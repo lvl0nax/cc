@@ -1,11 +1,47 @@
+<script type="text/javascript">
+  
+  function doCheckbox(elem)
+  {
+    /*alert(elem.attr("checked"));
+    elem.removeAttr("checked");
+    alert(elem.attr("checked"));*/
+    if (elem.attr("checked"))
+    {
+      /*elem.removeAttr("checked");*/
+      elem.eq(0).parent().css("background-position", "0 -20px");
+    }
+    else
+    {
+      /*elem.attr("checked", "checked");*/
+      elem.parent().css("background-position", "0 0");
+
+    }
+  }
+
+  function doCheckboxmn(elem)
+  {
+    if (elem.attr("checked"))
+    {
+      elem.parent().children("span.chkimg").first().css("background-position", "0 -19px");
+    }
+    else
+    {
+      elem.parent().children("span.chkimg").first().css("background-position", "0 0");
+    }
+  }
+
+</script>
+
 <div class = "menu">
 
   <%= form_for events_path, :method => 'get', :id => "events_search", :remote => true  do %>
   
     <div class="trainings">
-      <%= link_to "СТАЖИРОВКИ", "#" %>
-      <input type="checkbox" checked="checked" class="training_checkbox mn" name="trainings" onclick="$('.search_training').toggle();$('.search_training :checkbox:checked').removeAttr('checked');"/>
-      
+      <label class="mnl">
+        <span>СТАЖИРОВКИ</span>
+        <span class="chkimg"></span>
+        <input type="checkbox" checked="checked" class="training_checkbox mn" name="trainings" onclick="$('.search_training').toggle();$('.search_training :checkbox:checked').removeAttr('checked'); doCheckboxmn($(this));"/>
+      </label>
       <div class="for_clear"></div>
       <div class="search_training">
         <div class="area-label-name">СФЕРА</div>
@@ -14,7 +50,7 @@
           <div class="dropdown ard">  
             <div class="drop-area-label">ВСЕ</div>
             <%= simple_fields_for :training_areas do |f| %>
-              <%= f.input :areas, :label => false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :selected => true} %>
+              <%= f.input :areas, :label => false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :selected => true, :onclick => "doCheckbox($(this));"} %>
 
             <% end %>
             <div class="for_clear"></div>
@@ -27,7 +63,7 @@
             <div class="drop-area-label">ВСЕ</div>
             <% unless User.employees.blank? %>
               <%= simple_fields_for :companies_list do |f| %>
-                <%= f.input :companies, :label => false , :collection => User.employees, :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
+                <%= f.input :companies, :label => false , :collection => User.employees, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"} %>
               <% end %>
             <% end %>
             <div class="for_clear"></div>
@@ -35,16 +71,18 @@
         </div>
           
           <%= simple_fields_for :training_salary_type do |f| %>  
-            <%= f.input :salary_type, :label => "ОПЛАТА:" , :collection => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ" ], :as => :check_boxes, :required => false, :input_html => {:checked=> true, :title => "area"}%>
+            <%= f.input :salary_type, :label => "ОПЛАТА:" , :collection => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ" ], :as => :check_boxes, :required => false, :input_html => {:checked=> true, :title => "area", :onclick => "doCheckbox($(this));"}%>
           <% end %>
         <div class="for_clear"></div>
                  
       </div>
     </div>
     <div class="events">
-      <%= link_to "СОБЫТИЯ", "#" %>
-      <input type="checkbox" checked="checked" class="event_checkbox mn" name="events" onclick="$('.search_event').toggle();$('.search_event :checkbox:checked').removeAttr('checked');"/>
-
+      <label class="mnl">
+        <span>СОБЫТИЯ</span>
+        <span class="chkimg"></span>
+        <input type="checkbox" checked="checked" class="event_checkbox mn" name="events" onclick="$('.search_event').toggle();$('.search_event :checkbox:checked').removeAttr('checked');doCheckboxmn($(this));"/>
+      </label>
       <div class="for_clear"></div>
       <div class="search_event">
         <div class="area-label-name">СФЕРА</div>
@@ -53,7 +91,7 @@
           <div class="dropdown arde">  
             <div class="drop-area-label">ВСЕ</div>
             <%= simple_fields_for :training_areas do |f| %>
-              <%= f.input :areas, :label =>false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true}, :wrapper_html => { :class => 'evshadow' } %>
+              <%= f.input :areas, :label =>false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"}, :wrapper_html => { :class => 'evshadow' } %>
 
             <% end %>
 
@@ -63,7 +101,7 @@
         
         <div class="evtype">
           <%= simple_fields_for :event_kinds do |f| %>
-            <%= f.input :kind, :label => "" , :collection => ["НАУЧНАЯ КОНФЕРЕНЦИЯ", "КАРЬЕРНОЕ СОБЫТИЕ" ], :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
+            <%= f.input :kind, :label => "" , :collection => ["НАУЧНАЯ КОНФЕРЕНЦИЯ", "КАРЬЕРНОЕ СОБЫТИЕ" ], :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"} %>
           <% end %>
           <div class="for_clear"></div>
         </div>
@@ -71,13 +109,17 @@
     </div>
 
     <div class="grants">
-      <%= link_to "ГРАНТЫ", "#"%>
-      <input type="checkbox" checked="checked" class="grant_checkbox mn" name="grants" onclick="$('.search_grant').toggle();$('.search_grant :checkbox:checked').removeAttr('checked');"/>
+      
+      <label class="mnl">
+        <span>ГРАНТЫ</span>
+        <span class="chkimg"></span>
+        <input type="checkbox" checked="checked" class="grant_checkbox mn" name="grants" onclick="$('.search_grant').toggle();$('.search_grant :checkbox:checked').removeAttr('checked');doCheckboxmn($(this));"/>
+      </label>
       
       <div class="for_clear"></div>
       <div class="search_grant">
         <%= simple_fields_for :grant_areas do |f| %>
-          <%= f.input :direction, :label => "НАУКИ" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes, :required => false, :input_html => {:checked=> true} %>
+          <%= f.input :direction, :label => "НАУКИ" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"} %>
         <% end %>
         <div class="for_clear"></div>
       </div>

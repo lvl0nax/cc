@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347994560.595364:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348056033.9453654:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%9bf5ae43c0a323ce6ea5a2aa849a5bf4I"logical_path;
+F"%0825bea8aa2863ffc969edbcbc7d8374I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-18T22:55:57+04:00;
+FI"2012-09-19T16:00:30+04:00;
 FI"	body;
-FI"…8/*
+FI"\;/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -307,7 +307,7 @@ table.test{/*border: 2px solid red;*/}
 .temp_img {text-align: center; height: 163px;}
 .temp_name{font-size: 20px; padding-top: 5px;}
 .month_name {font-size: 48px;}
-.month_number {font-size: 148px;padding: 0;text-align: right;}
+.month_number {font-size: 148px;padding: 95px 0 0 0;text-align: right;font-family: sans-serif;}
 .temp_training{color:#c9db57;border-color:#c9db57}
 .temp_event{color:#76a38a;border-color:#76a38a;}
 .temp_grant{color:#333f3f;border-color:#333f3f;}
@@ -401,12 +401,13 @@ table.test{/*border: 2px solid red;*/}
   cursor: pointer;
 }
 
-.menu a{float:left; color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
+.menu label.mnl{color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
+.mnl span {float: left; margin: 10px 0 10px 10px;}
 .mn {margin-top: 16px;};
 .menu div{margin: 5px 0 0 10px;}
 .menu{font-size: 15px; color: black}
 .menu .select{color: #76a38a;}
-.select{position: relative;width:450px; display:inline-block;}
+.select{position: relative;width:450px; display:inline-block; margin-right: 15px;}
 .area-label-name{display: inline-block; margin-left: 10px; line-height: 6px;}
 .area-label{
   width:490px; margin:-8px 0 -8px 10px; text-align: center;
@@ -498,33 +499,51 @@ table.test{/*border: 2px solid red;*/}
 .vline{width: 1px; height: 22px; display: inline-block; background-color: black;overflow: hidden;}
 .text-to-right{text-align: right; margin-right: 10px; line-height: 25px;}
 
-.checkbox img {width: 20px; height: 20px;}
+.checkbox img {width: 20px; height: 20px; border: none;}
+
+.menu label.checkbox{position: relative; padding-left: 20px;padding-right: 15px;}
+.menu label.checkbox input{position: absolute; left: -9000px;}
+.menu label.checkbox {background: url(/assets/ltlchkbx.png) no-repeat; }
+/*.menu label.checkbox {background-position: 0 -19px;}*/
+.active{background-position: 0 -20px;}
+.inactive{background-position: 0 0;}
+
+.menu .mnl {position: relative; margin-left: 20px; background: url(/assets/ltlchkbx.png) no-repeat;}
+.mnl input{position: absolute; left: -9000px;}
+.mnl span.chkimg{background: url(/assets/bigchkbx.png) no-repeat; width: 19px; height: 19px; margin-top: 10px;}
 ;
 FI"asset_paths;
-F[I"1$root/app/assets/stylesheets/application.css;
+F[I"1$root/app/assets/stylesheets/application.css;
 FI")$root/app/assets/stylesheets/geo.css;
+FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
 FI"dependency_paths;
-F[{I"	path;
+F[	{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	TimeR"€¾ùß
+FIu:	Timel"€rŞê
 :@_zoneI"MSK;
-T:nano_numiL:nano_deni:submicro"3 :offseti@8I"hexdigest;
-F"%e1e87f84273f93cbb7114f1a909b7d51{I"	path;
+T:nano_numiÉ:nano_deni:submicro"q0:offseti@8I"hexdigest;
+F"%17a51d3992c277d75d6721e8bebf53b8{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;
-FIu;	!€O[ç
+FIu;e"€M·É>
 ;I"MSK;
-T;i;i;"x;i@8I"hexdigest;
-F"%6e24f2e2f9526f581b786cd267af0ce2{I"	path;
+T;it;i;";i@8I"hexdigest;
+F"%4970719eabc4f1a64ea5c3fdc35fe96f{I"	path;
 FI")$root/app/assets/stylesheets/geo.css;
 FI"
 mtime;
-FIu;± €b
-¦&
+FIu;« €'{
 ;I"MSK;
-T;i’;i;"e€;i@8I"hexdigest;
-F"%4dac81296efbda5a31022fe85d77815bI"_version;
+T;i ;i;"T@;i@8I"hexdigest;
+F"%4dac81296efbda5a31022fe85d77815b{I"	path;
+FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
+FI"
+mtime;
+FIu;ª €âug¯
+;I"MSK;
+T;i±;i;"”P;i@8I"hexdigest;
+F"%464987d8b24da4427a97d1d0b468442aI"_version;
 F"%0868aba5d4b750d3a9421721ea3d9b9c

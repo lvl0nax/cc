@@ -36,7 +36,13 @@ class ResumesController < ApplicationController
   def edit
     @resume = Resume.find(params[:id])
   end
-
+=begin
+  = simple_form_for @user, :validate => true do |f|
+    .field
+      = f.simple_fields_for :reviews do |review|
+        = render 'review_fields', :f => review
+      = link_to_add_association I18n.t('forms.buttons.add_more'), f, :reviews, :class => 'label label-success'
+=end
   # POST /resumes
   # POST /resumes.json
   def create

@@ -19,7 +19,12 @@
 	<div class="line"></div>
 	<label>ОПИСАНИЕ СЕБЯ</label><div class = ""><%= @resume.description %></div>
 	<div class="line"></div>
-	<label class="email">ПОДПИСКА НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ</label><div class = "checkbox"><%= @resume.delivery_email_enable %></div>
+	<label class="email">ПОДПИСКА НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ</label>
+	<div class = "checkbox">
+		<%if @resume.delivery_email_enable %>
+			<%= image_tag "/assets/bigchkbx.png"%>
+		<% end %>
+	</div>
 	<div class="for_new_line"></div>
 	<label class="email-show">E-MAIL</label><div class = "show"><%= @resume.delivery_email %></div>
 	<div class="line"></div>

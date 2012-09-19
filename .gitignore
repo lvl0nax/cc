@@ -22,14 +22,11 @@ capybara-*.html
 .rspec
 /.bundle
 /vendor/bundle
-/log/*
 /log
 /public/system/*
-/public/uploads/*
 /public/uploads
 /coverage/
 /spec/tmp/*
 **.orig
 rerun.txt
 pickle-email-*.html
-.gitignore

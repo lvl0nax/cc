@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347958447.6596997:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347994560.595364:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%eabd55428b506f0cfdbde8eeacb7684bI"logical_path;
+F"%9bf5ae43c0a323ce6ea5a2aa849a5bf4I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-18T12:54:04+04:00;
+FI"2012-09-18T22:55:57+04:00;
 FI"	body;
-FI"U8/*
+FI"…8/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -309,8 +309,10 @@ table.test{/*border: 2px solid red;*/}
 .month_name {font-size: 48px;}
 .month_number {font-size: 148px;padding: 0;text-align: right;}
 .temp_training{color:#c9db57;border-color:#c9db57}
-.temp_event{color:#333f3f;border-color:#333f3f}
-.temp_grant{color:#76a38a;border-color:#76a38a}
+.temp_event{color:#76a38a;border-color:#76a38a;}
+.temp_grant{color:#333f3f;border-color:#333f3f;}
+
+
 
 .month_number{color:#c9db57;}
 
@@ -495,6 +497,8 @@ table.test{/*border: 2px solid red;*/}
 #login-form form {display: inline-block;}
 .vline{width: 1px; height: 22px; display: inline-block; background-color: black;overflow: hidden;}
 .text-to-right{text-align: right; margin-right: 10px; line-height: 25px;}
+
+.checkbox img {width: 20px; height: 20px;}
 ;
 FI"asset_paths;
 F[I"1$root/app/assets/stylesheets/application.css;
@@ -504,10 +508,10 @@ F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	TimeH"€”¯LØ
+FIu:	TimeR"€¾ùžß
 :@_zoneI"MSK;
-T:nano_numi:nano_deni:submicro"x:offseti@8I"hexdigest;
-F"%351c4a378883ce285983d35129237b1f{I"	path;
+T:nano_numiL:nano_deni:submicro"3 :offseti@8I"hexdigest;
+F"%e1e87f84273f93cbb7114f1a909b7d51{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;

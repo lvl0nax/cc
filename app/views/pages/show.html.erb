@@ -1,35 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div class="show-page">
+  <h1><%= @page.title %></h1>
 
-<p>
-  <b>Title:</b>
-  <%= @page.title %>
-</p>
-
-<p>
-  <b>Content:</b>
   <%= @page.content %>
-</p>
-
-<p>
-  <b>Meta title:</b>
-  <%= @page.meta_title %>
-</p>
-
-<p>
-  <b>Meta keyword:</b>
-  <%= @page.meta_keyword %>
-</p>
-
-<p>
-  <b>Meta description:</b>
-  <%= @page.meta_description %>
-</p>
-
-<p>
-  <b>Page:</b>
-  <%= @page.page_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+  <% if current_user.role?(:admin) %>
+    <br/>
+    <%= link_to 'Редактировать', edit_page_path(@page) %> |
+    <%= link_to 'К списку страниц', pages_path %>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348056471.1520934:@value{	I"length:EFi‰FI"digest;
-F"%46dd42807f6026c3b98ad213a8d8d9c1I"source;
-FI"‰F/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348083147.4446986:@value{	I"length:EFiáBI"digest;
+F"%0c21376b746ab465a79d9b735a02d00bI"source;
+FI"áB/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -41,10 +41,12 @@ a:hover{ color: #444;}
 .top-border{border-top-color: #77a38a; border-top-style: solid; border-top-width: 2px;}
 .right-border{ border-right-color: #77a38a; border-right-style: solid; border-right-width: 2px; padding-left: 20px; padding-right: 20px;}
 
+.for_space{display: inline-block; width: 100px; height: 20px;}
 .link1 {display: inline; padding-top: 9px; padding-bottom: 7px; height: 30px; padding-left: 170px;}
 .link {display: inline; padding-top: 9px; padding-bottom: 7px; height: 30px;}
-.link6 {display: inline; line-height: 30px;}
-
+.link6 {display: inline; line-height: 30px; padding-left: 10px;}
+.link a{color:#77a38a;}
+.link a:hover{color:black;}
 
 .header {height: 155px;}
 .logo { 
@@ -470,17 +472,18 @@ table.test{/*border: 2px solid red;*/}
 
 #resume-show .line {height: 2px; width: 900px; background-color: #D9EB67; margin-top: 10px; margin-bottom: 10px;}
 #resume-show label{margin-left: 50px; line-height: 19px; width:200px; color:#76a38a;display: inline-block;}
-#resume-show div{line-height: 19px;  width:600px; display: inline-block; margin-bottom: 10px;}
+#resume-show .dv{line-height: 19px;  width:600px; display: inline-block; margin-bottom: 10px;}
 #resume-show label.edu {padding-left: 200px;}
 #resume-show div.edu {  width:400px;}
-#resume-show label.email {width: 575px;}
-#resume-show div.checkbox {  width:50px;}
+#resume-show label.email {width: 575px;float: left;}
+#resume-show div.checkbox {  width:19px;height: 19px; }
 #resume-show label.sms {width: 300px;}
 #resume-show div.edu {  width:400px;}
 #resume-show .for_new_line{ display: block; padding: 0; margin: 0;}
-#resume-show label.email-show {width: 245px;text-align: right}
+#resume-show label.email-show {width: 245px;text-align: right; }
 #resume-show div.show {  width:400px; padding-left: 20px;}
 #resume-show label.phone-show {width: 245px;}
+#resume-show a{padding-left: 50px;}
 
 #login {display: inline-block;}
 #login-form {display: inline-block;}
@@ -494,12 +497,23 @@ table.test{/*border: 2px solid red;*/}
 .menu label.checkbox input{position: absolute; left: -9000px;}
 .menu label.checkbox {background: url(/assets/ltlchkbx.png) no-repeat; }
 /*.menu label.checkbox {background-position: 0 -19px;}*/
-.active{background-position: 0 -20px;}
-.inactive{background-position: 0 0;}
+.active{
+  background: url(/assets/bigchkbx.png) no-repeat 0 -20px; 
+  width: 19px !important; height: 19px !important; margin: 0; padding: 0; 
+  display: inline-block;
+}
+.inact{
+  background: url(/assets/bigchkbx.png) no-repeat 0 3px; 
+  width: 19px; height: 19px; margin: 0; padding: 0;
+  display: inline-block;
+}
 
 .menu .mnl {position: relative; margin-left: 20px; background: url(/assets/ltlchkbx.png) no-repeat;}
 .mnl input{position: absolute; left: -9000px;}
 .mnl span.chkimg{background: url(/assets/bigchkbx.png) no-repeat; width: 19px; height: 19px; margin-top: 10px;}
+
+.show-page{ padding: 10px; font-size: 16px;}
+.show-page h1{ color: #76a38a; padding-bottom: 15px;}
 .fs-map-zone{position: relative; z-index: 2; margin: -10px 0 0}
 #save-panel{padding: 5px; background: #f2f2f2; position: relative; z-index: 1; margin: -36px 0 10px}
 #map-userpic{position: absolute; top: 50%; width: 48px; padding: 6px; height: 66px; left: 50%;margin: -78px 0 0 -30px; z-index: 10; background:  url("i/marker-user.png")}
@@ -519,71 +533,6 @@ table.test{/*border: 2px solid red;*/}
 #stylesheet-geo{display: none}
 #geo-map-zone{overflow: hidden; height: 380px; width:430px; position: relative; float: right;margin-right: 23px; margin-top: 10px;}
 #geo-map{height: 380px; width:430;}
-/* line 1, ../../app/assets/stylesheets/scaffolds.css.scss */
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-/* line 8, ../../app/assets/stylesheets/scaffolds.css.scss */
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-/* line 13, ../../app/assets/stylesheets/scaffolds.css.scss */
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-/* line 20, ../../app/assets/stylesheets/scaffolds.css.scss */
-div.field, div.actions {
-  margin-bottom: 10px;
-}
-
-/* line 23, ../../app/assets/stylesheets/scaffolds.css.scss */
-#notice {
-  color: green;
-}
-
-/* line 26, ../../app/assets/stylesheets/scaffolds.css.scss */
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-/* line 31, ../../app/assets/stylesheets/scaffolds.css.scss */
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-/* line 38, ../../app/assets/stylesheets/scaffolds.css.scss */
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  margin-bottom: 0px;
-  background-color: #c00;
-  color: #fff;
-}
-/* line 47, ../../app/assets/stylesheets/scaffolds.css.scss */
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
 ;
 FI"_version;
-F"%af00e8a9fc97c38f1aa7762e10ace501
+F"%db26f1101a4516c36fcd887972db115b

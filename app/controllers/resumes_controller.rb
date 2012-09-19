@@ -13,7 +13,7 @@ class ResumesController < ApplicationController
   # GET /resumes/1
   # GET /resumes/1.json
   def show
-    @resume = Resume.find(params[:id])
+    @resume = current_user.try(:resume)#Resume.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,8 @@ class ResumesController < ApplicationController
 
   # GET /resumes/1/edit
   def edit
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resume #Resume.find(params[:id])
+    #@user = current_user
   end
 =begin
   = simple_form_for @user, :validate => true do |f|
@@ -50,7 +51,7 @@ class ResumesController < ApplicationController
     current_user.resume = @resume
     respond_to do |format|
       if current_user.save
-        format.html { redirect_to current_user.resume, notice: 'Resume was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Resume was successfully created.' }
         format.json { render json: @resume, status: :created, location: @resume }
       else
         format.html { render action: "new" }
@@ -62,11 +63,11 @@ class ResumesController < ApplicationController
   # PUT /resumes/1
   # PUT /resumes/1.json
   def update
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resume #Resume.find(params[:id])
 
     respond_to do |format|
       if @resume.update_attributes(params[:resume])
-        format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

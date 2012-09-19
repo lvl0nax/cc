@@ -1,36 +1,45 @@
 <div id="resume-show"	>
-	<label>ИМЯ</label><div class = ""><%= @resume.name %></div>
+	<label>ИМЯ</label><div class = "dv "><%= @resume.name %></div>
 	
-	<label>ФАМИЛИЯ</label><div class = ""><%= @resume.surname %></div>
+	<label>ФАМИЛИЯ</label><div class = "dv "><%= @resume.surname %></div>
 	
-	<label>ПОЛ</label><div class = ""><%= @resume.gender %></div>
+	<label>ПОЛ</label><div class = "dv "><%= @resume.gender %></div>
 	
-	<label>ДАТА РОЖДЕНИЯ</label><div class = ""><%= @resume.birthday %></div>
+	<label>ДАТА РОЖДЕНИЯ</label><div class = "dv "><%= @resume.birthday %></div>
 	
-	<label>ГОРОД</label><div class = ""><%= @resume.home %></div>
+	<label>ГОРОД</label><div class = "dv "><%= @resume.home %></div>
 	<div class="line"></div>
-	<label>ОБРАЗОВАНИЕ</label><div class = ""><%= @resume.education %></div>
+	<label>ОБРАЗОВАНИЕ</label><div class = "dv "><%= @resume.education %></div>
 	
-	<label class = "edu">ВУЗ</label><div class = "edu"><%= @resume.university %></div>
+	<label class = "edu">ВУЗ</label><div class = "dv edu"><%= @resume.university %></div>
 	
-	<label class = "edu">ФАКУЛЬТЕТ</label><div class = "edu"><%= @resume.faculty %></div>
+	<label class = "edu">ФАКУЛЬТЕТ</label><div class = "dv edu"><%= @resume.faculty %></div>
 	
-	<label class = "edu">ДАТА ОКОНЧАНИЯ</label><div class = "edu"><%= @resume.experation %></div>
+	<label class = "edu">ДАТА ОКОНЧАНИЯ</label><div class = "dv edu"><%= @resume.experation %></div>
 	<div class="line"></div>
-	<label>ОПИСАНИЕ СЕБЯ</label><div class = ""><%= @resume.description %></div>
+	<label>ОПИСАНИЕ СЕБЯ</label><div class = "dv "><%= @resume.description %></div>
 	<div class="line"></div>
 	<label class="email">ПОДПИСКА НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ</label>
-	<div class = "checkbox">
+	
 		<%if @resume.delivery_email_enable %>
-			<%= image_tag "/assets/bigchkbx.png"%>
+			<div class="active"></div>
+		<% else %>
+			<div class="inact"></div>
 		<% end %>
-	</div>
+
 	<div class="for_new_line"></div>
-	<label class="email-show">E-MAIL</label><div class = "show"><%= @resume.delivery_email %></div>
+	<label class="email-show">E-MAIL</label><div class = "dv show"><%= @resume.delivery_email %></div>
 	<div class="line"></div>
-	<label class="sms">ПОДПИСКА НА SMS-РАССЫЛКУ</label><div class = "checkbox"><%= @resume.delivery_phone_enable %></div>
+	<label class="sms">ПОДПИСКА НА SMS-РАССЫЛКУ</label>
+
+		<%if @resume.delivery_phone_enable %>
+			<div class="active"></div>
+		<% else %>
+			<div class="inact"></div>
+		<% end %>
+	
 	<div class="for_new_line"></div>
-	<label class="phone-show">ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН</label><div class = "show"><%= @resume.delivery_phone %></div>
+	<label class="phone-show">ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН</label><div class = "dv show"><%= @resume.delivery_phone %></div>
 	<div class="line"></div>
 
 	<%= link_to "РЕДАКТИРОВАТЬ", edit_resume_path(@resume) %>

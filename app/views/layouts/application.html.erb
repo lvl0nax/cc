@@ -42,10 +42,9 @@
           </div>
 
           <div class="header">
-            <div class="logo">
-
-            </div>
-
+            <%= link_to root_path do %>
+              <div class="logo"> </div>
+            <% end %>
             <div class="social">
             </div>
 
@@ -89,14 +88,19 @@
           </div>
         </div>
         <div id="footer-links" class="top-border">
-          
-              <div class="link1 right-border">О ЦЕНТРЕ КАРЬЕРЫ</div>
-              <div class="link right-border">КОМАНДА</div>
-              <div class="link right-border">УСЛУГИ</div>
-              <div class="link right-border">ПРАВИЛА ПОЛьЗОВАНИЯ</div>
-              <div class="link right-border">КОНТАКТЫ</div>
-              <div class="link6"></div>
-          
+              <div class="for_space"></div>
+              <% Page.all.each do |p| %>
+                <div class="link right-border">
+                  <%= link_to p.title, p %>
+                </div>
+              <% end %>
+              
+              <div class="link6">
+                <% if current_user.role?(:admin) %>
+                  <%= link_to "Редактирование страниц", pages_path %>
+                <% end %>
+              </div>
+              
         </div>
 
         <div id="overlay"></div>

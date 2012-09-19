@@ -1,41 +1,16 @@
-<%= form_for(@page) do |f| %>
-  <% if @page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
 
-      <ul>
-      <% @page.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<div id="resume">
+  <%= simple_form_for @page do |f| %>
+    <%= f.input :title, :label => "НАЗВАНИЕ" %>
+    <%= f.input :content, :label => "СОДЕРЖАНИЕ", as: :text, :input_html => {:rows => "8", :cols => "65"}  %>
+
+    <div class="line"></div>
+    <%= f.input :meta_title  %>
+    <%= f.input :meta_description %>
+    <%= f.input :meta_keyword%>
+    <div class="line"></div>
+
+    <%= f.button :submit, :value => "СОХРАНИТЬ" %>
   <% end %>
+</div>  
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :meta_title %><br />
-    <%= f.text_field :meta_title %>
-  </div>
-  <div class="field">
-    <%= f.label :meta_keyword %><br />
-    <%= f.text_field :meta_keyword %>
-  </div>
-  <div class="field">
-    <%= f.label :meta_description %><br />
-    <%= f.text_field :meta_description %>
-  </div>
-  <div class="field">
-    <%= f.label :page_id %><br />
-    <%= f.text_field :page_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

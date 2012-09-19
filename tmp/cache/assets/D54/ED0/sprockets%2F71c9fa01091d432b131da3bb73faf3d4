@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1347994560.5963862:@value{	I"length:EFið=I"digest;
-F"%cb5b780b0c0dbbee286cfe7767e89e0bI"source;
-FI"ð=/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348049621.8426094:@value{	I"length:EFiÀCI"digest;
+F"%8a43792b39ab0834d572a97515a8e42aI"source;
+FI"ÀC/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -487,7 +487,7 @@ table.test{/*border: 2px solid red;*/}
 .vline{width: 1px; height: 22px; display: inline-block; background-color: black;overflow: hidden;}
 .text-to-right{text-align: right; margin-right: 10px; line-height: 25px;}
 
-.checkbox img {width: 20px; height: 20px;}
+.checkbox img {width: 20px; height: 20px; border: none;}
 .fs-map-zone{position: relative; z-index: 2; margin: -10px 0 0}
 #save-panel{padding: 5px; background: #f2f2f2; position: relative; z-index: 1; margin: -36px 0 10px}
 #map-userpic{position: absolute; top: 50%; width: 48px; padding: 6px; height: 66px; left: 50%;margin: -78px 0 0 -30px; z-index: 10; background:  url("i/marker-user.png")}
@@ -507,6 +507,71 @@ table.test{/*border: 2px solid red;*/}
 #stylesheet-geo{display: none}
 #geo-map-zone{overflow: hidden; height: 380px; width:430px; position: relative; float: right;margin-right: 23px; margin-top: 10px;}
 #geo-map{height: 380px; width:430;}
+/* line 1, ../../app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 8, ../../app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 13, ../../app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 20, ../../app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 23, ../../app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 26, ../../app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 31, ../../app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 38, ../../app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 47, ../../app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
 ;
 FI"_version;
-F"%9bf5ae43c0a323ce6ea5a2aa849a5bf4
+F"%8280b2dbb61aff9b32316f24c51de61d

@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348049621.8565915:@value{	I"length:EFiÞ»I"digest;
-F"%3aae7f1982328d78e334dd304134b903I"source;
-FI"Þ»/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348056471.3144495:@value{	I"length:EFiŸ¾I"digest;
+F"%a9f01c9f16fef8994ba6aa3987589f76I"source;
+FI"Ÿ¾/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -10249,6 +10249,36 @@ $(function() {
 		$("#login-form").load("/users/sign_in");
 		return false;
 	});
+
+  var temp = $(".menu label.checkbox input");
+  for (var i=0; i<temp.length; i++){ doCheckbox(temp.eq(i));}
+  function doCheckbox(elem)
+  {
+    if (elem.attr("checked"))
+    {
+      elem.parent().css("background-position", "0 -20px");
+    }
+    else
+    {
+      elem.parent().css("background-position", "0 0");
+
+    }
+  }
+
+  var tp = $(".menu label.mnl input");
+  for (var i=0; i<temp.length; i++){ doCheckboxmn(tp.eq(i));}
+  function doCheckboxmn(elem)
+  {
+    if (elem.attr("checked"))
+    {
+      elem.parent().children("span.chkimg").first().css("background-position", "0 -19px");
+    }
+    else
+    {
+      elem.parent().children("span.chkimg").first().css("background-position", "0 0");
+    }
+  }
+
 });/*
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)
@@ -10259,4 +10289,4 @@ $('.trainings input:checkbox').click(function() {
 ;
 ;
 TI"_version;
-F"%f8810e12af105112297081fe03ac4c1d
+F"%15fbcdc5bdb962d9cd74d6647420b471

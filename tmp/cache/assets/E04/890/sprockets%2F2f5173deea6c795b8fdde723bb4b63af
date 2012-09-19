@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348049621.8521664:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348056471.312407:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%f8810e12af105112297081fe03ac4c1dI"logical_path;
+F"%15fbcdc5bdb962d9cd74d6647420b471I"logical_path;
 FI"application.js;
 TI"pathname;
 FI"0$root/app/assets/javascripts/application.js;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"application/javascript;
 FI"
 mtime;
-FI"2012-09-19T01:23:52+04:00;
+FI"2012-09-19T16:01:29+04:00;
 FI"	body;
-FI"D
+FI"
 $(function() {
 	/*$('.trainings input:checkbox').click(function() {
 		$('.temp_month').toggle();
@@ -190,6 +190,36 @@ $(function() {
 		$("#login-form").load("/users/sign_in");
 		return false;
 	});
+
+  var temp = $(".menu label.checkbox input");
+  for (var i=0; i<temp.length; i++){ doCheckbox(temp.eq(i));}
+  function doCheckbox(elem)
+  {
+    if (elem.attr("checked"))
+    {
+      elem.parent().css("background-position", "0 -20px");
+    }
+    else
+    {
+      elem.parent().css("background-position", "0 0");
+
+    }
+  }
+
+  var tp = $(".menu label.mnl input");
+  for (var i=0; i<temp.length; i++){ doCheckboxmn(tp.eq(i));}
+  function doCheckboxmn(elem)
+  {
+    if (elem.attr("checked"))
+    {
+      elem.parent().children("span.chkimg").first().css("background-position", "0 -19px");
+    }
+    else
+    {
+      elem.parent().children("span.chkimg").first().css("background-position", "0 0");
+    }
+  }
+
 });/*
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)
@@ -223,16 +253,16 @@ F[{I"	path;
 FI"0$root/app/assets/javascripts/application.js;
 FI"
 mtime;
-FIu:	TimeU"€˜2C_
+FIu:	Timel"€]?Ö
 :@_zoneI"MSK;
-T:nano_numi5:nano_deni:submicro"€:offseti@8I"hexdigest;
-F"%5ff7786de18a23f2d61420bc0c253112{I"	path;
+T:nano_numi1:nano_deni:submicro"V:offseti@8I"hexdigest;
+F"%4b2799e5fea837000d68be88363028b4{I"	path;
 FI"!$root/app/assets/javascripts;
 FI"
 mtime;
-FIu;U"€˜2C_
+FIu;l"€]?Ö
 ;I"MSK;
-T;i5;i;"€;i@8I"hexdigest;
+T;i1;i;"V;i@8I"hexdigest;
 F"%cfee5cbee29ea5ef58c64974dcb93752{I"	path;
 FI"w/home/cc-ruby2/.rvm/gems/ruby-1.9.3-p194@centercareer/gems/jquery-rails-1.0.19/vendor/assets/javascripts/jquery.js;
 FI"

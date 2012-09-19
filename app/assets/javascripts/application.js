@@ -180,6 +180,36 @@ $(function() {
 		$("#login-form").load("/users/sign_in");
 		return false;
 	});
+
+  var temp = $(".menu label.checkbox input");
+  for (var i=0; i<temp.length; i++){ doCheckbox(temp.eq(i));}
+  function doCheckbox(elem)
+  {
+    if (elem.attr("checked"))
+    {
+      elem.parent().css("background-position", "0 -20px");
+    }
+    else
+    {
+      elem.parent().css("background-position", "0 0");
+
+    }
+  }
+
+  var tp = $(".menu label.mnl input");
+  for (var i=0; i<temp.length; i++){ doCheckboxmn(tp.eq(i));}
+  function doCheckboxmn(elem)
+  {
+    if (elem.attr("checked"))
+    {
+      elem.parent().children("span.chkimg").first().css("background-position", "0 -19px");
+    }
+    else
+    {
+      elem.parent().children("span.chkimg").first().css("background-position", "0 0");
+    }
+  }
+
 });/*
 $('.trainings input:checkbox').click(function() {
 	if (this.checked)

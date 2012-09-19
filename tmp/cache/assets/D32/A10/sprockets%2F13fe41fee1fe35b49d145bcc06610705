@@ -1,7 +1,7 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348049621.8418024:@value{I"
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1348056471.1505451:@value{I"
 class:EFI"BundledAsset;
 FI"id;
-F"%8280b2dbb61aff9b32316f24c51de61dI"logical_path;
+F"%af00e8a9fc97c38f1aa7762e10ace501I"logical_path;
 FI"application.css;
 TI"pathname;
 FI"1$root/app/assets/stylesheets/application.css;
@@ -9,9 +9,9 @@ FI"content_type;
 FI"text/css;
 FI"
 mtime;
-FI"2012-09-19T14:13:03+04:00;
+FI"2012-09-19T16:01:29+04:00;
 FI"	body;
-FI"ì8/*
+FI"\;/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -307,7 +307,7 @@ table.test{/*border: 2px solid red;*/}
 .temp_img {text-align: center; height: 163px;}
 .temp_name{font-size: 20px; padding-top: 5px;}
 .month_name {font-size: 48px;}
-.month_number {font-size: 148px;padding: 0;text-align: right;}
+.month_number {font-size: 148px;padding: 95px 0 0 0;text-align: right;font-family: sans-serif;}
 .temp_training{color:#c9db57;border-color:#c9db57}
 .temp_event{color:#76a38a;border-color:#76a38a;}
 .temp_grant{color:#333f3f;border-color:#333f3f;}
@@ -401,12 +401,13 @@ table.test{/*border: 2px solid red;*/}
   cursor: pointer;
 }
 
-.menu a{float:left; color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
+.menu label.mnl{color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
+.mnl span {float: left; margin: 10px 0 10px 10px;}
 .mn {margin-top: 16px;};
 .menu div{margin: 5px 0 0 10px;}
 .menu{font-size: 15px; color: black}
 .menu .select{color: #76a38a;}
-.select{position: relative;width:450px; display:inline-block;}
+.select{position: relative;width:450px; display:inline-block; margin-right: 15px;}
 .area-label-name{display: inline-block; margin-left: 10px; line-height: 6px;}
 .area-label{
   width:490px; margin:-8px 0 -8px 10px; text-align: center;
@@ -499,6 +500,17 @@ table.test{/*border: 2px solid red;*/}
 .text-to-right{text-align: right; margin-right: 10px; line-height: 25px;}
 
 .checkbox img {width: 20px; height: 20px; border: none;}
+
+.menu label.checkbox{position: relative; padding-left: 20px;padding-right: 15px;}
+.menu label.checkbox input{position: absolute; left: -9000px;}
+.menu label.checkbox {background: url(/assets/ltlchkbx.png) no-repeat; }
+/*.menu label.checkbox {background-position: 0 -19px;}*/
+.active{background-position: 0 -20px;}
+.inactive{background-position: 0 0;}
+
+.menu .mnl {position: relative; margin-left: 20px; background: url(/assets/ltlchkbx.png) no-repeat;}
+.mnl input{position: absolute; left: -9000px;}
+.mnl span.chkimg{background: url(/assets/bigchkbx.png) no-repeat; width: 19px; height: 19px; margin-top: 10px;}
 ;
 FI"asset_paths;
 F[I"1$root/app/assets/stylesheets/application.css;
@@ -521,16 +533,16 @@ F[{I"	path;
 FI"1$root/app/assets/stylesheets/application.css;
 FI"
 mtime;
-FIu:	Timej"Äå‡=4
+FIu:	Timel"Ä]?÷
 :@_zoneI"MSK;
-T:nano_numi∏:nano_deni:submicro"i`:offseti@8I"hexdigest;
-F"%dc561e7fc26d0ae3430097286960ef13{I"	path;
+T:nano_numi1:nano_deni:submicro"V:offseti@8I"hexdigest;
+F"%17a51d3992c277d75d6721e8bebf53b8{I"	path;
 FI"!$root/app/assets/stylesheets;
 FI"
 mtime;
-FIu;j"Äå‡=4
+FIu;l"Ä]?÷
 ;I"MSK;
-T;i∏;i;"i`;i@8I"hexdigest;
+T;i1;i;"V;i@8I"hexdigest;
 F"%de1105ce35b59a4d4626bf14fefd9773{I"	path;
 FI"0$root/app/assets/stylesheets/areas.css.scss;
 FI"
@@ -605,9 +617,9 @@ F"%2cce74c95ac13cb69d64d67e004b5ece{I"	path;
 FI"0$root/app/assets/stylesheets/roles.css.scss;
 FI"
 mtime;
-FIu;QÄ∏%Åﬁ
+FIu;¬ÄØaü
 ;I"MSK;
-T;iÏ;i;"tÄ;i@8I"hexdigest;
+T;iﬁ;i;"s@;i@8I"hexdigest;
 F"%8f68033fa0173c6a1fe96c758c475ce7{I"	path;
 FI"4$root/app/assets/stylesheets/scaffolds.css.scss;
 FI"

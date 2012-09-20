@@ -265,7 +265,7 @@ label.control-label{  padding-right: 10px;  float: left;}
 .grshow table {margin-left: 20px; }
 .item_title{padding-left: 20px;}
 .evimage{width: 500px; }
-img {border: 1px solid green; width: 540px;}
+img { width: 540px;}
 .lcolumn{ width: 50%; vertical-align: top;} /* position: absolute; top: 30px; left: 0px;}*/
 .rcolumn{ width: 40%; vertical-align: top;}/* position: absolute; top: 30px; right: 0px;}*/
 .lcolumn2{ width: 43%; vertical-align: top; } /* position: absolute; top: 30px; left: 0px;}*/

@@ -96,8 +96,10 @@
               <% end %>
               
               <div class="link6">
-                <% if current_user.role?(:admin) %>
-                  <%= link_to "Редактирование страниц", pages_path %>
+                <% if current_user%>
+                  <% if current_user.role?(:admin) %>
+                    <%= link_to "Редактирование страниц", pages_path %>
+                  <% end %>
                 <% end %>
               </div>
               

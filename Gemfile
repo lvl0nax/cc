@@ -18,26 +18,28 @@ gem 'devise'
 gem 'cancan'
 gem 'nifty-generators'
 
+#gem 'tinymce_fm'
+
 gem "tlsmail"
 gem "simple_form"
 
 gem "carrierwave"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-=begin
-gem 'cancan'
-gem 'activerecord'
+#=begin
+#gem 'cancan'
+#gem 'activerecord'
 
-gem 'geocoder'=end
+#gem 'geocoder'=end
 
-gem 'devise'
-=begin
-  gem 'omniauth'
+#gem 'devise'
+#=begin
+#  gem 'omniauth'
 
-  gem 'omniauth-twitter'
-  gem 'omniauth-facebook'
-  gem 'omniauth-linkedin'
-  gem 'omniauth-github'
-=end
+#  gem 'omniauth-twitter'
+#  gem 'omniauth-facebook'
+#  gem 'omniauth-linkedin'
+#  gem 'omniauth-github'
+#=end
 
 
 

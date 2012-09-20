@@ -77,7 +77,7 @@ a:hover{ color: #444;}
   height: 20px;
   width: 150px;
   /*border: 1px solid;*/
-  margin-right: 75px;
+  margin-right: 40px;
   text-align: center;
   color: black;
 }
@@ -518,3 +518,5 @@ table.test{/*border: 2px solid red;*/}
 .MCE {margin-left: 50px; width: 764px;}
 .MCE table {width: 100% !important;}
 .mceIframeContainer {width: 760px;}
+
+.not-visible{position: absolute; left: -9000px;}

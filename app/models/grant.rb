@@ -14,6 +14,8 @@ class Grant
   field :request_date, :type => DateTime
   field :direction, :type => Array
   field :end_point, :type => Array
+  field :x_coordinate, :type => Float
+  field :y_coordinate, :type => Float
   mount_uploader :photo, ImageUploader
 
   ### TODO :

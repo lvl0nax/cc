@@ -20,6 +20,8 @@ class Event
   field :end_date, :type => DateTime
   field :request_date, :type => DateTime
   field :kind, :type => Array
+  field :x_coordinate, :type => Float
+  field :y_coordinate, :type => Float
   mount_uploader :photo, ImageUploader
   
 

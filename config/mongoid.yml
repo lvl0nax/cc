@@ -67,3 +67,11 @@ test:
         - localhost:27017
       options:
         consistency: :strong
+development:
+  sessions:
+    default:
+      database: test_mongoid_production
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong

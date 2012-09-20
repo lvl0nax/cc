@@ -22,7 +22,8 @@ class Training
   field :areas, :type => Array
   field :employment
   field :salary_type
-
+  field :x_coordinate, :type => Float
+  field :y_coordinate, :type => Float
   mount_uploader :photo, ImageUploader
 
   attr_accessible :name

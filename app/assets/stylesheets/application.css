@@ -445,7 +445,7 @@ table.test{/*border: 2px solid red;*/}
 
 #resume .input {padding-left: 40px;}
 .line {height: 2px; width: 900px; background-color: #D9EB67; margin-top: 10px; margin-bottom: 10px;}
-#resume a{margin-left: 50px;}
+#resume a.edit{margin-left: 50px;}
 #resume label{float: left; line-height: 19px; width:150px;}
 #resume input{  width:600px;}
 #resume input.radio_buttons{  width:15px;}
@@ -514,3 +514,7 @@ table.test{/*border: 2px solid red;*/}
 
 .show-page{ padding: 10px; font-size: 16px;}
 .show-page h1{ color: #76a38a; padding-bottom: 15px;}
+
+.MCE {margin-left: 50px; width: 764px;}
+.MCE table {width: 100% !important;}
+.mceIframeContainer {width: 760px;}

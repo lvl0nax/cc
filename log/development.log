@@ -1,1 +1,2742 @@
 DEPRECATION WARNING: Passing a block to devise_for is deprecated. Please remove the block from devise_for (only the block, the call to devise_for must still exist) and call devise_scope :user do ... end with the block instead. (called from block in <top (required)> at /home/monax/rails_projects/rep/cc/config/routes.rb:36)
+DEPRECATION WARNING: Passing a block to devise_for is deprecated. Please remove the block from devise_for (only the block, the call to devise_for must still exist) and call devise_scope :user do ... end with the block instead. (called from block in <top (required)> at /home/monax/rails_projects/cc/config/routes.rb:36)
+
+
+Started GET "/" for 192.168.48.1 at 2012-09-20 09:03:17 +0400
+Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (69.2954ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (103.2772ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2728ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.2484ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.2408ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2534ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (47.3537ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (49.5322ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2635ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1309ms)
+  Rendered collection (0.0ms)
+  Rendered events/index.html.erb within layouts/application (639.5ms)
+Compiled geo.css  (0ms)  (pid 2546)
+Compiled scaffolds.css  (107ms)  (pid 2546)
+Compiled application.css  (129ms)  (pid 2546)
+Compiled jquery.js  (2ms)  (pid 2546)
+Compiled jquery_ujs.js  (0ms)  (pid 2546)
+Compiled geo.js  (0ms)  (pid 2546)
+Compiled jquery-1.8.0.min.js  (1ms)  (pid 2546)
+Compiled application.js  (106ms)  (pid 2546)
+Completed 500 Internal Server Error in 3290ms
+
+ActionView::Template::Error (undefined local variable or method `tinymce_fm_engine' for #<#<Class:0x00000004dfd640>:0x00000004e023e8>):
+    6:   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    7:   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    8:   <%= javascript_include_tag "application.js" %>
+    9:   <%= tinymce_javascript_tag "infopages", "advanced" %>
+    10:   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+    11:   <%= csrf_meta_tags %>
+    12: </head>
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___1204075540393741720_27677940'
+  app/controllers/events_controller.rb:55:in `index'
+
+
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.1ms)
+
+
+Started GET "/" for 192.168.48.1 at 2012-09-20 09:03:58 +0400
+DEPRECATION WARNING: Passing a block to devise_for is deprecated. Please remove the block from devise_for (only the block, the call to devise_for must still exist) and call devise_scope :user do ... end with the block instead. (called from block in <top (required)> at /home/monax/rails_projects/cc/config/routes.rb:37)
+Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5522ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.1795ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2410ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.2627ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.2217ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2968ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1116ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4520ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3147ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1097ms)
+  Rendered collection (0.0ms)
+  Rendered events/index.html.erb within layouts/application (30.8ms)
+Compiled tinymce/tiny_mce_src.js  (3ms)  (pid 2546)
+Compiled tinymce_fm/application.js  (31ms)  (pid 2546)
+Compiled tinymce_fm/tinymce_fm.css  (5ms)  (pid 2546)
+Compiled tinymce_fm/application.css  (15ms)  (pid 2546)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2778ms)
+Completed 200 OK in 216ms (Views: 172.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /application.css - 200 OK (11ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /geo.css - 200 OK (1ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /tinymce_fm/application.css - 200 OK (5ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /scaffolds.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /jquery.js - 200 OK (56ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /geo.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /application.js - 200 OK (6ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (3ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Served asset /tinymce_fm/application.js - 200 OK (6ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:03:59 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.8ms)
+Completed 200 OK in 12ms (Views: 11.8ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:04:00 +0400
+Served asset /1.png - 200 OK (90ms)
+
+
+Started GET "/assets/ltlchkbx.png" for 192.168.48.1 at 2012-09-20 09:04:00 +0400
+Served asset /ltlchkbx.png - 200 OK (11ms)
+
+
+Started GET "/assets/stag.png" for 192.168.48.1 at 2012-09-20 09:04:00 +0400
+Served asset /stag.png - 200 OK (13ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:04:00 +0400
+Served asset /icons.png - 200 OK (10ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:04:00 +0400
+Served asset /logo.png - 200 OK (9ms)
+
+
+Started GET "/assets/bigchkbx.png" for 192.168.48.1 at 2012-09-20 09:04:00 +0400
+Served asset /bigchkbx.png - 200 OK (3ms)
+
+
+Started GET "/assets/event.png" for 192.168.48.1 at 2012-09-20 09:04:00 +0400
+Served asset /event.png - 200 OK (32ms)
+
+
+Started GET "/assets/grant.png" for 192.168.48.1 at 2012-09-20 09:04:00 +0400
+Served asset /grant.png - 200 OK (29ms)
+
+
+Started GET "/events/new" for 192.168.48.1 at 2012-09-20 09:04:37 +0400
+Processing by EventsController#new as HTML
+Completed 500 Internal Server Error in 13ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  cancan (1.6.8) lib/cancan/ability.rb:202:in `authorize!'
+  cancan (1.6.8) lib/cancan/controller_additions.rb:333:in `authorize!'
+  cancan (1.6.8) lib/cancan/controller_resource.rb:41:in `authorize_resource'
+  cancan (1.6.8) lib/cancan/controller_resource.rb:26:in `load_and_authorize_resource'
+  cancan (1.6.8) lib/cancan/controller_resource.rb:10:in `block in add_before_filter'
+  activesupport (3.2.2) lib/active_support/callbacks.rb:418:in `_run__1507259704057409384__process_action__3611663748785226244__callbacks'
+  activesupport (3.2.2) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.2) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.2) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.2) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.2) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.2) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.2) lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+  actionpack (3.2.2) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.2) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.2) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.2) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.2) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.2) lib/action_dispatch/routing/route_set.rb:67:in `call'
+  actionpack (3.2.2) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+  actionpack (3.2.2) lib/action_dispatch/routing/route_set.rb:30:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.2) lib/action_dispatch/routing/route_set.rb:594:in `call'
+  mongoid (3.0.0) lib/rack/mongoid/middleware/identity_map.rb:33:in `block in call'
+  mongoid (3.0.0) lib/mongoid/unit_of_work.rb:39:in `unit_of_work'
+  mongoid (3.0.0) lib/rack/mongoid/middleware/identity_map.rb:33:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.2) lib/active_support/callbacks.rb:405:in `_run__167156380196988815__call__2759158901125805074__callbacks'
+  activesupport (3.2.2) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.2) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.2) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.2) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.2) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.2) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.2) lib/action_dispatch/middleware/static.rb:61:in `call'
+  railties (3.2.2) lib/rails/engine.rb:479:in `call'
+  railties (3.2.2) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.2) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/monax/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/monax/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/monax/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/actionpack-3.2.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.8ms)
+
+
+Started GET "/assets/rotate.png" for 192.168.48.1 at 2012-09-20 09:04:37 +0400
+Served asset /rotate.png - 200 OK (61ms)
+
+
+Started GET "/grants/new" for 192.168.48.1 at 2012-09-20 09:04:55 +0400
+Processing by GrantsController#new as HTML
+  Rendered grants/_form.html.erb (73.9ms)
+  Rendered grants/new.html.erb (75.5ms)
+Completed 200 OK in 120ms (Views: 119.3ms)
+
+
+Started GET "/assets/3.png" for 192.168.48.1 at 2012-09-20 09:04:55 +0400
+Served asset /3.png - 200 OK (44ms)
+
+
+Started GET "/users/sign_in" for 192.168.48.1 at 2012-09-20 09:05:15 +0400
+Processing by SessionsController#new as HTML
+  Rendered devise/shared/_links_for_login.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb (6.0ms)
+Completed 200 OK in 23ms (Views: 21.2ms)
+
+
+Started POST "/users/sign_in" for 192.168.48.1 at 2012-09-20 09:05:23 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MULbTJcf0uoazuGMZLR34kDICQkPvOfgyZQ3ZUtDdfQ=", "user"=>{"email"=>"lvl0nax@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ВОЙТИ"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5894ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"email"=>"lvl0nax@gmail.com"} flags=[] limit=-1 skip=0 fields=nil (170.6789ms)
+Completed 401 Unauthorized in 324ms
+Processing by SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MULbTJcf0uoazuGMZLR34kDICQkPvOfgyZQ3ZUtDdfQ=", "user"=>{"email"=>"lvl0nax@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ВОЙТИ"}
+  Rendered devise/shared/_links_for_login.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb (3.5ms)
+Completed 200 OK in 79ms (Views: 4.9ms)
+
+
+Started POST "/users/sign_in" for 192.168.48.1 at 2012-09-20 09:05:32 +0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MULbTJcf0uoazuGMZLR34kDICQkPvOfgyZQ3ZUtDdfQ=", "user"=>{"email"=>"lvl0nax@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ВОЙТИ"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"email"=>"lvl0nax@gmail.com"} flags=[] limit=-1 skip=0 fields=nil (0.4799ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} update={"$set"=>{"last_sign_in_at"=>2012-09-05 11:22:14 UTC, "current_sign_in_at"=>2012-09-20 05:05:32 UTC, "sign_in_count"=>6}} flags=[] (0.3984ms)
+Redirected to http://192.168.48.128:3000/
+Completed 302 Found in 135ms
+
+
+Started GET "/" for 192.168.48.1 at 2012-09-20 09:05:32 +0400
+Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8724ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (8.8830ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.3092ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2427ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.3843ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.2484ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2408ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1085ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.4294ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1547ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1421ms)
+  Rendered collection (0.0ms)
+  Rendered events/index.html.erb within layouts/application (11.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2284ms)
+Completed 200 OK in 49ms (Views: 20.0ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:05:32 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 3.1ms)
+
+
+Started GET "/pages" for 192.168.48.1 at 2012-09-20 09:05:36 +0400
+Processing by PagesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.4997ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2537ms)
+  Rendered pages/index.html.erb within layouts/application (3.1ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2141ms)
+Completed 200 OK in 24ms (Views: 11.3ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:05:36 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 3.1ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.3791ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.3309ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2069ms)
+  Rendered pages/_form.html.erb (59.7ms)
+  Rendered pages/edit.html.erb within layouts/application (61.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2642ms)
+Completed 200 OK in 84ms (Views: 71.1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 3.3ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/langs/en.js  (0ms)  (pid 2546)
+Served asset /tinymce/langs/en.js - 200 OK (14ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/style/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 200 OK (45ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/themes/advanced/editor_template_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/themes/advanced/editor_template_src.js - 200 OK (37ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/pagebreak/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 200 OK (24ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/layer/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 200 OK (49ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/table/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 200 OK (62ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/save/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 200 OK (20ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/advhr/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 200 OK (36ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/advimage/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 200 OK (66ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/advlink/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 200 OK (59ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:39 +0400
+Compiled tinymce/plugins/emotions/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 200 OK (14ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/iespell/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 200 OK (9ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/insertdatetime/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 200 OK (6ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/preview/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 200 OK (6ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/searchreplace/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 200 OK (10ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/media/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 200 OK (21ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/print/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 200 OK (9ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/contextmenu/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 200 OK (6ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/paste/editor_plugin_src.js  (1ms)  (pid 2546)
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 200 OK (8ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/directionality/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 200 OK (11ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/fullscreen/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 200 OK (12ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/noneditable/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 200 OK (11ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/visualchars/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 200 OK (6ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/nonbreaking/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 200 OK (9ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/template/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 200 OK (17ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/xhtmlxtras/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 200 OK (8ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/autosave/editor_plugin_src.js  (1ms)  (pid 2546)
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 200 OK (17ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/inlinepopups/editor_plugin_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 200 OK (10ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/themes/advanced/langs/en.js  (0ms)  (pid 2546)
+Served asset /tinymce/themes/advanced/langs/en.js - 200 OK (35ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/plugins/inlinepopups/skins/clearlooks2/window.css  (0ms)  (pid 2546)
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 200 OK (9ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:05:40 +0400
+Compiled tinymce/themes/advanced/skins/default/ui.css  (0ms)  (pid 2546)
+Served asset /tinymce/themes/advanced/skins/default/ui.css - 200 OK (31ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:05:41 +0400
+Compiled tinymce/themes/advanced/skins/default/content.css  (0ms)  (pid 2546)
+Served asset /tinymce/themes/advanced/skins/default/content.css - 200 OK (16ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:05:41 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 200 OK (2ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/img/icons.gif" for 192.168.48.1 at 2012-09-20 09:05:41 +0400
+Served asset /tinymce/themes/advanced/img/icons.gif - 200 OK (33ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9091ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.3483ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.4029ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.1919ms)
+  Rendered pages/_form.html.erb (11.8ms)
+  Rendered pages/edit.html.erb within layouts/application (13.0ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2847ms)
+Completed 200 OK in 36ms (Views: 22.6ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /geo.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce_fm/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /geo.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /jquery-1.8.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/tiny_mce_src.js - 304 Not Modified (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.2ms)
+Completed 200 OK in 7ms (Views: 6.9ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /icons.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /1.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/langs/en.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/themes/advanced/editor_template_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/themes/advanced/langs/en.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/themes/advanced/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:06 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8633ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2298ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.3235ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2055ms)
+  Rendered pages/_form.html.erb (7.1ms)
+  Rendered pages/edit.html.erb within layouts/application (8.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2680ms)
+Completed 200 OK in 82ms (Views: 68.1ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /tinymce_fm/application.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (1ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:39 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /application.js - 200 OK (2ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /tinymce_fm/application.js - 200 OK (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=simple" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"simple"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 6.0ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /tinymce/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Compiled tinymce/themes/simple/editor_template_src.js  (0ms)  (pid 2546)
+Served asset /tinymce/themes/simple/editor_template_src.js - 200 OK (30ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:40 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Compiled tinymce/themes/simple/langs/en.js  (0ms)  (pid 2546)
+Served asset /tinymce/themes/simple/langs/en.js - 200 OK (8ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:41 +0400
+Compiled tinymce/themes/simple/skins/default/ui.css  (0ms)  (pid 2546)
+Served asset /tinymce/themes/simple/skins/default/ui.css - 200 OK (56ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:06:42 +0400
+Compiled tinymce/themes/simple/skins/default/content.css  (0ms)  (pid 2546)
+Served asset /tinymce/themes/simple/skins/default/content.css - 200 OK (21ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:06:42 +0400
+Served asset /tinymce/themes/simple/skins/default/content.css - 200 OK (5ms)
+
+
+Started GET "/assets/tinymce/themes/simple/img/icons.gif" for 192.168.48.1 at 2012-09-20 09:06:42 +0400
+Served asset /tinymce/themes/simple/img/icons.gif - 200 OK (6ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:10:44 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.9067ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.1664ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.2248ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2627ms)
+  Rendered pages/_form.html.erb (6.7ms)
+  Rendered pages/edit.html.erb within layouts/application (7.8ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.4396ms)
+Completed 200 OK in 30ms (Views: 17.1ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:10:44 +0400
+Served asset /geo.css - 200 OK (2ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:10:44 +0400
+Served asset /tinymce_fm/application.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:10:44 +0400
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:10:44 +0400
+Served asset /application.css - 200 OK (1ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:45 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:45 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:45 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:45 +0400
+Served asset /application.js - 200 OK (3ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:45 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (3ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:45 +0400
+Served asset /tinymce_fm/application.js - 200 OK (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=simple" for 192.168.48.1 at 2012-09-20 09:10:45 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"simple"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 3.4ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:10:46 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:48 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:10:48 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /logo.png - 200 OK (30ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/themes/simple/editor_template_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/themes/simple/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/themes/simple/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:10:49 +0400
+Served asset /tinymce/themes/simple/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:10:50 +0400
+Served asset /tinymce/themes/simple/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/img/icons.gif" for 192.168.48.1 at 2012-09-20 09:10:50 +0400
+Served asset /tinymce/themes/simple/img/icons.gif - 304 Not Modified (0ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:19:13 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.8750ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2213ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.3471ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2036ms)
+  Rendered pages/_form.html.erb (8.6ms)
+  Rendered pages/edit.html.erb within layouts/application (9.8ms)
+Compiled application.css  (1ms)  (pid 2546)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.4065ms)
+Completed 200 OK in 47ms (Views: 31.4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:19:13 +0400
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:19:13 +0400
+Served asset /application.css - 200 OK (6ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:19:13 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:19:13 +0400
+Served asset /tinymce_fm/application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:13 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:19:13 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /application.js - 200 OK (4ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (5ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce_fm/application.js - 200 OK (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=simple" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"simple"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 4.0ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/themes/simple/editor_template_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:14 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 200 OK (2ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:19:15 +0400
+Served asset /tinymce/themes/simple/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:19:16 +0400
+Served asset /tinymce/themes/simple/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:19:16 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:19:16 +0400
+Served asset /tinymce/themes/simple/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:19:16 +0400
+Served asset /tinymce/themes/simple/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/img/icons.gif" for 192.168.48.1 at 2012-09-20 09:19:16 +0400
+Served asset /tinymce/themes/simple/img/icons.gif - 304 Not Modified (0ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0831ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.3424ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.4148ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2110ms)
+  Rendered pages/_form.html.erb (11.6ms)
+  Rendered pages/edit.html.erb within layouts/application (12.8ms)
+Compiled application.css  (0ms)  (pid 2546)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.3335ms)
+Completed 200 OK in 46ms (Views: 31.8ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Served asset /application.js - 200 OK (3ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Served asset /tinymce_fm/application.js - 200 OK (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=simple" for 192.168.48.1 at 2012-09-20 09:20:48 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"simple"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 3.2ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:20:50 +0400
+Served asset /tinymce_fm/application.css - 200 OK (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:20:50 +0400
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:50 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:20:50 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/themes/simple/editor_template_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 200 OK (1ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:20:51 +0400
+Served asset /tinymce/themes/simple/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:20:52 +0400
+Served asset /tinymce/themes/simple/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:20:52 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:20:52 +0400
+Served asset /tinymce/themes/simple/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:20:52 +0400
+Served asset /tinymce/themes/simple/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/simple/img/icons.gif" for 192.168.48.1 at 2012-09-20 09:20:52 +0400
+Served asset /tinymce/themes/simple/img/icons.gif - 304 Not Modified (0ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5729ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.1395ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.2327ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2086ms)
+  Rendered pages/_form.html.erb (6.7ms)
+  Rendered pages/edit.html.erb within layouts/application (7.7ms)
+Compiled application.css  (0ms)  (pid 2546)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2873ms)
+Completed 200 OK in 38ms (Views: 27.4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /tinymce_fm/application.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /application.css - 200 OK (3ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /application.js - 200 OK (8ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (7ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Served asset /tinymce_fm/application.js - 200 OK (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:21:31 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.2ms)
+Completed 200 OK in 4ms (Views: 3.8ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/themes/advanced/editor_template_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:32 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/themes/advanced/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/themes/advanced/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/img/icons.gif" for 192.168.48.1 at 2012-09-20 09:21:33 +0400
+Served asset /tinymce/themes/advanced/img/icons.gif - 304 Not Modified (0ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:25:42 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.3189ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2608ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.3960ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2224ms)
+  Rendered pages/_form.html.erb (12.5ms)
+  Rendered pages/edit.html.erb within layouts/application (13.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.3872ms)
+Completed 200 OK in 49ms (Views: 26.3ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:25:42 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:25:42 +0400
+Served asset /tinymce_fm/application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:42 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:43 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:43 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:43 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:43 +0400
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:43 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:43 +0400
+Served asset /tinymce_fm/application.js - 200 OK (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:25:43 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.2ms)
+Completed 200 OK in 7ms (Views: 6.6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:25:44 +0400
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:25:44 +0400
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:25:44 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/themes/advanced/editor_template_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:45 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/themes/advanced/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/themes/advanced/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/img/icons.gif" for 192.168.48.1 at 2012-09-20 09:25:46 +0400
+Served asset /tinymce/themes/advanced/img/icons.gif - 304 Not Modified (0ms)
+
+
+Started GET "/resumes/new" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Processing by ResumesController#new as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7391ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.2692ms)
+  Rendered resumes/_form.html.erb (26.5ms)
+  Rendered resumes/new.html.erb within layouts/application (27.9ms)
+Compiled application.css  (1ms)  (pid 2546)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.3965ms)
+Completed 200 OK in 59ms (Views: 57.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Served asset /application.css - 200 OK (14ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Served asset /tinymce_fm/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Served asset /tinymce/tiny_mce_src.js - 304 Not Modified (2ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 3.1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:27 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/pages" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Processing by PagesController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.6111ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2177ms)
+  Rendered pages/index.html.erb within layouts/application (3.5ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.3557ms)
+Completed 200 OK in 29ms (Views: 12.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Served asset /tinymce_fm/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Served asset /tinymce/tiny_mce_src.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:31:51 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 4.0ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.7591ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2036ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.1926ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.1817ms)
+  Rendered pages/_form.html.erb (7.5ms)
+  Rendered pages/edit.html.erb within layouts/application (8.6ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2675ms)
+Completed 200 OK in 28ms (Views: 18.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Served asset /tinymce_fm/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Served asset /tinymce/tiny_mce_src.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 7.1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:53 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/langs/en.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/themes/advanced/editor_template_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/themes/advanced/langs/en.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/themes/advanced/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:31:54 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.0490ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.3002ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.5043ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2136ms)
+  Rendered pages/_form.html.erb (11.7ms)
+  Rendered pages/edit.html.erb within layouts/application (13.5ms)
+Compiled application.css  (1ms)  (pid 2546)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.5002ms)
+Completed 200 OK in 63ms (Views: 45.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Served asset /application.css - 200 OK (8ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Served asset /tinymce_fm/application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Served asset /geo.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:34:57 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:34:58 +0400
+Served asset /jquery-1.8.0.min.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:34:58 +0400
+Served asset /tinymce/tiny_mce_src.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:34:58 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:34:58 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.3ms)
+Completed 200 OK in 8ms (Views: 7.5ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /1.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/themes/advanced/editor_template_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/langs/en.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /icons.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:35:00 +0400
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:01 +0400
+Served asset /tinymce/themes/advanced/langs/en.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:01 +0400
+Served asset /tinymce/themes/advanced/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:01 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:35:01 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:01 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/pages/4f34dd0a72828b1d45000005/edit" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4f34dd0a72828b1d45000005"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.1191ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.3836ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=users selector={"_id"=>"4f34dc6972828b1d45000003"} flags=[] limit=-1 skip=0 fields=nil (0.4296ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={"_id"=>"4f34dd0a72828b1d45000005"} flags=[] limit=0 skip=0 fields=nil (0.2592ms)
+  Rendered pages/_form.html.erb (9.5ms)
+  Rendered pages/edit.html.erb within layouts/application (10.8ms)
+Compiled application.css  (0ms)  (pid 2546)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_development collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.3064ms)
+Completed 200 OK in 69ms (Views: 55.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Served asset /application.css - 200 OK (5ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Served asset /tinymce_fm/application.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (0ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Served asset /geo.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:13 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /application.js - 200 OK (2ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce_fm/application.js - 200 OK (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 3.5ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (1ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /1.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/editor_template_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce/themes/advanced/editor_template_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/style/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce/plugins/style/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /logo.png - 200 OK (0ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /icons.png - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/pagebreak/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce/plugins/pagebreak/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/layer/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce/plugins/layer/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/table/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce/plugins/table/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/save/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:14 +0400
+Served asset /tinymce/plugins/save/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advlink/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/advlink/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advimage/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/advimage/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/advhr/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/advhr/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/emotions/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/emotions/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/insertdatetime/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/insertdatetime/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/preview/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/preview/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/searchreplace/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/searchreplace/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/media/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/media/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/print/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/print/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/iespell/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/iespell/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/contextmenu/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/contextmenu/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/paste/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/paste/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/directionality/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/directionality/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/noneditable/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/noneditable/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/visualchars/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/visualchars/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/xhtmlxtras/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/xhtmlxtras/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/template/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/template/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/nonbreaking/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/nonbreaking/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/inlinepopups/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/autosave/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/autosave/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/plugins/fullscreen/editor_plugin_src.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/fullscreen/editor_plugin_src.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/langs/en.js?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/themes/advanced/langs/en.js - 200 OK (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/ui.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/themes/advanced/skins/default/ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/plugins/inlinepopups/skins/clearlooks2/window.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/plugins/inlinepopups/skins/clearlooks2/window.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/skins/default/content.css?body=1" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/themes/advanced/skins/default/content.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/tinymce/themes/advanced/img/icons.gif" for 192.168.48.1 at 2012-09-20 09:35:15 +0400
+Served asset /tinymce/themes/advanced/img/icons.gif - 304 Not Modified (0ms)

@@ -1,4 +1,5 @@
 TestMongoid::Application.routes.draw do
+  mount TinymceFm::Engine => "/tinymce_fm"
   resources :months
 
   resources :areas

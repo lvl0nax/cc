@@ -25,7 +25,7 @@
     <%= f.input :delivery_phone, :label => "ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН"  %>
     <div class="line"></div>
     
-    <%= link_to "СМЕНИТЬ ПАРОЛЬ", edit_registration_path(current_user)%>
+    <%= link_to "СМЕНИТЬ ПАРОЛЬ", edit_registration_path(current_user), :class=> "edit"%>
 
     <%= f.button :submit, :value => "СОХРАНИТЬ" %>
   <% end %>

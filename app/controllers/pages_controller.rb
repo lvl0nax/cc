@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  include TinymceFm::Filemanager
   load_and_authorize_resource
   # GET /pages
   # GET /pages.json

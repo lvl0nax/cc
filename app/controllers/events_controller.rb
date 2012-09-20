@@ -135,7 +135,7 @@ class EventsController < ApplicationController
 
   def add_participant
     current_user.events << @event
-    redirect_to @event
+    redirect_to root_url
   end
 
 #TODO: before filter for this method

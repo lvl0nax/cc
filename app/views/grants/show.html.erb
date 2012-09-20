@@ -6,7 +6,7 @@
       <div class="evimage">  <%=image_tag @grant.photo.url %> </div>
       <div class="black_letter"> C <%= @grant.start_date.to_formatted_s(:db) %> </br>
         ДО <%= @grant.end_date.to_formatted_s(:db) %> </div>
-  		<div> ДОБАВИЛ <%= @grant.user.name %> </div>
+  		<div> ДОБАВИЛ <%= @owner.name %> </div>
     </td>
     <td class="rcolumn">
       <div> <%= @grant.description %> </div>

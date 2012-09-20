@@ -14,7 +14,7 @@ class GrantsController < ApplicationController
   # GET /grants/1.json
   def show
     @grant = Grant.find(params[:id])
-
+    @owner = User.find(@grant.owner)
     respond_to do |format|
       format.html { render :layout => false }# show.html.erb
       format.json { render json: @grant }

@@ -16,6 +16,7 @@ class TrainingsController < ApplicationController
   def show
     @training = Training.find(params[:id])
     @requests = @training.requests
+    @owner = User.find(@training.owner)
     #UserMailer.info_email(current_user).deliver
     respond_to do |format|
       format.html { render :layout => false }# show.html.erb

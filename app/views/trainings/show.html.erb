@@ -16,7 +16,7 @@
         <div class="yellow_letter"> C <%= l @training.start_date, :format => :long %> 
         </br>ДО <%= @training.end_date.to_formatted_s(:long) %>
         </div>
-        <div class="user_show"> ДОБАВИЛ <p><%= @training.user.name %></p> </div>
+        <div class="user_show"> ДОБАВИЛ <p><%= @owner.name %></p> </div>
       </td>
       <td class="rcolumn2">
         <div> 

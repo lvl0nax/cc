@@ -324,7 +324,7 @@ table.test{/*border: 2px solid red;*/}
 .show-popup{
   width: 1080px;
   min-height: 200px;
-  top: 460px;
+  top: 200px;
   right: 140px;
   background-color: white;
 }

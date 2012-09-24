@@ -44,12 +44,12 @@ class TrainingsController < ApplicationController
   # POST /trainings.json
   def create
     @training = Training.create(params[:training])
-    @training.owner = current_user
+    @training.write_attributes(owner: current_user.id)
     respond_to do |format|
       if @training.save
         #current_user.trainings << @training
 
-        format.html { redirect_to @training, notice: 'Training was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Training was successfully created.' }
         format.json { render json: @training, status: :created, location: @training }
       else
         format.html { render action: "new" }

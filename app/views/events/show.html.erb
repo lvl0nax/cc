@@ -20,6 +20,12 @@
       <div> <%= @event.description %> </div>
       <div class="green_letter"> СРОК ПОДАЧИ ЗАЯВОК <%= @event.request_date.to_formatted_s(:db) %> </div>
       <div> <%= @event.hyperlink %> </div>
+      <div class="item-map"> 
+        <div id="geo-map-zone">
+          <div style="margin-top: 40px; display: none;" class="fs-inner-box h" id="geomap-info"></div>
+          <div id="geo-map" data-x="<%= @event.try(:x_coordinate) %>" data-y="<%= @event.try(:y_coordinate) %>"></div> 
+        </div>
+      </div>
     </td>  
   </tr>
   </table>  

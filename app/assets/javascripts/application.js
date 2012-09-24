@@ -144,6 +144,11 @@ $(function() {
 		}
 	});
 
+	$(document).on('hover',"#geo-map" ,function() {
+		$("input[id*='x_coordinate']").val(geo.getLoc().longitude);
+		$("input[id*='y_coordinate']").val(geo.getLoc().latitude);
+	});
+
 	$('.temp_training').bind("click", function(){
 		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
@@ -160,11 +165,19 @@ $(function() {
 		tmp = $(this).data("content");
 		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+tmp, function(){
+			
 			if ($("#container").is(".wait-click")){}
 			else { 	
 				$('#container').addClass("wait-click");}
+			var x_coordinate = $("#geo-map").data().x || 59.93365223894488;
+			var y_coordinate = $("#geo-map").data().y || 30.300378486327617;
+			geocoder = new google.maps.Geocoder();/**/
+      geo.setLoc(x_coordinate,y_coordinate);/**/
+			/*geo.init({elementString: "#geo-map", map: 'gm'}, {latitude: 59.93365223894488, longitude: 30.300378486327617});/**/
+      geo.init({isFirstSet: false, map: 'gm', elementString: "#geo-map"});/**/
 		});
 	});
+	$("#popup-wrap").click(function(event){ event.stopPropagation()});
 	$('.temp_grant').bind("click", function(){
 		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");

@@ -1,5 +1,5 @@
 <%= simple_form_for(@grant) do |f| %>
-  <div id="close">X</div>
+  <div id="close" onclick="closeItemPopup()">X</div>
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
   <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "55"} %>
   <%= f.input :photo, :label => "КАРТИНКА"  %>
@@ -10,7 +10,14 @@
   <%= f.input :request_date, :label => "СРОК ПОДАЧИ ЗАЯВОК" , :as => :datetime %>
   <%= f.input :direction, :label => "СФЕРА" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes %>
   <%= f.input :end_point, :label => "ЦЕЛЬ" , :collection => ["ИССЛЕДОВАТЕЛЬСКАЯ ДЕЯТЕЛЬНОСТЬ", "ОБУЧЕНИЕ", "РЕАЛИЗАЦИЯ ПРОЕКТА", "ЛЮБАЯ"], :as => :check_boxes, :wrapper_html => { :class => 'end_point' } %>  
+  
+  <div class="not-visible">
+    <%= f.input :x_coordinate, :label => false %>
+    <%= f.input :y_coordinate, :label => false %>  
+  </div>
+
   <%= f.button :submit, :value => "ДОБАВИТЬ", :class => "grant_button" %>
+
 
 
 <% end %>

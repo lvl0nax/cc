@@ -369,6 +369,7 @@ table.test{/*border: 2px solid red;*/}
   color: white;
 }
 
+
 .reg-popup{
   width: 537px;
   min-height: 110px;
@@ -376,6 +377,7 @@ table.test{/*border: 2px solid red;*/}
   right: 98px;
   background-color: white;
   border: 2px solid #e3e3e3;
+  overflow-y: hidden;
 }
 .reg-inputs{width: 400px; margin-left: 20px; margin-top: 10px;}
 /*.reg-popup label {float: left; margin: 5px;}
@@ -520,3 +522,8 @@ table.test{/*border: 2px solid red;*/}
 .mceIframeContainer {width: 760px;}
 
 .not-visible{position: absolute; left: -9000px;}
+
+.item-map #geo-map-zone{height: 240px; }
+.item-map #geo-map{height: 240px;}
+#popup-wrap table {position: relative}
+.item-map {position: absolute; bottom: 20px;}

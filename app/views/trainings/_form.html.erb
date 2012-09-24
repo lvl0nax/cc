@@ -1,5 +1,5 @@
  <%= simple_form_for(@training) do |f| %>
-  <div id="close">X</div>
+  <div id="close" onclick="closeItemPopup()">X</div>
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field'} %>
   <div id="geo-map-zone">
     <div id="search-area" class="h" style="">
@@ -24,6 +24,11 @@
   <%= f.input :employment, :label => "ЗАНЯТОСТЬ" , :collection => ["ЧАСТИЧНАЯ", "ПОЛНАЯ", "УДАЛЕННАЯ"], :as => :check_boxes %>
   <%= f.input :salary_type, :label => "" , :collection => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ" ], :as => :check_boxes %>
    
+  <div class="not-visible">
+    <%= f.input :x_coordinate, :label => false %>
+    <%= f.input :y_coordinate, :label => false %>  
+  </div>
+  
   <%= f.button :submit, :value => "ДОБАВИТЬ" %>
 <% end %>
 

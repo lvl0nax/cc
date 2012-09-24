@@ -7,30 +7,47 @@ $(function() {
 		$('.temp_month').toggle();
 	});
 */
-	$('#events_search').submit( function () {
-		alert("test");
-		$.get(this.action, $(this).serialize(), null, 'script');
-		return false;
-	});
+  $('#events_search').submit( function () {
+    alert("test");
+    $.get(this.action, $(this).serialize(), null, 'script');
+    return false;
+  });
 
 
-	$('.add').on("click", function(){
-		$('.create_links').show();
-		$('.add').addClass("add_select");
-		$(".reg-buttons").hide();
-	});
+  $('.add').on("click", function(){
+    if ($(this).data().reg){
+      $('.create_links').show();
+      $('.add').addClass("add_select");
+      $(".reg-buttons").hide();
+    } 
+    else {
+      alert("Для добавления события залогиньтесь, пожалуйста.")
+    }
+  });
 
-	$(document).on('click',"#close" ,function() {
-		$('.create_links').hide();
-		$('.reg-buttons').hide();
-		$('#popup-wrap').html("").removeClass();
-		$('.create_grant').removeClass("cr_select");
-	    $('.create_event').removeClass("cr_select");
-	    $('.create_training').removeClass("cr_select");
-	    $('.add').removeClass("add_select");
-	    $('.registration').removeClass("reg-select");
-	});
+  $(document).on('click',".wait-click" ,function() {
+    if ($("#popup-wrap").is(".show-popup")) {
+      $("#popup-wrap").html("").removeClass();
+      $("#container").removeClass("wait-click");
+    }
+  });
 
+  $(document).on('hover',"#geo-map" ,function() {
+    $("input[id*='y_coordinate']").val(geo.getLoc().longitude);
+    $("input[id*='x_coordinate']").val(geo.getLoc().latitude);
+  });
+
+  /*$(document).on('click', "#close" ,function() {
+    $('.create_links').hide();
+    $('.reg-buttons').hide();
+    $('#popup-wrap').html("").removeClass();
+    $('.create_grant').removeClass("cr_select");
+    $('.create_event').removeClass("cr_select");
+    $('.create_training').removeClass("cr_select");
+    $('.add').removeClass("add_select");
+    $('.registration').removeClass("reg-select");
+  });
+  */
 
 	$('.create_grant a').bind('click', function(){
 		/*$('#container').css("min-height", "900px");*/
@@ -69,11 +86,14 @@ $(function() {
 	});
 
 	$('.registration').bind('click', function(){
-		$(this).addClass("reg-select");
-		$('.create_links').hide();
-		$(".reg-buttons").show();
-		$('#popup-wrap').removeClass().addClass("reg-popup").load("/users/sign_up", function(){
-		});
+    if ($(this).data().reg){alert("Для регистрации разлогиньтесь, пожалуйста.")} 
+    else {
+  		$(this).addClass("reg-select");
+  		$('.create_links').hide();
+  		$(".reg-buttons").show();
+  		$('#popup-wrap').removeClass().addClass("reg-popup").load("/users/sign_up", function(){
+  		});
+    }
 	});
 	
 	$('.person-button').bind("click", function(){
@@ -137,17 +157,6 @@ $(function() {
 	});
 
 */
-	$(document).on('click',".wait-click" ,function() {
-		if ($("#popup-wrap").is(".show-popup")) {
-			$("#popup-wrap").html("").removeClass();
-			$("#container").removeClass("wait-click");
-		}
-	});
-
-	$(document).on('hover',"#geo-map" ,function() {
-		$("input[id*='x_coordinate']").val(geo.getLoc().longitude);
-		$("input[id*='y_coordinate']").val(geo.getLoc().latitude);
-	});
 
 	$('.temp_training').bind("click", function(){
 		if ($("#container").is(".wait-click")){$("#container").removeClass();}
@@ -169,12 +178,13 @@ $(function() {
 			if ($("#container").is(".wait-click")){}
 			else { 	
 				$('#container').addClass("wait-click");}
-			var x_coordinate = $("#geo-map").data().x || 59.93365223894488;
-			var y_coordinate = $("#geo-map").data().y || 30.300378486327617;
-			geocoder = new google.maps.Geocoder();/**/
-      geo.setLoc(x_coordinate,y_coordinate);/**/
-			/*geo.init({elementString: "#geo-map", map: 'gm'}, {latitude: 59.93365223894488, longitude: 30.300378486327617});/**/
-      geo.init({isFirstSet: false, map: 'gm', elementString: "#geo-map"});/**/
+        var x_coordinate = $("#geo-map").data().x ; /*|| 59.93365223894488*/
+        var y_coordinate = $("#geo-map").data().y ; /*|| 30.300378486327617*/
+        /*alert(y_coordinate);*/
+        geocoder = new google.maps.Geocoder();/**/
+        geo.setLoc(x_coordinate,y_coordinate);/**/
+        /*geo.init({elementString: "#geo-map", map: 'gm'}, {latitude: 59.93365223894488, longitude: 30.300378486327617});/**/
+        geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
 		});
 	});
 	$("#popup-wrap").click(function(event){ event.stopPropagation()});
@@ -230,3 +240,14 @@ $('.trainings input:checkbox').click(function() {
 	else
   	$(".temp_event").hide();
 });*/
+
+function closeItemPopup() {
+  $('.create_links').hide();
+  $('.reg-buttons').hide();
+  $('#popup-wrap').html("").removeClass();
+  $('.create_grant').removeClass("cr_select");
+  $('.create_event').removeClass("cr_select");
+  $('.create_training').removeClass("cr_select");
+  $('.add').removeClass("add_select");
+  $('.registration').removeClass("reg-select");
+}

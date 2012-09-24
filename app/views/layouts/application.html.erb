@@ -65,13 +65,9 @@
                   компания
                 </div>
               </div>  
-              <div class="registration">
-                РЕГИСТРАЦИЯ
-              </div>
+              <div class="registration" data-reg="<%= current_user.try(:email) %>"> РЕГИСТРАЦИЯ </div>
 
-              <div class="add">
-                ДОБАВИТЬ
-              </div>
+              <div class="add" data-reg="<%= current_user.try(:email) %>"> ДОБАВИТЬ </div>
             </div>
           </div>
 

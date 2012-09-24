@@ -1,6 +1,6 @@
 
 <%= simple_form_for(@event) do |f| %>
-  <div id="close">X</div>
+  <div id="close" onclick="closeItemPopup()">X</div>
   <div class="name_form">ЯРМАРКА ВАКАНСИЙ, ПРЕЗЕНТАЦИЯ, МАСTЕР-КЛАСС, КЕЙС-ТУРНИР, КОНФЕРЕНЦИЯ</div>
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
   <div id="geo-map-zone">
@@ -9,7 +9,7 @@
         <a class="btn1 btn-mini search-btn">Поиск</a>
     </div>
     <div style="margin-top: 40px; display: none;" class="fs-inner-box h" id="geomap-info"></div>
-    <div id="geo-map"></div> </div>
+    <div id="geo-map" onhover="alert(1)"></div> </div>
   <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "55"} %>
   <%= f.input :photo, :label => "КАРТИНКА"  %>
   <%= f.input :nation, :label => "СТРАНА"  %>
@@ -31,4 +31,3 @@
 
   <%= f.button :submit, :value => "ДОБАВИТЬ" %>
 <% end %>
-

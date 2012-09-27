@@ -26887,3 +26887,22 @@ Processing by SessionsController#create as JS
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"I4rV/ITHp5CCVVa2vhWGqnlYWg1jDEY9GBYfSTfw8xQ=", "user"=>{"email"=>"dfasdfa@sdfasdf.rt", "password"=>"[FILTERED]"}, "commit"=>"ВОЙТИ"}
   MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"email"=>"dfasdfa@sdfasdf.rt"} flags=[] limit=-1 skip=0 fields=nil (0.2141ms)
 Completed 401 Unauthorized in 1ms
+DEPRECATION WARNING: Passing a block to devise_for is deprecated. Please remove the block from devise_for (only the block, the call to devise_for must still exist) and call devise_scope :user do ... end with the block instead. (called from block in <top (required)> at /home/monax/rails_projects/cc/config/routes.rb:37)
+
+
+Started GET "/users/sign_in" for 192.168.48.1 at 2012-09-27 17:19:59 +0400
+Processing by SessionsController#new as HTML
+  Rendered devise/shared/_links_for_login.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb (362.3ms)
+Completed 200 OK in 431ms (Views: 429.6ms)
+
+
+Started POST "/users/sign_in" for 192.168.48.1 at 2012-09-27 17:20:07 +0400
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I4rV/ITHp5CCVVa2vhWGqnlYWg1jDEY9GBYfSTfw8xQ=", "user"=>{"email"=>"lvl0nax@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ВОЙТИ"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6862ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"email"=>"lvl0nax@gmail.com"} flags=[] limit=-1 skip=0 fields=nil (0.3192ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} update={"$set"=>{"last_sign_in_at"=>2012-09-27 13:11:40 UTC, "current_sign_in_at"=>2012-09-27 13:20:07 UTC, "sign_in_count"=>21}} flags=[] (0.3700ms)
+  Rendered layouts/_alinks.html.erb (1.7ms)
+  Rendered devise/sessions/create.js.erb (2.5ms)
+Completed 200 OK in 140ms (Views: 3.7ms)

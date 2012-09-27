@@ -1,14 +1,25 @@
-<div class="vline">|</div>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <span><%= f.label :email %>
-  <%= f.email_field :email %></span>
+<div id="loginarea" class="vline">&nbsp;</div>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => true) do |f| %>
+  <div class="inline"><%= f.label :email %>
+  <%= f.email_field :email %></div>
 
-  <span><%= f.label "пароль" %>
-  <%= f.password_field :password %></span>
+  <div class="inline"><%= f.label "пароль" %>
+  <%= f.password_field :password %></div>
 
-	<div class="vline">|</div>
-  <span><%= f.submit "ВОЙТИ" %></span>
+	<div class="vline">&nbsp;</div>
+  <div class="inline"><%= f.submit "ВОЙТИ" %></div>
+	<%= link_to "login", :url => new_session_path(resource_name), :update => "loginarea", :remote => true %>
 <% end %>
 
-<div class="vline">|</div>
+<div class="vline">&nbsp;</div>
 <%= render "devise/shared/links_for_login" %>
+
+
+<script type="text/javascript">
+  $("#new_user").bind("ajax:complete", function(){alert(1);});
+</script>
+<%content_for :js do%>
+  <script type="text/javascript">
+    $("#new_user").bind("ajax:complete", function(){alert(1);});
+  </script>
+<% end %>

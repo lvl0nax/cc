@@ -3,7 +3,13 @@
 	<div class="item_title black_letter"> <%= @grant.title %> - ГРАНТ </div>
   <table><tr>
     <td class="lcolumn">	
-      <div class="evimage">  <%=image_tag @grant.photo.url %> </div>
+      <div class="evimage">  
+        <% if @grant.photo.blank? %>
+          <%= image_tag "/assets/Untitled3.jpg" %>
+        <% else %>
+          <%=image_tag @grant.photo.url %> 
+        <% end %>
+      </div>
       <div class="black_letter"> C <%= @grant.start_date.to_formatted_s(:db) %> </br>
         ДО <%= @grant.end_date.to_formatted_s(:db) %> </div>
   		<div> ДОБАВИЛ <%= @owner.name %> </div>
@@ -17,9 +23,14 @@
   </tr>
   </table> 
 
+<% if current_user%>
+  <% if current_user.role?(:admin) %>
+    <%= link_to 'Edit', edit_grant_path(@grant) %> |
+    <%= link_to 'Back', grants_path %>
+  <% end %>
+<% end %>
 
-<%= link_to 'Edit', edit_grant_path(@grant) %> |
-<%= link_to 'Back', grants_path %>
+
 </div>
 
 <script type="text/javascript">

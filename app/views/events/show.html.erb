@@ -3,7 +3,13 @@
 	<div class="item_title green_letter"><%= @event.title %> - СОБЫТИЕ </div>
   <table><tr>
     <td class="lcolumn">
-      <div class="evimage"> <%=image_tag @event.photo.url %> </div>
+      <div class="evimage"> 
+        <% if @event.photo.blank? %>
+          <%= image_tag "/assets/Untitled2.jpg" %>
+        <% else %>
+          <%=image_tag @event.photo.url %> 
+        <% end %>
+      </div>
       <%= link_to "Добавить", add_participant_event_path %>
       <div class="green_letter"> C <%= @event.start_date.to_formatted_s(:db) %></br>
        ДО <%= @event.end_date.to_formatted_s(:db) %> </div>
@@ -30,6 +36,9 @@
   </tr>
   </table>  
 
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<% if current_user%>
+  <% if current_user.role?(:admin) %>
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Back', events_path %>
+  <% end %>
+<% end %>

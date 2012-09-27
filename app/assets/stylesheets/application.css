@@ -323,7 +323,7 @@ table.test{/*border: 2px solid red;*/}
 
 .show-popup{
   width: 1080px;
-  min-height: 200px;
+  min-height: 400px;
   top: 200px;
   right: 140px;
   background-color: white;
@@ -490,7 +490,7 @@ table.test{/*border: 2px solid red;*/}
 #login {display: inline-block;}
 #login-form {display: inline-block;}
 #login-form form {display: inline-block;}
-.vline{width: 1px; height: 22px; display: inline-block; background-color: black;overflow: hidden;}
+.vline{width: 1px; height: 25px; display: inline-block; background-image: url(/assets/black_line.jpg); line-height: 25px;}
 .text-to-right{text-align: right; margin-right: 10px; line-height: 25px;}
 
 .checkbox img {width: 20px; height: 20px; border: none;}
@@ -527,3 +527,5 @@ table.test{/*border: 2px solid red;*/}
 .item-map #geo-map{height: 240px;}
 #popup-wrap table {position: relative}
 .item-map {position: absolute; bottom: 20px;}
+
+.inline{display: inline-block;}

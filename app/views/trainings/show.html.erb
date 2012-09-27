@@ -3,7 +3,15 @@
   <div class="item_title yellow_letter"> <%= @training.title %> - СТАЖИРОВКА </div>
   <table class="test">
     <tr>
-      <td rowspan="2" valign = "top"><div class="eventimage"> <%=image_tag @training.photo.url %> </div></td>
+      <td rowspan="2" valign = "top">
+        <div class="eventimage"> 
+          <% if @training.photo.blank? %>
+            <%= image_tag "/assets/Untitled.jpg" %>
+          <% else %>
+            <%=image_tag @training.photo.url %> 
+          <% end %>
+        </div>
+      </td>
       <td colspan="2"> <%= @training.description %> </td>
     </tr>
     <tr>
@@ -41,8 +49,12 @@
 
 
   <%= link_to 'Подать заявку', new_request_path(:refer => @training, :type => @training.class) %>
-  <%= link_to 'Edit', edit_training_path(@training) %> |
-  <%= link_to 'Back', trainings_path %>
+  <% if current_user%>
+    <% if current_user.role?(:admin) %>
+      <%= link_to 'Edit', edit_training_path(@training) %> |
+      <%= link_to 'Back', trainings_path %>
+    <% end %>
+  <% end %>
   </br>
   <% @requests.each do |r|%>
     <%= link_to r.content, r %>

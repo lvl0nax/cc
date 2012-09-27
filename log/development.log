@@ -26906,3 +26906,457 @@ Processing by SessionsController#create as JS
   Rendered layouts/_alinks.html.erb (1.7ms)
   Rendered devise/sessions/create.js.erb (2.5ms)
 Completed 200 OK in 140ms (Views: 3.7ms)
+DEPRECATION WARNING: Passing a block to devise_for is deprecated. Please remove the block from devise_for (only the block, the call to devise_for must still exist) and call devise_scope :user do ... end with the block instead. (called from block in <top (required)> at /home/monax/rails_projects/cc/config/routes.rb:37)
+
+
+Started GET "/" for 192.168.48.1 at 2012-09-27 17:20:51 +0400
+Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6821ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=-1 skip=0 fields=nil (0.2246ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.4227ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2303ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.2224ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.3211ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2453ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.5207ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.3319ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.2420ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2961ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1092ms)
+  Rendered events/_event.html.erb (31.1ms)
+  Rendered events/index.html.erb within layouts/application (456.8ms)
+  Rendered layouts/_alinks.html.erb (2.0ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2990ms)
+Completed 200 OK in 867ms (Views: 782.7ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-27 17:20:52 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.8ms)
+Completed 200 OK in 5ms (Views: 4.9ms)
+
+
+Started GET "/events/new" for 192.168.48.1 at 2012-09-27 17:20:58 +0400
+Processing by EventsController#new as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.5555ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=-1 skip=0 fields=nil (0.1674ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3469ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1094ms)
+  Rendered events/_form.html.erb (101.2ms)
+  Rendered events/new.html.erb (106.7ms)
+Completed 200 OK in 136ms (Views: 126.6ms)
+
+
+Started GET "/assets/rotate.png" for 192.168.48.1 at 2012-09-27 17:20:58 +0400
+Served asset /rotate.png - 304 Not Modified (175ms)
+
+
+Started GET "/assets/3.png" for 192.168.48.1 at 2012-09-27 17:20:58 +0400
+Served asset /3.png - 304 Not Modified (165ms)
+
+
+Started POST "/events" for 192.168.48.1 at 2012-09-27 17:21:28 +0400
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I4rV/ITHp5CCVVa2vhWGqnlYWg1jDEY9GBYfSTfw8xQ=", "event"=>{"title"=>"asfasdfasd", "description"=>"f asdf asdf asdf asdf ", "nation"=>"asdf asdfasdf", "city"=>"asdf asdf asd", "street"=>"fas dfasdf asd", "building"=>"23", "place"=>"asdf asdf asf", "start_date(1i)"=>"2012", "start_date(2i)"=>"10", "start_date(3i)"=>"22", "start_date(4i)"=>"13", "start_date(5i)"=>"20", "end_date(1i)"=>"2012", "end_date(2i)"=>"10", "end_date(3i)"=>"27", "end_date(4i)"=>"13", "end_date(5i)"=>"20", "hyperlink"=>"htttp://ya.ru", "request_date(1i)"=>"2012", "request_date(2i)"=>"10", "request_date(3i)"=>"20", "request_date(4i)"=>"13", "request_date(5i)"=>"20", "areas"=>[""], "kind"=>["НАУЧНАЯ КОНФЕРЕНЦИЯ", ""], "x_coordinate"=>"", "y_coordinate"=>""}, "commit"=>"ДОБАВИТЬ"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (0.6018ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=-1 skip=0 fields=nil (0.1712ms)
+  MOPED: 127.0.0.1:27017 INSERT       database=test_mongoid_production collection=events documents=[{"_id"=>"506452d872828b9e0c000001", "user_ids"=>[], "title"=>"asfasdfasd", "description"=>"f asdf asdf asdf asdf ", "nation"=>"asdf asdfasdf", "city"=>"asdf asdf asd", "street"=>"fas dfasdf asd", "building"=>"23", "place"=>"asdf asdf asf", "hyperlink"=>"htttp://ya.ru", "areas"=>[""], "kind"=>["НАУЧНАЯ КОНФЕРЕНЦИЯ", ""], "x_coordinate"=>nil, "y_coordinate"=>nil, "start_date"=>2012-10-22 13:20:00 UTC, "end_date"=>2012-10-27 13:20:00 UTC, "request_date"=>2012-10-20 13:20:00 UTC, "owner"=>"505aff2372828bff0b000001"}] flags=[] (19.8178ms)
+Redirected to http://192.168.48.128:3000/
+Completed 302 Found in 34ms
+
+
+Started GET "/" for 192.168.48.1 at 2012-09-27 17:21:28 +0400
+Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (25.4207ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=-1 skip=0 fields=nil (62.5005ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=events selector={} flags=[] limit=0 skip=0 fields=nil (46.1473ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2723ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.0930ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.1981ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.3312ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1116ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.2017ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.1905ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1583ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1116ms)
+  Rendered events/_event.html.erb (1.7ms)
+  Rendered events/index.html.erb within layouts/application (41.6ms)
+  Rendered layouts/_alinks.html.erb (1.2ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2255ms)
+Completed 200 OK in 231ms (Views: 53.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:29 +0400
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:29 +0400
+Served asset /geo.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:29 +0400
+Served asset /application.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:29 +0400
+Served asset /jquery-1.8.0.min.js - 304 Not Modified (587ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:29 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:29 +0400
+Served asset /tinymce/tiny_mce_src.js - 304 Not Modified (281ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:30 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (90ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-27 17:21:30 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.2ms)
+Completed 200 OK in 21ms (Views: 21.0ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 192.168.48.1 at 2012-09-27 17:21:30 +0400
+Served asset /Untitled2.jpg - 200 OK (114ms)
+
+
+Started GET "/events/506452d872828b9e0c000001" for 192.168.48.1 at 2012-09-27 17:21:31 +0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"506452d872828b9e0c000001"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (4.5428ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=events selector={"_id"=>"506452d872828b9e0c000001"} flags=[] limit=0 skip=0 fields=nil (0.1948ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=-1 skip=0 fields=nil (0.2546ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=events selector={"_id"=>"506452d872828b9e0c000001"} flags=[] limit=0 skip=0 fields=nil (0.2470ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=0 skip=0 fields=nil (0.1423ms)
+  Rendered events/show.html.erb (2.8ms)
+Completed 200 OK in 17ms (Views: 3.6ms)
+
+
+Started DELETE "/users/sign_out" for 192.168.48.1 at 2012-09-27 17:21:54 +0400
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"I4rV/ITHp5CCVVa2vhWGqnlYWg1jDEY9GBYfSTfw8xQ="}
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=-1 skip=0 fields=nil (0.3116ms)
+Redirected to http://192.168.48.128:3000/
+Completed 302 Found in 5ms
+
+
+Started GET "/" for 192.168.48.1 at 2012-09-27 17:21:54 +0400
+Processing by EventsController#index as HTML
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (10.6537ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.4373ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.1152ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.0899ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.1113ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1805ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1104ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.2072ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.1845ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1264ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1843ms)
+  Rendered events/_event.html.erb (1.5ms)
+  Rendered events/index.html.erb within layouts/application (12.7ms)
+  Rendered layouts/_alinks.html.erb (0.4ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2642ms)
+Completed 200 OK in 44ms (Views: 22.7ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:55 +0400
+Served asset /tinymce/tiny_mce_src.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:55 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:55 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:55 +0400
+Served asset /jquery-1.8.0.min.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:55 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:55 +0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-27 17:21:55 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 3ms (Views: 3.1ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-27 17:21:55 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 192.168.48.1 at 2012-09-27 17:22:15 +0400
+Processing by SessionsController#new as HTML
+  Rendered devise/shared/_links_for_login.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb (5.1ms)
+Completed 200 OK in 8ms (Views: 6.6ms)
+
+
+Started POST "/users/sign_in" for 192.168.48.1 at 2012-09-27 17:22:23 +0400
+Processing by SessionsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R4R3OI1Q6qsLWaXoL/9Smyn5hhJWJPJVbJIBC+6XEsQ=", "user"=>{"email"=>"lvl0nax@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"ВОЙТИ"}
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (5.0442ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"email"=>"lvl0nax@gmail.com"} flags=[] limit=-1 skip=0 fields=nil (0.3169ms)
+  MOPED: 127.0.0.1:27017 UPDATE       database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} update={"$set"=>{"last_sign_in_at"=>2012-09-27 13:20:07 UTC, "current_sign_in_at"=>2012-09-27 13:22:23 UTC, "sign_in_count"=>22}} flags=[] (0.4139ms)
+  Rendered layouts/_alinks.html.erb (1.7ms)
+  Rendered devise/sessions/create.js.erb (2.5ms)
+Completed 200 OK in 150ms (Views: 3.9ms)
+
+
+Started GET "/" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=-1 skip=0 fields=nil (0.2964ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.4990ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.2401ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.1123ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.2847ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.4346ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1111ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.2141ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.1917ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1376ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1099ms)
+  Rendered events/_event.html.erb (1.8ms)
+  Rendered events/index.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_alinks.html.erb (0.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.3059ms)
+Completed 200 OK in 37ms (Views: 24.7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Served asset /jquery-1.8.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Served asset /tinymce/tiny_mce_src.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-27 17:22:27 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 4.6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:28 +0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:28 +0400
+Served asset /geo.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:28 +0400
+Served asset /jquery-1.8.0.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:28 +0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:22:28 +0400
+Served asset /tinymce_fm/application.js - 304 Not Modified (1ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-27 17:22:28 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 4ms (Views: 4.1ms)
+
+
+Started GET "/" for 192.168.48.1 at 2012-09-27 17:32:26 +0400
+Processing by EventsController#index as HTML
+  MOPED: 127.0.0.1:27017 COMMAND      database=admin command={:ismaster=>1} (1.3347ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={"_id"=>"505aff2372828bff0b000001"} flags=[] limit=-1 skip=0 fields=nil (0.3741ms)
+=========================================
+
+
+
+
+##############
+{"controller"=>"events", "action"=>"index"}
+[nil, nil, nil, nil]
+=========================================
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=events selector={} flags=[] limit=0 skip=0 fields=nil (0.7150ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=grants selector={} flags=[] limit=0 skip=0 fields=nil (0.1705ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=trainings selector={} flags=[] limit=0 skip=0 fields=nil (0.0994ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=months selector={} flags=[] limit=0 skip=0 fields=nil (0.1104ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1538ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1106ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.2012ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=users selector={} flags=[] limit=0 skip=0 fields=nil (0.2110ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.2584ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=areas selector={} flags=[] limit=0 skip=0 fields=nil (0.1540ms)
+  Rendered events/_event.html.erb (1.9ms)
+  Rendered events/index.html.erb within layouts/application (16.3ms)
+  Rendered layouts/_alinks.html.erb (0.9ms)
+  MOPED: 127.0.0.1:27017 QUERY        database=test_mongoid_production collection=pages selector={} flags=[] limit=0 skip=0 fields=nil (0.2558ms)
+Completed 200 OK in 49ms (Views: 28.8ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/tinymce_fm/tinymce_fm.css?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /tinymce_fm/tinymce_fm.css - 200 OK (16ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /application.css - 200 OK (5ms)
+
+
+Started GET "/assets/tinymce_fm/application.css?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /tinymce_fm/application.css - 200 OK (37ms)
+
+
+Started GET "/assets/geo.css?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /geo.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/geo.js?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /geo.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.8.0.min.js?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /jquery-1.8.0.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /application.js - 200 OK (7ms)
+
+
+Started GET "/assets/tinymce/tiny_mce_src.js?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /tinymce/tiny_mce_src.js - 200 OK (1ms)
+
+
+Started GET "/assets/tinymce_fm/application.js?body=1" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /tinymce_fm/application.js - 200 OK (6ms)
+
+
+Started GET "/tinymce_fm/tinymce_managed.js?manager=infopages&theme=advanced" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Processing by TinymceFm::FilemanagerController#tinymce_managed_js as */*
+  Parameters: {"manager"=>"infopages", "theme"=>"advanced"}
+  Rendered /home/monax/.rvm/gems/ruby-1.9.3-p125/gems/tinymce_fm-0.0.2/app/views/tinymce_fm/filemanager/tinymce_managed_js.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 8.3ms)
+
+
+Started GET "/assets/1.png" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /1.png - 200 OK (34ms)
+
+
+Started GET "/assets/icons.png" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /icons.png - 200 OK (2ms)
+
+
+Started GET "/assets/logo.png" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /logo.png - 200 OK (37ms)
+
+
+Started GET "/assets/bigchkbx.png" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /bigchkbx.png - 200 OK (4ms)
+
+
+Started GET "/assets/stag.png" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /stag.png - 200 OK (20ms)
+
+
+Started GET "/assets/black_line.jpg" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /black_line.jpg - 200 OK (7ms)
+
+
+Started GET "/assets/event.png" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /event.png - 200 OK (41ms)
+
+
+Started GET "/assets/grant.png" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /grant.png - 200 OK (9ms)
+
+
+Started GET "/assets/ltlchkbx.png" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /ltlchkbx.png - 200 OK (8ms)
+
+
+Started GET "/assets/Untitled2.jpg" for 192.168.48.1 at 2012-09-27 17:32:27 +0400
+Served asset /Untitled2.jpg - 200 OK (0ms)

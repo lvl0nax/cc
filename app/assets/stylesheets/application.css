@@ -187,8 +187,9 @@ a:hover{ color: #444;}
 .simple_form{
   position: relative;
   margin-top: 10px;
-  background-image: url(/assets/3.png);
+  background-image: url(/assets/1.png);
   background-size: 100%;
+  background-color: #77af77;
   font-size: 16px;
   height: 100%;
 }
@@ -208,7 +209,7 @@ a:hover{ color: #444;}
   font-size: 20px
 }
 /* edit and create new item*/
-label.control-label{  padding-right: 10px;  float: left;}
+label.control-label{  padding-right: 10px; }
 
 #event_nation{  margin-left: 25px;  width: 287px;}
 #training_nation{  margin-left: 25px;  width: 287px;}
@@ -279,19 +280,26 @@ table.test{/*border: 2px solid red;*/}
 }
 .templ{
   width: 240px; height: 215px; 
-  border-left:1px solid; 
-  border-right:1px solid; 
-  border-top:1px solid; 
-  border-bottom:3px solid; 
-  padding: 20px 20px 0;
-  margin: 12px;
+  border-left:1px solid; border-right:1px solid; border-top:1px solid; border-bottom:3px solid; 
+  padding: 20px 20px 0; margin: 12px;
   overflow: hidden;
-  /*float: left;*/
-  /*display: inline-table;*/
   display: inline-block;
   vertical-align: top;
   text-align: left;
 }
+
+ul#myitems li#temp_month{
+  height: 20px; width: 115%;
+  background-image: url(/assets/1.png);
+  background-size: 101%;
+  margin-left: -95px;
+  padding: 10px 10px 10px 95px;
+  border:  none;
+}
+ul#myitems h1 {font-size: 30px; color: #c9db57; padding-bottom: 10px; font-family: sans-serif;}
+ul#myitems li#temp_month .month_name{font-size: 18px;}
+ul#myitems li#temp_month .month_number{display: none;}
+
 .temp_date{float:left;}
 .temp_type{float:right;}
 .temp_img img{width:238px; height: 145px;}
@@ -364,8 +372,10 @@ table.test{/*border: 2px solid red;*/}
 }
 
 .reg-select{
-  background-image: url(/assets/1.png);
-  background-size: 100%;
+  background-color: #7fa986;
+  background-image: url(/assets/3.jpg);
+  /*background-size: 100%;*/
+  background-repeat: repeat-y;
   color: white;
 }
 
@@ -388,7 +398,8 @@ table.test{/*border: 2px solid red;*/}
 .reg-popup .submit{text-align: center;}
 .reg-popup .submit input{
   width: 100%;
-  background-image: url(/assets/1.png);
+  background-color: #7fa986;
+  background-image: url(/assets/3.jpg);
   background-size: 101%;
   color: white;
   cursor: pointer;

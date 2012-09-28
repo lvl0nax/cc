@@ -89,7 +89,7 @@ class User
     where(role_name: "admin")
   end
 
-  def actions
+   def actions
     actions = []
     actions.concat( Event.all_in(:id => self.event_ids).to_a)
     actions.concat( Grant.all_in(:id => self.grant_ids).to_a)

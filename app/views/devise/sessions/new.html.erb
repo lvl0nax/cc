@@ -1,5 +1,5 @@
 <div id="loginarea" class="vline">&nbsp;</div>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => true) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => true ) do |f| %>
   <div class="inline"><%= f.label :email %>
   <%= f.email_field :email %></div>
 
@@ -8,18 +8,8 @@
 
 	<div class="vline">&nbsp;</div>
   <div class="inline"><%= f.submit "ВОЙТИ" %></div>
-	<%= link_to "login", :url => new_session_path(resource_name), :update => "loginarea", :remote => true %>
 <% end %>
 
 <div class="vline">&nbsp;</div>
 <%= render "devise/shared/links_for_login" %>
 
-
-<script type="text/javascript">
-  $("#new_user").bind("ajax:complete", function(){alert(1);});
-</script>
-<%content_for :js do%>
-  <script type="text/javascript">
-    $("#new_user").bind("ajax:complete", function(){alert(1);});
-  </script>
-<% end %>

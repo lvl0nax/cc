@@ -28,6 +28,8 @@ $(function() {
   /*$("#new_user").on();*/
   /*$(document).on("ajax:error", "#new_user", function(evt, xhr, settings){alert(1);});*/
 
+
+
   $(document).on('click',".wait-click" ,function() {
     if ($("#popup-wrap").is(".show-popup")) {
       $("#popup-wrap").html("").removeClass();

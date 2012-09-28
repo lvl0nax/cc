@@ -538,5 +538,6 @@ ul#myitems li#temp_month .month_number{display: none;}
 .item-map #geo-map{height: 240px;}
 #popup-wrap table {position: relative}
 .item-map {position: absolute; bottom: 20px;}
+.lcolumn2 .item-map {position: static; }
 
 .inline{display: inline-block;}

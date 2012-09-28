@@ -25,6 +25,13 @@
         </br>ДО <%= @training.end_date.to_formatted_s(:long) %>
         </div>
         <div class="user_show"> ДОБАВИЛ <p><%= @owner.name %></p> </div>
+
+        <div class="item-map" data-x="<%= @training.try(:x_coordinate) || "59.93365223894488" %>" data-y="<%= @training.try(:y_coordinate) || "30.300378486327617"%>"> 
+          <div id="geo-map-zone">
+            <div style="margin-top: 40px; display: none;" class="fs-inner-box h" id="geomap-info"></div>
+            <div id="geo-map" data-x="<%= @training.try(:x_coordinate) || "59.93365223894488"%>" data-y="<%= @training.try(:y_coordinate) || "30.300378486327617"%>" ></div> 
+        </div>
+      </div>
       </td>
       <td class="rcolumn2">
         <div> 

@@ -26,9 +26,6 @@ class Training
   field :y_coordinate, :type => Float
   mount_uploader :photo, ImageUploader
 
-  attr_accessible :name
-  
-
   ### TODO :
   # FIELD - Place of the event field
   # FIELD - Date and time fields for the event and end of registration

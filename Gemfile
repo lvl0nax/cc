@@ -26,6 +26,8 @@ gem "simple_form"
 gem "carrierwave"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
+gem 'russian', '~> 0.6.0'
+
 #gem 'client_side_validations'
 #=begin
 #gem 'cancan'

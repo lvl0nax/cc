@@ -15,7 +15,7 @@ class TrainingsController < ApplicationController
   # GET /trainings/1.json
   def show
     @training = Training.find(params[:id])
-    @requests = @training.requests
+    #@requests = @training.requests
     @owner = User.find(@training.owner)
     #UserMailer.info_email(current_user).deliver
     respond_to do |format|

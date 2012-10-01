@@ -22,7 +22,7 @@
           <%end%>
         </div>
         <div class="yellow_letter"> C <%= l @training.start_date, :format => :long %> 
-        </br>ДО <%= @training.end_date.to_formatted_s(:long) %>
+        </br>ДО <%= l @training.end_date, :format => :long %>
         </div>
         <div class="user_show"> ДОБАВИЛ <p><%= @owner.name %></p> </div>
 
@@ -40,7 +40,7 @@
           <%end%> 
         </div>
         <div class = "yellow_letter" > ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК: </div>
-        <%= @training.request_date.to_formatted_s(:db) %>
+        <%= l @training.request_date, :format => :long %>
         <div> <%= @training.hyperlink %> </div>
         <div> 
           <%= @training.place %> 
@@ -68,7 +68,4 @@
     <% end %>
   <% end %>
   </br>
-  <% @requests.each do |r|%>
-    <%= link_to r.content, r %>
-  <% end %>
 </div>

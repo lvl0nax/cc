@@ -18,9 +18,9 @@
           <%= link_to "Добавить", add_participant_event_path %>
         <% end %>
       <% end %>
-      
-      <div class="green_letter"> C <%= @event.start_date.to_formatted_s(:db) %></br>
-       ДО <%= @event.end_date.to_formatted_s(:db) %> </div>
+
+      <div class="green_letter"> C <%= l @event.start_date, :format => :long %></br>
+       ДО <%= l @event.end_date, :format => :long %> </div>
   		<div> ДОБАВИЛ <p><%= @owner.name %></p> </div>
   		<div> 
   			<%= @event.place %> 
@@ -32,7 +32,7 @@
     </td>
     <td class="rcolumn">
       <div> <%= @event.description %> </div>
-      <div class="green_letter"> СРОК ПОДАЧИ ЗАЯВОК <%= @event.request_date.to_formatted_s(:db) %> </div>
+      <div class="green_letter"> СРОК ПОДАЧИ ЗАЯВОК <%= l @event.request_date, :format => :long %> </div>
       <div> <%= @event.hyperlink %> </div>
       <div class="item-map" data-x="<%= @event.try(:x_coordinate) || "59.93365223894488" %>" data-y="<%= @event.try(:y_coordinate) || "30.300378486327617"%>"> 
         <div id="geo-map-zone">

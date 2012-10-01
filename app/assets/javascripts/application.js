@@ -265,3 +265,38 @@ function closeItemPopup() {
   $('.add').removeClass("add_select");
   $('.registration').removeClass("reg-select");
 }
+
+function formvalidate() {
+	$("#new_user").validate({
+		rules: {
+			"user[email]": {
+				required: true,
+				email: true
+			},
+			"user[password]": {
+				required: true,
+				minlength: 6
+			},
+			"user[password_confirmation]": {
+				required: true,
+				minlength: 6,
+				equalTo: "#user_password"
+			}
+		},
+		messages:{
+			"user[email]": {
+				required: "Введите Email",
+				email: "Email некорректный"
+			},
+			"user[password]": {
+				required: "Введите пароль",
+				minlength: "Пароль должен быть не меньше 6 символов"
+			},
+			"user[password_confirmation]": {
+				required: "Потвторите пороль",
+				minlength: "Пароль должен быть не меньше 6 символов",
+				equalTo: "Пароли не совпадают"
+			}
+		}
+	});
+}

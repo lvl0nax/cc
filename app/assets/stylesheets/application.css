@@ -541,3 +541,4 @@ ul#myitems li#temp_month .month_number{display: none;}
 .lcolumn2 .item-map {position: static; }
 
 .inline{display: inline-block;}
+label.error {color: red;}

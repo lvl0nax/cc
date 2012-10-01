@@ -10,7 +10,15 @@
           <%=image_tag @event.photo.url %> 
         <% end %>
       </div>
-      <%= link_to "Добавить", add_participant_event_path %>
+
+      <%if current_user%>  
+        <%if current_user.event_ids.include?(@event.id)%>  
+          <p>Я иду</p>
+        <% else %>
+          <%= link_to "Добавить", add_participant_event_path %>
+        <% end %>
+      <% end %>
+      
       <div class="green_letter"> C <%= @event.start_date.to_formatted_s(:db) %></br>
        ДО <%= @event.end_date.to_formatted_s(:db) %> </div>
   		<div> ДОБАВИЛ <p><%= @owner.name %></p> </div>

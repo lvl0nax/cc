@@ -10,6 +10,15 @@
           <%=image_tag @grant.photo.url %> 
         <% end %>
       </div>
+
+      <%if current_user%>  
+        <%if current_user.grant_ids.include?(@grant.id)%>  
+          <p>Я участвую</p>
+        <% else %>
+          <%= link_to "Добавить", add_participant_grant_path(@grant) %>
+        <% end %>
+      <% end %>
+
       <div class="black_letter"> C <%= @grant.start_date.to_formatted_s(:db) %> </br>
         ДО <%= @grant.end_date.to_formatted_s(:db) %> </div>
   		<div> ДОБАВИЛ <%= @owner.name %> </div>

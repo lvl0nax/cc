@@ -83,7 +83,8 @@ class GrantsController < ApplicationController
   end
 
   def add_participant
-    current_user.grants << @grant
-    redirect_to @grant
+    grant = Grant.find(params[:id])
+    current_user.grants << grant
+    redirect_to root_path
   end
 end

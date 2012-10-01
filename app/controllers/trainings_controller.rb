@@ -91,7 +91,8 @@ class TrainingsController < ApplicationController
   end
 
   def add_participant
+    training = Training.find(params[:id])
     current_user.trainings << @training
-    redirect_to @training
+    redirect_to root_url #@training
   end
 end

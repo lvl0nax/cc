@@ -53,9 +53,14 @@
     </tr>
   </table>  
 
+  <%if current_user%>  
+    <%if current_user.training_ids.include?(@training.id)%>  
+      <p>Я иду</p>
+    <% else %>
+      <%= link_to "Добавить", add_participant_training_path(@training) %>
+    <% end %>
+  <% end %>
 
-
-  <%= link_to 'Подать заявку', new_request_path(:refer => @training, :type => @training.class) %>
   <% if current_user%>
     <% if current_user.role?(:admin) %>
       <%= link_to 'Edit', edit_training_path(@training) %> |

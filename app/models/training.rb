@@ -2,7 +2,7 @@ class Training
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
   #belongs_to :user
-  has_many :requests, as: :requestable
+  #has_many :requests, as: :requestable
   has_and_belongs_to_many :users #participants, class_name: "User", inverse_of: :tractivity
   #belongs_to :user
 

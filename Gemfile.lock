@@ -42,7 +42,6 @@ GEM
     carrierwave-mongoid (0.1.0)
       carrierwave
       mongoid
-    client_side_validations (3.1.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -165,7 +164,6 @@ DEPENDENCIES
   cancan
   carrierwave
   carrierwave-mongoid
-  client_side_validations
   coffee-rails
   database_cleaner
   devise

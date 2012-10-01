@@ -1,4 +1,12 @@
 $('.login').html("<%= escape_javascript(render 'layouts/alinks' ) %>");
+$('.create_links').hide();
+$('.reg-buttons').hide();
+$('#popup-wrap').html("").removeClass();
+$('.create_grant').removeClass("cr_select");
+$('.create_event').removeClass("cr_select");
+$('.create_training').removeClass("cr_select");
+$('.add').removeClass("add_select");
+$('.registration').removeClass("reg-select");
 /*$(".add").attr("data-reg", "user");
 $(".registration").attr("data-reg", "user");/**/
 /*location.reload();/**/

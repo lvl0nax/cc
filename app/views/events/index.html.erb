@@ -22,10 +22,12 @@
   {
     if (elem.attr("checked"))
     {
+      elem.find("input[type=checkbox]").attr('checked', 'checked');
       elem.parent().children("span.chkimg").first().css("background-position", "0 -19px");
     }
     else
     {
+      elem.find("input[type=checkbox]").removeAttr('checked');
       elem.parent().children("span.chkimg").first().css("background-position", "0 0");
     }
   }
@@ -40,7 +42,7 @@
       <label class="mnl">
         <span>СТАЖИРОВКИ</span>
         <span class="chkimg"></span>
-        <input type="checkbox" checked="checked" class="training_checkbox mn" name="trainings" onclick="$('.search_training').toggle();$('.search_training :checkbox:checked').removeAttr('checked'); doCheckboxmn($(this));"/>
+        <input type="checkbox" checked="checked" class="training_checkbox mn" name="trainings" onclick="$('.search_training').toggle(); doCheckboxmn($(this));"/>
       </label>
       <div class="for_clear"></div>
       <div class="search_training">
@@ -81,7 +83,7 @@
       <label class="mnl">
         <span>СОБЫТИЯ</span>
         <span class="chkimg"></span>
-        <input type="checkbox" checked="checked" class="event_checkbox mn" name="events" onclick="$('.search_event').toggle();$('.search_event :checkbox:checked').removeAttr('checked');doCheckboxmn($(this));"/>
+        <input type="checkbox" checked="checked" class="event_checkbox mn" name="events" onclick="$('.search_event').toggle(); doCheckboxmn($(this));"/>
       </label>
       <div class="for_clear"></div>
       <div class="search_event">
@@ -113,7 +115,7 @@
       <label class="mnl">
         <span>ГРАНТЫ</span>
         <span class="chkimg"></span>
-        <input type="checkbox" checked="checked" class="grant_checkbox mn" name="grants" onclick="$('.search_grant').toggle();$('.search_grant :checkbox:checked').removeAttr('checked');doCheckboxmn($(this));"/>
+        <input type="checkbox" checked="checked" class="grant_checkbox mn" name="grants" onclick="$('.search_grant').toggle(); doCheckboxmn($(this));"/>
       </label>
       
       <div class="for_clear"></div>

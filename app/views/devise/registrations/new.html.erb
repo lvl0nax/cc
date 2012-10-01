@@ -1,11 +1,12 @@
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :validate => true, :remote => true) do |f| %>
   <div id="close" onclick="closeItemPopup()">X</div>
-  <%= devise_error_messages! %>
-
+  <!--
+    <%= devise_error_messages! %>
+  -->
   <div class="reg-inputs">
-    <div><%= f.label "E-MAIL" %>
-    <%= f.email_field :email, :size => 30 %></div>
+    <div><div class="field_with_errors"><%= f.label "E-MAIL" %></div>
+    <div class="field_with_errors"><%= f.email_field :email, :size => 30 %></div></div>
     <div class="for_clear"></div>
 
 

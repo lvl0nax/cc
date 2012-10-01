@@ -42,7 +42,7 @@ class Training
     end
     if areas
       areas[:areas].delete("")
-      t = t.any_in(:areas => areas[:areas])
+      t = t.any_in(:areas => areas[:areas]) unless (areas[:areas].blank?)
     end
     return t
   end

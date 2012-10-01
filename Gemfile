@@ -25,6 +25,8 @@ gem "simple_form"
 
 gem "carrierwave"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+
+gem 'client_side_validations'
 #=begin
 #gem 'cancan'
 #gem 'activerecord'

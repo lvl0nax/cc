@@ -37,7 +37,7 @@ class EventsController < ApplicationController
       if params[:trainings]
         @items.concat( Training.search(params[:training_salary_type], params[:training_areas]).to_a)
       end  
-        @items.concat( Month.all.to_a)
+      @items.concat( Month.all.to_a)
     else  
       
       @items.concat( Event.all.to_a)

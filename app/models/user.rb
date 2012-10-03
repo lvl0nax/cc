@@ -91,9 +91,9 @@ class User
 
    def actions
     actions = []
-    actions.concat( Event.all_in(:id => self.event_ids).to_a)
-    actions.concat( Grant.all_in(:id => self.grant_ids).to_a)
-    actions.concat( Training.all_in(:id => self.training_ids).to_a)
+    actions.concat( Event.any_in(:id => self.event_ids).to_a)
+    actions.concat( Grant.any_in(:id => self.grant_ids).to_a)
+    actions.concat( Training.any_in(:id => self.training_ids).to_a)
     actions.concat( Month.all.to_a) # TODO: add months only when month has any action
     return actions.sort!{|x,y| x.start_date <=> y.start_date}
   end

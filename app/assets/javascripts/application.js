@@ -66,7 +66,7 @@ $(function() {
 
 	$('.create_training a').bind('click', function(){
 		$(".reg-buttons").hide();
-		$('#popup-wrap').removeClass().addClass("grant-popup").load("/trainings/new", function(){
+		$('#popup-wrap').removeClass().attr("onclick", "areahide();").addClass("grant-popup").load("/trainings/new", function(){
         geocoder = new google.maps.Geocoder();
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
@@ -79,7 +79,7 @@ $(function() {
 
 	$('.create_event a').bind('click', function(){
 		$(".reg-buttons").hide();
-		$('#popup-wrap').removeClass().addClass("grant-popup").load("/events/new", function(){
+		$('#popup-wrap').removeClass().attr("onclick", "areahide();").addClass("grant-popup").load("/events/new", function(){
         geocoder = new google.maps.Geocoder();
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
@@ -298,4 +298,23 @@ function formvalidate() {
 			}
 		}
 	});
+}
+
+function areashow(){
+  $(".select").click(function(event){ event.stopPropagation()});
+  $("#evcreateclick").click(function(event){ event.stopPropagation()});
+	$('.ardec').fadeIn();
+
+	/*$('#evcreateclick').bind('click', function () {
+		$('.ardec').fadeIn();
+	});
+	$('#new_event').bind('click', function () {
+		$('.ardec').fadeIn();
+	});*/
+}
+function areahide(){
+  $(".select").click(function(event){ event.stopPropagation()});
+  $("#evcreateclick").click(function(event){ event.stopPropagation()});
+  $('.ardec').fadeOut();
+
 }

@@ -94,13 +94,10 @@
             <div class="drop-area-label">ВСЕ</div>
             <%= simple_fields_for :training_areas do |f| %>
               <%= f.input :areas, :label =>false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"}, :wrapper_html => { :class => 'evshadow' } %>
-
             <% end %>
-
           </div>  
         </div>
 
-        
         <div class="evtype">
           <%= simple_fields_for :event_kinds do |f| %>
             <%= f.input :kind, :label => "" , :collection => ["НАУЧНАЯ КОНФЕРЕНЦИЯ", "КАРЬЕРНОЕ СОБЫТИЕ" ], :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"} %>

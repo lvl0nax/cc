@@ -20,7 +20,17 @@
   <%= f.input :end_date, :label => "КОНЕЦ" , :as => :datetime %>
   <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ"  %>
   <%= f.input :request_date, :label => "СРОК ПОДАЧИ ЗАЯВОК" , :as => :datetime %>
-  <%= f.input :areas, :label => "СФЕРА" , :collection => Area.all, :as => :check_boxes %>
+  <!--
+    <%= f.input :areas, :label => "СФЕРА" , :collection => Area.all, :as => :check_boxes %>
+  -->
+  <div class="area-label-name">СФЕРА</div>
+  <div class="select">
+    <div id="evcreateclick" class="area-label" onclick="areashow();">ВСЕ</div>
+    <div class="dropdown ardec">  
+      <div class="drop-area-label">ВСЕ</div>
+      <%= f.input :areas, :label =>false, :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"}, :wrapper_html => {:class => 'evshadow' } %>
+    </div>  
+  </div>
   <%= f.input :employment, :label => "ЗАНЯТОСТЬ" , :collection => ["ЧАСТИЧНАЯ", "ПОЛНАЯ", "УДАЛЕННАЯ"], :as => :check_boxes %>
   <%= f.input :salary_type, :label => "" , :collection => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ" ], :as => :check_boxes %>
    

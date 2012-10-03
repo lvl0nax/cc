@@ -11,6 +11,16 @@
             <%=image_tag @training.photo.url %> 
           <% end %>
         </div>
+
+         <div>
+          <%if current_user%>  
+            <%if current_user.training_ids.include?(@training.id)%>  
+              <p>Я иду</p>
+            <% else %>
+              <%= link_to "Добавить", add_participant_training_path(@training) %>
+            <% end %>
+          <% end %>
+        </div>
       </td>
       <td colspan="2"> <%= @training.description %> </td>
     </tr>
@@ -52,14 +62,6 @@
       </td>  
     </tr>
   </table>  
-
-  <%if current_user%>  
-    <%if current_user.training_ids.include?(@training.id)%>  
-      <p>Я иду</p>
-    <% else %>
-      <%= link_to "Добавить", add_participant_training_path(@training) %>
-    <% end %>
-  <% end %>
 
   <% if current_user%>
     <% if current_user.role?(:admin) %>

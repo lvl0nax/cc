@@ -1,30 +1,0 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1344448023.4482157:@value{I"
-class:EFI"BundledAsset;
-FI"id;
-F"%62b86268ef1ed35465f019adebd5c558I"logical_path;
-F"conferences.jsI"pathname;
-FI"7$root/app/assets/javascripts/conferences.js.coffee;
-FI"content_type;
-FI"application/javascript;
-FI"
-mtime;
-FI"2012-08-02T21:55:40+04:00;
-FI"	body;
-FI"%(function() {
-
-
-
-}).call(this);
-;
-TI"asset_paths;
-F[I"7$root/app/assets/javascripts/conferences.js.coffee;
-FI"dependency_paths;
-F[{I"	path;
-FI"7$root/app/assets/javascripts/conferences.js.coffee;
-FI"
-mtime;
-FIu:	TimeQÄ¯«Äﬁ
-:@_zoneI"MSK;
-T:nano_numiÌ:nano_deni:submicro"tê:offseti@8I"hexdigest;
-F"%f50e3d51579225e3370988d160060f33I"_version;
-F"%0868aba5d4b750d3a9421721ea3d9b9c

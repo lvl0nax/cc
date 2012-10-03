@@ -166,17 +166,16 @@ $(function() {
 	$('.temp_training').bind("click", function(){
 		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
-		/*alert('test');*/
+
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+tmp, function(){
 			if ($("#container").is(".wait-click")){}
 			else { 	
 				$('#container').addClass("wait-click");}
 				var x_coordinate = $("#geo-map").data().x ; /*|| 59.93365223894488*/
         var y_coordinate = $("#geo-map").data().y ; /*|| 30.300378486327617*/
-        /*alert(y_coordinate);*/
+
         geocoder = new google.maps.Geocoder();/**/
         geo.setLoc(x_coordinate,y_coordinate);/**/
-        /*geo.init({elementString: "#geo-map", map: 'gm'}, {latitude: 59.93365223894488, longitude: 30.300378486327617});/**/
         geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
 		});
 	});
@@ -184,7 +183,6 @@ $(function() {
 	$('.temp_event').bind("click", function(){
 		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
-		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+tmp, function(){
 			
 			if ($("#container").is(".wait-click")){}
@@ -192,10 +190,8 @@ $(function() {
 				$('#container').addClass("wait-click");}
         var x_coordinate = $("#geo-map").data().x ; /*|| 59.93365223894488*/
         var y_coordinate = $("#geo-map").data().y ; /*|| 30.300378486327617*/
-        /*alert(y_coordinate);*/
         geocoder = new google.maps.Geocoder();/**/
         geo.setLoc(x_coordinate,y_coordinate);/**/
-        /*geo.init({elementString: "#geo-map", map: 'gm'}, {latitude: 59.93365223894488, longitude: 30.300378486327617});/**/
         geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
 		});
 	});
@@ -203,7 +199,6 @@ $(function() {
 	$('.temp_grant').bind("click", function(){
 		if ($("#container").is(".wait-click")){$("#container").removeClass();}
 		tmp = $(this).data("content");
-		/*alert('test');*/
 		$('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+tmp, function(){
 			if ($("#container").is(".wait-click")){}
 			else  
@@ -317,4 +312,51 @@ function areahide(){
   $("#evcreateclick").click(function(event){ event.stopPropagation()});
   $('.ardec').fadeOut();
 
+}
+
+function showevent(temp){
+    if ($("#container").is(".wait-click")){$("#container").removeClass();}
+    
+    $('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+temp, function(){
+      
+      if ($("#container").is(".wait-click")){}
+      else {  
+        $('#container').addClass("wait-click");}
+        var x_coordinate = $("#geo-map").data().x ; /*|| 59.93365223894488*/
+        var y_coordinate = $("#geo-map").data().y ; /*|| 30.300378486327617*/
+        /*alert(y_coordinate);*/
+        geocoder = new google.maps.Geocoder();/**/
+        geo.setLoc(x_coordinate,y_coordinate);/**/
+        /*geo.init({elementString: "#geo-map", map: 'gm'}, {latitude: 59.93365223894488, longitude: 30.300378486327617});/**/
+        geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
+    });
+  
+}
+
+function showtraining(temp){
+    if ($("#container").is(".wait-click")){$("#container").removeClass();}
+    /*var tmp = $(this).data("content");
+    alert(temp);*/
+    $('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+temp, function(){
+      if ($("#container").is(".wait-click")){}
+      else {  
+        $('#container').addClass("wait-click");}
+        var x_coordinate = $("#geo-map").data().x ; /*|| 59.93365223894488*/
+        var y_coordinate = $("#geo-map").data().y ; /*|| 30.300378486327617*/
+        /*alert(y_coordinate);*/
+        geocoder = new google.maps.Geocoder();/**/
+        geo.setLoc(x_coordinate,y_coordinate);/**/
+        /*geo.init({elementString: "#geo-map", map: 'gm'}, {latitude: 59.93365223894488, longitude: 30.300378486327617});/**/
+        geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
+    });
+}
+
+function showgrant(temp){
+    if ($("#container").is(".wait-click")){$("#container").removeClass();}
+   
+    $('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+temp, function(){
+      if ($("#container").is(".wait-click")){}
+      else  
+        $('#container').addClass("wait-click");
+    });
 }

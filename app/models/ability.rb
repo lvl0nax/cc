@@ -22,6 +22,9 @@ class Ability
         can :manage, :all
       elsif user.role? (:employee) # who want to find job
 
+        can :manage, :training
+        can :manage, :grant
+        can :manage, :event
         can :read, :all  
 
       

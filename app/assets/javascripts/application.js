@@ -163,48 +163,7 @@ $(function() {
 
 */
 
-	$('.temp_training').bind("click", function(){
-		if ($("#container").is(".wait-click")){$("#container").removeClass();}
-		tmp = $(this).data("content");
-
-		$('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+tmp, function(){
-			if ($("#container").is(".wait-click")){}
-			else { 	
-				$('#container').addClass("wait-click");}
-				var x_coordinate = $("#geo-map").data().x ; /*|| 59.93365223894488*/
-        var y_coordinate = $("#geo-map").data().y ; /*|| 30.300378486327617*/
-
-        geocoder = new google.maps.Geocoder();/**/
-        geo.setLoc(x_coordinate,y_coordinate);/**/
-        geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
-		});
-	});
-
-	$('.temp_event').bind("click", function(){
-		if ($("#container").is(".wait-click")){$("#container").removeClass();}
-		tmp = $(this).data("content");
-		$('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+tmp, function(){
-			
-			if ($("#container").is(".wait-click")){}
-			else { 	
-				$('#container').addClass("wait-click");}
-        var x_coordinate = $("#geo-map").data().x ; /*|| 59.93365223894488*/
-        var y_coordinate = $("#geo-map").data().y ; /*|| 30.300378486327617*/
-        geocoder = new google.maps.Geocoder();/**/
-        geo.setLoc(x_coordinate,y_coordinate);/**/
-        geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
-		});
-	});
-	$("#popup-wrap").click(function(event){ event.stopPropagation()});
-	$('.temp_grant').bind("click", function(){
-		if ($("#container").is(".wait-click")){$("#container").removeClass();}
-		tmp = $(this).data("content");
-		$('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+tmp, function(){
-			if ($("#container").is(".wait-click")){}
-			else  
-				$('#container').addClass("wait-click");
-		});
-	});
+	
 
 	$("#login").bind("click", function(){
 		$("#login-form").load("/users/sign_in");

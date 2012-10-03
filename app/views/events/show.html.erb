@@ -21,7 +21,7 @@
 
       <div class="green_letter"> C <%= l @event.start_date, :format => :long %></br>
        ДО <%= l @event.end_date, :format => :long %> </div>
-  		<div> ДОБАВИЛ <p><%= @owner.name %></p> </div>
+  		<div> ДОБАВИЛ:  <%= @owner.email %> </div>
   		<div> 
   			<%= @event.place %> 
   			<%= @event.nation %> 

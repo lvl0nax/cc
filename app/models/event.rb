@@ -46,7 +46,7 @@ class Event
     end
     if areas
       areas[:areas].delete("")
-      t = t.any_in(:areas => areas[:areas])
+      t = t.any_in(:areas => areas[:areas]) unless (areas[:areas].blank?)
     end
     logger.debug "**********************************"
     logger.debug t

@@ -65,7 +65,7 @@ class TrainingsController < ApplicationController
 
     respond_to do |format|
       if @training.update_attributes(params[:training])
-        format.html { redirect_to @training, notice: 'Training was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Training was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

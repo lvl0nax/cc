@@ -9,12 +9,12 @@ class User
   ## Database authenticatable
   field :email,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
-  field :name
+  #field :name
   mount_uploader :photo, ImageUploader
   
   #validates_presence_of :name
   validates_uniqueness_of  :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :role_name
+  attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name #,:name
   validates_presence_of :email
   validates_presence_of :encrypted_password
 
@@ -47,7 +47,7 @@ class User
   #has_and_belongs_to_many :tractivities, class_name: "Training", inverse_of: :participant
   # index "role.name"
   # index :name, :unique => true, :background => true
-   index({ name: 1 }, { unique: true, background: true })
+   #index({ name: 1 }, { unique: true, background: true })
 
    accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
   # TODO: Make roles as array. Its for nice view
@@ -66,6 +66,15 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+  def name 
+    unless self.resume.blank?
+      return self.resume.name
+    end
+    unless self.compinfo.blank?
+      return self.resume.name
+    end
+    return self.email.split("@").first
+  end
 
   def role?(role)
       return self.role.try(:name).to_s == role.to_s
@@ -80,6 +89,11 @@ class User
     !!self.requests.detect {|r| r.requestable_id == evnt._id}
   end
 
+  def self.employers
+    @@users = []
+    User.all.each{|u| @@users << u if u.try(:role_name) == "employer"}
+    @@users
+  end
   def self.employees
     @@users = []
     User.all.each{|u| @@users << u if u.try(:role_name) == "employee"}

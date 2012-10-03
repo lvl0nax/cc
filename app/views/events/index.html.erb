@@ -63,9 +63,9 @@
           <div id="trcclick" class="area-label">ВСЕ</div>
           <div class="dropdown ardc">  
             <div class="drop-area-label">ВСЕ</div>
-            <% unless User.employees.blank? %>
+            <% unless User.employers.blank? %>
               <%= simple_fields_for :companies_list do |f| %>
-                <%= f.input :companies, :label => false , :collection => User.employees, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"} %>
+                <%= f.input :companies, :label => false , :collection => User.employers, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"} %>
               <% end %>
             <% end %>
             <div class="for_clear"></div>

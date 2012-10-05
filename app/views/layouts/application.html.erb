@@ -6,7 +6,7 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
   <%= javascript_include_tag "application.js" %>
-  <%= tinymce_javascript_tag "infopages", "advanced" %>
+  <%= tinymce_javascript_tag "pages", "advanced" %>
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
   <%= csrf_meta_tags %>
@@ -42,8 +42,9 @@
                   компания
                 </div>
               </div>  
-              <div class="registration" data-reg="<%= current_user.try(:email) %>"> РЕГИСТРАЦИЯ </div>
-
+              <% unless current_user%>  
+                <div class="registration" data-reg="<%= current_user.try(:email) %>"> РЕГИСТРАЦИЯ </div>
+              <% end %>
               <div class="add" data-reg="<%= current_user.try(:email) %>"> ДОБАВИТЬ </div>
             </div>
           </div>

@@ -3,30 +3,27 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
-
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div><%= f.label "Пароль" %> <i>(Если Вы не хотите менять пароль, оставьте поле пустым)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label "Подтвердить пароль" %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <div><%= f.label "Текущий пароль" %> <i>(Пароль нужен для подтвреждения Ваших изменений)</i><br />
   <%= f.password_field :current_password %></div>
 
 
-   <div><%= f.label :role %><br />
-  <%= f.select :role, "<option>individual</option><option>juristic</option>" %></div>
+   <div><%= f.label "Роль" %><br />
+  <%= f.select :role, "<option>employer</option><option>employee</option>" %></div>
 
-  <div><%= f.submit "Update" %></div>
+  <div><%= f.submit "Обновить" %></div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Удалить аккаунт?</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+<p><%= link_to "Удалить аккаунт", registration_path(resource_name), :data => { :confirm => "Вы уверены?" }, :method => :delete %>.</p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Назад", :back %>

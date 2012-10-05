@@ -7,7 +7,7 @@
   	  <div class="vline">&nbsp;</div>
   	<% end %>  
   	  
-  	<%= link_to "МОЙ КАЛЕНДАРЬ", activities_events_path %>
+  	<%= link_to current_user.calendar_title, activities_events_path %>
   	<div class="vline">&nbsp;</div>
   	<% unless current_user.role.try(:name)=='employer' %>
   	  <% if current_user.resume %>

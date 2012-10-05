@@ -1,6 +1,10 @@
-<h1>Editing compinfo</h1>
+<h1>Редактирование инофрмации о компании</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @compinfo %> |
-<%= link_to 'Back', compinfos_path %>
+<%= link_to 'Показать инофрмацию о компании', @compinfo %> |
+<% if current_user%>
+  <% if current_user.role?(:admin) %>
+		<%= link_to 'Посмотреть список информаций о компаниях', compinfos_path %>
+	<% end %>
+<% end %>

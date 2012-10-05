@@ -1,7 +1,7 @@
 <div id="resume">
   <%= simple_form_for @resume do |f| %>
-    <%= f.input :name, :label => "ИМЯ" %>
     <%= f.input :surname, :label => "ФАМИЛИЯ" %>
+    <%= f.input :name, :label => "ИМЯ" %>
     <%= f.input :gender, :label => "ПОЛ", :collection => ["мужской", "женский"], :as => :radio_buttons  %>
     <div class="for_clear"></div>
     <%= f.input :birthday, :label => "ДЕНЬ РОЖДЕНИЯ", :as => :date, :start_year => Date.today.year - 50,

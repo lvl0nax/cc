@@ -1,4 +1,6 @@
-$('.login').html("<%= escape_javascript(render 'layouts/alinks' ) %>");
+location.replace("/users/" + <%= @user.id%>);
+/*$('.login').html("<%= escape_javascript(render 'layouts/alinks' ) %>");
+
 $('.create_links').hide();
 $('.reg-buttons').hide();
 $('#popup-wrap').html("").removeClass();

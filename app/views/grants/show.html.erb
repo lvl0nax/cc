@@ -34,8 +34,7 @@
 
 <% if current_user%>
   <% if current_user.role?(:admin) %>
-    <%= link_to 'Edit', edit_grant_path(@grant) %> |
-    <%= link_to 'Back', grants_path %>
+    <%= link_to 'редактировать', edit_grant_path(@grant) %> |
   <% end %>
 <% end %>
 

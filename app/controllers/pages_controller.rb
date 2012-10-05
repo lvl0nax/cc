@@ -1,5 +1,11 @@
 class PagesController < ApplicationController
   include TinymceFm::Filemanager
+
+  def tinymce_managed_js
+    super
+    @manager_lang = "en"
+  end
+
   load_and_authorize_resource
   # GET /pages
   # GET /pages.json

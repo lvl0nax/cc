@@ -4,11 +4,7 @@
 		событие
 	</div>
 	<div class="temp_img">
-    <% if event.photo.blank? %>
-      <%= image_tag "/assets/Untitled2.jpg" %>
-    <% else %>
-      <%= image_tag event.photo.url %>
-    <% end %>
+    	<%= image_tag "/assets/Untitled2.jpg" %>
 	</div>
 	<div class="temp_place">
 		<%= event.place %>

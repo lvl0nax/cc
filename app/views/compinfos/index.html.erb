@@ -1,9 +1,8 @@
-<h1>Listing compinfos</h1>
+<h1>Список всех информаций о компаниях</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
+    <th>Название</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,14 +11,12 @@
 <% @compinfos.each do |compinfo| %>
   <tr>
     <td><%= compinfo.name %></td>
-    <td><%= compinfo.description %></td>
-    <td><%= link_to 'Show', compinfo %></td>
-    <td><%= link_to 'Edit', edit_compinfo_path(compinfo) %></td>
-    <td><%= link_to 'Destroy', compinfo, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'показать', compinfo %></td>
+    <td><%= link_to 'редактировать', edit_compinfo_path(compinfo) %></td>
+    <td><%= link_to 'удалить', compinfo, confirm: 'Вы уверены?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Compinfo', new_compinfo_path %>

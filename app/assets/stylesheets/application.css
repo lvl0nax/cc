@@ -219,12 +219,12 @@ label.control-label{  padding-right: 10px; }
 #training_city{margin-left: 33px; width: 287px;}
 
 .strt{float: left;}
-#event_street{margin-left: 32px; width: 200px;}
-#training_street{margin-left: 32px; width: 200px;}
+#event_street{margin-left: 32px; width: 188px;}
+#training_street{margin-left: 32px; width: 188px;}
 
-.house label{ margin-left: 10px;}
-#event_building{width: 25px;}
-#training_building{width: 25px;}
+.house label{ margin-left: 10px; padding-right: 5px;}
+#event_building{width: 42px;}
+#training_building{width: 42px;}
 
 #event_place{margin-left: 32px; width: 288px;}
 #training_place{margin-left: 32px; width: 288px;}

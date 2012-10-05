@@ -65,8 +65,7 @@
 
   <% if current_user%>
     <% if current_user.role?(:admin) %>
-      <%= link_to 'Edit', edit_training_path(@training) %> |
-      <%= link_to 'Back', trainings_path %>
+      <%= link_to 'Редактировать', edit_training_path(@training) %> |
     <% end %>
   <% end %>
   </br>

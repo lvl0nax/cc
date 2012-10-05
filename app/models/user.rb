@@ -1,3 +1,5 @@
+# -*- encoding : utf-8 -*-
+
 class User
   include Mongoid::Document
   # Include default devise modules. Others available are:
@@ -66,6 +68,10 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+  def calendar_title
+    return "МОЙ КАЛЕНДАРЬ(" + (self.actions.count - Month.all.count).to_s + ")"
+  end
+
   def name 
     unless self.resume.blank?
       return self.resume.name

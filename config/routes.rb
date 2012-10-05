@@ -41,6 +41,8 @@ TestMongoid::Application.routes.draw do
     resources :resumes
   end
 
+  get "/profile" => "users#show"
+
   #devise_for :users do
   #  get "/activities" => "devise/registrations#activities"
   #end

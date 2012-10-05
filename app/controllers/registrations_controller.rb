@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  
+  respond_to :html, :js
   def new
     @user = User.new
     respond_to do |format|

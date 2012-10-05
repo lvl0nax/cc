@@ -252,6 +252,25 @@ function formvalidate() {
 		}
 	});
 }
+function test () {
+  /*alert($("#new_user").serialize());*/
+  $.ajax({
+    type: "POST",
+    url: "/users",
+    data: $("#new_user").serialize(),
+    success: function(data, status, jqXHR){ 
+      if (data.match("ПАРОЛЬ ЕЩЕ РАЗ")) {
+        alert("Скорее всего данный email уже используется")
+      } else {
+        location.replace("/resumes/new");
+      }
+    },
+    error: function(){ alert(2);},
+    ajaxComlpete: function(){alert(1231)}
+  });
+  return false;
+}
+
 
 function areashow(){
   $(".select").click(function(event){ event.stopPropagation()});

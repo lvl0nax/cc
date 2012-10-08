@@ -37,6 +37,15 @@ $(function() {
     }
   });
 
+	$(document).on("submit","#new_session", function(event){
+			event.preventDefault();
+			fnlogin();
+		});
+	$(document).on("submit","#new_user", function(event){
+			event.preventDefault();
+			test();
+		});
+
   $(document).on('hover',"#geo-map" ,function() {
     $("input[id*='y_coordinate']").val(geo.getLoc().longitude);
     $("input[id*='x_coordinate']").val(geo.getLoc().latitude);
@@ -91,13 +100,48 @@ $(function() {
 	});
 
 	$('.registration').bind('click', function(){
+		
     if ($(this).data().reg){alert("Для регистрации разлогиньтесь, пожалуйста.")} 
     else {
+    	$('#login-form').html("");
   		$(this).addClass("reg-select");
   		$('.create_links').hide();
   		$(".reg-buttons").show();
   		$('#popup-wrap').removeClass().addClass("reg-popup").load("/users/sign_up", function(){
+		  			$("#new_user").validate({
+							rules: {
+								"user[email]": {
+									required: true,
+									email: true
+								},
+								"user[password]": {
+									required: true,
+									minlength: 6
+								},
+								"user[password_confirmation]": {
+									required: true,
+									minlength: 6,
+									equalTo: "#user_password"
+								}
+							},
+							messages:{
+								"user[email]": {
+									required: "Введите Email",
+									email: "Email некорректный"
+								},
+								"user[password]": {
+									required: "Введите пароль",
+									minlength: "Пароль должен быть не меньше 6 символов"
+								},
+								"user[password_confirmation]": {
+									required: "Потвторите пороль",
+									minlength: "Пароль должен быть не меньше 6 символов",
+									equalTo: "Пароли не совпадают"
+								}
+							}
+						});
   		});
+  	
     }
 	});
 	
@@ -165,6 +209,7 @@ $(function() {
 
 
 	$("#login").bind("click", function(){
+		closeItemPopup();
 		$("#login-form").load("/users/sign_in");
 		return false;
 	});
@@ -251,6 +296,10 @@ function formvalidate() {
 			}
 		}
 	});
+
+	test();
+	
+	return false;
 }
 function test () {
   /*alert($("#new_user").serialize());*/
@@ -259,18 +308,34 @@ function test () {
     url: "/users",
     data: $("#new_user").serialize(),
     success: function(data, status, jqXHR){ 
-      if (data.match("ПАРОЛЬ ЕЩЕ РАЗ")) {
-        alert("Скорее всего данный email уже используется")
+      if (data.match("Email is already taken")) {
+        alert("Данный email уже используется")
       } else {
-        location.replace("/resumes/new");
+      	if (data.match("ПАРОЛЬ ЕЩЕ РАЗ")) {
+	        alert("Что-то пошло не так. Проверьте ваши данные и попробуйте еще раз.")
+	      } else {
+	        location.replace("/resumes/new");
+      	}	
       }
     },
-    error: function(){ alert(2);},
-    ajaxComlpete: function(){alert(1231)}
+    error: function(){ alert(2); return false;}
+
   });
   return false;
 }
-
+function fnlogin () {
+  $.ajax({
+    type: "POST",
+    url: "/users/sign_in",
+    data: $("#new_user").serialize(),
+    success: function(data, status, jqXHR){ 
+    	location.reload();
+    },
+    error: function(){ alert("Данные введены не верно. Проверьте введенные данные и попробуйте снова.");}
+    
+  });
+  return false;
+}
 
 function areashow(){
   $(".select").click(function(event){ event.stopPropagation()});
@@ -342,3 +407,5 @@ function showgrant(temp){
         $('#container').addClass("wait-click");
     });
 }
+
+function proba(){alert("proba")}

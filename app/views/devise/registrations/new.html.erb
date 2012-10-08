@@ -1,9 +1,9 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <div id="close" onclick="closeItemPopup()">X</div>
-  <!--
+
     <%= devise_error_messages! %>
-  -->
+
   <div class="reg-inputs">
     <div><%= f.label "E-MAIL" %>
     <%= f.email_field :email, :size => 30, :class => "required email" %></div>
@@ -21,6 +21,6 @@
 
   </div>
   <div style="visibility: hidden;"><%= f.text_field :role, :value => "employee" %></div>
-  <div id="sbmt" onclick = "test();"> TEST </div>
-  <div class="submit" onclick="formvalidate();" onsubmit = "test();"><%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ" %></div>
+  <div id="sbmt" onclick = " test();"> TEST </div>
+  <div class="submit"  ><%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ" %></div>
 <% end %>

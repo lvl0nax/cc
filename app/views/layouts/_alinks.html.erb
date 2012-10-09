@@ -17,9 +17,9 @@
       <% end %>
   	<% else %>
       <% if current_user.compinfo %>
-        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", current_user %>
+        <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", current_user %>
       <% else %>
-        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_compinfo_path %>
+        <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", new_compinfo_path %>
       <% end %>
   	<% end %>
   	<div class="vline">&nbsp;</div>

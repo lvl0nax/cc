@@ -1,12 +1,19 @@
-<%= simple_form_for(@compinfo) do |f| %>
-  <%= f.input :name, :label => "ИМЯ" %>
-  <%= f.input :photo, :label => "ЛОГОТИП"  %>
-  <%= f.input :city, :label => "ГОРОД"  %>
-  <%= f.input :street, :label => "УЛИЦА", :wrapper_html => { :class => 'strt' } %>
-  <%= f.input :building, :label => "ДОМ", :wrapper_html => { :class => 'house' } %>
-  <%= f.input :info, :label => "КОНТАКТНАЯ ИНФОРМАЦИЯ"  %>
-  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ"  %>
-  
-  <%= f.button :submit, :value => "ДОБАВИТЬ" %>
-<% end %>
+<div id="resume">	
+	<%= simple_form_for(@compinfo) do |f| %>
+	  <%= f.input :name, :label => "ИМЯ" %>
+	  <%= f.input :photo, :label => "ЛОГОТИП"  %>
+	  <div class="line"></div>
+	  <%= f.input :city, :label => "ГОРОД"  %>
+	  <%= f.input :street, :label => "УЛИЦА", :wrapper_html => { :class => 'strt' } %>
+	  <%= f.input :building, :label => "ДОМ", :wrapper_html => { :class => 'house' } %>
+	  <%= f.input :info, :label => "КОНТАКТНАЯ ИНФОРМАЦИЯ", as: :text, :input_html => {:rows => "8", :cols => "65"}   %>
+	  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ"  %>
+	  <div class="line"></div>
+	  <%= link_to "СМЕНИТЬ ПАРОЛЬ", edit_registration_path(current_user), :class=> "edit"%>
+	  
+	  <%= f.button :submit, :value => "СОХРАНИТЬ" %>
 
+
+	<% end %>
+
+</div>  

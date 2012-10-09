@@ -314,7 +314,11 @@ function test () {
       	if (data.match("ПАРОЛЬ ЕЩЕ РАЗ")) {
 	        alert("Что-то пошло не так. Проверьте ваши данные и попробуйте еще раз.")
 	      } else {
-	        location.replace("/resumes/new");
+	      	if ($("#user_role").val() == "employer"){
+	        	location.replace("/compinfos/new");
+	      	}else{
+	        	location.replace("/resumes/new");
+	      	}
       	}	
       }
     },

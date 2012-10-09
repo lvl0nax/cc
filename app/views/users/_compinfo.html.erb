@@ -1,0 +1,11 @@
+<label>НАЗВАНИЕ</label><div class = "dv "><%= @compinfo.name %></div>
+<label>ССЫЛКА</label><div class = "dv "><%= link_to @compinfo.hyperlink, @compinfo.hyperlink %></div>
+<label></label><div class = "dv "><%= image_tag @compinfo.photo.url %></div>
+<div class="line"></div>
+<label>ГОРОД</label><div class = "dv "><%= @compinfo.city %></div>
+<label>УЛИЦА</label><div class = "dv "><%= @compinfo.street %></div>
+<label>ДОМ</label><div class = "dv "><%= @compinfo.building %></div>
+<div class="line"></div>
+<label>ОПИСАНИЕ</label><div class = "dv "><%= @compinfo.info %></div>
+<div class="line"></div>
+<%= link_to "РЕДАКТИРОВАТЬ", edit_compinfo_path(@compinfo) %>

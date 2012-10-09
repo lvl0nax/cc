@@ -9,12 +9,18 @@
   	  
   	<%= link_to current_user.calendar_title, activities_events_path %>
   	<div class="vline">&nbsp;</div>
-  	<% unless current_user.role.try(:name)=='employer' %>
+  	<% if current_user.role.try(:name)=='employee' %>
   	  <% if current_user.resume %>
   	    <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", current_user %>
-  	  <% else %>
-  	    <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_resume_path %>
-  	  <% end %>
+      <% else %>
+        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_resume_path %>
+      <% end %>
+  	<% else %>
+      <% if current_user.compinfo %>
+        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", current_user %>
+      <% else %>
+        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_compinfo_path %>
+      <% end %>
   	<% end %>
   	<div class="vline">&nbsp;</div>
   	<%= link_to "ВЫХОД", destroy_user_session_path, :method => :delete %>

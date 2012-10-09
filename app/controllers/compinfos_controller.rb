@@ -41,10 +41,10 @@ class CompinfosController < ApplicationController
   # POST /compinfos.json
   def create
     @compinfo = Compinfo.new(params[:compinfo])
-
+    current_user.compinfo = @compinfo
     respond_to do |format|
-      if @compinfo.save
-        format.html { redirect_to @compinfo, notice: 'Compinfo was successfully created.' }
+      if current_user.save
+        format.html { redirect_to current_user, notice: 'Compinfo was successfully created.' }
         format.json { render json: @compinfo, status: :created, location: @compinfo }
       else
         format.html { render action: "new" }

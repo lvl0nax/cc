@@ -1,7 +1,9 @@
 <div id="loginarea" class="vline">&nbsp;</div>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => true, :html => {:id => 'new_session'} ) do |f| %>
-  <div class="inline"><%= f.label :email %>
-  <%= f.email_field :email %></div>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'new_session'} ) do |f| %>
+  <div class="inline">
+  	<%= f.label :email %>
+  	<%= f.email_field :email %>
+	</div>
 
   <div class="inline"><%= f.label "пароль" %>
   <%= f.password_field :password %></div>
@@ -10,10 +12,10 @@
   <%= f.check_box :remember_me %></div>
 
 	<div class="vline">&nbsp;</div>
-  <div class="inline" onclick = "fnlogin();">LOGIN</div>
   <div class="inline"><%= f.submit "ВОЙТИ" %></div>
 <% end %>
 
 <div class="vline">&nbsp;</div>
 <%= render "devise/shared/links_for_login" %>
+
 

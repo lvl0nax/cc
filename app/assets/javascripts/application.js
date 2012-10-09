@@ -104,6 +104,7 @@ $(function() {
     if ($(this).data().reg){alert("Для регистрации разлогиньтесь, пожалуйста.")} 
     else {
     	$('#login-form').html("");
+    	$('.error').html("");
   		$(this).addClass("reg-select");
   		$('.create_links').hide();
   		$(".reg-buttons").show();
@@ -298,8 +299,7 @@ function formvalidate() {
 	});
 
 	test();
-	
-	return false;
+
 }
 function test () {
   /*alert($("#new_user").serialize());*/
@@ -318,23 +318,27 @@ function test () {
       	}	
       }
     },
-    error: function(){ alert(2); return false;}
+    error: function(){ alert(2); }
 
   });
-  return false;
+
 }
 function fnlogin () {
   $.ajax({
     type: "POST",
     url: "/users/sign_in",
-    data: $("#new_user").serialize(),
+    data: $("#new_session").serialize(),
+    
     success: function(data, status, jqXHR){ 
     	location.reload();
     },
-    error: function(){ alert("Данные введены не верно. Проверьте введенные данные и попробуйте снова.");}
+    error: function(jqXHR, textStatus, error){ 
+    	$(".error").append("Пожалуйста, проверьте введенные данные и повторите попытку снова.");
+    	$("#user_email").addClass("red-border");
+    	$("#user_password").addClass("red-border");
+    }
     
   });
-  return false;
 }
 
 function areashow(){

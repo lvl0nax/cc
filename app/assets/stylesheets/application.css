@@ -542,3 +542,5 @@ ul#myitems li#temp_month .month_number{display: none;}
 
 .inline{display: inline-block;}
 label.error {color: red;}
+
+.red-border{outline: 2px solid red;}

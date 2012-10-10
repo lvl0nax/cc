@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Event
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
@@ -16,6 +17,7 @@ class Event
   field :street
   field :building
   field :place
+  field :status
   field :start_date, :type => DateTime
   field :end_date, :type => DateTime
   field :request_date, :type => DateTime
@@ -36,7 +38,7 @@ class Event
   #
   # VALIDATIONS - required fields
   def self.search(event_kinds, areas)
-    t = self.all #TODO: select events from current date to year later
+    t = self.where(:status => "ОДОБРЕНО").all #TODO: select events from current date to year later
     if event_kinds
       event_kinds[:kind].delete("")
       #event_kinds[:kind]

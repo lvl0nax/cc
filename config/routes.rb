@@ -24,6 +24,7 @@ TestMongoid::Application.routes.draw do
     end
     collection do
       get 'activities'
+      get 'not_approved'
     end
   end
 

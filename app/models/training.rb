@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Training
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
@@ -22,6 +23,7 @@ class Training
   field :areas, :type => Array
   field :employment
   field :salary_type
+  field :status
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
   mount_uploader :photo, ImageUploader
@@ -34,7 +36,7 @@ class Training
   # VALIDATIONS - required fields
 
   def self.search(salary_types, areas)
-    t = self.all
+    t = self.where(:status => "ОДОБРЕНО").all
     if salary_types
       salary_types[:salary_type].delete("")
       #event_kinds[:kind]

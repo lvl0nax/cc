@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Grant
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
@@ -14,6 +15,7 @@ class Grant
   field :request_date, :type => DateTime
   field :direction, :type => Array
   field :end_point, :type => Array
+  field :status
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
   mount_uploader :photo, ImageUploader
@@ -27,7 +29,7 @@ class Grant
   #
   # VALIDATIONS - required fields
   def self.search(areas)
-    t = self.all
+    t = self.where(:status => "ОДОБРЕНО").all
     if areas
       areas[:direction].delete("")
       t = t.any_in(:direction => areas[:direction])

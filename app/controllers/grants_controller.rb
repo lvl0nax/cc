@@ -61,7 +61,7 @@ class GrantsController < ApplicationController
 
     respond_to do |format|
       if @grant.update_attributes(params[:grant])
-        format.html { redirect_to @grant, notice: 'Grant was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Training was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

@@ -412,6 +412,8 @@ ul#myitems li#temp_month .month_number{display: none;}
 .menu{font-size: 15px; color: black}
 .menu .select{color: #76a38a;}
 .select{position: relative;width:450px; display:inline-block; margin-right: 15px;}
+.status_select  label{width: 100px;}
+.status_select  select{width: 125px;}
 .area-label-name{display: inline-block; margin-left: 10px; line-height: 6px;}
 .area-label{
   width:490px; margin:-8px 0 -8px 10px; text-align: center;

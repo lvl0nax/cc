@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
@@ -40,11 +41,11 @@ class EventsController < ApplicationController
       @items.concat( Month.all.to_a)
     else  
       
-      @items.concat( Event.all.to_a)
+      @items.concat( Event.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
       
-      @items.concat( Grant.all.to_a)
+      @items.concat( Grant.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
       
-      @items.concat( Training.all.to_a)
+      @items.concat( Training.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
       #@items.concat( Training.where(:start_date.gte => now).to_a)
       
       @items.concat( Month.all.to_a)
@@ -113,7 +114,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Training was successfully updated.'}
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -147,6 +148,29 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @actions }
+    end
+  end
+
+  def not_approved
+    now = DateTime.now
+    @items = []
+    
+    @items.concat Training.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+    #logger.debug @items
+    @items.concat Event.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+    #logger.debug @items
+    @items.concat Grant.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+
+
+    unless (@items.blank?)
+      @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
+    end 
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @items }
+      format.xml { render xml: @items }
+      format.js
     end
   end
 end

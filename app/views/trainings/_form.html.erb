@@ -33,7 +33,11 @@
   </div>
   <%= f.input :employment, :label => "ЗАНЯТОСТЬ" , :collection => ["ЧАСТИЧНАЯ", "ПОЛНАЯ", "УДАЛЕННАЯ"], :as => :check_boxes %>
   <%= f.input :salary_type, :label => "" , :collection => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ" ], :as => :check_boxes %>
-   
+  <% if current_user%>
+    <% if current_user.role?(:admin) %>
+      <%= f.input :status, :label => "СТАТУС", :collection => ["НОВОЕ", "УДАЛЕНО", "ОДОБРЕНО" ],:wrapper_html=> { :class => "status_select"}%>
+    <% end %>
+  <% end %> 
   <div class="not-visible">
     <%= f.input :x_coordinate, :label => false %>
     <%= f.input :y_coordinate, :label => false %>  

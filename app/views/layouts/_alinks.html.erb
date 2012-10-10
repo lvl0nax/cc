@@ -1,8 +1,11 @@
 <% if current_user %>
   <div class="text-to-right">
   	<% if current_user.role?(:admin) %>
-  	  <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
-  	  <%= link_to "сферы", areas_path %> |
+      <div class = "lgn">
+        <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
+        <%= link_to "сферы", areas_path %> |
+        <%= link_to "Не одобренные", not_approved_events_path %> |
+      </div>
   	<% end %>  
   	<div class="calend lgn">
   	  <%= link_to current_user.calendar_title, activities_events_path %>

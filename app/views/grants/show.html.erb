@@ -19,14 +19,14 @@
         <% end %>
       <% end %>
 
-      <div class="black_letter"> C <%= l @grant.start_date, :format => :long %> </br>
-        ДО <%= l @grant.end_date, :format => :long %> </div>
+      <div class="black_letter"> C <%= Russian::l @grant.start_date, :format => :long %> </br>
+        ДО <%= Russian::l @grant.end_date, :format => :long %> </div>
   		<div> ДОБАВИЛ <%= @owner.name %> </div>
     </td>
     <td class="rcolumn">
       <div> <%= @grant.description %> </div>
       <div class="black_letter"> СРОК ПОДАЧИ ЗАЯВОК:  </div>
-      <%= l @grant.request_date, :format => :long %>
+      <%= Russian::l @grant.request_date, :format => :long %>
       <div> <%= @grant.hyperlink %> </div>
     </td>
   </tr>

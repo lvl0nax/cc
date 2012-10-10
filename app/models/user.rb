@@ -77,7 +77,7 @@ class User
       return self.resume.name
     end
     unless self.compinfo.blank?
-      return self.resume.name
+      return self.compinfo.name
     end
     return self.email.split("@").first
   end

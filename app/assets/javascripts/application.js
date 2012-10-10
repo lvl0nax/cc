@@ -7,6 +7,11 @@ $(function() {
 		$('.temp_month').toggle();
 	});
 */
+	var url=document.location.href;
+	$.each($(".login a"), function(){
+		if (this.href==url){$(this).addClass('acta');}
+	});
+
   $('#events_search').submit( function () {
     alert("test");
     $.get(this.action, $(this).serialize(), null, 'script');

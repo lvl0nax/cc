@@ -550,3 +550,5 @@ ul#myitems li#temp_month .month_number{display: none;}
 label.error {color: red;}
 
 .red-border{outline: 2px solid red;}
+/* TODO add correct class*/
+.acta{background-color: blue;}

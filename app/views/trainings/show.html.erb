@@ -31,8 +31,8 @@
             <%= s unless s.blank? %>
           <%end%>
         </div>
-        <div class="yellow_letter"> C <%= l @training.start_date, :format => :long %> 
-        </br>ДО <%= l @training.end_date, :format => :long %>
+        <div class="yellow_letter"> C <%= Russian::l @training.start_date, :format => :long %> 
+        </br>ДО <%= Russian::l @training.end_date, :format => :long %>
         </div>
         <div class="user_show"> ДОБАВИЛ <p><%= @owner.name %></p> </div>
 
@@ -50,7 +50,7 @@
           <%end%> 
         </div>
         <div class = "yellow_letter" > ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК: </div>
-        <%= l @training.request_date, :format => :long %>
+        <%= Russian::l @training.request_date, :format => :long %>
         <div> <%= @training.hyperlink %> </div>
         <div> 
           <%= @training.place %> 

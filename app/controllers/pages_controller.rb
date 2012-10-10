@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
+  before_filter :set_locale
   include TinymceFm::Filemanager
+
+  def set_locale
+    I18n.locale = :en
+  end  
 
   def tinymce_managed_js
     super

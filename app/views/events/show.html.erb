@@ -19,8 +19,8 @@
         <% end %>
       <% end %>
 
-      <div class="green_letter"> C <%= l @event.start_date, :format => :long %></br>
-       ДО <%= l @event.end_date, :format => :long %> </div>
+      <div class="green_letter"> C <%= Russian::l @event.start_date, :format => :long %></br>
+       ДО <%= Russian::l @event.end_date, :format => :long %> </div>
   		<div> ДОБАВИЛ:  <%= @owner.email %> </div>
   		<div> 
   			<%= @event.place %> 
@@ -32,7 +32,7 @@
     </td>
     <td class="rcolumn">
       <div> <%= @event.description %> </div>
-      <div class="green_letter"> СРОК ПОДАЧИ ЗАЯВОК <%= l @event.request_date, :format => :long %> </div>
+      <div class="green_letter"> СРОК ПОДАЧИ ЗАЯВОК <%= Russian::l @event.request_date, :format => :long %> </div>
       <div> <%= @event.hyperlink %> </div>
       <div class="item-map" data-x="<%= @event.try(:x_coordinate) || "59.93365223894488" %>" data-y="<%= @event.try(:y_coordinate) || "30.300378486327617"%>"> 
         <div id="geo-map-zone">

@@ -2,28 +2,29 @@
   <div class="text-to-right">
   	<% if current_user.role?(:admin) %>
   	  <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
-  	  <%= link_to "сферы", areas_path %> 
-  	  <%= link_to "events", activities_events_path%>
-  	  <div class="vline">&nbsp;</div>
+  	  <%= link_to "сферы", areas_path %> |
   	<% end %>  
-  	  
-  	<%= link_to current_user.calendar_title, activities_events_path %>
-  	<div class="vline">&nbsp;</div>
-  	<% if current_user.role.try(:name)=='employee' %>
-  	  <% if current_user.resume %>
-  	    <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", current_user %>
-      <% else %>
-        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_resume_path %>
-      <% end %>
-  	<% else %>
-      <% if current_user.compinfo %>
-        <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", current_user %>
-      <% else %>
-        <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", new_compinfo_path %>
-      <% end %>
-  	<% end %>
-  	<div class="vline">&nbsp;</div>
-  	<%= link_to "ВЫХОД", destroy_user_session_path, :method => :delete %>
+  	<div class="calend lgn">
+  	  <%= link_to current_user.calendar_title, activities_events_path %>
+    </div>  
+    <div class="info lgn">
+    	<% if current_user.role.try(:name)=='employee' %>
+    	  <% if current_user.resume %>
+    	    <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", current_user %>
+        <% else %>
+          <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_resume_path %>
+        <% end %>
+    	<% else %>
+        <% if current_user.compinfo %>
+          <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", current_user %>
+        <% else %>
+          <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", new_compinfo_path %>
+        <% end %>
+    	<% end %>
+    </div>
+    <div class="lgn">
+      <%= link_to "ВЫХОД", destroy_user_session_path, :method => :delete %>
+    </div>
   </div>
 <% else %>
   <div id="login"><%= link_to "ВОЙТИ", new_user_session_path, :id => "test"%></div>

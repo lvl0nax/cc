@@ -38,15 +38,21 @@
               <div class="reg-buttons"  >
                 <div class="person-button rselected">
                   молодой специалист
+                  <div class="gline"></div>
                 </div>
                 <div class="comp-button ">
                   компания
+                  <div class="gline"></div>
                 </div>
               </div>  
               <% unless current_user%>  
-                <div class="registration" data-reg="<%= current_user.try(:email) %>"> РЕГИСТРАЦИЯ </div>
+                <div class="registration" data-reg="<%= current_user.try(:email) %>"> 
+                  РЕГИСТРАЦИЯ 
+                </div>
               <% end %>
-              <div class="add" data-reg="<%= current_user.try(:email) %>"> ДОБАВИТЬ </div>
+              <div class="add" data-reg="<%= current_user.try(:email) %>"> 
+                ДОБАВИТЬ 
+              </div>
             </div>
           </div>
 

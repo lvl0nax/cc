@@ -9,7 +9,7 @@ $(function() {
 */
 	var url=document.location.href;
 	$.each($(".login a"), function(){
-		if (this.href==url){$(this).addClass('acta');}
+		if (this.href==url){$(this).parent().addClass('acta');}
 	});
 
   $('#events_search').submit( function () {
@@ -370,6 +370,7 @@ function areahide(){
 }
 
 function showevent(temp){
+		closeItemPopup();
     $("#popup-wrap").click(function(event){ event.stopPropagation()});
     if ($("#container").is(".wait-click")){$("#container").removeClass();}
     
@@ -390,6 +391,8 @@ function showevent(temp){
 }
 
 function showtraining(temp){
+
+  	closeItemPopup();
     $("#popup-wrap").click(function(event){ event.stopPropagation()});
 
     if ($("#container").is(".wait-click")){$("#container").removeClass();}
@@ -410,6 +413,7 @@ function showtraining(temp){
 }
 
 function showgrant(temp){
+		closeItemPopup();
     $("#popup-wrap").click(function(event){ event.stopPropagation()});
 
     if ($("#container").is(".wait-click")){$("#container").removeClass();}

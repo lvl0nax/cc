@@ -74,9 +74,8 @@ en:
       - !ruby/symbol month
       - !ruby/symbol day
   time: 
-    am: am
     formats: 
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
-    pm: pm
+

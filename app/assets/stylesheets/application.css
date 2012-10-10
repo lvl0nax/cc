@@ -121,12 +121,12 @@ a:hover{ color: #444;}
 
 }
 .rselected{
-  box-shadow:  0px 0px 5px #444;
-  -webkit-box-shadow:  0px 0px 5px #444;
-  -moz-box-shadow:  0px 0px 5px #444;
-
   color: black;
 }
+.rselected .gline{
+  display: block;
+}
+
 
 .h{display: none;}
 .reg-buttons{font-size: 14px; display: none; color:#e3e3e3;}
@@ -551,4 +551,12 @@ label.error {color: red;}
 
 .red-border{outline: 2px solid red;}
 /* TODO add correct class*/
-.acta{background-color: blue;}
+.acta{ background-image: url(/assets/3.jpg);}
+.lgn {display: inline-block;padding: 0 5px; border-left: 1px solid black;}
+.gline {
+  display: none;
+  height: 5px; width: inherit;
+  position: absolute;
+  top: 45px; 
+  background-image: url(/assets/3.jpg);
+}

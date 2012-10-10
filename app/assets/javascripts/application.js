@@ -342,7 +342,7 @@ function fnlogin () {
     	location.reload();
     },
     error: function(jqXHR, textStatus, error){ 
-    	$(".error").append("Пожалуйста, проверьте введенные данные и повторите попытку снова.");
+    	$(".error").html("").append("Пожалуйста, проверьте введенные данные и повторите попытку снова.");
     	$("#user_email").addClass("red-border");
     	$("#user_password").addClass("red-border");
     }

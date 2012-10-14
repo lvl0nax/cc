@@ -20,6 +20,16 @@
   <%= f.input :start_date, :label => "НАЧАЛО" , :as => :datetime %>
   <%= f.input :end_date, :label => "КОНЕЦ" , :as => :datetime %>
   <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ"  %>
+  <div class="weblinks">
+    <%= f.input :vk, :label => "вконтакте"  %>
+    <%= f.input :twitter, :label => "twitter"  %>
+    <%= f.input :afisha, :label => "афиша"  %>
+    <%= f.input :fb, :label => "facebook"  %>
+    <%= f.input :cityspb, :label => "citySPB"  %>
+    <%= f.input :timepad, :label => "timepad"  %>
+    <%= f.input :lookatme, :label => "look at me"  %>
+  </div>
+  
   <%= f.input :request_date, :label => "СРОК ПОДАЧИ ЗАЯВОК" , :as => :datetime %>
   <div class="area-label-name">СФЕРА</div>
   <div class="select">

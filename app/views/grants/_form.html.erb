@@ -7,8 +7,17 @@
   <%= f.input :start_date, :label => "НАЧАЛО" , :as => :datetime %>
   <%= f.input :end_date, :label => "КОНЕЦ" , :as => :datetime %>
   <%= f.input :nation, :label => "СТРАНА"  %>
+  <div class="weblinks">
+    <%= f.input :vk, :label => "вконтакте"  %>
+    <%= f.input :twitter, :label => "twitter"  %>
+    <%= f.input :afisha, :label => "афиша"  %>
+    <%= f.input :fb, :label => "facebook"  %>
+    <%= f.input :cityspb, :label => "citySPB"  %>
+    <%= f.input :timepad, :label => "timepad"  %>
+    <%= f.input :lookatme, :label => "look at me"  %>
+  </div>
   <%= f.input :request_date, :label => "СРОК ПОДАЧИ ЗАЯВОК" , :as => :datetime %>
-  <%= f.input :direction, :label => "СФЕРА" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes %>
+  <%= f.input :direction, :label => "СФЕРА" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes, :wrapper_html => {:class=>"lll"} %>
   <%= f.input :end_point, :label => "ЦЕЛЬ" , :collection => ["ИССЛЕДОВАТЕЛЬСКАЯ ДЕЯТЕЛЬНОСТЬ", "ОБУЧЕНИЕ", "РЕАЛИЗАЦИЯ ПРОЕКТА", "ЛЮБАЯ"], :as => :check_boxes, :wrapper_html => { :class => 'end_point' } %>  
   <% if current_user%>
     <% if current_user.role?(:admin) %>

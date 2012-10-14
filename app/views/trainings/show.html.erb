@@ -1,5 +1,56 @@
 <p id="notice"><%= notice %></p>
 <div class="trshow">
+  <div class="soc_info">
+    <% unless @training.timepad.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @training.timepad %>" target="_blank">
+          <%= image_tag "/assets/tp.png"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @training.lookatme.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @training.lookatme %>" target="_blank">
+          <%= image_tag "/assets/lookatme.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @training.cityspb.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @training.cityspb %>" target="_blank">
+          <%= image_tag "/assets/cityspb.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @training.afisha.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @training.afisha %>" target="_blank">
+          <%= image_tag "/assets/afisha.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @training.vk.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @training.vk %>" target="_blank">
+          <%= image_tag "/assets/vk.png"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @training.fb.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @training.fb %>" target="_blank">
+          <%= image_tag "/assets/fb.png"%>
+        </a>
+      </div>
+    <% end %>
+    <% unless @training.twitter.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @training.twitter %>" target="_blank">
+          <%= image_tag "/assets/twitter.png"%>
+        </a>
+      </div>
+    <% end %>
+  </div>
   <div id="close" onclick="closeItemPopup()">X</div>
   <div class="item_title yellow_letter"> <%= @training.title %> - СТАЖИРОВКА </div>
   <table class="test">

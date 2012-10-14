@@ -24,6 +24,15 @@ class Event
   field :kind, :type => Array
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
+
+  field :vk
+  field :twitter
+  field :afisha
+  field :fb
+  field :cityspb
+  field :timepad
+  field :lookatme
+
   mount_uploader :photo, ImageUploader
   
 

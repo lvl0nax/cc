@@ -1,5 +1,56 @@
 <p id="notice"><%= notice %></p>
 <div class="evshow">
+  <div class="soc_info">
+    <% unless @event.timepad.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @event.timepad %>" target="_blank">
+          <%= image_tag "/assets/tp.png"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @event.lookatme.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @event.lookatme %>" target="_blank">
+          <%= image_tag "/assets/lookatme.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @event.cityspb.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @event.cityspb %>" target="_blank">
+          <%= image_tag "/assets/cityspb.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @event.afisha.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @event.afisha %>" target="_blank">
+          <%= image_tag "/assets/afisha.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @event.vk.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @event.vk %>" target="_blank">
+          <%= image_tag "/assets/vk.png"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @event.fb.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @event.fb %>" target="_blank">
+          <%= image_tag "/assets/fb.png"%>
+        </a>
+      </div>
+    <% end %>
+    <% unless @event.twitter.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @event.twitter %>" target="_blank">
+          <%= image_tag "/assets/twitter.png"%>
+        </a>
+      </div>
+    <% end %>
+  </div>
   <div id="close" onclick="closeItemPopup()">X</div>
 	<div class="item_title green_letter"><%= @event.title %> - СОБЫТИЕ </div>
   <table><tr>

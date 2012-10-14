@@ -1,5 +1,56 @@
 <p id="notice"><%= notice %></p>
 <div class="grshow">
+  <div class="soc_info">
+    <% unless @grant.timepad.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @grant.timepad %>" target="_blank">
+          <%= image_tag "/assets/tp.png"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @grant.lookatme.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @grant.lookatme %>" target="_blank">
+          <%= image_tag "/assets/lookatme.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @grant.cityspb.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @grant.cityspb %>" target="_blank">
+          <%= image_tag "/assets/cityspb.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @grant.afisha.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @grant.afisha %>" target="_blank">
+          <%= image_tag "/assets/afisha.jpg"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @grant.vk.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @grant.vk %>" target="_blank">
+          <%= image_tag "/assets/vk.png"%>
+        </a>  
+      </div>
+    <% end %>
+    <% unless @grant.fb.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @grant.fb %>" target="_blank">
+          <%= image_tag "/assets/fb.png"%>
+        </a>
+      </div>
+    <% end %>
+    <% unless @grant.twitter.blank? %>
+      <div class="inlblck">
+        <a href="<%=  @grant.twitter %>" target="_blank">
+          <%= image_tag "/assets/twitter.png"%>
+        </a>
+      </div>
+    <% end %>
+  </div>
   <div id="close" onclick="closeItemPopup()">X</div>
 	<div class="item_title black_letter"> <%= @grant.title %> - ГРАНТ </div>
   <table><tr>

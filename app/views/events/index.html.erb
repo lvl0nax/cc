@@ -36,8 +36,7 @@
 
 <div class = "menu">
 
-  <%= form_for events_path, :method => 'get', :id => "events_search", :remote => true  do %>
-  
+  <%= form_for events_path, :method => 'get', :html => {:id => 'events_search'}, :remote => true  do %>
     <div class="trainings">
       <label class="mnl">
         <span>СТАЖИРОВКИ</span>
@@ -92,7 +91,7 @@
           <div id="evclick" class="area-label">ВСЕ</div>
           <div class="dropdown arde">  
             <div class="drop-area-label">ВСЕ</div>
-            <%= simple_fields_for :training_areas do |f| %>
+            <%= simple_fields_for :event_areas do |f| %>
               <%= f.input :areas, :label =>false , :collection => Area.all, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"}, :wrapper_html => { :class => 'evshadow' } %>
             <% end %>
           </div>  
@@ -123,13 +122,10 @@
         <div class="for_clear"></div>
       </div>
     </div>
-    <div class="search_button">
-    	<%= submit_tag "ПОИСК" %>
-    </div>
+    
   <% end %>
 
 </div>
-
-<div id="items">
-  <%= render @items %>
+<div id="list_items">
+  <%= render "items" %>
 </div>

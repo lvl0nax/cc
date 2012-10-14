@@ -157,6 +157,10 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.3)
+    will_paginate_mongoid (1.1.0)
+      mongoid (>= 2.4)
+      will_paginate (~> 3.0)
 
 PLATFORMS
   ruby
@@ -184,3 +188,5 @@ DEPENDENCIES
   tlsmail
   turn (~> 0.8.3)
   uglifier
+  will_paginate (> 3.0)
+  will_paginate_mongoid

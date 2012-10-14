@@ -23,6 +23,9 @@ gem 'tinymce_fm'
 gem "tlsmail"
 gem "simple_form"
 
+gem "will_paginate", "> 3.0"
+gem "will_paginate_mongoid"
+
 gem "carrierwave"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 

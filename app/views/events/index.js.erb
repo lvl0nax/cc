@@ -1,1 +1,9 @@
-$('#items').html("<%= escape_javascript(render (@items) ) %>");
+/*$('#items').html("<%= escape_javascript(render (@items) ) %>");*/
+
+$('#items').append("<%= j render(@items) %>");
+<% if @items.next_page %>
+	$(".pagination").replaceWith("<%= j will_paginate(@items) %>");
+<% else %>
+	$(".pagination").hide();
+<% end %>
+

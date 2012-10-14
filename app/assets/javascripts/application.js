@@ -7,13 +7,15 @@ $(function() {
 		$('.temp_month').toggle();
 	});
 */
+	$("#events_search input[type=checkbox]").bind("click", function(){$("#events_search").submit()});
+
 	var url=document.location.href;
 	$.each($(".login a"), function(){
 		if (this.href==url){$(this).parent().addClass('acta');}
 	});
 
   $('#events_search').submit( function () {
-    alert("test");
+    $("#items").html("");
     $.get(this.action, $(this).serialize(), null, 'script');
     return false;
   });
@@ -426,3 +428,32 @@ function showgrant(temp){
 }
 
 function proba(){alert("proba")}
+
+function srch() {
+	/*var t = $("#events_search").serialize();
+	alert(t);*/
+
+	$.ajax({
+    type: "POST",
+    url: "/events",
+    data: $("#events_search").serialize(),
+    
+    success: function(data, status, jqXHR){ 
+    	/*location.reload();*/
+		  //	$('#items').html();
+		  //	$('#items').append("<%= j render(@items) %>");
+			// /*if (@items.length > 12) {*/
+			// 	$(".pagination").replaceWith("<%= j will_paginate(@items) %>");
+			// /*}
+			// else{
+			// 	$(".pagination").remove();
+			// }*/
+    },
+    error: function(jqXHR, textStatus, error){ 
+    	alert("jqXHR" + jqXHR);
+    	alert("status" + textStatus);
+    	alert("error" + error);
+    }
+    
+  });
+}

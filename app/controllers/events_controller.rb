@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+require 'will_paginate/array' 
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
@@ -8,26 +9,26 @@ class EventsController < ApplicationController
     now = DateTime.now
     @items = []
     event_conditions = []
-    logger.debug "========================================="
-    logger.debug params[:trainings].to_s
-    logger.debug params[:events].to_s
-    logger.debug params[:grants].to_s
-    logger.debug params[:test].to_s
-    logger.debug "##############"
+        # logger.debug "========================================="
+        # logger.debug params[:trainings].to_s
+        # logger.debug params[:events].to_s
+        # logger.debug params[:grants].to_s
+        # logger.debug params[:test].to_s
+        # logger.debug "##############"
 
-    if params
-      logger.debug params.to_s
-    end
+        # if params
+        #   logger.debug params.to_s
+        # end
 
-    if params[:trainings]
-      logger.debug "tttttttttteeeeeeeeeeeeessssssssssssstttttttttttt"
-    end
-    event_conditions << params[:trainings]
-    event_conditions << params[:events]
-    event_conditions << params[:grants]
-    event_conditions << params[:test]
-    logger.debug event_conditions.to_s
-    logger.debug "========================================="
+        # if params[:trainings]
+        #   logger.debug "tttttttttteeeeeeeeeeeeessssssssssssstttttttttttt"
+        # end
+        # event_conditions << params[:trainings]
+        # event_conditions << params[:events]
+        # event_conditions << params[:grants]
+        # event_conditions << params[:test]
+        # logger.debug event_conditions.to_s
+        # logger.debug "========================================="
     if params[:trainings] || params[:events] || params[:grants]
       if params[:events]  
         @items.concat( Event.search(params[:event_kinds], params[:event_areas]).to_a)
@@ -53,7 +54,13 @@ class EventsController < ApplicationController
     unless (@items.blank?)
       @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
     end 
+    @items = @items.paginate(:page => params[:page], :per_page => 12)
     
+    # @events, @trainings, @grants = [Event, Training, Grant].map do |clazz|
+    #   clazz.paginate(:page => params[clazz.to_s.downcase + "_page"], :order => 'start_date')
+    # end
+
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }

@@ -42,6 +42,8 @@ class User
   has_and_belongs_to_many :grants
   has_and_belongs_to_many :events
   has_many :requests
+  
+  has_and_belongs_to_many :areas
 
   accepts_nested_attributes_for :resume, :autosave=> true
   #has_and_belongs_to_many :evactivities, class_name: "Event", inverse_of: :participant

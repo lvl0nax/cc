@@ -93,6 +93,24 @@ class TrainingsController < ApplicationController
   def add_participant
     @training = Training.find(params[:id])
     current_user.trainings << @training
-    redirect_to root_url #@training
+    #redirect_to root_url #@training
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :ok }
+      format.js { status :ok }
+    end
   end
+
+  def del_participant
+    training = Training.find(params[:id])
+    current_user.training_ids.delete(training.id)
+    training.user_ids.delete(current_user.id)
+    current_user.save   
+    training.save   
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :ok }
+    end
+  end
+
 end

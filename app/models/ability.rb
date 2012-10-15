@@ -38,6 +38,9 @@ class Ability
          #end 
       else
         can :read, :all
+        can :create, Training
+        can :create, Event
+        can :create, Grant
       end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

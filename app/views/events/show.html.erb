@@ -64,11 +64,19 @@
       </div>
 
       <%if current_user%>  
-        <%if current_user.event_ids.include?(@event.id)%>  
-          <p>Я иду</p>
-        <% else %>
-          <%= link_to "Добавить", add_participant_event_path %>
-        <% end %>
+        <div class="participant">  
+          <%if current_user.event_ids.include?(@event.id)%>  
+            <div onclick = "delpart();" data-id="<%= @event.id%>" data-item = "event" data-url="<%= del_participant_event_path(@event)%>"> УДАЛИТЬ ИЗ МОЕГО КАЛЕНДАРЯ </div>
+            <!--
+              <%= link_to "Удалить", del_participant_event_path(@event)%>
+            -->
+          <% else %>
+            <!--
+              <%= link_to "Добавить", add_participant_event_path(@event), :remote => true %>
+            -->
+            <div onclick = "addpart();" data-id="<%= @event.id%>" data-item = "event" data-url="<%= add_participant_event_path(@event)%>"> ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ </div>
+          <% end %>
+        </div>
       <% end %>
 
       <div class="green_letter"> C <%= Russian::l @event.start_date, :format => :long %></br>
@@ -97,7 +105,7 @@
   </table>  
 
 <% if current_user%>
-  <% if current_user.role?(:admin) %>
+  <% if (current_user.role?(:admin) || current_user.id == @grant.owner) %>
     <%= link_to 'редактировать', edit_event_path(@event) %> |
   <% end %>
 <% end %>

@@ -65,13 +65,23 @@
         </div>
 
          <div>
-          <%if current_user%>  
+          
+        <%if current_user%>  
+          <div class="participant">  
             <%if current_user.training_ids.include?(@training.id)%>  
-              <p>Я иду</p>
+              <div onclick = "delpart();" data-id="<%= @training.id%>" data-item = "training" data-url="<%= del_participant_training_path(@training)%>"> УДАЛИТЬ ИЗ МОЕГО КАЛЕНДАРЯ </div>
+              <!--
+                <%= link_to "Удалить", del_participant_training_path(@training)%>
+              -->
             <% else %>
-              <%= link_to "Добавить", add_participant_training_path(@training) %>
+              <!--
+                <%= link_to "Добавить", add_participant_training_path(@training), :remote => true %>
+              -->
+              <div onclick = "addpart();" data-id="<%= @training.id%>" data-item = "training" data-url="<%= add_participant_training_path(@training)%>"> ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ </div>
             <% end %>
-          <% end %>
+          </div>
+        <% end %>
+
         </div>
       </td>
       <td colspan="2"> <%= @training.description %> </td>
@@ -116,7 +126,7 @@
   </table>  
 
   <% if current_user%>
-    <% if current_user.role?(:admin) %>
+    <% if (current_user.role?(:admin) || current_user.id == @grant.owner) %>
       <%= link_to 'Редактировать', edit_training_path(@training) %> |
     <% end %>
   <% end %>

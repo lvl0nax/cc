@@ -85,6 +85,23 @@ class GrantsController < ApplicationController
   def add_participant
     grant = Grant.find(params[:id])
     current_user.grants << grant
-    redirect_to root_path
+    #redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :ok }
+      format.js { status :ok }
+    end
+  end
+
+  def del_participant
+    grant = Grant.find(params[:id])
+    current_user.grant_ids.delete(grant.id)
+    grant.user_ids.delete(current_user.id)
+    current_user.save   
+    grant.save   
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :ok }
+    end
   end
 end

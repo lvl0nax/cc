@@ -1,10 +1,13 @@
 <div class="show-page">
   <h1><%= @page.title %></h1>
 
-  <%= @page.content %>
-  <% if current_user.role?(:admin) %>
-    <br/>
-    <%= link_to 'Редактировать', edit_page_path(@page) %> |
-    <%= link_to 'К списку страниц', pages_path %>
-  <% end %>
+  <%= raw @page.content %>
+	  
+	 <% if current_user %>
+	  <% if current_user.role?(:admin) %>
+	    <br/>
+	    <%= link_to 'Редактировать', edit_page_path(@page) %> |
+	    <%= link_to 'К списку страниц', pages_path %>
+	  <% end %>
+	<% end %>
 </div>

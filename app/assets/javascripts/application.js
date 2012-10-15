@@ -71,7 +71,7 @@ $(function() {
   */
 
 	$('.create_grant a').bind('click', function(){
-		/*$('#container').css("min-height", "900px");*/
+		$('#content-body').css("min-height", "900px");
 		$(".reg-buttons").hide();
     $('.create_grant').addClass("cr_select");
     $('.create_event').removeClass("cr_select");
@@ -81,6 +81,7 @@ $(function() {
 	});
 
 	$('.create_training a').bind('click', function(){
+		$('#content-body').css("min-height", "900px");
 		$(".reg-buttons").hide();
 		$('#popup-wrap').removeClass().attr("onclick", "areahide();").addClass("grant-popup").load("/trainings/new", function(){
         geocoder = new google.maps.Geocoder();
@@ -94,6 +95,7 @@ $(function() {
 	});
 
 	$('.create_event a').bind('click', function(){
+		$('#content-body').css("min-height", "900px");
 		$(".reg-buttons").hide();
 		$('#popup-wrap').removeClass().attr("onclick", "areahide();").addClass("grant-popup").load("/events/new", function(){
         geocoder = new google.maps.Geocoder();
@@ -404,8 +406,8 @@ function showtraining(temp){
       if ($("#container").is(".wait-click")){}
       else {  
         $('#container').addClass("wait-click");}
-        var x_coordinate = $("#geo-map").data().x ; /*|| 59.93365223894488*/
-        var y_coordinate = $("#geo-map").data().y ; /*|| 30.300378486327617*/
+        var x_coordinate = $("#geo-map").data().x; /*|| 59.93365223894488*/
+        var y_coordinate = $("#geo-map").data().y; /*|| 30.300378486327617*/
         /*alert(y_coordinate);*/
         geocoder = new google.maps.Geocoder();/**/
         geo.setLoc(x_coordinate,y_coordinate);/**/
@@ -450,10 +452,56 @@ function srch() {
 			// }*/
     },
     error: function(jqXHR, textStatus, error){ 
-    	alert("jqXHR" + jqXHR);
-    	alert("status" + textStatus);
-    	alert("error" + error);
+    	alert("status " + textStatus);
     }
-    
+  });
+}
+function addpart(){
+	var url = $(".participant div").data("url");
+	var id = $(".participant div").data("id");
+	var item = $(".participant div").data("item");
+	$.ajax({
+    type: "GET",
+    url: url,
+    /*data: id,*/
+    /*success: function(){ 
+    	alert("tests1");
+    },
+    error: function(jqXHR, textStatus, errorThrown){ 
+    	alert("error ");
+    	
+    }*/
+    complete: function(){
+    	if (item == "grant"){
+    		showgrant(id);
+    	}else if (item == "event"){
+    		showevent(id)
+    	}else {
+    		showtraining(id)
+    	}
+    }
+  });
+}
+
+function delpart(){
+	var url = $(".participant div").data("url");
+	var id = $(".participant div").data("id");
+	var item = $(".participant div").data("item");
+	$.ajax({
+    type: "GET",
+    url: url,
+    data: id,
+    success: function(){ 
+    	if (item == "grant"){
+    		showgrant(id);
+    	}else if (item == "event"){
+    		showevent(id)
+    	}else {
+    		showtraining(id)
+    	}
+    },
+    error: function(jqXHR, textStatus, errorThrown){ 
+    	alert(errorThrown);
+    }
   });
 }

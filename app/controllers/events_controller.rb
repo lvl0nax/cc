@@ -143,8 +143,25 @@ class EventsController < ApplicationController
   end
 
   def add_participant
-    current_user.events << @event
-    redirect_to root_url
+    event = Event.find(params[:id])
+    current_user.events << event
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :ok }
+      format.js { status :ok }
+    end
+  end
+
+  def del_participant
+    event = Event.find(params[:id])
+    current_user.event_ids.delete(event.id)
+    event.user_ids.delete(current_user.id)
+    current_user.save   
+    event.save   
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :ok }
+    end
   end
 
 #TODO: before filter for this method

@@ -9,18 +9,21 @@ TestMongoid::Application.routes.draw do
   resources :trainings do
     member do
       get 'add_participant'
+      get 'del_participant'
     end
   end
 
   resources :grants do
     member do
       get 'add_participant'
+      get 'del_participant'
     end
   end
 
   resources :events do
     member do
       get 'add_participant'
+      get 'del_participant'
     end
     collection do
       get 'activities'

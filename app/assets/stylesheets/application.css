@@ -605,3 +605,5 @@ label.error {color: red;}
 .inblck{
   display: inline-block;
 }
+
+.participant {cursor: pointer;}

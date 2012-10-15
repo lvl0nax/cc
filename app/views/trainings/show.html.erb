@@ -96,7 +96,7 @@
         <div class="yellow_letter"> C <%= Russian::l @training.start_date, :format => :long %> 
         </br>ДО <%= Russian::l @training.end_date, :format => :long %>
         </div>
-        <div class="user_show"> ДОБАВИЛ <p><%= @owner.name %></p> </div>
+        <div class="user_show"> ДОБАВИЛ <p><%= link_to @owner.name, activities_user_path(@owner.id) %></p> </div>
 
         <div class="item-map" data-x="<%= @training.try(:x_coordinate) || "59.93365223894488" %>" data-y="<%= @training.try(:y_coordinate) || "30.300378486327617"%>"> 
           <div id="geo-map-zone">

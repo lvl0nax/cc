@@ -11,7 +11,7 @@
       <%= link_to "ИНТЕРЕСУЮЩИЕ СФЕРЫ", areas_path %> 
     </div>
     <div class="calend lgn">
-  	  <%= link_to current_user.calendar_title, activities_events_path %>
+  	  <%= link_to current_user.calendar_title, activities_user_path(current_user.id) %>
     </div>  
     <div class="info lgn">
     	<% if current_user.role.try(:name)=='employee' %>

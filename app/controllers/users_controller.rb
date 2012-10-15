@@ -13,6 +13,17 @@ class UsersController < ApplicationController
   end
 
   def sphere
-     
+
+  end
+
+  def activities
+    logger.debug "--------------------------------------------"
+    @user = User.find(params[:id])
+    @actions = @user.actions
+    logger.debug @actions
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @actions }
+    end
   end
 end

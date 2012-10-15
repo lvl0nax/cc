@@ -167,7 +167,8 @@ class EventsController < ApplicationController
 #TODO: before filter for this method
   def activities
     logger.debug "--------------------------------------------"
-    @actions = current_user.actions
+    @user = User.find(params[:id])
+    @actions = @user.actions
     logger.debug @actions
     respond_to do |format|
       format.html # new.html.erb

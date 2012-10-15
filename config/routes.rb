@@ -54,10 +54,14 @@ TestMongoid::Application.routes.draw do
   #devise_for :users do
   #  get "/activities" => "devise/registrations#activities"
   #end
-  
+  #get "/:id/activities" => "users#activities"
 
 
-  resources :users, :only => [:show, :index]
+  resources :users do #, :only => [:show, :index, :activities ]
+    member do
+      get "activities"
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

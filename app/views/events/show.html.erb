@@ -81,7 +81,7 @@
 
       <div class="green_letter"> C <%= Russian::l @event.start_date, :format => :long %></br>
        ДО <%= Russian::l @event.end_date, :format => :long %> </div>
-  		<div> ДОБАВИЛ:  <%= @owner.email %> </div>
+  		<div> ДОБАВИЛ:  <%= link_to @owner.email, activities_user_path(@owner.id) %> </div>
   		<div> 
   			<%= @event.place %> 
   			<%= @event.nation %> 

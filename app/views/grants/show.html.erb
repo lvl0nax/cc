@@ -81,7 +81,7 @@
 
       <div class="black_letter"> C <%= Russian::l @grant.start_date, :format => :long %> </br>
         ДО <%= Russian::l @grant.end_date, :format => :long %> </div>
-  		<div> ДОБАВИЛ <%= @owner.name %> </div>
+  		<div> ДОБАВИЛ <%= link_to @owner.name, activities_user_path(@owner.id) %></div>
     </td>
     <td class="rcolumn">
       <div> <%= @grant.description %> </div>

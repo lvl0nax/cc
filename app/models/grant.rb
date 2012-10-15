@@ -38,7 +38,8 @@ class Grant
   #
   # VALIDATIONS - required fields
   def self.search(areas)
-    t = self.where(:status => "ОДОБРЕНО").all
+    now = DateTime.now
+    t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
     if areas
       areas[:direction].delete("")
       t = t.any_in(:direction => areas[:direction])

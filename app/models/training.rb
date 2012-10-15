@@ -45,11 +45,12 @@ class Training
   # VALIDATIONS - required fields
 
   def self.search(salary_types, areas)
-    t = self.where(:status => "ОДОБРЕНО").all
+    now = DateTime.now
+    t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
     if salary_types
       salary_types[:salary_type].delete("")
       #event_kinds[:kind]
-      t = t.in(salary_type: salary_types[:salary_type])
+      t = t.any_in(salary_type: salary_types[:salary_type]) unless (salary_types[:salary_type].blank?)
     end
     if areas
       areas[:areas].delete("")

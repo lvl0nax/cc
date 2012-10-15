@@ -18,7 +18,7 @@
     <div class="line"></div>
     <%= f.input :delivery_email_enable, :as => :boolean, :label => "ПОДПИСАТЬСЯ НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ"  %>
     <div class="for_clear"></div>
-    <%= f.input :delivery_email, :label => "E-MAIL"  %>
+    <%= f.input :delivery_email, :label => "E-MAIL", :wrapper_html =>{:class => "hd"}  %>
     <div class="line"></div>
     <%= f.input :delivery_phone_enable, :as => :boolean, :label => "ПОДПИСАТЬ НА SMS-РАССЫЛКУ", :wrapper_html =>{:class => "sms-label"}  %>
     <div class="for_clear"></div>

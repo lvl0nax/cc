@@ -47,11 +47,12 @@ class Event
   #
   # VALIDATIONS - required fields
   def self.search(event_kinds, areas)
-    t = self.where(:status => "ОДОБРЕНО").all #TODO: select events from current date to year later
+    now = DateTime.now
+    t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all #TODO: select events from current date to year later
     if event_kinds
       event_kinds[:kind].delete("")
       #event_kinds[:kind]
-      t = t.in(kind: event_kinds[:kind])
+      t = t.any_in(kind: event_kinds[:kind])
       logger.debug "++++++++++++++++++++++++++++++++"
       logger.debug t
     end

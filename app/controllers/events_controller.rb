@@ -54,6 +54,9 @@ class EventsController < ApplicationController
     unless (@items.blank?)
       @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
     end 
+    logger.debug "////////////////////////////////////////////////"
+    logger.debug @items.count
+    logger.debug "////////////////////////////////////////////////"
     @items = @items.paginate(:page => params[:page], :per_page => 12)
     
     # @events, @trainings, @grants = [Event, Training, Grant].map do |clazz|
@@ -165,16 +168,16 @@ class EventsController < ApplicationController
   end
 
 #TODO: before filter for this method
-  def activities
-    logger.debug "--------------------------------------------"
-    @user = User.find(params[:id])
-    @actions = @user.actions
-    logger.debug @actions
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @actions }
-    end
-  end
+  # def activities
+  #   logger.debug "--------------------------------------------"
+  #   @user = User.find(params[:id])
+  #   @actions = @user.actions
+  #   logger.debug @actions
+  #   respond_to do |format|
+  #     format.html # new.html.erb
+  #     format.json { render json: @actions }
+  #   end
+  # end
 
   def not_approved
     now = DateTime.now

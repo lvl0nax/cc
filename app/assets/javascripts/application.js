@@ -505,3 +505,27 @@ function delpart(){
     }
   });
 }
+
+function addareas(){
+  var tmp;
+  var t=[];
+  var s = "";
+  $("#arealist input[type=checkbox]").each( function(){
+    tmp = $(this).attr("checked");
+    if (tmp) {
+      t.push($(this).data("id"));
+    }
+  });
+  s = "" + t;
+  $.ajax({
+    type: "POST",
+    url: "/areas/add_to_user",
+    data: {array: s},
+    success: function(data,status,jqXHR){ 
+      location.reload();
+    },
+    error: function(jqXHR, textStatus, errorThrown){ 
+      alert(errorThrown);
+    }
+  });
+}

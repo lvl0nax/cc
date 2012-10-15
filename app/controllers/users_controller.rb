@@ -11,4 +11,8 @@ class UsersController < ApplicationController
       format.json { render json: @resume }
     end
   end
+
+  def sphere
+     
+  end
 end

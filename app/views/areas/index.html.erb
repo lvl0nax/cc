@@ -1,23 +1,26 @@
 <h1>Список сфер</h1>
-
-<table>
-  <tr>
-    <th>Название</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @areas.each do |area| %>
-  <tr>
-    <td><%= area.name %></td>
-    <td><%= link_to 'Показать', area %></td>
-    <td><%= link_to 'Редактировать', edit_area_path(area) %></td>
-    <td><%= link_to 'Удалить', area, confirm: 'Вы уверены?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+  <div id="arealist" >
+    <% @areas.each do |area| %>
+      <% if @myareas && @myareas.include?(area.id) %>
+        <label class = "checkbox">
+          <input class="check_boxes optional" id="areachkbx" name="areas[]" type="checkbox" value="<%= area.name%>" checked = "checked" data-id="<%= area.id %>" >
+          <%= area.name %>
+        </label> 
+      <% else %>
+        <label class = "checkbox">
+          <input class="check_boxes optional" id="areachkbx" name="areas[]" type="checkbox" value="<%= area.name %>" data-id="<%= area.id %>" >
+          <%= area.name %>
+        </label> 
+      <% end %>
+      <br/>
+    <% end %>
+  </div>
 <br />
-
-<%= link_to 'Добавить новую сферу', new_area_path %>
+<div id="save-area" onclick="addareas();" data-url="<%= add_to_user_areas_path %>"> СОХРАНИТЬ </div>
+<br />
+<br />
+<% if current_user%>
+  <% if current_user.role?(:admin) %>
+    <%= link_to 'Добавить новую сферу', new_area_path %>
+  <% end %>
+<% end %>

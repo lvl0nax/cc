@@ -2,7 +2,11 @@ TestMongoid::Application.routes.draw do
   mount TinymceFm::Engine => "/tinymce_fm"
   resources :months
 
-  resources :areas
+  resources :areas do
+    collection do
+      post 'add_to_user'
+    end
+  end
 
   resources :requests
 

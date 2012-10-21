@@ -16,16 +16,16 @@ class Resume
   field :delivery_email, :type => String
   field :delivery_phone_enable, :type => Boolean
   field :delivery_phone, :type => String
-  field :crop_x, :type => Integer
-  field :crop_y, :type => Integer
-  field :crop_w, :type => Integer
-  field :crop_h, :type => Integer
+  # field :crop_x, :type => Integer
+  # field :crop_y, :type => Integer
+  # field :crop_w, :type => Integer
+  # field :crop_h, :type => Integer
   mount_uploader :photo, ImageUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
-  # after_update :crop_avatar
+  after_update :crop_avatar
   
-  # def crop_avatar
-  #   photo.recreate_versions! if crop_x.present?
-  # end
+  def crop_avatar
+    photo.recreate_versions! if crop_x.present?
+  end
 end

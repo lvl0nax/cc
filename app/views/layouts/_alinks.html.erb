@@ -13,21 +13,23 @@
     <div class="calend lgn">
   	  <%= link_to current_user.calendar_title, activities_user_path(current_user.id) %>
     </div>  
-    <div class="info lgn">
-    	<% if current_user.role.try(:name)=='employee' %>
-    	  <% if current_user.resume %>
-    	    <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", current_user %>
-        <% else %>
-          <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_resume_path %>
-        <% end %>
-    	<% else %>
-        <% if current_user.compinfo %>
-          <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", current_user %>
-        <% else %>
-          <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", new_compinfo_path %>
-        <% end %>
-    	<% end %>
-    </div>
+      <% if current_user.role.try(:name)=='employee' %>
+        <div class="info iright lgn">
+          <% if current_user.resume %>
+              <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", current_user %>
+          <% else %>
+            <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", new_resume_path %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="info lgn">
+          <% if current_user.compinfo %>
+            <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", current_user %>
+          <% else %>
+            <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", new_compinfo_path %>
+          <% end %>
+        </div>
+      <% end %>
     <div class="lgn">
       <%= link_to "ВЫХОД", destroy_user_session_path, :method => :delete %>
     </div>

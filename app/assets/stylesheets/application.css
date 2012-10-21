@@ -162,9 +162,10 @@ a:hover{ color: #444;}
 .reg-buttons{font-size: 14px; display: none; color:#e3e3e3;}
 
 .buttons div:hover {background-color: #e8fff1; color: black;cursor: pointer;}
+.buttons img {cursor: default;}
 .add {
   position: absolute; 
-  top: 125px; right: 98px;
+  top: 130px; right: 98px;
   border: 2px solid #e3e3e3;
   /*padding-left: 30px;*/
   line-height: 50px;
@@ -586,6 +587,7 @@ label.error {color: red;}
 /* TODO add correct class*/
 .acta{ background-image: url(/assets/3.jpg);}
 .lgn {display: inline-block;padding: 0 5px; border-left: 1px solid black;}
+.iright {margin-right: 158px;}
 .gline {
   display: none;
   height: 5px; width: inherit;
@@ -607,3 +609,8 @@ label.error {color: red;}
 }
 .hd{display: none;}
 .participant {cursor: pointer;}
+#avatar {
+  position: absolute;
+  top: 0;
+  right: 98px;
+}

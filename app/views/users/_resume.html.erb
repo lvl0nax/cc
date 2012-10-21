@@ -12,8 +12,8 @@
 		<label>y</label><div class = "dv "><%= @resume.crop_y %></div>
 		<label>height</label><div class = "dv "><%= @resume.crop_h %></div>
 		<label>width</label><div class = "dv "><%= @resume.crop_w %></div>
+		<label></label><div class = "dv "><%= image_tag @resume.photo.url(:thumb) if @resume.photo?%></div>
 	-->
-	<label></label><div class = "dv "><%= image_tag @resume.photo.url(:thumb) if @resume.photo?%></div>
 	<div class="line"></div>
 	<label>ОБРАЗОВАНИЕ</label><div class = "dv "><%= @resume.education %></div>
 	

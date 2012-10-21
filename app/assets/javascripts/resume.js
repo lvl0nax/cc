@@ -36,6 +36,7 @@ $(function() {
     });
 
 });
+
 function update(coords) {
   $('#resume_crop_x').val(coords.x);
   $('#resume_crop_y').val(coords.y);

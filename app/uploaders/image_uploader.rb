@@ -43,7 +43,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   version :thumb do
     process :crop
-    resize_to_fill(100, 100)
+    resize_to_fill(139, 130)
   end
 
   def crop
@@ -56,11 +56,7 @@ class ImageUploader < CarrierWave::Uploader::Base
         h = model.crop_h.to_i
         img.crop!(x, y, w, h)
       end
-    else
-      resize_to_limit(600, 600)
-      manipulate! do |img|
-        img.crop!(0, 0, 200, 200)
-      end
+   
     end
   end
 

@@ -13,12 +13,12 @@ class EventsController < ApplicationController
         # logger.debug params[:trainings].to_s
         # logger.debug params[:events].to_s
         # logger.debug params[:grants].to_s
-        # logger.debug params[:test].to_s
-        logger.debug "##############"
+        # # logger.debug params[:test].to_s
+        # logger.debug "##############"
 
-        if params
-          logger.debug params.to_s
-        end
+        # if params
+        #   logger.debug params.to_s
+        # end
 
         # if params[:trainings]
         #   logger.debug "tttttttttteeeeeeeeeeeeessssssssssssstttttttttttt"

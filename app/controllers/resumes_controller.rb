@@ -51,8 +51,14 @@ class ResumesController < ApplicationController
     current_user.resume = @resume
     respond_to do |format|
       if current_user.save
-        format.html { redirect_to current_user, notice: 'Resume was successfully created.' }
-        format.json { render json: @resume, status: :created, location: @resume }
+        if params[:resume][:photo].present?
+          logger.debug "==========crop==============="
+          render :crop
+          logger.debug "==========crop==============="
+        else
+          format.html { redirect_to current_user, notice: 'Resume was successfully created.' }
+          format.json { render json: @resume, status: :created, location: @resume }
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @resume.errors, status: :unprocessable_entity }
@@ -65,15 +71,21 @@ class ResumesController < ApplicationController
   def update
     @resume = current_user.resume #Resume.find(params[:id])
 
-    respond_to do |format|
+    #respond_to do |format|
       if @resume.update_attributes(params[:resume])
-        format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
-        format.json { head :ok }
+        if params[:resume][:photo].present?
+          render :crop
+        else
+          redirect_to current_user, notice: 'Resume was successfully updated.'
+          #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
+          #format.json { head :ok }
+        end
       else
-        format.html { render action: "edit" }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
+        render action: "edit"
+        # format.html { render action: "edit" }
+        # format.json { render json: @resume.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # DELETE /resumes/1

@@ -120,4 +120,11 @@ class User
     return actions.sort!{|x,y| x.start_date <=> y.start_date}
   end
 
+  def avatar
+    if self.role?("employee")
+      self.resume.photo
+    else
+    end
+  end
+
 end

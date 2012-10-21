@@ -22,14 +22,11 @@ $(function() {
 
 
   $('.add').on("click", function(){
-    if ($(this).data().reg){
+
       $('.create_links').show();
       $('.add').addClass("add_select");
       $(".reg-buttons").hide();
-    } 
-    else {
-      alert("Для добавления события залогиньтесь, пожалуйста.")
-    }
+
   });
 
   /*$("#new_user").on();*/

@@ -1,0 +1,17 @@
+<h1>Выбор аватара</h1>
+
+<%= image_tag @resume.photo.url(:large), id: "cropbox" %>
+
+<h4>Аватар</h4>
+<div style="width:100px; height:100px; overflow:hidden">
+  <%= image_tag @resume.photo.url(:large), :id => "preview" %>
+</div>
+
+<%= form_for @resume do |f| %>
+  <% %w[x y w h].each do |attribute| %>
+    <%= f.text_field "crop_#{attribute}" %></br>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Сохранить" %>
+  </div>
+<% end %>

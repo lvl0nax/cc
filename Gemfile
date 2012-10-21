@@ -28,6 +28,7 @@ gem "will_paginate_mongoid"
 
 gem "carrierwave"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'rmagick'
 
 gem 'russian', '~> 0.6.0'
 

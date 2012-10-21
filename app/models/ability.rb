@@ -22,17 +22,23 @@ class Ability
         can :manage, :all
       elsif user.role? (:employee) # who want to find job
 
-        can :manage, Training
-        can :manage, Grant
-        can :manage, Event
+        can :create, Training
+        can :create, Grant
+        can :create, Event
         can :read, :all  
-
+        can :update, :training, :owner => user.id
+        can :update, :event, :owner => user.id
+        can :update, :grant, :owner => user.id
       
       elsif user.role? (:empolyer) # who can create vacancy 
         can :read, :all
         can :create, Training
+        can :create, Event
+        can :create, Grant
          #can :read, :role
-         #can :update, :user, :id => user.id
+        can :update, :training, :owner => user.id
+        can :update, :event, :owner => user.id
+        can :update, :grant, :owner => user.id
          #can :read, User, User.juristic do |u|
          # u.role == :juristic || u.id == user.id
          #end 
@@ -41,6 +47,7 @@ class Ability
         can :create, Training
         can :create, Event
         can :create, Grant
+
       end
     #
     # The first argument to `can` is the action you are giving the user permission to do.

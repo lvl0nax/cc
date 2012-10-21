@@ -60,7 +60,11 @@
                   <div class="gline"></div>
                 </div>
               </div>  
-              <% unless current_user%>  
+              <% if current_user%>  
+                <div id="avatar">
+                  
+                </div>
+              <% else %>
                 <div class="registration" data-reg="<%= current_user.try(:email) %>"> 
                   РЕГИСТРАЦИЯ 
                 </div>

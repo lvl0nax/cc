@@ -7,6 +7,13 @@
 	<label>ДАТА РОЖДЕНИЯ</label><div class = "dv "><%= @resume.birthday %></div>
 	
 	<label>ГОРОД</label><div class = "dv "><%= @resume.home %></div>
+	<!-- 
+		<label>x</label><div class = "dv "><%= @resume.crop_x %></div>
+		<label>y</label><div class = "dv "><%= @resume.crop_y %></div>
+		<label>height</label><div class = "dv "><%= @resume.crop_h %></div>
+		<label>width</label><div class = "dv "><%= @resume.crop_w %></div>
+	-->
+	<label></label><div class = "dv "><%= image_tag @resume.photo.url(:thumb) %></div>
 	<div class="line"></div>
 	<label>ОБРАЗОВАНИЕ</label><div class = "dv "><%= @resume.education %></div>
 	
@@ -27,7 +34,9 @@
 		<% end %>
 
 	<div class="for_new_line"></div>
-	<label class="email-show">E-MAIL</label><div class = "dv show"><%= @resume.delivery_email %></div>
+	<!--
+		<label class="email-show">E-MAIL</label><div class = "dv show"><%= @resume.delivery_email %></div>
+	-->
 	<div class="line"></div>
 	<label class="sms">ПОДПИСКА НА SMS-РАССЫЛКУ</label>
 

@@ -47,6 +47,7 @@ TestMongoid::Application.routes.draw do
     :sessions => "sessions"
   } do
     resources :resumes
+    resources :compinfos
   end
 
   get "/profile" => "users#show"
@@ -60,6 +61,7 @@ TestMongoid::Application.routes.draw do
   resources :users do #, :only => [:show, :index, :activities ]
     member do
       get "activities"
+      get "userevents"
     end
   end
 

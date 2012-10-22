@@ -22,6 +22,7 @@ class Ability
         can :manage, :all
       elsif user.role? (:employee) # who want to find job
 
+        can :manage, :resume
         can :create, Training
         can :create, Grant
         can :create, Event
@@ -31,6 +32,7 @@ class Ability
         can :update, :grant, :owner => user.id
       
       elsif user.role? (:empolyer) # who can create vacancy 
+        can :manage, :compinfo
         can :read, :all
         can :create, Training
         can :create, Event

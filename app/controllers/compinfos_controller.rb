@@ -44,7 +44,7 @@ class CompinfosController < ApplicationController
     current_user.compinfo = @compinfo
     respond_to do |format|
       if current_user.save
-        format.html { redirect_to current_user, notice: 'Compinfo was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Информация успешно заполнена. Благодарим Вас за регистрацию.' }
         format.json { render json: @compinfo, status: :created, location: @compinfo }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class CompinfosController < ApplicationController
 
     respond_to do |format|
       if @compinfo.update_attributes(params[:compinfo])
-        format.html { redirect_to @compinfo, notice: 'Compinfo was successfully updated.' }
+        format.html { redirect_to @current_user, notice: 'Информация успешно обновлена. Благодарим Вас за регистрацию.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

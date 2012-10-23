@@ -328,6 +328,8 @@ ul#myitems li#temp_month{
   border:  none;
 }
 ul#myitems h1 {font-size: 30px; color: #c9db57; padding-bottom: 10px; font-family: sans-serif;}
+ul#myitems h1 a {color: #c9db57; opacity: 0.4;}
+ul#myitems h1 a:hover {color: #c9db57; opacity: 0.8;}
 ul#myitems li#temp_month .month_name{font-size: 18px;}
 ul#myitems li#temp_month .month_number{display: none;}
 

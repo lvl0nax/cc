@@ -1,5 +1,5 @@
 
 <ul id="myitems" class="items">
-	<h1> КАЛЕНДАРЬ </h1>
+	<h1> КАЛЕНДАРЬ | <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", userevents_user_path(current_user.id) %></h1>
 	<%= render @actions %> 
 </ul>

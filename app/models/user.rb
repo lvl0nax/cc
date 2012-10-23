@@ -126,6 +126,12 @@ class User
     acts.concat( Grant.where(:owner => self.id).to_a)
     acts.concat( Training.where(:owner => self.id).to_a)
     acts.concat( Month.all.to_a) # TODO: add months only when month has any action
+    #logger.debug "-----------UsersModel/created_actions---------------------------------"
+    #acts.each do |a|
+      #logger.debug a.start_date 
+      #logger.debug a.class
+      #logger.debug a.title
+    #end
     return acts.sort!{|x,y| x.start_date <=> y.start_date}
   end
 

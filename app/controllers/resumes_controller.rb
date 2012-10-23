@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json

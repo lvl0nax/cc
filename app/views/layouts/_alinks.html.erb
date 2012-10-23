@@ -3,6 +3,7 @@
   	<% if current_user.role?(:admin) %>
       <div class = "lgn">
         <%= link_to current_user.role.try(:name), edit_user_registration_path %> |
+        <%= link_to current_user.email, userevents_user_path(current_user.id) %> |
         <%= link_to "сферы", areas_path %> |
         <%= link_to "Неодобренные", not_approved_events_path %> |
       </div>

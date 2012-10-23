@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def userevents
     #logger.debug "--------------------------------------------"
     @user = User.find(params[:id])
-    @actions = @user.actions
+    @evnts = @user.created_actions
     #logger.debug @actions
     respond_to do |format|
       format.html # new.html.erb

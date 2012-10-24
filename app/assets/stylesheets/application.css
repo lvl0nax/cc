@@ -52,15 +52,16 @@ a:hover{ color: #444;}
 .logo { 
   position: absolute; 
   background-image: url(/assets/logo.png); 
-  top: 0; left:65px; 
-  height: 200px; width: 200px; 
+  top: 35px; left:65px; 
+  height: 200px; width: 230px; 
   background-size: contain;
+  background-repeat: no-repeat;
 }
 .social{
   position: absolute;
   /*background-image: url(/assets/icons.png); */
   top: 95px;
-  left: 265px;
+  left: 300px;
   height: 41px;
   width: 150px;
 }
@@ -338,7 +339,7 @@ ul#myitems li#temp_month .month_number{display: none;}
 .temp_img img{width:238px; height: 145px;}
 .temp_img {text-align: center; height: 163px;}
 .temp_name{font-size: 20px; padding-top: 5px;}
-.month_name {font-size: 48px;}
+.month_name {font-size: 48px; font-family: Verdana;}
 .month_number {font-size: 148px;padding: 95px 0 0 0;text-align: right;font-family: sans-serif;}
 .temp_training{color:#c9db57;border-color:#c9db57}
 .temp_event{color:#76a38a;border-color:#76a38a;}

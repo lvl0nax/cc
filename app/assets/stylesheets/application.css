@@ -371,7 +371,8 @@ ul#myitems li#temp_month .month_number{display: none;}
   width: 1080px;
   min-height: 400px;
   top: 10px;
-  right: 140px;
+  right: 50%;
+  margin-right: -540px;
   background-color: white;
   position: relative;
 }

@@ -41,4 +41,6 @@ class UsersController < ApplicationController
   def admin_page
     authorize! :admin_page, User
   end
+
+  
 end

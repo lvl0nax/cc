@@ -40,16 +40,11 @@ gem 'russian', '~> 0.6.0'
 #gem 'geocoder'=end
 
 #gem 'devise'
-#=begin
-#  gem 'omniauth'
-
-#  gem 'omniauth-twitter'
-#  gem 'omniauth-facebook'
-#  gem 'omniauth-linkedin'
-#  gem 'omniauth-github'
-#=end
 
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 
 # Gems used only for assets and not required

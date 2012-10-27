@@ -6,10 +6,14 @@ class User
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
+  field :nickname,              :type => String, :default => ""
+  field :provider,              :type => String, :default => ""
+  field :url,              :type => String, :default => ""
+  field :username,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
   #field :name
   mount_uploader :photo, ImageUploader
@@ -17,6 +21,7 @@ class User
   #validates_presence_of :name
   validates_uniqueness_of  :email, :case_sensitive => false
   attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name #,:name
+  attr_accessible :nickname, :provider, :url, :username
   validates_presence_of :email
   validates_presence_of :encrypted_password
 
@@ -42,6 +47,8 @@ class User
   has_and_belongs_to_many :grants
   has_and_belongs_to_many :events
   has_many :requests
+
+  has_many :authentications
   
   has_and_belongs_to_many :areas
 
@@ -81,7 +88,13 @@ class User
     unless self.compinfo.blank?
       return self.compinfo.name
     end
-    return self.email.split("@").first
+    unless self.provider.blank?
+      return self.username
+    end
+    unless self.email.blank?
+      return self.email.split("@").first
+    end
+    return self.id
   end
 
   def role?(role)
@@ -139,6 +152,38 @@ class User
     if self.role?("employee")
       self.resume.photo
     else
+    end
+  end
+
+  def self.find_for_facebook_oauth(access_token, role)
+    if user = User.where(:url => access_token.info.urls.Facebook).first
+      user
+    else 
+       @user = User.create!(
+                   :provider => access_token.provider, 
+                   :url => access_token.info.urls.Facebook, 
+                   :username => access_token.extra.raw_info.name, 
+                   # :name => access_token.extra.raw_info.name, 
+                   :nickname => access_token.extra.raw_info.username, 
+                   :email => access_token.extra.raw_info.email, 
+                   :password => Devise.friendly_token[0,20])
+      @user.create_role(:name => role)
+    end
+  end
+
+  def self.find_for_vkontakte_oauth(access_token, role)
+    if user = User.where(:url => access_token.info.urls.Vkontakte).first
+      user
+    else 
+      @user = User.create!(
+                   :provider => access_token.provider, 
+                   :url => access_token.info.urls.Vkontakte, 
+                   :username => access_token.info.name, 
+                   # :name => access_token.info.name, 
+                   :nickname => access_token.extra.raw_info.domain, 
+                   :email => access_token.extra.raw_info.domain+'@vk.com', 
+                   :password => Devise.friendly_token[0,20])
+      @user.create_role(:name => role)
     end
   end
 

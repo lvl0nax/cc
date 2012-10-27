@@ -270,9 +270,9 @@ label.control-label{  padding-right: 10px; }
 #grant_end_date_1i{margin-left: 35px;}
 .datetime select{ margin-right: 9px; margin-left: 9px;}
 
-#event_hyperlink{width:715px;}
-#training_hyperlink{width:715px;}
-#grant_hyperlink{width:715px;}
+#event_hyperlink{width:682px;}
+#training_hyperlink{width:682px;}
+#grant_hyperlink{width:682px;}
 
 .fields input { width: 945px;}
 
@@ -420,6 +420,7 @@ ul#myitems li#temp_month .month_number{display: none;}
 
 
 .reg-popup{
+  position: absolute;
   width: 537px;
   min-height: 110px;
   top: 117px;
@@ -664,3 +665,10 @@ label.error {color: red;}
 #vkwidget1_tt{
   left: 0 !important;
 }
+
+.hprlnk label{
+  width: 350px !important;
+  float: left;
+}
+
+.weblinks .hprlnk{ width: 355px;}

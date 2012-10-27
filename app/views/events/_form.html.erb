@@ -19,9 +19,12 @@
   <%= f.input :place, :label => "МЕСТО"  %>
   <%= f.input :start_date, :label => "НАЧАЛО" , :as => :datetime %>
   <%= f.input :end_date, :label => "КОНЕЦ" , :as => :datetime %>
-  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ"  %>
+  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ",:wrapper_html => {:class => 'hprlnk'} %>
   <div class="weblinks">
     <div id="socimgs">
+      <div class="inlblck hprlnk">
+        Ссылки на мероприятие на сервисах: 
+      </div>
       <div class="inlblck">
         <%= image_tag "/assets/ltp.png", :onclick => "itemshow('timepad');"%>
       </div>

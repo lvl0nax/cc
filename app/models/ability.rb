@@ -30,7 +30,9 @@ class Ability
         can :update, :training, :owner => user.id
         can :update, :event, :owner => user.id
         can :update, :grant, :owner => user.id
-      
+        
+
+        cannot :admin_page, User
       elsif user.role? (:empolyer) # who can create vacancy 
         can :manage, :compinfo
         can :read, :all
@@ -41,6 +43,8 @@ class Ability
         can :update, :training, :owner => user.id
         can :update, :event, :owner => user.id
         can :update, :grant, :owner => user.id
+
+        cannot :admin_page, User
          #can :read, User, User.juristic do |u|
          # u.role == :juristic || u.id == user.id
          #end 

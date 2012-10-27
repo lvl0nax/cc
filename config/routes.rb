@@ -5,6 +5,7 @@ TestMongoid::Application.routes.draw do
   resources :areas do
     collection do
       post 'add_to_user'
+      get 'list'
     end
   end
 
@@ -57,11 +58,12 @@ TestMongoid::Application.routes.draw do
   #end
   #get "/:id/activities" => "users#activities"
 
-
+  match "admin_page", :to => "users#admin_page", :as => :admin_page
   resources :users do #, :only => [:show, :index, :activities ]
     member do
       get "activities"
       get "userevents"
+      #get "admin_page"
     end
   end
 

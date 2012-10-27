@@ -37,4 +37,8 @@ class UsersController < ApplicationController
       format.json { render json: @evnts }
     end
   end
+
+  def admin_page
+    authorize! :admin_page, User
+  end
 end

@@ -200,6 +200,12 @@ $(function() {
 		
 
 	});
+
+  $("#arealist input[type=checkbox]").each(function(){
+    if ($(this).attr("checked") ){ 
+      $(this).parent().css("color", "#76a38a")
+    }
+  });
 /*
 	$(".select label.checkbox").bind("click", function(){
 		if ($(this).children.attr("ckecked"))

@@ -6,17 +6,20 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
   <%= javascript_include_tag "application.js" %>
-  <%= tinymce_javascript_tag "pages", "advanced" %>
+  
+  <%= yield :js%>
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
-  <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
 
-  <script type="text/javascript">
-    VK.init({
-      apiId: 3196496,
-      onlyWidgets: true
-    });
-  </script>
+    <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>
+
+    <script type="text/javascript">
+      VK.init({
+        apiId: 3196496,
+        onlyWidgets: true
+      });
+    </script>
+  
   <%= csrf_meta_tags %>
 </head>
   <body>
@@ -25,7 +28,9 @@
         <div id="content_top">
           <div class="login">
             <div style="float: left;"></div>
-            <div id="vk_like" style="float: left;max-width: 150px; overflow:hidden;"></div>
+
+              <div id="vk_like" style="float: left;max-width: 150px; overflow:hidden;"></div>
+
             <div id="fb-root" style="float:left;"></div>
             <script>
               // Load the SDK Asynchronously
@@ -39,7 +44,7 @@
             </script>
             <div class="fb-like" data-send="true" data-layout="button_count" data-width="100" data-show-faces="true" data-font="arial" style="float:left;"></div>
             <script type="text/javascript">
-              VK.Widgets.Like('vk_like');
+              VK.Widgets.Like("vk_like", {type: "mini"});
             </script>
             <%= render 'layouts/alinks' %>
             <div class="error" style="color: red; text-align: center"> </div>

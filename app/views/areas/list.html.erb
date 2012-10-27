@@ -1,0 +1,12 @@
+<h1>Список существующих сфер</h1>
+  <div id="arealist" >
+    <% @arealist.each do |area| %>
+      <%= area.name %><br/>
+    <% end %>
+  </div>
+<br />
+<% if current_user%>
+  <% if current_user.role?(:admin) %>
+    <%= link_to 'Добавить новую сферу', new_area_path %>
+  <% end %>
+<% end %>

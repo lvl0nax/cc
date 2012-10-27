@@ -3,18 +3,25 @@ class AreasController < ApplicationController
   # GET /areas.json
   def index
     @areas = Area.all
-    logger.debug "*******************************************"
-    logger.debug @areas.count
-    logger.debug "*******************************************"
+    # logger.debug "*******************************************"
+    # logger.debug @areas.count
+    # logger.debug "*******************************************"
     @myareas = current_user.area_ids
-    logger.debug "*******************************************"
-    logger.debug @myareas.count
-    logger.debug "*******************************************"
+    # logger.debug "*******************************************"
+    # logger.debug @myareas.count
+    # logger.debug "*******************************************"
 
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @areas }
+    end
+  end
+
+  def list
+    @arealist = Area.all
+    respond_to do |format|
+      format.html 
     end
   end
 

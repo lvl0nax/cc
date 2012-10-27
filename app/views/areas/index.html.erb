@@ -18,9 +18,3 @@
 <br />
 <div id="save-area" onclick="addareas();" data-url="<%= add_to_user_areas_path %>"> СОХРАНИТЬ </div>
 <br />
-<br />
-<% if current_user%>
-  <% if current_user.role?(:admin) %>
-    <%= link_to 'Добавить новую сферу', new_area_path %>
-  <% end %>
-<% end %>

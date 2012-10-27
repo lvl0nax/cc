@@ -8,13 +8,109 @@
   <%= f.input :end_date, :label => "КОНЕЦ" , :as => :datetime %>
   <%= f.input :nation, :label => "СТРАНА"  %>
   <div class="weblinks">
-    <%= f.input :vk, :label => "вконтакте"  %>
-    <%= f.input :twitter, :label => "twitter"  %>
-    <%= f.input :afisha, :label => "афиша"  %>
-    <%= f.input :fb, :label => "facebook"  %>
-    <%= f.input :cityspb, :label => "citySPB"  %>
-    <%= f.input :timepad, :label => "timepad"  %>
-    <%= f.input :lookatme, :label => "look at me"  %>
+    <div id="socimgs">
+      <div class="inlblck">
+        <%= image_tag "/assets/ltp.png", :onclick => "itemshow('timepad');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/llookatme.jpg", :onclick => "itemshow('lookatme');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lcityspb.jpg", :onclick => "itemshow('cityspb');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lafisha.jpg", :onclick => "itemshow('afisha');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lvk.png", :onclick => "itemshow('vk');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lfb.png", :onclick => "itemshow('fb');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/ltwitter.png", :onclick => "itemshow('twitter');"%>
+      </div>
+    </div>
+
+
+      <% if @grant.timepad %>
+        <div class="fields timepad">
+      <% else %>
+        <div class="fields timepad" style="display: none;">
+      <% end %>
+        <div class="inlblck">
+          <%= image_tag "/assets/ltp.png"%>
+        </div>
+        <%= f.input :timepad, :label => false, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+      </div>
+
+      <% if @grant.lookatme %>
+        <div class="fields lookatme">
+      <% else %>
+        <div class="fields lookatme" style="display: none;">
+      <% end %>
+        <div class="inlblck">
+          <%= image_tag "/assets/llookatme.jpg"%>
+        </div>
+        <%= f.input :lookatme, :label => false, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+      </div>
+
+      <% if @grant.cityspb %>
+        <div class="fields cityspb">
+      <% else %>
+        <div class="fields cityspb" style="display: none;">
+      <% end %>
+        <div class="inlblck">
+          <%= image_tag "/assets/lcityspb.jpg"%>
+        </div>
+        <%= f.input :cityspb, :label => false, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+      </div>
+
+      <% if @grant.afisha %>
+        <div class="fields afisha">
+      <% else %>
+        <div class="fields afisha" style="display: none;">
+      <% end %>
+        <div class="inlblck">
+          <%= image_tag "/assets/lafisha.jpg"%>
+        </div>
+        <%= f.input :afisha, :label => false, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+      </div>
+
+
+      <% if @grant.vk %>
+        <div class="fields vk">
+      <% else %>
+        <div class="fields vk" style="display: none;">
+      <% end %>
+        <div class="inlblck">
+          <%= image_tag "/assets/lvk.png"%>
+        </div>
+        <%= f.input :vk, :label => false, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+      </div>
+
+      <% if @grant.fb %>
+        <div class="fields fb">
+      <% else %>
+        <div class="fields fb" style="display: none;">
+      <% end %>
+        <div class="inlblck">
+          <%= image_tag "/assets/lfb.png"%>
+        </div>
+        <%= f.input :fb, :label => false, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+      </div>
+
+      <% if @grant.twitter %>
+        <div class="fields twitter">
+      <% else %>
+        <div class="fields twitter" style="display: none;">
+      <% end %>
+        <div class="inlblck">
+          <%= image_tag "/assets/ltwitter.png"%>
+        </div>
+        <%= f.input :twitter, :label => false, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+      </div>
+
   </div>
   <%= f.input :request_date, :label => "СРОК ПОДАЧИ ЗАЯВОК" , :as => :datetime %>
   <%= f.input :direction, :label => "СФЕРА" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes, :wrapper_html => {:class=>"lll"} %>

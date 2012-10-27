@@ -55,7 +55,7 @@ TestMongoid::Application.routes.draw do
   devise_for :users, :controllers => { 
     :registrations => "registrations",
     :sessions => "sessions",
-    :omniauth_callbacks => "users/omniauth_callbacks"
+    #:omniauth_callbacks => "users/omniauth_callbacks"
   } do
     resources :resumes
     resources :compinfos

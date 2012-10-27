@@ -656,3 +656,7 @@ label.error {color: red;}
 
 .fields input::-webkit-input-placeholder {font-style: italic;}
 .fields input:-moz-placeholder {font-style: italic;}
+
+#vkwidget1_tt{
+  left: 0 !important;
+}

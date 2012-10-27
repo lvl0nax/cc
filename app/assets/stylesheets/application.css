@@ -270,9 +270,9 @@ label.control-label{  padding-right: 10px; }
 #grant_end_date_1i{margin-left: 35px;}
 .datetime select{ margin-right: 9px; margin-left: 9px;}
 
-#event_hyperlink{width:682px;}
-#training_hyperlink{width:682px;}
-#grant_hyperlink{width:682px;}
+#event_hyperlink{width:665px;}
+#training_hyperlink{width:665px;}
+#grant_hyperlink{width:665px;}
 
 .fields input { width: 945px;}
 
@@ -632,7 +632,7 @@ label.error {color: red;}
 }
 
 #socimgs img{
-  opacity: 0.3;
+  opacity: 0.5;
 }
 #socimgs img:hover{
   opacity: 1;
@@ -668,8 +668,8 @@ label.error {color: red;}
 }
 
 .hprlnk label{
-  width: 350px !important;
+  width: 372px !important;
   float: left;
 }
 
-.weblinks .hprlnk{ width: 355px;}
+.weblinks .hprlnk{ width: 380px;}

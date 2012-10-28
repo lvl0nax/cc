@@ -20,7 +20,7 @@ class Training
   field :start_date, :type => DateTime
   field :end_date, :type => DateTime
   field :request_date, :type => DateTime #, :type => Array
-  field :areas, :type => Array
+  field :areas
   field :employment
   field :salary_type
   field :status
@@ -48,16 +48,44 @@ class Training
     now = DateTime.now
     t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
     if salary_types
-      salary_types[:salary_type].delete("")
+      #salary_types[:salary_type].delete("")
       #event_kinds[:kind]
       t = t.any_in(salary_type: salary_types[:salary_type]) unless (salary_types[:salary_type].blank?)
     end
     if areas
-      areas[:areas].delete("")
+      #areas[:areas].delete("")
       t = t.any_in(:areas => areas[:areas]) unless (areas[:areas].blank?)
     end
     return t
   end
+
+  def self.isearch
+    now = DateTime.now
+    areas = []
+    areas.clear
+    Area.each do |a|
+      areas << a.id
+    end
+    areas << ""
+    t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
+    logger.debug "+++++++++++++++++++++++++++++++++COUNT TRAINING1111"
+      logger.debug t.count
+    # if salary_types
+    #   salary_types[:salary_type].delete("")
+    #   #event_kinds[:kind]
+      t = t.any_in(:salary_type => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ", ""] ) #unless (salary_types[:salary_type].blank?)
+      logger.debug "+++++++++++++++++++++++++++++++++COUNT TRAINING22222"
+      logger.debug t.count
+    # end
+    # if areas
+    #   areas[:areas].delete("")
+      t = t.any_in(:areas => areas) if (Area.exists?)
+      logger.debug "+++++++++++++++++++++++++++++++++COUNT TRAINING33333"
+      logger.debug t.count
+    # end
+    return t
+  end
+
 
   def user
     User.where(id: self.owner).first

@@ -10,7 +10,7 @@ class Event
   field :description
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions for registrations to the event
-  field :areas, :type => Array # area for examples IT, buildings and etc
+  field :areas # area for examples IT, buildings and etc
   field :owner # User_id
   field :nation # field as listing
   field :city # may be make as list of the towns
@@ -21,7 +21,7 @@ class Event
   field :start_date, :type => DateTime
   field :end_date, :type => DateTime
   field :request_date, :type => DateTime
-  field :kind, :type => Array
+  field :kind
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
 
@@ -50,16 +50,40 @@ class Event
     now = DateTime.now
     t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all #TODO: select events from current date to year later
     if event_kinds
-      event_kinds[:kind].delete("")
+      #event_kinds[:kind].delete("")
       #event_kinds[:kind]
       t = t.any_in(kind: event_kinds[:kind])
       logger.debug "++++++++++++++++++++++++++++++++"
       logger.debug t
     end
     if areas
-      areas[:areas].delete("")
+      #areas[:areas].delete("")
       t = t.any_in(:areas => areas[:areas]) unless (areas[:areas].blank?)
     end
+    logger.debug "**********************************"
+    logger.debug t
+    return t
+  end
+  def self.isearch
+    now = DateTime.now
+    areas = []
+    areas.clear
+    Area.each do |a|
+      areas << a.id
+    end
+    areas << ""
+    t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all #TODO: select events from current date to year later
+    # if event_kinds
+    #   event_kinds[:kind].delete("")
+    #   #event_kinds[:kind]
+      t = t.any_in(:kind => ["НАУЧНАЯ КОНФЕРЕНЦИЯ", "КАРЬЕРНОЕ СОБЫТИЕ", ""])
+      logger.debug "++++++++++++++++++++++++++++++++"
+      logger.debug t
+    # end
+    # if areas
+    #   areas[:areas].delete("")
+      t = t.any_in(:areas => areas) unless (Area.exists?)
+    # end
     logger.debug "**********************************"
     logger.debug t
     return t

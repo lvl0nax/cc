@@ -8,6 +8,7 @@ class EventsController < ApplicationController
     # TODO: where date more or equal now
     now = DateTime.now
     @items = []
+    @items.clear
     event_conditions = []
         # logger.debug "========================================="
         # logger.debug params[:trainings].to_s
@@ -42,11 +43,15 @@ class EventsController < ApplicationController
       @items.concat( Month.all.to_a)
     else  
       
-      @items.concat( Event.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
+      # @items.concat( Event.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
+      @items.concat( Event.isearch.to_a)
       
-      @items.concat( Grant.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
+      # @items.concat( Grant.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
+      @items.concat( Grant.isearch.to_a)
+
+      # @items.concat( Training.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
+      @items.concat( Training.isearch.to_a)
       
-      @items.concat( Training.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
       #@items.concat( Training.where(:start_date.gte => now).to_a)
       
       @items.concat( Month.all.to_a)

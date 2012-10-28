@@ -41,9 +41,18 @@ class Grant
     now = DateTime.now
     t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
     if areas
-      areas[:direction].delete("")
+      #areas[:direction].delete("")
       t = t.any_in(:direction => areas[:direction])
     end
+    logger.debug "**********************************"
+    logger.debug t
+    return t
+  end
+  def self.isearch
+    now = DateTime.now
+    t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
+  
+      t = t.any_in(:direction => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ", ""])
     logger.debug "**********************************"
     logger.debug t
     return t

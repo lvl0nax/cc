@@ -46,7 +46,7 @@ a:hover{ color: #444;}
 .link {display: inline; padding-top: 9px; padding-bottom: 7px; height: 30px;}
 .link6 {display: inline; line-height: 30px; padding-left: 10px;}
 .link a{color:#77a38a;}
-.link a:hover{color:black;}
+.link a:hover{color:black; background-color: white;}
 
 .header {height: 155px;}
 .logo { 

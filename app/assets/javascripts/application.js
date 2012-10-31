@@ -9,18 +9,20 @@ $(function() {
 */
 	$("#events_search input[type=checkbox]").bind("click", function(){$("#events_search").submit()});
 
+  //highlight link in login menu
 	var url=document.location.href;
 	$.each($(".login a"), function(){
 		if (this.href==url){$(this).parent().addClass('acta');}
 	});
 
+  // old method for old search)))
   $('#events_search').submit( function () {
     $("#items").html("");
     $.get(this.action, $(this).serialize(), null, 'script');
     return false;
   });
 
-
+  // click on add button
   $('.add').on("click", function(){
 
       $('.create_links').show();
@@ -33,7 +35,7 @@ $(function() {
   /*$(document).on("ajax:error", "#new_user", function(evt, xhr, settings){alert(1);});*/
 
 
-
+  // for close popup window - maybe can be deleted
   $(document).on('click',".wait-click" ,function() {
     if ($("#popup-wrap").is(".show-popup")) {
       $("#popup-wrap").html("").removeClass();
@@ -41,15 +43,18 @@ $(function() {
     }
   });
 
+  //login
 	$(document).on("submit","#new_session", function(event){
 			event.preventDefault();
 			fnlogin();
 		});
+  //registration submit
 	$(document).on("submit","#new_user", function(event){
 			event.preventDefault();
 			test();
 		});
 
+  // set geo coordinate when mouse leave map-area
   $(document).on('hover',"#geo-map" ,function() {
     $("input[id*='y_coordinate']").val(geo.getLoc().longitude);
     $("input[id*='x_coordinate']").val(geo.getLoc().latitude);
@@ -67,6 +72,7 @@ $(function() {
   });
   */
 
+  //open popup for creating grant
 	$('.create_grant a').bind('click', function(){
 		$('#content-body').css("min-height", "900px");
 		$(".reg-buttons").hide();
@@ -76,7 +82,7 @@ $(function() {
 		$('#popup-wrap').removeClass().addClass("grant-popup").load("/grants/new");
 		return false;
 	});
-
+  // --//-- fortraining
 	$('.create_training a').bind('click', function(){
 		$('#content-body').css("min-height", "900px");
 		$(".reg-buttons").hide();
@@ -90,7 +96,7 @@ $(function() {
     $('.create_grant').removeClass("cr_select");
 		return false;
 	});
-
+  // for event
 	$('.create_event a').bind('click', function(){
 		$('#content-body').css("min-height", "900px");
 		$(".reg-buttons").hide();
@@ -105,6 +111,7 @@ $(function() {
 		return false;
 	});
 
+  // open registration form
 	$('.registration').bind('click', function(){
 		
     if ($(this).data().reg){alert("Для регистрации разлогиньтесь, пожалуйста.")} 
@@ -152,6 +159,7 @@ $(function() {
     }
 	});
 	
+  //select role
 	$('.person-button').bind("click", function(){
 		$('#user_role').val("employee");
 		$(this).addClass("rselected");
@@ -162,6 +170,8 @@ $(function() {
 		$(this).addClass("rselected");
 		$('.person-button').removeClass("rselected");
 	});
+
+  //hide area and company dropdown
 	$('#container').bind('click', function () {
 		$(".ard").fadeOut();
 		$(".arde").fadeOut();
@@ -170,6 +180,7 @@ $(function() {
 			$("#popup-wrap").removeClass();*/
 	});
 
+  // company or area dropdown
 	$('#trclick').bind('click', function () {
 		$('.ard').fadeIn();
 		$(".arde").fadeOut();
@@ -220,13 +231,14 @@ $(function() {
 
 */
 
-
+  //login form load
 	$("#login").bind("click", function(){
 		closeItemPopup();
 		$("#login-form").load("/users/sign_in");
 		return false;
 	});
 
+  // for checkbox style
   var temp = $(".menu label.checkbox input");
   for (var i=0; i<temp.length; i++){ doCheckbox(temp.eq(i));}
   function doCheckbox(elem)
@@ -265,6 +277,7 @@ $('.trainings input:checkbox').click(function() {
   	$(".temp_event").hide();
 });*/
 
+// for close any popup 
 function closeItemPopup() {
   $('.create_links').hide();
   $('.reg-buttons').hide();
@@ -276,6 +289,7 @@ function closeItemPopup() {
   $('.registration').removeClass("reg-select");
 }
 
+//velidation register form - need refactoring with above code validation
 function formvalidate() {
 	$("#new_user").validate({
 		rules: {
@@ -313,6 +327,8 @@ function formvalidate() {
 	test();
 
 }
+
+// ajax register
 function test () {
   /*alert($("#new_user").serialize());*/
   $.ajax({
@@ -339,6 +355,8 @@ function test () {
   });
 
 }
+
+//ajax login
 function fnlogin () {
   $.ajax({
     type: "POST",
@@ -357,6 +375,7 @@ function fnlogin () {
   });
 }
 
+//area on search menu
 function areashow(){
   $(".select").click(function(event){ event.stopPropagation()});
   $("#evcreateclick").click(function(event){ event.stopPropagation()});
@@ -376,6 +395,8 @@ function areahide(){
 
 }
 
+
+//show items  - event/training/grant
 function showevent(temp){
 		closeItemPopup();
     $("#popup-wrap").click(function(event){ event.stopPropagation()});
@@ -393,10 +414,8 @@ function showevent(temp){
         geo.setLoc(x_coordinate,y_coordinate);/**/
         /*geo.init({elementString: "#geo-map", map: 'gm'}, {latitude: 59.93365223894488, longitude: 30.300378486327617});/**/
         geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
-    });
-  
+    }); 
 }
-
 function showtraining(temp){
 
   	closeItemPopup();
@@ -418,7 +437,6 @@ function showtraining(temp){
         geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
     });
 }
-
 function showgrant(temp){
 		closeItemPopup();
     $("#popup-wrap").click(function(event){ event.stopPropagation()});
@@ -432,7 +450,6 @@ function showgrant(temp){
     });
 }
 
-function proba(){alert("proba")}
 
 function itemshow(sclass){
   /*var str = "."+ sclass*/
@@ -447,6 +464,8 @@ function itemshow(sclass){
   }
 }
 
+
+//for search items
 function srch() {
 	/*var t = $("#events_search").serialize();
 	alert(t);*/
@@ -472,6 +491,8 @@ function srch() {
     }
   });
 }
+
+//adding participant to events/training/grant
 function addpart(){
 	var url = $(".participant div").data("url");
 	var id = $(".participant div").data("id");
@@ -499,6 +520,7 @@ function addpart(){
   });
 }
 
+//delete participant
 function delpart(){
 	var url = $(".participant div").data("url");
 	var id = $(".participant div").data("id");
@@ -522,6 +544,7 @@ function delpart(){
   });
 }
 
+// add area to current_user
 function addareas(){
   var tmp;
   var t=[];

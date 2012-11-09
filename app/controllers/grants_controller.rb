@@ -41,7 +41,7 @@ class GrantsController < ApplicationController
   # POST /grants.json
   def create
     @grant = Grant.new(params[:grant])
-    @grant.owner = current_user.id
+    @grant.owner = current_user.id unless current_user.nil?
     respond_to do |format|
       if @grant.save
         #current_user.grants << @grant

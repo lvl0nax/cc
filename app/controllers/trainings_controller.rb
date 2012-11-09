@@ -2,6 +2,8 @@ class TrainingsController < ApplicationController
   # GET /trainings
   # GET /trainings.json
   # TODO: check - may be we should make before filter
+
+
   def index
     @trainings = Training.all
 
@@ -44,7 +46,7 @@ class TrainingsController < ApplicationController
   # POST /trainings.json
   def create
     @training = Training.create(params[:training])
-    @training.write_attributes(owner: current_user.id)
+    @training.write_attributes(owner: current_user.id) unless current_user.nil?
     respond_to do |format|
       if @training.save
         #current_user.trainings << @training

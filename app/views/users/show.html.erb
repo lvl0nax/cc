@@ -1,7 +1,7 @@
 <div id="resume-show"	>
 	<% if current_user.role.try(:name)=='employee'%>
 		<%= render 'resume' %>
-	<% else %>
+	<% elsif current_user.role.try(:name)=='employer'%>
 		<%= render 'compinfo' %>
 	<% end %>
 </div>

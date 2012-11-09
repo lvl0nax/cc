@@ -1,6 +1,6 @@
 class Conference
   include Mongoid::Document
-  hay :requests, as: :requestable
+  # hash :requests, as: :requestable
   field :title
   field :description
   field :hyperlink, :type => String # Link to external site with/without registration to event

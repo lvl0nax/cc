@@ -32,9 +32,9 @@ gem 'rmagick'
 
 gem 'russian', '~> 0.6.0'
 
-#gem 'client_side_validations'
+gem 'client_side_validations'
 #=begin
-#gem 'cancan'
+gem 'cancan'
 #gem 'activerecord'
 
 #gem 'geocoder'=end

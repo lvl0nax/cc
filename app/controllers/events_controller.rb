@@ -109,7 +109,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(params[:event])
-    @event.write_attributes(owner: current_user.id)
+    @event.write_attributes(owner: current_user.id) unless current_user.nil?
     respond_to do |format|
       if @event.save
         #current_user.events << @event

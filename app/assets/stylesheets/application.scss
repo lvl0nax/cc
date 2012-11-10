@@ -79,14 +79,14 @@ a:hover{ color: #444;}
 
 }
 .social a{
-  opacity: 0.3;
+  opacity: 0.7;
 }
 .social a:hover{
   opacity: 1;
   background-color: transparent;
 }
 .soc_info a{
-  opacity: 0.3;
+  opacity: 0.7;
 }
 .soc_info a:hover{
   background-color: transparent;
@@ -151,7 +151,7 @@ a:hover{ color: #444;}
 
 .comp-button{
   position: absolute; 
-  top: 65px; right: 435px;
+  top: 53px; right: 339px;
   border: 2px solid #e3e3e3;
   text-align: center;
   line-height: 50px;
@@ -162,7 +162,7 @@ a:hover{ color: #444;}
 }
 .person-button{
   position: absolute; 
-  top: 65px; right: 235px;
+  top: 53px; right: 137px;
   border: 2px solid #e3e3e3;
   text-align: center;
   line-height: 50px;
@@ -340,9 +340,9 @@ table.test{/*border: 2px solid red;*/}
 
 }
 .templ{
-  width: 256px; height: 215px; 
+  width: 286px; height: 246px; 
   border-left:1px solid; border-right:1px solid; border-top:1px solid; border-bottom:3px solid; 
-  padding: 20px; 
+  padding: 5px; 
   margin: 12px;
   margin-left: 0px;
   overflow: hidden;
@@ -428,24 +428,18 @@ ul#myitems li#temp_month .month_number{display: none;}
   padding-left: 4px;
   padding-right: 4px;
   position: absolute;
-  top:10px;
-  right: 10px;
+  top: 4px;
+  color: transparent;
+  right: -3px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 15px;
-  color: white;
-  background-color: #e74949;
-  -moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;
+  background: url(/assets/krestik.png) no-repeat top left;
+  background-size: contain;
+  width: 18px;
+  height: 18px;
 }
 
 #close:hover{
-  font-size: 18px;
-  color: white;
-  background-color: #e74949;
-  -moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;
-   box-shadow: 0px 0px 5px #e74949;
-  -webkit-box-shadow: 0px 0px 5px #e74949;
-  -moz-box-shadow: 0px 0px 5px #e74949;
 }
 
 .reg-select{
@@ -461,12 +455,12 @@ ul#myitems li#temp_month .month_number{display: none;}
   position: absolute;
   width: 537px;
   min-height: 110px;
-  top: 117px;
-  right: 98px;
+  top: 105px;
+  right: 0px;
   background-color: white;
   border: 2px solid #e3e3e3;
-  overflow-y: hidden;
 }
+
 .reg-inputs{width: 400px; margin-left: 20px; margin-top: 10px;}
 /*.reg-popup label {float: left; margin: 5px;}
 .reg-popup input {float: right;margin: 5px;}*/
@@ -481,6 +475,8 @@ ul#myitems li#temp_month .month_number{display: none;}
   background-size: 101%;
   color: white;
   cursor: pointer;
+  font-size: 15px;
+  padding: 7px;
 }
 
 .menu label.mnl{
@@ -567,7 +563,6 @@ ul#myitems li#temp_month .month_number{display: none;}
   color: black;
 }
 
-#resume .input {padding-left: 40px;}
 .line {height: 2px; width: 900px; background-color: #D9EB67; margin-top: 10px; margin-bottom: 10px;}
 #resume a.edit{margin-left: 50px;}
 #resume label{float: left; line-height: 19px; width:150px;}
@@ -585,8 +580,9 @@ ul#myitems li#temp_month .month_number{display: none;}
   background-color: #333F3F;
   position: static;
   width: 100%;
+  font-size: 90%;
   height: 27px;
-  color: white;
+  color: #DAE665;
   line-height: 25px;
   margin-top: 10px;
 }
@@ -652,7 +648,6 @@ ul#myitems li#temp_month .month_number{display: none;}
 .not-visible{position: absolute; left: -9000px;}
 
 #geo-map-zone{
-  height: 600px; 
   float: right;
   margin-right: 40px;
   width: 440px;
@@ -667,7 +662,7 @@ ul#myitems li#temp_month .month_number{display: none;}
   }
 
 }
-#geo-map{height: 440px;}
+#geo-map{height: 240px;}
 
 #popup-wrap table {position: relative}
 .item-map {position: absolute; bottom: 20px;}
@@ -678,7 +673,7 @@ label.error {color: red;}
 
 .red-border{outline: 2px solid red;}
 /* TODO add correct class*/
-.acta{ background-image: url(/assets/3.jpg);}
+.acta{ background: #C4F561 url(/assets/3.jpg) no-repeat top left3; background-position: 30px 0; }
 .lgn { display: inline-block;padding: 0 5px; border-left: 1px solid black;}
 .lgn:hover { background-image: url(/assets/3.jpg); }
 .iright {margin-right: 158px;}

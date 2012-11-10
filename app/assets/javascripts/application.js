@@ -31,6 +31,16 @@ $(function() {
 
   });
 
+  jQuery.fn.center = function () {
+    this.css("position","fixed");
+    if ($(window).height() - this.height() > 0) {      
+      this.css("top", ($(window).height() - this.height() ) / 2 + "px");
+    } else {
+      this.css("top", '10px');
+    }
+    this.css("left", ($(window).width() - this.width() ) / 2 + "px");
+    return this;
+  }
   /*$("#new_user").on();*/
   /*$(document).on("ajax:error", "#new_user", function(evt, xhr, settings){alert(1);});*/
 
@@ -282,6 +292,7 @@ function closeItemPopup() {
   $('.create_links').hide();
   $('.reg-buttons').hide();
   $('#popup-wrap').html("").removeClass();
+  $('#popup-wrap').removeAttr('style');
   $('.create_grant').removeClass("cr_select");
   $('.create_event').removeClass("cr_select");
   $('.create_training').removeClass("cr_select");
@@ -399,10 +410,13 @@ function areahide(){
 //show items  - event/training/grant
 function showevent(temp){
 		closeItemPopup();
+    scrollPopup();
+
     $("#popup-wrap").click(function(event){ event.stopPropagation()});
     if ($("#container").is(".wait-click")){$("#container").removeClass();}
     
     $('#popup-wrap').removeClass().addClass("show-popup").load("/events/"+temp, function(){
+    $('#popup-wrap').center();
       
       if ($("#container").is(".wait-click")){}
       else {  
@@ -419,12 +433,15 @@ function showevent(temp){
 function showtraining(temp){
 
   	closeItemPopup();
+    scrollPopup();
     $("#popup-wrap").click(function(event){ event.stopPropagation()});
+
 
     if ($("#container").is(".wait-click")){$("#container").removeClass();}
     /*var tmp = $(this).data("content");
     alert(temp);*/
     $('#popup-wrap').removeClass().addClass("show-popup").load("/trainings/"+temp, function(){
+    $('#popup-wrap').center();
       if ($("#container").is(".wait-click")){}
       else {  
         $('#container').addClass("wait-click");}
@@ -437,13 +454,24 @@ function showtraining(temp){
         geo.init({isFirstSet: true, map: 'gm', elementString: "#geo-map"});/**/
     });
 }
+
+function scrollPopup()
+{
+    if ($(window).scrollTop() <= $("#items").offset().top) {
+      $('html, body').animate({scrollTop: $("#items").offset().top }, 200);
+    }
+}
+
 function showgrant(temp){
 		closeItemPopup();
+    scrollPopup();
+
     $("#popup-wrap").click(function(event){ event.stopPropagation()});
 
     if ($("#container").is(".wait-click")){$("#container").removeClass();}
    
     $('#popup-wrap').removeClass().addClass("show-popup").load("/grants/"+temp, function(){
+    $('#popup-wrap').center();
       if ($("#container").is(".wait-click")){}
       else  
         $('#container').addClass("wait-click");

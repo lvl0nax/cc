@@ -31,6 +31,17 @@
           <% end %>
         </div>
       <% end %>
+
+      <% if current_user.role?(:employee)%>
+        <div id="avatar">
+          <% if current_user.resume? && current_user.resume.photo? %>
+            <%= image_tag current_user.resume.photo.url(:thumb) %>
+          <% else %>
+            <%= image_tag "/assets/nophoto.jpg" %>
+          <% end %>
+        </div>
+      <% end %>
+      
     <div class="lgn">
       <%= link_to "ВЫХОД", destroy_user_session_path, :method => :delete %>
     </div>

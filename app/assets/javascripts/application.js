@@ -1,5 +1,4 @@
 //= require jquery
-//= require jquery_ujs
 //= require_tree .
 
 $(function() {
@@ -7,6 +6,7 @@ $(function() {
 		$('.temp_month').toggle();
 	});
 */
+
 	$("#events_search input[type=checkbox]").bind("click", function(){$("#events_search").submit()});
 
   //highlight link in login menu

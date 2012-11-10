@@ -2,8 +2,6 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- *= require_tree . 
 */
 /* reset */
 html,body,div,span,h1,h2,h3,h4,b,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,p,table,caption,tbody,thead,tr,th,td, ul, li, ol{margin:0;padding:0;outline:none;}
@@ -12,16 +10,32 @@ fieldset,img {border:0;}
 caption,th,td{text-align:left;}
 ul,ol{list-style: none}
 input,button,textarea,select,em,th,optgroup,option {font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
+
+@mixin shadow {
+  box-shadow:  0px 0px 5px #444;
+  -webkit-box-shadow:  0px 0px 5px #444;
+  -moz-box-shadow:  0px 0px 5px #444;
+}
+
+
 /* global styles */
 
 html, body {height:100%; color: #58595b}
 body{font: 13px Helvetica,sans-serif;} /*background: #4B93D6*/
 a {text-decoration: none; color: black;}
 a:hover{ color: #444;}
+
+.selectBox-dropdown {
+  border: #fff;
+  padding: 3px 10px;
+  border: none;
+  min-width: 150px;
+}
+
 #container{min-height:100%;min-width:1100px;position:relative;overflow:hidden}
 
 #content_top{
-  height: 185px;
+  height: 185px;  
 }
 .login {
   width:100%;
@@ -48,33 +62,34 @@ a:hover{ color: #444;}
 .link a{color:#77a38a;}
 .link a:hover{color:black; background-color: white;}
 
-.header {height: 155px;}
-.logo { 
-  position: absolute; 
+.header {height: 155px; margin:0 auto;width:1230px; position: relative; }
+.logo {   
   background-image: url(/assets/logo.png); 
-  top: 35px; left:65px; 
+  background-position: -30px 0;
   height: 200px; width: 230px; 
   background-size: contain;
   background-repeat: no-repeat;
+  float: left;
 }
 .social{
-  position: absolute;
   /*background-image: url(/assets/icons.png); */
-  top: 95px;
-  left: 300px;
-  height: 41px;
+  margin-top: 78px;
   width: 150px;
+  float: left;
+
 }
 .social a{
   opacity: 0.3;
 }
 .social a:hover{
   opacity: 1;
+  background-color: transparent;
 }
 .soc_info a{
   opacity: 0.3;
 }
 .soc_info a:hover{
+  background-color: transparent;
   opacity: 1;
 }
 
@@ -98,26 +113,32 @@ a:hover{ color: #444;}
   height: 20px;
   width: 800px;
   position: absolute;
-  top: 157px;
+  top: 130px;
   left: 485px;
   display: none;
   font-size: 17px;
 }
 .cr{
   display: inline-block;
-  height: 20px;
+  height: 330px;
   width: 150px;
   /*border: 1px solid;*/
   margin-right: 40px;
   text-align: center;
   color: black;
 }
-.cr_select{  background-image: url(/assets/rotate.png); background-size: 100%; color: white;}
+.cr_select{  
+  background-image: url(/assets/rotate.png); background-size: 100%; color: white;
+  a {
+    color: white;
+  }
+}
 .cr a{  width: 150px;}
 
 .registration {
-  position: absolute; 
-  top: 65px; right: 98px;
+  position: absolute;
+  top: 53px;
+  right: 0px;
   border: 2px solid #e3e3e3;
   /*padding-left: 30px ;*/
   text-align: center;
@@ -165,10 +186,10 @@ a:hover{ color: #444;}
 .buttons div:hover {background-color: #e8fff1; color: black;cursor: pointer;}
 .buttons img {cursor: default;}
 .add {
-  position: absolute; 
-  top: 130px; right: 98px;
+  position: absolute;
+  right: 0px;
   border: 2px solid #e3e3e3;
-  /*padding-left: 30px;*/
+  top: 113px;
   line-height: 50px;
   text-align: center;
   font-size: 16px;
@@ -176,7 +197,7 @@ a:hover{ color: #444;}
   height: 50px;
 
 } 
-.add_select{background-color: #7fa986;}
+.add_select{background-color: #7fa986; color: white;}
 
 .search_button{text-align: center;}
 .search_button input{
@@ -213,9 +234,11 @@ a:hover{ color: #444;}
   color:white;
 }
 
-#new_training{margin-top: -19px;}
-#new_event{margin-top: -19px;}
-#new_grant{margin-top: -19px;}
+#new_training{margin-top: -15px;}
+#new_event{margin-top: -15px;}
+#new_grant{
+  margin-top: -15px;
+}
 .simple_form{
   position: relative;
   margin-top: 10px;
@@ -237,9 +260,13 @@ a:hover{ color: #444;}
   height: 50px;
   text-align: center;
   line-height: 50px;
-  background-color: #96b977;
-  font-size: 20px
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  color: #000;
 }
+
 /* edit and create new item*/
 label.control-label{  padding-right: 10px; }
 
@@ -313,13 +340,18 @@ table.test{/*border: 2px solid red;*/}
 
 }
 .templ{
-  width: 240px; height: 215px; 
+  width: 256px; height: 215px; 
   border-left:1px solid; border-right:1px solid; border-top:1px solid; border-bottom:3px solid; 
-  padding: 20px 20px 0; margin: 12px;
+  padding: 20px; 
+  margin: 12px;
+  margin-left: 0px;
   overflow: hidden;
   display: inline-block;
   vertical-align: top;
   text-align: left;
+  &:nth-child(4n) {
+    margin-right: 0px;
+  }
 }
 
 ul#myitems li#temp_month{
@@ -342,7 +374,7 @@ ul#myitems li#temp_month .month_number{display: none;}
 .temp_img {text-align: center; height: 163px;}
 .temp_name{font-size: 20px; padding-top: 5px;}
 .month_name {font-size: 48px; font-family: Verdana;}
-.month_number {font-size: 148px;padding: 95px 0 0 0;text-align: right;font-family: sans-serif;}
+.month_number {font-size: 148px;text-align: right;font-family: sans-serif;}
 .temp_training{color:#c9db57;border-color:#c9db57}
 .temp_event{color:#76a38a;border-color:#76a38a;}
 .temp_grant{color:#333f3f;border-color:#333f3f;}
@@ -358,12 +390,17 @@ ul#myitems li#temp_month .month_number{display: none;}
   z-index: 100;
 }
 
-.grant-popup{
+.grant-popup {
+  @include shadow;
   position: absolute;
-  width: 1080px;
+  width: 1229px;
   min-height: 600px;
-  top: 184px;
-  right: 100px;
+  top: 164px;
+  select {
+    background: #fff;
+    color: #333;
+    border: none;
+  }
 }
 
 .show-popup{
@@ -449,7 +486,6 @@ ul#myitems li#temp_month .month_number{display: none;}
 .menu label.mnl{color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
 .mnl span {float: left; margin: 10px 0 10px 10px;}
 .mn {margin-top: 16px;};
-.menu div{margin: 5px 0 0 10px;}
 .menu{font-size: 15px; color: black}
 .menu .select{color: #76a38a;}
 .select{position: relative;width:450px; display:inline-block; margin-right: 15px;}
@@ -470,21 +506,19 @@ ul#myitems li#temp_month .month_number{display: none;}
   box-shadow: 0px 0px 10px gray;
   -webkit-box-shadow: 0px 0px 10px gray;
   -moz-box-shadow: 0px 0px 10px gray;
+  label{width:100%; display: block; font-size: 13px;}
+  .checkbox {
+    input {margin: 10px 10px 0 0;}
+    label input[type=checked] {color: black;}
+  }
 }
-.dropdown label{width:100%; display: block; font-size: 13px;}
-/*.search_training div.check_boxes label{float:left;}*/
-.dropdown .checkbox input {margin: 10px 10px 0 0;}
-.dropdown .checkbox label[input:checked] {color: black;}
-
 
 .ard{border:1px solid #c9db57;}
 .ardc{border:1px solid #c9db57;}
 .arde{border:1px solid #76a38a;}
 
 .shadow{
-  box-shadow:  0px 0px 5px #444;
-  -webkit-box-shadow:  0px 0px 5px #444;
-  -moz-box-shadow:  0px 0px 5px #444;
+  @include shadow;
 }
 .evtype{display: inline-block; margin-left: 35px; padding-bottom: 10px;}
 .evtype .input{margin: 0 0 0 10px;}
@@ -583,8 +617,24 @@ ul#myitems li#temp_month .month_number{display: none;}
 
 .not-visible{position: absolute; left: -9000px;}
 
-.item-map #geo-map-zone{height: 240px; }
-.item-map #geo-map{height: 240px;}
+#geo-map-zone{
+  height: 600px; 
+  float: right;
+  margin-right: 40px;
+  width: 440px;
+  margin-top: 10px;
+  position: relative;
+  #search-area {
+    float: right;
+    right: 10px;    
+    top: 10px;
+    position: absolute;
+    z-index: 2000;
+  }
+
+}
+#geo-map{height: 440px;}
+
 #popup-wrap table {position: relative}
 .item-map {position: absolute; bottom: 20px;}
 .lcolumn2 .item-map {position: static; }
@@ -595,7 +645,8 @@ label.error {color: red;}
 .red-border{outline: 2px solid red;}
 /* TODO add correct class*/
 .acta{ background-image: url(/assets/3.jpg);}
-.lgn {display: inline-block;padding: 0 5px; border-left: 1px solid black;}
+.lgn { display: inline-block;padding: 0 5px; border-left: 1px solid black;}
+.lgn:hover { background-image: url(/assets/3.jpg); }
 .iright {margin-right: 158px;}
 .gline {
   display: none;

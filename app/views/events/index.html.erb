@@ -56,9 +56,12 @@ $(function() {
   <%= form_for events_path, :method => 'get', :html => {:id => 'events_search'}, :remote => true  do %>
     <div class="trainings">
       <label class="mnl">
-        <span>СТАЖИРОВКИ</span>
+        <span class="name">СТАЖИРОВКИ</span>
         <span class="chkimg"></span>
-        <input type="checkbox" checked="checked" class="training_checkbox mn" name="trainings" onclick="$('.search_training').toggle(); doCheckboxmn($(this));"/>
+        <input type="checkbox" checked="checked" class="training_checkbox mn" name="trainings" onclick="$('.search_training').toggle(); $('.trainings').toggleClass('filter-closed'); doCheckboxmn($(this));"/>
+                <span class="counter">
+          <%= Training.all.count %>
+        </span>
       </label>
       <div class="for_clear"></div>
       <div class="search_training">
@@ -97,10 +100,13 @@ $(function() {
     </div>
     <div class="events">
       <label class="mnl">
-        <span>СОБЫТИЯ</span>
+        <span class="name">СОБЫТИЯ</span>
         <span class="chkimg"></span>
-        <input type="checkbox" checked="checked" class="event_checkbox mn" name="events" onclick="$('.search_event').toggle(); doCheckboxmn($(this));"/>
-      </label>
+        <input type="checkbox" checked="checked" class="event_checkbox mn" name="events" onclick="$('.search_event').toggle(); $('.events').toggleClass('filter-closed'); doCheckboxmn($(this));"/>
+        <span class="counter">
+          <%= Event.all.count %>
+        </span>        
+      </label>      
       <div class="for_clear"></div>
       <div class="search_event">
         <div class="area-label-name">СФЕРА</div>
@@ -126,9 +132,13 @@ $(function() {
     <div class="grants">
       
       <label class="mnl">
-        <span>ГРАНТЫ</span>
+        <span class="name">ГРАНТЫ</span>
         <span class="chkimg"></span>
-        <input type="checkbox" checked="checked" class="grant_checkbox mn" name="grants" onclick="$('.search_grant').toggle(); doCheckboxmn($(this));"/>
+        <input type="checkbox" checked="checked" class="grant_checkbox mn" name="grants" onclick="$('.search_grant').toggle(); $('.grants').toggleClass('filter-closed'); doCheckboxmn($(this));"/>
+
+        <span class="counter">
+          <%= Grant.all.count %>
+        </span>
       </label>
       
       <div class="for_clear"></div>

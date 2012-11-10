@@ -66,7 +66,7 @@ a:hover{ color: #444;}
 .logo {   
   background-image: url(/assets/logo.png); 
   background-position: -30px 0;
-  height: 200px; width: 230px; 
+  height: 160px; width: 230px; 
   background-size: contain;
   background-repeat: no-repeat;
   float: left;
@@ -483,7 +483,41 @@ ul#myitems li#temp_month .month_number{display: none;}
   cursor: pointer;
 }
 
-.menu label.mnl{color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;}
+.menu label.mnl{
+  color: white; font-size: 25px; margin-top: 5px; margin-left: 10px;
+  .counter {
+    display: none;
+  }
+}
+
+.filter-closed {
+  label.mnl {
+    font-size: 15px;
+    padding: 0px;
+    span.name {
+      font-size: 15px;
+      background: #fff;    
+      color: black;
+      padding: 0px;
+      margin: 0px;
+      padding-right: 5px;
+    }
+    span.chkimg {
+      margin: 0px;
+      padding-left: 5px;
+    }
+    .counter {
+      float: right;
+      font-size: 15px;
+      color: #000;
+      background: #fff;
+      display: block;
+      padding: 0 5px;
+      margin: 0;
+    }
+  }
+}
+
 .mnl span {float: left; margin: 10px 0 10px 10px;}
 .mn {margin-top: 16px;};
 .menu{font-size: 15px; color: black}
@@ -724,3 +758,4 @@ label.error {color: red;}
 }
 
 .weblinks .hprlnk{ width: 380px;}
+

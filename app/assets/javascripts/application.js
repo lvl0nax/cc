@@ -457,9 +457,10 @@ function showtraining(temp){
 
 function scrollPopup()
 {
-    if ($(window).scrollTop() <= $("#items").offset().top) {
-      $('html, body').animate({scrollTop: $("#items").offset().top }, 200);
-    }
+  if (!$("#items").length) return;
+  if ($(window).scrollTop() <= $("#items").offset().top) {
+    $('html, body').animate({scrollTop: $("#items").offset().top }, 200);
+  }
 }
 
 function showgrant(temp){

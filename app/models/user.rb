@@ -77,8 +77,10 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-  def calendar_title
-    return "МОЙ КАЛЕНДАРЬ(" + (self.actions.count - Month.all.count).to_s + ")"
+  def active_events
+    trainings.where(:start_date.gt => Time.now).count +
+    events.where(:start_date.gt => Time.now).count +
+    grants.where(:start_date.gt => Time.now).count    
   end
 
   def name 

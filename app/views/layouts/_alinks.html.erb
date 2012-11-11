@@ -11,9 +11,6 @@
   	<div class="info lgn">
       <%= link_to "ИНТЕРЕСУЮЩИЕ СФЕРЫ", areas_path %> 
     </div>
-    <div class="calend lgn">
-  	  <%= link_to "МОЙ КАЛЕНДАРЬ (#{current_user.active_events})", activities_user_path(current_user.id) %>
-    </div>  
       <% if current_user.role.try(:name)=='employee' %>
         <div class="info iright lgn">
           <% if current_user.resume %>

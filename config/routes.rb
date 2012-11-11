@@ -57,6 +57,7 @@ TestMongoid::Application.routes.draw do
     :sessions => "sessions",
     #:omniauth_callbacks => "users/omniauth_callbacks"
   } do
+    get "sign_out", :to => "devise/sessions#destroy"
     resources :resumes
     resources :compinfos
   end

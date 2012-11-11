@@ -35,7 +35,7 @@ class CompinfosController < ApplicationController
 
   # GET /compinfos/1/edit
   def edit
-    @compinfo = Compinfo.find(params[:id])
+    @compinfo = User.find(current_user).compinfo
   end
 
   # POST /compinfos
@@ -57,7 +57,7 @@ class CompinfosController < ApplicationController
   # PUT /compinfos/1
   # PUT /compinfos/1.json
   def update
-    @compinfo = Compinfo.find(params[:id])
+    @compinfo = User.find(current_user).compinfo
 
     respond_to do |format|
       if @compinfo.update_attributes(params[:compinfo])

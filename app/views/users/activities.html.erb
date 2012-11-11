@@ -4,6 +4,10 @@
 
 <ul id="myitems" class="items">
 	<h1> 		
-		КАЛЕНДАРЬ <%= @user.name %> | <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", userevents_user_path(@user) %></h1>
+		КАЛЕНДАРЬ 
+		<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
+		<%= @user.compinfo.name if @user.compinfo  %>
+
+		| <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", userevents_user_path(@user) %></h1>
 	<%= render @actions %> 
 </ul>

@@ -1,4 +1,6 @@
 <li class="temp_grant templ" data-type="grant" data-content="<%= grant.id%>" onclick="showgrant('<%=grant.id%>');">
+
+	<div class="inside">
 	<div class="temp_date"> <%= Russian::l grant.start_date, :format => :short %></div>
 	<div class="temp_type">
 		грант
@@ -11,5 +13,6 @@
 	</div>
 	<div class="temp_name">
 		<%= grant.title.truncate(16) %>
+	</div>
 	</div>
 </li>

@@ -1,4 +1,5 @@
 <li class="temp_training templ" data-type="event" data-content="<%= training.id%>" onclick="showtraining('<%= training.id%>');">
+	<div class="inside">
 	<div class="temp_date"> <%= Russian::l training.start_date, :format => :short %></div>
 	<div class="temp_type">
 		стажировка
@@ -11,5 +12,6 @@
 	</div>
 	<div class="temp_name">
 		<%= training.title.truncate(16) %>
+	</div>
 	</div>
 </li>

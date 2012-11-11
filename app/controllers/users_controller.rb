@@ -26,8 +26,6 @@ class UsersController < ApplicationController
   def userevents
     @user = User.find(params[:id])
     @evnts = @user.created_actions
-    #logger.debug "-----------UsersController/userevents---------------------------------"
-    #logger.debug @evnts
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @evnts }

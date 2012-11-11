@@ -120,6 +120,7 @@ class User
     User.all.each{|u| @@users << u if u.try(:role_name) == "employee"}
     @@users
   end
+
   def self.admins
     where(role_name: "admin")
   end
@@ -129,8 +130,13 @@ class User
     actions.concat( Event.where(:status => "ОДОБРЕНО").any_in(:id => self.event_ids).to_a)
     actions.concat( Grant.where(:status => "ОДОБРЕНО").any_in(:id => self.grant_ids).to_a)
     actions.concat( Training.where(:status => "ОДОБРЕНО").any_in(:id => self.training_ids).to_a)
-    actions.concat( Month.all.to_a) # TODO: add months only when month has any action
-    return actions.sort!{|x,y| x.start_date <=> y.start_date}
+
+    months  = Month.all.to_a.keep_if do |m|
+      actions.any? { |a| a.start_date.month.to_i == m.number }
+    end
+
+    actions.concat(months)
+    actions.sort!{|x,y| x.start_date <=> y.start_date}
   end
   
   def created_actions
@@ -138,13 +144,11 @@ class User
     acts.concat( Event.where(:owner => self.id).to_a)
     acts.concat( Grant.where(:owner => self.id).to_a)
     acts.concat( Training.where(:owner => self.id).to_a)
-    acts.concat( Month.all.to_a) # TODO: add months only when month has any action
-    #logger.debug "-----------UsersModel/created_actions---------------------------------"
-    #acts.each do |a|
-      #logger.debug a.start_date 
-      #logger.debug a.class
-      #logger.debug a.title
-    #end
+    months  = Month.all.to_a.keep_if do |m|
+      acts.any? { |a| a.start_date.month.to_i == m.number }
+    end
+    acts.concat(months)
+
     return acts.sort!{|x,y| x.start_date <=> y.start_date}
   end
 

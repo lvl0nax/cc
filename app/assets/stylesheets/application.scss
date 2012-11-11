@@ -46,7 +46,7 @@ a:hover{ color: #444;}
   height: 25px;
 }
 
-#content-body{margin:0 auto;width:1230px; position: relative;z-index: 2; padding-bottom: 100px}
+#content-body{margin:0 auto;width:1230px; z-index: 2; padding-bottom: 100px}
 #content-footer{color: #77a38a; z-index: 10; position: absolute; bottom: 30px; left: 50%; margin: 0 0 0 -610px; width: 1230px; height: 30px; padding: 20px 0 15px}
 #footer-links{color: #77a38a; z-index: 10; position: fixed;
               background-color: white; bottom: 0; left: 0; margin: 0; width: 100%; height: 30px; padding: 0}
@@ -356,11 +356,22 @@ table.test{/*border: 2px solid red;*/}
 
 ul#myitems li#temp_month{
   height: 20px; width: 115%;
-  background-image: url(/assets/1.png);
-  background-size: 101%;
-  margin-left: -95px;
-  padding: 10px 10px 10px 95px;
   border:  none;
+  position: static;
+  height: 20px;
+  .outer {
+    width: 100%;
+    height: 20px;
+    left: 0px;
+    position: absolute;
+    padding: 3px;    
+    background-image: url(/assets/1.png);
+    background-size: 100% auto;
+    .inner {
+      margin: 0 auto;
+      width: 1230px;
+    }
+  }
 }
 ul#myitems h1 {font-size: 30px; color: #c9db57; padding-bottom: 10px; font-family: sans-serif;}
 ul#myitems h1 a {color: #c9db57; opacity: 0.4;}

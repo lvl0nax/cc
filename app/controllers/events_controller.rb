@@ -10,26 +10,6 @@ class EventsController < ApplicationController
     @items = []
     @items.clear
     event_conditions = []
-        # logger.debug "========================================="
-        # logger.debug params[:trainings].to_s
-        # logger.debug params[:events].to_s
-        # logger.debug params[:grants].to_s
-        # # logger.debug params[:test].to_s
-        # logger.debug "##############"
-
-        # if params
-        #   logger.debug params.to_s
-        # end
-
-        # if params[:trainings]
-        #   logger.debug "tttttttttteeeeeeeeeeeeessssssssssssstttttttttttt"
-        # end
-        # event_conditions << params[:trainings]
-        # event_conditions << params[:events]
-        # event_conditions << params[:grants]
-        # event_conditions << params[:test]
-        # logger.debug event_conditions.to_s
-        # logger.debug "========================================="
     if params[:trainings] || params[:events] || params[:grants]
       if params[:events]  
         @items.concat( Event.search(params[:event_kinds], params[:event_areas]).to_a)
@@ -40,7 +20,6 @@ class EventsController < ApplicationController
       if params[:trainings]
         @items.concat( Training.search(params[:training_salary_type], params[:training_areas]).to_a)
       end  
-      @items.concat( Month.all.to_a)
     else  
       
       # @items.concat( Event.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
@@ -54,14 +33,24 @@ class EventsController < ApplicationController
       
       #@items.concat( Training.where(:start_date.gte => now).to_a)
       
-      @items.concat( Month.all.to_a)
+    end    
+
+    months = Month.all.to_a.keep_if do |m|
+      @items.any? { |a| a.start_date.month.to_i == m.number }
     end
+    @items.concat(months)        
+
     unless (@items.blank?)
       @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
-    end 
-    logger.debug "////////////////////////////////////////////////"
-    logger.debug @items.count
-    logger.debug "////////////////////////////////////////////////"
+
+      unless params[:month].blank?
+        @items.select! do |i| 
+          i.start_date.month.to_i == params[:month].to_i && i.start_date.year.to_i == params[:year].to_i 
+        end
+        @items.unshift Month.where(:number => params[:month]).first if @items.length < 1
+      end
+    end    
+
     @items = @items.paginate(:page => params[:page], :per_page => 12)
     
     # @events, @trainings, @grants = [Event, Training, Grant].map do |clazz|

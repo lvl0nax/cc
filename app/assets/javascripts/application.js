@@ -6,6 +6,23 @@ $(function() {
 		$('.temp_month').toggle();
 	});
 */
+  $('#temp_month .list a').live('click', function () {
+    $("#events_search input[name=year]").val($(this).data('year'));
+    $("#events_search input[name=month]").val($(this).data('month'));
+    $("#events_search").submit();
+    return false;
+  });
+
+  $('#temp_month').live('mouseenter', function() {
+    $(this).find('.list').animate({left: '0px'}, 200);
+    $(this).find('.this').animate({left: '300px'}, 200);
+  });
+
+  $('#temp_month').live('mouseleave', function() {
+    $(this).find('.list').animate({left: '-300px'}, 200);
+    $(this).find('.this').animate({left: '0px'}, 200);
+  });
+
 
 	$("#events_search input[type=checkbox]").bind("click", function(){$("#events_search").submit()});
 
@@ -29,6 +46,10 @@ $(function() {
       $('.add').addClass("add_select");
       $(".reg-buttons").hide();
 
+  });
+
+  $('#temp_month').mouseover(function () {
+    
   });
 
   jQuery.fn.center = function () {

@@ -1,6 +1,6 @@
 <li class="templ" id="temp_month">
 
-	<div class="outer">
+	<div class="outer this">
 		<div class="inner">
 	<div class="month_name"> <%= month.name.mb_chars.upcase %></div>
 	
@@ -8,6 +8,18 @@
 		/<%= "%02d" % month.number %>
 	</div>
 	</div>
+	</div>
+
+	<div class="list">
+		<ul>
+			<li><a href="#" data-year="" data-month=""><strong>ВСЕ МЕСЯЦЫ</strong></a></li>
+			<% (Date.new(Time.now.year, month.number)..Date.new(Time.now.year+1, month.number-1 > 0 ? month.number - 1 : 12)).select{|d| d.day == 1 }.each do |d| %>
+			<% if d.month.to_i == 1 %>
+			<li class="year"><%= d.year.to_s %></li>
+			<% end %>
+			<li><a href="#" data-year="<%= d.year.to_i %>" data-month="<%= d.month.to_i %>"><%= l d, :format => "%B" %></a></li>
+			<% end %>
+		</ul>
 	</div>
 	
 </li>

@@ -54,6 +54,9 @@ $(function() {
 <div class = "menu">
 
   <%= form_for events_path, :method => 'get', :html => {:id => 'events_search'}, :remote => true  do %>
+    <input type="hidden" name="year" value="" />
+    <input type="hidden" name="month" value="" />
+
     <div class="trainings">
       <label class="mnl">
         <span class="name">СТАЖИРОВКИ</span>

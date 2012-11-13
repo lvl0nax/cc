@@ -4,6 +4,7 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
 */
 /* reset */
+
 html,body,div,span,h1,h2,h3,h4,b,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,p,table,caption,tbody,thead,tr,th,td, ul, li, ol{margin:0;padding:0;outline:none;}
 table {border-collapse:collapse;border-spacing:0; font-size:inherit;font:100%;}
 fieldset,img {border:0;}
@@ -28,13 +29,6 @@ html, body {height:100%; color: #58595b}
 body{font: 13px Helvetica,sans-serif;} /*background: #4B93D6*/
 a {text-decoration: none; color: black;}
 a:hover{ color: #444;}
-
-.selectBox-dropdown {
-  border: #fff;
-  padding: 3px 10px;
-  border: none;
-  min-width: 150px;
-}
 
 #container{min-height:100%;min-width:1100px;position:relative;overflow:hidden}
 
@@ -263,7 +257,7 @@ a:hover{ color: #444;}
   height: 100%;
 }
 .name_form{font-size: 16px; position: absolute; top: 10px; left: 10px; color: white;}
-.input{ margin: 10px 0 0 10px;}
+.input{ margin: 10px 0 0 10px; clear: both;}
 .first_field{padding-top: 40px; width: 98%;}
 .first_field input{width: 89%; margin-left: 4px;}
 .btn{
@@ -398,8 +392,8 @@ ul#myitems li#temp_month .month_number{display: none;}
 }
 
 .temp_date { float: left; }
-.month_name {font-size: 48px; line-height: 100%;  font-family: Verdana; text-align: right;}
-.month_number {font-size: 196px;text-align: right; margin-top: 20px; font-family: HelveticaNeue-UltraLight;} 
+.month_name {font-size: 48px; line-height: 100%; height: 50px; font-family: Verdana; text-align: right;}
+.month_number {font-size: 196px;text-align: right; padding:2px; margin-top: 120px; font-family: HelveticaNeue-UltraLight;} 
 .temp_type { float:right; }
 .temp_img img{width:238px; height: 145px;}
 .temp_img { height: 163px; }
@@ -413,7 +407,7 @@ ul#myitems li#temp_month .month_number{display: none;}
   .this {
     position: absolute;
     left: 0px;
-    top: 0px;
+    top: 0px;      
   }
   .list {
     position: absolute;
@@ -423,12 +417,10 @@ ul#myitems li#temp_month .month_number{display: none;}
     font-size: 13px;
     margin: 5px 0;
     li.year {
-      padding-bottom: 5px;    
       padding-left: 10px;
     }
     a {
       padding-left: 10px;
-      padding-bottom: 5px;    
       display: block;
     }
     a:hover {
@@ -438,7 +430,7 @@ ul#myitems li#temp_month .month_number{display: none;}
   }
 }
 
-.month_number{color:#c9db57;}
+.month_number{color:#c9db57; }
 
 .for_clear{clear:left;}
 

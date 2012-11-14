@@ -30,6 +30,16 @@ body{font: 13px Helvetica,sans-serif;} /*background: #4B93D6*/
 a {text-decoration: none; color: black;}
 a:hover{ color: #444;}
 
+input[type=submit] {
+  background: #fff;
+  border: 1px solid #eee;
+  color: #333;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #666;
+  }
+}
+
 #container{min-height:100%;min-width:1100px;position:relative;overflow:hidden}
 
 #content_top{
@@ -63,6 +73,7 @@ a:hover{ color: #444;}
 .header {height: 155px; margin:0 auto;width:1230px; position: relative; 
   .title {
     float: right;
+    margin-right: 100px;
     h2 {
       font-size: 30px;
       color: #C9DB57;
@@ -128,7 +139,7 @@ a:hover{ color: #444;}
 }
 .cr{
   display: inline-block;
-  height: 330px;
+  padding: 5px 0;
   width: 150px;
   /*border: 1px solid;*/
   margin-right: 40px;
@@ -191,13 +202,18 @@ a:hover{ color: #444;}
 .h{display: none;}
 .reg-buttons{font-size: 14px; display: none; color:#e3e3e3;}
 
-.buttons div:hover {background-color: #e8fff1; color: black;cursor: pointer;}
+.buttons div:hover { 
+  color: black;
+  cursor: pointer;
+  background-image: url(/assets/1.png);
+  background-size: 100%;
+}
 .buttons img {cursor: default;}
 .add {
   position: absolute;
   right: 0px;
   border: 2px solid #e3e3e3;
-  top: 113px;
+  top: 110px;
   line-height: 50px;
   text-align: center;
   font-size: 16px;
@@ -255,6 +271,9 @@ a:hover{ color: #444;}
   background-color: #77af77;
   font-size: 16px;
   height: 100%;
+  input {
+    margin-top: -5px;
+  }
 }
 .name_form{font-size: 16px; position: absolute; top: 10px; left: 10px; color: white;}
 .input{ margin: 10px 0 0 10px; clear: both;}
@@ -276,11 +295,11 @@ a:hover{ color: #444;}
 }
 
 /* edit and create new item*/
-label.control-label{  padding-right: 10px; }
+label.control-label{  padding-right: 10px; float: left; min-width: 100px; }
 
 #event_nation{  margin-left: 25px;  width: 287px;}
 #training_nation{  margin-left: 25px;  width: 287px;}
-#grant_nation{  margin-left: 25px;  width: 558px;}
+#grant_nation{  margin-left: -2px;  width: 558px;}
 
 #event_city{margin-left: 33px; width: 287px;}
 #training_city{margin-left: 33px; width: 287px;}
@@ -303,7 +322,11 @@ label.control-label{  padding-right: 10px; }
 #event_end_date_1i{margin-left: 35px;}
 #training_end_date_1i{margin-left: 35px;}
 #grant_end_date_1i{margin-left: 35px;}
-.datetime select{ margin-right: 9px; margin-left: 9px;}
+.datetime {
+  color: transparent;
+  label { color: #333; }
+  select{ margin-right: 9px; margin-left: 9px; }
+}
 
 #event_hyperlink{width:665px;}
 #training_hyperlink{width:665px;}
@@ -442,7 +465,7 @@ ul#myitems li#temp_month .month_number{display: none;}
 .grant-popup {
   @include shadow;
   position: absolute;
-  width: 1229px;
+  width: 1228px;
   min-height: 600px;
   top: 164px;
   select {
@@ -722,9 +745,13 @@ label.error {color: red;}
 
 .red-border{outline: 2px solid red;}
 /* TODO add correct class*/
-.acta{ background: #C4F561 url(/assets/3.jpg) no-repeat top left3; background-position: 30px 0; }
+.acta{ background: #C4F561 url(/assets/3.jpg) no-repeat top left; background-position: 30px 0; }
 .lgn { display: inline-block;padding: 0 5px; border-left: 1px solid black;}
-.lgn:hover { background-image: url(/assets/3.jpg); }
+.lgn:hover { background-image: url(/assets/3.jpg); 
+  a {
+    background: none;
+  }
+}
 .iright {margin-right: 158px;}
 .gline {
   display: none;
@@ -734,9 +761,14 @@ label.error {color: red;}
   background-image: url(/assets/3.jpg);
 }
 
-.weblinks label {
-  display: inline-block;
-  width: 95px;
+.weblinks {
+  .fields {
+    margin: 10px 0;
+  }
+  label {
+    display: inline-block;
+    width: 95px;
+  }
 }
 
 .inblck img{

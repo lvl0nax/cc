@@ -39,6 +39,7 @@ $(document).ready(function() {
       $('.create_links').show();
       $('.add').addClass("add_select");
       $(".reg-buttons").hide();
+      $('.create_grant a').click();
 
   });
 

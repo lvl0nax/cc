@@ -53,6 +53,9 @@ class User
   has_and_belongs_to_many :areas
 
   accepts_nested_attributes_for :resume, :autosave=> true
+
+  after_create :deliver_email
+
   #has_and_belongs_to_many :evactivities, class_name: "Event", inverse_of: :participant
   #has_and_belongs_to_many :gractivities, class_name: "Grant", inverse_of: :participant
   #has_and_belongs_to_many :tractivities, class_name: "Training", inverse_of: :participant
@@ -61,22 +64,11 @@ class User
    #index({ name: 1 }, { unique: true, background: true })
 
    accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
-  # TODO: Make roles as array. Its for nice view
 
-  
-  ## Confirmable
-  # field :confirmation_token,   :type => String
-  # field :confirmed_at,         :type => Time
-  # field :confirmation_sent_at, :type => Time
-  # field :unconfirmed_email,    :type => String # Only if using reconfirmable
+  def deliver_email
+    UserMailer.register(self).deliver
+  end
 
-  ## Lockable
-  # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
-  # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
-  # field :locked_at,       :type => Time
-
-  ## Token authenticatable
-  # field :authentication_token, :type => String
   def active_events
     trainings.where(:start_date.gt => Time.now).count +
     events.where(:start_date.gt => Time.now).count +

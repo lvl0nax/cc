@@ -13,4 +13,11 @@ class UserMailer < ActionMailer::Base
   	@users = User.all
   	@users.each { |u| info_email(u) }
   end
+
+  def register(user)
+    @user = user
+    mail :to => user.email, :from => 'info@centercareer.ru', :subject => 'CareerCenter Registration'
+  end
+
+
 end

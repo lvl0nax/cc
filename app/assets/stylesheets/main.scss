@@ -363,7 +363,6 @@ tr img { width: 500px;}
 .rcolumn{ width: 40%; vertical-align: top;}/* position: absolute; top: 30px; right: 0px;}*/
 .lcolumn2{ width: 43%; vertical-align: top; } /* position: absolute; top: 30px; left: 0px;}*/
 .rcolumn2{ width: 42%; vertical-align: top;}/* position: absolute; top: 30px; right: 0px;}*/
-table.test{/*border: 2px solid red;*/}
 .eventimage img{width: 150px;}
 .eventimage {padding-right: 20px;}
 
@@ -537,7 +536,7 @@ ul#myitems li#temp_month .month_number{display: none;}
 /*.reg-popup label {float: left; margin: 5px;}
 .reg-popup input {float: right;margin: 5px;}*/
 .reg-popup .for_clear{ height: 10px;}
-.reg-popup div label{float:left; display: inline-block;}
+.reg-popup div label{ display: inline-block;}
 .reg-popup div input{float:right;display: inline-block;}
 .reg-popup .submit{text-align: center;}
 .reg-popup .submit input{
@@ -679,7 +678,7 @@ ul#myitems li#temp_month .month_number{display: none;}
 #resume-show .for_new_line{ display: block; padding: 0; margin: 0;}
 #resume-show label.email-show {width: 245px;text-align: right; }
 #resume-show div.show {  width:400px; padding-left: 20px;}
-#resume-show label.phone-show {width: 245px;}
+#resume-show label.phone-show {width: 300px;}
 #resume-show a{padding-left: 50px;}
 #resume-show .dv a{padding-left: 0;}
 
@@ -736,7 +735,13 @@ ul#myitems li#temp_month .month_number{display: none;}
 }
 #geo-map{height: 240px;}
 
-#popup-wrap table {position: relative}
+#popup-wrap table {
+  position: relative;
+  margin-bottom: 5px;
+  td {
+    padding: 5px;
+  }
+}
 .item-map {position: absolute; bottom: 20px;}
 .lcolumn2 .item-map {position: static; }
 
@@ -835,3 +840,13 @@ label.error {color: red;}
 
 .weblinks .hprlnk{ width: 380px;}
 
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000;
+    display: none;
+}

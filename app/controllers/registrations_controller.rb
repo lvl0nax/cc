@@ -11,13 +11,10 @@ class RegistrationsController < Devise::RegistrationsController
   # add some code to devise method CREATE
   def create  
     role = params[:user][:role]
-    logger.debug "000000000000000000000000000000000000000000000000000000"
-    logger.debug params[:user]
-    logger.debug params[:user][:role]
-    logger.debug role == "employer"
     
     if ((role == "employer") or (role == "employee"))
       temp = User.count
+      flash[:popup] = 'Registration'
     	super
 
     	if temp == 0
@@ -25,6 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
     	else
         @user.role = Role.new(:name => params[:user][:role])
     	end
+
     else
       raise "ERROR! incorrect user params!"
     end

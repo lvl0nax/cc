@@ -43,6 +43,8 @@ $(document).ready(function() {
 
   });
 
+  $('#lean').leanModal();
+
   $('#temp_month').mouseover(function () {
     
   });

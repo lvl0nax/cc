@@ -23,6 +23,9 @@
   <%= csrf_meta_tags %>
 </head>
   <body>
+    <% if flash[:popup] %>
+      <div id="lean">Регистрация успешно пройдена</div>
+    <% end %>
     <div id="container">
       <div id="content-wrap">
         <div id="content_top">

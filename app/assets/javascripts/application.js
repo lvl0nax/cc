@@ -28,6 +28,18 @@ $(document).ready(function() {
     $('#experience').append($('#experience').html());
   });
 
+  $('#resume .block').mouseenter(function() {
+    $(this).css('background','#eee');
+  }).mouseleave(function () {
+    $(this).css('background','#fff');
+  });
+
+  $('#avatar').hover(function() {
+    $('#avatar .edit').show();
+  }, function () {
+    $('#avatar .edit').hide();
+  });
+
   $("#events_search input[type=checkbox]").bind("click", function(){$("#events_search").submit()});
 
   var url=document.location.href;

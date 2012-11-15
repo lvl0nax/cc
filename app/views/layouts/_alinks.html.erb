@@ -39,6 +39,9 @@
           <% else %>
             <%= image_tag "/assets/nophoto.jpg" %>
           <% end %>
+          <div class="edit" style="display: none;">
+            <%= link_to "РЕДАКТИРОВАТЬ", crop_resume_path(current_user.resume) %>            
+          </div>
         </div>
       <% end %>
 

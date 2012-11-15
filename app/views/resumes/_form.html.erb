@@ -1,5 +1,6 @@
 <div id="resume">
   <%= simple_form_for @resume do |f| %>
+  <div class="block">
     <%= f.input :surname, :label => "ФАМИЛИЯ" %>
     <%= f.input :name, :label => "ИМЯ" %>
     <%= f.input :gender, :label => "ПОЛ", :collection => ["мужской", "женский"], :as => :radio_buttons  %>
@@ -12,12 +13,16 @@
                               :end_year => Date.today.year - 10,
                               :order => [:day, :month, :year] %>
     <%= f.input :home, :label => "ГОРОД"  %>
+    </div>
     <div class="line"></div>
+    <div class="block">
     <%= f.input :education, :label => "ОБРАЗОВАНИЕ"  %>
     <%= f.input :university, :label => "ВУЗ", :wrapper_html =>{:class => "edu"} %>
     <%= f.input :faculty, :label => "ФАКУЛЬТЕТ", :wrapper_html =>{:class => "edu"}  %>
     <%= f.input :experation, :label => "ДАТА ОКОНЧАНИЯ", :wrapper_html =>{:class => "edu"}  %>
+    </div>
     <div class="line"></div>
+    <div class="block">
     <label>ОПЫТ РАБОТЫ</label>
     <div id="experience">
     <%= f.input :experience_company, :label => "КОМПАНИЯ", :wrapper_html =>{:class => "edu"}  %>
@@ -26,18 +31,24 @@
     <%= f.input :experience_position, :label => "ДОЛЖНОСТЬ", :wrapper_html =>{:class => "edu position"}  %>
     </div>
     <input type="button" class="add_experience edu" value="ДОБАВИТЬ" />
+    </div>
     <div class="line"></div>
+    <div class="block">
 
     <%= f.input :description, :label => "ОПИСАНИЕ СЕБЯ", as: :text, :input_html => {:rows => "8", :cols => "65"}  %>
+    </div>
     <div class="line"></div>
-
+    <div class="block">
     <%= f.input :delivery_email_enable, :as => :boolean, :label => "ПОДПИСАТЬСЯ НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ"  %>
     <div class="for_clear"></div>
     <%= f.input :delivery_email, :label => "E-MAIL", :wrapper_html =>{:class => "hd"}  %>
+    </div>
     <div class="line"></div>
+    <div class="block">
     <%= f.input :delivery_phone_enable, :as => :boolean, :label => "ПОДПИСАТЬ НА SMS-РАССЫЛКУ", :wrapper_html =>{:class => "sms-label"}  %>
     <div class="for_clear"></div>
     <%= f.input :delivery_phone, :label => "ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН"  %>
+    </div>
     <div class="line"></div>
     
     <%= link_to "СМЕНИТЬ ПАРОЛЬ", edit_registration_path(current_user), :class=> "edit"%>

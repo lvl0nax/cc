@@ -45,7 +45,9 @@ TestMongoid::Application.routes.draw do
     end
   end
 
-  resources :resumes
+  resources :resumes do
+    get 'crop', :on => :member
+  end
 
   resources :compinfos
 

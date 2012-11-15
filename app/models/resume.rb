@@ -21,10 +21,10 @@ class Resume
   field :experience_from, :type => String
   field :experience_to, :type => String
   field :experience_position, :type => String
-  # field :crop_x, :type => Integer
-  # field :crop_y, :type => Integer
-  # field :crop_w, :type => Integer
-  # field :crop_h, :type => Integer
+  field :crop_x, :type => Integer
+  field :crop_y, :type => Integer
+  field :crop_w, :type => Integer
+  field :crop_h, :type => Integer
   mount_uploader :photo, ImageUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 

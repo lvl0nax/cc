@@ -42,11 +42,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   version :thumb do
-#    process :crop
+    process :crop
     resize_to_fill(139, 130)
   end
 
   def crop
+    return unless defined? model.crop_x
     if model.crop_x.present?
       resize_to_limit(600, 600)
       manipulate! do |img|

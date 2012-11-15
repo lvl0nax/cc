@@ -1,10 +1,21 @@
 <h1>Выбор аватара</h1>
 
+
+
 <%= image_tag @resume.photo.url(:large), id: "cropbox" %>
 
 
 
-<%= form_for @resume do |f| %>
+<%= simple_form_for @resume do |f| %>
+
+	<div id="resume">
+		<p>
+	<%= f.input :photo, :label => "АВАТАР"  %>
+		</p>
+	</div>
+
+
+
   <% %w[x y w h].each do |attribute| %>
     <%= f.hidden_field "crop_#{attribute}" %>
   <% end %>

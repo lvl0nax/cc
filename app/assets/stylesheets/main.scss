@@ -635,6 +635,8 @@ ul#myitems li#temp_month .month_number{display: none;}
 }
 
 .line {height: 2px; width: 900px; background-color: #D9EB67; margin-top: 10px; margin-bottom: 10px; clear: both}
+#resume .line { margin: 0; }
+#resume .block { padding: 10px 0; }
 #resume a.edit{margin-left: 50px;}
 #resume label{float: left; line-height: 19px; width:150px;}
 #resume input{  width:600px;}
@@ -842,7 +844,24 @@ label.error {color: red;}
 #avatar {
   position: absolute;
   top: 0;
+  width: 131px;
+  height: 132px;
   right: 98px;
+  .edit {
+    position: absolute;
+    top: 105px;
+    width: 139px;
+    text-align: center;
+    background: url(/assets/1.png);
+    background-size: 100% auto;
+    display: block;
+    // opacity: 0.8;
+    color: #fff;
+    a {
+      color: #fff;
+      background: none;
+    }
+  }
 }
 
 #save-area {cursor: pointer;}

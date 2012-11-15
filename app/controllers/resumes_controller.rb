@@ -39,6 +39,10 @@ class ResumesController < ApplicationController
     #@user = current_user
   end
 
+  def crop
+    @resume = current_user.resume
+  end
+
   # POST /resumes
   # POST /resumes.json
   def create

@@ -22,6 +22,8 @@ $(document).ready(function() {
 
   $('select').selectbox({ effect: "slide" });
 
+  $('#resume input[type=checkbox]').uniform();
+
   $("#events_search input[type=checkbox]").bind("click", function(){$("#events_search").submit()});
 
   var url=document.location.href;
@@ -295,6 +297,7 @@ $(document).ready(function() {
     }
   }
 
+
   
 });/*
 $('.trainings input:checkbox').click(function() {
@@ -303,6 +306,39 @@ $('.trainings input:checkbox').click(function() {
   else
     $(".temp_event").hide();
 });*/
+
+  
+  function doCheckbox(elem)
+  {
+    /*alert(elem.attr("checked"));
+    elem.removeAttr("checked");
+    alert(elem.attr("checked"));*/
+    if (elem.attr("checked"))
+    {
+      /*elem.removeAttr("checked");*/
+      elem.eq(0).parent().css("background-position", "0 -20px");
+    }
+    else
+    {
+      /*elem.attr("checked", "checked");*/
+      elem.parent().css("background-position", "0 0");
+
+    }
+  }
+
+  function doCheckboxmn(elem)
+  {
+    if (elem.attr("checked"))
+    {
+      elem.find("input[type=checkbox]").attr('checked', 'checked');
+      elem.parent().children("span.chkimg").first().css("background-position", "0 -19px");
+    }
+    else
+    {
+      elem.find("input[type=checkbox]").removeAttr('checked');
+      elem.parent().children("span.chkimg").first().css("background-position", "0 0");
+    }
+  }
 
 // for close any popup 
 function closeItemPopup() {
@@ -614,3 +650,5 @@ function addareas(){
     }
   });
 }
+
+

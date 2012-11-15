@@ -646,7 +646,22 @@ ul#myitems li#temp_month .month_number{display: none;}
 #resume .tel label{float: left; line-height: 19px; width:240px;}
 #resume .tel input{  width:510px;}
 #resume .boolean label{width: 600px;}
-#resume .boolean input{width: 15px; float:right;}
+#resume .boolean input{
+}  
+#resume .boolean {
+  .checker {
+      width: 15px; float:right;
+    span {
+    background: url(/assets/bigchkbx.png) no-repeat 0 3px; 
+    width: 15px;
+    height: 15px;    
+    }
+    span.checked {
+      background: url(/assets/bigchkbx.png) no-repeat 0 -20px;   
+    }
+  }
+}
+
 #resume .btn{
   background-color: #333F3F;
   position: static;
@@ -693,6 +708,9 @@ ul#myitems li#temp_month .month_number{display: none;}
 .menu label.checkbox{position: relative; padding-left: 20px;padding-right: 15px;}
 .menu label.checkbox input{position: absolute; left: -9000px;}
 .menu label.checkbox {background: url(/assets/ltlchkbx.png) no-repeat; }
+
+
+
 /*.menu label.checkbox {background-position: 0 -19px;}*/
 .active{
   background: url(/assets/bigchkbx.png) no-repeat 0 -20px; 

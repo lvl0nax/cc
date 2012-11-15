@@ -668,8 +668,21 @@ ul#myitems li#temp_month .month_number{display: none;}
 }
 #resume .position {
   padding-top: 10px;
-
 }
+
+#resume .add_experience {
+    margin-left: 170px;
+    background: #fff;
+    border: 1px solid #D9EB67;
+    margin-top: 10px;
+    clear: both;
+    width: 605px;
+    cursor: pointer;
+    &:hover {
+      border-color: #000;
+    }
+  }
+
 
 #resume .boolean {
   .checker {

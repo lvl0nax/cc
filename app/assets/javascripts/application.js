@@ -24,6 +24,10 @@ $(document).ready(function() {
 
   $('#resume input[type=checkbox]').uniform();
 
+  $('#resume .add_experience').click(function() {
+    $('#experience').append($('#experience').html());
+  });
+
   $("#events_search input[type=checkbox]").bind("click", function(){$("#events_search").submit()});
 
   var url=document.location.href;

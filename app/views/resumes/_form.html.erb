@@ -19,10 +19,13 @@
     <%= f.input :experation, :label => "ДАТА ОКОНЧАНИЯ", :wrapper_html =>{:class => "edu"}  %>
     <div class="line"></div>
     <label>ОПЫТ РАБОТЫ</label>
+    <div id="experience">
     <%= f.input :experience_company, :label => "КОМПАНИЯ", :wrapper_html =>{:class => "edu"}  %>
     <%= f.input :experience_from, :label => "с", :wrapper_html =>{:class => "edu from"} %>
     <%= f.input :experience_to, :label => "по", :wrapper_html =>{:class => "edu to"} %>
     <%= f.input :experience_position, :label => "ДОЛЖНОСТЬ", :wrapper_html =>{:class => "edu position"}  %>
+    </div>
+    <input type="button" class="add_experience edu" value="ДОБАВИТЬ" />
     <div class="line"></div>
 
     <%= f.input :description, :label => "ОПИСАНИЕ СЕБЯ", as: :text, :input_html => {:rows => "8", :cols => "65"}  %>

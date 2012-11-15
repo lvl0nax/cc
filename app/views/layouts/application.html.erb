@@ -23,8 +23,14 @@
   <%= csrf_meta_tags %>
 </head>
   <body>
-    <% if flash[:popup] %>
-      <div id="lean">Регистрация успешно пройдена</div>
+    <% if flash[:register] %>
+      <script type="text/javascript">
+      $(document).ready(function() {
+          $('#popup-wrap').html('<div class="flash">Регистрация успешно завершена. Пожалуйста заполните поля профиля</div>').center().click(function () {$(this).hide();}
+        );
+          $(document).click(function() {$('#popup-wrap').hide()});
+      });
+      </script>
     <% end %>
     <div id="container">
       <div id="content-wrap">

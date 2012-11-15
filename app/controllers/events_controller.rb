@@ -4,8 +4,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   load_and_authorize_resource
+
   def index
     # TODO: where date more or equal now
+    flash.keep
+
     now = DateTime.now
     @items = []
     @items.clear

@@ -14,15 +14,15 @@ class RegistrationsController < Devise::RegistrationsController
     
     if ((role == "employer") or (role == "employee"))
       temp = User.count
-      flash[:popup] = 'Registration'
-    	super
+      super
 
-    	if temp == 0
+      if temp == 0
         @user.role = Role.new(:name => "admin")
-    	else
+      else
         @user.role = Role.new(:name => params[:user][:role])
-    	end
+      end
 
+      flash[:register] = true
     else
       raise "ERROR! incorrect user params!"
     end

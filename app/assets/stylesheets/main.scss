@@ -852,6 +852,12 @@ label.error {color: red;}
     display: none;
 }
 
+#popup-wrap .flash {
+  background: #fff;
+  padding: 30px;
+  border: 3px solid #C9DB57;
+}
+
 #new_user #close {
   background-size: 18px 18px;
   background-position: -3px -3px;

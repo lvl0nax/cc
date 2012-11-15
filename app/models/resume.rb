@@ -16,6 +16,11 @@ class Resume
   field :delivery_email, :type => String
   field :delivery_phone_enable, :type => Boolean
   field :delivery_phone, :type => String
+
+  field :experience_company, :type => String
+  field :experience_from, :type => String
+  field :experience_to, :type => String
+  field :experience_position, :type => String
   # field :crop_x, :type => Integer
   # field :crop_y, :type => Integer
   # field :crop_w, :type => Integer

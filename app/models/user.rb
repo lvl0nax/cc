@@ -52,6 +52,8 @@ class User
   
   has_and_belongs_to_many :areas
 
+  field :directions, :type => Array
+
   accepts_nested_attributes_for :resume, :autosave=> true
 
   after_create :deliver_email

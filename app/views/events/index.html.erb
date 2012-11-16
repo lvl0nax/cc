@@ -1,36 +1,4 @@
 <script type="text/javascript">
-  
-  function doCheckbox(elem)
-  {
-    /*alert(elem.attr("checked"));
-    elem.removeAttr("checked");
-    alert(elem.attr("checked"));*/
-    if (elem.attr("checked"))
-    {
-      /*elem.removeAttr("checked");*/
-      elem.eq(0).parent().css("background-position", "0 -20px");
-    }
-    else
-    {
-      /*elem.attr("checked", "checked");*/
-      elem.parent().css("background-position", "0 0");
-
-    }
-  }
-
-  function doCheckboxmn(elem)
-  {
-    if (elem.attr("checked"))
-    {
-      elem.find("input[type=checkbox]").attr('checked', 'checked');
-      elem.parent().children("span.chkimg").first().css("background-position", "0 -19px");
-    }
-    else
-    {
-      elem.find("input[type=checkbox]").removeAttr('checked');
-      elem.parent().children("span.chkimg").first().css("background-position", "0 0");
-    }
-  }
 $(function() {
  $.fn.scrollToTop = function() {
   $(this).hide().removeAttr("href");
@@ -147,7 +115,7 @@ $(function() {
       <div class="for_clear"></div>
       <div class="search_grant">
         <%= simple_fields_for :grant_areas do |f| %>
-          <%= f.input :direction, :label => "НАУКИ" , :collection => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"], :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"} %>
+          <%= f.input :direction, :label => "НАУКИ" , :collection => Grant.directions, :as => :check_boxes, :required => false, :input_html => {:checked=> true, :onclick => "doCheckbox($(this));"} %>
         <% end %>
         <div class="for_clear"></div>
       </div>

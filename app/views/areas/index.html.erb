@@ -1,21 +1,37 @@
-<h1>Список сфер</h1>
-</br>
   <div id="arealist" >
-    <% @areas.each do |area| %>
-      <% if @myareas && @myareas.include?(area.id) %>
-        <label class = "checkbox">
-          <input class="check_boxes optional" id="areachkbx" name="areas[]" type="checkbox" value="<%= area.name%>" checked = "checked" data-id="<%= area.id %>" >
-          <%= area.name %>
-        </label> 
-      <% else %>
-        <label class = "checkbox">
-          <input class="check_boxes optional" id="areachkbx" name="areas[]" type="checkbox" value="<%= area.name %>" data-id="<%= area.id %>" >
-          <%= area.name %>
-        </label> 
+
+
+    <div class="line">
+    </div>
+
+
+    <%= form_tag add_to_user_areas_path do %>
+    <div class="col1">
+      <h3>СФЕРЫ</h3>
+      <% @areas.each do |area| %>
+      
+      <label class = "checkbox">
+        <input class="check_boxes optional" id="areachkbx" name="areas[]" type="checkbox" value="<%= area.id %>" <%= 'checked="checked"' if @myareas && @myareas.include?(area.id) %> />
+        <%= area.name %>
+      </label> 
       <% end %>
-      <br/>
+    </div>
+
+    <div class="col2">
+      <h3>НАУКИ</h3>
+
+      <% Grant.directions.each do |d| %>
+      <label class = "checkbox">
+        <input class="check_boxes optional" id="areachkbx" name="directions[]" type="checkbox" value="<%= d %>" <%= 'checked="checked"' if @mydirections && @mydirections.include?(d) %> >
+        <%= d %>
+      </label> 
+      <% end %>
+
+    </div>
+
+
+
+    <div id="save-area" class="clear"> 
+      <input type="submit" value="СОХРАНИТЬ" />
+    </div>
     <% end %>
-  </div>
-<br />
-<div id="save-area" onclick="addareas();" data-url="<%= add_to_user_areas_path %>"> СОХРАНИТЬ </div>
-<br />

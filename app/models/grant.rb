@@ -27,6 +27,10 @@ class Grant
   field :timepad
   field :lookatme
 
+  def self.directions
+    ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"]
+  end
+
   mount_uploader :photo, ImageUploader
 
   ### TODO :
@@ -52,7 +56,7 @@ class Grant
     now = DateTime.now
     t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
   
-      t = t.any_in(:direction => ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ", ""])
+      t = t.any_in(:direction => self.directions)
     logger.debug "**********************************"
     logger.debug t
     return t

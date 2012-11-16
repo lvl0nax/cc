@@ -23,6 +23,7 @@ $(document).ready(function() {
   $('select').selectbox({ effect: "slide" });
 
   $('#resume input[type=checkbox]').uniform();
+  $('#arealist input[type=checkbox]').uniform();
 
   $('#resume .add_experience').click(function() {
     $('#experience').append($('#experience').html());
@@ -256,6 +257,8 @@ $(document).ready(function() {
     
 
   });
+
+
 
   $("#arealist input[type=checkbox]").each(function(){
     if ($(this).attr("checked") ){ 

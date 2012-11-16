@@ -3,16 +3,8 @@ class AreasController < ApplicationController
   # GET /areas.json
   def index
     @areas = Area.all
-    logger.debug "*******************************************"
-    logger.debug @areas.count
-    logger.debug "*******************************************"
-    logger.debug current_user
-    logger.debug current_user.id
     @myareas = current_user.area_ids
-    logger.debug "*******************************************"
-    logger.debug @myareas.count
-    logger.debug "*******************************************"
-
+    @mydirections = current_user.directions
 
     respond_to do |format|
       format.html # index.html.erb
@@ -99,21 +91,9 @@ class AreasController < ApplicationController
   end
 
   def add_to_user
-    t = params[:array].to_s.split(",")
-    @areas = Area.find(t)
-    logger.debug "**********************************1"
-    logger.debug @areas
-    logger.debug current_user.area_ids
-
-    current_user.area_ids.clear
-    logger.debug "**********************************2"
-    logger.debug current_user.area_ids
-    current_user.area_ids=t
-    logger.debug "**********************************3"
-    logger.debug current_user.area_ids
+    current_user.area_ids = params[:areas]
+    current_user.directions = params[:directions]
     current_user.save
-    logger.debug "**********************************4"
-    logger.debug current_user.area_ids
     respond_to do |format|
       format.html { redirect_to areas_url }
       format.json { head :ok }

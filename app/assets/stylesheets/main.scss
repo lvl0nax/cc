@@ -686,9 +686,9 @@ ul#myitems li#temp_month .month_number{display: none;}
   }
 
 
-#resume .boolean {
-  .checker {
-      width: 15px; float:right;
+.checker {
+  display: inline-block;
+  width: 15px;
     span {
     background: url(/assets/bigchkbx.png) no-repeat 0 3px; 
     width: 15px;
@@ -698,6 +698,9 @@ ul#myitems li#temp_month .month_number{display: none;}
       background: url(/assets/bigchkbx.png) no-repeat 0 -20px;   
     }
   }
+
+#resume .boolean {
+  width: 15px; float:right;
 }
 
 #resume .btn{
@@ -938,4 +941,43 @@ label.error {color: red;}
   width: 12px;
   padding: 0;
   margin-right: 5px;
+}
+
+#arealist {
+  .checker {
+    display: inline-block;
+    margin-top: -3px;
+    margin-right: 10px;
+    span {
+      background: url(/assets/bigchkbx.png) no-repeat 0px -2px; 
+    }
+    span.checked {
+      background: url(/assets/bigchkbx.png) no-repeat 0 -20px;   
+    }  
+  }
+  label {
+    display: block;
+    margin: 10px 0;
+  }
+  .col1 {
+    float: left; 
+    width: 400px;
+  }
+  .col2 {
+    float: left; 
+    width: 400px;
+  }  
+  .clear {
+    clear: both;
+  }
+  h3 {
+    font-weight: normal;
+    margin-bottom: 10px;
+  }
+  input[type=submit] {
+    margin-top: 10px;
+    background: #384444;
+    width: 100%;
+    color: #B4F33A;
+  }
 }

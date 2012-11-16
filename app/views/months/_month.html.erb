@@ -1,13 +1,8 @@
 <li class="templ" id="temp_month">
 
 	<div class="outer this">
-		<div class="inner">
-	<div class="month_name"> <%= month.name.mb_chars.upcase %></div>
-	
-	<div class="month_number">
-		/<%= "%02d" % month.number %>
-	</div>
-	</div>
+
+			<img src="/assets/month_<%= month.number %>.png" />
 	</div>
 
 	<div class="list">

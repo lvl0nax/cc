@@ -438,8 +438,15 @@ ul#myitems li#temp_month .month_number{display: none;}
   .this {
     position: absolute;
     left: 0px;
-    top: 0px;      
-  }
+    top: 0px;          
+    img {
+      padding: 2px;
+      width: 292px;
+      height: 257px;  
+      border: none;
+    }
+}
+
   .list {
     position: absolute;
     left: -292px;

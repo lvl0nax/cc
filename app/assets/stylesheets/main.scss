@@ -814,7 +814,9 @@ label.error {color: red;}
 
 .red-border{outline: 2px solid red;}
 /* TODO add correct class*/
-.acta{ background: #C4F561 url(/assets/3.jpg) no-repeat top left; background-position: 30px 0; }
+.acta{ 
+  background: #E5FF3C no-repeat top left; background-position: 30px 0;  
+}
 .lgn { display: inline-block;padding: 0 5px; border-left: 1px solid black;}
 .lgn:hover { background-image: url(/assets/3.jpg); 
   a {

@@ -258,8 +258,17 @@ input[type=submit] {
   color:white;
 }
 
-#new_training{margin-top: -15px;}
-#new_event{margin-top: -15px;}
+#new_training{margin-top: -15px;
+  .input {
+    clear: none;
+  }
+}
+#new_event{
+  margin-top: -15px;
+  .input {
+    clear: none;
+  }
+}
 #new_grant{
   margin-top: -15px;
 }

@@ -649,6 +649,7 @@ ul#myitems li#temp_month .month_number{display: none;}
 #resume .tel input{  width:510px;}
 #resume .boolean label{width: 600px;}
 #resume .boolean input{
+
 }  
 #resume .from, #resume .to {
   label {
@@ -700,7 +701,10 @@ ul#myitems li#temp_month .month_number{display: none;}
   }
 
 #resume .boolean {
-  width: 15px; float:right;
+  width: 15px;
+  .checker {
+    float: right;
+  }
 }
 
 #resume .btn{

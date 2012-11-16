@@ -149,11 +149,11 @@ $(document).ready(function() {
         geocoder = new google.maps.Geocoder();
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
+        $('#popup-wrap select').selectbox({ effect: "slide" });        
     });
     $('.create_event').addClass("cr_select");
     $('.create_training').removeClass("cr_select");
     $('.create_grant').removeClass("cr_select");
-    $('#new_event select').selectbox({ effect: "slide" });
     return false;
   });
 

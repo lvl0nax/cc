@@ -306,23 +306,23 @@ input[type=submit] {
 /* edit and create new item*/
 label.control-label{  padding-right: 10px; float: left; min-width: 100px; }
 
-#event_nation{  margin-left: 25px;  width: 287px;}
-#training_nation{  margin-left: 25px;  width: 287px;}
+#event_nation{    width: 287px;}
+#training_nation{  width: 287px;}
 #grant_nation{  margin-left: -2px;  width: 558px;}
 
-#event_city{margin-left: 33px; width: 287px;}
-#training_city{margin-left: 33px; width: 287px;}
+#event_city{ width: 287px;}
+#training_city{ width: 287px;}
 
 .strt{float: left;}
-#event_street{margin-left: 32px; width: 188px;}
-#training_street{margin-left: 32px; width: 188px;}
+#event_street{ width: 188px;}
+#training_street{ width: 188px;}
 
-.house label{ margin-left: 10px; padding-right: 5px;}
+.house label{ margin-left: 10px; padding-right: 5px; min-width: 40px;}
 #event_building{width: 42px;}
 #training_building{width: 42px;}
 
-#event_place{margin-left: 32px; width: 288px;}
-#training_place{margin-left: 32px; width: 288px;}
+#event_place{ width: 288px;}
+#training_place{ width: 288px;}
 
 #event_start_date_1i{margin-left: 23px;}
 #training_start_date_1i{margin-left: 23px;}

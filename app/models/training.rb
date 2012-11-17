@@ -27,6 +27,10 @@ class Training
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
 
+  validates_presence_of :title, :message => ''
+  validates_presence_of :description, :message => ''
+  validates_presence_of :direction, :message => ''  
+
   field :vk
   field :twitter
   field :afisha

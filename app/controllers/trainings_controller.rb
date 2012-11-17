@@ -3,7 +3,6 @@ class TrainingsController < ApplicationController
   # GET /trainings.json
   # TODO: check - may be we should make before filter
 
-
   def index
     @trainings = Training.all
 

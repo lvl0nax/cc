@@ -1,4 +1,7 @@
 class AreasController < ApplicationController
+
+  before_filter :admin_only, :except => [:index, :list, :add_to_user]
+
   # GET /areas
   # GET /areas.json
   def index

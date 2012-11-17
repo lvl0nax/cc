@@ -1,4 +1,7 @@
 class MonthsController < ApplicationController
+
+  before_filter :admin_only
+
   # GET /months
   # GET /months.json
   def index

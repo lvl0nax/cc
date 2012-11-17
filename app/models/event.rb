@@ -33,6 +33,13 @@ class Event
   field :timepad
   field :lookatme
 
+  validates :vk, format: { with: /http:\/\/(www)?\.vk\.com\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+  validates :twitter, format: { with: /http:\/\/(www)?\.twitter\.com\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+  validates :afisha, format: { with: /http:\/\/(www)?\.afisha\.ru\/.*/, :message => "Неверный адрес"  }, :allow_blank => true
+  validates :fb, format: { with: /http:\/\/(www)?\.facebook\.com\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+  validates :timepad, format: { with: /http:\/\/(.*?)\.timepad\.ru\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+  validates :lookatme, format: { with: /http:\/\/(.*?)\.lookatme\.ru\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+
   mount_uploader :photo, ImageUploader
   
 

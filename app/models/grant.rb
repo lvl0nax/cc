@@ -6,18 +6,24 @@ class Grant
   has_and_belongs_to_many :users #participants, class_name: "User", inverse_of: :gractivity
   #belongs_to :user
   field :title
+
   field :owner
   field :description
   field :nation
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :start_date, :type => DateTime
   field :end_date, :type => DateTime
-  field :request_date, :type => DateTime
+  field :request_date, :type => DateTime  
   field :direction, :type => Array
   field :end_point, :type => Array
   field :status
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
+
+  validates_presence_of :title, :message => ''
+  validates_presence_of :description, :message => ''
+  validates_presence_of :direction, :message => ''
+
 
   field :vk
   field :twitter
@@ -26,6 +32,13 @@ class Grant
   field :cityspb
   field :timepad
   field :lookatme
+
+  validates :vk, format: { with: /http:\/\/(www)?\.vk\.com\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+  validates :twitter, format: { with: /http:\/\/(www)?\.twitter\.com\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+  validates :afisha, format: { with: /http:\/\/(www)?\.afisha\.ru\/.*/, :message => "Неверный адрес"  }, :allow_blank => true
+  validates :fb, format: { with: /http:\/\/(www)?\.facebook\.com\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+  validates :timepad, format: { with: /http:\/\/(.*?)\.timepad\.ru\/.*/, :message => "Неверный адрес"}, :allow_blank => true
+  validates :lookatme, format: { with: /http:\/\/(.*?)\.lookatme\.ru\/.*/, :message => "Неверный адрес"}, :allow_blank => true
 
   def self.directions
     ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"]

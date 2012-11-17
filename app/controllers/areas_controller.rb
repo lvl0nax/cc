@@ -5,6 +5,7 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
+    return redirect_to root_path unless current_user
     @areas = Area.all
     @myareas = current_user.area_ids
     @mydirections = current_user.directions

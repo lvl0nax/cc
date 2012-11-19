@@ -18,6 +18,7 @@ class Event
   field :building
   field :place
   field :status
+  field :direction, :type => Array
   field :start_date, :type => DateTime
   field :end_date, :type => DateTime
   field :request_date, :type => DateTime

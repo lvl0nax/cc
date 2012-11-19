@@ -1,4 +1,6 @@
 //= require jquery
+//= require rails.validations
+//= require rails.validations.simple_form
 //= require_tree .
 
 $(document).ready(function() {
@@ -10,15 +12,15 @@ $(document).ready(function() {
     return false;
   });
 
-  $('#temp_month').live('mouseenter', function() {
-    $(this).find('.list').animate({left: '0px'}, 200);
-    $(this).find('.this').animate({left: '300px'}, 200);
-  });
+  // $('#temp_month').live('mouseenter', function() {
+  //   $(this).find('.list').animate({left: '0px'}, 200);
+  //   $(this).find('.this').animate({left: '300px'}, 200);
+  // });
 
-  $('#temp_month').live('mouseleave', function() {
-    $(this).find('.list').animate({left: '-300px'}, 200);
-    $(this).find('.this').animate({left: '0px'}, 200);
-  });
+  // $('#temp_month').live('mouseleave', function() {
+  //   $(this).find('.list').animate({left: '-300px'}, 200);
+  //   $(this).find('.this').animate({left: '0px'}, 200);
+  // });
 
   $('select').selectbox({ effect: "slide" });
 
@@ -121,6 +123,8 @@ $(document).ready(function() {
     $('.create_training').removeClass("cr_select");
     $('#popup-wrap').removeClass().addClass("grant-popup").load("/grants/new", function() {
       $('#popup-wrap select').selectbox({ effect: "slide" });
+      // ClientSideValidations.enablers.form($('#new_grant'));
+      $('.simple_form').enableClientSideValidations();
     });
     return false;
   });
@@ -133,6 +137,7 @@ $(document).ready(function() {
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
         $('#popup-wrap select').selectbox({ effect: "slide" });        
+        $('#new_training').enableClientSideValidations();
     });
     $('.create_training').addClass("cr_select");
     $('.create_event').removeClass("cr_select");
@@ -150,6 +155,7 @@ $(document).ready(function() {
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
         $('#popup-wrap select').selectbox({ effect: "slide" });        
+        $('#new_event').enableClientSideValidations();
     });
     $('.create_event').addClass("cr_select");
     $('.create_training').removeClass("cr_select");

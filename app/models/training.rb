@@ -24,6 +24,7 @@ class Training
   field :employment
   field :salary_type
   field :status
+  field :direction, :type => Array
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
 

@@ -1,4 +1,4 @@
-<%= simple_form_for(@grant) do |f| %>
+<%= simple_form_for @grant, :validate => true  do |f| %>
   <div id="close" onclick="closeItemPopup()">X</div>
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
   <%= f.input :description, :as => :text, :label => "ОПИСАНИЕ", :input_html => {:rows => "8", :cols => "55"} %>

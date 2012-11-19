@@ -21,7 +21,6 @@ gem 'nifty-generators'
 gem 'tinymce_fm'
 
 gem "tlsmail"
-gem "simple_form"
 
 gem "will_paginate", "> 3.0"
 gem "will_paginate_mongoid"
@@ -32,7 +31,10 @@ gem 'rmagick'
 
 gem 'russian', '~> 0.6.0'
 
+gem "simple_form"
 gem 'client_side_validations'
+gem 'client_side_validations-mongoid'
+gem 'client_side_validations-simple_form', "~> 2.0"
 #=begin
 gem 'cancan'
 #gem 'activerecord'

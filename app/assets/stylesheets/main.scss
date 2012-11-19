@@ -5,7 +5,7 @@
 */
 /* reset */
 
-html,body,div,span,h1,h2,h3,h4,b,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,p,table,caption,tbody,thead,tr,th,td, ul, li, ol{margin:0;padding:0;outline:none;}
+html,body,div,span,h1,h2,h3,h4,b,u,i,s,em,form,3set,label,legend,input,button,textarea,a,p,table,caption,tbody,thead,tr,th,td, ul, li, ol{margin:0;padding:0;outline:none;}
 table {border-collapse:collapse;border-spacing:0; font-size:inherit;font:100%;}
 fieldset,img {border:0;}
 caption,th,td{text-align:left;}
@@ -29,6 +29,10 @@ html, body {height:100%; color: #58595b}
 body{font: 13px Helvetica,sans-serif;} /*background: #4B93D6*/
 a {text-decoration: none; color: black;}
 a:hover{ color: #444;}
+
+body .field_with_errors {
+  background: none;
+}
 
 input[type=submit] {
   background: #fff;

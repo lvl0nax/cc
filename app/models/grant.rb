@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# 3-*- encoding : utf-8 -*-
 class Grant
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
@@ -20,10 +20,9 @@ class Grant
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
 
-  validates_presence_of :title, :message => ''
-  validates_presence_of :description, :message => ''
-  validates_presence_of :direction, :message => ''
-
+  validates_presence_of :title, :message => 'Обязательно'
+  validates_presence_of :description, :message => 'Обязательно'
+  validates_presence_of :direction, :message => 'Обязательно'
 
   field :vk
   field :twitter
@@ -33,12 +32,13 @@ class Grant
   field :timepad
   field :lookatme
 
-  validates_format_of :vk, :with => /http:\/\/vk\.com\/.*/, :message => "Неверный адрес",:allow_blank => true
-  validates_format_of :twitter, :with => /http:\/\/(www)?\.twitter\.com\/.*/, :message => "Неверный адрес", :allow_blank => true
-  validates_format_of :afisha, :with => /http:\/\/(www)?\.afisha\.ru\/.*/, :message => "Неверный адрес", :allow_blank => true
-  validates_format_of :fb, :with => /http:\/\/(www)?\.facebook\.com\/.*/, :message => "Неверный адрес", :allow_blank => true
-  validates_format_of :timepad, :with => /http:\/\/(.*?)\.timepad\.ru\/.*/, :message => "Неверный адрес", :allow_blank => true
-  validates_format_of :lookatme, :with => /http:\/\/(.*?)\.lookatme\.ru\/.*/, :message => "Неверный адрес", :allow_blank => true
+  validates_format_of :vk, :with => /http:\/\/vk\.com\/.*/, :message => "Неправильный адрес",:allow_blank => true
+  validates_format_of :twitter, :with => /http:\/\/(www)?\.twitter\.com\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :afisha, :with => /http:\/\/(www)?\.afisha\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :fb, :with => /http:\/\/(www)?\.facebook\.com\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :timepad, :with => /http:\/\/(.*?)\.timepad\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :lookatme, :with => /http:\/\/(.*?)\.lookatme\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :cityspb, :with => /http:\/\/(www)?\.cityspb\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
 
   def self.directions
     ["ЕСТЕСТВЕННЫЕ", "ГУМАНИТАРНЫЕ", "ОБЩЕСТВЕННЫЕ", "ТЕХНИЧЕСКИЕ", "МАТЕМАТИЧЕСКИЕ И IT", "ЛЮБАЯ"]

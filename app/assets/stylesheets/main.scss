@@ -34,6 +34,15 @@ body .field_with_errors {
   background: none;
 }
 
+span.error {
+  display: block;
+  color: red;
+}
+
+form abbr {
+  display: none;
+}
+
 input[type=submit] {
   background: #fff;
   border: 1px solid #eee;
@@ -290,7 +299,7 @@ input[type=submit] {
 }
 .name_form{font-size: 16px; position: absolute; top: 10px; left: 10px; color: white;}
 .input{ margin: 10px 0 0 10px; clear: both;}
-.first_field{padding-top: 40px; width: 98%;}
+form .first_field{padding-top: 40px; width: 98%;}
 .first_field input{width: 89%; margin-left: 4px;}
 .btn{
   position: absolute;
@@ -479,6 +488,9 @@ ul#myitems li#temp_month .month_number{display: none;}
 #popup-wrap{
   
   z-index: 100;
+  #notice {
+    display: none;
+  }
 }
 
 .grant-popup {

@@ -29,6 +29,7 @@
               "class": settings.error_class,
               text: message
             });
+            console.log('hello');
             return wrapper.append(errorElement);
           } else {
             return element.parent().find("" + settings.error_tag + "." + settings.error_class).text(message);

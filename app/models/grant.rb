@@ -22,7 +22,6 @@ class Grant
 
   validates_presence_of :title, :message => 'Обязательно'
   validates_presence_of :description, :message => 'Обязательно'
-  validates_presence_of :direction, :message => 'Обязательно'
 
   field :vk
   field :twitter

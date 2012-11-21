@@ -408,7 +408,7 @@ tr img { width: 500px;}
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  &:nth-child(4n):not(#temp_month) {
+  &:nth-child(4n) {
     margin-right: 0px;
   }
 }
@@ -419,6 +419,10 @@ tr img { width: 500px;}
 
 ul#myitems {
   padding: 0px;
+  width: 1240px;
+  .templ:nth-child(4n) {
+    margin-right: 10px;
+  }  
   li#temp_month{
   height: 20px; width: 115%;
   border:  none;

@@ -408,7 +408,7 @@ tr img { width: 500px;}
   display: inline-block;
   vertical-align: top;
   text-align: left;
-  &:nth-child(4n) {
+  &:nth-child(4n):not(#temp_month) {
     margin-right: 0px;
   }
 }

@@ -2,12 +2,12 @@
 <div class="title"><h2>МОЙ КАЛЕНДАРЬ (<%= @user.active_events %>)</h2></div>
 <% end if current_user == @user %>
 
+<ul id="myitems">
 	<h1> 		
 		КАЛЕНДАРЬ 
 		<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
 		<%= @user.compinfo.name if @user.compinfo  %>
 
 		| <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", userevents_user_path(@user) %></h1>
-<div class="items">
 	<%= render @actions %> 
-</div>
+</ul>

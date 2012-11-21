@@ -418,28 +418,34 @@ tr img { width: 500px;}
 }
 
 ul#myitems {
-  position: relative;
-}
-
-ul#myitems li#temp_month{
+  padding: 0px;
+  li#temp_month{
   height: 20px; width: 115%;
   border:  none;
-  position: static;
   height: 20px;
+  position: static;
   .outer {
+    display: none;
+  }
+  .name {
     width: 100%;
     height: 20px;
     left: 0px;
     position: absolute;
     padding: 3px;    
     background-image: url(/assets/1.png);
-    background-size: 100% auto;
+    background-size: 100% auto;    
     .inner {
       margin: 0 auto;
       width: 1230px;
     }
+    img {
+      display: none;
+    }
   }
 }
+}
+
 ul#myitems h1 {font-size: 30px; color: #c9db57; padding-bottom: 10px; font-family: sans-serif; font-weight: normal;}
 ul#myitems h1 a {color: #c9db57; opacity: 0.4;}
 ul#myitems h1 a:hover {color: #c9db57; opacity: 0.8;}
@@ -473,6 +479,9 @@ ul#myitems li#temp_month .month_number{display: none;}
       height: 257px;  
       border: none;
     }
+  .name {
+    display: none;
+  }
 }
 
   .list {

@@ -56,11 +56,10 @@ class ImageUploader < CarrierWave::Uploader::Base
         w = model.crop_w.to_i
         h = model.crop_h.to_i
         img.crop!(x, y, w, h)
+      end
     else
       resize_to_limit(200, 200)
-    end
-   
-    end
+    end  
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -52,7 +52,10 @@
     <% end %>
   </div>
   <div id="close" onclick="closeItemPopup()">X</div>
-  <div class="item_title yellow_letter"> <%= @training.title %> - СТАЖИРОВКА </div>
+  <div class="item_title yellow_letter"> <%= @training.title %> - СТАЖИРОВКА 
+
+<%= render :partial => 'layouts/share' %>
+  </div>
   <table class="test">
     <tr>
       <td rowspan="2" valign = "top">

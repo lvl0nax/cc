@@ -52,7 +52,10 @@
     <% end %>
   </div>
   <div id="close" onclick="closeItemPopup()">X</div>
-	<div class="item_title green_letter"><%= @event.title %> - СОБЫТИЕ </div>
+	<div class="item_title green_letter"><%= @event.title %> - СОБЫТИЕ 
+  <%= render :partial => 'layouts/share' %>
+
+  </div>
   <table><tr>
     <td class="lcolumn">
       <div class="evimage"> 

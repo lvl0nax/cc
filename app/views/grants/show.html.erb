@@ -52,7 +52,11 @@
     <% end %>
   </div>
   <div id="close" onclick="closeItemPopup()">X</div>
-	<div class="item_title black_letter"> <%= @grant.title %> - ГРАНТ </div>
+	<div class="item_title black_letter"> <%= @grant.title %> - ГРАНТ 
+
+<%= render :partial => 'layouts/share' %>
+
+  </div>
   <table><tr>
     <td class="lcolumn">	
       <div class="evimage">  

@@ -22,8 +22,12 @@ class User
   validates_uniqueness_of  :email, :case_sensitive => false
   attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name #,:name
   attr_accessible :nickname, :provider, :url, :username
-  validates_presence_of :email
+
+  validates_presence_of :email, :message => 'Обязательно'
   validates_presence_of :encrypted_password
+  validates_confirmation_of :password, :message => 'Пароли не совпадают'
+  validates_length_of :password, :minimum => 6, :message => 'Слишком короткий пароль (нужно 6 символов)'
+  validates_format_of :email, :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/, :message => 'Неверный email'
 
   ## Recoverable
   field :reset_password_token,   :type => String

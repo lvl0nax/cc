@@ -26,12 +26,15 @@ input,button,textarea,select,em,th,optgroup,option {font-family:inherit;font-siz
 /* global styles */
 
 html, body {height:100%; color: #58595b}
-body{font: 13px Helvetica,sans-serif;} /*background: #4B93D6*/
+body{ font: 13px Helvetica,sans-serif; margin:0; padding:0} /*background: #4B93D6*/
 a {text-decoration: none; color: black;}
 a:hover{ color: #444;}
 
 body .field_with_errors {
   background: none;
+  label.message {
+    color: red;
+  }
 }
 
 span.error {
@@ -564,7 +567,11 @@ ul#myitems li#temp_month .month_number{display: none;}
   border: 2px solid #e3e3e3;
 }
 
-.reg-inputs{width: 400px; margin-left: 20px; margin-top: 10px;}
+.reg-inputs{width: 400px; margin-left: 20px; margin-top: 10px;
+  .field_with_errors {
+    display: inline;
+  }
+}
 /*.reg-popup label {float: left; margin: 5px;}
 .reg-popup input {float: right;margin: 5px;}*/
 .reg-popup .for_clear{ height: 10px;}

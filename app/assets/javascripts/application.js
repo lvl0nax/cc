@@ -138,8 +138,8 @@ $(document).ready(function() {
         geocoder = new google.maps.Geocoder();
         geo.setLoc("59.93365223894488","30.300378486327617");
         geo.init({isFirstSet: true, map: 'gm', elementString : "#geo-map"});
-        $('.simple_form').enableClientSideValidations();
         $('#popup-wrap select').selectbox({ effect: "slide" });                
+        $('.simple_form').enableClientSideValidations();
     });
     $('.create_training').addClass("cr_select");
     $('.create_event').removeClass("cr_select");
@@ -176,39 +176,9 @@ $(document).ready(function() {
       $('.create_links').hide();
       $(".reg-buttons").show();
       $('#popup-wrap').removeClass().addClass("reg-popup").load("/users/sign_up", function(){
-            $("#new_user").validate({
-              rules: {
-                "user[email]": {
-                  required: true,
-                  email: true
-                },
-                "user[password]": {
-                  required: true,
-                  minlength: 6
-                },
-                "user[password_confirmation]": {
-                  required: true,
-                  minlength: 6,
-                  equalTo: "#user_password"
-                }
-              },
-              messages:{
-                "user[email]": {
-                  required: "Введите Email",
-                  email: "Email некорректный"
-                },
-                "user[password]": {
-                  required: "Введите пароль",
-                  minlength: "Пароль должен быть не меньше 6 символов"
-                },
-                "user[password_confirmation]": {
-                  required: "Потвторите пороль",
-                  minlength: "Пароль должен быть не меньше 6 символов",
-                  equalTo: "Пароли не совпадают"
-                }
-              }
-            });
+        $('#popup-wrap form').enableClientSideValidations();
       });
+      $('#new_user').enableClientSideValidations();
     
     }
   });

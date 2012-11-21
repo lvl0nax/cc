@@ -260,6 +260,7 @@ $(document).ready(function() {
   //login form load
   $("#login").bind("click", function(){
     closeItemPopup();
+    $(this).find('#test').hide();
     $("#login-form").load("/users/sign_in");
     return false;
   });

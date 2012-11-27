@@ -19,5 +19,24 @@ class UserMailer < ActionMailer::Base
     mail :to => user.email, :from => 'info@centercareer.ru', :subject => 'CareerCenter Registration'
   end
 
+  def subscription
+    content = mail(:subject => 'ЦЕНТР КАРЬЕРЫ').body.decoded
+    self.unisender.send_email(
+      :sender_name=> 'ЦЕНТР КАРЬЕРЫ', 
+      :sender_email=>'uni.sender.gem@gmail.com',    
+      :subject=>'You need your stuff', 
+      :list_id=> self.unisender.subscribe_list.first, 
+      :lang=>'en',
+      :body=> content)
+  end
+
+  def self.unisender
+    @unisender ||= UniSender::Client.new("YOUR_API_KEY_HERE")
+  end
+
+  def self.subscribe_lists
+    self.unisender.getLists['result'].map{|list| list['id'].to_i}
+  end
+
 
 end

@@ -1,5 +1,11 @@
+<% 
+count = Training.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).count
+count += Event.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).count
+count += Grant.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).count
+ %>
+
 <h1>Страница Администратора</h1>
 </br>
 <%= link_to "CФЕРЫ", list_areas_path %> |
-<%= link_to "НЕОДОБРЕННЫЕ", not_approved_events_path %> |
+<%= link_to "НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ (#{count})", not_approved_events_path %> |
 <%= link_to "РЕДАКТИРОВАНИЕ СТРАНИЦ", pages_path %>

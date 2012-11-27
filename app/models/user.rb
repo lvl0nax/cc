@@ -60,7 +60,7 @@ class User
 
   accepts_nested_attributes_for :resume, :autosave=> true
 
-  after_create :deliver_email
+  after_create :deliver_email, :subscribe_to_unisender
 
   #has_and_belongs_to_many :evactivities, class_name: "Event", inverse_of: :participant
   #has_and_belongs_to_many :gractivities, class_name: "Grant", inverse_of: :participant
@@ -73,6 +73,14 @@ class User
 
   def deliver_email
     UserMailer.register(self).deliver
+  end
+
+  def subscribe_to_unisender
+    return if resume.nil?
+    UserMailer.unisender.subscribe(
+      :list_ids=> self.unisender.subscribe_lists, 
+      :fields=> { :email=> email, :name=> resume.name + " " + resume.surname}
+    )
   end
 
   def active_events

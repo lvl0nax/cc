@@ -110,6 +110,7 @@ class User
   end
 
   def role_name
+    return "" if self.role.nil?
     return self.role.name
   end
 
@@ -118,7 +119,7 @@ class User
     !!self.requests.detect {|r| r.requestable_id == evnt._id}
   end
 
-  def self.employers
+  def self.employers    
     @@users = []
     User.all.each{|u| @@users << u if u.try(:role_name) == "employer"}
     @@users

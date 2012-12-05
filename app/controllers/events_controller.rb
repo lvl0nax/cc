@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
-require 'will_paginate/array' 
+require 'will_paginate/array'
 class EventsController < ApplicationController
+  #layout "applicatiwon"
   # GET /events
   # GET /events.json
   load_and_authorize_resource
@@ -8,7 +9,6 @@ class EventsController < ApplicationController
   def index
     # TODO: where date more or equal now
     flash.keep
-
     now = DateTime.now
     @items = []
     @items.clear
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
     end
     @items.concat(months)        
 
-    unless (@items.blank?)
+    unless @items.blank?
       @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
 
       unless params[:month].blank?
@@ -62,7 +62,7 @@ class EventsController < ApplicationController
 
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @items }
       format.xml { render xml: @items }
       format.js
@@ -164,7 +164,7 @@ class EventsController < ApplicationController
     end
   end
 
-#TODO: before filter for this method
+  #TODO: before filter for this method
   # def activities
   #   logger.debug "--------------------------------------------"
   #   @user = User.find(params[:id])
@@ -177,7 +177,7 @@ class EventsController < ApplicationController
   # end
 
   def not_approved
-    now = DateTime.now
+
     @items = []
     
     @items.concat Training.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
@@ -187,7 +187,7 @@ class EventsController < ApplicationController
     @items.concat Grant.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
 
 
-    unless (@items.blank?)
+    unless @items.blank?
       @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
     end 
     

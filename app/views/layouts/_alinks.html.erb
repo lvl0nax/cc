@@ -37,10 +37,10 @@
           <% if current_user.resume? && current_user.resume.photo? %>
             <%= image_tag current_user.resume.photo.url(:thumb) %>
           <% else %>
-            <%= image_tag "/assets/nophoto.jpg" %>
+            <%= image_tag "/assets/nophoto.jpg", :style=>'max-width:80px;' %>
           <% end %>
           <div class="edit" style="display: none;">
-            <%= link_to "РЕДАКТИРОВАТЬ", crop_resume_path(current_user.resume) %>            
+            <%= link_to "РЕДАКТИРОВАТЬ", crop_resume_path(current_user.id) %>
           </div>
         </div>
       <% end %>

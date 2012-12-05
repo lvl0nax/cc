@@ -1,3 +1,116 @@
-<%= render 'form' %>
+<div id="content">
+  <%= simple_form_for @resume do |f| %>
+  <div class="input_info">
+    <div class="info_row">
+      <div class="input_field">
+        <%= f.input :name, :style => 'width:423px;', :label => "ИМЯ"  %>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="info_row">
+      <div class="input_field">
+        <%= f.input :surname, :style => 'width:423px;', :label => "ФАМИЛИЯ"  %>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="info_row">
+      <span>ПОЛ</span>
+      <div class="clr"></div>
+    </div>
+    <div class="info_row">
+      <div class="input_field">
+        <%= f.input :birthday, :label => "ДАТА РОЖДЕНИЯ", :as => :date, :start_year => Date.today.year - 50,
+                    :end_year => Date.today.year - 10,
+                    :order => [:day, :month, :year] %>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="info_row">
+      <div class="input_field">
+        <%= f.input :home, :style => 'width:423px;', :label => "МЕСТО ЖИТЕЛЬСТВА"  %>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="sep"></div>
 
-<%= link_to 'Вернуться к резюме', current_user %> |
+    <div class="info_row">
+      <div class="input_field">
+        <%= f.input :education, :style => 'width:423px;', :label => "ОБРАЗОВАНИЕ"  %>
+        <div class="sub_info_row">
+          <%= f.input :university, :style => 'width:423px;', :label => "ВУЗ"  %>
+          <div class="clr"></div>
+        </div>
+        <div class="sub_info_row">
+          <%= f.input :faculty, :style => 'width:423px;', :label => "ФАКУЛЬТЕТ"  %>
+          <div class="clr"></div>
+        </div>
+        <div class="sub_info_row">
+          <%= f.input :experation, :style => 'width:423px;', :label => "ДАТА ОКОНЧАНИЯ"  %>
+          <div class="clr"></div>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+
+    <div class="sep"></div>
+    <div class="info_row">
+      <span>ОПЫТ РАБОТЫ</span>
+      <div class="input_field">
+        <div class="sub_info_row">
+          <%= f.input :experience_company, :label => "КОМПАНИЯ", :wrapper_html =>{:class => "edu"}  %>
+          <div class="clr"></div>
+        </div>
+        <div class="sub_info_row">
+          <%= f.input :experience_from, :label => "с", :wrapper_html =>{:class => "edu from"} %>
+          <%= f.input :experience_to, :label => "по", :wrapper_html =>{:class => "edu to"} %>
+        </div>
+        <div class="sub_info_row">
+          <%= f.input :experience_position, :label => "ДОЛЖНОСТЬ", :wrapper_html =>{:class => "edu position"}  %>
+          <button>ДОБАВИТЬ</button>
+          <div class="clr"></div>
+        </div>
+
+      </div>
+      <div class="clr"></div>
+    </div>
+
+    <div class="sep"></div>
+
+    <div class="info_row">
+      <div class="input_field">
+        <%= f.input :description, :label => "ОПИСАНИЕ СЕБЯ", as: :text, :input_html => {:rows => "8", :cols => "65"}  %>
+      </div>
+      <div class="clr"></div>
+    </div>
+
+    <div class="sep"></div>
+
+
+
+
+    <div class="tv_sizeBig">
+      <%= f.input :delivery_email_enable, :as => :boolean, :label => "ПОДПИСАТЬСЯ НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ"  %>
+      <div class="clr"></div>
+    </div>
+    <div class="info_row">
+      <div class="sub_info_row">
+        <%= f.input :delivery_email, :label => "E-MAIL", :wrapper_html =>{:class => "hd"}  %>
+      </div>
+    </div>
+    <div class="clr"></div>
+    <div class="sep"></div>
+    <div class="tv_sizeBig">
+      <%= f.input :delivery_phone_enable, :as => :boolean, :label => "ПОДПИСАТЬ НА SMS-РАССЫЛКУ", :wrapper_html =>{:class => "sms-label"}  %>
+      <div class="clr"></div>
+    </div>
+    <<%= f.input :delivery_phone, :label => "ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН"  %>
+    <div class="clr"></div>
+    <div class="sep"></div>
+    <%= link_to "СМЕНИТЬ ПАРОЛЬ", edit_registration_path(current_user), :class=> "edit"%>
+    <div class="clr"></div>
+    <div class="info_row">
+      <button>СОХРАНИТЬ</button>
+    </div>
+  </div>
+  <%end%>
+</div>

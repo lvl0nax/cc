@@ -1,5 +1,5 @@
 <div id="loginarea" class="vline">&nbsp;</div>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'new_session'} ) do |f| %>
+<%= form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'new_session'}  do |f| %>
   <div class="inline">
   	<%= f.label :email %>
   	<%= f.email_field :email %>

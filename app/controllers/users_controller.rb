@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  layout "applicatiwon"
 	def show    
     @user = current_user
     respond_to do |format|
@@ -35,6 +35,4 @@ class UsersController < ApplicationController
   def admin_page
     authorize! :admin_page, User
   end
-
-  
 end

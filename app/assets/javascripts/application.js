@@ -91,10 +91,10 @@ $(document).ready(function() {
       fnlogin();
     });
   //registration submit
-  $(document).on("submit","#new_user", function(event){
-      event.preventDefault();
-      test();
-    });
+//  $(document).on("submit","#new_user", function(event){
+//      event.preventDefault();
+//      test();
+//    });
 
   // set geo coordinate when mouse leave map-area
   $(document).on('hover',"#geo-map" ,function() {
@@ -397,7 +397,8 @@ function test () {
     type: "POST",
     url: "/users",
     data: $("#new_user").serialize(),
-    success: function(data, status, jqXHR){ 
+    success: function(data, status, jqXHR){
+      console.log(data);
       if (data.match("Email is already taken")) {
         alert("Данный email уже используется")
       } else {
@@ -649,5 +650,3 @@ function addareas(){
     }
   });
 }
-
-

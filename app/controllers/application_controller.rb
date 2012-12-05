@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
   end  
 
   def admin_only
-    return redirect_to root_url if current_user.nil?
-    return redirect_to root_url if current_user.role.name != :admin
+    redirect_to root_url if current_user.nil?
+    redirect_to root_url if current_user.role.name != 'admin'
   end
 
 end

@@ -44,6 +44,7 @@ class GrantsController < ApplicationController
   def create
     @grant = Grant.new(params[:grant])
     @grant.owner = current_user.id unless current_user.nil?
+    puts @grant.errors.inspect
     respond_to do |format|
       if @grant.save
         #current_user.grants << @grant

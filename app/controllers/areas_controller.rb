@@ -1,5 +1,5 @@
 class AreasController < ApplicationController
-
+  layout "applicatiwon"
   before_filter :admin_only, :except => [:index, :list, :add_to_user]
 
   # GET /areas

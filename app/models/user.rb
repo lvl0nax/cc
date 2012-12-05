@@ -21,7 +21,7 @@ class User
   #validates_presence_of :name
   validates_uniqueness_of  :email, :case_sensitive => false
   attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name #,:name
-  attr_accessible :nickname, :provider, :url, :username
+  attr_accessible :nickname, :provider, :url, :username, :role
 
   validates_presence_of :email, :message => 'Обязательно'
   validates_presence_of :encrypted_password
@@ -42,7 +42,7 @@ class User
   field :last_sign_in_at,    :type => Time
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
-
+  field :provider,           :type => String
   embeds_one :role
   embeds_one :compinfo
   embeds_one :resume
@@ -62,12 +62,6 @@ class User
 
   after_create :deliver_email, :subscribe_to_unisender
 
-  #has_and_belongs_to_many :evactivities, class_name: "Event", inverse_of: :participant
-  #has_and_belongs_to_many :gractivities, class_name: "Grant", inverse_of: :participant
-  #has_and_belongs_to_many :tractivities, class_name: "Training", inverse_of: :participant
-  # index "role.name"
-  # index :name, :unique => true, :background => true
-   #index({ name: 1 }, { unique: true, background: true })
 
    accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
 
@@ -76,11 +70,7 @@ class User
   end
 
   def subscribe_to_unisender
-    return if resume.nil?
-    UserMailer.unisender.subscribe(
-      :list_ids=> self.unisender.subscribe_lists, 
-      :fields=> { :email=> email, :name=> resume.name + " " + resume.surname}
-    )
+
   end
 
   def active_events
@@ -102,16 +92,15 @@ class User
     unless self.email.blank?
       return self.email.split("@").first
     end
-    return self.id
+      self.id
   end
 
   def role?(role)
-      return self.role.try(:name).to_s == role.to_s
+      self.role.try(:name).to_s == role.to_s
   end
 
   def role_name
-    return "" if self.role.nil?
-    return self.role.name
+    self.role.name
   end
 
   #TODO: testing!!!
@@ -119,7 +108,7 @@ class User
     !!self.requests.detect {|r| r.requestable_id == evnt._id}
   end
 
-  def self.employers    
+  def self.employers
     @@users = []
     User.all.each{|u| @@users << u if u.try(:role_name) == "employer"}
     @@users
@@ -169,18 +158,20 @@ class User
   end
 
   def self.find_for_facebook_oauth(access_token, role)
-    if user = User.where(:url => access_token.info.urls.Facebook).first
-      user
+    puts access_token.to_yaml
+    if  user = User.where(:email => access_token.info.email).first
+        user
     else 
-       @user = User.create!(
+       user = User.create!(
                    :provider => access_token.provider, 
                    :url => access_token.info.urls.Facebook, 
                    :username => access_token.extra.raw_info.name, 
                    # :name => access_token.extra.raw_info.name, 
                    :nickname => access_token.extra.raw_info.username, 
                    :email => access_token.extra.raw_info.email, 
-                   :password => Devise.friendly_token[0,20])
-      @user.create_role(:name => role)
+                   :password => Devise.friendly_token[0,20],
+                   :role => Role.new(:name => role)
+       )
     end
   end
 
@@ -195,8 +186,9 @@ class User
                    # :name => access_token.info.name, 
                    :nickname => access_token.extra.raw_info.domain, 
                    :email => access_token.extra.raw_info.domain+'@vk.com', 
-                   :password => Devise.friendly_token[0,20])
-      @user.create_role(:name => role)
+                   :password => Devise.friendly_token[0,20],
+                   :role => Role.new(:name => role)
+      )
     end
   end
 

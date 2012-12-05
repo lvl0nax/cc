@@ -46,6 +46,7 @@ class TrainingsController < ApplicationController
   def create
     @training = Training.create(params[:training])
     @training.write_attributes(owner: current_user.id) unless current_user.nil?
+    puts @training.to_yaml
     respond_to do |format|
       if @training.save
         #current_user.trainings << @training

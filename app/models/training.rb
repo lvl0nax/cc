@@ -102,5 +102,10 @@ class Training
   def user
     User.where(id: self.owner).first
   end
-
+  #def end_date=(params)
+  #  puts params.to_yaml
+  #  #self.end_date.year = self.start_date.year
+  #  #self.end_date.month = self.start_date.month
+  #  #self.end_date.day = self.start_date.day
+  #end
 end

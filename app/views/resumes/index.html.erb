@@ -11,9 +11,9 @@
 <% @resumes.each do |resume| %>
   <tr>
     <td><%= resume.name %></td>
-    <td><%= link_to 'Попказать', resume %></td>
-    <td><%= link_to 'редактировать', edit_resume_path(resume) %></td>
-    <td><%= link_to 'удалить', resume, confirm: 'Вы уверены?', method: :delete %></td>
+    <td><%= link_to 'Показать', resume %></td>
+    <td><%= link_to 'Редактировать', edit_resume_path(resume) %></td>
+    <td><%= link_to 'Удалить', resume, confirm: 'Вы уверены?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

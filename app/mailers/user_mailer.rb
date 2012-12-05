@@ -1,11 +1,11 @@
-
+# encoding: utf-8
 
 class UserMailer < ActionMailer::Base
   default from: "monax.spam@gmail.com"
 
   def info_email(user)
-  	#@user = user #initiate user #user.email,
-  	mail(to: "lvl0nax@gmail.com")
+  	@user = user #initiate user #user.email,
+  	mail(to: "shoxmaster1991@gmail.com")
   end
 
   def spamer
@@ -19,7 +19,7 @@ class UserMailer < ActionMailer::Base
     mail :to => user.email, :from => 'info@centercareer.ru', :subject => 'CareerCenter Registration'
   end
 
-  def subscription
+  def self.subscription
     content = mail(:subject => 'ЦЕНТР КАРЬЕРЫ').body.decoded
     self.unisender.send_email(
       :sender_name=> 'ЦЕНТР КАРЬЕРЫ', 
@@ -31,7 +31,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def self.unisender
-    @unisender ||= UniSender::Client.new("YOUR_API_KEY_HERE")
+    @unisender ||= UniSender::Client.new("5bbdgymgcpmbxkf4g9d9t8kxetfbpnsu6wgf573o")
   end
 
   def self.subscribe_lists

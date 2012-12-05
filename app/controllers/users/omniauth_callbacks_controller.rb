@@ -20,4 +20,8 @@ class Users::OmniauthCallbacksController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def failure
+    render :text => params.inspect
+  end
 end

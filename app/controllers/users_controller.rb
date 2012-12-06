@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  layout "applicatiwon"
 	def show    
     @user = current_user
     respond_to do |format|

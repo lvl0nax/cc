@@ -51,7 +51,8 @@ gem 'omniauth-vkontakte'
 gem 'letter_opener'
 gem 'premailer-rails3'
 gem 'nokogiri'
-gem 'uni_sender'
+gem 'less'
+gem "uni_sender", :git => 'https://github.com/sharkzp/unisender.git'
 
 
 # Gems used only for assets and not required

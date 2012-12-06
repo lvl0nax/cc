@@ -1,37 +1,61 @@
-  <div id="arealist" >
-
-
-    <div class="line">
-    </div>
-
-
-    <%= form_tag add_to_user_areas_path do %>
-    <div class="col1">
-      <h3>СФЕРЫ</h3>
-      <% @areas.each do |area| %>
-      
-      <label class = "checkbox">
-        <input class="check_boxes optional" id="areachkbx" name="areas[]" type="checkbox" value="<%= area.id %>" <%= 'checked="checked"' if @myareas && @myareas.include?(area.id) %> />
-        <%= area.name %>
-      </label> 
-      <% end %>
-    </div>
-
-    <div class="col2">
-      <h3>НАУКИ</h3>
-
-      <% Grant.directions.each do |d| %>
-      <label class = "checkbox">
-        <input class="check_boxes optional" id="areachkbx" name="directions[]" type="checkbox" value="<%= d %>" <%= 'checked="checked"' if @mydirections && @mydirections.include?(d) %> >
-        <%= d %>
-      </label> 
-      <% end %>
-
-    </div>
-
-
-
-    <div id="save-area" class="clear"> 
-      <input type="submit" value="СОХРАНИТЬ" />
-    </div>
+<div id="content">
+  <div id="sphere_used">
+    <% current_user.areas.each do |area| %>
+        <div class="su"><div data-id="<%= area.id %>" class="ex"></div><%= area.name %></div>
     <% end %>
+    <div class="clr"></div>
+  </div>
+  <script language="javascript">
+      $(function(){
+          $('#sphere_available, .fjqtrans, .catsItem, .pchecks').jqTransform();
+      });
+  </script>
+  <div id="sphere_available">
+        <ul>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;СФЕРЫ:</li>
+          <% current_user.available_areas.each do |area| %>
+          <li><input type="checkbox" name="areas[]" value="<%= area.id %>" <%= 'checked' if current_user.area_ids.include?(area.id)%> >
+            <label for="areas[<%= area.id %>]"><%= area.name %></label></li>
+        <% end %>
+        </ul>
+        <ul>
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;НАУКИ:</li>
+          <li><input type="checkbox" name="" id="">Естественные</li>
+          <li><input type="checkbox" name="" id="">Гуманитарные</li>
+          <li><input type="checkbox" name="" id="">Общественные</li>
+          <li><input type="checkbox" name="" id="">Технические</li>
+          <li><input type="checkbox" name="" id="">Математиченские И IT</li>
+        </ul>
+    <button>СОХРАНИТЬ</button>
+  </div>
+  <div class="clr"></div>
+</div>
+<script>
+  $(function(){
+      $('#sphere_available .jqTransformCheckbox').click(function(e){
+          $.ajax({
+              data:$('#sphere_available :checkbox').serialize(),
+              url: '<%= add_to_user_areas_path %>',
+              type: 'post',
+              beforeSend: function(jqXHR, settings) {
+                  jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+              }
+          }).done(function(result){
+//                      if(result)
+                  });
+
+      });
+      $('.ex').click(function(){
+          $.ajax({
+            url: '<%= remove_from_user_areas_path %>',
+            data: 'area=' + $(this).data('id'),
+            type: 'delete',
+            beforeSend: function(jqXHR, settings) {
+              jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+            }
+          }).done(function(result){
+                      console.log(result);
+                  });
+      });
+  });
+</script>

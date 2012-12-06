@@ -1,6 +1,5 @@
 class AreasController < ApplicationController
-  layout "applicatiwon"
-  before_filter :admin_only, :except => [:index, :list, :add_to_user]
+  before_filter :admin_only, :except => [:index, :list, :add_to_user, :remove_from_user]
 
   # GET /areas
   # GET /areas.json
@@ -9,7 +8,7 @@ class AreasController < ApplicationController
     @areas = Area.all
     @myareas = current_user.area_ids
     @mydirections = current_user.directions
-
+    @available = current_user.available_areas
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @areas }
@@ -95,12 +94,16 @@ class AreasController < ApplicationController
   end
 
   def add_to_user
+
     current_user.area_ids = params[:areas]
     current_user.directions = params[:directions]
-    current_user.save
-    respond_to do |format|
-      format.html { redirect_to areas_url }
-      format.json { head :ok }
-    end
+    current_user.save(:validate => false)
+    render :json => true
   end
+
+  def remove_from_user
+    current_user.areas.where(:id => params[:area]).remove
+    render :json => current_user.areas
+  end
+
 end

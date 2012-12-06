@@ -63,7 +63,7 @@ class User
   after_create :deliver_email, :subscribe_to_unisender
 
 
-   accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
+  accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
 
   def deliver_email
     UserMailer.register(self).deliver
@@ -71,6 +71,14 @@ class User
 
   def subscribe_to_unisender
 
+  end
+
+  def available_areas
+    areas_t = []
+    Area.all.each do |area|
+      areas_t << area unless self.area_ids.include?(area)
+    end
+    areas_t
   end
 
   def active_events
@@ -189,6 +197,13 @@ class User
                    :password => Devise.friendly_token[0,20],
                    :role => Role.new(:name => role)
       )
+    end
+  end
+
+  def area_ids=(ids)
+    self.areas = nil
+    ids.each do |id|
+      self.areas << Area.where(:id => id)
     end
   end
 

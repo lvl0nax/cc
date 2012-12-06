@@ -70,11 +70,13 @@ class ResumesController < ApplicationController
   # PUT /resumes/1.json
   def update
     @resume = current_user.resume #Resume.find(params[:id])
-
+    unless params[:resume][:photo].content_type.index(/jpe?g$/)
+      params[:resume][:photo] = nil
+    end
     #respond_to do |format|
       if @resume.update_attributes(params[:resume])
         if params[:resume][:photo].present?
-          render :crop
+            render :crop
         else
           redirect_to current_user, notice: 'Resume was successfully updated.'
           #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }

@@ -43,98 +43,15 @@
             });
         });
     </script>
-
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
+  <% Area.all.each do |area| %>
+        <div class="catsItem">
+          <label>
+            <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
+            <span class="descripting"><%= area.name %>L</span>
+            <div class="clr"></div>
+          </label>
+        </div>
+  <% end %>
   </div>
 </div>
 <span class="naming">Компания</span>
@@ -148,104 +65,22 @@
                 var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
                 if(a){
                     $(this).find(".descripting").addClass("act");
-                } else{
+                } else {
                     $(this).find(".descripting").removeClass("act");
-                };
+                }
             });
         });
     </script>
+    <% Area.all.each do |area| %>
+        <div class="catsItem">
+          <label>
+            <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
+            <span class="descripting"><%= area.name %>L</span>
+            <div class="clr"></div>
+          </label>
+        </div>
+    <% end %>
 
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
-    <div class="catsItem">
-      <label>
-        <input type="checkbox" name="" id="">
-        <span class="descripting">Промышленность, производство</span>
-        <div class="clr"></div>
-      </label>
-    </div>
   </div>
 </div>
 <div class="clr"></div>
@@ -286,13 +121,21 @@
   <span class="lanelHead sizeBig"><span>Гранты</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
   <span class="numerick"><%= Grant.count %></span>
   <div class="pchecks">
-    Науки
-    <span class="opl"><input type="checkbox" name="" id="">Естественные</span>
-    <span class="opl"><input type="checkbox" name="" id="">Гуманитарные</span>
-    <span class="opl"><input type="checkbox" name="" id="">Общественные</span>
-    <span class="opl"><input type="checkbox" name="" id="">Технические</span>
-    <span class="opl"><input type="checkbox" name="" id="">Математические и IT</span>
-    <span class="opl"><input type="checkbox" name="" id="">Любая</span>
+    <span class="naming">Науки</span>
+    <div class="samvup sam12">
+      <div class="all">ВСЕ</div>
+      <div class="allCats">
+        <% Grant.directions.each do |dir| %>
+            <div class="catsItem">
+              <label>
+                <input type="checkbox" name="<%=dir%>" id="area-<%=dir%>">
+                <span class="descripting"><%= dir %></span>
+                <div class="clr"></div>
+              </label>
+            </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 </div>

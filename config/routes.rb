@@ -1,12 +1,12 @@
 TestMongoid::Application.routes.draw do
-  
+
   match '/auth/:provider/callback' => 'authentications#create'
   
   resources :authentications
 
-  #get "omniauth_callbacks/facebook"
+  get "omniauth_callbacks/facebook"
 
-  #get "omniauth_callbacks/vkontakte"
+ # get "omniauth_callbacks/vkontakte"
 
   mount TinymceFm::Engine => "/tinymce_fm"
   resources :months
@@ -15,6 +15,7 @@ TestMongoid::Application.routes.draw do
     collection do
       post 'add_to_user'
       get 'list'
+      delete 'remove_from_user'
     end
   end
 
@@ -57,7 +58,7 @@ TestMongoid::Application.routes.draw do
   devise_for :users, :controllers => { 
     :registrations => "registrations",
     :sessions => "sessions",
-    #:omniauth_callbacks => "users/omniauth_callbacks"
+    :omniauth_callbacks => "users/omniauth_callbacks"
   } do
     get "sign_out", :to => "devise/sessions#destroy"
     resources :resumes

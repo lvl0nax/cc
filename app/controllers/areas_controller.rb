@@ -1,5 +1,5 @@
 class AreasController < ApplicationController
-  before_filter :admin_only, :except => [:index, :list, :add_to_user, :remove_from_user]
+  before_filter :admin_only, :except => [:index, :list, :add_to_user]
 
   # GET /areas
   # GET /areas.json
@@ -99,11 +99,5 @@ class AreasController < ApplicationController
     current_user.directions = params[:directions]
     current_user.save(:validate => false)
     render :json => true
-  end
-
-  def remove_from_user
-    current_user.areas.where(:id => params[:area]).remove
-    render :json => current_user.areas
-  end
-
+    end
 end

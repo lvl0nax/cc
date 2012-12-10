@@ -6,4 +6,5 @@ class Page
   field :meta_keyword, :type => String
   field :meta_description, :type => String
   field :page_id, :type => String
+  field :visible, :type => Boolean
 end

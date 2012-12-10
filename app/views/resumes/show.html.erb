@@ -62,77 +62,79 @@
             });
         });
     </script>
+
     <div class="pi">
       <button>редактировать</button>
       <p class="greenUpper fll">Имя:</p>
-      <p class="blackLower flr">Александра</p>
+      <p class="blackLower flr"><%= @resume.name %></p>
       <div class="clr"></div>
       <p class="greenUpper fll">Фамилия:</p>
-      <p class="blackLower flr">Иванова</p>
+      <p class="blackLower flr"><%= @resume.surname %></p>
       <div class="clr"></div>
       <p class="greenUpper fll">Пол:</p>
-      <p class="blackLower flr">Женский</p>
+      <p class="blackLower flr"><%= @resume.gender %></p>
       <div class="clr"></div>
       <p class="greenUpper fll">Дата рождения:</p>
-      <p class="blackLower flr">05 мая 1989</p>
+      <p class="blackLower flr"><%= @resume.birthday %></p>
       <div class="clr"></div>
       <p class="greenUpper fll">Место жительства:</p>
-      <p class="blackLower flr">Санкт-Петербург</p>
+      <p class="blackLower flr"><%= @resume.home %></p>
       <div class="clr"></div>
     </div>
     <div class="pi">
       <button>редактировать</button>
       <p class="greenUpper fll">Образование:</p>
-      <p class="blackLower flr">Бакалавр</p>
+      <p class="blackLower flr"><%= @resume.education %></p>
       <div class="clr"></div>
       <p class="greenUpper fll">вуз:</p>
-      <p class="blackLower flr">СПБГУ</p>
+      <p class="blackLower flr"><%= @resume.university %></p>
       <div class="clr"></div>
       <p class="greenUpper fll">факультет:</p>
-      <p class="blackLower flr">Женский</p>
+      <p class="blackLower flr"><%= @resume.faculty %></p>
       <div class="clr"></div>
       <p class="greenUpper fll">филологический:</p>
-      <p class="blackLower flr">сентябрь 2012</p>
+      <p class="blackLower flr"><%= @resume.experation %></p>
       <div class="clr"></div>
     </div>
     <div class="pi">
       <button>редактировать</button>
-      <p class="blackLower flr mf"><span class="greenLower">с</span> мая 2009 <span class="greenLower">по</span> май 2010</p>
+      <p class="blackLower flr mf"><span class="greenLower">с</span> <%= @resume.experience_from %> <span class="greenLower">по</span> <%= @resume.experience_to %></p>
       <div class="clr"></div>
-      <p class="blackLower flr mf">ооо Русский Простор</p>
+      <p class="blackLower flr mf"><%= @resume.experience_company %></p>
       <div class="clr"></div>
       <p class="greenUpper fll wl2">Должность:</p>
-      <p class="blackLower flr">менеджер</p>
+      <p class="blackLower flr"><%= @resume.experience_position %></p>
       <div class="clr"></div>
     </div>
     <div class="pi">
       <button>редактировать</button>
       <p class="greenUpper fll">Описание себя:</p>
-      <p class="blackLower flr">Студентка, спортсменка и просто красавица</p>
+      <p class="blackLower flr"><%= @resume.description %></p>
       <div class="clr"></div>
     </div>
     <div class="pi">
       <button>редактировать</button>
       <p class="greenUpper fll wf">Подписатся на рассылку по интересующим меня сферам:</p>
-      <div class="inputsOnPI"><input type="checkbox" name="" id=""></div>
+      <div class="inputsOnPI"><input type="checkbox" name="" id="" checked="<%= @resume.delivery_email_enable ? 'checked' : '' %>"></div>
       <div class="clr"></div>
       <p class="greenUpper fll ml">e-mail</p>
-      <p class="blackLower flr">ivanova@mail.ru</p>
+      <p class="blackLower flr"><%= @resume.delivery_email %></p>
       <div class="clr"></div>
     </div>
     <div class="pi">
       <button>редактировать</button>
       <p class="greenUpper fll wf">Подписатся на sms-рассылку:</p>
-      <div class="inputsOnPI"><input type="checkbox" name="" id=""></div>
+      <div class="inputsOnPI"><input type="checkbox" name="" id="" checked="<%= @resume.delivery_phone_enable ? 'checked' : '' %>"></div>
       <div class="clr"></div>
       <p class="greenUpper fll wl1">ваш мобильный телефон</p>
-      <p class="blackLower flr">89232094587</p>
+      <p class="blackLower flr"><%= @resume.delivery_phone %></p>
       <div class="clr"></div>
     </div>
     <div class="pi last">
       <button>редактировать</button>
       <p class="greenUpper fll">изменить пароль</p>
     </div>
+
     <button>СОХРАНИТЬ</button>
   </div>
 

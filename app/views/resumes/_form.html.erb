@@ -19,7 +19,9 @@
     <%= f.input :education, :label => "ОБРАЗОВАНИЕ"  %>
     <%= f.input :university, :label => "ВУЗ", :wrapper_html =>{:class => "edu"} %>
     <%= f.input :faculty, :label => "ФАКУЛЬТЕТ", :wrapper_html =>{:class => "edu"}  %>
-    <%= f.input :experation, :label => "ДАТА ОКОНЧАНИЯ", :wrapper_html =>{:class => "edu"}  %>
+    <%= f.input :experation, :label => "ДАТА ОКОНЧАНИЯ", :as => :date, :start_year => Date.today.year - 50,
+                :end_year => Date.today.year - 10,
+                :order => [:day, :month, :year], :wrapper_html =>{:class => "edu"}  %>
     </div>
     <div class="line"></div>
     <div class="block">

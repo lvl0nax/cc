@@ -4,6 +4,7 @@ class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json
   def index
+
     @resumes = Resume.all
 
     respond_to do |format|
@@ -36,7 +37,12 @@ class ResumesController < ApplicationController
 
   # GET /resumes/1/edit
   def edit
-    @resume = current_user.resume #Resume.find(params[:id])
+    @title = 'Личная информация'
+    unless current_user.nil?
+      @resume = current_user.resume #Resume.find(params[:id])
+    else
+      redirect_to root_path
+    end
     #@user = current_user
   end
 

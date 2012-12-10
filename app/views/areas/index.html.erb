@@ -1,8 +1,25 @@
 <div id="content">
   <div id="sphere_used">
     <% current_user.areas.each do |area| %>
-        <div class="su"><div data-id="<%= area.id %>" class="ex"></div><%= area.name %></div>
+        <div class="su">
+          <div class="ex"></div>
+          <span><%= area.name %></span>
+          <input type="hidden" name="areas[]" value="<%= area.id %>"/>
+        </div>
     <% end %>
+    <% current_user.directions.each do |direction| %>
+        <div class="su">
+          <div class="ex"></div>
+          <span><%= direction %></span>
+          <input type="hidden" name="directions[]" value="<%= direction %>"/>
+        </div>
+    <% end unless current_user.directions.nil? %>
+    <div class="su" style="display: none;">
+      <div class="ex"></div>
+      <span></span>
+      <input type="hidden" name="areas[]"/>
+    </div>
+
     <div class="clr"></div>
   </div>
   <script language="javascript">
@@ -14,48 +31,108 @@
         <ul>
           <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;СФЕРЫ:</li>
           <% current_user.available_areas.each do |area| %>
-          <li><input type="checkbox" name="areas[]" value="<%= area.id %>" <%= 'checked' if current_user.area_ids.include?(area.id)%> >
-            <label for="areas[<%= area.id %>]"><%= area.name %></label></li>
+              <% unless current_user.area_ids.include?(area.id) %>
+                  <li><input type="checkbox" name="areas[]" value="<%= area.id %>">
+                    <label for="areas[<%= area.id %>]"><%= area.name %></label></li>
+              <% end %>
         <% end %>
         </ul>
         <ul>
           <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;НАУКИ:</li>
-          <li><input type="checkbox" name="" id="">Естественные</li>
-          <li><input type="checkbox" name="" id="">Гуманитарные</li>
-          <li><input type="checkbox" name="" id="">Общественные</li>
-          <li><input type="checkbox" name="" id="">Технические</li>
-          <li><input type="checkbox" name="" id="">Математиченские И IT</li>
+          <% Grant.directions.each do |direction| %>
+              <li><input type="checkbox" name="directions[]" value="<%= direction %>" >
+                <label for="areas[<%= direction %>]"><%= direction %></label></li>
+          <% end %>
         </ul>
     <button>СОХРАНИТЬ</button>
   </div>
   <div class="clr"></div>
 </div>
 <script>
-  $(function(){
-      $('#sphere_available .jqTransformCheckbox').click(function(e){
-          $.ajax({
-              data:$('#sphere_available :checkbox').serialize(),
-              url: '<%= add_to_user_areas_path %>',
-              type: 'post',
-              beforeSend: function(jqXHR, settings) {
-                  jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-              }
-          }).done(function(result){
-//                      if(result)
-                  });
+    $(function () {
+        var $checkbox = $('<li><input type="checkbox"></span><label></label></li>');
+        var $area = $('.su:last').clone();
+        var $fields = $('.su').parent();
+        $('#sphere_available .jqTransformCheckbox').click(create_area);
+        $('.ex').click(exit_handler);
 
-      });
-      $('.ex').click(function(){
-          $.ajax({
-            url: '<%= remove_from_user_areas_path %>',
-            data: 'area=' + $(this).data('id'),
-            type: 'delete',
-            beforeSend: function(jqXHR, settings) {
-              jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+        function exit_handler() {
+            var $this = $(this).parent().clone();
+            $fields = $(this).parent().parent();
+            $(this).parent().fadeOut(function () {
+                $(this).remove();
+                $.ajax({
+                    data: get_data(),
+                    url: '<%= add_to_user_areas_path %>',
+                    type: 'post',
+                    beforeSend: get_csrf
+                }).done(function (result) {
+                            if (result == true) {
+                                make_checkbox($this)
+                            }
+                        })
+            });
+            // TODO: Cache queries
+            function make_checkbox($input) {
+                var $dummy_checkbox = $checkbox.clone();
+                var id = $input.children(':last').val();
+                var value = $input.children(':eq(1)').html();
+                var name = $input.children(':last').attr('name');
+
+                $dummy_checkbox.children(':first').val(id);
+                $dummy_checkbox.children(':first').attr('id', id);
+                $dummy_checkbox.children(':first').attr('name', name);
+                $dummy_checkbox.children(':last').html(value);
+                // $dummy_checkbox.children(':last').attr('for', id);
+                $dummy_checkbox.jqTransform();
+                var $hidden = $dummy_checkbox.children().children('.jqTransformCheckbox');
+                $hidden.click(create_area);
+                name = $dummy_checkbox.children(':first').children(':last').attr('name');
+                if(name == 'areas[]')
+                    $('#sphere_available ul:first li:first').after($dummy_checkbox);
+                else
+                    $('#sphere_available ul:eq(1) li:first').after($dummy_checkbox);
             }
-          }).done(function(result){
-                      console.log(result);
-                  });
-      });
-  });
+            function get_data() {
+                return $fields.children().children('input[type=hidden]').serialize()
+            }
+        }
+
+        function create_area(e) {
+            var $this = $(this);
+
+            $.ajax({
+                data: $('#sphere_available input').serialize() + '&' + get_data(),
+                url: '<%= add_to_user_areas_path %>',
+                type: 'post',
+                beforeSend: get_csrf
+            }).done(function (result) {
+                        if ($this.hasClass('jqTransformChecked') || $this.children('jqTransformChecked').size() > 0) {
+                                $this.parent().parent().fadeOut(function () {
+                                $(this).remove();
+                                $area.children().eq(1).html($this.parent().next().html());
+                                // $area.children(':last').attr('name', );
+                                $area.children(':last').val(
+                                        $this.parent().children(':last').val()
+                                );
+                                $area.children(':last').attr('name',
+                                        $this.parent().children(':last').attr('name')
+                                );
+                                console.log($this.parent().children(':last'));
+                                // console.log($area.children(':last'));
+
+                                $('.su:last').after($area.clone().children(':first').click(exit_handler).parent().css('display', 'block'))
+                            })
+                        }
+                    });
+
+            function get_data() {
+                return $fields.children().children('input[type=hidden]').serialize()
+            }
+        }
+    });
+
+    function get_csrf(jqXHR, settings) {
+        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+    }
 </script>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8" />
-  <title></title>
+  <title><%= title %></title>
   <!--main css was generated with less-->
   <%= stylesheet_link_tag 'style' %>
   <%= stylesheet_link_tag 'fonts/fonts' %>
@@ -34,6 +34,7 @@
 <div class="bbg"></div>
 <div id="wrapper">
 <div id="headerWrap">
+
 <%= render 'layouts/header'%>
 <div class="clr"></div>
 </div>
@@ -48,7 +49,9 @@
     <div class="footdownwrap">
       <ul>
         <% Page.all.each do |page| %>
-            <%= link_to page.title, page %>
+            <% if page.visible == true %>
+                <%= link_to page.title, page %>
+            <% end %>
         <% end %>
       </ul>
     </div>

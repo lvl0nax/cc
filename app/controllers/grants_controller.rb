@@ -1,6 +1,6 @@
 class GrantsController < ApplicationController
   # GET /grants
-  # GET /grants.json  
+  # GET /grants.json
 
   def index
     @grants = Grant.all
@@ -25,7 +25,6 @@ class GrantsController < ApplicationController
   # GET /grants/new
   # GET /grants/new.json
   def new
-
     @grant = Grant.new
 
     respond_to do |format|

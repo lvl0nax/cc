@@ -2,7 +2,9 @@
 class CompinfosController < ApplicationController
   # GET /compinfos
   # GET /compinfos.json
+
   def index
+
     @compinfos = Compinfo.all
 
     respond_to do |format|
@@ -14,6 +16,7 @@ class CompinfosController < ApplicationController
   # GET /compinfos/1
   # GET /compinfos/1.json
   def show
+    @title = "Информация о компании"
     @compinfo = Compinfo.find(params[:id])
 
     respond_to do |format|

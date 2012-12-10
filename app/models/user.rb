@@ -78,6 +78,7 @@ class User
     Area.all.each do |area|
       areas_t << area unless self.area_ids.include?(area)
     end
+    puts areas_t.inspect
     areas_t
   end
 
@@ -204,7 +205,7 @@ class User
     self.areas = nil
     ids.each do |id|
       self.areas << Area.where(:id => id)
-    end
+    end unless ids.nil?
   end
 
 end

@@ -1,5 +1,7 @@
+# -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
-	def show    
+	def show
+    @title = "Информация о компании"
     @user = current_user
     respond_to do |format|
       format.html # show.html.erb
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def activities
+
     #logger.debug "--------------------------------------------"
     @user = User.find(params[:id])
     @actions = @user.actions
@@ -33,5 +36,14 @@ class UsersController < ApplicationController
 
   def admin_page
     authorize! :admin_page, User
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      @message = 'Parol zmineno'
+    else
+      @message = 'Error'
+    end    
   end
 end

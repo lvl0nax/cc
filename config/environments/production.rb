@@ -8,7 +8,6 @@ TestMongoid::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
-  
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -23,7 +22,7 @@ TestMongoid::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true

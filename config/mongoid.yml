@@ -75,3 +75,12 @@ development:
         - localhost:27017
       options:
         consistency: :strong
+
+production:
+  sessions:
+    default:
+      database: production
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong

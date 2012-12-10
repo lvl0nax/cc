@@ -1,0 +1,46 @@
+<%= form_for @user ||= User.new, :url => user_registration_path, :validate => true do |f| %>
+    <span>НАЗВАНИЕ КАМПАНИИ</span>
+    <span>ЛОГОТИП</span><img src="images/formlogobg.png" class="yourlogo" alt="">
+    <div class="clr"></div>
+    <%= f.fields_for @user.compinfo ||= Compinfo.new do |comp| %>
+        <span>ГОРОД</span><%= comp.text_field :city %>
+        <span>УЛИЦА</span><%= comp.text_field :street %>
+        <span>ДОМ</span><%= comp.text_field :building %>
+        <span class="spanmin">КОНТАКТНАЯ  ИФНОМРАЦИЯ</span><%= comp.text_field :info %>
+        <span>ССЫЛКА НА САЙТ</span><%= comp.text_field :hyperlink %>
+    <% end %>
+    <span>E-MAIL</span><%= f.text_field :email %>
+    <br>
+    <br>
+    <br>
+    <%= f.fields_for @user.role ||= Role.new do |role| %>
+        <%= role.hidden_field :name, :value=>'employer' %>
+    <% end %>
+    <span>ПАРОЛЬ</span><%= f.password_field :password %>
+    <span>ПАРОЛЬ ЕЩЕ РАЗ</span><%= f.password_field :password_confirmation %>
+    <%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ"  %>
+<% end %>
+</div>
+<div class="cont">
+  <%= form_for @user||=User.new, :url => user_registration_path, :validate=>true  do |f| %>
+      <div class="regtype">
+        регистрация через <%= link_to user_omniauth_authorize_path(:facebook) do %>
+            <img src="images/facebook2.png" alt="" />
+        <% end %>
+        <%= link_to user_omniauth_authorize_path(:vkontakte) do %>
+            <img src="images/vkontakte.png" alt="" />
+        <% end %>
+      </div>
+      <%= f.fields_for @user.resume ||= Resume.new do |res| %>
+          <span>ИМЯ</span><%= res.text_field :name %>
+          <span>ФАМИЛИЯ</span><%= res.text_field :surname %>
+          <span>ГОРОД</span><%= res.text_field :home %>
+      <% end %>
+      <span>E-MAIL</span><%= f.text_field :email %>
+      <span>ПАРОЛЬ</span><%= f.password_field :password %>
+      <span>ПАРОЛЬ ЕЩЕ РАЗ</span><%= f.password_field :password_confirmation %>
+      <%= f.fields_for @user.role ||= Role.new do |role| %>
+          <%= role.hidden_field :name, :value=>'employee' %>
+      <% end %>
+      <%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ", :class=>"submitbtn" %>
+  <% end %>

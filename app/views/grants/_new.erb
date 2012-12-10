@@ -1,0 +1,67 @@
+<%= form_for :grant, :url => {:action=>:create, :controller => :grants}, :method => :post do |f|%>
+  <span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>'name' %>
+  <div class="leftpart">
+    <span class="label">ОПИСАНИЕ</span>
+    <%= f.text_area :description %>
+    <div class="clr"></div>
+
+    <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
+    <%= f.text_field :hyperlink %>
+    <div class="clr"></div>
+
+    <span class="label">СРОКИ ПОДАЧИ ЗАЯВОК</span>
+    <div class="datesel300">
+      <%= f.datetime_select :start_date, :order=>[:day, :month, :year] %>
+    </div>
+    <div class="clr"></div>
+
+    <span class="label">СТРАНА:</span>
+
+    <div class="clr"></div>
+  </div>
+  <div class="rightpart">
+    <span class="label">ФОТО:</span>
+    <div class="photo">
+        <%= f.file_field :photo %>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="manycheck">
+    <span class="label fl">СФЕРА:</span>
+    <div class="samvup sam1 sampk">
+      <div class="all">ВСЕ</div>
+      <div class="allCats">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".catsItem").click(function () {
+                    var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
+                    if(a){
+                        $(this).find(".descripting").addClass("act");
+                    } else{
+                        $(this).find(".descripting").removeClass("act");
+                    };
+                });
+            });
+        </script>
+        <% Area.all.each do |area| %>
+            <div class="catsItem">
+              <label>
+                <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
+                <span class="descripting"><%= area.name %>L</span>
+                <div class="clr"></div>
+              </label>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="clr"></div>
+    <span class="label fl">ЦЕЛЬ:</span>
+    <div class="pchecks">
+      <span class="opl"><input type="checkbox" name="" id="">ИССЛЕДОВАТЕЛЬСКАЯ ДЕЯТЕЛЬНОСТЬ</span>
+      <span class="opl"><input type="checkbox" name="" id="">ОБУЧЕНИЕ</span>
+      <span class="opl"><input type="checkbox" name="" id="">РЕАЛИЗАЦИЯ ПРОЕКТА</span>
+      <span class="opl"><input type="checkbox" name="" id="">Любая</span>
+    </div>
+  </div>
+  <div class="add"><button type="submit">ДОБАВИТЬ</button></div>
+<% end %>

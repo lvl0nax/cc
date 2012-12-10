@@ -1,0 +1,180 @@
+<div class="headerup">
+    <div class="headerupwrap">
+    <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+    <span class="error" style="color: #ff0000; margin-left: 20%;"></span>
+    <% unless current_user %>
+        <span class="enter"><a href="#">ВОЙТИ</a></span>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".enter").click(function (e) {e.preventDefault();
+                    $("#authorization").css({'display':'block'});
+                    $(".enter").css({'visibility':'hidden'});
+                });
+            });
+        </script>
+        <%= form_for :user, :url => { :action => :create, :controller => :sessions }, :html=>{:id=>'authorization'} do |f| %>
+            <span>ЛОГИН</span>
+            <%= f.text_field :email %>
+            <span>ПАРОЛЬ</span>
+            <%= f.password_field :password %>
+            <%= f.submit "OK", :class=>"sub" %>
+            <div class="clr"></div>
+        <% end %>
+        <script>
+            (function($){
+                $('#authorization').submit(function(e){
+                    var $this = $(this);
+                    e.preventDefault();
+                    $.ajax({
+                        data: $this.serialize(),
+                        type: 'post',
+                        url: $this.attr('action'),
+                        dataType: 'json',
+                        error: function(jqXHR, textStatus, errorThrown){
+                            $(".error").html($.parseJSON(jqXHR.responseText).error);
+                        }
+                    }).done(function(result){
+                                if(result) window.location = window.location;
+                            });
+                });
+            })
+                    (jQuery);
+        </script>
+    <% else %>
+        <%= link_to "ВЫХОД", sign_out_path %>
+        <% if current_user.resume? && current_user.resume.photo? %>
+            <%= link_to crop_resume_path(current_user.id), :class => 'fix_for_menu' do%>
+                <%= image_tag current_user.resume.photo.url(:thumb), :class => 'photo_login', :style=>'max-width:80px;' %>
+            <% end %>
+        <% else %>
+            <%= link_to crop_resume_path(current_user.id) do%>
+                <%= image_tag "/assets/nophoto.jpg", :class => 'photo_login', :style=>'max-width:80px;' %>
+            <% end %>
+        <% end %>
+        <%= link_to "ИНТЕРЕСУЮЩИЕ СФЕРЫ", areas_path, :class => 'header2menuitem2' %>
+        <% if current_user.role.try(:name) == 'employer' %>
+            <% if current_user.compinfo %>
+              <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", current_user, :class=>'header2menuitem3' %>
+            <% else %>
+              <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", new_compinfo_path, :class=>'header2menuitem3' %>
+            <% end %>
+        <% end %>
+        <% if current_user.role?(:admin) %>
+              <%= link_to current_user.role.try(:name), admin_page_path, :class => 'header2menuitem1' %>
+        <% end %>
+        <% if current_user %>
+            <% if current_user.role.try(:name) == 'employee' %>
+                  <% if current_user.resume %>
+                      <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_resume_path(current_user) , :class => 'header2menuitem3'%>
+                  <% else %>
+                      <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_resume_path(current_user), :class => 'header2menuitem3' %>
+                  <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+  </div>
+</div>
+<header>
+  <%= link_to root_path do %><%= image_tag 'logo(76x47).png', :class => 'logo' %><% end %>
+  <a href="#" class="soc socmarg"><%= image_tag 'fb.png' %></a>
+  <a href="#" class="soc"><%= image_tag 'tw.png' %></a>
+  <a href="#" class="soc"><%= image_tag 'vk.png' %></a><br>
+  <span class="city">ГОРОД: </span><a href="#">Санкт-Петербург</a>
+
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#headerWrap .reg").click(function(){
+              $(this).toggleClass('btnactiv');
+              $('.regWup').toggleClass('regWupact');
+              $('.bbg').toggleClass('bbgvisible');
+          });
+
+          $("#headerWrap .edd").click(function(){
+              $(this).toggleClass('btnactiv');
+              $('.eddWup').toggleClass('eddWupact');
+              $('.bbg').toggleClass('bbgvisible');
+          });
+      });
+  </script>
+  <% unless current_user %>
+      <button class="button reg">РЕГИСТРАЦИЯ</button>
+      <div class="regWup">
+        <div class="regUp">
+          <div class="nav navregister">
+            <div class="control">
+              <p class="controls active">компания</p>
+              <p class="controls">молодой специалист</p>
+              <div class="clr"></div>
+            </div>
+            <div class="tabsformsblock">
+              <div class="cont visible">
+                <%= render 'registrations/forms' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  <button class="button edd">ДОБАВИТЬ</button>
+  <div class="eddWup">
+    <div class="eddUp">
+      <div class="nav navadd">
+        <div class="control">
+          <p class="controls active">ГРАНТ</p>
+          <p class="controls" id="map4init">СОБЫТИЕ</p>
+          <p class="controls" id="map5init">СТАЖИРОВКУ</p>
+          <div class="clr"></div>
+        </div>
+
+        <script type="text/javascript">
+            jQuery(function () {
+                jQuery("#selectday, #selectmonth, #selectyear, #selecthour, #selectminute").selectbox();
+            });
+        </script>
+
+        <div class="tabsformsblock">
+          <div class="cont visible">
+            <%= render 'grants/new' %>
+          </div>
+          <div class="cont">
+            <%= render 'events/new' %>
+          </div>
+          <div class="cont">
+            <%= render 'trainings/new' %>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+          $(".navregister .control .controls").click(function(){
+              $(".navregister .control .controls").removeClass('active');
+              $(this).addClass('active');
+              $('.navregister .tabsformsblock .cont').removeClass('visible');
+              $('.navregister .tabsformsblock .cont').eq($(this).index()).addClass('visible');
+          });
+
+          $(".navadd .control .controls").click(function(){
+              $(".navadd .control .controls").removeClass('active');
+              $(this).addClass('active');
+              $('.navadd .tabsformsblock .cont').removeClass('visible');
+              $('.navadd .tabsformsblock .cont').eq($(this).index()).addClass('visible');
+          });
+
+          $(document).ready(function(){
+              $('.button, .tabsformsblock .cont, .nav .control .controls').click(function(event){
+                  event.stopPropagation();
+              });
+          }).click(function(){
+                      $(".regWup").removeClass('regWupact');
+                      $("#headerWrap .reg").removeClass('btnactiv');
+
+                      $(".eddWup").removeClass('eddWupact');
+                      $("#headerWrap .edd").removeClass('btnactiv');
+
+
+                      $('.bbg').removeClass('bbgvisible');
+                  });
+      </script>
+    </div>
+  </div>
+</header>

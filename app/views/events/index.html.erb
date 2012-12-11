@@ -1,178 +1,275 @@
 <div id="content">
+
 <div class="filterMain">
 
-<script language="javascript">
-    $(function(){
-        $(".fjqtrans, .catsItem, .pchecks").jqTransform();
-    });
-</script>
-
-<div class="filterStaz ffscr">
-<span class="lanelHead sizeBig"><span>Стажировки</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
-<span class="numerick"><%= Training.count %></span>
-<div class="clr"></div>
-<div class="vupad">
-<span class="naming">Сфера</span>
+<%= javascript_include_tag 'jquery.jqtransform' %>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $(".samvup .all").click(function () {
-            var a =$(this).hasClass("act");
-            if(a){
-                $(this).removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
-            } else{
-                $(this).addClass("act").next().slideDown().parents(".samvup").addClass("act");
-            }
-        });
+
+    $(function(){
+
+        $('.fjqtrans, .catsItem, .pchecks').jqTransform();
+
     });
+
 </script>
 
+<%= javascript_include_tag 'sliding' %>
+
+<div class="filterStaz ffscr">
+
+<span class="lanelHead sizeBig"><span>Стажировки</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
+
+<span class="numerick"><%= Training.count %></span>
+
+<div class="clr"></div>
+
+<div class="vupad">
+
+<span class="naming">Сфера</span>
+
+
+
 <div class="samvup sam1">
-  <div class="all">ВСЕ</div>
-  <div class="allCats">
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".catsItem").click(function () {
-                var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
-                if(a){
-                    $(this).find(".descripting").addClass("act");
-                } else{
-                    $(this).find(".descripting").removeClass("act");
-                };
-            });
+<div class="all">ВСЕ</div>
+
+<div class="allCats">
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".catsItem").click(function () {
+
+            var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
+
+            if(a){
+
+                $(this).find(".descripting").addClass("act");
+
+            } else{
+
+                $(this).find(".descripting").removeClass("act");
+
+            };
+
         });
-    </script>
-  <% Area.all.each do |area| %>
-        <div class="catsItem">
-          <label>
-            <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
-            <span class="descripting"><%= area.name %>L</span>
-            <div class="clr"></div>
-          </label>
-        </div>
-  <% end %>
-  </div>
+
+    });
+
+</script>
+<% Area.all.each do |area| %>
+<div class="catsItem">
+
+<label>
+
+  <input type="checkbox" name="grants[]" value="<%= area.id %>">
+
+  <span class="descripting"><%= area.name %></span>
+
+  <div class="clr"></div>
+
+</label>
+
 </div>
+<% end %>
+
+</div>
+
+</div>
+
 <span class="naming">Компания</span>
+
 <div class="samvup sam2">
+
   <div class="all">ВСЕ</div>
+
   <div class="allCats">
 
     <script type="text/javascript">
+
         $(document).ready(function () {
-            $(".catsItem").click(function () {
-                var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
-                if(a){
-                    $(this).find(".descripting").addClass("act");
-                } else {
-                    $(this).find(".descripting").removeClass("act");
-                }
+            $(".descripting, .jqTransformCheckbox").click(function () {
+                $(this).parents(".catsItem").find(".descripting").toggleClass("act");
             });
         });
+
     </script>
+
     <% Area.all.each do |area| %>
         <div class="catsItem">
+
           <label>
-            <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
-            <span class="descripting"><%= area.name %>L</span>
+
+            <input type="checkbox" name="grants[]" value="<%= area.id %>">
+
+            <span class="descripting"><%= area.name %></span>
+
             <div class="clr"></div>
+
           </label>
+
         </div>
     <% end %>
 
   </div>
+
 </div>
+
 <div class="clr"></div>
+
 </div>
+
 <div class="pchecks">
+
   Оплата:
+
   <span class="opl"><input type="checkbox" name="" id="">Неоплачиваемая</span>
+
   <span class="opl"><input type="checkbox" name="" id="">оплачиваемая</span>
+
 </div>
+
 </div>
+
 <div class="filterSob ffscr">
-  <span class="lanelHead sizeBig"><span>События</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
-  <span class="numerick"><%= Event.count %></span>
-  <div class="vupad">
-    <span class="naming">Сфера</span>
-    <div class="samvup sam1">
-      <div class="all">ВСЕ</div>
-        <div class="allCats">
-          <% Area.all.each do |area| %>
-              <div class="catsItem">
-                <label>
-                  <input type="checkbox" name="<%=area.id%>" id="area-<%=area.id%>">
-                  <span class="descripting"><%= area.name %></span>
-                  <div class="clr"></div>
-                </label>
-              </div>
-          <% end %>
+
+<span class="lanelHead sizeBig"><span>События</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
+
+<span class="numerick">15</span>
+
+<div class="vupad">
+
+<span class="naming">Сфера</span>
+
+<div class="samvup sam1">
+
+  <div class="all">ВСЕ</div>
+
+  <div class="allCats">
+
+    <% Area.all.each do |area| %>
+        <div class="catsItem">
+
+          <label>
+
+            <input type="checkbox" name="grants[]" value="<%= area.id %>">
+
+            <span class="descripting"><%= area.name %></span>
+
+            <div class="clr"></div>
+
+          </label>
+
         </div>
-    </div>
-    <div class="pchecks">
-      <span class="opl"><input type="checkbox" name="" id="">Научные конференции</span>
-      <span class="opl"><input type="checkbox" name="" id="">Карьерные события</span>
-    </div>
-    <div class="clr"></div>
+    <% end %>
+
   </div>
+
 </div>
+
+<div class="pchecks">
+
+  <span class="opl"><input type="checkbox" name="" id="">Научные конференции</span>
+
+  <span class="opl"><input type="checkbox" name="" id="">Карьерные события</span>
+
+</div>
+
+<div class="clr"></div>
+
+</div>
+
+</div>
+
 <div class="filterGran ffscr">
-  <span class="lanelHead sizeBig"><span>Гранты</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
-  <span class="numerick"><%= Grant.count %></span>
-  <div class="pchecks">
-    <span class="naming">Науки</span>
-    <div class="samvup sam12">
-      <div class="all">ВСЕ</div>
-      <div class="allCats">
-        <% Grant.directions.each do |dir| %>
-            <div class="catsItem">
-              <label>
-                <input type="checkbox" name="<%=dir%>" id="area-<%=dir%>">
-                <span class="descripting"><%= dir %></span>
-                <div class="clr"></div>
-              </label>
+
+<span class="lanelHead sizeBig"><span>Гранты</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
+
+<span class="numerick"><%= Grant.count %></span>
+<div class="vupad">
+
+  <span class="naming">Сфера</span>
+
+  <div class="samvup sam1">
+
+    <div class="all">ВСЕ</div>
+
+    <div class="allCats">
+
+      <% Area.all.each do |area| %>
+          <div class="catsItem">
+
+            <label>
+
+              <input type="checkbox" name="grants[]" value="<%= area.id %>">
+
+              <span class="descripting"><%= area.name %></span>
+
+              <div class="clr"></div>
+
+            </label>
+
+          </div>
+      <% end %>
+
+    </div>
+
+  </div>
+
+  <div class="clr"></div>
+
+</div>
+
+<div class="pchecks" style="left:0;">
+  Цели
+  <span class="opl"><input type="checkbox" name="" id="">Цель 1</span>
+  <span class="opl"><input type="checkbox" name="" id="">Цель 2</span>
+  <span class="opl"><input type="checkbox" name="" id="">Цель 3</span>
+  <span class="opl"><input type="checkbox" name="" id="">Цель 4</span>
+  <span class="opl"><input type="checkbox" name="" id="">Цель 5</span>
+  <span class="opl"><input type="checkbox" name="" id="">Цель 6</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="clr"></div>
+
+<div class="monih12">
+  <% months =  %w[jan feb mar apr may june july aug sept oct nov dec] %>
+  <% months.each_with_index do |month, index| %>
+      <div class="moncon">
+        <%
+           grant = Grant.month(index + 1)
+           if grant.nil? %>
+            <%= image_tag month + '.png', :class=>"w203" %>
+        <% else %>
+            <div class="monthcont bla">
+
+              <span><%= grant.start_date.strftime("%d %b %y") %></span>
+
+              <span class="spright">грант</span>
+
+              <img src="images/contimg4.png" alt="">
+
+              <span><%= grant.nation %></span>
+
+              <span class="spright"><%= grant.start_date.strftime("%H:%M") %></span>
+
+              <span class="spsize"><%= grant.title %></span>
+
             </div>
         <% end %>
       </div>
-    </div>
-  </div>
-</div>
-</div>
-<div class="clr"></div>
-<div class="monih12">
-  <% months = %w[jan.png feb.png mar.png apr.png may.png june.png july.png aug.png sept.png oct.png nov.png dec.png] %>
-  <% months.each do |month| %>
-      <div class="moncon">
-        <img src="images/<%=month%>" alt="" class="w203">
-      </div>
   <% end %>
-
-<script type="text/javascript" language="javascript">
-    $(".moncon").click(function () {
-        google_maps();
-        google_maps2();
-        google_maps3();
-
-        $('.pk_popup').css({'display':'none'});
-        $(this).children(".pk_popup").fadeIn(600);
-        var w = ($(this).children(".pk_popup").width())/2;
-        $(this).children(".pk_popup").css({'margin-top':-w});
-    });
-
-    $(".close_popup").click(function () {
-        $(this).parent(".pk_popup").fadeOut(600);
-    });
-
-    $(document).ready(function(){
-        $('.pk_popup, .moncon').click(function(event){
-            event.stopPropagation();
-        });
-    }).click(function(){
-                $('.pk_popup').fadeOut(200);
-            });
-</script>
 </div>
+
 <div class="clr"></div>
+
 <div class="clr"></div>
+
 </div>

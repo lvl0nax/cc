@@ -73,4 +73,10 @@ class Grant
     logger.debug t
     return t
   end
+
+  def self.month(index, options = nil)
+    now = DateTime.now.to_date.change(:month => index)
+    self.where(:start_date => {'$gte' => now.beginning_of_month, '$lt' => now.end_of_month}).first
+  end
+
 end

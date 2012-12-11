@@ -1,51 +1,3 @@
-.headerup .headerupwrap #authorization {
-    height: 21px;
-    padding-bottom: 3px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    z-index: 1000;
-    display: none;
-}
-.headerup .headerupwrap #authorization span {
-    margin: 0px;
-    font-weight: bold;
-}
-.headerup .headerupwrap #authorization input {
-    width: 100px;
-    height: 18px;
-    padding: 0px 3px;
-    margin: 0px;
-    margin-bottom: 4px;
-    border: 1px solid #cccccc;
-}
-.headerup .headerupwrap #authorization .sub {
-    width: 50px;
-    height: 18px;
-    line-height: 18px;
-    text-align: center;
-    border: 1px solid #000;
-    background: none;
-    font-weight: bold;
-}
-.headerup .headerupwrap #authorization .sub:hover {
-    color: #fff;
-    border: 1px solid #fff;
-    cursor: pointer;
-}
-.headerup .headerupwrap a {
-    line-height: 24px;
-    border-left: 1px solid black;
-    padding: 0 5px;
-    font-size: 12px;
-    float: right;
-}
-.photo_login {
-    float: right;
-}
-.fix_for_menu{
-    border-left: none !important;
-}
 /*===============================================*/
 /*   Mixu  */
 /*===============================================*/
@@ -337,8 +289,6 @@ a.jqTransformChecked {
     height: 19px;
     position: relative;
     width: 37px;
-    display: inline-block;
-    top: 7px;
 }
 .sbHolder .sbSelector {
     width: 35px;
@@ -488,6 +438,41 @@ a.jqTransformChecked {
 }
 .headerup .headerupwrap span.enter a {
     border-left: none;
+}
+.headerup .headerupwrap #autorization {
+    height: 21px;
+    padding-bottom: 3px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 1000;
+    display: none;
+}
+.headerup .headerupwrap #autorization span {
+    margin: 0px;
+    font-weight: bold;
+}
+.headerup .headerupwrap #autorization input {
+    width: 100px;
+    height: 18px;
+    padding: 0px 3px;
+    margin: 0px;
+    margin-bottom: 4px;
+    border: 1px solid #cccccc;
+}
+.headerup .headerupwrap #autorization .sub {
+    width: 50px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border: 1px solid #000;
+    background: none;
+    font-weight: bold;
+}
+.headerup .headerupwrap #autorization .sub:hover {
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
 }
 .headerup .headerupwrap a {
     line-height: 24px;
@@ -698,11 +683,13 @@ header a:hover {
     background-image: url("../images/wbg.png");
     background-repeat: repeat;
     background-position: 0 0;
-    position: fixed;
+    /* position:fixed; */
+
+    position: absolute;
     left: 50%;
     z-index: 555;
     margin-left: -310px;
-    top: 50%;
+    top: 710px;
 }
 .pk_popup .close_popup {
     width: 17px;
@@ -1079,6 +1066,9 @@ header a:hover {
     font-size: 12px;
     color: #354242;
 }
+#celendar_content .month_title .title_wrap:hover {
+    cursor: pointer;
+}
 #celendar_content .month_info {
     width: 850px;
     margin: 0 auto;
@@ -1433,7 +1423,6 @@ header a:hover {
     color: #77a48b;
 }
 .filterMain .filterGran {
-    height: 40px;
     padding: 10px;
     background: url(../images/grantu_bg.png);
     margin-bottom: 5px;
@@ -1461,6 +1450,103 @@ header a:hover {
     top: 4px;
     left: -6px;
 }
+.filterMain .filterGran .vupad {
+    margin-bottom: 10px;
+}
+.filterMain .filterGran .vupad span.naming {
+    color: white;
+    font-size: 12px;
+    display: inline-block;
+    text-transform: uppercase;
+    float: left;
+    line-height: 14px;
+    padding-right: 5px;
+}
+.filterMain .filterGran .vupad .sam1 {
+    width: 363px;
+}
+.filterMain .filterGran .vupad .sam1 .all {
+    background-image: url(../images/arrdwn.png);
+    background-position: 342px 4px;
+    background-repeat: no-repeat;
+}
+.filterMain .filterGran .vupad .sam1.act {
+    box-shadow: 2px 2px 3px -1px #eeeeee;
+    width: 361px;
+    border: 1px solid #c9db57;
+}
+.filterMain .filterGran .vupad .sam2 {
+    width: 329px;
+}
+.filterMain .filterGran .vupad .sam2 .all {
+    background-image: url(../images/arrdwn.png);
+    background-position: 306px 4px;
+    background-repeat: no-repeat;
+}
+.filterMain .filterGran .vupad .sam2.act {
+    box-shadow: 2px 2px 3px -1px #eeeeee;
+    width: 327px;
+    border: 1px solid #c9db57;
+}
+.filterMain .filterGran .vupad .sam2 span.descripting {
+    width: 293px !important;
+}
+.filterMain .filterGran .vupad .samvup {
+    margin-right: 5px;
+    display: inline-block;
+    float: left;
+    height: 15px;
+    background: white;
+    position: relative;
+}
+.filterMain .filterGran .vupad .samvup .all {
+    color: #77a48b;
+    width: 100%;
+    height: 15px;
+    line-height: 15px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.filterMain .filterGran .vupad .samvup .all.act {
+    background-image: url(../images/arrup.png);
+}
+.filterMain .filterGran .vupad .samvup .all.act:hover {
+    background-image: url(../images/arruph.png);
+}
+.filterMain .filterGran .vupad .samvup .all:hover {
+    background-image: url(../images/arrdwnh.png);
+}
+.filterMain .filterGran .vupad .samvup .allCats {
+    box-shadow: 2px 2px 3px -1px #eeeeee;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background: white;
+    text-transform: none;
+    border: 1px solid #c9db57;
+    border-top: none;
+    left: -1px;
+    display: none;
+}
+.filterMain .filterGran .vupad .samvup .allCats .catsItem {
+    padding: 7px;
+    min-height: 11px;
+}
+.filterMain .filterGran .vupad .samvup .allCats .catsItem span.descripting {
+    color: #354242;
+    font-size: 11px;
+    float: right;
+    width: 330px;
+    display: inline-block;
+    line-height: 14px;
+    cursor: pointer;
+}
+.filterMain .filterGran .vupad .samvup .allCats .catsItem span.descripting.act {
+    color: #77a48b;
+}
 .sampk {
     width: 476px;
     float: right !important;
@@ -1482,6 +1568,33 @@ header a:hover {
 }
 .sampk span.descripting {
     width: 424px !important;
+}
+.sampkl {
+    width: 476px;
+    float: left !important;
+    margin-right: 0 !important;
+    margin-top: 5px;
+    margin-left: 23px;
+}
+.sampkl .all {
+    background-image: url(../images/arrdwn.png);
+    background-position: 445px 4px;
+    background-repeat: no-repeat;
+}
+.sampkl.act {
+    box-shadow: 2px 2px 3px -1px #eeeeee;
+    width: 490px;
+    border: 1px solid #c9db57;
+}
+.sampkl .jqTransformCheckboxWrapper {
+    float: left !important;
+}
+.sampkl span.descripting {
+    width: 424px !important;
+}
+.countpk {
+    width: 300px;
+    margin-left: 17px;
 }
 .samvup {
     margin-right: 5px;
@@ -1703,12 +1816,6 @@ header a:hover {
     padding: 2px 5px;
     margin-bottom: 5px;
 }
-.navadd form .leftpart .datesel300 {
-    float: right;
-    width: 321px;
-    margin-bottom: 5px;
-    margin-right: -7px;
-}
 .navadd form .leftpart .siteaddress {
     float: right;
     width: 282px;
@@ -1859,8 +1966,15 @@ form .regtype img {
 .input_info .tv_sizeBig > span {
     float: left;
 }
+.input_info .tv_sizeBig:hover {
+    background: #cccccc;
+}
 .input_info .info_row {
     padding-top: 5px;
+    padding-bottom: 5px;
+}
+.input_info .info_row:hover {
+    background: #cccccc;
 }
 .input_info .info_row span {
     float: left;
@@ -1927,10 +2041,6 @@ form .regtype img {
 }
 .input_info .info_row button:hover {
     color: #fff;
-}
-
-.input_info #change_password{
-    cursor: pointer;
 }
 .persinalInformation .pi {
     border-bottom: 1px solid #c6d857;

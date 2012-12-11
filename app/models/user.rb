@@ -194,7 +194,7 @@ class User
                    :username => access_token.info.name, 
                    # :name => access_token.info.name, 
                    :nickname => access_token.extra.raw_info.domain, 
-                   :email => access_token.extra.raw_info.domain+'@vk.com', 
+                   :email => access_token.extra.raw_info.domain+'@vk.com',
                    :password => Devise.friendly_token[0,20],
                    :role => Role.new(:name => role)
       )

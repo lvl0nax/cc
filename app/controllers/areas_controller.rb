@@ -1,9 +1,11 @@
+#encoding: UTF-8
 class AreasController < ApplicationController
   before_filter :admin_only, :except => [:index, :list, :add_to_user]
 
   # GET /areas
   # GET /areas.json
   def index
+    @title = "Интересующие сферы"
     return redirect_to root_path unless current_user
     @areas = Area.all
     @myareas = current_user.area_ids

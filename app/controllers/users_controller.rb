@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   end
 
   def userevents
+    @title = "Мой календарь"
     @user = User.find(params[:id])
     @evnts = @user.created_actions
     respond_to do |format|

@@ -1,63 +1,69 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML>
 <html lang="en-US">
 <head>
   <meta charset="UTF-8" />
-  <title><%= title %></title>
-  <!--main css was generated with less-->
-  <%= stylesheet_link_tag 'style' %>
-  <%= stylesheet_link_tag 'fonts/fonts' %>
-  <%= csrf_meta_tag %>
-  <!-- main JS library.-->
-  <%= javascript_include_tag 'application' %>
-  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script>
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-      fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-</head>
-<body>
-<% if flash[:register] %>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#popup-wrap').html('<div class="flash">Регистрация успешно завершена. Пожалуйста заполните поля профиля</div>').center().click(function () {$(this).hide();}
-            );
-            $(document).click(function() {$('#popup-wrap').hide()});
-        });
-    </script>
-    <% flash[:register] = nil %>
-<% end %>
-<div class="bbg"></div>
-<div id="wrapper">
-<div id="headerWrap">
 
-<%= render 'layouts/header'%>
-<div class="clr"></div>
-</div>
+  <title><%=title%></title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'jquery' %>
+  <%= csrf_meta_tag %>
+  <!--TODO: Uncomment this in production-->
+  <!--<script type="text/javascript" src="//vk.com/js/api/openapi.js?72"></script>-->
+  <script type="text/javascript">
+      (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=true" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div class="bbg"></div>
+
+<div id="wrapper">
+
+<%= render 'layouts/header' %>
+
 <%= yield %><!--content-->
+
 </div>
+
 <div id="footerWrap">
+
   <footer>
+
     <p class="footcont">Этот сайт посвящен Центру Карьеры – центру, который организует всевозможные мероприятия для поиска работы и стажировки в ведущих компаниях города Петербурга, Москвы и других городах России, различные семинары и тренинги для успешной карьеры в любой сфере.</p>
+
     <div class="clr"></div>
+
   </footer>
+
   <div class="footdown">
+
     <div class="footdownwrap">
+
       <ul>
-        <% Page.all.each do |page| %>
-            <% if page.visible == true %>
-                <%= link_to page.title, page %>
-            <% end %>
+        <% Page.visible.each do |page| %>
+            <li>
+            <%= link_to page.title, page %>
+            </li>
         <% end %>
       </ul>
+
     </div>
+
   </div>
+
 </div>
-<div id="popup-wrap"><div class="popup-top"></div><div class="popup-content"></div><div class="for_clear"></div></div>
-<div id="overlay"></div>
+
 </body>
+
 </html>

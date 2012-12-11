@@ -6,7 +6,7 @@ TestMongoid::Application.routes.draw do
 
   get "omniauth_callbacks/facebook"
 
- # get "omniauth_callbacks/vkontakte"
+  #get "omniauth_callbacks/vkontakte"
 
   mount TinymceFm::Engine => "/tinymce_fm"
   resources :months
@@ -64,7 +64,7 @@ TestMongoid::Application.routes.draw do
     resources :resumes
     resources :compinfos
   end
-  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   get "/profile" => "users#show"
 

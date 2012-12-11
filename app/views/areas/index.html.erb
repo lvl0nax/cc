@@ -1,4 +1,5 @@
 <div id="content">
+
   <div id="sphere_used">
     <% current_user.areas.each do |area| %>
         <div class="su">
@@ -22,6 +23,7 @@
 
     <div class="clr"></div>
   </div>
+  <%= javascript_include_tag 'jquery.jqtransform' %>
   <script language="javascript">
       $(function(){
           $('#sphere_available, .fjqtrans, .catsItem, .pchecks').jqTransform();

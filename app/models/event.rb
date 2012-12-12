@@ -1,13 +1,10 @@
 # -*- encoding : utf-8 -*-
-class Event
-  include Mongoid::Document
-  include Mongoid::MultiParameterAttributes
+class Event < EventParent
+
   #has_many :requests, as: :requestable
   #belongs_to :user
   has_and_belongs_to_many :users#, class_name: "User", inverse_of: :evactivity
 
-  field :title
-  field :description
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions for registrations to the event
   field :areas # area for examples IT, buildings and etc
@@ -17,11 +14,12 @@ class Event
   field :street
   field :building
   field :place
-  field :status
   field :direction, :type => Array
-  field :start_date, :type => DateTime
   field :end_date, :type => DateTime
+  field :tmp_date, :type => DateTime
+  field :tmp_end_date, :type => DateTime
   field :request_date, :type => DateTime
+  field :request_hour, :type => DateTime
   field :kind
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
@@ -85,21 +83,28 @@ class Event
     end
     areas << ""
     t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all #TODO: select events from current date to year later
-    # if event_kinds
-    #   event_kinds[:kind].delete("")
-    #   #event_kinds[:kind]
       t = t.any_in(:kind => ["НАУЧНАЯ КОНФЕРЕНЦИЯ", "КАРЬЕРНОЕ СОБЫТИЕ", ""])
-      logger.debug "++++++++++++++++++++++++++++++++"
-      logger.debug t
-    # end
-    # if areas
-    #   areas[:areas].delete("")
       t = t.any_in(:areas => areas) unless (Area.exists?)
-    # end
-    logger.debug "**********************************"
-    logger.debug t
     return t
   end
 
+  def tmp_date=(params)
+    self.start_date = self.start_date.change(:hour=>params.to_datetime.hour,
+                                             :min=>params.to_datetime.min)
+    self.end_date = DateTime.new
+    self.end_date = self.end_date.change(:year => self.start_date.year,
+                                         :month => self.start_date.month,
+                                         :day => self.start_date.day)
+  end
+
+  def tmp_end_date=(params)
+    self.end_date = self.end_date.change(:hour => params.to_datetime.hour,
+                                         :min => params.to_datetime.min)
+  end
+
+  def request_hour=(params)
+    self.request_date = self.request_date.change(:hour => params.to_datetime.hour,
+                                                 :min => params.to_datetime.min)
+  end
 
 end

@@ -1,22 +1,17 @@
-# 3-*- encoding : utf-8 -*-
-class Grant
-  include Mongoid::Document
-  include Mongoid::MultiParameterAttributes
+# encoding: utf-8
+class Grant < EventParent
+
   has_many :requests, as: :requestable
   has_and_belongs_to_many :users #participants, class_name: "User", inverse_of: :gractivity
   #belongs_to :user
-  field :title
 
   field :owner
-  field :description
   field :nation
   field :hyperlink, :type => String # Link to external site with/without registration to event
-  field :start_date, :type => DateTime
   field :end_date, :type => DateTime
   field :request_date, :type => DateTime  
   field :direction, :type => Array
   field :end_point, :type => Array
-  field :status
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
 
@@ -50,8 +45,6 @@ class Grant
   # FIELD - Place of the owner-company field
   # FIELD - Date and time fields for the event and end of registration
   # FIELD - date when everebody can see results
-  #
-  #
   # VALIDATIONS - required fields
   def self.search(areas)
     now = DateTime.now
@@ -74,9 +67,10 @@ class Grant
     return t
   end
 
-  def self.month(index, options = nil)
-    now = DateTime.now.to_date.change(:month => index)
-    self.where(:start_date => {'$gte' => now.beginning_of_month, '$lt' => now.end_of_month}).first
+  def end_date=(params)
+     self.start_date = self.start_date.change(:hour=>params.to_datetime.hour,
+                                              :min=>params.to_datetime.min)
   end
+
 
 end

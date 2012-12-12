@@ -9,13 +9,19 @@ TestMongoid::Application.routes.draw do
   #get "omniauth_callbacks/vkontakte"
 
   mount TinymceFm::Engine => "/tinymce_fm"
-  resources :months
+
+  resources :months do
+    collection do
+      post 'update_calendar'
+    end
+  end
 
   resources :areas do
     collection do
       post 'add_to_user'
       get 'list'
       delete 'remove_from_user'
+
     end
   end
 
@@ -64,6 +70,8 @@ TestMongoid::Application.routes.draw do
     resources :resumes
     resources :compinfos
   end
+
+  get "valid" => "users#valid"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   get "/profile" => "users#show"

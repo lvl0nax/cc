@@ -1,25 +1,26 @@
-<h1>Выбор аватара</h1>
+<div id="content">
+    <h1>Выбор аватара</h1>
+    <%= javascript_include_tag 'jquery.Jcrop.min' %>
+    <%= javascript_include_tag 'jquery.color' %>
+    <%= javascript_include_tag 'jquery.uniform.min' %>
+    <%= javascript_include_tag 'resume' %>
+    <%= image_tag @resume.photo.url(:large), id: "cropbox" %>
+
+    <%= simple_form_for @resume do |f| %>
+
+        <div id="resume">
+            <p>
+            <%= f.input :photo, :label => "АВАТАР"  %>
+            </p>
+        </div>
 
 
 
-<%= image_tag @resume.photo.url(:large), id: "cropbox" %>
-
-
-
-<%= simple_form_for @resume do |f| %>
-
-	<div id="resume">
-		<p>
-	    <%= f.input :photo, :label => "АВАТАР"  %>
-		</p>
-	</div>
-
-
-
-  <% %w[x y w h].each do |attribute| %>
-    <%= f.hidden_field "crop_#{attribute}" %>
-  <% end %>
-  <div class="actions">
-    <%= f.submit "Сохранить" %>
-  </div>
-<% end %>
+      <% %w[x y w h].each do |attribute| %>
+        <%= f.hidden_field "crop_#{attribute}" %>
+      <% end %>
+      <div class="actions">
+        <%= f.submit "Сохранить" %>
+      </div>
+    <% end %>
+</div>

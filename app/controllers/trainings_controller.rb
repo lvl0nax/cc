@@ -45,6 +45,7 @@ class TrainingsController < ApplicationController
   # POST /trainings.json
   def create
     @training = Training.create(params[:training])
+    puts @training.errors.inspect
     @training.write_attributes(owner: current_user.id) unless current_user.nil?
     puts @training.to_yaml
     respond_to do |format|

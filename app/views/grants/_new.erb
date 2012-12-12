@@ -6,29 +6,31 @@
     <div class="clr"></div>
 
     <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
-    <%= f.text_field :hyperlink %>
+    <%= f.text_field :hyperlink, :class => "siteaddress" %>
     <div class="clr"></div>
 
     <span class="label">СРОКИ ПОДАЧИ ЗАЯВОК</span>
     <div class="datesel300">
-      <%= f.datetime_select :start_date, :order=>[:day, :month, :year] %>
+      <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
+      <span style="margin: 0 8px">ДО</span>
+      <%= f.time_select :end_date %>
     </div>
     <div class="clr"></div>
 
     <span class="label">СТРАНА:</span>
-
+    <%= f.text_field :country, :class => "countpk" %>
     <div class="clr"></div>
   </div>
   <div class="rightpart">
     <span class="label">ФОТО:</span>
     <div class="photo">
-        <%= f.file_field :photo %>
+        <%= image_tag "photo.png" %>
     </div>
   </div>
   <div class="clr"></div>
   <div class="manycheck">
     <span class="label fl">СФЕРА:</span>
-    <div class="samvup sam1 sampk">
+    <div class="samvup sam1 sampkl">
       <div class="all">ВСЕ</div>
       <div class="allCats">
         <script type="text/javascript">
@@ -57,10 +59,11 @@
     <div class="clr"></div>
     <span class="label fl">ЦЕЛЬ:</span>
     <div class="pchecks">
-      <span class="opl"><input type="checkbox" name="" id="">ИССЛЕДОВАТЕЛЬСКАЯ ДЕЯТЕЛЬНОСТЬ</span>
-      <span class="opl"><input type="checkbox" name="" id="">ОБУЧЕНИЕ</span>
-      <span class="opl"><input type="checkbox" name="" id="">РЕАЛИЗАЦИЯ ПРОЕКТА</span>
-      <span class="opl"><input type="checkbox" name="" id="">Любая</span>
+      <% Grant.directions.each do |direction| %>
+      <span class="opl">
+        <input type="radio" value="<%= direction %>" name="grant[direction]"/><%= direction %>
+      </span>
+      <% end %>
     </div>
   </div>
   <div class="add"><button type="submit">ДОБАВИТЬ</button></div>

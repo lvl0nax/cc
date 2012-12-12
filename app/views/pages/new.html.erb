@@ -1,5 +1,7 @@
-<h1>Новая страница</h1>
+<%= tinymce_javascript_tag "pages", "advanced" %>
+<div id="content">
+	<h1>Новая страница</h1>
+	<%= render 'form' %>
+	<%= link_to 'К списку страниц', pages_path %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'К списку страниц', pages_path %>

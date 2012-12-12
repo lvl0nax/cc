@@ -1,65 +1,31 @@
 # -*- encoding : utf-8 -*-
 require 'will_paginate/array'
 class EventsController < ApplicationController
-  #layout "applicatiwon"
-  # GET /events
-  # GET /events.json
+
   load_and_authorize_resource
 
   def index
-    # TODO: where date more or equal now
-    flash.keep
-    now = DateTime.now
-    @items = []
-    @items.clear
-    event_conditions = []
-    if params[:trainings] || params[:events] || params[:grants]
-      if params[:events]  
-        @items.concat( Event.search(params[:event_kinds], params[:event_areas]).to_a)
-      end
-      if params[:grants]
-        @items.concat( Grant.search(params[:grant_areas]).to_a)
-      end
-      if params[:trainings]
-        @items.concat( Training.search(params[:training_salary_type], params[:training_areas]).to_a)
-      end  
-    else  
-      
-      # @items.concat( Event.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
-      @items.concat( Event.isearch.to_a)
-      
-      # @items.concat( Grant.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
-      @items.concat( Grant.isearch.to_a)
-
-      # @items.concat( Training.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
-      @items.concat( Training.isearch.to_a)
-      
-      #@items.concat( Training.where(:start_date.gte => now).to_a)
-      
-    end    
-
-    months = Month.all.to_a.keep_if do |m|
-      @items.any? { |a| a.start_date.month.to_i == m.number }
-    end
-    @items.concat(months)        
-
-    unless @items.blank?
-      @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
-
-      unless params[:month].blank?
-        @items.select! do |i| 
-          i.start_date.month.to_i == params[:month].to_i && i.start_date.year.to_i == params[:year].to_i 
+  @events = []
+  years = %w[2012 2013]
+  years.each do |year|
+      months =  %w[jan feb mar apr may june july aug sept oct nov dec]
+      months.each_with_index do |month, index|
+        Grant.month(index, year.to_i).each do |grant|
+          @events << grant
         end
-        @items.unshift Month.where(:number => params[:month]).first if @items.length < 1
+
+        Event.month(index, year.to_i).each do |event|
+          @events << event
+        end
+
+        Training.month(index, year.to_i).each do |training|
+          @events << training
+        end
+
+        @events << Month.new(:number=>index, :name=>month)
       end
-    end    
-
-    @items = @items.paginate(:page => params[:page], :per_page => 12)
-    
-    # @events, @trainings, @grants = [Event, Training, Grant].map do |clazz|
-    #   clazz.paginate(:page => params[clazz.to_s.downcase + "_page"], :order => 'start_date')
-    # end
-
+  end
+    @events = @events.paginate(:page => params[:page], :per_page => 12)
 
     respond_to do |format|
       format.html

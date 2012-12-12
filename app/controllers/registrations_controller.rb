@@ -25,7 +25,9 @@ class RegistrationsController < Devise::RegistrationsController
         @user.compinfo = Compinfo.new(params[:user][:compinfo]) if role == "employer"
       end
 
+
       flash[:register] = true
+
     else
       raise "ERROR! incorrect user params!"
     end
@@ -52,5 +54,7 @@ class RegistrationsController < Devise::RegistrationsController
       redirect_to root_path 
     end
   end
+
+  
 
 end

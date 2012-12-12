@@ -4,7 +4,7 @@
 
   <div class="headerupwrap">
 
-    <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+    <!--<div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>-->
 
     <!-- TODO: Uncomment this in production -->
     <!--<div style="display: inline;" id="vk_like"></div>-->
@@ -31,7 +31,7 @@
         </script>
 
         <%= form_for :user, :url => { :action => :create, :controller => :sessions }, :html=>{:id=>'autorization'} do |f| %>
-            <%= f.label :email, 'ЛОГИН'%>>
+            <%= f.label :email, 'ЛОГИН'%>
             <%= f.text_field :email %>
             <%= f.label :password, 'ПАРОЛЬ' %>
             <%= f.password_field :password %>
@@ -60,8 +60,13 @@
         </script>
     <% else %>
         <%= link_to  'ВЫХОД', sign_out_path, :class=>'logouth2' %>
-        <img class="photo_login" src="images/foto.png" alt="">
-        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_resume_path(current_user) , :class => 'header2menuitem3'%>
+        <% if current_user.resume? && current_user.resume.photo? %>
+            <%= image_tag current_user.resume.photo.url(:thumb), :class=>'photo_login' %>
+        <% else %>
+            <%= image_tag "/assets/nophoto.jpg", :class=>'photo_login' %>
+        <% end %>
+        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_resume_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employee'%>
+        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_compinfo_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employer'%>
         <%= link_to 'интересующие сферы', areas_path, :class=>"header2menuitem2" %>
         <%= link_to userevents_user_path(current_user.id),  :class=>"header2menuitem1" do %>
             мой календарь
@@ -178,69 +183,7 @@
           <div class="tabsformsblock">
 
             <div class="cont visible">
-
-              <form>
-
-                <span>НАЗВАНИЕ КАМПАНИИ</span><input type="text">
-
-                <span>ЛОГОТИП</span><img src="images/formlogobg.png" class="yourlogo" alt="">
-
-                <div class="clr"></div>
-
-                <span>ГОРОД</span><input type="text">
-
-                <span>УЛИЦА</span><input type="text">
-
-                <span>ДОМ</span><input type="text">
-
-                <span class="spanmin">КОНТАКТНАЯ  ИФНОМРАЦИЯ</span><input type="text">
-
-                <span>ССЫЛКА НА САЙТ</span><input type="text">
-
-                <span>E-MAIL</span><input type="text">
-
-                <br>
-
-                <br>
-
-                <br>
-
-                <span>ПАРОЛЬ</span><input type="password">
-
-                <span>ПАРОЛЬ ЕЩЕ РАЗ</span><input type="password">
-
-                <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ" class="submitbtn">
-
-              </form>
-
-            </div>
-
-            <div class="cont">
-
-              <form>
-
-                <div class="regtype">
-
-                  регистрация через <a href=""><img src="images/facebook2.png" alt="" /></a><a href=""><img src="images/vkontakte.png" alt="" /></a>
-
-                </div>
-
-                <span>ИМЯ</span><input type="text">
-
-                <span>ФАМИЛИЯ</span><input type="text">
-
-                <span>ГОРОД</span><input type="text">
-
-                <span>E-MAIL</span><input type="text">
-
-                <span>ПАРОЛЬ</span><input type="password">
-
-                <span>ПАРОЛЬ ЕЩЕ РАЗ</span><input type="password">
-
-                <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ" class="submitbtn">
-
-              </form>
-
+              <%= render 'registrations/forms'%>
             </div>
 
           </div>
@@ -252,9 +195,7 @@
     </div>
 
 <% end %>
-
 <button class="button edd<%= ' edd_header_2' if current_user %>">ДОБАВИТЬ</button>
-
 <div class="eddWup">
 
 <div class="eddUp">
@@ -279,7 +220,7 @@
 
     jQuery(function () {
 
-        jQuery("#selectday, #selectmonth, #selectyear, #selecthour, #selectminute").selectbox();
+        jQuery("#selectday, #selectmonth, #selectyear, #selecthour, #selectminute, #grant_start_date_1i, #grant_start_date_2i, #grant_start_date_3i").selectbox();
 
     });
 
@@ -290,14 +231,15 @@
 <div class="tabsformsblock">
 
 <div class="cont visible">
+  <%= render 'grants/new'%>
 </div>
 
 <div class="cont">
-    <%= render 'events/new' %>
+  <%= render 'events/new'%>
 </div>
 
 <div class="cont">
-
+  <%= render 'trainings/new'%>
 </div>
 
 </div>

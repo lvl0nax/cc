@@ -1,14 +1,10 @@
 # -*- encoding : utf-8 -*-
-class Training
-  include Mongoid::Document
-  include Mongoid::MultiParameterAttributes
+class Training < EventParent
   #belongs_to :user
   #has_many :requests, as: :requestable
   has_and_belongs_to_many :users #participants, class_name: "User", inverse_of: :tractivity
   #belongs_to :user
 
-  field :title
-  field :description
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions
   field :owner # User_id
@@ -17,13 +13,14 @@ class Training
   field :street
   field :building
   field :place
-  field :start_date, :type => DateTime
   field :end_date, :type => DateTime
+  field :tmp_date, :type => DateTime
+  field :tmp_end_date, :type => DateTime
   field :request_date, :type => DateTime #, :type => Array
+  field :request_hour, :type => DateTime
   field :areas
   field :employment
   field :salary_type
-  field :status
   field :direction, :type => Array
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
@@ -102,10 +99,25 @@ class Training
   def user
     User.where(id: self.owner).first
   end
-  #def end_date=(params)
-  #  puts params.to_yaml
-  #  #self.end_date.year = self.start_date.year
-  #  #self.end_date.month = self.start_date.month
-  #  #self.end_date.day = self.start_date.day
-  #end
+
+  def tmp_date=(params)
+    self.start_date = self.start_date.change(:hour=>params.to_datetime.hour,
+                                             :min=>params.to_datetime.min)
+    self.end_date = DateTime.new
+    self.end_date = self.end_date.change(:year => self.start_date.year,
+                                         :month => self.start_date.month,
+                                         :day => self.start_date.day)
+  end
+
+  def tmp_end_date=(params)
+    self.end_date = self.end_date.change(:hour => params.to_datetime.hour,
+                                         :min => params.to_datetime.min)
+  end
+
+  def request_hour=(params)
+    self.request_date = self.request_date.change(:hour => params.to_datetime.hour,
+                                                 :min => params.to_datetime.min)
+  end
+
+
 end

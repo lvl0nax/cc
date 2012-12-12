@@ -1,18 +1,11 @@
-<li class="temp_grant templ" data-type="grant" data-content="<%= grant.id%>" onclick="showgrant('<%=grant.id%>');">
-
-	<div class="inside">
-	<div class="temp_date"> <%= Russian::l grant.start_date, :format => :short %></div>
-	<div class="temp_type">
-		грант
-	</div>
-	<div class="temp_img">
-  	<%= image_tag "/assets/Untitled3.jpg" %>
-	</div>
-	<div class="temp_place">
-		
-	</div>
-	<div class="temp_name">
-		<%= grant.title.truncate(16) %>
-	</div>
-	</div>
-</li>
+<div class="moncon">
+  <div class="monthcont yel">
+    <span><%= Russian::l grant.start_date, :format => :short %></span>
+    <span class="spright"></span>
+    <img src="images/contimg4.png" alt="">
+    <span><%= grant.title %></span>
+    <span class="spright">14:00</span>
+    <span class="spsize">GeekPicnic</span>
+    <div class="clr"></div>
+  </div>
+</div>

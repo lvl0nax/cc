@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def userevents
-    @title = "Мой календарь"
     @user = User.find(params[:id])
     @evnts = @user.created_actions
     respond_to do |format|
@@ -42,9 +41,43 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      @message = 'Parol zmineno'
+      @message = 'Пароль изменен'
     else
       @message = 'Error'
     end    
+  end
+
+  def valid
+    role = params[:user][:role][:name]
+    params[:user][:role] = nil
+
+    if role == "employer" or role == "employee"
+      temp = User.count
+
+      @user = User.create(params[:user])
+      if @user.errors.count > 0
+        @messages = @user.errors.full_messages
+        @sentence = I18n.t("errors.messages.not_saved",
+                          :count => @user.errors.count,
+                          :resource => @user.class.model_name.human.downcase)
+      else
+        if temp == 0
+          @user.role = Role.new(:name => "admin")
+          @user.resume = Resume.new(params[:user][:resume])
+        else
+          @user.role = Role.new(:name => role)
+          @user.resume = Resume.new(params[:user][:resume]) if role == "employee"
+          @user.compinfo = Compinfo.new(params[:user][:compinfo]) if role == "employer"
+        end
+
+        flash[:register] = true
+        sign_in('user', @user)
+        redirect_to  user_session_path
+      end
+
+    else
+      raise "ERROR! incorrect user params!"
+    end
+
   end
 end

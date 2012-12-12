@@ -1,23 +1,25 @@
-<h1>Список существующих сфер</h1>
+<div id='content'>
+  <h1>Список существующих сфер</h1>
 
-<table class="al">
-  <div id="arealist" >
-    <% @arealist.each do |area| %>
-	    <tr>
-		    <td><%= area.name %> &nbsp</td>
-		    <td><%= link_to "Редактировать", edit_area_path(area) %>&nbsp</td>
-		    <td><%= link_to "удалить", area ,confirm: 'Вы уверены?', method: :delete %>&nbsp</td>
-		    
-		  </tr>
- 
+  <table class="al">
+    <div id="arealist" >
+      <% @arealist.each do |area| %>
+  	    <tr>
+  		    <td><%= area.name %> &nbsp</td>
+  		    <td><%= link_to "Редактировать", edit_area_path(area) %>&nbsp</td>
+  		    <td><%= link_to "удалить", area ,confirm: 'Вы уверены?', method: :delete %>&nbsp</td>
+  		    
+  		  </tr>
+   
 
-      <br/>
+        <br/>
+      <% end %>
+    </div>
+  </table>
+  <br />
+  <% if current_user%>
+    <% if current_user.role?(:admin) %>
+      <%= link_to 'Добавить новую сферу', new_area_path %>
     <% end %>
-  </div>
-</table>
-<br />
-<% if current_user%>
-  <% if current_user.role?(:admin) %>
-    <%= link_to 'Добавить новую сферу', new_area_path %>
   <% end %>
-<% end %>
+</div>

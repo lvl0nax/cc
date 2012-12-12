@@ -7,14 +7,23 @@
 <div class="clr"></div>
 
 <div class="isideleft">
-  <span class="label">СТРАНА</span><%= f.text_field :nation, :class=>"text fr", :style=>"width:260px;" %><div class="clr"></div>
-  <span class="label">ГОРОД</span><%= f.text_field :city, :class=>"text fr", :style=>"width:260px;" %></div>
-  <span class="label" style="float:left">УЛИЦА</span><div class="fr">
-  <%= f.text_field :street, :class=>"text fl", :style=>"width:187px;" %>
-  <span class="label" class="fl" style="margin: 0 5px; float:left;">ДОМ</span>
-  <span class="label">МЕСТО</span><%= f.text_field :place, :class=>"text fr", :style=>"width:260px;" %><div class="clr"></div>
+  <span class="label">СТРАНА</span>
+    <%= f.text_field :nation, :class=>"text fr", :style=>"width:260px;" %>
+  <div class="clr"></div>
+  <span class="label">ГОРОД</span>
+    <%= f.text_field :city, :class=>"text fr", :style=>"width:260px;" %>
+  <div class="clr"></div>
+  <span class="label" style="float:left">УЛИЦА</span>
+  <div class="fr">
+    <%= f.text_field :street, :class=>"text fr", :style=>"width:260px;" %>
+    <span class="label" style="margin: 0 5px; float:left;">ДОМ</span>
+    <%= f.text_field :building, :class=>"text fr", :style=>"width:260px;" %>
+  </div>
+  <span class="label">МЕСТО</span>
+  <%= f.text_field :place, :class=>"text fr", :style=>"width:260px;" %>
+  <div class="clr"></div>
 </div>
-<div class="isideright" id="map5">
+<div class="isideright" id="map5" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden;">
   <script>
       function google_maps5() {
           var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
@@ -42,6 +51,7 @@
           });
       }
   </script>
+
 </div>
 
 <script type="text/javascript">
@@ -55,15 +65,12 @@
 
 <span class="label">ДАТА</span>
 <div class="datesel300" style="width: 426px">
-  <%= f.datetime_select :start_date, :order=>[:day, :month, :year] %>
+  <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
+  <span style="margin: 0 8px">С</span>
+  <%=  f.time_select :tmp_date %>
+  <span style="margin: 0 8px">ДО</span>
 
-  <span style="float: left; margin: 0 8px">С</span>
-
-
-  <span style="float: left; margin: 0 8px">ДО</span>
-
-  <%=  f.time_select :end_date %>
-
+  <%=  f.time_select :tmp_end_date %>
 </div>
 
 <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
@@ -72,11 +79,11 @@
 
 <span class="label">ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ</span>
 <div class="datesel300">
-  <%= f.datetime_select :start_date, :order=>[:day, :month, :year] %>
+  <%= f.date_select :request_date, :order=>[:day, :month, :year] %>
 
-  <span style="float: left; margin: 0 8px">ДО</span>
+  <span style="margin: 0 8px">ДО</span>
 
-  <%=  f.time_select :end_date %>
+  <%=  f.time_select :request_hour %>
 
 </div>
 

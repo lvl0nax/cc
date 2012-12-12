@@ -1,0 +1,2 @@
+$("#error_info").html("<div id='error_explanation'><h2><%=@sentence%></h2><ul><%= @messages.map { |msg| content_tag(:li, msg) }.join.html_safe%></ul></div>");
+$("#error_compinfo").html("<div id='error_explanation'><h2><%=@sentence%></h2><ul><%= @messages.map { |msg| content_tag(:li, msg) }.join.html_safe%></ul></div>");

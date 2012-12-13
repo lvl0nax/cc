@@ -185,6 +185,7 @@ class User
   end
 
   def self.find_for_vkontakte_oauth(access_token, role)
+    puts access_token.to_yaml
     if user = User.where(:url => access_token.info.urls.Vkontakte).first
       user
     else 
@@ -194,7 +195,7 @@ class User
                    :username => access_token.info.name, 
                    # :name => access_token.info.name, 
                    :nickname => access_token.extra.raw_info.domain, 
-                   :email => access_token.extra.raw_info.domain+'@vk.com',
+                   :email => access_token.extra.raw_info.screen_name + '@vk.com',
                    :password => Devise.friendly_token[0,20],
                    :role => Role.new(:name => role)
       )

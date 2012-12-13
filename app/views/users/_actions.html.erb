@@ -1,35 +1,19 @@
 <div class="monih12">
-  <% months =  %w[jan feb mar apr may june july aug sept oct nov dec] %>
-  <% months.each_with_index do |month, index| %>
-    <div class='months'><%=month%></div>
-    <div class='month_events'>
-     
-      <% if EventParent.month(index+1, 2012).count == 0 %>
-        <div class="moncon">
-          Empty Events
-        </div>
-      <%else%>
-        <% EventParent.month(index+1, 2012).each do |event|%>
+  <% @years.each do |year| %>
+    <% @months.each_with_index do |month, index| %>
+      <div class='months'><%=month+" "+year%></div>
+      <div class='month_events'>     
+        <% if EventParent.month(index, year.to_i).count == 0 %>
           <div class="moncon">
-            <div class="monthcont bla">
-
-              <span><%= event.start_date.strftime("%d %b %y") %></span>
-
-              <span class="spright">грант</span>
-
-              <img src="images/contimg4.png" alt="">
-
-              <span><%= event.nation %></span>
-
-              <span class="spright"><%= event.start_date.strftime("%H:%M") %></span>
-
-              <span class="spsize"><%= event.title %></span>
-
-            </div>
+            Empty Events
           </div>
-        <%end%>        
-      <%end%>     
-    </div>
+        <%else%>
+          <% EventParent.month(index, year.to_i).each do |event|%>
+            <%= render 'event_calendar', :event => event %>
+          <%end%>        
+        <%end%>     
+      </div>
+    <%end%>
   <%end%>  
 </div>
 <div class="clr"></div>

@@ -1,738 +1,183 @@
 <div id="content">
-<div class="filterMain">
-<%= javascript_include_tag 'jquery.jqtransform' %>
-<script type="text/javascript">
-
-    $(function(){
-
-        $('.fjqtrans, .catsItem, .pchecks').jqTransform();
-
-    });
-
-</script>
-
-<%= javascript_include_tag 'sliding' %>
-
-<div class="filterStaz ffscr">
-
-<span class="lanelHead sizeBig"><span>Стажировки</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
-
-<span class="numerick"><%= Training.count %></span>
-
-<div class="clr"></div>
-
-<div class="vupad">
-
-<span class="naming">Сфера</span>
-
-
-
-<div class="samvup sam1">
-
-<div class="all">ВСЕ</div>
-
-<div class="allCats">
-
-<script type="text/javascript">
-
-    $(document).ready(function () {
-
-        $(".catsItem").click(function () {
-
-            var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
-
-            if(a){
-
-                $(this).find(".descripting").addClass("act");
-
-            } else{
-
-                $(this).find(".descripting").removeClass("act");
-
-            };
-
+  <%= form_for :filter, :url => sphere_path, :html => {:id => 'filter'} do |f|  %>
+    <div class="filterMain">
+      <%= javascript_include_tag 'jquery.jqtransform' %>
+      <script type="text/javascript">
+        $(function(){
+            $('.fjqtrans, .catsItem, .pchecks').jqTransform();
         });
+      </script>
+      <%= javascript_include_tag 'sliding' %>
 
-    });
-
-</script>
-<% Area.all.each do |area| %>
-<div class="catsItem">
-
-<label>
-
-  <input type="checkbox" name="grants[]" value="<%= area.id %>">
-
-  <span class="descripting"><%= area.name %></span>
-
-  <div class="clr"></div>
-
-</label>
-
-</div>
-<% end %>
-
-</div>
-
-</div>
-
-<span class="naming">Компания</span>
-
-<div class="samvup sam2">
-
-  <div class="all">ВСЕ</div>
-
-  <div class="allCats">
-
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            $(".descripting, .jqTransformCheckbox").click(function () {
-                $(this).parents(".catsItem").find(".descripting").toggleClass("act");
-            });
-        });
-
-    </script>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
+      <div class="filterStaz ffscr">
+        <span class="lanelHead sizeBig">
+          <span>Стажировки</span>
+          <span class="fjqtrans">
+            <%= f.check_box :check_train, :checked => 'checked', :name => "", :id => ""  %>
+          </span>
+        </span>
+        <span class="numerick"><%= Training.count %></span>
         <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-  </div>
-
-</div>
-
-<div class="clr"></div>
-
-</div>
-
-<div class="pchecks">
-
-  Оплата:
-
-  <span class="opl"><input type="checkbox" name="" id="">Неоплачиваемая</span>
-
-  <span class="opl"><input type="checkbox" name="" id="">оплачиваемая</span>
-
-</div>
-
-</div>
-
-<div class="filterSob ffscr">
-
-<span class="lanelHead sizeBig"><span>События</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
-
-<span class="numerick">15</span>
-
-<div class="vupad">
-
-<span class="naming">Сфера</span>
-
-<div class="samvup sam1">
-
-  <div class="all">ВСЕ</div>
-
-  <div class="allCats">
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-    <div class="catsItem">
-
-      <label>
-
-        <input type="checkbox" name="" id="">
-
-        <span class="descripting">Промышленность, производство</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
-
-  </div>
-
-</div>
-
-<div class="pchecks">
-
-  <span class="opl"><input type="checkbox" name="" id="">Научные конференции</span>
-
-  <span class="opl"><input type="checkbox" name="" id="">Карьерные события</span>
-
-</div>
-
-<div class="clr"></div>
-
-</div>
-
-</div>
-
-<div class="filterGran ffscr">
-
-<span class="lanelHead sizeBig"><span>Гранты</span> <span class="fjqtrans"><input type="checkbox" checked name="" id=""></span></span>
-
-<span class="numerick"><%= Grant.count %></span>
-<div class="vupad">
-
-  <span class="naming">Сфера</span>
-
-  <div class="samvup sam1">
-
-    <div class="all">ВСЕ</div>
-
-    <div class="allCats">
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
+        <div class="vupad">
+          <span class="naming">Сфера</span>
+          <div class="samvup sam1">
+            <div class="all">ВСЕ</div>
+            <div class="allCats">
+              <script type="text/javascript">
+                $(document).ready(function() {
+                  $(".catsItem").click(function() {
+                      var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
+                      
+                      if(a){
+                          $(this).find(".descripting").addClass("act");
+                      } else{
+                          $(this).find(".descripting").removeClass("act");
+                      };
+                  });
+                });
+              </script>
+              <% Area.all.each do |area| %>
+                <div class="catsItem">
+                  <label>
+                    <%= f.check_box :check_area, :value => area.id, :name => "grants[]" %>
+                    <span class="descripting"><%= area.name %></span>
+                    <div class="clr"></div>
+                  </label>
+                </div>
+              <%end%>
+            </div>
+          </div>
+          <span class="naming">Компания</span>
+          <div class="samvup sam2">
+            <div class="all">ВСЕ</div>
+            <div class="allCats">
+              <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".descripting, .jqTransformCheckbox").click(function () {
+                        $(this).parents(".catsItem").find(".descripting").toggleClass("act");
+                    });
+                });
+              </script>
+              <% Compinfo.all.each do |compinfo| %>
+                <div class="catsItem">
+                  <label>
+                    <%= f.check_box :check_comp, :name=>"", :id=>"" %>
+                    <span class="descripting"><%= compinfo.name%></span>
+                    <div class="clr"></div>
+                  </label>
+                </div>
+              <%end%>
+            </div>
+          </div>
           <div class="clr"></div>
-
-        </label>
-
+        </div>
+        <div class="pchecks">
+          <span class='pay'>Оплата:</span>
+          <span class="opl">
+            <%= f.check_box :check_pay, :name=>"", :id=>"" %>
+            Неоплачиваемая
+          </span>
+          <span class="opl">
+            <%= f.check_box :check_no_pay, :name=>"", :id=>"" %>
+            Oплачиваемая
+          </span>
+        </div>
       </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
+      <div class="filterSob ffscr">
+        <span class="lanelHead sizeBig">
+          <span>События</span> 
+          <span class="fjqtrans">
+            <%= f.check_box :check_event, :checked=>'checked', :name=>"", :id=>"" %>
+          </span>
+        </span>
+        <span class="numerick">15</span>
+          <div class="vupad">
+            <span class="naming">Сфера</span>
+            <div class="samvup sam1">
+              <div class="all">ВСЕ</div>
+              <div class="allCats">
+                <% Area.all.each do |area| %>
+                  <div class="catsItem">
+                    <label>
+                      <%= f.check_box :check_area_event, :name => "", :id => "" %>
+                      <span class="descripting"><%= area.name %></span>
+                      <div class="clr"></div>
+                    </label>
+                  </div>
+                <%end%>                
+              </div>
+            </div>
+            <div class="pchecks">
+              <span class="opl">
+                <%= f.check_box :check_konferenc, :name=>"", :id=>"" %>
+                Научные конференции
+              </span>
+              <span class="opl">
+                <%= f.check_box :check_carer_events, :name=>"", :id=>"" %>
+                Карьерные события
+              </span>
+            </div>
+            <div class="clr"></div>
+          </div>
+      </div>
+      <div class="filterGran ffscr">
+        <span class="lanelHead sizeBig">
+          <span>Гранты</span> 
+          <span class="fjqtrans">
+            <input type="checkbox" checked name="" id="">
+          </span>
+        </span>
+        <span class="numerick"><%= Grant.count %></span>
+        <div class="vupad">
+          <span class="naming">Сфера</span>
+          <div class="samvup sam1">
+            <div class="all">ВСЕ</div>
+            <div class="allCats">
+              <% Area.all.each do |area| %>
+                <div class="catsItem">
+                  <label>
+                    <%= f.check_box :check_area_grant, :name => "", :id => "" %>
+                    <span class="descripting"><%= area.name %></span>
+                    <div class="clr"></div>
+                  </label>
+                </div>
+              <%end%>              
+            </div>
+          </div>
           <div class="clr"></div>
-
-        </label>
-
+        </div>
+        <div class="pchecks" style="left:0;">
+          <span class='cel'>Цели</span>
+          <span class="opl">
+            <%= f.check_box :check_cel_tmp1, :name => "", :id => "" %>
+            Цель 1
+          </span>
+          <span class="opl">
+            <%= f.check_box :check_cel_tmp2, :name => "", :id => "" %>
+            Цель 2
+          </span>
+          <span class="opl">
+            <%= f.check_box :check_cel_tmp3, :name => "", :id => "" %>
+            Цель 3
+          </span>
+          <span class="opl">
+            <%= f.check_box :check_cel_tmp4, :name => "", :id => "" %>
+            Цель 4
+          </span>
+          <span class="opl">
+            <%= f.check_box :check_cel_tmp5, :name => "", :id => "" %>
+            Цель 5
+          </span>
+          <span class="opl">
+            <%= f.check_box :check_cel_tmp6, :name => "", :id => "" %>
+            Цель 6
+          </span>
+        </div>
       </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="catsItem">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">Промышленность, производство</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
     </div>
+    <div class="clr"></div>
+  <%end%>
 
-  </div>
-
-  <div class="clr"></div>
-
-</div>
-
-<div class="pchecks" style="left:0;">
-  Цели
-  <span class="opl"><input type="checkbox" name="" id="">Цель 1</span>
-  <span class="opl"><input type="checkbox" name="" id="">Цель 2</span>
-  <span class="opl"><input type="checkbox" name="" id="">Цель 3</span>
-  <span class="opl"><input type="checkbox" name="" id="">Цель 4</span>
-  <span class="opl"><input type="checkbox" name="" id="">Цель 5</span>
-  <span class="opl"><input type="checkbox" name="" id="">Цель 6</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="clr"></div>
 <%= javascript_include_tag 'events' %>
 <div class="monih12">
     <% @events.each do |event| %>

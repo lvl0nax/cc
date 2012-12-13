@@ -15,6 +15,9 @@ class UsersController < ApplicationController
 
   def activities
 
+    @years = %w[2012 2013]
+    @months =  %w[jan feb mar apr may june july aug sept oct nov dec]
+
     #logger.debug "--------------------------------------------"
     @user = User.find(params[:id])
     @actions = @user.actions

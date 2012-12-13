@@ -96,6 +96,7 @@ class Training < EventParent
   end
 
 
+
   def user
     User.where(id: self.owner).first
   end

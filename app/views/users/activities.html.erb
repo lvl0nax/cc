@@ -11,3 +11,32 @@
 	<%= render 'actions' %> 
 </ul>
 </div>
+<script type="text/javascript" language="javascript">
+
+	$(".monthcont").click(function () {	
+
+		google_maps111();
+		google_maps222();
+		/*google_maps333();
+		google_maps444();
+		google_maps555();*/		
+
+		$('.pk_popup').css({'display':'none'});
+		$(this).children(".pk_popup").fadeIn(600);
+		var w = ($(this).children(".pk_popup").width())/2;
+		$(this).children(".pk_popup").css({'margin-top':-w});
+	});		
+
+	$(".close_popup").click(function () {
+		$(this).parent(".pk_popup").fadeOut(600);
+	});
+
+	$(document).ready(function(){
+	   $('.pk_popup, .monthcont').click(function(event){
+		   event.stopPropagation();
+	   });
+
+	}).click(function(){
+		$('.pk_popup').fadeOut(200);
+	});	
+</script>

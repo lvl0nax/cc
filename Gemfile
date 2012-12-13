@@ -6,6 +6,7 @@ gem 'rails', '3.2.2'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'execjs'
+#gem 'therubyracer'
 gem 'json'
 
 gem 'rspec-rails'
@@ -59,6 +60,8 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+  gem 'jquery-fileupload-rails'
+
 end
 
 gem 'jquery-rails'

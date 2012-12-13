@@ -10,6 +10,8 @@ TestMongoid::Application.routes.draw do
 
   mount TinymceFm::Engine => "/tinymce_fm"
 
+  resource :images
+
   resources :months do
     collection do
       post 'update_calendar'
@@ -85,10 +87,12 @@ TestMongoid::Application.routes.draw do
   resources :users do #, :only => [:show, :index, :activities ]
     member do
       get "activities"
-      get "userevents"
+      get "userevents"      
       #get "admin_page"
     end
   end
+
+  get "users/sphere", :as => 'sphere'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

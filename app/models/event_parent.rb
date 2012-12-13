@@ -18,5 +18,9 @@ class EventParent
     self.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}, :status=>'ОДОБРЕНО')
   end
 
+  def self.count_date
+    now = DateTime.now
+    self.where(:start_date => {'$gte' => now}, :status=>'ОДОБРЕНО').count
+  end
 
 end

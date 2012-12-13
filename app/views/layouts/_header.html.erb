@@ -4,7 +4,7 @@
 
   <div class="headerupwrap">
 
-    <!--<div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>-->
+    <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 
     <!-- TODO: Uncomment this in production -->
     <!--<div style="display: inline;" id="vk_like"></div>-->
@@ -59,6 +59,7 @@
                     (jQuery);
         </script>
     <% else %>
+
         <%= link_to  'ВЫХОД', sign_out_path, :class=>'logouth2' %>
         <% if current_user.resume? && current_user.resume.photo? %>
             <%= image_tag current_user.resume.photo.url(:thumb), :class=>'photo_login' %>
@@ -68,8 +69,9 @@
         <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_resume_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employee'%>
         <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_compinfo_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employer'%>
         <%= link_to 'интересующие сферы', areas_path, :class=>"header2menuitem2" %>
-        <%= link_to userevents_user_path(current_user.id),  :class=>"header2menuitem1" do %>
+        <%= link_to userevents_user_path(current_user.id),  :class=>"header2menuitem2" do %>
             мой календарь
+        <%= link_to "АДМИН", :admin_page, :class=>'header2menuitem1' if current_user.role.name == 'admin' %>
         <% end %>
     <% end %>
   </div>
@@ -220,7 +222,16 @@
 
     jQuery(function () {
 
-        jQuery("#selectday, #selectmonth, #selectyear, #selecthour, #selectminute, #grant_start_date_1i, #grant_start_date_2i, #grant_start_date_3i").selectbox();
+        jQuery("#selectday," +
+                " #selectmonth," +
+                " #selectyear," +
+                " #selecthour, " +
+                "#selectminute," +
+                "#grant_start_date_1i," +
+                "#grant_start_date_2i," +
+                "#grant_start_date_3i," +
+                "#grant_end_date_4i," +
+                "#grant_end_date_5i").selectbox();
 
     });
 
@@ -277,6 +288,20 @@
 
 
     $(document).ready(function(){
+
+        $('img[alt="Photo"]').click(function(){
+            $(this).next().trigger('click');
+        });
+
+        $('#grant_image_photo').fileupload({
+            dataType: 'html',
+            url: '<%= images_path %>',
+            done: function (e, data) {
+                var $src = $(data.result).attr('src');
+                $('img[alt="Photo"]').attr('src', $src);
+                $('#grant_image').val($src);
+            }
+        });
 
         $('.button, .tabsformsblock .cont, .nav .control .controls').click(function(event){
 

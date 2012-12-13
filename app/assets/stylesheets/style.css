@@ -179,7 +179,7 @@ div.rowElem label {
   margin-top: 5px;
 }
 .jqTransformRadio {
-  background-image: url("../images/radio.gif");
+  background-image: url("../images/checkbigunch.png");
   background-repeat: no-repeat;
   background-position: center top;
   vertical-align: middle;
@@ -1906,10 +1906,10 @@ textarea {
   outline: none;
 }
 form span {
-  line-height: 25px;
   display: inline-block;
+  /*line-height: 25px;  
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 10px;*/
 }
 form .spanmin {
   line-height: 13px;
@@ -2205,4 +2205,67 @@ form .regtype img {
   background-image: -webkit-linear-gradient(right, #9abc74 0%, #c7db57 82%);
   background-image: -ms-linear-gradient(right, #9abc74 0%, #c7db57 82%);
   background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #9abc74), color-stop(0.82, #c7db57));
+}
+.large_select{
+    width: 383px !important;
+}
+.large_select .sbHolder {
+    width: 90px !important;
+    float: left;
+    margin-right: 3px;
+}
+.large_select .sbSelector {
+    width: 88px !important;
+}
+.large_select .sbOptions {
+    width: 90px !important;
+}
+
+.large_select #grant_start_date_3i + div {
+    width: 48px !important;
+}
+.large_select #grant_start_date_3i + div .sbSelector{
+    width: 46px !important;
+}
+.large_select #grant_start_date_3i + div .sbOptions{
+    width: 48px !important;
+}
+
+.large_select #grant_end_date_4i + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+    top: 6px;
+}
+.large_select #grant_end_date_4i + div .sbSelector{
+    width: 39px !important;
+}
+.large_select #grant_end_date_4i + div .sbOptions{
+    width: 40px !important;
+}
+
+.large_select #grant_end_date_5i + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+    top: 6px;
+}
+.large_select #grant_end_date_5i + div .sbSelector{
+    width: 39px !important;
+}
+.large_select #grant_end_date_5i + div .sbOptions{
+    width: 40px !important;
+}
+#image_photo{
+    display: none;
+}
+.add button{
+    font-family: verdana, serif;
+    border: none;
+    background: none;
+    font-size: 25px;
+}
+.add button:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }

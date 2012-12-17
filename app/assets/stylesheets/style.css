@@ -1907,7 +1907,7 @@ textarea {
 }
 form span {
   display: inline-block;
-  /*line-height: 25px;  
+  /*line-height: 25px;
   margin-left: 20px;
   margin-top: 10px;*/
 }
@@ -2514,4 +2514,52 @@ span.error{
     text-decoration: none !important;
     color: #ffffff !important;
     font-size: 10px !important;
+}
+.monih12 .monthhover {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    width: 203px;
+    height: 173px;
+    border: 1px solid #c8c8c8;
+}
+.monih12 .monthhover ul {
+    width: 223px;
+    height: 193px;
+    overflow: scroll;
+}
+.monih12 .monthhover ul li {
+    padding-left: 15px;
+}
+.monih12 .monthhover ul li span {
+    color: #cccccc;
+}
+.monih12 .monthhover ul li:hover {
+    background: #9cbd73;
+    background: -moz-linear-gradient(-45deg, #c9db57 0%, #77a48b 100%);
+    /* FF3.6+ */
+
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #c9db57), color-stop(100%, #77a48b));
+    /* Chrome,Safari4+ */
+
+    background: -webkit-linear-gradient(-45deg, #c9db57 0%, #77a48b 100%);
+    /* Chrome10+,Safari5.1+ */
+
+    background: -o-linear-gradient(-45deg, #c9db57 0%, #77a48b 100%);
+    /* Opera 11.10+ */
+
+    background: -ms-linear-gradient(-45deg, #c9db57 0%, #77a48b 100%);
+    /* IE10+ */
+
+    background: linear-gradient(135deg, #c9db57 0%, #77a48b 100%);
+    /* W3C */
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9db57', endColorstr='#77a48b', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+
+}
+.monih12 .monthhover .year:hover {
+    background: none;
 }

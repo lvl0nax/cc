@@ -1,27 +1,24 @@
 <%= form_for :training, :url => {:action => :create, :controller => :trainings}, :method => :post do |f| %>
 
-<span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>"name" %>
+<span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>"name" %><span class="error"></span>
 <div class="leftpart">
 <span class="label">ОПИСАНИЕ</span>
-<%= f.text_area :description %>
+<%= f.text_area :description %><span class="error"></span>
 <div class="clr"></div>
 
 <div class="isideleft">
   <span class="label">СТРАНА</span>
-    <%= f.text_field :nation, :class=>"text fr", :style=>"width:260px;" %>
+    <%= f.text_field :nation, :class=>"text fr", :style=>"width:260px; margin-bottom: 5px;" %>
   <div class="clr"></div>
   <span class="label">ГОРОД</span>
-    <%= f.text_field :city, :class=>"text fr", :style=>"width:260px;" %>
+    <%= f.text_field :city, :class=>"text fr", :style=>"width:260px; margin-bottom: 5px;" %>
   <div class="clr"></div>
-  <span class="label" style="float:left">УЛИЦА</span>
-  <div class="fr">
-    <%= f.text_field :street, :class=>"text fr", :style=>"width:260px;" %>
-    <span class="label" style="margin: 0 5px; float:left;">ДОМ</span>
-    <%= f.text_field :building, :class=>"text fr", :style=>"width:260px;" %>
-  </div>
-  <span class="label">МЕСТО</span>
-  <%= f.text_field :place, :class=>"text fr", :style=>"width:260px;" %>
-  <div class="clr"></div>
+  <span class="label" style="float:left">УЛИЦА</span><div class="fr">
+  <%= f.text_field :street, :class=>"text fl", :style=>"width:187px;" %>
+  <span class="label" class="fl" style="margin: 0 5px; float:left;">ДОМ</span>
+  <%= f.text_field :building, :class=>"text fr", :style=>"width:22px;" %>
+</div>
+  <span class="label" style="margin-top: 11px;">МЕСТО</span><%= f.text_field :place, :class=>"text fr", :style=>"width:260px; margin-top: -19px;" %><div class="clr"></div>
 </div>
 <div class="isideright" id="map5" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden;">
   <script>
@@ -64,26 +61,32 @@
 <div class="clr"></div>
 
 <span class="label">ДАТА</span>
-<div class="datesel300" style="width: 426px">
+<div class="datesel300 large_select" style="width: 483px !important;">
+<div class="ficha">
   <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
   <span style="margin: 0 8px">С</span>
   <%=  f.time_select :tmp_date %>
   <span style="margin: 0 8px">ДО</span>
 
   <%=  f.time_select :tmp_end_date %>
+
+</div>
 </div>
 
 <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
-<input type="text" class="siteaddress">
+<%= f.text_field :hyperlink, :class => "siteaddress", :style => "margin-bottom: 5px;" %>
 <div class="clr"></div>
 
 <span class="label">ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ</span>
 <div class="datesel300">
   <%= f.date_select :request_date, :order=>[:day, :month, :year] %>
 
+<div class="ficha">
   <span style="margin: 0 8px">ДО</span>
 
   <%=  f.time_select :request_hour %>
+
+</div>
 
 </div>
 
@@ -108,7 +111,7 @@
             <div class="catsItem">
               <label>
                 <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
-                <span class="descripting"><%= area.name %>L</span>
+                <span class="descripting"><%= area.name %></span>
                 <div class="clr"></div>
               </label>
             </div>
@@ -117,12 +120,7 @@
   </div>
 
 
-  <% if current_user %>
-      <% if current_user.role.name == 'admin' %>
-          <span class="label">СТАТУС:</span>
-          <%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %>
-      <% end %>
-  <% end %>
+
 </div>
 
 
@@ -135,6 +133,7 @@
 </div>
 <div class="clr"></div>
 
+
 <div class="manycheck">
   <div class="pchecks">
     <span class="opl nopaid"><input type="checkbox" name="" id="">НЕОПЛАЧИВАЕМАЯ</span>
@@ -143,6 +142,13 @@
   <div class="clr"></div>
 </div>
 <div class="clr"></div>
+
+    <% if current_user %>
+        <% if current_user.role.name == 'admin' %>
+            <span class="label" style="float: left; margin-top: 6px;">СТАТУС:</span>
+            <div style="margin: 5px 0 0 71px;"><%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %></div>
+        <% end %>
+    <% end %>
 
 <span class="label fl" style="margin-right: 20px">ЗАНЯТОСТЬ:</span>
 <div class="manycheck">
@@ -157,3 +163,37 @@
   <button type="submit">ДОБАВИТЬ</button>
 </div>
 <% end %>
+<script>
+    $('form[action="/trainings"]').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            data: $(this).serialize(),
+            type: 'post',
+            url: '<%= trainings_path %>',
+            dataType: 'json',
+            statusCode:{
+                422:function(result){
+                    var response = $.parseJSON(result.responseText);
+                    if(response.title)
+                        $('#training_title').next('.error').html(response.title[0]).fadeIn();
+                    else
+                        $('#training_title').next('.error').empty().fadeOut();
+
+                    if(response.description)
+                        $('#training_description').next('.error').html(response.description[0]).fadeIn();
+                    else
+                        $('#training_description').next('.error').empty().fadeOut();
+
+                }
+            }
+
+        }).done(function(result){
+                    if(result) window.location = window.location;
+                    else
+                    {
+                        console.log(result);
+                    }
+                });
+    });
+</script>
+

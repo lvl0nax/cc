@@ -20,7 +20,7 @@ class Training < EventParent
   field :request_hour, :type => DateTime
   field :areas
   field :employment
-  field :salary_type
+  field :salary_type, :type=>Array
   field :direction, :type => Array
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
@@ -28,74 +28,11 @@ class Training < EventParent
   validates_presence_of :title, :message => 'Обязательно'
   validates_presence_of :description, :message => 'Обязательно'
 
-  field :vk
-  field :twitter
-  field :afisha
-  field :fb
-  field :cityspb
-  field :timepad
-  field :lookatme
-
-  validates_format_of :vk, :with => /http:\/\/vk\.com\/.*/, :message => "Неправильный адрес",:allow_blank => true
-  validates_format_of :twitter, :with => /http:\/\/(www)?\.twitter\.com\/.*/, :message => "Неправильный адрес", :allow_blank => true
-  validates_format_of :afisha, :with => /http:\/\/(www)?\.afisha\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
-  validates_format_of :fb, :with => /http:\/\/(www)?\.facebook\.com\/.*/, :message => "Неправильный адрес", :allow_blank => true
-  validates_format_of :timepad, :with => /http:\/\/(.*?)\.timepad\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
-  validates_format_of :lookatme, :with => /http:\/\/(.*?)\.lookatme\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
-  validates_format_of :cityspb, :with => /http:\/\/(www)?\.cityspb\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
-  
   mount_uploader :photo, ImageUploader
 
-  ### TODO :
-  # FIELD - Place of the event field
-  # FIELD - Date and time fields for the event and end of registration
-  # FIELD - Email to owners of the event 
-  #
-  # VALIDATIONS - required fields
-
-  def self.search(salary_types, areas)
-    now = DateTime.now
-    t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
-    if salary_types
-      #salary_types[:salary_type].delete("")
-      #event_kinds[:kind]
-      t = t.any_in(salary_type: salary_types[:salary_type]) unless (salary_types[:salary_type].blank?)
-    end
-    if areas
-      #areas[:areas].delete("")
-      t = t.any_in(:areas => areas[:areas]) unless (areas[:areas].blank?)
-    end
-    return t
+  def self.salary_type
+    %w[НЕОПЛАЧИВАЕМАЯ OПЛАЧИВАЕМАЯ]
   end
-
-  def self.isearch
-    now = DateTime.now
-    areas = []
-    areas.clear
-    Area.each do |a|
-      areas << a.id
-    end
-    areas << ""
-    t = self.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all
-    logger.debug "+++++++++++++++++++++++++++++++++COUNT TRAINING1111"
-      logger.debug t.count
-    # if salary_types
-    #   salary_types[:salary_type].delete("")
-    #   #event_kinds[:kind]
-      t = t.any_in(:salary_type => ["ОПЛАЧИВАЕМАЯ", "НЕОПЛАЧИВАЕМАЯ", ""] ) #unless (salary_types[:salary_type].blank?)
-      logger.debug "+++++++++++++++++++++++++++++++++COUNT TRAINING22222"
-      logger.debug t.count
-    # end
-    # if areas
-    #   areas[:areas].delete("")
-      t = t.any_in(:areas => areas) if (Area.exists?)
-      logger.debug "+++++++++++++++++++++++++++++++++COUNT TRAINING33333"
-      logger.debug t.count
-    # end
-    return t
-  end
-
-
 
   def user
     User.where(id: self.owner).first

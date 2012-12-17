@@ -17,7 +17,6 @@ gem 'bson_ext', :require => false
 gem 'devise'
 gem 'cancan'
 gem 'nifty-generators'
-
 gem 'tinymce_fm'
 
 gem "tlsmail"

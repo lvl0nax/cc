@@ -1,11 +1,164 @@
-<div class="moncon">
+<div class="moncon" data-id="<%= grant._id %>">
   <div class="monthcont yel">
     <span><%= Russian::l grant.start_date, :format => :short %></span>
     <span class="spright"></span>
-    <img src="images/contimg4.png" alt="">
-    <span><%= grant.title %></span>
-    <span class="spright">14:00</span>
-    <span class="spsize">GeekPicnic</span>
+    <% unless grant.images.first.nil? %>
+        <%= image_tag grant.images.first.photo.thumb %>
+     <% else %>
+        <%= image_tag 'contimg4.png' %>
+    <% end %>
+    <span><%#= grant.title %></span>
+    <span class="spright"><%= grant.start_date.strftime('%H:%m') %></span>
+    <span class="spsize"><%= grant.title %></span>
     <div class="clr"></div>
   </div>
+  <section class="pk_popup grant">
+
+    <div class="close_popup"></div>
+
+    <div class="head">
+
+      <h2><%= grant.title %> — ГРАНТ</h2>
+
+      <div class="social">
+
+
+      </div>
+
+      <div class="clr"></div>
+
+    </div>
+
+
+
+    <div class="lside">
+
+      <img src="images/previmg.png" alt="" class="previmg" />
+
+      <div class="catsItem addtocallendar">
+
+        <label>
+
+          <input type="checkbox" name="" id="">
+
+          <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
+
+          <div class="clr"></div>
+
+        </label>
+
+      </div>
+
+      <div class="date_wrap">
+
+        <div class="date">16 октября 2012</div>
+
+        <div class="time">C <span class="from">14:00</span> ДО <span class="to">23:00</span></div>
+
+      </div>
+
+      <div class="whoadd">
+
+        <img src="images/ava.png" alt="" />
+
+        <div class="text">
+
+          ДОБАВИЛ:
+
+          <div class="username"><a href="">ПИРОГОВА НАТАЛЬЯ</a></div>
+
+        </div>
+
+      </div>
+
+      <div class="address">
+
+        Новая Голландия <br />
+
+        Санкт-Петербург, <br />
+
+        Набережная Адмиралтейского канала, 2  <br />
+
+        "Айрис Новая Голландия":  +7 (812) 456 76 37  <br />
+
+        "Лето в Новой Голландии":  +7 (812) 971 05 10
+
+      </div>
+
+    </div>
+
+    <div class="rside">
+
+
+
+
+
+      <div class="term">25 ИЮЛЯ 2012</div>
+
+
+      <div id="map2" class="mapwrap">
+
+        <script>
+
+            function google_maps2() {
+
+                var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
+
+                var settings = {
+
+                    zoom: 12, // Выставляем параметры зума для карты
+
+                    center: latlng,
+
+                    mapTypeControl: false,
+
+                    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+
+                    navigationControl: true,
+
+                    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+                };
+
+                var map = new google.maps.Map(document.getElementById("map2"), settings); // Выбираем див куда ставить карту
+
+                var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
+
+                var myOptions = {
+
+                    zoom: 12,  // Выставляем параметры зума для маркера
+
+                    center: myLatlng,
+
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+                }
+
+                var map = new google.maps.Map(document.getElementById("map2"), myOptions);  // Выбираем див куда ставить маркер
+
+                var marker = new google.maps.Marker({
+
+                    position: myLatlng,
+
+                    map: map,
+
+                    title: "A"
+
+                });
+
+            }
+
+        </script>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="clr"></div>
+
+  </section>
 </div>

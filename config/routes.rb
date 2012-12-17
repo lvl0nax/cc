@@ -51,6 +51,7 @@ TestMongoid::Application.routes.draw do
     collection do
       get 'activities'
       get 'not_approved'
+      post 'update_index'
     end
   end
 
@@ -73,7 +74,7 @@ TestMongoid::Application.routes.draw do
     resources :compinfos
   end
 
-  get "valid" => "users#valid"
+  post "valid" => "users#valid"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   get "/profile" => "users#show"

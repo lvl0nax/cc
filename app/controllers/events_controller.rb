@@ -6,12 +6,25 @@ class EventsController < ApplicationController
 
   def index
   @events = []
+  existing_ids = []
+  if params[:grant]
+    @grants = Grant.where(:status=>'ОДОБРЕНО')
+    @grants = @grants.in(:area_ids=>params[:grant][:areas]) if params[:grant][:areas]
+    @grants = @grants.where(:direction=>params[:grant][:direction]) if params[:grant][:direction]
+  end
+
   years = %w[2012 2013]
   years.each do |year|
       months =  %w[jan feb mar apr may june july aug sept oct nov dec]
       months.each_with_index do |month, index|
         Grant.month(index, year.to_i).each do |grant|
-          @events << grant
+          if @grants.nil?
+            @events << grant
+            existing_ids << grant.id
+          else
+            @events << grant if @grants.include?(grant)
+            existing_ids << grant.id if @grants.include?(grant)
+          end
         end
 
         Event.month(index, year.to_i).each do |event|
@@ -26,10 +39,20 @@ class EventsController < ApplicationController
       end
   end
     @events = @events.paginate(:page => params[:page], :per_page => 12)
+    existing_ids.each do |event|
+      params[:events].delete event.to_s if not params[:events].nil? and params[:events].include?(event.to_s)
+    end
+  @ids_to_show = []
+
+  existing_ids.each do |event|
+    @ids_to_show << event.to_s if not params[:events].nil? and not params[:events].include?(event.to_s)
+  end
+
+  @ids_to_delete = params[:events] unless params[:events].nil?
 
     respond_to do |format|
       format.html
-      format.json { render json: @items }
+      format.json { render json: { delete:@ids_to_delete, show:@ids_to_show } }
       format.xml { render xml: @items }
       format.js
     end
@@ -74,7 +97,7 @@ class EventsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
-        format.html { render action: "new" }
+        format.html { render json: @event.errors }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -130,18 +153,6 @@ class EventsController < ApplicationController
     end
   end
 
-  #TODO: before filter for this method
-  # def activities
-  #   logger.debug "--------------------------------------------"
-  #   @user = User.find(params[:id])
-  #   @actions = @user.actions
-  #   logger.debug @actions
-  #   respond_to do |format|
-  #     format.html # new.html.erb
-  #     format.json { render json: @actions }
-  #   end
-  # end
-
   def not_approved
 
     @items = []
@@ -164,4 +175,10 @@ class EventsController < ApplicationController
       format.js
     end
   end
+
+  def update_index
+    @items = []
+    render json:@grants
+  end
+
 end

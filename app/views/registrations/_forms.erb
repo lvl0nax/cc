@@ -1,36 +1,38 @@
-<%= form_for @user ||= User.new, :url => user_registration_path, :validate => true, :html=>{:id=>'new_corp'} do |f| %>
+<%= form_for @user ||= User.new, :url => user_registration_path, :validate => true, :html => {:id => 'new_corp'} do |f| %>
     <div id='error_compinfo'></div>
-    <span>НАЗВАНИЕ КАМПАНИИ</span>
-    <span>ЛОГОТИП</span><img src="images/formlogobg.png" class="yourlogo" alt="">
     <div class="clr"></div>
     <%= f.fields_for @user.compinfo ||= Compinfo.new do |comp| %>
+        <span>НАЗВАНИЕ КАМПАНИИ</span><%= comp.text_field :name %>
+        <span>ЛОГОТИП</span><%= image_tag 'formlogobg.png', class:"yourlogo"%>
+        <%= comp.file_field :photo, :style=>'display:none' %>
+        <div class="clr"></div>
         <span>ГОРОД</span><%= comp.text_field :city %>
         <span>УЛИЦА</span><%= comp.text_field :street %>
         <span>ДОМ</span><%= comp.text_field :building %>
-        <span class="spanmin">КОНТАКТНАЯ  ИФНОМРАЦИЯ</span><%= comp.text_field :info %>
+        <span class="spanmin">КОНТАКТНАЯ  ИНФОМРАЦИЯ</span><%= comp.text_field :info %>
         <span>ССЫЛКА НА САЙТ</span><%= comp.text_field :hyperlink %>
     <% end %>
-    <span>E-MAIL</span><%= f.text_field :email, :id=>'corp_email' %>
+    <span>E-MAIL <span class="error"></span></span><%= f.text_field :email, :id => 'corp_email' %>
     <br>
     <br>
     <br>
     <%= f.fields_for @user.role ||= Role.new do |role| %>
-        <%= role.hidden_field :name, :value=>'employer' %>
+        <%= role.hidden_field :name, :value => 'employer' %>
     <% end %>
-    <span>ПАРОЛЬ</span><%= f.password_field :password, :id=>'corp_password' %>
-    <span>ПАРОЛЬ ЕЩЕ РАЗ</span><%= f.password_field :password_confirmation, :id=>'corp_password_confirmation' %>
-    <%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ", :class=>"submitbtn_compinfo"  %>
+    <span>ПАРОЛЬ <span class="error"></span></span><%= f.password_field :password, :id => 'corp_password' %>
+    <span>ПАРОЛЬ ЕЩЕ РАЗ <span class="error"></span></span><%= f.password_field :password_confirmation, :id => 'corp_password_confirmation' %>
+    <%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ", :class => "submitbtn" %>
 <% end %>
 </div>
 <div class="cont">
-  <%= form_for @user||=User.new, :url => user_registration_path, :id=>'new_user', :validate=>true do |f| %>
+  <%= form_for @user||=User.new, :url => user_registration_path, :id => 'new_user', :validate => true do |f| %>
       <div id='error_info'></div>
       <div class="regtype">
         регистрация через <%= link_to user_omniauth_authorize_path(:facebook) do %>
-            <img src="images/facebook2.png" alt="" />
+            <img src="images/facebook2.png" alt=""/>
         <% end %>
         <%= link_to user_omniauth_authorize_path(:vkontakte) do %>
-            <img src="images/vkontakte.png" alt="" />
+            <img src="images/vkontakte.png" alt=""/>
         <% end %>
       </div>
       <%= f.fields_for @user.resume ||= Resume.new do |res| %>
@@ -38,30 +40,65 @@
           <span>ФАМИЛИЯ</span><%= res.text_field :surname %>
           <span>ГОРОД</span><%= res.text_field :home %>
       <% end %>
-      <span>E-MAIL</span><%= f.text_field :email, :id=>'email_user' %>
-      <span>ПАРОЛЬ</span><%= f.password_field :password, :id=>'password_user' %>
-      <span>ПАРОЛЬ ЕЩЕ РАЗ</span><%= f.password_field :password_confirmation %>
+      <span>E-MAIL <span class="error"></span></span><%= f.text_field :email, :id => 'email_user' %>
+      <span>ПАРОЛЬ <span class="error"></span></span><%= f.password_field :password, :id => 'password_user' %>
+      <span>ПАРОЛЬ ЕЩЕ РАЗ <span class="error"></span></span><%= f.password_field :password_confirmation %>
       <%= f.fields_for @user.role ||= Role.new do |role| %>
-          <%= role.hidden_field :name, :value=>'employee' %>
+          <%= role.hidden_field :name, :value => 'employee' %>
       <% end %>
-      <%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ", :class=>"submitbtn" %>
+      <%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ", :class => "submitbtn" %>
   <% end %>
-<script language="JavaScript">
-  valid_create_user($('#new_user'));
-  valid_create_user($('#new_corp'));
+  <script language="JavaScript">
+      valid_create_user($('#new_user'));
+      valid_create_user($('#new_corp'));
 
-  function valid_create_user(form){
-    form.on('submit', function(e){
-      e.preventDefault();
-      var user = form.serialize();
-        $.ajax({ url: "/valid",   type: "GET", data: user,  beforeSend:function(jqXHR, settings) {
-                  jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      function valid_create_user(form) {
+          form.on('submit', function (e) {
+              e.preventDefault();
+              var user = form.serialize();
+              $.ajax({
+                  url:"/valid",
+                  type: "POST",
+                  data: user,
+                  dataType: 'json',
+                  beforeSend:function (jqXHR, settings) {
+                      jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
                   }
-        }).done(function(result){
-            if(result.length > 1000){
-              window.location = window.location;
-            }
+              }).done(function (result) {
+                      if(result.email){
+                          for(var message in result.email)
+                            if(!/can\'t/.test(result.email[message])){
+                                form.children('#email_user, #corp_email').prev('span').children('.error').html(result.email[message]).fadeIn();
+                            }
+                      }
+                      else
+                          $('#email_user').prev('span').children('.error').fadeOut(function(){$(this).empty();});
+
+                      if(result.password) {
+                              for(var message in result.password)
+                                  if(!/can\'t/.test(result.password[message])){
+                                      form.children('#password_user, #corp_password').prev('span').children('.error').html(result.password[message]).fadeIn();
+                                  }
+                      }
+                      else
+                          form.children('#password_user, #corp_password').prev('span').children('.error').fadeOut(function(){$(this).empty();});
+                      if(result.success)
+                        window.location = result.path;
+
+              });
+
           });
-    });
-  }
-</script>
+      }
+
+  $('img.yourlogo').click(function(){
+      $(this).next().trigger('click');
+  });
+
+  $('#user_compinfo_photo').fileupload({
+      url: '/valid',
+      dataType: 'json',
+      done: function (e, data) {
+        $('img.yourlogo').attr('src', data.result.url);
+      }
+  });
+  </script>

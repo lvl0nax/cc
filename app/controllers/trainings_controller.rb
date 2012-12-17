@@ -31,7 +31,7 @@ class TrainingsController < ApplicationController
     @training = Training.new
 
     respond_to do |format|
-      format.html { render :layout => false }# new.html.erb
+      format.html# new.html.erb
       format.json { render json: @training }
     end
   end
@@ -45,9 +45,7 @@ class TrainingsController < ApplicationController
   # POST /trainings.json
   def create
     @training = Training.create(params[:training])
-    puts @training.errors.inspect
     @training.write_attributes(owner: current_user.id) unless current_user.nil?
-    puts @training.to_yaml
     respond_to do |format|
       if @training.save
         #current_user.trainings << @training
@@ -55,7 +53,7 @@ class TrainingsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Training was successfully created.' }
         format.json { render json: @training, status: :created, location: @training }
       else
-        format.html { render action: "new" }
+        format.html { render json: @training.errors }
         format.json { render json: @training.errors, status: :unprocessable_entity }
       end
     end

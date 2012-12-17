@@ -54,15 +54,30 @@ class UsersController < ApplicationController
     role = params[:user][:role][:name]
     params[:user][:role] = nil
 
+    if not params[:user][:compinfo].nil? and params[:user][:compinfo][:photo] and not cookies[:with_photo]
+      user = User.new(params[:user])
+      compinfo = Compinfo.new(params[:user][:compinfo])
+
+      user.compinfo = compinfo
+      compinfo.save!
+      user.save(:validate=>false)
+      cookies[:with_photo] = user._id
+      return render :json => {:url => compinfo.photo.url}
+    end
+
     if role == "employer" or role == "employee"
       temp = User.count
 
-      @user = User.create(params[:user])
-      if @user.errors.count > 0
-        @messages = @user.errors.full_messages
-        @sentence = I18n.t("errors.messages.not_saved",
-                          :count => @user.errors.count,
-                          :resource => @user.class.model_name.human.downcase)
+      @user = User.new(params[:user])
+
+      if @user.errors.count > 0 and not cookies[:with_photo]
+          return render json: @user.errors
+
+      elsif not cookies[:with_photo].nil? and @user.errors.count > 0
+          user = User.find(cookies[:with_photo])
+          user.update_attributes(params[:user])
+          return render :json => { :url => user.compinfo.photo.url }
+
       else
         if temp == 0
           @user.role = Role.new(:name => "admin")
@@ -71,16 +86,19 @@ class UsersController < ApplicationController
           @user.role = Role.new(:name => role)
           @user.resume = Resume.new(params[:user][:resume]) if role == "employee"
           @user.compinfo = Compinfo.new(params[:user][:compinfo]) if role == "employer"
+          cookies.delete :with_photo if @user.save
         end
 
         flash[:register] = true
         sign_in('user', @user)
-        redirect_to  user_session_path
+        path = edit_compinfo_path(@user.compinfo) if role == "employer"
+        path = edit_resume_path(@user.resume) if role == "employee"
+
+        render json:{ success:true, path:path }
       end
 
     else
       raise "ERROR! incorrect user params!"
     end
-
   end
 end

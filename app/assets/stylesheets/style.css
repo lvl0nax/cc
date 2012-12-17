@@ -288,10 +288,10 @@ a.jqTransformChecked {
   background-position: 0 0;
   height: 19px;
   position: relative;
-  width: 37px;
+  width: 80px;
 }
 .sbHolder .sbSelector {
-  width: 35px;
+  width: 80px;
   height: 19px;
   line-height: 19px;
   color: #999999;
@@ -309,7 +309,7 @@ a.jqTransformChecked {
   color: #333333;
 }
 .sbHolder .sbOptions {
-  width: 37px;
+  width: 80px;
   background-color: #ffffff;
   border: solid 1px #d2d2d2;
   list-style: none;
@@ -2159,10 +2159,12 @@ form .regtype img {
 }
 .photo_login {
   float: right;
+  max-height: 100px;
+  max-width: 100px;
 }
 .edd_header_2 {
   top: -5px !important;
-  left: 581px!important;
+  left: 611px!important;
 }
 .logouth2 {
   color: black;
@@ -2268,4 +2270,248 @@ form .regtype img {
 .add button:hover{
     text-decoration: underline;
     cursor: pointer;
+}
+#grant_image_photo{
+    display: none;
+}
+
+
+.ficha {
+    position: relative;
+    top: -6px;
+}
+.ficha div {
+    top: 6px;
+
+}
+
+#event_start_date_3i +div{
+    width: 40px !important;
+}
+#event_start_date_3i + div.sbSelector {
+    width: 38px !important;
+}
+#event_start_date_3i + div.sbHolder {
+    width: 40px !important;
+}
+
+
+#event_start_date_1i +div{
+    width: 88px !important;
+}
+#event_start_date_1i + div.sbSelector {
+    width: 86px !important;
+}
+#event_start_date_1i + div.sbHolder {
+    width: 88px !important;
+}
+
+
+#event_tmp_date_4i + div {
+   width: 40px !important;
+    float: none;
+    display: inline-block;
+}
+#event_tmp_date_4i + div.sbSelector {
+    width: 38px !important;
+}
+#event_tmp_date_4i + div.sbHolder {
+    width: 40px !important;
+}
+
+
+
+#event_tmp_date_5i  + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+}
+#event_tmp_date5i + div.sbSelector {
+    width: 38px !important;
+}
+#event_tmp_date_5i + div.sbHolder {
+    width: 40px !important;
+}
+
+
+
+#event_tmp_end_date_4i + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+
+}
+#event_tmp_end_date_4 + div.sbSelector {
+    width: 38px !important;
+}
+#event_tmp_end_date_4 + div.sbHolder {
+    width: 40px !important;
+}
+
+
+
+#event_tmp_end_date_5i + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+
+}
+#event_tmp_end_date_5i + div.sbSelector {
+    width: 38px !important;
+}
+#event_tmp_end_date_5i + div.sbHolder {
+    width: 40px !important;
+}
+
+
+
+#event_request_date_3i + div {
+    float: left;
+    width: 40px !important;
+    margin-right: 4px;
+}
+
+#event_request_date_2i +div {
+    float: left;
+    margin-right: 4px;
+}
+#event_request_date_1i +div {
+    float: left;
+    width: 50px !important;
+}
+
+#event_request_hour_4i +div {
+    display: inline-block;
+    width: 40px !important;
+}
+#event_request_hour_5i +div {
+    display: inline-block;
+    width: 40px !important;
+}
+
+
+
+/*training*/
+#training_start_date_3i +div{
+    width: 40px !important;
+}
+#training_start_date_3i + div.sbSelector {
+    width: 38px !important;
+}
+#training_start_date_3i + div.sbHolder {
+    width: 40px !important;
+}
+
+
+
+#training_start_date_1i +div{
+    width: 62px !important;
+}
+#training_start_date_1i + div.sbSelector {
+    width: 60px !important;
+}
+#training_start_date_1i + div.sbHolder {
+    width: 62px !important;
+}
+
+#training_tmp_date_4i + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+}
+#training_tmp_date_4i + div.sbSelector {
+    width: 38px !important;
+}
+#training_tmp_date_4i + div.sbHolder {
+    width: 40px !important;
+}
+
+
+
+#training_tmp_date_5i  + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+}
+#training_tmp_date5i + div.sbSelector {
+    width: 38px !important;
+}
+#training_tmp_date_5i + div.sbHolder {
+    width: 40px !important;
+}
+
+
+#training_tmp_end_date_4i + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+
+}
+#training_tmp_end_date_4 + div.sbSelector {
+    width: 38px !important;
+}
+#training_tmp_end_date_4 + div.sbHolder {
+    width: 40px !important;
+}
+
+
+
+#training_tmp_end_date_5i + div {
+    width: 40px !important;
+    float: none;
+    display: inline-block;
+
+}
+#training_tmp_end_date_5i + div.sbSelector {
+    width: 38px !important;
+}
+#training_tmp_end_date_5i + div.sbHolder {
+    width: 40px !important;
+}
+
+
+#training_request_date_3i + div {
+    float: left;
+    width: 40px !important;
+    margin-right: 4px;
+}
+
+#training_request_date_2i +div {
+    float: left;
+    margin-right: 4px;
+}
+#training_request_date_1i +div {
+    float: left;
+    width: 50px !important;
+}
+
+#training_request_hour_4i +div {
+    display: inline-block;
+    width: 40px !important;
+}
+#training_request_hour_5i +div {
+    display: inline-block;
+    width: 40px !important;
+}
+span.error{
+    display: none;
+    color: red;
+}
+.photo_login .redact {
+    display: block;
+    margin-top: -30px;
+    width: 90px;
+    height: 20px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #fff;
+    color: #ffffff !important;
+    font-size: 10px !important;
+    display: none;
+    z-index: 101;
+}
+.photo_login .redact:hover {
+    text-decoration: none !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
 }

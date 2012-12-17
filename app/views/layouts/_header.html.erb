@@ -63,6 +63,9 @@
         <%= link_to  'ВЫХОД', sign_out_path, :class=>'logouth2' %>
         <% if current_user.resume? && current_user.resume.photo? %>
             <%= image_tag current_user.resume.photo.url(:thumb), :class=>'photo_login' %>
+            <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume(current_user.id), :class => 'redact'%>
+        <% elsif current_user.compinfo? && current_user.compinfo.photo? %>
+            <%= image_tag current_user.compinfo.photo.url(:thumb), :class=>'photo_login' %>
         <% else %>
             <%= image_tag "/assets/nophoto.jpg", :class=>'photo_login' %>
         <% end %>
@@ -98,6 +101,13 @@
 
             }
 
+        });
+
+        $(".photo_login").mouseover(function () {
+            $(this).children(".redact").css({'display':'block'});
+        });
+        $(".photo_login").mouseout(function () {
+            $(this).children(".redact").css({'display':'none'});
         });
 
     });
@@ -223,15 +233,42 @@
     jQuery(function () {
 
         jQuery("#selectday," +
-                " #selectmonth," +
-                " #selectyear," +
-                " #selecthour, " +
+                "#selectmonth," +
+                "#selectyear," +
+                "#selecthour, " +
                 "#selectminute," +
                 "#grant_start_date_1i," +
                 "#grant_start_date_2i," +
                 "#grant_start_date_3i," +
                 "#grant_end_date_4i," +
-                "#grant_end_date_5i").selectbox();
+                "#grant_end_date_5i," +
+                "#grant_status,"+
+                "#training_status,"+
+                "#event_status," +
+                "#event_start_date_3i," +
+                "#event_start_date_2i," +
+                "#event_start_date_1i," +
+                "#event_tmp_date_4i," +
+                "#event_tmp_date_5i," +
+                "#event_tmp_end_date_4i," +
+                "#event_tmp_end_date_5i," +
+                "#event_request_date_3i," +
+                "#event_request_date_2i," +
+                "#event_request_date_1i," +
+                "#event_request_hour_4i," +
+                "#event_request_hour_5i," +
+                "#training_start_date_3i," +
+                "#training_start_date_2i," +
+                "#training_start_date_1i," +
+            "#training_tmp_date_4i," +
+            "#training_tmp_date_5i," +
+            "#training_tmp_end_date_4i," +
+            "#training_tmp_end_date_5i," +
+            "#training_request_date_3i," +
+            "#training_request_date_2i," +
+            "#training_request_date_1i," +
+            "#training_request_hour_4i," +
+            "#training_request_hour_5i").selectbox();
 
     });
 
@@ -293,13 +330,13 @@
             $(this).next().trigger('click');
         });
 
-        $('#grant_image_photo').fileupload({
+        $('#grant_u_image_photo').fileupload({
             dataType: 'html',
             url: '<%= images_path %>',
             done: function (e, data) {
                 var $src = $(data.result).attr('src');
                 $('img[alt="Photo"]').attr('src', $src);
-                $('#grant_image').val($src);
+                $('#grant_hidden').val($(data.result).data('id'));
             }
         });
 

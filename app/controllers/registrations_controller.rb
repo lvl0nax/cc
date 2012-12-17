@@ -25,6 +25,8 @@ class RegistrationsController < Devise::RegistrationsController
         @user.compinfo = Compinfo.new(params[:user][:compinfo]) if role == "employer"
       end
 
+      redirect_to edit_compinfo_path(@user.compinfo) if role == 'employer'
+      redirect_to edit_resume_path(@user.resume) if role == 'employee'
 
       flash[:register] = true
 

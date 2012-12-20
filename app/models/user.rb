@@ -53,6 +53,7 @@ class User
   has_and_belongs_to_many :grants
   has_and_belongs_to_many :events
   has_many :requests
+  has_many :user_events
 
   has_many :authentications
   

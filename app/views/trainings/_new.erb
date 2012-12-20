@@ -110,7 +110,7 @@
         <% Area.all.each do |area| %>
             <div class="catsItem">
               <label>
-                <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
+                <input type="checkbox" name="training[area_ids][]" id="area-<%= area.id %>" value="<%= area.id %>">
                 <span class="descripting"><%= area.name %></span>
                 <div class="clr"></div>
               </label>
@@ -136,8 +136,8 @@
 
 <div class="manycheck">
   <div class="pchecks">
-    <span class="opl nopaid"><input type="checkbox" name="" id="">НЕОПЛАЧИВАЕМАЯ</span>
-    <span class="opl paid"><input type="checkbox" name="" id="">ОПЛАЧИВАЕМАЯ</span>
+    <span class="opl nopaid"><input type="radio" name="training[salary_type]" value="НЕОПЛАЧИВАЕМАЯ">НЕОПЛАЧИВАЕМАЯ</span>
+    <span class="opl paid"><input type="radio" name="training[salary_type]" value="ОПЛАЧИВАЕМАЯ">ОПЛАЧИВАЕМАЯ</span>
   </div>
   <div class="clr"></div>
 </div>
@@ -153,8 +153,9 @@
 <span class="label fl" style="margin-right: 20px">ЗАНЯТОСТЬ:</span>
 <div class="manycheck">
   <div class="pchecks">
-    <span class="opl"><input type="checkbox" name="" id="">НАУЧНЫЕ КОНФЕРЕНЦИЯ</span>
-    <span class="opl"><input type="checkbox" name="" id="">КАРЬЕРНЫЕ СОБЫТИЕ</span>
+    <% Training.employment.each do |employment|%>
+        <span class="opl"><input type="radio" name="training[employment]" value="<%= employment %>"><%= employment %></span>
+    <% end %>
   </div>
   <div class="clr"></div>
 </div>

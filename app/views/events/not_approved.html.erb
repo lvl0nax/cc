@@ -1,5 +1,40 @@
 <div id='content'>
-	<div id="items">
-	  <%= render @items %>
+	<div id="celendar_content">
+		<div class="monih12">
+			<div class="month_info">
+				<% @items.each do |item|%>
+					<%if item.class.name.eql?('Grant')%>
+					  <div class="monthcont yel">
+					<%elsif item.class.name.eql?('Event')%>
+					  <div class="monthcont bla">
+					<%elsif item.class.name.eql?('Training')%>
+					  <div class="monthcont gre">
+					<%end%>
+					  <span><%= item.start_date.strftime("%d %b %y") %></span>
+
+					  <span class="spright">
+					    <%if item.class.name.eql?('Grant')%>
+					      грант
+					    <%elsif item.class.name.eql?('Event')%>
+					      sobutie
+					    <%elsif item.class.name.eql?('Training')%>
+					      trening
+					    <%end%>
+					  </span>
+
+					  <img src="images/contimg4.png" alt="">
+
+					  <span><%= item.nation %></span>
+
+					  <span class="spright"><%= item.start_date.strftime("%H:%M") %></span>
+
+					  <span class="spsize"><%= item.title %></span>
+					    
+					</div>
+				<%end%>
+			</div>
+			<div class="clr"></div>		
+		</div>
+		<div class="clr"></div>
 	</div>
 </div>

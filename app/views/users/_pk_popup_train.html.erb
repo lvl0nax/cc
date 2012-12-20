@@ -4,7 +4,7 @@
 
 	<div class="head">
 
-		<h2>НАЗВАНИЕ ПАРАРАМ — СТАЖИРОВКА</h2>
+		<h2><%= event.title %> — СТАЖИРОВКА</h2>
 
 		<div class="social">
 
@@ -29,9 +29,11 @@
 			<div class="catsItem addtocallendar">
 
 				<label>
-
-					<input type="checkbox" name="" id="">
-
+					<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
+						<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
+					<%else%>
+						<input type="checkbox" name="" id="<%= event.id%>" class='signature'>
+					<%end%>
 					<span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
 
 					<div class="clr"></div>
@@ -46,7 +48,7 @@
 
 	<div class="rside">
 
-		<p>Британский нейрохирург и автор множества статей про научный атеизм Джонатан Парараджасингхем смонтировал видеозапись, в которой собрал воедино 50 интервью с признанными мыслителями в области физики, химии, философии и психологии. Они поделились своим мнением о вере в бога и жизни после смерти. Ноам Хомский, Бертран Рассел и Гарольд Крото — «Теории и практики» публикуют подборку самых интересных высказываний о религии.</p>
+		<p><%= event.description%></p>
 
 
 
@@ -68,9 +70,9 @@
 
 			<div class="date_wrap">
 
-				<div class="date">16 октября 2012</div>
+				<div class="date"><%= event.start_date.strftime("%d %B %Y")%></div>
 
-				<div class="time">C <span class="from">14:00</span> ДО <span class="to">23:00</span></div>
+				<div class="time">C <span class="from"><%= event.start_date.strftime("%d-%m-%Y, %H:%M")%></span> ДО <span class="to"><%= event.end_date.strftime("%d-%m-%Y, %H:%M")%></span></div>
 
 			</div>
 
@@ -82,8 +84,11 @@
 
 					ДОБАВИЛ:
 
-					<div class="username"><a href="">ПИРОГОВА НАТАЛЬЯ</a></div>
-
+					<div class="username"><a href="">
+						<% event_user = User.find(event.owner)%>
+						<%= event_user.resume.name + " " + event_user.resume.surname if event_user.resume %> 
+						<%= event_user.compinfo.name if event_user.compinfo  %>
+					</a></div>
 				</div>
 
 			</div>
@@ -154,23 +159,23 @@
 
 			<div class="takepart">ЗАНЯТОСТЬ: <span class="def">ЧАСТИЧНАЯ</span></div>
 
-			<h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>
+			<h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>			
 
-			
+			<div class="term"><%= event.end_date.strftime("%d-%m-%Y, %H:%M")%></div>
 
-			<div class="term">25 ИЮЛЯ 2012</div>
-
-			<a href="">www.ssilka.ru</a>
+			<a href=""><%= event.hyperlink%></a>
 
 
 
 			<div class="address">
 
-				Новая Голландия <br />
+				<%= event.nation%> <br />
 
-				Санкт-Петербург, <br />
+				<%= event.city%>, <br />
 
-				Набережная Адмиралтейского канала, 2  <br />
+				<%= event.street%>, <%= event.building%>  <br />
+
+				<%= event.place%> <br />
 
 				"Айрис Новая Голландия":  +7 (812) 456 76 37  <br />
 
@@ -180,9 +185,7 @@
 
 		</div>
 
-		<div class="clr"></div>
-
-		
+		<div class="clr"></div>		
 
 	</div>
 

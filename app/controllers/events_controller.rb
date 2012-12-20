@@ -13,6 +13,19 @@ class EventsController < ApplicationController
     @grants = @grants.where(:direction=>params[:grant][:direction]) if params[:grant][:direction]
   end
 
+  puts params.inspect
+  if params[:event]
+    @evs = Event.where(:status=>'ОДОБРЕНО')
+    @evs = @evs.in(:area_ids=>params[:event][:areas]) if params[:event][:areas]
+    @evs = @evs.where(:payment=>params[:event][:payments]) if params[:event][:areas]
+  end
+
+  if params[:training]
+    @trainings = Training.where(:status=>'ОДОБРЕНО')
+    @trainings = @trainings.in(:area_ids=>params[:training][:areas]) if params[:training][:areas]
+    @trainings = @trainings.in(:payment => params[:training][:payments]) if params[:training][:payments]
+  end
+
   years = %w[2012 2013]
   years.each do |year|
       months =  %w[jan feb mar apr may june july aug sept oct nov dec]
@@ -20,10 +33,12 @@ class EventsController < ApplicationController
         Grant.month(index, year.to_i).each do |grant|
           if @grants.nil?
             @events << grant
+            grant.visible = true
             existing_ids << grant.id
           else
-            @events << grant if @grants.include?(grant)
+            @events << grant # if @grants.include?(grant)
             existing_ids << grant.id if @grants.include?(grant)
+            grant.visible = true if @grants.include?(grant)
           end
         end
 
@@ -32,23 +47,50 @@ class EventsController < ApplicationController
         end
 
         Training.month(index, year.to_i).each do |training|
-          @events << training
+          if @trainings.nil?
+            @events << training
+            training.visible = true
+            existing_ids << training.id
+          else
+            @events << training # if @grants.include?(grant)
+            existing_ids << training.id if @trainings.include?(training)
+            training.visible = true if @trainings.include?(training)
+          end
         end
 
         @events << Month.new(:number=>index, :name=>month)
       end
   end
-    @events = @events.paginate(:page => params[:page], :per_page => 12)
-    existing_ids.each do |event|
-      params[:events].delete event.to_s if not params[:events].nil? and params[:events].include?(event.to_s)
-    end
-  @ids_to_show = []
+
+  @events = @events.paginate(:page => params[:page], :per_page => 12)
 
   existing_ids.each do |event|
-    @ids_to_show << event.to_s if not params[:events].nil? and not params[:events].include?(event.to_s)
+    params[:grants].delete event.to_s if not params[:grants].nil? and params[:grants].include?(event.to_s)
   end
 
-  @ids_to_delete = params[:events] unless params[:events].nil?
+
+  @ids_to_show = []
+
+
+  ### Getting grant ids which will fade in
+  existing_ids.each do |event|
+    @ids_to_show << event.to_s if not params[:grants].nil? and not params[:grants].include?(event.to_s)
+  end
+
+
+  ### Getting grant ids which will fade out
+  @ids_to_delete = []
+  unless params[:grants].nil?
+    params[:grants].each do |grant|
+      @ids_to_delete << grant
+    end
+  end
+
+  unless params[:trainings].nil?
+    params[:trainings].each do |training|
+      @ids_to_delete << training
+    end
+  end
 
     respond_to do |format|
       format.html
@@ -155,14 +197,16 @@ class EventsController < ApplicationController
 
   def not_approved
 
-    @items = []
+    #@items = []
     
-    @items.concat Training.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+    #@items += Training.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
     #logger.debug @items
-    @items.concat Event.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+    #@items += Event.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
     #logger.debug @items
-    @items.concat Grant.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+    #@items += Grant.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
 
+    @items = EventParent.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"])
+    puts @items.count
 
     unless @items.blank?
       @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
@@ -174,6 +218,7 @@ class EventsController < ApplicationController
       format.xml { render xml: @items }
       format.js
     end
+    puts @items.count
   end
 
   def update_index

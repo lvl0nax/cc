@@ -1,157 +1,26 @@
-<div id="content">
-  <div class="input_info">
-    <div class="info_row">
-      <span>ИМЯ</span>
-
-      <div class="input_field">
-        <input style="width:423px;" type="text" name="" id="">
-      </div>
-      <div class="clr"></div>
-      <span>ФАМИЛИЯ</span>
-
-      <div class="input_field">
-        <input style="width:423px;" type="text" name="" id="">
-      </div>
-      <div class="clr"></div>
-      <span>ПОЛ</span>
-      <input type="radio" name="sels" class="sizeBig">мужской
-      <input type="radio" name="sels" class="sizeBig">женский
-      <div class="clr"></div>
-      <span>ДАТА РОЖДЕНИЯ</span>
-
-      <div class="input_field">
-        <input style="width:15px;" type="text" name="" id="" maxlength="2">
-        <input style="width:15px;" type="text" name="" id="" maxlength="2">
-        <input style="width:40px;" type="text" name="" id="" maxlength="4">
-      </div>
-      <div class="clr"></div>
-      <span>МЕСТО ЖИТЕЛЬСТВА</span>
-
-      <div class="input_field">
-        <input style="width:423px;" type="text" name="" id="">
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="sep"></div>
-    <div class="info_row">
-      <span>ОБРАЗОВАНИЕ</span>
-
-      <div class="input_field">
-        <input style="width:423px;" type="text" name="" id="">
-
-        <div class="sub_info_row">
-          ВУЗ <input style="width:280px;" type="text" name="" id="">
-
-          <div class="clr"></div>
-        </div>
-        <div class="sub_info_row">
-          ФАКУЛЬТЕТ <input style="width:280px;" type="text" name="" id="">
-
-          <div class="clr"></div>
-        </div>
-        <div class="sub_info_row">
-          ДАТА ОКОНЧАНИЯ <input style="width:280px;" type="text" name="" id="">
-
-          <div class="clr"></div>
-        </div>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="sep"></div>
-    <div class="info_row">
-      <span>ОПЫТ РАБОТЫ</span>
-
-      <div class="input_field">
-        <div class="sub_info_row">
-          КОМПАНИЯ 1 <input style="width:280px;" type="text" name="" id="">
-
-          <div class="clr"></div>
-        </div>
-        <div class="sub_info_row">
-          <div class="fl">С&nbsp;&nbsp;<input style="width:180px;" type="text" name="" id="" class="fl"></div>
-          <div class="fr">&nbsp;ПО&nbsp;<input style="width:180px;" type="text" name="" id=""></div>
-          <div class="clr"></div>
-        </div>
-        <div class="sub_info_row">
-          ДОЛЖНОСТЬ <input style="width:280px;" type="text" name="" id="">
-          <button>ДОБАВИТЬ</button>
-          <div class="clr"></div>
-        </div>
-
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="sep"></div>
-    <div class="info_row">
-      <span>ОПИСАНИЕ СЕБЯ</span>
-
-      <div class="input_field">
-        <textarea></textarea>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="sep"></div>
-    <div class="tv_sizeBig">
-      <span>ПОДПИСАТЬСЯ НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ</span>
-      <input type="checkbox" name="" id="">
-
-      <div class="clr"></div>
-    </div>
-    <div class="info_row">
-      <div class="sub_info_row">
-        <span>&nbsp;</span>E-MAIL <input style="width:375px;" type="text" name="" id="">
-      </div>
-    </div>
-    <div class="clr"></div>
-    <div class="sep"></div>
-    <div class="tv_sizeBig">
-      <span>ПОДПИСАТЬСЯ НА SMS-РАССЫЛКУ</span>
-      <input type="checkbox" name="" id="">
-
-      <div class="clr"></div>
-    </div>
-    <span>ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН &nbsp;&nbsp;&nbsp;&nbsp;</span><input style="width:375px;" type="text" name="" id="">
-
-    <div class="clr"></div>
-    <div class="sep"></div>
-    <div class="info_row">
-      <script type="text/javascript">
-
-          $(document).ready(function () {
-
-              $(".nodis").click(function (event) {
-                  event.preventDefault();
-                  $(".dis").css({'display':'block'})
-
-              });
-
-          });
-
-      </script>
-      <span><a href="#" class="nodis">ИЗМЕНИТЬ ПАРОЛЬ</a></span>
-
-      <div class="input_field dis" style="display:none;">
-        <div class="sub_info_row">
-          СТАРЫЙ ПАРОЛЬ <input style="width:280px;" type="text" name="" id="">
-
-          <div class="clr"></div>
-        </div>
-        <div class="sub_info_row">
-          НОВЫЙ ПАРОЛЬ <input style="width:280px;" type="text" name="" id="">
-
-          <div class="clr"></div>
-        </div>
-        <div class="sub_info_row">
-          ПОВТОРИТЕ ПАРОЛЬ <input style="width:280px;" type="text" name="" id="">
-
-          <div class="clr"></div>
-        </div>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="clr"></div>
-    <div class="info_row">
-      <button>СОХРАНИТЬ</button>
-    </div>
-  </div>
+<div id="content">     
+  <%= render 'form' %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.edit').on('click', function(event){
+        event.preventDefault();
+        if($('#change_password').is(":hidden")){
+          $('#change_password').slideDown();
+        }
+        else{
+          $('#change_password').slideUp();
+        }      
+      });
+      $('#update_password').on('click', function(e){
+        $('#change_password').slideUp();      
+        var user_id = $('#user_id').val(),
+            user = $('#change_password #user_email, #change_password #user_password_confirmation, #change_password #user_password, #change_password #user_current_password').serialize();
+        $.ajax({ url: "/users/"+user_id,   type: "PUT", data: user,  beforeSend:function(jqXHR, settings) {
+                  jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                  }
+        });
+      e.preventDefault();
+      });
+    });
+  </script>  
 </div>

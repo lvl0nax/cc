@@ -23,7 +23,8 @@ class Event < EventParent
   field :kind
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
-
+  field :visible, :type => Boolean
+  field :payment, :type => Array
   validates_presence_of :title, :message => 'Обязательно'
   validates_presence_of :description, :message => 'Обязательно'
 
@@ -33,6 +34,10 @@ class Event < EventParent
 
   def self.area_types
     ["НАУЧНЫЕ КОНФЕРЕНЦИИ", "КАРЬЕРНЫЕ СОБЫТИЯ"]
+  end
+
+ def self.payment
+    %w[НЕОПЛАЧИВАЕМАЯ ОПЛАЧИВАЕМАЯ]
   end
 
   def tmp_date=(params)

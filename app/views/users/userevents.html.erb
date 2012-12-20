@@ -1,5 +1,61 @@
+<div id='content'>
+	<ul id="myitems" class="items">
+		<h1><%= link_to "КАЛЕНДАРЬ", activities_user_path(@user.id) %> | СОЗДАННЫЕ МЕРОПРИЯТИЯ</h1>
+	</ul>
+	</br>
+	<div id="celendar_content">
+		<div class="monih12">
+			<div class="month_info">
+				<% @action_events.each do |a_event|%>
+					<%= render 'event_calendar', :event => a_event %>			
+				<%end%>
+			</div>
+			<div class="clr"></div>		
+		</div>
+		<div class="clr"></div>
+	</div>
+</div>
+<script type="text/javascript" language="javascript">
 
-<ul id="myitems" class="items">
-	<h1><%= link_to "КАЛЕНДАРЬ", activities_user_path(@user.id) %> | СОЗДАННЫЕ МЕРОПРИЯТИЯ</h1>
-	<%= render @evnts %> 
-</ul>
+	$(".monthcont").click(function () {	
+
+		google_maps111();
+		google_maps222();
+		google_maps333();
+		/*google_maps444();
+		google_maps555();*/		
+
+		$('.pk_popup').css({'display':'none'});
+		$(this).children(".pk_popup").fadeIn(600);
+		var w = ($(this).children(".pk_popup").width())/2;
+		$(this).children(".pk_popup").css({'margin-top':-w});
+	});		
+
+	$(".close_popup").click(function () {
+		$(this).parent(".pk_popup").fadeOut(600);
+	});
+
+	$(document).ready(function(){
+	   $('.pk_popup, .monthcont').click(function(event){
+		   event.stopPropagation();
+	   });
+
+	   $('.signature').on('click', function(){
+      var id_event = $(this).attr('id');
+      var str; 
+      if ($(this).is(':checked')){
+        str = 'add';
+      }
+      else{
+        str = 'remove'
+      } 
+      $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
+                jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                }
+      });     
+    });
+
+	}).click(function(){
+		$('.pk_popup').fadeOut(200);
+	});	
+</script>

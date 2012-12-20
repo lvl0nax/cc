@@ -1,32 +1,35 @@
-<div class="moncon">
+<%if event.class.name.eql?('Grant')%>
+  <div class="monthcont yel">
+<%elsif event.class.name.eql?('Event')%>
   <div class="monthcont bla">
+<%elsif event.class.name.eql?('Training')%>
+  <div class="monthcont gre">
+<%end%>
+  <span><%= event.start_date.strftime("%d %b %y") %></span>
 
-    <span><%= event.start_date.strftime("%d %b %y") %></span>
-
-    <span class="spright">
-      <%if event.class.name.eql?('Grant')%>
-        грант
-      <%elsif event.class.name.eql?('Event')%>
-        sobutie
-      <%elsif event.class.name.eql?('Training')%>
-        trening
-      <%end%>
-    </span>
-
-    <img src="images/contimg4.png" alt="">
-
-    <span><%= event.nation %></span>
-
-    <span class="spright"><%= event.start_date.strftime("%H:%M") %></span>
-
-    <span class="spsize"><%= event.title %></span>
-
+  <span class="spright">
     <%if event.class.name.eql?('Grant')%>
-      <%= render 'pk_popup_grant', :event => event%>
+      грант
     <%elsif event.class.name.eql?('Event')%>
-      
+      sobutie
     <%elsif event.class.name.eql?('Training')%>
-      <%= render 'pk_popup_train'%>
+      trening
     <%end%>
-  </div>
+  </span>
+
+  <img src="images/contimg4.png" alt="">
+
+  <span><%= event.nation %></span>
+
+  <span class="spright"><%= event.start_date.strftime("%H:%M") %></span>
+
+  <span class="spsize"><%= event.title %></span>
+
+  <%if event.class.name.eql?('Grant')%>
+    <%= render 'pk_popup_grant', :event => event%>
+  <%elsif event.class.name.eql?('Event')%>
+    <%= render 'pk_popup_event', :event => event%>
+  <%elsif event.class.name.eql?('Training')%>
+    <%= render 'pk_popup_train', :event => event%>
+  <%end%>  
 </div>

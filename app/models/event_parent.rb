@@ -8,6 +8,8 @@ class EventParent
   field :start_date, :type => DateTime
   field :status
 
+  has_many :user_events
+
   def self.filter
     now = DateTime.now
     self.where(:start_date => {'$gte' => now }, :status=>'ОДОБРЕНО')

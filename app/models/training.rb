@@ -18,20 +18,27 @@ class Training < EventParent
   field :tmp_end_date, :type => DateTime
   field :request_date, :type => DateTime #, :type => Array
   field :request_hour, :type => DateTime
-  field :areas
-  field :employment
+  field :employment, :type => Array
   field :salary_type, :type=>Array
   field :direction, :type => Array
   field :x_coordinate, :type => Float
   field :y_coordinate, :type => Float
 
+  field :visible, :type => Boolean
+
   validates_presence_of :title, :message => 'Обязательно'
   validates_presence_of :description, :message => 'Обязательно'
+
+  has_and_belongs_to_many  :areas
 
   mount_uploader :photo, ImageUploader
 
   def self.salary_type
     %w[НЕОПЛАЧИВАЕМАЯ OПЛАЧИВАЕМАЯ]
+  end
+
+  def self.employment
+    ["НАУЧНЫЕ КОНФЕРЕНЦИЯ" ,"КАРЬЕРНЫЕ СОБЫТИЕ"]
   end
 
   def user

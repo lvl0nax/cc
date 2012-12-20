@@ -29,8 +29,12 @@ class UsersController < ApplicationController
   end
 
   def userevents
-    @user = User.find(params[:id])
-    @evnts = @user.created_actions
+    @user = User.find(params[:id])    
+    @userevents = UserEvent.where(:user_id => @user.id)
+    @action_events = []
+    @userevents.each do |ue|
+      @action_events += EventParent.find(ue.event_parent_id).to_a     
+    end    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @evnts }
@@ -100,5 +104,16 @@ class UsersController < ApplicationController
     else
       raise "ERROR! incorrect user params!"
     end
+  end
+
+  def add_remove_event
+    @user = User.find(current_user.id)
+    if params[:str].eql?('add')
+      @user_event = UserEvent.create(user_id: @user.id, event_parent_id: params[:id_event])      
+    elsif params[:str].eql?('remove')
+      @ue = UserEvent.where(:user_id => current_user.id, :event_parent_id => params[:id_event])
+      @ue.destroy
+    end    
+    render :text => ''
   end
 end

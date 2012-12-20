@@ -1,21 +1,40 @@
 <div class="monih12">
   <% @years.each do |year| %>
     <% @months.each_with_index do |month, index| %>
-      <div class='months'><%=month+" "+year%></div>
-      <div class='month_events'>     
-        <% if EventParent.month(index, year.to_i).count == 0 %>
-          <div class="moncon">
-            Empty Events
+      <% if EventParent.month(index, year.to_i).count > 0 %>
+        <div class="month_title">
+          <div class="title_wrap">          
+            <span><%=month+" "+year%></span>          
           </div>
-        <%else%>
+        </div>
+        <div class="month_info">
           <% EventParent.month(index, year.to_i).each do |event|%>
             <%= render 'event_calendar', :event => event %>
-          <%end%>        
-        <%end%>     
-      </div>
+          <%end%>             
+        </div>
+        <div class="clr"></div>
+      <%end%>
     <%end%>
   <%end%>  
 </div>
 <div class="clr"></div>
 <div class="clr"></div>
+<script>
+  $(document).ready(function() {
+    $('.signature').on('click', function(){
+      var id_event = $(this).attr('id');
+      var str; 
+      if ($(this).is(':checked')){
+        str = 'add';
+      }
+      else{
+        str = 'remove'
+      } 
+      $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
+                jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                }
+      });     
+    });
+  });
+</script>
 

@@ -2004,8 +2004,8 @@ form .regtype img {
   padding-top: 5px;
 }
 .input_info .info_row .input_field .sub_info_row input {
-  float: right;
-  margin-right: 0px;
+  /*float: right;
+  margin-right: 0px;*/
 }
 .input_info .info_row .input_field .sub_info_row button {
   margin-top: 10px;

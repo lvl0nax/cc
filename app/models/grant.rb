@@ -9,7 +9,7 @@ class Grant < EventParent
   field :nation
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :end_date, :type => DateTime
-
+  field :visible, :type => Boolean
   field :direction, :type => Array
 
   validates_presence_of :title, :message => 'Обязательно'
@@ -41,7 +41,7 @@ class Grant < EventParent
   end
 
   def end_date=(params)
-     self.start_date = self.start_date.change(:hour=>params.to_datetime.hour,                                        :min=>params.to_datetime.min)
+     self.start_date = self.start_date.change(:hour=>params.to_datetime.hour, :min=>params.to_datetime.min)
   end
 
 end

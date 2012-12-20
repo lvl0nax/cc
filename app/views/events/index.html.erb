@@ -79,10 +79,12 @@
           </div>
           <div class="pchecks">
             <span class='pay'>Оплата:</span>
-          <span class="opl">
-            <%= f.check_box :check_pay, :name => "", :id => "" %>
-            Неоплачиваемая
-          </span>
+            <% Event.payment.each do |payment| %>
+              <span class="opl">
+                <input type="checkbox" name="training[payments][]" value="<%=payment%>"/>
+                <%=payment%>
+              </span>
+            <% end %>
           </div>
         </div>
         <div class="filterSob ffscr">
@@ -213,12 +215,14 @@
         });
         var query = "";
         for(var elem in $ids)
-           query += 'events[]=' + $ids[elem] + '&';
+           query += 'grants[]=' + $ids[elem] + '&';
 
         return query;
     }
-
-    $(".moncon").click(function () {
+    $('.monthhover').click(function(){$('#filter').update_index()});
+    $(".moncon").filter(function(){
+        return $(this).children('first').is('img');
+    }).click(function () {
 
 
         $('.pk_popup').css({'display':'none'});
@@ -268,5 +272,4 @@
             $(this).children(".w203").css({'display':'block'});
         });
     });
-    $('.monthhover').click(function(){$('#filter').update_index()});
 </script>

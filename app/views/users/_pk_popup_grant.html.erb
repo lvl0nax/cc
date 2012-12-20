@@ -13,22 +13,27 @@
 		<img src="images/previmg.png" alt="" class="previmg" />
 		<div class="catsItem addtocallendar">
 			<label>
-				<input type="checkbox" name="" id="">
+				<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
+					<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
+				<%else%>
+					<input type="checkbox" name="" id="<%= event.id%>" class='signature'>
+				<%end%>
 				<span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
 				<div class="clr"></div>
 			</label>
 		</div>
 		<div class="date_wrap">
 			<div class="date"><%= event.start_date.strftime("%d %B %Y") %></div>
-			<div class="time">C <span class="from">14:00</span> ДО <span class="to">23:00</span></div>
+			<div class="time">C <span class="from"><%= event.start_date.strftime("%d-%m-%Y, %H:%M")%></span> ДО <span class="to">nemaje</span></div>
 		</div>
 		<div class="whoadd">
 			<img src="images/ava.png" alt="" />
 			<div class="text">
 				ДОБАВИЛ:
 				<div class="username"><a href="">
-					<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
-					<%= @user.compinfo.name if @user.compinfo  %>
+					<% event_user = User.find(event.owner)%>
+					<%= event_user.resume.name + " " + event_user.resume.surname if event_user.resume %> 
+					<%= event_user.compinfo.name if event_user.compinfo  %>
 				</a></div>
 			</div>
 		</div>
@@ -41,12 +46,12 @@
 		</div>
 	</div>
 	<div class="rside">
-		<p>Британский нейрохирург и автор множества статей про научный атеизм Джонатан Парараджасингхем смонтировал видеозапись, в которой собрал воедино 50 интервью с признанными мыслителями в области физики, химии, философии и психологии. Они поделились своим мнением о вере в бога и жизни после смерти. Ноам Хомский, Бертран Рассел и Гарольд Крото — «Теории и практики» публикуют подборку самых интересных высказываний о религии.</p>
+		<p><%= event.description %></p>
 		<h3>УСЛОВИЯ УЧАСТИЯ:</h3>
 		<p>Британский нейрохирург и автор множества статей про научный атеизм Джонатан Парараджасингхем смонтировал видеозапись, в которой собрал воедино 50 интервью с признанными мыслителями в области физики, химии, философии и психологии. Они поделились своим мнением о вере в бога и жизни после смерти. Ноам Хомский, Бертран Рассел и Гарольд Крото — «Теории и практики» публикуют подборку самых интересных </p>
 		<h3>СРОК ПОДАЧИ ЗАЯВОК:</h3>
 		<div class="term">25 ИЮЛЯ 2012</div>
-		<a href="">www.ssilka.ru</a>
+		<a href=""><%= event.hyperlink%></a>
 		<div id="map111" class="mapwrap">
 			<script>
 				function google_maps111() {

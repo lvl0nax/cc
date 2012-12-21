@@ -47,6 +47,9 @@ class GrantsController < ApplicationController
 
     respond_to do |format|
       if @grant.save
+
+        cookies.delete :grant_image unless cookies[:grant_image].nil?
+
         format.html { render json: true }
         format.json { render json: @grant, status: :created, location: @grant }
       else

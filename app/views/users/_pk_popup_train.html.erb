@@ -50,16 +50,6 @@
 
 		<p><%= event.description%></p>
 
-
-
-		<h3>УСЛОВИЯ УЧАСТИЯ:</h3>
-
-		
-
-		<p>Британский нейрохирург и автор множества статей про научный атеизм Джонатан Парараджасингхем смонтировал видеозапись, в которой собрал воедино 50 интервью с признанными мыслителями в области физики, химии, философии и психологии. Они поделились своим мнением о вере в бога и жизни после смерти. Ноам Хомский, Бертран Рассел и Гарольд Крото — «Теории и практики» публикуют подборку самых интересных </p>
-
-		
-
 		<div class="trainleft">
 
 			<div class="trainstatus">
@@ -72,10 +62,10 @@
 
 				<div class="date"><%= event.start_date.strftime("%d %B %Y")%></div>
 
-				<div class="time">C <span class="from"><%= event.start_date.strftime("%d-%m-%Y, %H:%M")%></span> ДО <span class="to"><%= event.end_date.strftime("%d-%m-%Y, %H:%M")%></span></div>
+				<div class="time"><span style='font-size:18px'>C <%= event.start_date.strftime("%H:%M")%> ДО <%= event.end_date.strftime("%H:%M")%></span></div>
 
 			</div>
-
+				</br>
 			<div class="whoadd">
 
 				<img src="images/ava.png" alt="" />

@@ -1,17 +1,21 @@
 <div class="moncon" data-id="<%= training._id %>" <%= raw 'style="display:none;"' unless training.visible %>>
-    <div class="monthcont yel">
+    <div class="monthcont vio">
 
       <span>16 октября 2012</span>
 
       <span class="spright">стажировка</span>
 
-      <img src="images/contimg4.png" alt="">
+      <% if training.image_id.blank? %>
+        <%= image_tag "contimg4.png" %>
+      <% else %>
+        <%= image_tag Image.find(training.image_id).photo.thumb %>
+      <% end %>
 
-      <span>Новая Голландия</span>
+      <span><%# %></span>
 
-      <span class="spright">14:00</span>
+      <span class="spright"><%= training.start_date.strftime('%H:%M') %></span>
 
-      <span class="spsize">GeekPicnic</span>
+      <span class="spsize"><%= training.title %></span>
 
       <div class="clr"></div>
 

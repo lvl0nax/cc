@@ -13,7 +13,7 @@
         <span class="lanelHead sizeBig">
           <span>Стажировки</span>
           <span class="fjqtrans">
-            <%= f.check_box :check_train, :checked => 'checked', :name => "", :id => "" %>
+            <input type="checkbox" checked name="check_training" value="working">
           </span>
         </span>
           <span class="numerick"><%= Training.count %></span>
@@ -35,7 +35,6 @@
                             } else {
                                 $(this).find(".descripting").removeClass("act");
                             }
-                            ;
                         });
                     });
                 </script>
@@ -91,10 +90,10 @@
         <span class="lanelHead sizeBig">
           <span>События</span> 
           <span class="fjqtrans">
-            <%= f.check_box :check_event, :checked => 'checked', :name => "", :id => "" %>
+            <input type="checkbox" name="check_event" checked value="working">
           </span>
         </span>
-          <span class="numerick">15</span>
+          <span class="numerick"><%= Event.count %></span>
 
           <div class="vupad">
             <span class="naming">Сфера</span>
@@ -117,7 +116,7 @@
             <div class="pchecks">
               <% Event.area_types.each do |area| %>
               <span class="opl">
-                <input type="checkbox" name="area_type[]" value="<%= area %>"/>
+                <input type="checkbox" name="event[area_types][]" value="<%= area %>"/>
                 <%= area %>
               </span>
               <% end %>
@@ -129,7 +128,7 @@
         <span class="lanelHead sizeBig">
           <span>Гранты</span> 
           <span class="fjqtrans">
-            <input type="checkbox" checked name="" id="">
+            <input type="checkbox" name="check_grant" checked value="working">
           </span>
         </span>
           <span class="numerick"><%= Grant.count %></span>
@@ -188,7 +187,7 @@
             // Now we will do all the stuff
             $.ajax({
                 url:'<%= events_path %>.json',
-                data:$form.serialize() + '&' + ids_on_page(),
+                data:$form.serialize() + '&' + ids_on_page() + '&month=' + data,
                 type:'get',
                 dataType:'json'
             }).done(function (result) {
@@ -219,7 +218,10 @@
 
         return query;
     }
-    $('.monthhover').click(function(){$('#filter').update_index()});
+//    $('.monthhover ul li').click(function(){
+//        var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; });
+//        $('#filter').update_index($elems.index(this));
+//    });
     $(".moncon").filter(function(){
         return $(this).children('first').is('img');
     }).click(function () {
@@ -262,14 +264,13 @@
 
 </script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $(".moncon").mouseover(function () {
-            $(this).children(".monthhover").css({'display':'block'});
-            $(this).children(".w203").css({'display':'none'});
-        });
-        $(".moncon").mouseout(function () {
-            $(this).children(".monthhover").css({'display':'none'});
-            $(this).children(".w203").css({'display':'block'});
-        });
-    });
+    // $(".moncon").mouseover();
+    function hover (elem) {
+        $(elem).children(".monthhover").css({'display':'block'});
+        $(elem).children(".w203").css({'display':'none'});
+    }
+    function out(elem) {
+        $(elem).children(".monthhover").css({'display':'none'});
+        $(elem).children(".w203").css({'display':'block'});
+    }
 </script>

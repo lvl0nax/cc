@@ -131,8 +131,11 @@
 <div class="rightpart">
   <span class="label">ФОТО:</span>
   <div class="photo">
-    <%= image_tag 'photo.png' %>
-    <%= f.file_field :photo %>
+    <%= image_tag "contimg5.png" %>
+    <%= fields_for 'event[u_image]' do |img|%>
+        <%= img.file_field :photo %>
+    <% end %>
+    <input type="hidden" name='event[image_id]' id='event_hidden' >
   </div>
 </div>
 <div class="clr"></div>

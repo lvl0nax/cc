@@ -2563,3 +2563,22 @@ span.error{
 .monih12 .monthhover .year:hover {
     background: none;
 }
+
+.edit_events{
+  position: absolute;
+  bottom: 0;  
+}
+
+.edit_events .odobreno{
+  width: 100px;
+}
+.edit_events .delete{
+  width: 71px;
+  text-align:right;
+}
+.edit_events .delete:hover, .edit_events .odobreno:hover{
+  text-decoration: underline;
+}
+#training_u_image_photo, #grant_u_image_photo, #event_u_image_photo{
+    display:none;
+}

@@ -24,8 +24,9 @@
 		</div>
 		<div class="date_wrap">
 			<div class="date"><%= event.start_date.strftime("%d %B %Y") %></div>
-			<div class="time">C <span class="from"><%= event.start_date.strftime("%d-%m-%Y, %H:%M")%></span> ДО <span class="to">nemaje</span></div>
+			<div class="time"><span style='font-size:18px'>C 09:00 ДО <%= event.start_date.strftime(" %H:%M ") %></span></div>
 		</div>
+		</br>
 		<div class="whoadd">
 			<img src="images/ava.png" alt="" />
 			<div class="text">
@@ -37,75 +38,15 @@
 				</a></div>
 			</div>
 		</div>
-		<div class="address">
-			Новая Голландия <br />
-			Санкт-Петербург, <br />
-			Набережная Адмиралтейского канала, 2  <br />
-			"Айрис Новая Голландия":  +7 (812) 456 76 37  <br />
-			"Лето в Новой Голландии":  +7 (812) 971 05 10
+		<div class="address">			
 		</div>
 	</div>
 	<div class="rside">
-		<p><%= event.description %></p>
-		<h3>УСЛОВИЯ УЧАСТИЯ:</h3>
-		<p>Британский нейрохирург и автор множества статей про научный атеизм Джонатан Парараджасингхем смонтировал видеозапись, в которой собрал воедино 50 интервью с признанными мыслителями в области физики, химии, философии и психологии. Они поделились своим мнением о вере в бога и жизни после смерти. Ноам Хомский, Бертран Рассел и Гарольд Крото — «Теории и практики» публикуют подборку самых интересных </p>
+		<p><%= event.description %></p>		
 		<h3>СРОК ПОДАЧИ ЗАЯВОК:</h3>
-		<div class="term">25 ИЮЛЯ 2012</div>
+		<div class="term"><%= event.start_date.strftime("%d %B %Y") %></div>
 		<a href=""><%= event.hyperlink%></a>
-		<div id="map111" class="mapwrap">
-			<script>
-				function google_maps111() {
-
-				 var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
-
-					var settings = {
-
-						zoom: 12, // Выставляем параметры зума для карты
-
-						center: latlng,
-
-						mapTypeControl: false,
-
-						mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-
-						navigationControl: true,
-
-						navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-
-						mapTypeId: google.maps.MapTypeId.ROADMAP
-
-					};
-
-					var map = new google.maps.Map(document.getElementById("map111"), settings); // Выбираем див куда ставить карту
-
-					var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
-
-					var myOptions = {
-
-						zoom: 12,  // Выставляем параметры зума для маркера
-
-						center: myLatlng,
-
-						mapTypeId: google.maps.MapTypeId.ROADMAP
-
-					}  
-
-					var map = new google.maps.Map(document.getElementById("map111"), myOptions);  // Выбираем див куда ставить маркер
-
-					var marker = new google.maps.Marker({
-
-					position: myLatlng,
-
-					map: map,
-
-					title: "A"
-
-				  }); 
-
-				}
-
-			</script>
-		</div>
+		<div id="map111" class="mapwrap"><div>
 	</div>
 	<div class="clr"></div>
 </section>

@@ -4,13 +4,13 @@
 
   <div class="headerupwrap">
 
-    <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
-
-    <!-- TODO: Uncomment this in production -->
-    <!--<div style="display: inline;" id="vk_like"></div>-->
-    <!--<script type="text/javascript">-->
-    <!--  VK.Widgets.Like("vk_like", {type: "mini", height: 18}); -->
-    <!--</script>-->
+    <div style="display: inline;background-color: white;">
+        <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+        <div style="display: inline;" id="vk_like"></div>
+    </div>
+    <script type="text/javascript">
+        VK.Widgets.Like("vk_like", {type: "mini", height: 18});
+    </script>
     <% unless current_user %>
         <span class="error" style="color: #ff0000; margin-left: 20%;"></span>
 
@@ -326,7 +326,7 @@
 
     $(document).ready(function(){
 
-        $('img[alt="Photo"]').click(function(){
+        $('div.photo img').click(function(){
             $(this).next().trigger('click');
         });
 
@@ -335,8 +335,30 @@
             url: '<%= images_path %>',
             done: function (e, data) {
                 var $src = $(data.result).attr('src');
-                $('img[alt="Photo"]').attr('src', $src);
+                $('div.photo img:visible').attr('src', $src);
                 $('#grant_hidden').val($(data.result).data('id'));
+            }
+        });
+
+        $('#training_u_image_photo').fileupload({
+            dataType: 'html',
+            url: '<%= images_path %>',
+            done: function (e, data) {
+                var $src = $(data.result).attr('src');
+                $('div.photo img:visible').attr('src', $src);
+                console.log($(data.result).data('id'));
+                console.log($('#training_hidden'));
+                $('#training_hidden').val($(data.result).data('id'));
+            }
+        });
+
+        $('#event_u_image_photo').fileupload({
+            dataType: 'html',
+            url: '<%= images_path %>',
+            done: function (e, data) {
+                var $src = $(data.result).attr('src');
+                $('div.photo img:visible').attr('src', $src);
+                $('#event_hidden').val($(data.result).data('id'));
             }
         });
 

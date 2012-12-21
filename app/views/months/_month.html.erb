@@ -1,4 +1,4 @@
-<div class="moncon">
+<div class="moncon" onmouseover="hover(this)" onmouseout="out(this)"><!-- not elegant but what can I do? -->
     <%= image_tag month.name + '.png', :class=>'w203' %>
   <div class="monthhover">
     <ul>
@@ -30,3 +30,9 @@
     </ul>
     </div>
 </div>
+<script>
+    $('.monthhover ul li').click(function(){
+        var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; });
+        $('#filter').update_index($elems.index(this));
+    });
+</script>

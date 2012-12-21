@@ -5,7 +5,7 @@ class Grant < EventParent
   has_and_belongs_to_many :users
   #belongs_to :user
 
-  field :owner
+  field :owner, :type=>String
   field :nation
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :end_date, :type => DateTime
@@ -21,9 +21,9 @@ class Grant < EventParent
   end
 
   has_and_belongs_to_many  :areas
-  has_many :images
+  has_one :image
 
-  accepts_nested_attributes_for :areas, :images
+  accepts_nested_attributes_for :areas, :image
 
   def self.search(areas)
     now = DateTime.now

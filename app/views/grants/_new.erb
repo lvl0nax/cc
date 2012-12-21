@@ -10,7 +10,7 @@
     <div class="clr"></div>
 
     <span class="label">СРОКИ ПОДАЧИ ЗАЯВОК</span>
-    <div class="datesel300 large_select">
+    <div class="datesel300 large_select">      
       <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
       <span style="margin: 0 8px;float:left;">ДО</span>
       <div style="display: inline-block;position:relative; top:-5px;"><%= f.time_select :end_date %></div>
@@ -24,9 +24,11 @@
   <div class="rightpart">
     <span class="label">ФОТО:</span>
     <div class="photo">
-        <%= image_tag "photo.png" %>
-        <%= render 'images/new' %>
-        <input type="hidden" name='grant[image_ids][]' id='grant_hidden' >
+      <%= image_tag "contimg6.png" %>
+      <%= fields_for 'grant[u_image]' do |img|%>
+          <%= img.file_field :photo %>
+      <% end %>
+      <input type="hidden" name='grant[image_id]' id='grant_hidden' >
     </div>
   </div>
   <div class="clr"></div>

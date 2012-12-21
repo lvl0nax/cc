@@ -8,7 +8,7 @@ class Event < EventParent
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions for registrations to the event
   field :areas # area for examples IT, buildings and etc
-  field :owner # User_id
+  field :owner, :type=>String
   field :nation # field as listing
   field :city # may be make as list of the towns
   field :street
@@ -35,6 +35,13 @@ class Event < EventParent
   def self.area_types
     ["НАУЧНЫЕ КОНФЕРЕНЦИИ", "КАРЬЕРНЫЕ СОБЫТИЯ"]
   end
+
+  has_and_belongs_to_many  :areas
+  has_one :image
+
+
+  accepts_nested_attributes_for :areas, :image
+
 
  def self.payment
     %w[НЕОПЛАЧИВАЕМАЯ ОПЛАЧИВАЕМАЯ]

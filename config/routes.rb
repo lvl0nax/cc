@@ -52,6 +52,8 @@ TestMongoid::Application.routes.draw do
       get 'activities'
       get 'not_approved'
       post 'update_index'
+      post 'event_status'
+      post 'event_delete'
     end
   end
 
@@ -75,6 +77,7 @@ TestMongoid::Application.routes.draw do
   end
 
   post "valid" => "users#valid"
+  post "add_remove_event" => "users#add_remove_event"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   get "/profile" => "users#show"

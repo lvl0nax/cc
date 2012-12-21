@@ -7,7 +7,7 @@ class Training < EventParent
 
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions
-  field :owner # User_id
+  field :owner, :type=>String
   field :nation # field as listing
   field :city # may be make as list of the towns
   field :street
@@ -19,6 +19,9 @@ class Training < EventParent
   field :request_date, :type => DateTime #, :type => Array
   field :request_hour, :type => DateTime
   field :employment, :type => Array
+  field :areas
+  field :employment
+  field :salary, :type => Integer
   field :salary_type, :type=>Array
   field :direction, :type => Array
   field :x_coordinate, :type => Float
@@ -30,8 +33,10 @@ class Training < EventParent
   validates_presence_of :description, :message => 'Обязательно'
 
   has_and_belongs_to_many  :areas
+  has_one :image
 
-  mount_uploader :photo, ImageUploader
+
+  accepts_nested_attributes_for :areas, :image
 
   def self.salary_type
     %w[НЕОПЛАЧИВАЕМАЯ OПЛАЧИВАЕМАЯ]

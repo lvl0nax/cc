@@ -43,6 +43,7 @@ class UsersController < ApplicationController
 
   def admin_page
     authorize! :admin_page, User
+    @count = EventParent.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).count
   end
 
   def update

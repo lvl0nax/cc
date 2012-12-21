@@ -3,34 +3,7 @@
 		<div class="monih12">
 			<div class="month_info">
 				<% @items.each do |item|%>
-					<%if item.class.name.eql?('Grant')%>
-					  <div class="monthcont yel">
-					<%elsif item.class.name.eql?('Event')%>
-					  <div class="monthcont bla">
-					<%elsif item.class.name.eql?('Training')%>
-					  <div class="monthcont gre">
-					<%end%>
-					  <span><%= item.start_date.strftime("%d %b %y") %></span>
-
-					  <span class="spright">
-					    <%if item.class.name.eql?('Grant')%>
-					      грант
-					    <%elsif item.class.name.eql?('Event')%>
-					      sobutie
-					    <%elsif item.class.name.eql?('Training')%>
-					      trening
-					    <%end%>
-					  </span>
-
-					  <img src="images/contimg4.png" alt="">
-
-					  <span><%= item.nation %></span>
-
-					  <span class="spright"><%= item.start_date.strftime("%H:%M") %></span>
-
-					  <span class="spsize"><%= item.title %></span>
-					    
-					</div>
+					<%= render 'not_approved', :item => item %>
 				<%end%>
 			</div>
 			<div class="clr"></div>		
@@ -38,3 +11,22 @@
 		<div class="clr"></div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+		$('.odobreno, .delete').on('click', function(){
+			var event_id = $(this).data('id');
+			var str;
+			$('#'+event_id+'.monthcont').hide();
+			if($(this).attr('class') == 'odobreno'){
+				str = 'event_status';
+			}
+			else if($(this).attr('class') == 'delete'){
+				str = 'event_delete';
+			}
+			$.ajax({ url: "/events/"+str, type: "POST", data:{ event_id: event_id},  beforeSend:function(jqXHR, settings) {
+                	jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                }
+      		});
+		});		
+	});
+</script>

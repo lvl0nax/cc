@@ -2,13 +2,16 @@
 <html lang="en-US">
 <head>
   <meta charset="UTF-8" />
-
+  <% cookies.delete :month unless cookies[:month].nil?%>
   <title><%=title%></title>
   <%= stylesheet_link_tag 'application' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
-  <!--TODO: Uncomment this in production-->
-  <!--<script type="text/javascript" src="//vk.com/js/api/openapi.js?72"></script>-->
+  <script type="text/javascript" src="//vk.com/js/api/openapi.js?74"></script>
+
+  <script type="text/javascript">
+      VK.init({apiId: 3272966, onlyWidgets: true});
+  </script>
   <script type="text/javascript">
       (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];

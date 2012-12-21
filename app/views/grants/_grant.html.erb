@@ -1,11 +1,11 @@
 <div class="moncon" data-id="<%= grant._id %>" <%= raw 'style="display:none;"' unless grant.visible %> >
-  <div class="monthcont yel">
+  <div class="monthcont bla">
     <span><%= Russian::l grant.start_date, :format => :short %></span>
-    <span class="spright"></span>
-    <% unless grant.images.first.nil? %>
-        <%= image_tag grant.images.first.photo.thumb %>
-     <% else %>
-        <%= image_tag 'contimg4.png' %>
+    <span class="spright">грант</span>
+    <% if grant.image_id.blank? %>
+        <%= image_tag "contimg6.png" %>
+    <% else %>
+        <%= image_tag Image.find(grant.image_id).photo.thumb %>
     <% end %>
     <span><%#= grant.title %></span>
     <span class="spright"><%= grant.start_date.strftime('%H:%m') %></span>

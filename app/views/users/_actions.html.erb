@@ -1,4 +1,5 @@
 <div class="monih12">
+  <% @index = 1%>
   <% @years.each do |year| %>
     <% @months.each_with_index do |month, index| %>
       <% if EventParent.month(index, year.to_i).count > 0 %>
@@ -9,11 +10,12 @@
         </div>
         <div class="month_info">
           <% EventParent.month(index, year.to_i).each do |event|%>
-            <%= render 'event_calendar', :event => event %>
+            <%= render 'event_calendar', :event => event, :index => @index %>
+            <% @index += 1%>
           <%end%>             
         </div>
         <div class="clr"></div>
-      <%end%>
+      <%end%>      
     <%end%>
   <%end%>  
 </div>

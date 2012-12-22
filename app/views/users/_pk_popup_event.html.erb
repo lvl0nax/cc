@@ -1,17 +1,31 @@
-<section class="pk_popup grant">
+<section class="pk_popup event">
+
 	<div class="close_popup"></div>
+
 	<div class="head">
-		<h2><%= event.title %> — ГРАНТ</h2>
+
+		<h2><%= event.title %> — СОБЫТИЕ</h2>
+
 		<div class="social">
+
 			<a href="" class="facebook"></a>
+
 			<a href="" class="twitter"></a>
+
 			<a href="" class="vk"></a>
+
 		</div>
+
 		<div class="clr"></div>
-	</div>
+
+	</div>	
+
 	<div class="lside">
+
 		<img src="images/previmg.png" alt="" class="previmg" />
+
 		<div class="catsItem addtocallendar">
+
 			<label>
 				<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
 					<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
@@ -19,35 +33,69 @@
 					<input type="checkbox" name="" id="<%= event.id%>" class='signature'>
 				<%end%>
 				<span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
+
 				<div class="clr"></div>
+
 			</label>
+
 		</div>
+
 		<div class="date_wrap">
+
 			<div class="date"><%= event.start_date.strftime("%d %B %Y") %></div>
-			<div class="time"><span style='font-size:18px'>C 09:00 ДО <%= event.start_date.strftime(" %H:%M ") %></span></div>
+
+			<div class="time"><span style='font-size:18px'>C <%= event.start_date.strftime("%H:%M")%> ДО <%= event.end_date.strftime("%H:%M")%></span></div>
+
 		</div>
-		</br>
+			</br>
 		<div class="whoadd">
+
 			<img src="images/ava.png" alt="" />
+
 			<div class="text">
+
 				ДОБАВИЛ:
+
 				<div class="username"><a href="">
 					<% event_user = User.find(event.owner)%>
 					<%= event_user.resume.name + " " + event_user.resume.surname if event_user.resume %> 
 					<%= event_user.compinfo.name if event_user.compinfo  %>
 				</a></div>
+
 			</div>
+
 		</div>
-		<div class="address">			
+
+		<div class="address">
+
+			<%= event.nation%> <br />
+
+			<%= event.city%>, <br />
+
+			<%= event.street%>, <%= event.building%>  <br />
+
+			<%= event.place%>
+			
 		</div>
+
 	</div>
+
 	<div class="rside">
-		<p><%= event.description %></p>		
-		<h3>СРОК ПОДАЧИ ЗАЯВОК:</h3>
-		<div class="term"><%= event.start_date.strftime("%d %B %Y") %></div>
-		<a href=""><%= event.hyperlink%></a>
-		<div id="map<%= index%>" class="mapwrap" data-type='<%=event._type%>'>
-		<div>
-	</div>
+
+		<%= event.description%>		
+
+		<h3>ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ:</h3>		
+
+		<div class="term"><%= event.end_date.strftime("%d-%m-%Y, %H:%M")%></div>
+
+		<a href=""><%= event.hyperlink%></a>		
+
+		<div id="map<%= index%>" class="mapwrap">
+			
+		</div>
+
+	</div>	
+
 	<div class="clr"></div>
+
 </section>

@@ -54,7 +54,7 @@
 
 			<div class="trainstatus">
 
-				<div class="nopaid">НЕОПЛАЧИВАЕМАЯ</div>
+				<div class="nopaid"><%= event.salary_type%></div>
 
 			</div>
 
@@ -83,63 +83,7 @@
 
 			</div>
 
-
-
-			<div id="map222" class="mapwrap">
-
-				<script>
-
-					function google_maps222() {
-
-					 var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
-
-						var settings = {
-
-							zoom: 12, // Выставляем параметры зума для карты
-
-							center: latlng,
-
-							mapTypeControl: false,
-
-							mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-
-							navigationControl: true,
-
-							navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-
-							mapTypeId: google.maps.MapTypeId.ROADMAP
-
-						};
-
-						var map = new google.maps.Map(document.getElementById("map222"), settings); // Выбираем див куда ставить карту
-
-						var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
-
-						var myOptions = {
-
-							zoom: 12,  // Выставляем параметры зума для маркера
-
-							center: myLatlng,
-
-							mapTypeId: google.maps.MapTypeId.ROADMAP
-
-						}  
-
-						var map = new google.maps.Map(document.getElementById("map222"), myOptions);  // Выбираем див куда ставить маркер
-
-						var marker = new google.maps.Marker({
-
-						position: myLatlng,
-
-						map: map,
-
-						title: "A"
-
-					  }); 
-
-					}
-
-				</script>				
+			<div id="map<%= index%>" class="mapwrap">								
 
 			</div>				
 
@@ -147,9 +91,9 @@
 
 		<div class="trainright">
 
-			<div class="takepart">ЗАНЯТОСТЬ: <span class="def">ЧАСТИЧНАЯ</span></div>
+			<div class="takepart"> <span class="def"> ЗАНЯТОСТЬ:</span><%= event.employment%></div>
 
-			<h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>			
+			<h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>	 		
 
 			<div class="term"><%= event.end_date.strftime("%d-%m-%Y, %H:%M")%></div>
 
@@ -165,11 +109,7 @@
 
 				<%= event.street%>, <%= event.building%>  <br />
 
-				<%= event.place%> <br />
-
-				"Айрис Новая Голландия":  +7 (812) 456 76 37  <br />
-
-				"Лето в Новой Голландии":  +7 (812) 971 05 10
+				<%= event.place%> <br />				
 
 			</div>				
 

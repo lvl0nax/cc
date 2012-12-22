@@ -1,0 +1,41 @@
+<%if item.class.name.eql?('Grant')%>
+  <div class="monthcont bla" style='position: relative' id='<%= item.id %>'>
+<%elsif item.class.name.eql?('Event')%>
+  <div class="monthcont gre" style='position: relative' id='<%= item.id %>'>
+<%elsif item.class.name.eql?('Training')%>
+  <div class="monthcont yel" style='position: relative' id='<%= item.id %>'>
+<%end%>
+  <span><%= item.start_date.strftime("%d %b %y") %></span>
+
+  <span class="spright">
+    <%if item.class.name.eql?('Grant')%>
+      грант
+    <%elsif item.class.name.eql?('Event')%>
+      sobutie
+    <%elsif item.class.name.eql?('Training')%>
+      trening
+    <%end%>
+  </span>
+
+  <img src="images/contimg4.png" alt="">
+
+  <span><%= item.nation %></span>
+
+  <span class="spright"><%= item.start_date.strftime("%H:%M") %></span>
+
+  <span class="spsize"><%= item.title %></span>
+  
+  <div class='edit_events' >
+    <span class='odobreno' data-id='<%= item.id%>'> ОДОБРЕНО </span>
+    <span class='delete' data-id='<%= item.id%>'> УДАЛИТЬ </span>
+  </div>
+
+  <%if item.class.name.eql?('Grant')%>
+    <%= render 'users/pk_popup_grant', :event => item, :index => index%>
+  <%elsif item.class.name.eql?('Event')%>
+    <%= render 'users/pk_popup_event', :event => item, :index => index%>
+  <%elsif item.class.name.eql?('Training')%>
+    <%= render 'users/pk_popup_train', :event => item, :index => index%>
+  <%end%>
+    
+</div>

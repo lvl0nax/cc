@@ -117,4 +117,8 @@ class UsersController < ApplicationController
     end    
     render :text => ''
   end
+
+  def created_event
+    @items = EventParent.where(:owner => current_user.id)
+  end
 end

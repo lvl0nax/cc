@@ -1,36 +1,23 @@
 <div id='content'>
-	<% content_for :head do %>
-		<div class="title"><h2>МОЙ КАЛЕНДАРЬ (<%= @user.active_events %>)</h2></div>
-	<% end %>
-	<%if current_user == @user %>
-		<div id="celendar_content">
+	<div id="celendar_content">
+		<div class="monih12">
 			<div class="month_info">
-				<h1>
-					КАЛЕНДАРЬ 
-					<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
-					<%= @user.compinfo.name if @user.compinfo  %>
-				</h1>
+				<% @index = 1%>
+				<% @items.each do |item|%>
+					<%= render 'created_event', :item => item, :index => @index %>
+					<% @index += 1%>
+				<%end%>
 			</div>
-			<script type="text/javascript">
-				$(document).ready(function() {
-		    		$(".title_wrap").toggle(function (event) {	
-		    			event.preventDefault();
-						$(this).parents(".month_title").next().slideUp();
-
-					},function (event) {	
-		    			event.preventDefault();
-						$(this).parents(".month_title").next().slideDown();
-					});
-		    	});		    	
-			</script>
-			<%= render 'actions' %> 
+			<div class="clr"></div>		
 		</div>
-	<%end%>
+		<div class="clr"></div>
+		<div class="clr"></div>
+	</div>
 </div>
 <script type="text/javascript" language="javascript">
 
-	$(".monthcont").click(function () {	
-
+	$(".monthcont").click(function () {
+	
 		var id_map = $(this).find('.mapwrap').attr('id');
 
 		if($(this).find('.mapwrap').data('type') != 'Grant'){
@@ -52,9 +39,40 @@
 		   event.stopPropagation();
 	   });
 
+	   $('.signature').on('click', function(){
+      var id_event = $(this).attr('id');
+      var str; 
+      if ($(this).is(':checked')){
+        str = 'add';
+      }
+      else{
+        str = 'remove'
+      } 
+      $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
+                jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                }
+      });
+
+      $('.odobreno, .delete').on('click', function(){
+			var event_id = $(this).data('id');
+			var str;
+			$('#'+event_id+'.monthcont').hide();
+			if($(this).attr('class') == 'odobreno'){
+				str = 'event_status';
+			}
+			else if($(this).attr('class') == 'delete'){
+				str = 'event_delete';
+			}
+			$.ajax({ url: "/events/"+str, type: "POST", data:{ event_id: event_id},  beforeSend:function(jqXHR, settings) {
+                	jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                }
+      		});
+		});     
+    });
+
 	}).click(function(){
 		$('.pk_popup').fadeOut(200);
-	});	
+	});
 
 	function google_maps(id_map) {
 
@@ -104,6 +122,5 @@
 
 	  }); 
 
-	}
-
-</script>
+	}	
+</script>></div>

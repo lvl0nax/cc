@@ -16,7 +16,7 @@
 </div>
   <span class="label" style="margin-top: 11px;">МЕСТО</span><%= f.text_field :place, :class=>"text fr", :style=>"width:260px; margin-top: -19px;" %><div class="clr"></div>
 </div>
-<div class="isideright" id="map4">
+<div class="isideright" id="map4i">
   <script>
       function google_maps4() {
           var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
@@ -29,14 +29,14 @@
               navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
               mapTypeId: google.maps.MapTypeId.ROADMAP
           };
-          var map = new google.maps.Map(document.getElementById("map4"), settings); // Выбираем див куда ставить карту
+          var map = new google.maps.Map(document.getElementById("map4i"), settings); // Выбираем див куда ставить карту
           var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
           var myOptions = {
               zoom: 12,  // Выставляем параметры зума для маркера
               center: myLatlng,
               mapTypeId: google.maps.MapTypeId.ROADMAP
           }
-          var map = new google.maps.Map(document.getElementById("map4"), myOptions);  // Выбираем див куда ставить маркер
+          var map = new google.maps.Map(document.getElementById("map4i"), myOptions);  // Выбираем див куда ставить маркер
           var marker = new google.maps.Marker({
               position: myLatlng,
               map: map,

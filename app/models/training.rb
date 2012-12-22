@@ -21,7 +21,6 @@ class Training < EventParent
   field :employment, :type => Array
   field :areas
   field :employment
-  field :salary, :type => Integer
   field :salary_type, :type=>Array
   field :direction, :type => Array
   field :x_coordinate, :type => Float

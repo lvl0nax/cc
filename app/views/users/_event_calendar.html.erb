@@ -26,10 +26,10 @@
   <span class="spsize"><%= event.title %></span>
 
   <%if event.class.name.eql?('Grant')%>
-    <%= render 'pk_popup_grant', :event => event%>
+    <%= render 'pk_popup_grant', :event => event, :index => index %>
   <%elsif event.class.name.eql?('Event')%>
-    <%= render 'pk_popup_event', :event => event%>
+    <%= render 'pk_popup_event', :event => event, :index => index %>
   <%elsif event.class.name.eql?('Training')%>
-    <%= render 'pk_popup_train', :event => event%>
+    <%= render 'pk_popup_train', :event => event, :index => index %>
   <%end%>  
 </div>

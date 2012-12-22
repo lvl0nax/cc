@@ -1,13 +1,15 @@
 <div id='content'>
 	<ul id="myitems" class="items">
-		<h1><%= link_to "КАЛЕНДАРЬ", activities_user_path(@user.id) %> | СОЗДАННЫЕ МЕРОПРИЯТИЯ</h1>
+		<h1><%= link_to "КАЛЕНДАРЬ", activities_user_path(@user.id) %> | <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", created_event_path %></h1>
 	</ul>
 	</br>
 	<div id="celendar_content">
 		<div class="monih12">
 			<div class="month_info">
+				<% @index = 1%>
 				<% @action_events.each do |a_event|%>
-					<%= render 'event_calendar', :event => a_event %>			
+					<%= render 'event_calendar', :event => a_event, :index => @index %>
+					<% @index += 1%>			
 				<%end%>
 			</div>
 			<div class="clr"></div>		
@@ -17,13 +19,13 @@
 </div>
 <script type="text/javascript" language="javascript">
 
-	$(".monthcont").click(function () {	
+	$(".monthcont").click(function () {
+		
+		var id_map = $(this).find('.mapwrap').attr('id');
 
-		google_maps111();
-		google_maps222();
-		google_maps333();
-		/*google_maps444();
-		google_maps555();*/		
+		if($(this).find('.mapwrap').data('type') != 'Grant'){
+			google_maps(id_map);
+		}		
 
 		$('.pk_popup').css({'display':'none'});
 		$(this).children(".pk_popup").fadeIn(600);
@@ -58,4 +60,54 @@
 	}).click(function(){
 		$('.pk_popup').fadeOut(200);
 	});	
+
+	function google_maps(id_map) {
+
+	 var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
+
+		var settings = {
+
+			zoom: 12, // Выставляем параметры зума для карты
+
+			center: latlng,
+
+			mapTypeControl: false,
+
+			mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+
+			navigationControl: true,
+
+			navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+
+		};
+
+		var map = new google.maps.Map(document.getElementById(""+id_map), settings); // Выбираем див куда ставить карту
+
+		var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
+
+		var myOptions = {
+
+			zoom: 12,  // Выставляем параметры зума для маркера
+
+			center: myLatlng,
+
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+
+		}  
+
+		var map = new google.maps.Map(document.getElementById(""+id_map), myOptions);  // Выбираем див куда ставить маркер
+
+		var marker = new google.maps.Marker({
+
+		position: myLatlng,
+
+		map: map,
+
+		title: "A"
+
+	  }); 
+
+	}
 </script>

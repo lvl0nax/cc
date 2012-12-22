@@ -5,7 +5,7 @@
     <% if event.image_id.blank? %>
         <%= image_tag "contimg6.png" %>
     <% else %>
-        <%= image_tag Image.find(event.image_id).photo.thumb %>
+        <%= image_tag Image.find(event.image.id).photo.thumb %>        
     <% end %>
     <span><%#= grant.title %></span>
     <span class="spright"><%= event.start_date.strftime('%H:%m') %></span>
@@ -100,7 +100,7 @@
 
         <script>
 
-            function google_maps2() {
+          function google_maps2() {
 
                 var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
 

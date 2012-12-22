@@ -7,7 +7,7 @@
     <% else %>
         <%= image_tag Image.find(grant.image_id).photo.thumb %>
     <% end %>
-    <span><%#= grant.title %></span>
+    <span><%= grant.nation %></span>
     <span class="spright"><%= grant.start_date.strftime('%H:%m') %></span>
     <span class="spsize"><%= grant.title %></span>
     <div class="clr"></div>

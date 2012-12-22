@@ -5,3 +5,13 @@ $('.monih12').append("<%= j render(@events) %>");
 	$(".pagination").hide();
 <% end %>
 <% sleep 0.5 %>
+$(".moncon").filter(function(){
+    return !$(this).children(':first').is('img');
+}).click(popup);
+
+$(".close_popup").click(function (e) {
+    $('.bbg').removeClass('bbgvisible');
+    $(this).parent(".pk_popup").fadeOut(600);
+
+    e.stopPropagation();
+});

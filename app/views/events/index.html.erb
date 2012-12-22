@@ -1,3 +1,16 @@
+<script>
+    function popup() {
+        $('.pk_popup').css({'display':'none'});
+
+        $('.bbg').addClass('bbgvisible');
+
+        $(this).children(".pk_popup").fadeIn(600);
+
+        var w = ($(this).children(".pk_popup").width())/2;
+
+        $(this).children(".pk_popup").css({'margin-top':-w});
+    }
+</script>
 <div id="content">
   <%= form_for :filter, :url => sphere_path, :html => {:id => 'filter'} do |f| %>
       <div class="filterMain">
@@ -224,29 +237,7 @@
 //    });
     $(".moncon").filter(function(){
         return $(this).children('first').is('img');
-    }).click(function () {
-
-
-        $('.pk_popup').css({'display':'none'});
-
-        $('.bbg').addClass('bbgvisible');
-
-        $(this).children(".pk_popup").fadeIn(600);
-
-        var w = ($(this).children(".pk_popup").width())/2;
-
-        $(this).children(".pk_popup").css({'margin-top':-w});
-
-    });
-
-
-
-    $(".close_popup").click(function () {
-        $('.bbg').removeClass('bbgvisible');
-        $(this).parent(".pk_popup").fadeOut(600);
-
-    });
-
+    }).click(popup);
 
 
     $(document).ready(function(){
@@ -257,11 +248,7 @@
 
         });
 
-    }).click(function(){
-                $('.bbg').removeClass('bbgvisible');
-                $('.pk_popup').fadeOut(200);
-            });
-
+    });
 </script>
 <script type="text/javascript">
     // $(".moncon").mouseover();

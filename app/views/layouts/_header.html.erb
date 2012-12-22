@@ -8,9 +8,11 @@
         <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
         <div style="display: inline;" id="vk_like"></div>
     </div>
+
     <script type="text/javascript">
         VK.Widgets.Like("vk_like", {type: "mini", height: 18});
     </script>
+
     <% unless current_user %>
         <span class="error" style="color: #ff0000; margin-left: 20%;"></span>
 
@@ -118,11 +120,11 @@
 
 <%= link_to root_path do %><%= image_tag "logo(76x47).png", :class=>"logo"%><% end %>
 
-<a href="http://www.facebook.com/Centercareer" class="soc socmarg"><%= image_tag 'fb.png' %></a>
+<a href="http://www.facebook.com/Centercareer" target="_blank" class="soc socmarg"><%= image_tag 'fb.png' %></a>
 
-<a href="http://vk.com/centercareer" class="soc"><%= image_tag 'vk.png' %></a>
+<a href="http://vk.com/centercareer" target="_blank" class="soc"><%= image_tag 'vk.png' %></a>
 
-<a href="https://twitter.com/unicareer" class="soc"><%= image_tag 'tw.png' %></a><br>
+<a href="https://twitter.com/unicareer" target="_blank" class="soc"><%= image_tag 'tw.png' %></a><br>
 
 <span class="city">ГОРОД: </span><a href="#">Санкт-Петербург</a>
 
@@ -260,15 +262,15 @@
                 "#training_start_date_3i," +
                 "#training_start_date_2i," +
                 "#training_start_date_1i," +
-            "#training_tmp_date_4i," +
-            "#training_tmp_date_5i," +
-            "#training_tmp_end_date_4i," +
-            "#training_tmp_end_date_5i," +
-            "#training_request_date_3i," +
-            "#training_request_date_2i," +
-            "#training_request_date_1i," +
-            "#training_request_hour_4i," +
-            "#training_request_hour_5i").selectbox();
+                "#training_tmp_date_4i," +
+                "#training_tmp_date_5i," +
+                "#training_tmp_end_date_4i," +
+                "#training_tmp_end_date_5i," +
+                "#training_request_date_3i," +
+                "#training_request_date_2i," +
+                "#training_request_date_1i," +
+                "#training_request_hour_4i," +
+                "#training_request_hour_5i").selectbox();
 
     });
 

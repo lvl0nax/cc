@@ -5,9 +5,9 @@
     <% if event.image_id.blank? %>
         <%= image_tag "contimg6.png" %>
     <% else %>
-        <%= image_tag Image.find(event.image.id).photo.thumb %>        
+        <%= image_tag Image.find(event.image_id).photo.thumb %>
     <% end %>
-    <span><%#= grant.title %></span>
+    <span><%= event.nation %></span>
     <span class="spright"><%= event.start_date.strftime('%H:%m') %></span>
     <span class="spsize"><%= event.title %></span>
     <div class="clr"></div>
@@ -18,7 +18,7 @@
 
     <div class="head">
 
-      <h2><%= event.title %> — ГРАНТ</h2>
+      <h2><%= event.title %> — ТРЕНИРОВКА</h2>
 
       <div class="social">
 
@@ -51,9 +51,9 @@
 
       <div class="date_wrap">
 
-        <div class="date">16 октября 2012</div>
+        <div class="date"><%= Russian::l event.start_date, :format => :short %></div>
 
-        <div class="time">C <span class="from">14:00</span> ДО <span class="to">23:00</span></div>
+        <div class="time">C <span class="from"><%= event.start_date.strftime('%H:%m') %></span> ДО <span class="to"><%= event.end_date.strftime('%H:%m') %></span></div>
 
       </div>
 
@@ -155,8 +155,6 @@
       </div>
 
     </div>
-
-
 
     <div class="clr"></div>
 

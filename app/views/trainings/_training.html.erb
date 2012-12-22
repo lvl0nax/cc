@@ -1,7 +1,7 @@
 <div class="moncon" data-id="<%= training._id %>" <%= raw 'style="display:none;"' unless training.visible %>>
     <div class="monthcont vio">
 
-      <span>16 октября 2012</span>
+      <span><%= Russian::l training.start_date, :format => :short %></span>
 
       <span class="spright">стажировка</span>
 
@@ -11,7 +11,7 @@
         <%= image_tag Image.find(training.image_id).photo.thumb %>
       <% end %>
 
-      <span><%# %></span>
+      <span><%= training.nation %></span>
 
       <span class="spright"><%= training.start_date.strftime('%H:%M') %></span>
 
@@ -27,7 +27,7 @@
 
   <div class="head">
 
-    <h2>НАЗВАНИЕ ПАРАРАМ — СТАЖИРОВКА</h2>
+    <h2><%= training.title %> — СТАЖИРОВКА</h2>
 
     <div class="social">
 
@@ -63,37 +63,29 @@
 
     </div>
 
-    <!-- <div class="addtocallendar"><label for="">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ <input type="checkbox" /></label></div> -->
-
   </div>
 
   <div class="rside">
 
-    <p>Британский нейрохирург и автор множества статей про научный атеизм Джонатан Парараджасингхем смонтировал видеозапись, в которой собрал воедино 50 интервью с признанными мыслителями в области физики, химии, философии и психологии. Они поделились своим мнением о вере в бога и жизни после смерти. Ноам Хомский, Бертран Рассел и Гарольд Крото — «Теории и практики» публикуют подборку самых интересных высказываний о религии.</p>
+    <p><%= training.description %></p>
 
 
-
-    <h3>УСЛОВИЯ УЧАСТИЯ:</h3>
-
-
-
-    <p>Британский нейрохирург и автор множества статей про научный атеизм Джонатан Парараджасингхем смонтировал видеозапись, в которой собрал воедино 50 интервью с признанными мыслителями в области физики, химии, философии и психологии. Они поделились своим мнением о вере в бога и жизни после смерти. Ноам Хомский, Бертран Рассел и Гарольд Крото — «Теории и практики» публикуют подборку самых интересных </p>
-
+    <!-- <h3>УСЛОВИЯ УЧАСТИЯ:</h3> -->
 
 
     <div class="trainleft">
 
       <div class="trainstatus">
 
-        <div class="nopaid">НЕОПЛАЧИВАЕМАЯ</div>
+        <div class="nopaid"><%= training.salary_type %></div>
 
       </div>
 
       <div class="date_wrap">
 
-        <div class="date">16 октября 2012</div>
+        <div class="date"><%= Russian::l training.start_date, :format => :short %></div>
 
-        <div class="time">C <span class="from">14:00</span> ДО <span class="to">23:00</span></div>
+        <div class="time">C <span class="from"><%= training.start_date.strftime('%H:%m') %></span> ДО <span class="to"><%= training.end_date.strftime('%H:%m') %></span></div>
 
       </div>
 
@@ -101,14 +93,15 @@
 
         <img src="images/ava.png" alt="" />
 
+        <% unless @owner.nil? %>
         <div class="text">
 
           ДОБАВИЛ:
 
-          <div class="username"><a href="">ПИРОГОВА НАТАЛЬЯ</a></div>
+          <div class="username"><a href=""><%= @owner.nickname %></a></div>
 
         </div>
-
+        <% end %>
       </div>
 
 
@@ -175,29 +168,19 @@
 
     <div class="trainright">
 
-      <div class="takepart">ЗАНЯТОСТЬ: <span class="def">ЧАСТИЧНАЯ</span></div>
+      <!-- <div class="takepart">ЗАНЯТОСТЬ: <span class="def">ЧАСТИЧНАЯ</span></div>  -->
 
       <h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>
 
 
 
-      <div class="term">25 ИЮЛЯ 2012</div>
+      <div class="term"><%= Russian::strftime(training.request_date, "%d %B %Y")%></div>
 
-      <a href="">www.ssilka.ru</a>
+      <a href="<%= training.hyperlink %>"><%= training.hyperlink %></a>
 
 
 
       <div class="address">
-
-        Новая Голландия <br />
-
-        Санкт-Петербург, <br />
-
-        Набережная Адмиралтейского канала, 2  <br />
-
-        "Айрис Новая Голландия":  +7 (812) 456 76 37  <br />
-
-        "Лето в Новой Голландии":  +7 (812) 971 05 10
 
       </div>
 

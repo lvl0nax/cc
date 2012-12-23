@@ -1,161 +1,17 @@
-<div class="moncon" data-id="<%= event._id %>">
-  <div class="monthcont gre">
-    <span><%= Russian::l event.start_date, :format => :short %></span>
-    <span class="spright">Событие</span>
-    <% if event.image_id.blank? %>
-        <%= image_tag "contimg6.png" %>
-    <% else %>
-        <%= image_tag Image.find(event.image_id).photo.thumb %>
-    <% end %>
-    <span><%= event.nation %></span>
-    <span class="spright"><%= event.start_date.strftime('%H:%m') %></span>
-    <span class="spsize"><%= event.title.truncate(16) %></span>
-    <div class="clr"></div>
-  </div>
-  <section class="pk_popup grant">
-
-    <div class="close_popup"></div>
-
-    <div class="head">
-
-      <h2><%= event.title %> — ТРЕНИРОВКА</h2>
-
-      <div class="social">
-
-      </div>
-
-      <div class="clr"></div>
-
-    </div>
-
-
-
-    <div class="lside">
-
-      <img src="images/previmg.png" alt="" class="previmg" />
-
-      <div class="catsItem addtocallendar">
-
-        <label>
-
-          <input type="checkbox" name="" id="">
-
-          <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
-
-          <div class="clr"></div>
-
-        </label>
-
-      </div>
-
-      <div class="date_wrap">
-
-        <div class="date"><%= Russian::l event.start_date, :format => :short %></div>
-
-        <div class="time">C <span class="from"><%= event.start_date.strftime('%H:%m') %></span> ДО <span class="to"><%= event.end_date.strftime('%H:%m') %></span></div>
-
-      </div>
-
-      <div class="whoadd">
-
-        <img src="images/ava.png" alt="" />
-
-        <div class="text">
-
-          ДОБАВИЛ:
-
-          <div class="username"><a href="">ПИРОГОВА НАТАЛЬЯ</a></div>
-
-        </div>
-
-      </div>
-
-      <div class="address">
-
-        Новая Голландия <br />
-
-        Санкт-Петербург, <br />
-
-        Набережная Адмиралтейского канала, 2  <br />
-
-        "Айрис Новая Голландия":  +7 (812) 456 76 37  <br />
-
-        "Лето в Новой Голландии":  +7 (812) 971 05 10
-
-      </div>
-
-    </div>
-
-    <div class="rside">
-
-
-
-
-
-      <div class="term">25 ИЮЛЯ 2012</div>
-
-
-      <div id="map2" class="mapwrap">
-
-        <script>
-
-          function google_maps2() {
-
-                var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
-
-                var settings = {
-
-                    zoom: 12, // Выставляем параметры зума для карты
-
-                    center: latlng,
-
-                    mapTypeControl: false,
-
-                    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-
-                    navigationControl: true,
-
-                    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-                };
-
-                var map = new google.maps.Map(document.getElementById("map2"), settings); // Выбираем див куда ставить карту
-
-                var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
-
-                var myOptions = {
-
-                    zoom: 12,  // Выставляем параметры зума для маркера
-
-                    center: myLatlng,
-
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-                }
-
-                var map = new google.maps.Map(document.getElementById("map2"), myOptions);  // Выбираем див куда ставить маркер
-
-                var marker = new google.maps.Marker({
-
-                    position: myLatlng,
-
-                    map: map,
-
-                    title: "A"
-
-                });
-
-            }
-
-        </script>
-
-      </div>
-
-    </div>
-
-    <div class="clr"></div>
-
-  </section>
-</div>
+<li class="temp_event templ" data-type="event" data-kind="<%= event.kind%>" data-content="<%= event.id%>" onclick="showevent('<%=event.id%>');">
+	<div class="inside">
+	<div class="temp_date"> <%= Russian::l event.start_date, :format => :short %></div>
+	<div class="temp_type">
+		событие
+	</div>
+	<div class="temp_img">
+    	<%= image_tag "/assets/Untitled2.jpg" %>
+	</div>
+	<div class="temp_place">
+		<%= event.place %>
+	</div>
+	<div class="temp_name">
+		<%= event.title.truncate(16) %>
+	</div>
+	</div>
+</li>

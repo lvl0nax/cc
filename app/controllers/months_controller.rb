@@ -83,9 +83,4 @@ class MonthsController < ApplicationController
       format.json { head :ok }
     end
   end
-
-  def update_calendar
-    params
-  end
-
 end

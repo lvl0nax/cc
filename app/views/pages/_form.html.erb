@@ -1,21 +1,20 @@
-<div id="resume" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-  <%= form_for @page do |f| %>
-    <table>
-    <tr><td><label>Название</label></td><td><%= f.text_field :title%></td></tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>
-        <div class="MCE">
+<% content_for :js do %>
+    <%= tinymce_javascript_tag "pages", "advanced" %>
+<% end %>
+<div id="resume">
+  <%= simple_form_for @page do |f| %>
+    <%= f.input :title, :label => "НАЗВАНИЕ" %>
+    <div class="MCE">
         <%= f.tinymce :content %>
-        </div>
-    </td>
-    </tr>
+    </div>
 
-    <tr><td><label>Заголовок</label></td><td><%= f.text_field :meta_title  %></td></tr>
-    <tr><td><label>Описание</label></td><td><%= f.text_field :meta_description %></td></tr>
-    <tr><td><label>Ключевые слова</label></td><td><%= f.text_field :meta_keyword%></td></tr>
-    <tr><td><label>Отображать ссылку</label></td><td><%= f.check_box :visible %></td></tr>
-    <tr><td>&nbsp;</td><td><%= f.submit "СОХРАНИТЬ" %></td></tr>
-    </table>
+    <div class="line"></div>
+    <%= f.input :meta_title  %>
+    <%= f.input :meta_description %>
+    <%= f.input :meta_keyword%>
+    <%= f.check_box :visible %>
+    <div class="line"></div>
+
+    <%= f.button :submit, :value => "СОХРАНИТЬ" %>
   <% end %>
 </div>  

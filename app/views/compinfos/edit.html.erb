@@ -1,26 +1,10 @@
-<div id="content">     
-  <%= render 'form' %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('.edit').on('click', function(event){
-        event.preventDefault();
-        if($('#change_password').is(":hidden")){
-          $('#change_password').slideDown();
-        }
-        else{
-          $('#change_password').slideUp();
-        }      
-      });
-      $('#update_password').on('click', function(e){
-        $('#change_password').slideUp();      
-        var user_id = $('#user_id').val(),
-            user = $('#change_password #user_email, #change_password #user_password_confirmation, #change_password #user_password, #change_password #user_current_password').serialize();
-        $.ajax({ url: "/users/"+user_id,   type: "PUT", data: user,  beforeSend:function(jqXHR, settings) {
-                  jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                  }
-        });
-      e.preventDefault();
-      });
-    });
-  </script>  
-</div>
+<h1>Редактирование инофрмации о компании</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Показать инофрмацию о компании', @compinfo %> |
+<% if current_user%>
+  <% if current_user.role?(:admin) %>
+		<%= link_to 'Посмотреть список информаций о компаниях', compinfos_path %>
+	<% end %>
+<% end %>

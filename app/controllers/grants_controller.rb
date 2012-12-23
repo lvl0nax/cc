@@ -41,19 +41,16 @@ class GrantsController < ApplicationController
   # POST /grants
   # POST /grants.json
   def create
-
     @grant = Grant.new(params[:grant])
     @grant.owner = current_user.id unless current_user.nil?
-
+    puts @grant.errors.inspect
     respond_to do |format|
       if @grant.save
-
-        cookies.delete :grant_image unless cookies[:grant_image].nil?
-
-        format.html { render json: true }
+        #current_user.grants << @grant
+        format.html { redirect_to root_path, notice: 'Grant was successfully created.' }
         format.json { render json: @grant, status: :created, location: @grant }
       else
-        format.html { render json: @grant.errors }
+        format.html { render action: "new" }
         format.json { render json: @grant.errors, status: :unprocessable_entity }
       end
     end

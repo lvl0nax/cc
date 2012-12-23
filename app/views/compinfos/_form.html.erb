@@ -1,63 +1,19 @@
-<%= form_for @compinfo do |f| %>
-	<div class="input_info">
-		<div class="info_row">
-			<span>ИМЯ</span>
-		    <div class="input_field">
-		  		<%= f.text_field :name, :style => "width:423px;" %>
-		  	</div>
-		  	<div class="clr"></div>
-		  	<span>ЛОГОТИП</span>
-		  	<div class="input_field">
-		  		<%= f.text_field :photo, :style => "width:423px;" %>
-		  	</div>
-		  	<div class="clr"></div>
-		  	<span>ГОРОД</span>
-		  	<div class="input_field">
-		  		<%= f.text_field :city, :style => "width:423px;" %>
-		  	</div>
-		  	<div class="clr"></div>
-		  	<span>УЛИЦА</span>
-		  	<div class="input_field">
-		  		<%= f.text_field :street, :wrapper_html => { :class => 'strt' }, :style => "width:423px;" %>
-		  	</div>
-		  	<div class="clr"></div>
-		  	<span>ДОМ</span>
-		  	<div class="input_field">
-		  		<%= f.text_field :building, :wrapper_html => { :class => 'house' }, :style => "width:423px;" %>
-		  	</div>
-		  	<div class="clr"></div>
-		</div>
-		<div class="sep"></div>
-		<div class="info_row">
-			<span>КОНТАКТНАЯ ИНФОРМАЦИЯ</span>
-			<div class="input_field">
-		  		<%= f.text_area :info %>
-		  	</div>
-		  	<div class="clr"></div>
-		</div>
-		<div class="sep"></div>
-		<div class="info_row">
-			<span>ССЫЛКА НА САЙТ</span>
-			<div class="input_field">
-		  		<%= f.text_field :hyperlink  %>
-		  	</div>
-		  	<div class="clr"></div>
-		</div>
+<div id="resume">	
+	<%= simple_form_for(@compinfo) do |f| %>
+	  <%= f.input :name, :label => "ИМЯ" %>
+	  <%= f.input :photo, :label => "ЛОГОТИП"  %>
+	  <div class="line"></div>
+	  <%= f.input :city, :label => "ГОРОД"  %>
+	  <%= f.input :street, :label => "УЛИЦА", :wrapper_html => { :class => 'strt' } %>
+	  <%= f.input :building, :label => "ДОМ", :wrapper_html => { :class => 'house' } %>
+	  <%= f.input :info, :label => "КОНТАКТНАЯ ИНФОРМАЦИЯ", as: :text, :input_html => {:rows => "8", :cols => "65"}   %>
+	  <%= f.input :hyperlink, :label => "ССЫЛКА НА САЙТ"  %>
+	  <div class="line"></div>
+	  <%= link_to "СМЕНИТЬ ПАРОЛЬ", edit_registration_path(current_user), :class=> "edit"%>
+	  
+	  <%= f.button :submit, :value => "СОХРАНИТЬ" %>
 
-		<div class="clr"></div>
-		<div class="sep"></div>
-		<div class="info_row">
-		    <span><%= link_to "СМЕНИТЬ ПАРОЛЬ", '#', :class=> "edit"%></span>
-		    <div id='change_password' style="display:none;">
-	  			<%= render 'devise/registrations/edit'%>
-			</div>			
-		    <div class="clr"></div>
-		</div>
-	    <div class="clr"></div>	
-		<div class="info_row">
-	      <button>СОХРАНИТЬ</button>
-	    </div>
-    </div>
-<% end %>
-  
 
+	<% end %>
+
+</div>  

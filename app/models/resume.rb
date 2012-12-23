@@ -1,4 +1,3 @@
-#encoding: UTF-8
 class Resume
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
@@ -17,7 +16,6 @@ class Resume
   field :delivery_email, :type => String
   field :delivery_phone_enable, :type => Boolean
   field :delivery_phone, :type => String
-  field :sex
 
   field :experience_company, :type => String
   field :experience_from, :type => String
@@ -29,6 +27,8 @@ class Resume
   field :crop_h, :type => Integer
   mount_uploader :photo, ImageUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
+  after_update :crop_avatar
   
   def crop_avatar
     photo.recreate_versions! if crop_x.present?

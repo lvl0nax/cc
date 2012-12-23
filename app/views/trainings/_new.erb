@@ -1,215 +1,141 @@
 <%= form_for :training, :url => {:action => :create, :controller => :trainings}, :method => :post do |f| %>
 
-    <span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class => "name" %><span class="error"></span>
-    <div class="leftpart">
-      <span class="label">ОПИСАНИЕ</span>
-      <%= f.text_area :description %>
-      <span class="error"></span>
-      <div class="clr"></div>
-      <span class="label">Вконтакте</span><%= f.text_field :vk, :class=>"text fr", :style=>"width:456px; margin-bottom: 5px;" %><div class="clr"></div>
-      <span class="label">Facebook</span><%= f.text_field :facebook, :class=>"text fr", :style=>"width:456px; margin-bottom: 5px;" %><div class="clr"></div>
-      <span class="label">Twitter</span><%= f.text_field :twitter, :class=>"text fr", :style=>"width:456px; margin-bottom: 5px;" %><div class="clr"></div>
+<span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>"name" %>
+<div class="leftpart">
+<span class="label">ОПИСАНИЕ</span>
+<%= f.text_area :description %>
+<div class="clr"></div>
 
-      <div class="isideleft">
-        <span class="label">СТРАНА</span>
-        <%= f.text_field :nation, :class => "text fr", :style => "width:260px; margin-bottom: 5px;" %>
-        <div class="clr"></div>
-        <span class="label">ГОРОД</span>
-        <%= f.text_field :city, :class => "text fr", :style => "width:260px; margin-bottom: 5px;" %>
-        <div class="clr"></div>
-        <span class="label" style="float:left">УЛИЦА</span>
-
-        <div class="fr">
-          <%= f.text_field :street, :class => "text fl", :style => "width:187px;" %>
-          <span class="label" class="fl" style="margin: 0 5px; float:left;">ДОМ</span>
-          <%= f.text_field :building, :class => "text fr", :style => "width:22px;" %>
-        </div>
-        <span class="label" style="margin-top: 11px;">МЕСТО</span><%= f.text_field :place, :class => "text fr", :style => "width:260px; margin-top: -19px;" %>
-        <div class="clr"></div>
-      </div>
-      <div class="isideright" id="map5" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden;">
-        <script>
-            function google_maps5() {
-                var latlng = new google.maps.LatLng(49.83209, 23.975322); // Координаты карты
-                var settings = {
-                    zoom:12, // Выставляем параметры зума для карты
-                    center:latlng,
-                    mapTypeControl:false,
-                    mapTypeControlOptions:{style:google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-                    navigationControl:true,
-                    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL},
-                    mapTypeId:google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(document.getElementById("map5"), settings); // Выбираем див куда ставить карту
-                var myLatlng = new google.maps.LatLng(49.83209, 23.975322);  // Координаты маркера
-                var myOptions = {
-                    zoom:12, // Выставляем параметры зума для маркера
-                    center:myLatlng,
-                    mapTypeId:google.maps.MapTypeId.ROADMAP
-                }
-                var map = new google.maps.Map(document.getElementById("map5"), myOptions);  // Выбираем див куда ставить маркер
-                var marker = new google.maps.Marker({
-                    position:myLatlng,
-                    map:map,
-                    title:"A"
-                });
-            }
-        </script>
-
-      </div>
-
-      <script type="text/javascript">
-          $("#map5init").click(function () {
-              google_maps5();
+<div class="isideleft">
+  <span class="label">СТРАНА</span><%= f.text_field :nation, :class=>"text fr", :style=>"width:260px;" %><div class="clr"></div>
+  <span class="label">ГОРОД</span><%= f.text_field :city, :class=>"text fr", :style=>"width:260px;" %></div>
+  <span class="label" style="float:left">УЛИЦА</span><div class="fr">
+  <%= f.text_field :street, :class=>"text fl", :style=>"width:187px;" %>
+  <span class="label" class="fl" style="margin: 0 5px; float:left;">ДОМ</span>
+  <span class="label">МЕСТО</span><%= f.text_field :place, :class=>"text fr", :style=>"width:260px;" %><div class="clr"></div>
+</div>
+<div class="isideright" id="map5">
+  <script>
+      function google_maps5() {
+          var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
+          var settings = {
+              zoom: 12, // Выставляем параметры зума для карты
+              center: latlng,
+              mapTypeControl: false,
+              mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+              navigationControl: true,
+              navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          var map = new google.maps.Map(document.getElementById("map5"), settings); // Выбираем див куда ставить карту
+          var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
+          var myOptions = {
+              zoom: 12,  // Выставляем параметры зума для маркера
+              center: myLatlng,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+          var map = new google.maps.Map(document.getElementById("map5"), myOptions);  // Выбираем див куда ставить маркер
+          var marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map,
+              title: "A"
           });
+      }
+  </script>
+</div>
 
-      </script>
-
-      <div class="clr"></div>
-
-      <span class="label">ДАТА</span>
-
-      <div class="datesel300 large_select" style="width: 483px !important;">
-        <div class="ficha">
-          <%= f.date_select :start_date, :order => [:day, :month, :year] %>
-          <span style="margin: 0 8px">С</span>
-          <%= f.time_select :tmp_date %>
-          <span style="margin: 0 8px">ДО</span>
-
-          <%= f.time_select :tmp_end_date %>
-
-        </div>
-      </div>
-
-      <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
-      <%= f.text_field :hyperlink, :class => "siteaddress", :style => "margin-bottom: 5px;" %>
-      <div class="clr"></div>
-
-      <span class="label">ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ</span>
-
-      <div class="datesel300">
-        <%= f.date_select :request_date, :order => [:day, :month, :year] %>
-
-        <div class="ficha">
-          <span style="margin: 0 8px">ДО</span>
-
-          <%= f.time_select :request_hour %>
-
-        </div>
-
-      </div>
-
-      <div class="clr"></div>
-      <span class="label">СФЕРА:</span>
-
-      <div class="samvup sam1 sampk">
-        <div class="all">ВСЕ</div>
-        <div class="allCats">
-          <script type="text/javascript">
-              $(document).ready(function () {
-                  $(".catsItem").click(function () {
-                      var a = $(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
-                      if (a) {
-                          $(this).find(".descripting").addClass("act");
-                      } else {
-                          $(this).find(".descripting").removeClass("act");
-                      }
-                      ;
-                  });
-              });
-          </script>
-          <% Area.all.each do |area| %>
-              <div class="catsItem">
-                <label>
-                  <input type="checkbox" name="training[area_ids][]" id="area-<%= area.id %>" value="<%= area.id %>">
-                  <span class="descripting"><%= area.name %></span>
-
-                  <div class="clr"></div>
-                </label>
-              </div>
-          <% end %>
-        </div>
-      </div>
-
-
-    </div>
-
-    <div class="rightpart">
-      <span class="label">ФОТО:</span>
-
-      <div class="photo">
-        <%= image_tag "contimg4.png" %>
-        <%= fields_for 'training[u_image]' do |img|%>
-            <%= img.file_field :photo %>
-        <% end %>
-        <input type="hidden" name='training[image_id]' id='training_hidden' >
-      </div>
-    </div>
-    <div class="clr"></div>
-
-
-    <div class="manycheck">
-      <div class="pchecks">
-        <span class="opl nopaid"><input type="radio" name="training[salary_type]" value="НЕОПЛАЧИВАЕМАЯ">НЕОПЛАЧИВАЕМАЯ</span>
-        <span class="opl paid"><input type="radio" name="training[salary_type]" value="ОПЛАЧИВАЕМАЯ">ОПЛАЧИВАЕМАЯ</span>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <div class="clr"></div>
-
-    <% if current_user %>
-        <% if current_user.role.name == 'admin' %>
-            <span class="label" style="float: left; margin-top: 6px;">СТАТУС:</span>
-            <div style="margin: 5px 0 0 71px;"><%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %></div>
-        <% end %>
-    <% end %>
-
-    <span class="label fl" style="margin-right: 20px">ЗАНЯТОСТЬ:</span>
-    <div class="manycheck">
-      <div class="pchecks">
-        <% Training.employment.each do |employment| %>
-            <span class="opl"><input type="radio" name="training[employment]" value="<%= employment %>"><%= employment %></span>
-        <% end %>
-      </div>
-      <div class="clr"></div>
-    </div>
-
-    <div class="add">
-      <button type="submit">ДОБАВИТЬ</button>
-    </div>
-<% end %>
-<script>
-
-
-    $('form[action="/trainings"]').submit(function (e) {
-        e.preventDefault();
-        $.ajax({
-            data:$(this).serialize(),
-            type:'post',
-            url:'<%= trainings_path %>',
-            dataType:'json',
-            statusCode:{
-                422:function (result) {
-                    var response = $.parseJSON(result.responseText);
-                    if (response.title)
-                        $('#training_title').next('.error').html(response.title[0]).fadeIn();
-                    else
-                        $('#training_title').next('.error').empty().fadeOut();
-
-                    if (response.description)
-                        $('#training_description').next('.error').html(response.description[0]).fadeIn();
-                    else
-                        $('#training_description').next('.error').empty().fadeOut();
-
-                }
-            }
-
-        }).done(function (result) {
-//                    if (result) window.location = window.location;
-//                    else {
-//                        console.log(result);
-//                    }
-                });
+<script type="text/javascript">
+    $("#map5init").click(function(){
+        google_maps5();
     });
+
 </script>
 
+<div class="clr"></div>
+
+<span class="label">ДАТА</span>
+<div class="datesel300" style="width: 426px">
+  <%= f.datetime_select :start_date, :order=>[:day, :month, :year] %>
+
+  <span style="float: left; margin: 0 8px">С</span>
+
+
+  <span style="float: left; margin: 0 8px">ДО</span>
+
+  <%=  f.time_select :end_date %>
+
+</div>
+
+<span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
+<input type="text" class="siteaddress">
+<div class="clr"></div>
+
+<span class="label">ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ</span>
+<div class="datesel300">
+  <%= f.datetime_select :start_date, :order=>[:day, :month, :year] %>
+
+  <span style="float: left; margin: 0 8px">ДО</span>
+
+  <%=  f.time_select :end_date %>
+
+</div>
+
+<div class="clr"></div>
+<span class="label">СФЕРА:</span>
+  <div class="samvup sam1 sampk">
+    <div class="all">ВСЕ</div>
+      <div class="allCats">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".catsItem").click(function () {
+                    var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
+                    if(a){
+                        $(this).find(".descripting").addClass("act");
+                    } else{
+                        $(this).find(".descripting").removeClass("act");
+                    };
+                });
+            });
+        </script>
+        <% Area.all.each do |area| %>
+            <div class="catsItem">
+              <label>
+                <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
+                <span class="descripting"><%= area.name %>L</span>
+                <div class="clr"></div>
+              </label>
+            </div>
+        <% end %>
+      </div>
+  </div>
+</div>
+<div class="rightpart">
+  <span class="label">ФОТО:</span>
+  <div class="photo">
+    <%= image_tag 'photo.png'%>
+  </div>
+</div>
+<div class="clr"></div>
+
+<div class="manycheck">
+  <div class="pchecks">
+    <span class="opl nopaid"><input type="checkbox" name="" id="">НЕОПЛАЧИВАЕМАЯ</span>
+    <span class="opl paid"><input type="checkbox" name="" id="">ОПЛАЧИВАЕМАЯ</span>
+  </div>
+  <div class="clr"></div>
+</div>
+<div class="clr"></div>
+
+<span class="label fl" style="margin-right: 20px">ЗАНЯТОСТЬ:</span>
+<div class="manycheck">
+  <div class="pchecks">
+    <span class="opl"><input type="checkbox" name="" id="">НАУЧНЫЕ КОНФЕРЕНЦИЯ</span>
+    <span class="opl"><input type="checkbox" name="" id="">КАРЬЕРНЫЕ СОБЫТИЕ</span>
+  </div>
+  <div class="clr"></div>
+</div>
+
+<div class="add">
+  <button type="submit">ДОБАВИТЬ</button>
+</div>
+<% end %>

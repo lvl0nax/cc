@@ -1,48 +1,28 @@
-<div id="headerWrap">
-
 <div class="headerup">
-
-  <div class="headerupwrap">
-
-    <div style="display: inline;background-color: white; padding: 7px;">
-        <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
-        <div style="display: inline;" id="vk_like"></div>
-    </div>
-
-    <script type="text/javascript">
-        VK.Widgets.Like("vk_like", {type: "mini", height: 18});
-    </script>
-
+    <div class="headerupwrap">
+    <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+    <span class="error" style="color: #ff0000; margin-left: 20%;"></span>
     <% unless current_user %>
-        <span class="error" style="color: #ff0000; margin-left: 20%;"></span>
-
         <span class="enter"><a href="#">ВОЙТИ</a></span>
-
         <script type="text/javascript">
-
             $(document).ready(function () {
-
-                $(".enter").click(function (e) {
-                    e.preventDefault();
-                    $("#autorization").css({'display':'block'});
+                $(".enter").click(function (e) {e.preventDefault();
+                    $("#authorization").css({'display':'block'});
                     $(".enter").css({'visibility':'hidden'});
                 });
-
             });
-
         </script>
-
-        <%= form_for :user, :url => { :action => :create, :controller => :sessions }, :html=>{:id=>'autorization'} do |f| %>
-            <%= f.label :email, 'ЛОГИН'%>
+        <%= form_for :user, :url => { :action => :create, :controller => :sessions }, :html=>{:id=>'authorization'} do |f| %>
+            <span>ЛОГИН</span>
             <%= f.text_field :email %>
-            <%= f.label :password, 'ПАРОЛЬ' %>
+            <span>ПАРОЛЬ</span>
             <%= f.password_field :password %>
             <%= f.submit "OK", :class=>"sub" %>
             <div class="clr"></div>
         <% end %>
-        <script type="text/javascript">
+        <script>
             (function($){
-                $('#autorization').submit(function(e){
+                $('#authorization').submit(function(e){
                     var $this = $(this);
                     e.preventDefault();
                     $.ajax({
@@ -61,348 +41,140 @@
                     (jQuery);
         </script>
     <% else %>
-
-        <%= link_to  'ВЫХОД', sign_out_path, :class=>'logouth2' %>
+        <%= link_to "ВЫХОД", sign_out_path %>
         <% if current_user.resume? && current_user.resume.photo? %>
-            <div class="photo_login">
-                <%= image_tag current_user.resume.photo.url(:thumb) %>
-                <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
-            </div>
-        <% elsif current_user.compinfo? && current_user.compinfo.photo? %>
-            <div class="photo_login">
-            <%= image_tag current_user.compinfo.photo.url(:thumb) %>
-             <%#= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
-            </div>
+            <%= link_to crop_resume_path(current_user.id), :class => 'fix_for_menu' do%>
+                <%= image_tag current_user.resume.photo.url(:thumb), :class => 'photo_login', :style=>'max-width:80px;' %>
+            <% end %>
         <% else %>
-            <div class="photo_login">
-              <%= image_tag 'nophoto.jpg' %>
-              <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
-            </div>
+            <%= link_to crop_resume_path(current_user.id) do%>
+                <%= image_tag "/assets/nophoto.jpg", :class => 'photo_login', :style=>'max-width:80px;' %>
+            <% end %>
         <% end %>
-        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", show_resume_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employee'%>
-        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", show_compinfo_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employer'%>
-        <%= link_to 'интересующие сферы', areas_path, :class=>"header2menuitem2" %>
-        <%= link_to userevents_user_path(current_user.id),  :class=>"header2menuitem2" do %>
-            мой календарь
-        <%= link_to "АДМИН", :admin_page, :class=>'header2menuitem1' if current_user.role.name == 'admin' %>
+        <%= link_to "ИНТЕРЕСУЮЩИЕ СФЕРЫ", areas_path, :class => 'header2menuitem2' %>
+        <% if current_user.role.try(:name) == 'employer' %>
+            <% if current_user.compinfo %>
+              <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", current_user, :class=>'header2menuitem3' %>
+            <% else %>
+              <%= link_to "ИНФОРМАЦИЯ О КОМПАНИИ", new_compinfo_path, :class=>'header2menuitem3' %>
+            <% end %>
+        <% end %>
+        <% if current_user.role?(:admin) %>
+              <%= link_to current_user.role.try(:name), admin_page_path, :class => 'header2menuitem1' %>
+        <% end %>
+        <% if current_user %>
+            <% if current_user.role.try(:name) == 'employee' %>
+                  <% if current_user.resume %>
+                      <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_resume_path(current_user) , :class => 'header2menuitem3'%>
+                  <% else %>
+                      <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_resume_path(current_user), :class => 'header2menuitem3' %>
+                  <% end %>
+            <% end %>
         <% end %>
     <% end %>
+
   </div>
-
 </div>
-
 <header>
+  <%= link_to root_path do %><%= image_tag 'logo(76x47).png', :class => 'logo' %><% end %>
+  <a href="#" class="soc socmarg"><%= image_tag 'fb.png' %></a>
+  <a href="#" class="soc"><%= image_tag 'tw.png' %></a>
+  <a href="#" class="soc"><%= image_tag 'vk.png' %></a><br>
+  <span class="city">ГОРОД: </span><a href="#">Санкт-Петербург</a>
 
-<script type="text/javascript">
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#headerWrap .reg").click(function(){
+              $(this).toggleClass('btnactiv');
+              $('.regWup').toggleClass('regWupact');
+              $('.bbg').toggleClass('bbgvisible');
+          });
 
-    $(document).ready(function () {
-
-        $(".samvup .all").click(function () {
-
-            var a =$(this).hasClass("act");
-
-            if(a){
-
-                $(this).removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
-
-            } else{
-
-                $(this).addClass("act").next().slideDown().parents(".samvup").addClass("act");
-
-            }
-
-        });
-
-        $(".photo_login").mouseover(function () {
-            $(this).children(".redact").css({'display':'block'});
-        });
-        $(".photo_login").mouseout(function () {
-            $(this).children(".redact").css({'display':'none'});
-        });
-
-    });
-
-</script>
-
-
-
-<%= link_to root_path do %><%= image_tag "logo(76x47).png", :class=>"logo"%><% end %>
-
-<a href="http://www.facebook.com/Centercareer" target="_blank" class="soc socmarg"><%= image_tag 'fb.png' %></a>
-
-<a href="http://vk.com/centercareer" target="_blank" class="soc"><%= image_tag 'vk.png' %></a>
-
-<a href="https://twitter.com/unicareer" target="_blank" class="soc"><%= image_tag 'tw.png' %></a><br>
-
-<span class="city">ГОРОД: </span><a href="#">Санкт-Петербург</a>
-
-
-
-<script type="text/javascript">
-
-    $(document).ready(function () {
-
-        $("#headerWrap .reg").click(function(){
-
-            //newaddd
-
-            $('.eddWup').toggleClass('eddWupact');
-
-            $('.eddWup').removeClass('eddWupact');
-
-            $('.bbg').removeClass('bbgvisible');
-
-            //newadd end
-
-
-
-            $(this).toggleClass('btnactiv');
-
-            $('.regWup').toggleClass('regWupact');
-
-            $('.bbg').toggleClass('bbgvisible');
-
-        });
-
-
-
-        $("#headerWrap .edd").click(function(){
-
-            //$('.regWup').hide();
-
-            $(this).toggleClass('btnactiv');
-
-            $('.eddWup').toggleClass('eddWupact');
-
-            $('.bbg').toggleClass('bbgvisible');
-
-        });
-
-    });
-
-</script>
-
-
-<% unless current_user %>
-    <button class="button reg">РЕГИСТРАЦИЯ</button>
-
-    <div class="regWup">
-
-      <div class="regUp">
-
-        <div class="nav navregister">
-
-          <div class="control">
-
-            <p class="controls active">компания</p>
-
-            <p class="controls">молодой специалист</p>
-
-            <div class="clr"></div>
-
-          </div>
-
-          <div class="tabsformsblock">
-
-            <div class="cont visible">
-              <%= render 'registrations/forms'%>
+          $("#headerWrap .edd").click(function(){
+              $(this).toggleClass('btnactiv');
+              $('.eddWup').toggleClass('eddWupact');
+              $('.bbg').toggleClass('bbgvisible');
+          });
+      });
+  </script>
+  <% unless current_user %>
+      <button class="button reg">РЕГИСТРАЦИЯ</button>
+      <div class="regWup">
+        <div class="regUp">
+          <div class="nav navregister">
+            <div class="control">
+              <p class="controls active">компания</p>
+              <p class="controls">молодой специалист</p>
+              <div class="clr"></div>
             </div>
-
+            <div class="tabsformsblock">
+              <div class="cont visible">
+                <%= render 'registrations/forms' %>
+              </div>
+            </div>
           </div>
-
+        </div>
+      </div>
+  <% end %>
+  <button class="button edd">ДОБАВИТЬ</button>
+  <div class="eddWup">
+    <div class="eddUp">
+      <div class="nav navadd">
+        <div class="control">
+          <p class="controls active">ГРАНТ</p>
+          <p class="controls" id="map4init">СОБЫТИЕ</p>
+          <p class="controls" id="map5init">СТАЖИРОВКУ</p>
+          <div class="clr"></div>
         </div>
 
-      </div>
-
-    </div>
-
-<% end %>
-<button class="button edd<%= ' edd_header_2' if current_user %>">ДОБАВИТЬ</button>
-<div class="eddWup">
-
-<div class="eddUp">
-
-<div class="nav navadd">
-
-<div class="control">
-
-  <p class="controls active">ГРАНТ</p>
-
-  <p class="controls" id="map4init">СОБЫТИЕ</p>
-
-  <p class="controls" id="map5init">СТАЖИРОВКУ</p>
-
-  <div class="clr"></div>
-
-</div>
-
-<%= javascript_include_tag 'selectbox' %>
-
-<script type="text/javascript">
-
-    jQuery(function () {
-
-        jQuery("#selectday," +
-                "#selectmonth," +
-                "#selectyear," +
-                "#selecthour, " +
-                "#selectminute," +
-                "#grant_start_date_1i," +
-                "#grant_start_date_2i," +
-                "#grant_start_date_3i," +
-                "#grant_end_date_4i," +
-                "#grant_end_date_5i," +
-                "#grant_status,"+
-                "#training_status,"+
-                "#event_status," +
-                "#event_start_date_3i," +
-                "#event_start_date_2i," +
-                "#event_start_date_1i," +
-                "#event_tmp_date_4i," +
-                "#event_tmp_date_5i," +
-                "#event_tmp_end_date_4i," +
-                "#event_tmp_end_date_5i," +
-                "#event_request_date_3i," +
-                "#event_request_date_2i," +
-                "#event_request_date_1i," +
-                "#event_request_hour_4i," +
-                "#event_request_hour_5i," +
-                "#training_start_date_3i," +
-                "#training_start_date_2i," +
-                "#training_start_date_1i," +
-                "#training_tmp_date_4i," +
-                "#training_tmp_date_5i," +
-                "#training_tmp_end_date_4i," +
-                "#training_tmp_end_date_5i," +
-                "#training_request_date_3i," +
-                "#training_request_date_2i," +
-                "#training_request_date_1i," +
-                "#training_request_hour_4i," +
-                "#training_request_hour_5i").selectbox();
-
-    });
-
-</script>
-
-
-
-<div class="tabsformsblock">
-
-<div class="cont visible">
-  <%= render 'grants/new'%>
-</div>
-
-<div class="cont">
-  <%= render 'events/new'%>
-</div>
-
-<div class="cont">
-  <%= render 'trainings/new'%>
-</div>
-
-</div>
-
-</div>
-
-<script type="text/javascript">
-
-    $(".navregister .control .controls").click(function(){
-
-        $(".navregister .control .controls").removeClass('active');
-
-        $(this).addClass('active');
-
-        $('.navregister .tabsformsblock .cont').removeClass('visible');
-
-        $('.navregister .tabsformsblock .cont').eq($(this).index()).addClass('visible');
-
-    });
-
-
-
-    $(".navadd .control .controls").click(function(){
-
-        $(".navadd .control .controls").removeClass('active');
-
-        $(this).addClass('active');
-
-        $('.navadd .tabsformsblock .cont').removeClass('visible');
-
-        $('.navadd .tabsformsblock .cont').eq($(this).index()).addClass('visible');
-
-    });
-
-
-
-    $(document).ready(function(){
-
-        $('div.photo img').click(function(){
-            $(this).next().trigger('click');
-        });
-
-        $('#grant_u_image_photo').fileupload({
-            dataType: 'html',
-            url: '<%= images_path %>',
-            done: function (e, data) {
-                var $src = $(data.result).attr('src');
-                $('div.photo img:visible').attr('src', $src);
-                $('#grant_hidden').val($(data.result).data('id'));
-            }
-        });
-
-        $('#training_u_image_photo').fileupload({
-            dataType: 'html',
-            url: '<%= images_path %>',
-            done: function (e, data) {
-                var $src = $(data.result).attr('src');
-                $('div.photo img:visible').attr('src', $src);
-                console.log($(data.result).data('id'));
-                console.log($('#training_hidden'));
-                $('#training_hidden').val($(data.result).data('id'));
-            }
-        });
-
-        $('#event_u_image_photo').fileupload({
-            dataType: 'html',
-            url: '<%= images_path %>',
-            done: function (e, data) {
-                var $src = $(data.result).attr('src');
-                $('div.photo img:visible').attr('src', $src);
-                $('#event_hidden').val($(data.result).data('id'));
-            }
-        });
-
-        $('.button, .tabsformsblock .cont, .nav .control .controls').click(function(event){
-
-            event.stopPropagation();
-
-        });
-
-    }).click(function(){
-
-                $(".regWup").removeClass('regWupact');
-
-                $("#headerWrap .reg").removeClass('btnactiv');
-
-
-
-                $(".eddWup").removeClass('eddWupact');
-
-                $("#headerWrap .edd").removeClass('btnactiv');
-
-
-                $('.bbg').removeClass('bbgvisible');
-
+        <script type="text/javascript">
+            jQuery(function () {
+                jQuery("#selectday, #selectmonth, #selectyear, #selecthour, #selectminute").selectbox();
             });
+        </script>
 
-</script>
+        <div class="tabsformsblock">
+          <div class="cont visible">
+            <%= render 'grants/new' %>
+          </div>
+          <div class="cont">
+            <%= render 'events/new' %>
+          </div>
+          <div class="cont">
+            <%= render 'trainings/new' %>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+          $(".navregister .control .controls").click(function(){
+              $(".navregister .control .controls").removeClass('active');
+              $(this).addClass('active');
+              $('.navregister .tabsformsblock .cont').removeClass('visible');
+              $('.navregister .tabsformsblock .cont').eq($(this).index()).addClass('visible');
+          });
 
-</div>
+          $(".navadd .control .controls").click(function(){
+              $(".navadd .control .controls").removeClass('active');
+              $(this).addClass('active');
+              $('.navadd .tabsformsblock .cont').removeClass('visible');
+              $('.navadd .tabsformsblock .cont').eq($(this).index()).addClass('visible');
+          });
 
-</div>
+          $(document).ready(function(){
+              $('.button, .tabsformsblock .cont, .nav .control .controls').click(function(event){
+                  event.stopPropagation();
+              });
+          }).click(function(){
+                      $(".regWup").removeClass('regWupact');
+                      $("#headerWrap .reg").removeClass('btnactiv');
 
+                      $(".eddWup").removeClass('eddWupact');
+                      $("#headerWrap .edd").removeClass('btnactiv');
+
+
+                      $('.bbg').removeClass('bbgvisible');
+                  });
+      </script>
+    </div>
+  </div>
 </header>
-
-<div class="clr"></div>
-
-</div>

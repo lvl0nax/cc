@@ -1,28 +1,17 @@
 <input type='hidden' value='<%= current_user.id %>' id='user_id'>
-<div class="input_field dis">
-	<%= form_for current_user, :url => user_path(current_user), :html => { :method => :put, :id=>'user_form' } do |f| %>
-	  <div class="sub_info_row">
-		  <div><%= f.label :email %><br />
-		  <%= f.email_field :email %></div>		  
-		  <div class="clr"></div>
-	  </div>
-	  <div class="sub_info_row">
-	  	<div><%= f.label "Пароль" %> <i>(Если Вы не хотите менять пароль, оставьте поле пустым)</i><br />
-	  	<%= f.password_field :password, :autocomplete => "off" %></div>
-	  	<div class="clr"></div>
-	  </div>
-	  <div class="sub_info_row">
-	  	<div><%= f.label "Подтвердить пароль" %><br />
-	  	<%= f.password_field :password_confirmation %></div>
-	  	<div class="clr"></div>
-	  </div>
-	  <div class="sub_info_row">
-	  	<div><%= f.label "Текущий пароль" %> <i>(Пароль нужен для подтвреждения Ваших изменений)</i><br />
-	  	<%= f.password_field :current_password %></div>
-	  	<div class="clr"></div>
-	  </div>
-	  <div class="sub_info_row">
-	  	<div><%= f.submit "Обновить", :id=>'update_password' %></div>
-	  </div>
-	<% end %>
-</div>
+<%= form_for current_user, :url => user_path(current_user), :html => { :method => :put, :id=>'user_form' } do |f| %>
+  
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label "Пароль" %> <i>(Если Вы не хотите менять пароль, оставьте поле пустым)</i><br />
+  <%= f.password_field :password, :autocomplete => "off" %></div>
+
+  <div><%= f.label "Подтвердить пароль" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.label "Текущий пароль" %> <i>(Пароль нужен для подтвреждения Ваших изменений)</i><br />
+  <%= f.password_field :current_password %></div>
+
+  <div><%= f.submit "Обновить", :id=>'update_password' %></div>
+<% end %>

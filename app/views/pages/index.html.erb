@@ -1,25 +1,23 @@
-<div id='content'>
-  <h1>Список страниц</h1>
+<h1>Список страниц</h1>
 
-  <table>
-    <tr>
-      <th>Название</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+<table>
+  <tr>
+    <th>Название</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-  <% @pages.each do |page| %>
-    <tr>
-      <td><%= page.title %></td>
-      <td><%= link_to 'Показать ', page %> &nbsp </td>
-      <td><%= link_to 'Редактировать ', edit_page_path(page) %> &nbsp </td>
-      <td><%= link_to 'Удалить ', page, confirm: 'Вы уверены?', method: :delete %></td>
-    </tr>
-  <% end %>
-  </table>
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= page.title %></td>
+    <td><%= link_to 'Показать ', page %> &nbsp </td>
+    <td><%= link_to 'Редактировать ', edit_page_path(page) %> &nbsp </td>
+    <td><%= link_to 'Удалить ', page, confirm: 'Вы уверены?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
 
-  <br />
+<br />
 
-  <%= link_to 'Новая страница', new_page_path %>
-</div>
+<%= link_to 'Новая страница', new_page_path %>

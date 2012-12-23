@@ -1,27 +1,22 @@
 <%= form_for :event, :url => {:action=>:create, :controller=>:events}, :method=>:post do |f|%>
 <div class="stext">ЯРМАРКА ВАКАНСИЙ, ПРЕЗЕНТАЦИЯ, МАСТЕР-КЛАСС, КЕЙС-ТУРНИР, КОНФЕРЕЦИЯ</div>
-<span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>"name" %><span class="error"></span>
+<span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>"name" %>
 <div class="leftpart">
 <span class="label">ОПИСАНИЕ</span>
-<%= f.text_area :description %><span class="error"></span>
+<%= f.text_area :description %>
 <div class="clr"></div>
 
 <div class="isideleft">
-  <span class="label">СТРАНА</span><%= f.text_field :nation, :class=>"text fr", :style=>"width:260px; margin-bottom: 5px;" %><div class="clr"></div>
-
-  <span class="label">Вконтакте</span><%= f.text_field :vk, :class=>"text fr", :style=>"width:260px; margin-bottom: 5px;" %><div class="clr"></div>
-  <span class="label">Facebook</span><%= f.text_field :facebook, :class=>"text fr", :style=>"width:260px; margin-bottom: 5px;" %><div class="clr"></div>
-  <span class="label">Twitter</span><%= f.text_field :twitter, :class=>"text fr", :style=>"width:260px; margin-bottom: 5px;" %><div class="clr"></div>
-
-  <span class="label">ГОРОД</span><%= f.text_field :city, :class=>"text fr", :style=>"width:260px; margin-bottom: 5px;" %><div class="clr"></div>
+  <span class="label">СТРАНА</span><%= f.text_field :nation, :class=>"text fr", :style=>"width:260px;" %><div class="clr"></div>
+  <span class="label">ГОРОД</span><%= f.text_field :city, :class=>"text fr", :style=>"width:260px;" %><div class="clr"></div>
   <span class="label" style="float:left">УЛИЦА</span><div class="fr">
   <%= f.text_field :street, :class=>"text fl", :style=>"width:187px;" %>
   <span class="label" class="fl" style="margin: 0 5px; float:left;">ДОМ</span>
   <%= f.text_field :building, :class=>"text fr", :style=>"width:22px;" %>
 </div>
-  <span class="label" style="margin-top: 11px;">МЕСТО</span><%= f.text_field :place, :class=>"text fr", :style=>"width:260px; margin-top: -19px;" %><div class="clr"></div>
+  <span class="label">МЕСТО</span><%= f.text_field :place, :class=>"text fr", :style=>"width:260px;" %><div class="clr"></div>
 </div>
-<div class="isideright" id="map4i">
+<div class="isideright" id="map4">
   <script>
       function google_maps4() {
           var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
@@ -34,14 +29,14 @@
               navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
               mapTypeId: google.maps.MapTypeId.ROADMAP
           };
-          var map = new google.maps.Map(document.getElementById("map4i"), settings); // Выбираем див куда ставить карту
+          var map = new google.maps.Map(document.getElementById("map4"), settings); // Выбираем див куда ставить карту
           var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
           var myOptions = {
               zoom: 12,  // Выставляем параметры зума для маркера
               center: myLatlng,
               mapTypeId: google.maps.MapTypeId.ROADMAP
           }
-          var map = new google.maps.Map(document.getElementById("map4i"), myOptions);  // Выбираем див куда ставить маркер
+          var map = new google.maps.Map(document.getElementById("map4"), myOptions);  // Выбираем див куда ставить маркер
           var marker = new google.maps.Marker({
               position: myLatlng,
               map: map,
@@ -61,33 +56,264 @@
 <div class="clr"></div>
 
 <span class="label">ДАТА</span>
-<div class="datesel300 large_select" style="width: 505px !important;">
-    <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
-  <span style="margin: 0 8px;float:left;">С</span>
-   <div class="ficha">
-     <%= f.time_select :tmp_date %>
-     <span style="margin: 0 8px">ДО</span>
-     <%= f.time_select :tmp_end_date %>
+<div class="datesel300" style="width: 426px">
+  <div class="ws37">
+    <select name="select_id0" id="selectday">
+      <option value="opt_val_1">01</option>
+      <option value="opt_val_2">02</option>
+      <option value="opt_val_3">03</option>
+      <option value="opt_val_4">04</option>
+      <option value="opt_val_4">05</option>
+      <option value="opt_val_4">06</option>
+      <option value="opt_val_4">07</option>
+      <option value="opt_val_4">08</option>
+      <option value="opt_val_4">09</option>
+      <option value="opt_val_4">10</option>
+      <option value="opt_val_4">11</option>
+      <option value="opt_val_4">12</option>
+      <option value="opt_val_4">13</option>
+      <option value="opt_val_4">14</option>
+      <option value="opt_val_4">15</option>
+      <option value="opt_val_4">16</option>
+      <option value="opt_val_4">17</option>
+      <option value="opt_val_4">18</option>
+      <option value="opt_val_4">19</option>
+      <option value="opt_val_4">20</option>
+      <option value="opt_val_4">21</option>
+      <option value="opt_val_4">22</option>
+      <option value="opt_val_4">23</option>
+      <option value="opt_val_4">24</option>
+      <option value="opt_val_4">25</option>
+      <option value="opt_val_4">26</option>
+      <option value="opt_val_4">27</option>
+      <option value="opt_val_4">28</option>
+      <option value="opt_val_4">29</option>
+      <option value="opt_val_4">30</option>
+    </select>
+  </div>
 
-   </div>
+  <div class="ws88">
+    <select name="select_id0" id="selectmonth">
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+    </select>
+  </div>
+
+  <div class="ws65">
+    <select name="select_id0" id="selectyear">
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+    </select>
+  </div>
+
+  <span style="float: left; margin: 0 8px">С</span>
+
+  <div class="ws37">
+    <select name="select_id0" id="selecthour">
+      <option value="opt_val_1">01</option>
+      <option value="opt_val_2">02</option>
+      <option value="opt_val_3">03</option>
+      <option value="opt_val_4">04</option>
+      <option value="opt_val_4">05</option>
+      <option value="opt_val_4">06</option>
+      <option value="opt_val_4">07</option>
+      <option value="opt_val_4">08</option>
+      <option value="opt_val_4">09</option>
+      <option value="opt_val_4">10</option>
+      <option value="opt_val_4">11</option>
+      <option value="opt_val_4">12</option>
+      <option value="opt_val_4">13</option>
+    </select>
+  </div>
+
+  <div class="ws37" style="margin: 0">
+    <select name="select_id0" id="selectminute">
+      <option value="opt_val_1">01</option>
+      <option value="opt_val_2">02</option>
+      <option value="opt_val_3">03</option>
+      <option value="opt_val_4">04</option>
+      <option value="opt_val_4">05</option>
+      <option value="opt_val_4">06</option>
+      <option value="opt_val_4">07</option>
+      <option value="opt_val_4">08</option>
+      <option value="opt_val_4">09</option>
+      <option value="opt_val_4">10</option>
+      <option value="opt_val_4">11</option>
+      <option value="opt_val_4">12</option>
+      <option value="opt_val_4">13</option>
+    </select>
+  </div>
+  <span style="float: left; margin: 0 8px">ДО</span>
+
+  <div class="ws37">
+    <select name="select_id0" id="selecthour">
+      <option value="opt_val_1">01</option>
+      <option value="opt_val_2">02</option>
+      <option value="opt_val_3">03</option>
+      <option value="opt_val_4">04</option>
+      <option value="opt_val_4">05</option>
+      <option value="opt_val_4">06</option>
+      <option value="opt_val_4">07</option>
+      <option value="opt_val_4">08</option>
+      <option value="opt_val_4">09</option>
+      <option value="opt_val_4">10</option>
+      <option value="opt_val_4">11</option>
+      <option value="opt_val_4">12</option>
+      <option value="opt_val_4">13</option>
+    </select>
+  </div>
+
+  <div class="ws37" style="margin: 0">
+    <select name="select_id0" id="selectminute">
+      <option value="opt_val_1">01</option>
+      <option value="opt_val_2">02</option>
+      <option value="opt_val_3">03</option>
+      <option value="opt_val_4">04</option>
+      <option value="opt_val_4">05</option>
+      <option value="opt_val_4">06</option>
+      <option value="opt_val_4">07</option>
+      <option value="opt_val_4">08</option>
+      <option value="opt_val_4">09</option>
+      <option value="opt_val_4">10</option>
+      <option value="opt_val_4">11</option>
+      <option value="opt_val_4">12</option>
+      <option value="opt_val_4">13</option>
+    </select>
+  </div>
 </div>
 
 <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
-<%= f.text_field :hyperlink, :class => "siteaddress", :style => "margin-bottom: 5px;" %>
+<input type="text" class="siteaddress">
 <div class="clr"></div>
 
 <span class="label">ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ</span>
 <div class="datesel300">
-  <%= f.date_select :request_date, :order=>[:day, :month, :year] %>
-   <div class="ficha">
-     <span style="margin: 0 8px">ДО</span>
-     <%= f.time_select :request_hour %>
+  <div class="ws37">
+    <select name="select_id0" id="selectday">
+      <option value="opt_val_1">01</option>
+      <option value="opt_val_2">02</option>
+      <option value="opt_val_3">03</option>
+      <option value="opt_val_4">04</option>
+      <option value="opt_val_4">05</option>
+      <option value="opt_val_4">06</option>
+      <option value="opt_val_4">07</option>
+      <option value="opt_val_4">08</option>
+      <option value="opt_val_4">09</option>
+      <option value="opt_val_4">10</option>
+      <option value="opt_val_4">11</option>
+      <option value="opt_val_4">12</option>
+      <option value="opt_val_4">13</option>
+      <option value="opt_val_4">14</option>
+      <option value="opt_val_4">15</option>
+      <option value="opt_val_4">16</option>
+      <option value="opt_val_4">17</option>
+      <option value="opt_val_4">18</option>
+      <option value="opt_val_4">19</option>
+      <option value="opt_val_4">20</option>
+      <option value="opt_val_4">21</option>
+      <option value="opt_val_4">22</option>
+      <option value="opt_val_4">23</option>
+      <option value="opt_val_4">24</option>
+      <option value="opt_val_4">25</option>
+      <option value="opt_val_4">26</option>
+      <option value="opt_val_4">27</option>
+      <option value="opt_val_4">28</option>
+      <option value="opt_val_4">29</option>
+      <option value="opt_val_4">30</option>
+    </select>
+  </div>
 
-   </div>
+  <div class="ws88">
+    <select name="select_id0" id="selectmonth">
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+      <option value="opt_val_1">августа</option>
+    </select>
+  </div>
+
+  <div class="ws65">
+    <select name="select_id0" id="selectyear">
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+      <option value="opt_val_1">2012</option>
+    </select>
+  </div>
+
+  <span style="float: left; margin: 0 8px">ДО</span>
+
+  <div class="ws37">
+    <select name="select_id0" id="selecthour">
+      <option value="opt_val_1">01</option>
+      <option value="opt_val_2">02</option>
+      <option value="opt_val_3">03</option>
+      <option value="opt_val_4">04</option>
+      <option value="opt_val_4">05</option>
+      <option value="opt_val_4">06</option>
+      <option value="opt_val_4">07</option>
+      <option value="opt_val_4">08</option>
+      <option value="opt_val_4">09</option>
+      <option value="opt_val_4">10</option>
+      <option value="opt_val_4">11</option>
+      <option value="opt_val_4">12</option>
+      <option value="opt_val_4">13</option>
+    </select>
+  </div>
+
+  <div class="ws37" style="margin: 0">
+    <select name="select_id0" id="selectminute">
+      <option value="opt_val_1">01</option>
+      <option value="opt_val_2">02</option>
+      <option value="opt_val_3">03</option>
+      <option value="opt_val_4">04</option>
+      <option value="opt_val_4">05</option>
+      <option value="opt_val_4">06</option>
+      <option value="opt_val_4">07</option>
+      <option value="opt_val_4">08</option>
+      <option value="opt_val_4">09</option>
+      <option value="opt_val_4">10</option>
+      <option value="opt_val_4">11</option>
+      <option value="opt_val_4">12</option>
+      <option value="opt_val_4">13</option>
+    </select>
+  </div>
 </div>
 <div class="clr"></div>
 
-
+<div class="manycheck">
+  <div class="pchecks">
+    <span class="opl"><input type="checkbox" name="" id="">НАУЧНЫЕ КОНФЕРЕНЦИЯ </span>
+    <span class="opl"><input type="checkbox" name="" id="">КАРЬЕРНЫЕ СОБЫТИЕ</span>
+  </div>
+  <div class="clr"></div>
+</div>
 <div class="clr"></div>
 <span class="label">СФЕРА:</span>
 
@@ -110,73 +336,22 @@
         <div class="catsItem">
           <label>
             <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
-            <span class="descripting"><%= area.name %></span>
+            <span class="descripting"><%= area.name %>L</span>
             <div class="clr"></div>
           </label>
         </div>
     <% end %>
   </div>
   </div>
-  <% if current_user %>
-      <% if current_user.role.name == 'admin' %>
-          <span class="label" style="float: left; margin-top: 6px;">СТАТУС:</span>
-          <div style="margin: 5px 0 0 71px;"><%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %></div>
-      <% end %>
-  <% end %>
-
-  <div class="manycheck">
-    <div class="pchecks">
-      <span class="opl"><input type="checkbox" name="" id="">НАУЧНЫЕ КОНФЕРЕНЦИЯ </span>
-      <span class="opl"><input type="checkbox" name="" id="">КАРЬЕРНЫЕ СОБЫТИЕ</span>
-    </div>
-    <div class="clr"></div>
-  </div>
 </div>
-
 <div class="rightpart">
   <span class="label">ФОТО:</span>
   <div class="photo">
-    <%= image_tag "contimg5.png" %>
-    <%= fields_for 'event[u_image]' do |img|%>
-        <%= img.file_field :photo %>
-    <% end %>
-    <input type="hidden" name='event[image_id]' id='event_hidden' >
+    <%= image_tag 'photo.png' %>
+    <%= f.file_field :photo %>
   </div>
 </div>
 <div class="clr"></div>
 
 <div class="add"><button type="submit">ДОБАВИТЬ</button></div>
 <% end %>
-<script>
-    $('form[action="/events"]').submit(function(e){
-        e.preventDefault();
-        $.ajax({
-            data: $(this).serialize(),
-            type: 'post',
-            url: '<%= events_path %>',
-            dataType: 'json',
-            statusCode:{
-                422:function(result){
-                    var response = $.parseJSON(result.responseText);
-                    if(response.title)
-                        $('#event_title').next('.error').html(response.title[0]).fadeIn();
-                    else
-                        $('#event_title').next('.error').empty().fadeOut();
-
-                    if(response.description)
-                        $('#event_description').next('.error').html(response.description[0]).fadeIn();
-                    else
-                        $('#event_description').next('.error').empty().fadeOut();
-
-                }
-            }
-
-        }).done(function(result){
-                    if(result) window.location = window.location;
-                    else
-                    {
-                        console.log(result);
-                    }
-                });
-    });
-</script>

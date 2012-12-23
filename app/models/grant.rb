@@ -5,7 +5,6 @@ class Grant < EventParent
   has_and_belongs_to_many :users
   #belongs_to :user
 
-  field :owner, :type=>String
   field :nation
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :end_date, :type => DateTime

@@ -7,7 +7,6 @@ class Training < EventParent
 
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions
-  field :owner, :type=>String
   field :nation # field as listing
   field :city # may be make as list of the towns
   field :street

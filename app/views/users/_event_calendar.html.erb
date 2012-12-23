@@ -11,14 +11,18 @@
     <%if event.class.name.eql?('Grant')%>
       грант
     <%elsif event.class.name.eql?('Event')%>
-      sobutie
+      событие
     <%elsif event.class.name.eql?('Training')%>
-      trening
+      тренинг
     <%end%>
   </span>
 
-  <img src="images/contimg4.png" alt="">
 
+  <%= unless event.image_id.nil? %>
+    <%= image_tag Image.find(event.image_id).photo.thumb %>
+  <% else %>
+    <img src="images/contimg4.png" alt="">
+  <% end %>
   <span><%= event.nation %></span>
 
   <span class="spright"><%= event.start_date.strftime("%H:%M") %></span>

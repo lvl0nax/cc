@@ -159,7 +159,7 @@ class User
     end
     acts.concat(months)
 
-    return acts.sort!{|x,y| x.start_date <=> y.start_date}
+    acts.sort!{|x,y| x.start_date <=> y.start_date}
   end
 
   def avatar

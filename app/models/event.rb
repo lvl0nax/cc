@@ -8,7 +8,6 @@ class Event < EventParent
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions for registrations to the event
   field :areas # area for examples IT, buildings and etc
-  field :owner, :type=>String
   field :nation # field as listing
   field :city # may be make as list of the towns
   field :street
@@ -25,6 +24,7 @@ class Event < EventParent
   field :y_coordinate, :type => Float
   field :visible, :type => Boolean
   field :payment, :type => Array
+
   validates_presence_of :title, :message => 'Обязательно'
   validates_presence_of :description, :message => 'Обязательно'
 
@@ -39,6 +39,14 @@ class Event < EventParent
   has_and_belongs_to_many  :areas
   has_one :image
 
+  field :twitter, :type => String
+  field :vk, :type => String
+  field :facebook, :type => String
+
+
+  validates_format_of :twitter, :with => /\A(http|https):\/\/twitter.com.*\z/, message:'Неверный формат ссылки', :allow_blank => true
+  validates_format_of :vk, :with => /\A(http|https):\/\/vk.com.*\z/, message:'Неверный формат ссылки', :allow_blank => true
+  validates_format_of :facebook, :with => /\A(http|https):\/\/facebook.com.*\z/, message:'Неверный формат ссылки', :allow_blank => true
 
   accepts_nested_attributes_for :areas, :image
 

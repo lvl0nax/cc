@@ -39,14 +39,6 @@
               <% end %>
         <% end %>
         </ul>
-        <ul>
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;НАУКИ:</li>
-          <% Grant.directions.each do |direction| %>
-              <li><input type="checkbox" name="directions[]" value="<%= direction %>" >
-                <label for="areas[<%= direction %>]"><%= direction %></label></li>
-          <% end %>
-        </ul>
-
   </div>
   <div class="clr"></div>
 </div>
@@ -74,7 +66,8 @@
                             }
                         })
             });
-            // TODO: Cache queries
+            // TODO: Add animation
+
             function make_checkbox($input) {
                 var $dummy_checkbox = $checkbox.clone();
                 var id = $input.children(':last').val();

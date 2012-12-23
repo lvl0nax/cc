@@ -1,7 +1,7 @@
-<div class="moncon" data-id="<%= event._id %>" <%= raw 'style="display:none;"' unless event.visible %> >
+<div class="moncon" data-id="<%= event._id %>">
   <div class="monthcont gre">
     <span><%= Russian::l event.start_date, :format => :short %></span>
-    <span class="spright"></span>
+    <span class="spright">Событие</span>
     <% if event.image_id.blank? %>
         <%= image_tag "contimg6.png" %>
     <% else %>
@@ -9,7 +9,7 @@
     <% end %>
     <span><%= event.nation %></span>
     <span class="spright"><%= event.start_date.strftime('%H:%m') %></span>
-    <span class="spsize"><%= event.title %></span>
+    <span class="spsize"><%= event.title.truncate(16) %></span>
     <div class="clr"></div>
   </div>
   <section class="pk_popup grant">
@@ -21,7 +21,6 @@
       <h2><%= event.title %> — ТРЕНИРОВКА</h2>
 
       <div class="social">
-
 
       </div>
 

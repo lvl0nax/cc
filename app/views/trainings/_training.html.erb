@@ -1,4 +1,4 @@
-<div class="moncon" data-id="<%= training._id %>" <%= raw 'style="display:none;"' unless training.visible %>>
+<div class="moncon" data-id="<%= training._id %>">
     <div class="monthcont vio">
 
       <span><%= Russian::l training.start_date, :format => :short %></span>
@@ -15,7 +15,7 @@
 
       <span class="spright"><%= training.start_date.strftime('%H:%M') %></span>
 
-      <span class="spsize"><%= training.title %></span>
+      <span class="spsize"><%= training.title.truncate(16) %></span>
 
       <div class="clr"></div>
 
@@ -98,7 +98,7 @@
 
           ДОБАВИЛ:
 
-          <div class="username"><a href=""><%= @owner.nickname %></a></div>
+          <div class="username"><a href=""><%= @owner.name %></a></div>
 
         </div>
         <% end %>

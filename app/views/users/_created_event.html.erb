@@ -17,7 +17,11 @@
     <%end%>
   </span>
 
-  <img src="images/contimg4.png" alt="">
+    <% unless item.image_id.nil? %>
+        <%= image_tag Image.find(item.image_id).photo.thumb %>
+    <% else %>
+        <img src="images/contimg4.png" alt="">
+    <% end %>
 
   <span><%= item.nation %></span>
 

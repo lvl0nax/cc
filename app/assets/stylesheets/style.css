@@ -2158,9 +2158,32 @@ form .regtype img {
   border-left: 1px solid #000!important;
 }
 .photo_login {
-  float: right;
-  max-height: 100px;
-  max-width: 100px;
+    float: right;
+    width: 102px;
+    height: 87px;
+    cursor: pointer;
+}
+.photo_login img {
+    z-index: 100;
+    max-height: 80px;
+    max-height: 80px;
+}
+.photo_login .redact {
+    margin-top: -30px;
+    width: 90px;
+    height: 20px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #fff;
+    color: #ffffff !important;
+    font-size: 10px !important;
+    display: none;
+    z-index: 101;
+}
+.photo_login .redact:hover {
+    text-decoration: none !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
 }
 .edd_header_2 {
   top: -5px !important;
@@ -2497,24 +2520,7 @@ span.error{
     display: none;
     color: red;
 }
-.photo_login .redact {
-    display: block;
-    margin-top: -30px;
-    width: 90px;
-    height: 20px;
-    cursor: pointer;
-    background: #fff;
-    border: 1px solid #fff;
-    color: #ffffff !important;
-    font-size: 10px !important;
-    display: none;
-    z-index: 101;
-}
-.photo_login .redact:hover {
-    text-decoration: none !important;
-    color: #ffffff !important;
-    font-size: 10px !important;
-}
+
 .monih12 .monthhover {
     display: none;
     position: relative;

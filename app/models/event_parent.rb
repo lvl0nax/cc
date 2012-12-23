@@ -3,6 +3,7 @@ class EventParent
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
 
+  field :owner, :type => String
   field :title
   field :description
   field :start_date, :type => DateTime

@@ -4,23 +4,25 @@
     <%= javascript_include_tag 'jquery.color' %>
     <%= javascript_include_tag 'jquery.uniform.min' %>
     <%= javascript_include_tag 'resume' %>
+    <% unless @resume.nil? %>
     <%= image_tag @resume.photo.url(:large), id: "cropbox" %>
 
-    <%= simple_form_for @resume do |f| %>
+        <%= simple_form_for @resume do |f| %>
 
-        <div id="resume">
-            <p>
-            <%= f.input :photo, :label => "АВАТАР"  %>
-            </p>
-        </div>
+            <div id="resume">
+                <p>
+                <%= f.input :photo, :label => "АВАТАР"  %>
+                </p>
+            </div>
 
 
 
-      <% %w[x y w h].each do |attribute| %>
-        <%= f.hidden_field "crop_#{attribute}" %>
-      <% end %>
-      <div class="actions">
-        <%= f.submit "Сохранить" %>
-      </div>
+          <% %w[x y w h].each do |attribute| %>
+            <%= f.hidden_field "crop_#{attribute}" %>
+          <% end %>
+          <div class="actions">
+            <%= f.submit "Сохранить" %>
+          </div>
+        <% end %>
     <% end %>
 </div>

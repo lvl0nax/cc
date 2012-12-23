@@ -8,7 +8,7 @@
 
         var w = ($(this).children(".pk_popup").width())/2;
 
-        $(this).children(".pk_popup").css({'margin-top':-w});
+        $(this).children(".pk_popup").css({'margin-top':-w + $(wintod).scrollTo()});
     }
 </script>
 <div id="content">
@@ -194,7 +194,10 @@
 </div>
 <%= will_paginate @events %>
 <script>
-    $.fn.update_index = function (data) {
+    $.fn.update_index = update_index;
+
+
+    function update_index(data) {
         var $form = $(this);
         if ($form.is('form#filter')) {
             // Now we will do all the stuff
@@ -241,7 +244,7 @@
 
 
     $(document).ready(function(){
-
+        $('#filter').find('.jqTransformCheckbox').click(function(){$('form#filter').update_index()});
         $('.pk_popup, .moncon').click(function(event){
 
             event.stopPropagation();

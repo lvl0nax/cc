@@ -64,15 +64,23 @@
 
         <%= link_to  'ВЫХОД', sign_out_path, :class=>'logouth2' %>
         <% if current_user.resume? && current_user.resume.photo? %>
-            <%= image_tag current_user.resume.photo.url(:thumb), :class=>'photo_login' %>
-            <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume(current_user.id), :class => 'redact'%>
+            <div class="photo_login">
+                <%= image_tag current_user.resume.photo.url(:thumb) %>
+                <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
+            </div>
         <% elsif current_user.compinfo? && current_user.compinfo.photo? %>
-            <%= image_tag current_user.compinfo.photo.url(:thumb), :class=>'photo_login' %>
+            <div class="photo_login">
+            <%= image_tag current_user.compinfo.photo.url(:thumb) %>
+             <%#= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
+            </div>
         <% else %>
-            <%= image_tag "/assets/nophoto.jpg", :class=>'photo_login' %>
+            <div class="photo_login">
+              <%= image_tag 'nophoto.jpg' %>
+              <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
+            </div>
         <% end %>
-        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_resume_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employee'%>
-        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", edit_compinfo_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employer'%>
+        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", show_resume_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employee'%>
+        <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", show_compinfo_path(current_user) , :class => 'header2menuitem3' if current_user.role.name == 'employer'%>
         <%= link_to 'интересующие сферы', areas_path, :class=>"header2menuitem2" %>
         <%= link_to userevents_user_path(current_user.id),  :class=>"header2menuitem2" do %>
             мой календарь

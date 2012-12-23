@@ -1,344 +1,341 @@
-$(document).ready(function () {
+$(function () {
 
-    var hhc = $(".filterGran").height();
+	var hhc = $(".filterGran").height();
 
 
+	$(".fjqtrans .jqTransformCheckbox").click(function () {
+		var thisIndex = $(this).parents(".ffscr").index();
+		if (thisIndex == 3){
+			var hc = $(this).parents(".ffscr").hasClass("nowSmall");
+			if (hc){
+				$(this).parents(".ffscr").removeClass("nowSmall");
+				$(this).parents(".ffscr").css({"overflow":"visible"});
+				$(this).parents(".ffscr").animate({
+					"height":"60px",
+					"padding":"10px"
+				});
+				$(this).animate({
+					"width":"19px",
+					"height":"19px"
+				});
 
+				$(this).parents("span").animate({
+					"fontSize":"20px",
+					"lineHeight":"18px"
+				});
+				$(this).parents(".jqTransformCheckboxWrapper").animate({
+					"paddingTop":"2px"
+				});
 
+				$(this).parents(".sizeBig").css({
+					"backgroundColor":"transparent"
+				});
 
-    $(".fjqtrans .jqTransformCheckbox").click(function () {
-        var thisIndex = $(this).parents(".ffscr").index();
-        if (thisIndex == 3){
-            var hc = $(this).parents(".ffscr").hasClass("nowSmall");
-            if (hc){
-                $(this).parents(".ffscr").removeClass("nowSmall");
-                $(this).parents(".ffscr").css({"overflow":"visible"});
-                $(this).parents(".ffscr").animate({
-                    "height":"60px",
-                    "padding":"10px"
-                });
-                $(this).animate({
-                    "width":"19px",
-                    "height":"19px"
-                });
 
-                $(this).parents("span").animate({
-                    "fontSize":"20px",
-                    "lineHeight":"18px"
-                });
-                $(this).parents(".jqTransformCheckboxWrapper").animate({
-                    "paddingTop":"2px"
-                });
+				$(this).parents("span").css({
+					"color":"white"
+				});
 
-                $(this).parents(".sizeBig").css({
-                    "backgroundColor":"transparent"
-                });
 
 
-                $(this).parents("span").css({
-                    "color":"white"
-                });
+				$(this).parents(".ffscr").find(".numerick").css({"display":"none"});
+			}else{
+				$(this).parents(".ffscr").addClass("nowSmall");
+				$(this).parents(".ffscr").css({"overflow":"hidden"});
+				$(this).parents(".ffscr").animate({
+					"height":"10px",
+					"padding":"0px"
+				});
+				$(this).animate({
+					"width":"10px",
+					"height":"10px"
+				});
 
+				$(this).parents("span").animate({
+					"fontSize":"12px",
+					"lineHeight":"10px"
+				});
+				$(this).parents(".jqTransformCheckboxWrapper").animate({
+					"paddingTop":"1px"
+				});
+				$(this).parents(".sizeBig").css({
+					"backgroundColor":"white",
+					"display":"inline-block",
+					"position": "relative",
+					"top": "-3px",
+					"paddingRight":"4px"
+				});
 
 
-                $(this).parents(".ffscr").find(".numerick").css({"display":"none"});
-            }else{
-                $(this).parents(".ffscr").addClass("nowSmall");
-                $(this).parents(".ffscr").css({"overflow":"hidden"});
-                $(this).parents(".ffscr").animate({
-                    "height":"10px",
-                    "padding":"0px"
-                });
-                $(this).animate({
-                    "width":"10px",
-                    "height":"10px"
-                });
 
-                $(this).parents("span").animate({
-                    "fontSize":"12px",
-                    "lineHeight":"10px"
-                });
-                $(this).parents(".jqTransformCheckboxWrapper").animate({
-                    "paddingTop":"1px"
-                });
-                $(this).parents(".sizeBig").css({
-                    "backgroundColor":"white",
-                    "display":"inline-block",
-                    "position": "relative",
-                    "top": "-3px",
-                    "paddingRight":"4px"
-                });
 
 
+				$(this).parents("span").css({
 
+					"color":"black"
 
+				});
 
-                $(this).parents("span").css({
 
-                    "color":"black"
 
-                });
+				$(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
 
+			};
 
+		} else if (thisIndex == 4){
 
-                $(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
+			var hc = $(this).parents(".ffscr").hasClass("nowSmall");
 
-            };
+			if (hc){
 
-        } else if (thisIndex == 4){
+				$(this).parents(".ffscr").removeClass("nowSmall");
 
-            var hc = $(this).parents(".ffscr").hasClass("nowSmall");
+				$(this).parents(".ffscr").css({"overflow":"visible"});
 
-            if (hc){
+				$(this).parents(".ffscr").animate({
 
-                $(this).parents(".ffscr").removeClass("nowSmall");
+					"height":"40px",
 
-                $(this).parents(".ffscr").css({"overflow":"visible"});
+					"padding":"10px"
 
-                $(this).parents(".ffscr").animate({
+				});
 
-                    "height":"40px",
+				$(this).animate({
 
-                    "padding":"10px"
+					"width":"19px",
 
-                });
+					"height":"19px"
 
-                $(this).animate({
+				});
 
-                    "width":"19px",
+				$(this).parents("span").animate({
 
-                    "height":"19px"
+					"fontSize":"20px",
 
-                });
+					"lineHeight":"18px"
 
-                $(this).parents("span").animate({
+				});
 
-                    "fontSize":"20px",
+				$(this).parents(".jqTransformCheckboxWrapper").animate({
 
-                    "lineHeight":"18px"
+					"paddingTop":"2px"
 
-                });
+				});
 
-                $(this).parents(".jqTransformCheckboxWrapper").animate({
+				$(this).parents(".sizeBig").css({
 
-                    "paddingTop":"2px"
+					"backgroundColor":"transparent"
 
-                });
+				});
 
-                $(this).parents(".sizeBig").css({
 
-                    "backgroundColor":"transparent"
 
-                });
 
 
+				$(this).parents("span").css({
 
+					"color":"white"
 
+				});
 
-                $(this).parents("span").css({
 
-                    "color":"white"
 
-                });
+				$(this).parents(".ffscr").find(".numerick").css({"display":"none"});
 
+			}else{
 
+				$(this).parents(".ffscr").addClass("nowSmall");
 
-                $(this).parents(".ffscr").find(".numerick").css({"display":"none"});
+				$(this).parents(".ffscr").css({"overflow":"hidden"});
 
-            }else{
+				$(this).parents(".ffscr").animate({
 
-                $(this).parents(".ffscr").addClass("nowSmall");
+					"height":"10px",
 
-                $(this).parents(".ffscr").css({"overflow":"hidden"});
+					"padding":"0px"
 
-                $(this).parents(".ffscr").animate({
+				});
 
-                    "height":"10px",
+				$(this).animate({
 
-                    "padding":"0px"
+					"width":"10px",
 
-                });
+					"height":"10px"
 
-                $(this).animate({
+				});
 
-                    "width":"10px",
+				$(this).parents("span").animate({
 
-                    "height":"10px"
+					"fontSize":"12px",
 
-                });
+					"lineHeight":"10px"
 
-                $(this).parents("span").animate({
+				});
 
-                    "fontSize":"12px",
+				$(this).parents(".jqTransformCheckboxWrapper").animate({
 
-                    "lineHeight":"10px"
+					"paddingTop":"1px"
 
-                });
+				});
 
-                $(this).parents(".jqTransformCheckboxWrapper").animate({
+				$(this).parents(".sizeBig").css({
 
-                    "paddingTop":"1px"
+					"backgroundColor":"white",
 
-                });
+					"display":"inline-block",
 
-                $(this).parents(".sizeBig").css({
+					"position": "relative",
 
-                    "backgroundColor":"white",
+					"top": "-3px",
 
-                    "display":"inline-block",
+					"paddingRight":"4px"
 
-                    "position": "relative",
+				});
 
-                    "top": "-3px",
 
-                    "paddingRight":"4px"
 
-                });
 
 
+				$(this).parents("span").css({
 
+					"color":"black"
 
+				});
 
-                $(this).parents("span").css({
 
-                    "color":"black"
 
-                });
+				$(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
 
+			};
 
+		}else if (thisIndex == 5){
 
-                $(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
+			var hc = $(this).parents(".ffscr").hasClass("nowSmall");
 
-            };
+			if (hc){
 
-        }else if (thisIndex == 5){
+				$(this).parents(".ffscr").removeClass("nowSmall");
 
-            var hc = $(this).parents(".ffscr").hasClass("nowSmall");
+				$(this).parents(".ffscr").css({"overflow":"visible"});
 
-            if (hc){
+				$(this).parents(".ffscr").animate({
 
-                $(this).parents(".ffscr").removeClass("nowSmall");
+					"height":hhc,
 
-                $(this).parents(".ffscr").css({"overflow":"visible"});
+					"padding":"10px"
 
-                $(this).parents(".ffscr").animate({
+				});
 
-                    "height":hhc,
+				$(this).animate({
 
-                    "padding":"10px"
+					"width":"19px",
 
-                });
+					"height":"19px"
 
-                $(this).animate({
+				});
 
-                    "width":"19px",
+				$(this).parents("span").animate({
 
-                    "height":"19px"
+					"fontSize":"20px",
 
-                });
+					"lineHeight":"18px"
 
-                $(this).parents("span").animate({
+				});
 
-                    "fontSize":"20px",
+				$(this).parents(".jqTransformCheckboxWrapper").animate({
 
-                    "lineHeight":"18px"
+					"paddingTop":"2px"
 
-                });
+				});
 
-                $(this).parents(".jqTransformCheckboxWrapper").animate({
+				$(this).parents(".sizeBig").css({
 
-                    "paddingTop":"2px"
+					"backgroundColor":"transparent"
 
-                });
+				});
 
-                $(this).parents(".sizeBig").css({
 
-                    "backgroundColor":"transparent"
 
-                });
 
 
+				$(this).parents("span").css({
 
+					"color":"white"
 
+				});
 
-                $(this).parents("span").css({
 
-                    "color":"white"
 
-                });
+				$(this).parents(".ffscr").find(".numerick").css({"display":"none"});
 
+			}else{
 
+				$(this).parents(".ffscr").addClass("nowSmall");
 
-                $(this).parents(".ffscr").find(".numerick").css({"display":"none"});
+				$(this).parents(".ffscr").css({"overflow":"hidden"});
 
-            }else{
+				$(this).parents(".ffscr").animate({
 
-                $(this).parents(".ffscr").addClass("nowSmall");
+					"height":"10px",
 
-                $(this).parents(".ffscr").css({"overflow":"hidden"});
+					"padding":"0px"
 
-                $(this).parents(".ffscr").animate({
+				});
 
-                    "height":"10px",
+				$(this).animate({
 
-                    "padding":"0px"
+					"width":"10px",
 
-                });
+					"height":"10px"
 
-                $(this).animate({
+				});
 
-                    "width":"10px",
+				$(this).parents("span").animate({
 
-                    "height":"10px"
+					"fontSize":"12px",
 
-                });
+					"lineHeight":"10px"
 
-                $(this).parents("span").animate({
+				});
 
-                    "fontSize":"12px",
+				$(this).parents(".jqTransformCheckboxWrapper").animate({
 
-                    "lineHeight":"10px"
+					"paddingTop":"1px"
 
-                });
+				});
 
-                $(this).parents(".jqTransformCheckboxWrapper").animate({
+				$(this).parents(".sizeBig").css({
 
-                    "paddingTop":"1px"
+					"backgroundColor":"white",
 
-                });
+					"display":"inline-block",
 
-                $(this).parents(".sizeBig").css({
+					"position": "relative",
 
-                    "backgroundColor":"white",
+					"top": "-3px",
 
-                    "display":"inline-block",
+					"paddingRight":"4px"
 
-                    "position": "relative",
+				});
 
-                    "top": "-3px",
 
-                    "paddingRight":"4px"
 
-                });
 
 
+				$(this).parents("span").css({
 
+					"color":"black"
 
+				});
 
-                $(this).parents("span").css({
 
-                    "color":"black"
 
-                });
+				$(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
 
+			};
 
+		};
 
-                $(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
-
-            };
-
-        };
-
-    });
+	});
 
 });

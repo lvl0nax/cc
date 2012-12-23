@@ -1,341 +1,344 @@
-$(function () {
+$(document).ready(function () {
 
-	var hhc = $(".filterGran").height();
+    var hhc = $(".filterGran").height();
 
 
-	$(".fjqtrans .jqTransformCheckbox").click(function () {
-		var thisIndex = $(this).parents(".ffscr").index();
-		if (thisIndex == 3){
-			var hc = $(this).parents(".ffscr").hasClass("nowSmall");
-			if (hc){
-				$(this).parents(".ffscr").removeClass("nowSmall");
-				$(this).parents(".ffscr").css({"overflow":"visible"});
-				$(this).parents(".ffscr").animate({
-					"height":"60px",
-					"padding":"10px"
-				});
-				$(this).animate({
-					"width":"19px",
-					"height":"19px"
-				});
 
-				$(this).parents("span").animate({
-					"fontSize":"20px",
-					"lineHeight":"18px"
-				});
-				$(this).parents(".jqTransformCheckboxWrapper").animate({
-					"paddingTop":"2px"
-				});
 
-				$(this).parents(".sizeBig").css({
-					"backgroundColor":"transparent"
-				});
 
+    $(".fjqtrans .jqTransformCheckbox").click(function () {
+        var thisIndex = $(this).parents(".ffscr").index();
+        if (thisIndex == 3){
+            var hc = $(this).parents(".ffscr").hasClass("nowSmall");
+            if (hc){
+                $(this).parents(".ffscr").removeClass("nowSmall");
+                $(this).parents(".ffscr").css({"overflow":"visible"});
+                $(this).parents(".ffscr").animate({
+                    "height":"60px",
+                    "padding":"10px"
+                });
+                $(this).animate({
+                    "width":"19px",
+                    "height":"19px"
+                });
 
-				$(this).parents("span").css({
-					"color":"white"
-				});
+                $(this).parents("span").animate({
+                    "fontSize":"20px",
+                    "lineHeight":"18px"
+                });
+                $(this).parents(".jqTransformCheckboxWrapper").animate({
+                    "paddingTop":"2px"
+                });
 
+                $(this).parents(".sizeBig").css({
+                    "backgroundColor":"transparent"
+                });
 
 
-				$(this).parents(".ffscr").find(".numerick").css({"display":"none"});
-			}else{
-				$(this).parents(".ffscr").addClass("nowSmall");
-				$(this).parents(".ffscr").css({"overflow":"hidden"});
-				$(this).parents(".ffscr").animate({
-					"height":"10px",
-					"padding":"0px"
-				});
-				$(this).animate({
-					"width":"10px",
-					"height":"10px"
-				});
+                $(this).parents("span").css({
+                    "color":"white"
+                });
 
-				$(this).parents("span").animate({
-					"fontSize":"12px",
-					"lineHeight":"10px"
-				});
-				$(this).parents(".jqTransformCheckboxWrapper").animate({
-					"paddingTop":"1px"
-				});
-				$(this).parents(".sizeBig").css({
-					"backgroundColor":"white",
-					"display":"inline-block",
-					"position": "relative",
-					"top": "-3px",
-					"paddingRight":"4px"
-				});
 
 
+                $(this).parents(".ffscr").find(".numerick").css({"display":"none"});
+            }else{
+                $(this).parents(".ffscr").addClass("nowSmall");
+                $(this).parents(".ffscr").css({"overflow":"hidden"});
+                $(this).parents(".ffscr").animate({
+                    "height":"10px",
+                    "padding":"0px"
+                });
+                $(this).animate({
+                    "width":"10px",
+                    "height":"10px"
+                });
 
+                $(this).parents("span").animate({
+                    "fontSize":"12px",
+                    "lineHeight":"10px"
+                });
+                $(this).parents(".jqTransformCheckboxWrapper").animate({
+                    "paddingTop":"1px"
+                });
+                $(this).parents(".sizeBig").css({
+                    "backgroundColor":"white",
+                    "display":"inline-block",
+                    "position": "relative",
+                    "top": "-3px",
+                    "paddingRight":"4px"
+                });
 
 
-				$(this).parents("span").css({
 
-					"color":"black"
 
-				});
 
+                $(this).parents("span").css({
 
+                    "color":"black"
 
-				$(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
+                });
 
-			};
 
-		} else if (thisIndex == 4){
 
-			var hc = $(this).parents(".ffscr").hasClass("nowSmall");
+                $(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
 
-			if (hc){
+            };
 
-				$(this).parents(".ffscr").removeClass("nowSmall");
+        } else if (thisIndex == 4){
 
-				$(this).parents(".ffscr").css({"overflow":"visible"});
+            var hc = $(this).parents(".ffscr").hasClass("nowSmall");
 
-				$(this).parents(".ffscr").animate({
+            if (hc){
 
-					"height":"40px",
+                $(this).parents(".ffscr").removeClass("nowSmall");
 
-					"padding":"10px"
+                $(this).parents(".ffscr").css({"overflow":"visible"});
 
-				});
+                $(this).parents(".ffscr").animate({
 
-				$(this).animate({
+                    "height":"40px",
 
-					"width":"19px",
+                    "padding":"10px"
 
-					"height":"19px"
+                });
 
-				});
+                $(this).animate({
 
-				$(this).parents("span").animate({
+                    "width":"19px",
 
-					"fontSize":"20px",
+                    "height":"19px"
 
-					"lineHeight":"18px"
+                });
 
-				});
+                $(this).parents("span").animate({
 
-				$(this).parents(".jqTransformCheckboxWrapper").animate({
+                    "fontSize":"20px",
 
-					"paddingTop":"2px"
+                    "lineHeight":"18px"
 
-				});
+                });
 
-				$(this).parents(".sizeBig").css({
+                $(this).parents(".jqTransformCheckboxWrapper").animate({
 
-					"backgroundColor":"transparent"
+                    "paddingTop":"2px"
 
-				});
+                });
 
+                $(this).parents(".sizeBig").css({
 
+                    "backgroundColor":"transparent"
 
+                });
 
 
-				$(this).parents("span").css({
 
-					"color":"white"
 
-				});
 
+                $(this).parents("span").css({
 
+                    "color":"white"
 
-				$(this).parents(".ffscr").find(".numerick").css({"display":"none"});
+                });
 
-			}else{
 
-				$(this).parents(".ffscr").addClass("nowSmall");
 
-				$(this).parents(".ffscr").css({"overflow":"hidden"});
+                $(this).parents(".ffscr").find(".numerick").css({"display":"none"});
 
-				$(this).parents(".ffscr").animate({
+            }else{
 
-					"height":"10px",
+                $(this).parents(".ffscr").addClass("nowSmall");
 
-					"padding":"0px"
+                $(this).parents(".ffscr").css({"overflow":"hidden"});
 
-				});
+                $(this).parents(".ffscr").animate({
 
-				$(this).animate({
+                    "height":"10px",
 
-					"width":"10px",
+                    "padding":"0px"
 
-					"height":"10px"
+                });
 
-				});
+                $(this).animate({
 
-				$(this).parents("span").animate({
+                    "width":"10px",
 
-					"fontSize":"12px",
+                    "height":"10px"
 
-					"lineHeight":"10px"
+                });
 
-				});
+                $(this).parents("span").animate({
 
-				$(this).parents(".jqTransformCheckboxWrapper").animate({
+                    "fontSize":"12px",
 
-					"paddingTop":"1px"
+                    "lineHeight":"10px"
 
-				});
+                });
 
-				$(this).parents(".sizeBig").css({
+                $(this).parents(".jqTransformCheckboxWrapper").animate({
 
-					"backgroundColor":"white",
+                    "paddingTop":"1px"
 
-					"display":"inline-block",
+                });
 
-					"position": "relative",
+                $(this).parents(".sizeBig").css({
 
-					"top": "-3px",
+                    "backgroundColor":"white",
 
-					"paddingRight":"4px"
+                    "display":"inline-block",
 
-				});
+                    "position": "relative",
 
+                    "top": "-3px",
 
+                    "paddingRight":"4px"
 
+                });
 
 
-				$(this).parents("span").css({
 
-					"color":"black"
 
-				});
 
+                $(this).parents("span").css({
 
+                    "color":"black"
 
-				$(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
+                });
 
-			};
 
-		}else if (thisIndex == 5){
 
-			var hc = $(this).parents(".ffscr").hasClass("nowSmall");
+                $(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
 
-			if (hc){
+            };
 
-				$(this).parents(".ffscr").removeClass("nowSmall");
+        }else if (thisIndex == 5){
 
-				$(this).parents(".ffscr").css({"overflow":"visible"});
+            var hc = $(this).parents(".ffscr").hasClass("nowSmall");
 
-				$(this).parents(".ffscr").animate({
+            if (hc){
 
-					"height":hhc,
+                $(this).parents(".ffscr").removeClass("nowSmall");
 
-					"padding":"10px"
+                $(this).parents(".ffscr").css({"overflow":"visible"});
 
-				});
+                $(this).parents(".ffscr").animate({
 
-				$(this).animate({
+                    "height":hhc,
 
-					"width":"19px",
+                    "padding":"10px"
 
-					"height":"19px"
+                });
 
-				});
+                $(this).animate({
 
-				$(this).parents("span").animate({
+                    "width":"19px",
 
-					"fontSize":"20px",
+                    "height":"19px"
 
-					"lineHeight":"18px"
+                });
 
-				});
+                $(this).parents("span").animate({
 
-				$(this).parents(".jqTransformCheckboxWrapper").animate({
+                    "fontSize":"20px",
 
-					"paddingTop":"2px"
+                    "lineHeight":"18px"
 
-				});
+                });
 
-				$(this).parents(".sizeBig").css({
+                $(this).parents(".jqTransformCheckboxWrapper").animate({
 
-					"backgroundColor":"transparent"
+                    "paddingTop":"2px"
 
-				});
+                });
 
+                $(this).parents(".sizeBig").css({
 
+                    "backgroundColor":"transparent"
 
+                });
 
 
-				$(this).parents("span").css({
 
-					"color":"white"
 
-				});
 
+                $(this).parents("span").css({
 
+                    "color":"white"
 
-				$(this).parents(".ffscr").find(".numerick").css({"display":"none"});
+                });
 
-			}else{
 
-				$(this).parents(".ffscr").addClass("nowSmall");
 
-				$(this).parents(".ffscr").css({"overflow":"hidden"});
+                $(this).parents(".ffscr").find(".numerick").css({"display":"none"});
 
-				$(this).parents(".ffscr").animate({
+            }else{
 
-					"height":"10px",
+                $(this).parents(".ffscr").addClass("nowSmall");
 
-					"padding":"0px"
+                $(this).parents(".ffscr").css({"overflow":"hidden"});
 
-				});
+                $(this).parents(".ffscr").animate({
 
-				$(this).animate({
+                    "height":"10px",
 
-					"width":"10px",
+                    "padding":"0px"
 
-					"height":"10px"
+                });
 
-				});
+                $(this).animate({
 
-				$(this).parents("span").animate({
+                    "width":"10px",
 
-					"fontSize":"12px",
+                    "height":"10px"
 
-					"lineHeight":"10px"
+                });
 
-				});
+                $(this).parents("span").animate({
 
-				$(this).parents(".jqTransformCheckboxWrapper").animate({
+                    "fontSize":"12px",
 
-					"paddingTop":"1px"
+                    "lineHeight":"10px"
 
-				});
+                });
 
-				$(this).parents(".sizeBig").css({
+                $(this).parents(".jqTransformCheckboxWrapper").animate({
 
-					"backgroundColor":"white",
+                    "paddingTop":"1px"
 
-					"display":"inline-block",
+                });
 
-					"position": "relative",
+                $(this).parents(".sizeBig").css({
 
-					"top": "-3px",
+                    "backgroundColor":"white",
 
-					"paddingRight":"4px"
+                    "display":"inline-block",
 
-				});
+                    "position": "relative",
 
+                    "top": "-3px",
 
+                    "paddingRight":"4px"
 
+                });
 
 
-				$(this).parents("span").css({
 
-					"color":"black"
 
-				});
 
+                $(this).parents("span").css({
 
+                    "color":"black"
 
-				$(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
+                });
 
-			};
 
-		};
 
-	});
+                $(this).parents(".ffscr").find(".numerick").css({"display":"inline-block"});
+
+            };
+
+        };
+
+    });
 
 });

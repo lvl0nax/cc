@@ -7,4 +7,8 @@ class Page
   field :meta_description, :type => String
   field :page_id, :type => String
   field :visible, :type => Boolean
+
+  def self.visible
+    self.where(:visible => true)
+  end
 end

@@ -21,10 +21,11 @@ class User
   #validates_presence_of :name
   validates_uniqueness_of  :email, :case_sensitive => false
   attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name #,:name
-  attr_accessible :nickname, :provider, :url, :username, :role
+  attr_accessible :nickname, :provider, :url, :username, :role, :compinfo
 
   validates_presence_of :email, :message => 'Обязательно'
-  validates_presence_of :encrypted_password
+  validates_presence_of :password, :message => 'Обязательно'
+  validates_presence_of :encrypted_password, :message => 'Обязательно'
   validates_confirmation_of :password, :message => 'Пароли не совпадают'
   validates_length_of :password, :minimum => 6, :message => 'Слишком короткий пароль (нужно 6 символов)'
   validates_format_of :email, :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/, :message => 'Неверный email'
@@ -43,6 +44,7 @@ class User
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
   field :provider,           :type => String
+
   embeds_one :role
   embeds_one :compinfo
   embeds_one :resume
@@ -51,6 +53,7 @@ class User
   has_and_belongs_to_many :grants
   has_and_belongs_to_many :events
   has_many :requests
+  has_many :user_events
 
   has_many :authentications
   
@@ -156,7 +159,7 @@ class User
     end
     acts.concat(months)
 
-    return acts.sort!{|x,y| x.start_date <=> y.start_date}
+    acts.sort!{|x,y| x.start_date <=> y.start_date}
   end
 
   def avatar
@@ -185,6 +188,7 @@ class User
   end
 
   def self.find_for_vkontakte_oauth(access_token, role)
+    puts access_token.to_yaml
     if user = User.where(:url => access_token.info.urls.Vkontakte).first
       user
     else 
@@ -194,7 +198,7 @@ class User
                    :username => access_token.info.name, 
                    # :name => access_token.info.name, 
                    :nickname => access_token.extra.raw_info.domain, 
-                   :email => access_token.extra.raw_info.domain+'@vk.com', 
+                   :email => access_token.extra.raw_info.screen_name + '@vk.com',
                    :password => Devise.friendly_token[0,20],
                    :role => Role.new(:name => role)
       )
@@ -206,6 +210,10 @@ class User
     ids.each do |id|
       self.areas << Area.where(:id => id)
     end unless ids.nil?
+  end
+
+  def self.compinfo_names
+     User.where(:compinfo => {'$ne' => nil})
   end
 
 end

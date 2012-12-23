@@ -1,25 +1,38 @@
-<li class="templ" id="temp_month">
-
-	<div class="outer this">
-
-			<img src="/assets/month_<%= month.number %>.png" />
-	</div>
-	<div class="name">
-		<div class="inner">
-			<%= month.name.mb_chars.upcase %>
-		</div>
-	</div>
-<!-- 
-	<div class="list">
-		<ul>
-			<li><a href="#" data-year="" data-month=""><strong>ВСЕ МЕСЯЦЫ</strong></a></li>
-			<% (Date.new(Time.now.year, month.number)..Date.new(Time.now.year+1, month.number-1 > 0 ? month.number - 1 : 12)).select{|d| d.day == 1 }.each do |d| %>
-			<% if d.month.to_i == 1 %>
-			<li class="year"><%= d.year.to_s %></li>
-			<% end %>
-			<li><a href="#" data-year="<%= d.year.to_i %>" data-month="<%= d.month.to_i %>"><%= l d, :format => "%B" %></a></li>
-			<% end %>
-		</ul>
-	</div>
- -->	
-</li>
+<div class="moncon" onmouseover="hover(this)" onmouseout="out(this)"><!-- not elegant but what can I do? -->
+    <%= image_tag month.name + '.png', :class=>'w203' %>
+  <div class="monthhover">
+    <ul>
+      <li class="now">январь</li>
+      <li>февраль</li>
+      <li>март</li>
+      <li>апрель</li>
+      <li>май</li>
+      <li>июнь</li>
+      <li>июль</li>
+      <li>август</li>
+      <li>сентябрь</li>
+      <li>октябрь</li>
+      <li>ноябрь</li>
+      <li>декабрь</li>
+      <li class="year"><span>2013</span></li>
+      <li>январь</li>
+      <li>февраль</li>
+      <li>март</li>
+      <li>апрель</li>
+      <li>май</li>
+      <li>июнь</li>
+      <li>июль</li>
+      <li>август</li>
+      <li>сентябрь</li>
+      <li>октябрь</li>
+      <li>ноябрь</li>
+      <li>декабрь</li>
+    </ul>
+    </div>
+</div>
+<script>
+    $('.monthhover ul li').click(function(){
+        var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; });
+        $('#filter').update_index($elems.index(this));
+    });
+</script>

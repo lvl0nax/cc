@@ -1,23 +1,43 @@
-<h1>Список существующих сфер</h1>
+<%= javascript_include_tag :defaults %>
+<div id='content'>
+  <h1>Список существующих сфер</h1>
 
-<table class="al">
-  <div id="arealist" >
-    <% @arealist.each do |area| %>
-	    <tr>
-		    <td><%= area.name %> &nbsp</td>
-		    <td><%= link_to "Редактировать", edit_area_path(area) %>&nbsp</td>
-		    <td><%= link_to "удалить", area ,confirm: 'Вы уверены?', method: :delete %>&nbsp</td>
-		    
-		  </tr>
- 
+  <table class="al" id="arealist" >
+      <% @arealist.each do |area| %>
+        <tr>
+            <td><%= area.name %> &nbsp</td>
+            <td><%= link_to "Редактировать", edit_area_path(area) %>&nbsp</td>
+            <td><%= link_to "Удалить", area, :class=>'delete' %>&nbsp</td>
 
-      <br/>
+          </tr>
+
+
+        <br/>
+      <% end %>
+  </table>
+  <br />
+  <% if current_user%>
+    <% if current_user.role?(:admin) %>
+      <%= link_to 'Добавить новую сферу', new_area_path %>
     <% end %>
-  </div>
-</table>
-<br />
-<% if current_user%>
-  <% if current_user.role?(:admin) %>
-    <%= link_to 'Добавить новую сферу', new_area_path %>
   <% end %>
-<% end %>
+</div>
+<script>
+    jQuery(function($) { // document ready
+
+        $('a.delete').live('click', function(event) {
+            event.preventDefault();
+            var $row = $(this).parent().parent();
+            var $link = $(this).attr('href');
+            if(confirm('Вы уверены, что хотите удалить сферу?')){
+                $.ajax({
+                    url: $link, type: 'delete', beforeSend:function(jqXHR, settings) {
+                        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                    }
+                }).done(function(){
+                            $row.fadeOut();
+                        });
+            }
+        });
+    });
+</script>

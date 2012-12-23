@@ -1,13 +1,109 @@
-<% content_for :head do %>
-<div class="title"><h2>МОЙ КАЛЕНДАРЬ (<%= @user.active_events %>)</h2></div>
-<% end if current_user == @user %>
+<div id='content'>
+	<% content_for :head do %>
+		<div class="title"><h2>МОЙ КАЛЕНДАРЬ (<%= @user.active_events %>)</h2></div>
+	<% end %>
+	<%if current_user == @user %>
+		<div id="celendar_content">
+			<div class="month_info">
+				<h1>
+					КАЛЕНДАРЬ 
+					<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
+					<%= @user.compinfo.name if @user.compinfo  %>
+				</h1>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function() {
+		    		$(".title_wrap").toggle(function (event) {	
+		    			event.preventDefault();
+						$(this).parents(".month_title").next().slideUp();
 
-<ul id="myitems">
-	<h1> 		
-		КАЛЕНДАРЬ 
-		<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
-		<%= @user.compinfo.name if @user.compinfo  %>
+					},function (event) {	
+		    			event.preventDefault();
+						$(this).parents(".month_title").next().slideDown();
+					});
+		    	});		    	
+			</script>
+			<%= render 'actions' %> 
+		</div>
+	<%end%>
+</div>
+<script type="text/javascript" language="javascript">
 
-		| <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", userevents_user_path(@user) %></h1>
-	<%= render @actions %> 
-</ul>
+	$(".monthcont").click(function () {	
+
+		var id_map = $(this).find('.mapwrap').attr('id');
+
+		if($(this).find('.mapwrap').data('type') != 'Grant'){
+			google_maps(id_map);
+		}		
+
+		$('.pk_popup').css({'display':'none'});
+		$(this).children(".pk_popup").fadeIn(600);
+		var w = ($(this).children(".pk_popup").width())/2;
+		$(this).children(".pk_popup").css({'margin-top':-w});
+	});		
+
+	$(".close_popup").click(function () {
+		$(this).parent(".pk_popup").fadeOut(600);
+	});
+
+	$(document).ready(function(){
+	   $('.pk_popup, .monthcont').click(function(event){
+		   event.stopPropagation();
+	   });
+
+	}).click(function(){
+		$('.pk_popup').fadeOut(200);
+	});	
+
+	function google_maps(id_map) {
+
+	 var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
+
+		var settings = {
+
+			zoom: 12, // Выставляем параметры зума для карты
+
+			center: latlng,
+
+			mapTypeControl: false,
+
+			mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+
+			navigationControl: true,
+
+			navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+
+		};
+
+		var map = new google.maps.Map(document.getElementById(""+id_map), settings); // Выбираем див куда ставить карту
+
+		var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
+
+		var myOptions = {
+
+			zoom: 12,  // Выставляем параметры зума для маркера
+
+			center: myLatlng,
+
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+
+		}  
+
+		var map = new google.maps.Map(document.getElementById(""+id_map), myOptions);  // Выбираем див куда ставить маркер
+
+		var marker = new google.maps.Marker({
+
+		position: myLatlng,
+
+		map: map,
+
+		title: "A"
+
+	  }); 
+
+	}
+
+</script>

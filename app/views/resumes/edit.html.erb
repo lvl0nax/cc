@@ -1,51 +1,58 @@
 <div id="content">
-  <%= simple_form_for @resume do |f| %>
+  <%= form_for @resume do |f| %>
   <div class="input_info">
     <div class="info_row">
+      <span>ИМЯ</span>
       <div class="input_field">
-        <%= f.input :name, :style => 'width:423px;', :label => "ИМЯ"  %>
+        <%= f.text_field :name, :style => 'width:423px;'%>
       </div>
       <div class="clr"></div>
-    </div>
-    <div class="info_row">
+
+      <span>ФАМИЛИЯ</span>
       <div class="input_field">
-        <%= f.input :surname, :style => 'width:423px;', :label => "ФАМИЛИЯ"  %>
+        <%= f.text_field :surname, :style => 'width:423px;' %>
       </div>
       <div class="clr"></div>
-    </div>
-    <div class="info_row">
+
       <span>ПОЛ</span>
+        <%= f.radio_button :sex, "Мужской" %>
+        <%= f.label :sex, "Мужской", :value => "Мужской" %>
+        <%= f.radio_button :sex, "Женский" %>
+        <%= f.label :sex, "Женский", :value => "Женский" %>
       <div class="clr"></div>
-    </div>
-    <div class="info_row">
+
+      <span>ДАТА РОЖДЕНИЯ</span>
       <div class="input_field">
-        <%= f.input :birthday, :label => "ДАТА РОЖДЕНИЯ", :as => :date, :start_year => Date.today.year - 50,
+        <%= f.text_field :birthday, :as => :date, :start_year => Date.today.year - 50,
                     :end_year => Date.today.year - 10,
                     :order => [:day, :month, :year] %>
       </div>
       <div class="clr"></div>
-    </div>
-    <div class="info_row">
+
+      <span>МЕСТО ЖИТЕЛЬСТВА</span>
       <div class="input_field">
-        <%= f.input :home, :style => 'width:423px;', :label => "МЕСТО ЖИТЕЛЬСТВА"  %>
+        <%= f.text_field :home, :style => 'width:423px;'  %>
       </div>
       <div class="clr"></div>
     </div>
     <div class="sep"></div>
-
     <div class="info_row">
+      <span>ОБРАЗОВАНИЕ</span>
       <div class="input_field">
-        <%= f.input :education, :style => 'width:423px;', :label => "ОБРАЗОВАНИЕ"  %>
+        <%= f.text_field :education, :style => 'width:423px;' %>
         <div class="sub_info_row">
-          <%= f.input :university, :style => 'width:423px;', :label => "ВУЗ"  %>
+          ВУЗ
+          <%= f.text_field :university, :style => 'width:423px;' %>
           <div class="clr"></div>
         </div>
         <div class="sub_info_row">
-          <%= f.input :faculty, :style => 'width:423px;', :label => "ФАКУЛЬТЕТ"  %>
+          ФАКУЛЬТЕТ
+          <%= f.text_field :faculty, :style => 'width:423px;' %>
           <div class="clr"></div>
         </div>
         <div class="sub_info_row">
-          <%= f.input :experation, :style => 'width:423px;', :label => "ДАТА ОКОНЧАНИЯ" %>
+          ДАТА ОКОНЧАНИЯ
+          <%= f.text_field :experation, :style => 'width:423px;' %>
           <div class="clr"></div>
         </div>
       </div>
@@ -53,23 +60,33 @@
     </div>
 
     <div class="sep"></div>
+
     <div class="info_row">
       <span>ОПЫТ РАБОТЫ</span>
       <div class="input_field">
         <div class="sub_info_row">
-          <%= f.input :experience_company, :label => "КОМПАНИЯ", :wrapper_html =>{:class => "edu"}  %>
+          КОМПАНИЯ 1
+          <%= f.text_field :experience_company, :style => "width: 280px;"%>
           <div class="clr"></div>
         </div>
         <div class="sub_info_row">
-          <%= f.input :experience_from, :label => "с", :wrapper_html =>{:class => "edu from"} %>
-          <%= f.input :experience_to, :label => "по", :wrapper_html =>{:class => "edu to"} %>
+          <div class="fl">
+            C
+          <%= f.text_field :experience_from, :class => "fl", :style => "width: 180px;"%>
+           </div>
+          <div class="fr">
+            ПО
+            <%= f.text_field :experience_to, :style => "width: 180px;"%>
+           </div>
+          <div class="clr"></div>
         </div>
+
         <div class="sub_info_row">
-          <%= f.input :experience_position, :label => "ДОЛЖНОСТЬ", :wrapper_html =>{:class => "edu position"}  %>
+          ДОЛЖНОСТЬ
+          <%= f.text_field :experience_position, :style => "width:280px;"  %>
           <button>ДОБАВИТЬ</button>
           <div class="clr"></div>
         </div>
-
       </div>
       <div class="clr"></div>
     </div>
@@ -77,40 +94,46 @@
     <div class="sep"></div>
 
     <div class="info_row">
+      <span>ОПИСАНИЕ СЕБЯ</span>
       <div class="input_field">
-        <%= f.input :description, :label => "ОПИСАНИЕ СЕБЯ", as: :text, :input_html => {:rows => "8", :cols => "65"}  %>
+        <%= f.text_area :description, :as => :text  %>
       </div>
       <div class="clr"></div>
     </div>
 
     <div class="sep"></div>
-
-
-
-
     <div class="tv_sizeBig">
-      <%= f.input :delivery_email_enable, :as => :boolean, :label => "ПОДПИСАТЬСЯ НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ"  %>
+      <span>ПОДПИСАТЬСЯ НА РАССЫЛКУ ПО ИНТЕРЕСУЮЩИМ МЕНЯ СФЕРАМ</span>
+      <%= f.check_box :delivery_email_enable, :as => :boolean  %>
       <div class="clr"></div>
     </div>
+
     <div class="info_row">
       <div class="sub_info_row">
-        <%= f.input :delivery_email, :label => "E-MAIL", :wrapper_html =>{:class => "hd"}  %>
+        <span></span>
+        E-MAIL
+        <%= f.text_field :delivery_email, :style => "width:375px;" %>
       </div>
     </div>
     <div class="clr"></div>
+
     <div class="sep"></div>
     <div class="tv_sizeBig">
-      <%= f.input :delivery_phone_enable, :as => :boolean, :label => "ПОДПИСАТЬ НА SMS-РАССЫЛКУ", :wrapper_html =>{:class => "sms-label"}  %>
+      <span>ПОДПИСАТЬСЯ НА SMS-РАССЫЛКУ</span>
+      <%= f.check_box :delivery_phone_enable, :as => :boolean %>
       <div class="clr"></div>
     </div>
-    <%= f.input :delivery_phone, :label => "ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН"  %>
+
+    <span>ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН</span>
+    <%= f.text_field :delivery_phone, :style => "width:375px;" %>
     <div class="clr"></div>
     <div class="sep"></div>
-    <div class='edit'>
-      СМЕНИТЬ ПАРОЛЬ
-    </div>
-    <div id='change_password'>
-      <%= render 'devise/registrations/edit'%>
+    <div class="info_row">
+      <span><%= link_to "СМЕНИТЬ ПАРОЛЬ", '#', :class=> "edit"%></span>      
+      <div id='change_password' style="display:none;">
+        <%= render 'devise/registrations/edit'%>
+      </div>
+      <div class="clr"></div>
     </div>
     <div class="clr"></div>
     <div class="info_row">
@@ -122,8 +145,8 @@
 <script>  
   $(document).ready( function (){ 
     
-    $('#change_password').hide();
-    $('.edit').on('click', function(){
+    $('.edit').on('click', function(event){
+      event.preventDefault();
       if($('#change_password').is(":hidden")){
         $('#change_password').slideDown();
       }

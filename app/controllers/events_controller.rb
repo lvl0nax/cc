@@ -1,69 +1,138 @@
 # -*- encoding : utf-8 -*-
 require 'will_paginate/array'
 class EventsController < ApplicationController
-  #layout "applicatiwon"
-  # GET /events
-  # GET /events.json
+
   load_and_authorize_resource
 
   def index
-    # TODO: where date more or equal now
-    flash.keep
-    now = DateTime.now
-    @items = []
-    @items.clear
-    event_conditions = []
-    if params[:trainings] || params[:events] || params[:grants]
-      if params[:events]  
-        @items.concat( Event.search(params[:event_kinds], params[:event_areas]).to_a)
-      end
-      if params[:grants]
-        @items.concat( Grant.search(params[:grant_areas]).to_a)
-      end
-      if params[:trainings]
-        @items.concat( Training.search(params[:training_salary_type], params[:training_areas]).to_a)
-      end  
-    else  
-      
-      # @items.concat( Event.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
-      @items.concat( Event.isearch.to_a)
-      
-      # @items.concat( Grant.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
-      @items.concat( Grant.isearch.to_a)
 
-      # @items.concat( Training.where(:status => "ОДОБРЕНО").where(:start_date.gte => now).all.to_a)
-      @items.concat( Training.isearch.to_a)
-      
-      #@items.concat( Training.where(:start_date.gte => now).to_a)
-      
-    end    
 
-    months = Month.all.to_a.keep_if do |m|
-      @items.any? { |a| a.start_date.month.to_i == m.number }
+
+  @events = []
+  existing_ids = []
+  if params[:grant]
+    @grants = Grant.where(:status=>'ОДОБРЕНО')
+    @grants = @grants.in(:area_ids=>params[:grant][:areas]) if params[:grant][:areas]
+    @grants = @grants.where(:direction=>params[:grant][:direction]) if params[:grant][:direction]
+  end unless params[:check_grant].nil?
+
+  if params[:event]
+    @evs = Event.where(:status=>'ОДОБРЕНО')
+    @evs = @evs.in(:area_ids=>params[:event][:areas]) if params[:event][:areas]
+    @evs = @evs.in(:area_types=>params[:event][:area_types]) if params[:event][:area_types]
+    puts @evs.count
+  end unless params[:check_event].nil?
+
+  if params[:training]
+    @trainings = Training.where(:status=>'ОДОБРЕНО')
+    @trainings = @trainings.in(:area_ids=>params[:training][:areas]) if params[:training][:areas]
+    @trainings = @trainings.in(:salary_type => params[:training][:payments]) if params[:training][:payments]
+    @trainings = @trainings.in(:owner => params[:training][:compinfos]) if params[:training][:compinfos]
+
+  end unless params[:check_training].nil?
+
+  if not params[:month].nil? or not cookies[:month].blank?
+    month = params[:month].to_i % 12
+    year = params[:month].to_i / 12
+    now = DateTime.now.change(:month => month + 1, :year=> 2012 + year)
+    @trainings = Training.where(:status=>'ОДОБРЕНО') if @trainings.nil?
+    @trainings = @trainings.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) unless params[:check_event].nil?
+
+    @evs = Event.where(:status=>'ОДОБРЕНО') if @evs.nil?
+    @evs = @evs.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) unless params[:check_training].nil?
+
+    @grants = Grant.where(:status=>'ОДОБРЕНО') if @grants.nil?
+    @grants = @grants.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) unless params[:check_grant].nil?
+    cookies[:month] = params[:month]
+  end
+
+
+  years = %w[2012 2013]
+  years.each do |year|
+      months =  %w[jan feb mar apr may june july aug sept oct nov dec]
+      months.each_with_index do |month, index|
+        Grant.month(index, year.to_i).each do |grant|
+          if @grants.nil?
+            @events << grant
+            grant.visible = true
+            existing_ids << grant.id
+          else
+            @events << grant # if @grants.include?(grant)
+            existing_ids << grant.id if @grants.include?(grant)
+            grant.visible = true if @grants.include?(grant)
+          end
+          puts 'xxxxxxxxxx'*5
+        end unless params[:check_grant].nil?
+
+        Event.month(index, year.to_i).each do |event|
+          if @evs.nil?
+            @events << event
+            event.visible = true
+            existing_ids << event.id
+          else
+            @events << event # if @grants.include?(grant)
+            existing_ids << event.id if @evs.include?(event)
+            event.visible = true if @evs.include?(event)
+          end
+        end unless params[:check_event].nil?
+
+        Training.month(index, year.to_i).each do |training|
+          if @trainings.nil?
+            @events << training
+            training.visible = true
+            existing_ids << training.id
+          else
+
+            @events << training # if @grants.include?(grant)
+            existing_ids << training.id if @trainings.include?(training)
+            training.visible = true if @trainings.include?(training)
+          end
+        end unless params[:check_training].nil?
+
+        @events << Month.new(:number=>index, :name=>month)
+      end
+  end
+
+  @events = @events.paginate(:page => params[:page], :per_page => 12)
+
+  existing_ids.each do |event|
+    params[:grants].delete event.to_s if not params[:grants].nil? and params[:grants].include?(event.to_s)
+  end
+
+
+  @ids_to_show = []
+
+
+  ### Getting grant ids which will fade in
+  existing_ids.each do |event|
+    @ids_to_show << event.to_s if not params[:grants].nil? and not params[:grants].include?(event.to_s)
+  end
+
+
+  ### Getting grant ids which will fade out
+  @ids_to_delete = []
+  unless params[:grants].nil?
+    params[:grants].each do |grant|
+      @ids_to_delete << grant
     end
-    @items.concat(months)        
+  end
 
-    unless @items.blank?
-      @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
+  unless params[:trainings].nil?
+    params[:trainings].each do |training|
+      @ids_to_delete << training
+    end
+  end
 
-      unless params[:month].blank?
-        @items.select! do |i| 
-          i.start_date.month.to_i == params[:month].to_i && i.start_date.year.to_i == params[:year].to_i 
-        end
-        @items.unshift Month.where(:number => params[:month]).first if @items.length < 1
-      end
-    end    
+  unless params[:events].nil?
+    params[:events].each do |event|
+      @ids_to_delete << event
+    end
+  end
 
-    @items = @items.paginate(:page => params[:page], :per_page => 12)
-    
-    # @events, @trainings, @grants = [Event, Training, Grant].map do |clazz|
-    #   clazz.paginate(:page => params[clazz.to_s.downcase + "_page"], :order => 'start_date')
-    # end
-
-
+  puts @events
     respond_to do |format|
       format.html
-      format.json { render json: @items }
+      format.json { render json: { delete:@ids_to_delete, show:@ids_to_show } }
       format.xml { render xml: @items }
       format.js
     end
@@ -104,11 +173,14 @@ class EventsController < ApplicationController
     @event.write_attributes(owner: current_user.id) unless current_user.nil?
     respond_to do |format|
       if @event.save
-        #current_user.events << @event
+
+        # deleting cookie with image id, if it exists
+        cookies.delete :event_image unless cookies[:event_image].nil?
+
         format.html { redirect_to root_path, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
-        format.html { render action: "new" }
+        format.html { render json: @event.errors }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -164,29 +236,18 @@ class EventsController < ApplicationController
     end
   end
 
-  #TODO: before filter for this method
-  # def activities
-  #   logger.debug "--------------------------------------------"
-  #   @user = User.find(params[:id])
-  #   @actions = @user.actions
-  #   logger.debug @actions
-  #   respond_to do |format|
-  #     format.html # new.html.erb
-  #     format.json { render json: @actions }
-  #   end
-  # end
-
   def not_approved
 
-    @items = []
+    #@items = []
     
-    @items.concat Training.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+    #@items += Training.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
     #logger.debug @items
-    @items.concat Event.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+    #@items += Event.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
     #logger.debug @items
-    @items.concat Grant.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
+    #@items += Grant.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
 
-
+    @items = EventParent.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"])
+    
     unless @items.blank?
       @items.sort!{|x,y| x.start_date <=> y.start_date} if @items.length > 1
     end 
@@ -197,5 +258,25 @@ class EventsController < ApplicationController
       format.xml { render xml: @items }
       format.js
     end
+    puts @items.count
   end
+
+  def update_index
+    @items = []
+    render json:@grants
+  end
+
+  def event_status
+    @event = EventParent.find(params[:event_id])
+    @event.status = 'ОДОБРЕНО'
+    @event.save
+    render :text => ''
+  end
+
+  def event_delete
+    @event = EventParent.find(params[:event_id])
+    @event.destroy
+    render :text => ''
+  end
+
 end

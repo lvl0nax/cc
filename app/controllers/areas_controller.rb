@@ -1,9 +1,11 @@
+#encoding: UTF-8
 class AreasController < ApplicationController
   before_filter :admin_only, :except => [:index, :list, :add_to_user]
 
   # GET /areas
   # GET /areas.json
   def index
+    @title = "Интересующие сферы"
     return redirect_to root_path unless current_user
     @areas = Area.all
     @myareas = current_user.area_ids
@@ -56,7 +58,7 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.save
-        format.html { redirect_to @area, notice: 'Area was successfully created.' }
+        format.html { redirect_to @area, notice: 'Сфера "' + @area.name + '". успешно создана' }
         format.json { render json: @area, status: :created, location: @area }
       else
         format.html { render action: "new" }
@@ -72,7 +74,7 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.update_attributes(params[:area])
-        format.html { redirect_to @area, notice: 'Area was successfully updated.' }
+        format.html { redirect_to @area, notice: 'Сфера "' + @area.name + '". успешно отредактирована' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -88,7 +90,7 @@ class AreasController < ApplicationController
     @area.destroy
 
     respond_to do |format|
-      format.html { redirect_to areas_url }
+      format.html { render json:true }
       format.json { head :ok }
     end
   end

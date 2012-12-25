@@ -78,7 +78,9 @@
 
 <span class="label">ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ</span>
 <div class="datesel300">
-  <%= f.date_select :request_date, :order=>[:day, :month, :year] %>
+  <div class="ficha">
+    <%= f.date_select :request_date, :order=>[:day, :month, :year] %>
+  </div>
    <div class="ficha">
      <span style="margin: 0 8px">ДО</span>
      <%= f.time_select :request_hour %>

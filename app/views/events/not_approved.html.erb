@@ -16,8 +16,7 @@
 </div>
 <script type="text/javascript" language="javascript">
 
-	$(".monthcont").click(function () {
-	
+	$(".monthcont").click(function (arg) {
 		var id_map = $(this).find('.mapwrap').attr('id');
 
 		if($(this).find('.mapwrap').data('type') != 'Grant'){
@@ -27,7 +26,7 @@
 		$('.pk_popup').css({'display':'none'});
 		$(this).children(".pk_popup").fadeIn(600);
 		var w = ($(this).children(".pk_popup").width())/2;
-		$(this).children(".pk_popup").css({'margin-top':-w});
+		$(this).children(".pk_popup").css({'margin-top':-w});				
 	});		
 
 	$(".close_popup").click(function () {
@@ -36,39 +35,40 @@
 
 	$(document).ready(function(){
 	   $('.pk_popup, .monthcont').click(function(event){
-		   event.stopPropagation();
+	   	   event.stopPropagation();		
 	   });
 
 	   $('.signature').on('click', function(){
-      var id_event = $(this).attr('id');
-      var str; 
-      if ($(this).is(':checked')){
-        str = 'add';
-      }
-      else{
-        str = 'remove'
-      } 
-      $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
-                jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                }
-      });
+	      var id_event = $(this).attr('id');
+	      var str; 
+	      if ($(this).is(':checked')){
+	        str = 'add';
+	      }
+	      else{
+	        str = 'remove'
+	      } 
+	      $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
+	                jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+	                }
+	      });
+	  });
 
-      $('.odobreno, .delete').on('click', function(){
-			var event_id = $(this).data('id');
-			var str;
-			$('#'+event_id+'.monthcont').hide();
-			if($(this).attr('class') == 'odobreno'){
-				str = 'event_status';
-			}
-			else if($(this).attr('class') == 'delete'){
-				str = 'event_delete';
-			}
-			$.ajax({ url: "/events/"+str, type: "POST", data:{ event_id: event_id},  beforeSend:function(jqXHR, settings) {
-                	jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                }
-      		});
-		});     
-    });
+      $('.odobreno, .delete').on('click', function(e){
+      	e.preventDefault();
+      	var event_id = $(this).data('id');
+		var str;
+		$('#'+event_id+'.monthcont').hide();
+		if($(this).attr('class') == 'odobreno'){
+			str = 'event_status';
+		}
+		else if($(this).attr('class') == 'delete'){
+			str = 'event_delete';
+		}
+		$.ajax({ url: "/events/"+str, type: "POST", data:{ event_id: event_id},  beforeSend:function(jqXHR, settings) {
+            	jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+            				}
+  		});
+	  });
 
 	}).click(function(){
 		$('.pk_popup').fadeOut(200);

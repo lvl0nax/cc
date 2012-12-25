@@ -182,7 +182,7 @@ class User
                    :nickname => access_token.extra.raw_info.username, 
                    :email => access_token.extra.raw_info.email, 
                    :password => Devise.friendly_token[0,20],
-                   :role => Role.new(:name => role)
+                   :role => Role.new(:name => 'employee')
        )
     end
   end
@@ -200,7 +200,7 @@ class User
                    :nickname => access_token.extra.raw_info.domain, 
                    :email => access_token.extra.raw_info.screen_name + '@vk.com',
                    :password => Devise.friendly_token[0,20],
-                   :role => Role.new(:name => role)
+                   :role => Role.new(:name => 'employee')
       )
     end
   end

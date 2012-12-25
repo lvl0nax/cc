@@ -17,7 +17,7 @@
     <%end%>
   </span>
 
-    <% unless item.image_id.nil? %>
+    <% unless item.image_id.eql?('') %>
         <%= image_tag Image.find(item.image_id).photo.thumb %>
     <% else %>
         <img src="images/contimg4.png" alt="">

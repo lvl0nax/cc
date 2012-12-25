@@ -19,16 +19,16 @@ class Resume
   field :delivery_phone, :type => String
   field :sex
 
-  field :experience_company, :type => String
-  field :experience_from, :type => String
-  field :experience_to, :type => String
-  field :experience_position, :type => String
+  
   field :crop_x, :type => Integer
   field :crop_y, :type => Integer
   field :crop_w, :type => Integer
   field :crop_h, :type => Integer
   mount_uploader :photo, ImageUploader
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
+  has_many :experience_works, :dependent => :destroy
+  accepts_nested_attributes_for :experience_works, :allow_destroy => true
   
   def crop_avatar
     photo.recreate_versions! if crop_x.present?

@@ -1,0 +1,336 @@
+.pk_popup {
+	display: none;
+	width: 620px;
+	border: 3px solid #354242;
+	border-bottom-width: 20px;
+	padding: 14px 22px;
+	.bg('wbg.png');
+	position:fixed;
+	left: 50%;
+	z-index: 555;
+	margin-left: -310px;
+	top: 50%;
+	
+	
+	.close_popup {
+		width: 17px;
+		height: 16px;
+		.bgn('grant_close.png');
+		position:absolute;
+		top: -15px;
+		right: -16px;
+		display:block;
+		
+		&:hover {
+			background-position: bottom !important;
+		}
+	}
+	
+	.head {
+		font-size: 18px;
+		margin-bottom: 10px;
+		
+		h2 {
+			.fl;
+		}
+		.social {
+			.fr;
+			
+			a {
+				display: block;
+				width: 21px;
+				height: 21px;
+				.fl;
+				margin-right: 5px;
+			}
+			.facebook {
+				.bgn('facebook.png');
+				&:hover {
+					background-position: bottom;
+				}
+			}
+			.twitter {
+				.bgn('twitter.png');
+				&:hover {
+					background-position: bottom;
+				}
+			}
+			.vk {
+				.bgn('vk.png');
+				&:hover {
+					background-position: bottom;
+				}
+				margin-right: 0;
+			}
+		}
+	}
+	
+	.lside {
+		.fl;
+		width: 333px;
+		
+		a {
+			color: #354242;
+			
+			&:hover {
+				.tdu;
+			}
+		}
+		
+		.previmg {
+			
+		}
+		
+		.addtocallendar {
+			height: 20px;
+			font-size: 14px;
+			color: #354242;
+			margin-top: -25px;
+			background: transparent;
+			margin-bottom: 10px;
+			
+			.jqTransformCheckbox {
+				float: right !important;
+				margin-top: 3px;
+				.pr;
+				left: -85px;
+			}
+		}
+		.date_wrap {
+			font-size: 18px;
+			color: #354242;
+			margin-bottom: 17px;
+			.date {
+				margin-bottom: 2px;
+			}
+			.time {
+				
+			}
+		}
+		.whoadd {
+			img {
+				width: 52px;
+				height: 44px;
+			}
+			.text {
+				font-size: 10px;
+				line-height: 12px;
+				margin-bottom: 50px;
+				color: #354242;
+				
+				.username {
+					
+				}
+			}
+		}
+		.address {
+			color: #354242;
+			font-size: 10px;
+			line-height: 12px;
+		}
+	}
+	.rside {
+		.fr;
+		width: 275px;
+		color: #354242;
+		font-size: 10px;
+		line-height: 12px;
+		
+		p {
+			font-size: 10px;
+			line-height: 12px;
+			margin-bottom: 10px;
+		}
+		h3 {
+			font-size: 18px;
+			margin-bottom: 2px;
+			line-height: 20px;
+		}
+		.term {
+			margin-top: 24px;
+		}
+		a {
+			color: #354242;
+			.tdu;
+			padding-top: 5px;
+			&:hover {
+				.tdn;
+			}
+		}
+		.mapwrap {
+			width: 207px;
+			height: 130px;
+			margin-top: 19px;
+			
+		}
+	}	
+}
+
+
+.event {
+
+	.close_popup {
+		width: 13px;
+		height: 13px;
+		.bgn('event_close.png');
+		position:absolute;
+		top: -13px;
+		right: -13px;
+		display:block;
+		
+		&:hover {
+			background-position: bottom !important;
+		}
+	}
+
+	border-color: #77a48b !important;
+	.head {
+		h2 {
+			color: #77a48b !important;
+		}
+	}
+	.lside {
+		.date_wrap {
+			color: #77a48b !important;
+		}
+	}
+	.rside {
+		h3 {
+			color: #77a48b !important;
+		}
+		a {
+			color: #77a48b !important;
+		}
+	}
+}
+
+.train {
+	border-color: #c9db57 !important;
+	
+	.close_popup {
+		width: 16px;
+		height: 15px;
+		.bgn('train_close.png');
+		position:absolute;
+		top: -15px;
+		right: -15px;
+		display:block;
+		
+		&:hover {
+			background-position: bottom !important;
+		}
+	}
+	
+	.addtocallendar {
+		height: 20px;
+		font-size: 14px;
+		color: #354242;
+		margin-top: -25px;
+		background: transparent;
+		margin-bottom: 10px;
+		
+		.jqTransformCheckbox {
+			float: right !important;
+			margin-top: 23px !important;
+			.pr !important;
+			left: 0 !important;
+		}
+	}	
+	
+	.head {
+		h2 {
+			color: #c9db57 !important;
+		}
+	}
+	.lside {
+		width: 120px !important;
+		
+		.date_wrap {
+			color: #c9db57 !important;
+		}
+		
+		.addtocallendar {
+			height: 20px;
+			font-size: 14px;
+			color: #354242;
+			margin-top: 25px;
+			background: transparent;
+			margin-bottom: 10px;
+		}		
+	}
+	.rside {
+		width: 485px !important;
+		h3 {
+			color: #c9db57 !important;
+		}
+		a {
+			color: #c9db57 !important;
+		}
+		
+		.trainleft {
+			width: 207px;
+			.fl;
+			margin-top: 5px;
+			
+			.nopaid {
+				font-size: 11px;
+				line-height: 12px;
+				height: 16px;
+				color: #000;
+				.bgn('nopaid.png');
+				padding-left: 21px;
+				margin-bottom: 20px;
+				background-position: left center;
+			}
+			.date_wrap {
+				font-size: 18px;
+				color: #c9db57 !important;
+				margin-bottom: 17px;
+				line-height: 19px;
+				.date {
+					margin-bottom: 2px;
+				}
+				.time {
+					
+				}
+			}
+			.whoadd {
+				img {
+					width: 52px;
+					height: 44px;
+				}
+				.text {
+					font-size: 10px;
+					line-height: 12px;
+					margin-bottom: 50px;
+					color: #354242;
+					
+					.username {
+						
+					}
+				}
+			}		
+		}
+		.trainright {
+			width: 265px;
+			.fr;
+			margin-top: 5px;
+			.takepart {
+				height: 16px;
+				font-size: 12px;
+				color: #000;
+				margin-bottom: 20px;
+				.def {
+					color: #c9db57;
+				}
+			}
+			.address {
+				color: #354242;
+				font-size: 10px;
+				line-height: 12px;
+				margin-top: 86px;
+
+			}			
+		}
+	}
+}

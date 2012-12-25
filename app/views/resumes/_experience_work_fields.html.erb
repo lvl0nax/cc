@@ -1,0 +1,28 @@
+<div class="input_field">
+  <div class="sub_info_row">
+    КОМПАНИЯ <%= @company_count %>
+    <%= f.text_field :experience_company, :style => "width: 280px;"%>
+    <div class="clr"></div>
+  </div>
+  <div class="sub_info_row">
+    <div class="fl">
+      <span style='width:10px; margin-left: -10px;'>C</span>
+    <%= f.text_field :experience_from, :class => "fl", :style => "width: 170px;"%>
+     </div>
+    <div class="fr">
+      <span style='width:20px;'>ПО</span>
+      <%= f.text_field :experience_to, :style => "width: 170px;"%>
+     </div>
+    <div class="clr"></div>
+  </div>
+
+  <div class="sub_info_row">
+    <span style='width:85px; margin-left: -10px;'>ДОЛЖНОСТЬ</span>
+    <%= f.text_field :experience_position, :style => "width:280px;"  %>    
+    <div class="clr"></div>
+  </div>
+  <div class="delete_experience_work">
+    УДАЛИТЬ <%= link_to_remove_association image_tag('delete.png'), f %>   
+  </div>  
+</div>
+<div class="clr"></div>

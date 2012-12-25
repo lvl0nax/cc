@@ -5,7 +5,9 @@ class EventsController < ApplicationController
   load_and_authorize_resource
 
   def index
-
+    @trainings_odobreno = Training.where(:status=>'ОДОБРЕНО')
+    @grants_odobreno = Grant.where(:status=>'ОДОБРЕНО')
+    @events_odobreno = Event.where(:status=>'ОДОБРЕНО')
 
 
   @events = []
@@ -60,8 +62,7 @@ class EventsController < ApplicationController
             @events << grant # if @grants.include?(grant)
             existing_ids << grant.id if @grants.include?(grant)
             grant.visible = true if @grants.include?(grant)
-          end
-          puts 'xxxxxxxxxx'*5
+          end          
         end unless params[:check_grant].nil?
 
         Event.month(index, year.to_i).each do |event|
@@ -129,7 +130,6 @@ class EventsController < ApplicationController
     end
   end
 
-  puts @events
     respond_to do |format|
       format.html
       format.json { render json: { delete:@ids_to_delete, show:@ids_to_show } }

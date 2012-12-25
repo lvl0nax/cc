@@ -57,7 +57,7 @@
 				ДОБАВИЛ:
 
 				<div class="username"><a href="">
-					<% event_user = User.find(event.owner)%>
+					<%= event_user = User.find(event.owner)%>
 					<%= event_user.resume.name + " " + event_user.resume.surname if event_user.resume %> 
 					<%= event_user.compinfo.name if event_user.compinfo  %>
 				</a></div>

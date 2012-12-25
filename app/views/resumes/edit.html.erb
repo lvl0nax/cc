@@ -63,32 +63,14 @@
 
     <div class="info_row">
       <span>ОПЫТ РАБОТЫ</span>
-      <div class="input_field">
-        <div class="sub_info_row">
-          КОМПАНИЯ 1
-          <%= f.text_field :experience_company, :style => "width: 280px;"%>
-          <div class="clr"></div>
-        </div>
-        <div class="sub_info_row">
-          <div class="fl">
-            C
-          <%= f.text_field :experience_from, :class => "fl", :style => "width: 180px;"%>
-           </div>
-          <div class="fr">
-            ПО
-            <%= f.text_field :experience_to, :style => "width: 180px;"%>
-           </div>
-          <div class="clr"></div>
-        </div>
-
-        <div class="sub_info_row">
-          ДОЛЖНОСТЬ
-          <%= f.text_field :experience_position, :style => "width:280px;"  %>
-          <button>ДОБАВИТЬ</button>
-          <div class="clr"></div>
-        </div>
-      </div>
-      <div class="clr"></div>
+      <% @company_count = 0%>
+      <%= f.fields_for :experience_works do |experience| %>
+        <% @company_count += 1%>
+        <%= render 'experience_work_fields', :f=>experience, :company_count => @company_count %>
+      <%end%> 
+      <div id='add_experience_work'>                       
+        <%= link_to_add_association "ДОБАВИТЬ", f, :experience_works, :partial =>"experience_work_fields" %>
+      </div>      
     </div>
 
     <div class="sep"></div>

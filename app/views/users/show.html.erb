@@ -95,16 +95,19 @@
           <p class="greenUpper fll">Дата окончания:</p>
           <p class="blackLower flr"><%= @user.resume.experation %></p>
           <div class="clr"></div>
-        </div>
-        <div class="pi">
+        </div>        
+        <div class="pi">          
           <%= link_to 'РЕДАКТИРОВАТЬ', edit_resume_path(current_user.id) %>
-          <p class="blackLower flr mf"><span class="greenLower">с</span> <%= @user.resume.experience_from %> <span class="greenLower">по</span> <%= @user.resume.experience_to %></p>
-          <div class="clr"></div>
-          <p class="blackLower flr mf"><%= @user.resume.experience_company %></p>
-          <div class="clr"></div>
-          <p class="greenUpper fll wl2">Должность:</p>
-          <p class="blackLower flr"><%= @user.resume.experience_position %></p>
-          <div class="clr"></div>
+          <% @experiences = @user.resume.experience_works%>
+          <% @experiences.each do |experience|%>
+            <p class="blackLower flr mf"><span class="greenLower">с</span> <%= experience.experience_from %> <span class="greenLower">по</span> <%= experience.experience_to %></p>
+            <div class="clr"></div>
+            <p class="blackLower flr mf"><%= experience.experience_company %></p>
+            <div class="clr"></div>
+            <p class="greenUpper fll wl2">Должность:</p>
+            <p class="blackLower flr"><%= experience.experience_position %></p>          
+            <div class="clr"></div>
+          <%end%>
         </div>
         <div class="pi">
           <%= link_to 'РЕДАКТИРОВАТЬ', edit_resume_path(current_user.id) %>

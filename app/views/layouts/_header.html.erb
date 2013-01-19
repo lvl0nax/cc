@@ -14,9 +14,11 @@
     </script>
 
     <% unless current_user %>
-        <span class="error" style="color: #ff0000; margin-left: 20%;"></span>
+        <span class="error" style="position: absolute; top: 0px; left: 260px;color: #ff0000; margin-left: 20%;"></span>
 
         <span class="enter"><a href="#">ВОЙТИ</a></span>
+
+         <span> <%= @message %></span>
 
         <script type="text/javascript">
 
@@ -38,6 +40,7 @@
             <%= f.label :password, 'ПАРОЛЬ' %>
             <%= f.password_field :password %>
             <%= f.submit "OK", :class=>"sub" %>
+            <%= @malala %>
             <div class="clr"></div>
         <% end %>
         <script type="text/javascript">
@@ -52,6 +55,11 @@
                         dataType: 'json',
                         error: function(jqXHR, textStatus, errorThrown){
                             $(".error").html($.parseJSON(jqXHR.responseText).error);
+                            $(".error").css('display','inline-block');
+                            $(".error").css('margin-left','1%');
+                            setTimeout(function(){
+                                $('.error').hide();
+                            }, 5000);
                         }
                     }).done(function(result){
                                 if(result) window.location = window.location;
@@ -63,21 +71,27 @@
     <% else %>
 
         <%= link_to  'ВЫХОД', sign_out_path, :class=>'logouth2' %>
-        <% if current_user.resume? && current_user.resume.photo? %>
+        <% if current_user.resume? %>
             <div class="photo_login">
-                <%= image_tag current_user.resume.photo.url(:thumb) %>
-                <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
+                <%if current_user.resume.photo?%>
+                    <%= image_tag current_user.resume.photo.url(:thumb) %>
+                    <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
+                <%else%>
+                    <%= image_tag 'nophoto.jpg' %>
+                    <%= link_to 'ДОБАВИТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
+                <%end%>
+                
             </div>
-        <% elsif current_user.compinfo? && current_user.compinfo.photo? %>
+        <% elsif current_user.compinfo? %>
             <div class="photo_login">
-            <%= image_tag current_user.compinfo.photo.url(:thumb) %>
-             <%#= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
-            </div>
-        <% else %>
-            <div class="photo_login">
-              <%= image_tag 'nophoto.jpg' %>
-              <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
-            </div>
+                <%if current_user.compinfo.photo?%>
+                    <%= image_tag current_user.compinfo.photo.url(:thumb) %>
+                    <%= link_to 'РЕДАКТИРОВАТЬ', crop_compinfo_path(current_user.id), :class => 'redact'%>
+                <%else%>
+                    <%= image_tag 'nophoto.jpg' %>
+                    <%= link_to 'ДОБАВИТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
+                <%end%>                
+            </div>        
         <% end %>
         <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", profile_path, :class => 'header2menuitem3' %>
         <%= link_to 'интересующие сферы', areas_path, :class=>"header2menuitem2" %>
@@ -125,15 +139,15 @@
 
 
 
-<%= link_to root_path do %><%= image_tag "logo(76x47).png", :class=>"logo"%><% end %>
+<%= link_to root_path do %><%= image_tag "logo.png", :class=>"logo"%><% end %>
 
 <a href="http://www.facebook.com/Centercareer" target="_blank" class="soc socmarg"><%= image_tag 'fb.png' %></a>
 
 <a href="http://vk.com/centercareer" target="_blank" class="soc"><%= image_tag 'vk.png' %></a>
-
+<!--a onclick="this.href='http://twitter.com/timeline/home?status='+document.title+'%20'+window.location.href+window.location.hash" target="_blank" class="soc"><%= image_tag 'tw.png' %>tweet</a-->
 <a href="https://twitter.com/unicareer" target="_blank" class="soc"><%= image_tag 'tw.png' %></a><br>
 
-<span class="city">ГОРОД: </span><a href="#">Санкт-Петербург</a>
+<span class="city">ГОРОД: </span><a href="#" class="city-a">Санкт-Петербург</a>
 
 
 
@@ -195,7 +209,7 @@
 
             <p class="controls active">компания</p>
 
-            <p class="controls">молодой специалист</p>
+            <p class="controls" >молодой специалист</p>
 
             <div class="clr"></div>
 
@@ -223,85 +237,106 @@
 
 <div class="nav navadd">
 
-<div class="control">
+    <div class="control">
 
-  <p class="controls active">ГРАНТ</p>
+      <p class="controls active control_grant">ГРАНТ</p>
 
-  <p class="controls" id="map4init">СОБЫТИЕ</p>
+      <p class="controls" id="map4init">СОБЫТИЕ</p>
 
-  <p class="controls" id="map5init">СТАЖИРОВКУ</p>
+      <p class="controls" id="map5init">СТАЖИРОВКУ</p>
 
-  <div class="clr"></div>
+      <div class="clr"></div>
+
+    </div>
+
+    <%= javascript_include_tag 'selectbox' %>
+
+    <script type="text/javascript">
+
+        jQuery(function () {
+
+            jQuery("#selectday," +
+                    "#selectmonth," +
+                    "#selectyear," +
+                    "#selecthour, " +
+                    "#selectminute," +
+                    "#grant_start_date_1i," +
+                    "#grant_start_date_2i," +
+                    "#grant_start_date_3i," +
+                    "#grant_end_date_4i," +
+                    "#grant_end_date_5i," +
+                    "#grant_status,"+
+                    "#training_status,"+
+                    "#event_status," +
+                    "#event_start_date_3i," +
+                    "#event_start_date_2i," +
+                    "#event_start_date_1i," +
+                    "#event_tmp_date_4i," +
+                    "#event_tmp_date_5i," +
+                    "#event_tmp_end_date_4i," +
+                    "#event_tmp_end_date_5i," +
+                    "#event_request_date_3i," +
+                    "#event_request_date_2i," +
+                    "#event_request_date_1i," +
+                    "#event_request_hour_4i," +
+                    "#event_request_hour_5i," +
+                    "#training_start_date_3i," +
+                    "#training_start_date_2i," +
+                    "#training_start_date_1i," +
+                    "#training_tmp_date_4i," +
+                    "#training_tmp_date_5i," +
+                    "#training_tmp_end_date_4i," +
+                    "#training_tmp_end_date_5i," +
+                    "#training_request_date_3i," +
+                    "#training_request_date_2i," +
+                    "#training_request_date_1i," +
+                    "#training_request_hour_4i," +
+                    "#training_request_hour_5i").selectbox();
+
+        });
+
+    </script>
+
+    <div class="tabsformsblock edd_event_conts">
+
+        <div class="cont visible cont_grant_visible">
+          <%= render 'grants/new'%>
+        </div>
+
+        <div class="cont">
+          <%= render 'events/new'%>
+        </div>
+
+        <div class="cont">
+          <%= render 'trainings/new'%>
+        </div>
+
+    </div>
 
 </div>
-
-<%= javascript_include_tag 'selectbox' %>
-
 <script type="text/javascript">
 
-    jQuery(function () {
+     $(document).ready(function () {
 
-        jQuery("#selectday," +
-                "#selectmonth," +
-                "#selectyear," +
-                "#selecthour, " +
-                "#selectminute," +
-                "#grant_start_date_1i," +
-                "#grant_start_date_2i," +
-                "#grant_start_date_3i," +
-                "#grant_end_date_4i," +
-                "#grant_end_date_5i," +
-                "#grant_status,"+
-                "#training_status,"+
-                "#event_status," +
-                "#event_start_date_3i," +
-                "#event_start_date_2i," +
-                "#event_start_date_1i," +
-                "#event_tmp_date_4i," +
-                "#event_tmp_date_5i," +
-                "#event_tmp_end_date_4i," +
-                "#event_tmp_end_date_5i," +
-                "#event_request_date_3i," +
-                "#event_request_date_2i," +
-                "#event_request_date_1i," +
-                "#event_request_hour_4i," +
-                "#event_request_hour_5i," +
-                "#training_start_date_3i," +
-                "#training_start_date_2i," +
-                "#training_start_date_1i," +
-                "#training_tmp_date_4i," +
-                "#training_tmp_date_5i," +
-                "#training_tmp_end_date_4i," +
-                "#training_tmp_end_date_5i," +
-                "#training_request_date_3i," +
-                "#training_request_date_2i," +
-                "#training_request_date_1i," +
-                "#training_request_hour_4i," +
-                "#training_request_hour_5i").selectbox();
+
+
+     $(".controls").click(function () { 
+        var act = $(".fields").hasClass("active");
+        if (act){
+            $(".fields").removeClass("active");
+        }
+//if ( $(".fields").hasClass("active") ){
+ //           $(this).removeClass("active");        
+  //      }
+
+       // $(".fields").removeClass("active");
+    //$(".fields").toggleClass("active");
+
+    });   
 
     });
 
 </script>
-
-
-
-<div class="tabsformsblock">
-
-<div class="cont visible">
-  <%= render 'grants/new'%>
-</div>
-
-<div class="cont">
-  <%= render 'events/new'%>
-</div>
-
-<div class="cont">
-  <%= render 'trainings/new'%>
-</div>
-
-</div>
-
-</div>
 
 <script type="text/javascript">
 
@@ -373,26 +408,32 @@
 
         $('.button, .tabsformsblock .cont, .nav .control .controls').click(function(event){
 
-            event.stopPropagation();
+           event.stopPropagation();
 
-        });
+        });        
 
-    }).click(function(){
+}).click(function(){
 
-                $(".regWup").removeClass('regWupact');
-
-                $("#headerWrap .reg").removeClass('btnactiv');
-
+    $(".regWup").removeClass('regWupact');
+    $("#headerWrap .reg").removeClass('btnactiv');
 
 
-                $(".eddWup").removeClass('eddWupact');
+    $(".eddWup").removeClass('eddWupact');
+    $("#headerWrap .edd").removeClass('btnactiv');
 
-                $("#headerWrap .edd").removeClass('btnactiv');
+
+    $(".navadd .control p").removeClass("active");
+    $(".navadd .control p.control_grant").addClass("active");
+    $(".navadd .cont").removeClass("visible");
+    $(".navadd .cont_grant_visible").addClass("visible");
+    
+
+    $('.bbg').removeClass('bbgvisible');
 
 
-                $('.bbg').removeClass('bbgvisible');
+});
 
-            });
+
 
 </script>
 

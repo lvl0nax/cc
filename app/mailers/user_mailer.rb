@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
 
   def info_email(user)
   	@user = user #initiate user #user.email,
-  	mail(to: "shoxmaster1991@gmail.com")
+  	mail(to: "center.cariery@gmail.com")
   end
 
   def spamer

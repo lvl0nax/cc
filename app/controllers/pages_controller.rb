@@ -1,6 +1,11 @@
+#encoding: UTF-8
 class PagesController < ApplicationController
-  before_filter :set_locale
+  before_filter :set_locale, :load_count
   include TinymceFm::Filemanager
+
+  def load_count
+    @count = EventParent.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).count
+  end
 
   def set_locale
     I18n.locale = :en

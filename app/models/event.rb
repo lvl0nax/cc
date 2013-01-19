@@ -39,15 +39,25 @@ class Event < EventParent
   has_and_belongs_to_many  :areas
   has_one :image
 
-  field :twitter, :type => String
-  field :vk, :type => String
-  field :facebook, :type => String
+  field :vk
+  field :twitter
+  field :afisha
+  field :fb
+  field :cityspb
+  field :timepad
+  field :lookatme
+
+  validates_format_of :vk, :with => /http:\/\/vk\.com\/.*/, :message => "Неправильный адрес",:allow_blank => true
+  validates_format_of :twitter, :with => /http:\/\/(www)?\.twitter\.com\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :afisha, :with => /http:\/\/(www)?\.afisha\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :fb, :with => /http:\/\/(www)?\.facebook\.com\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :timepad, :with => /http:\/\/(.*?)\.timepad\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :lookatme, :with => /http:\/\/(.*?)\.lookatme\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
+  validates_format_of :cityspb, :with => /http:\/\/(www)?\.cityspb\.ru\/.*/, :message => "Неправильный адрес", :allow_blank => true
 
 
-  validates_format_of :twitter, :with => /\A(http|https):\/\/twitter.com.*\z/, message:'Неверный формат ссылки', :allow_blank => true
-  validates_format_of :vk, :with => /\A(http|https):\/\/vk.com.*\z/, message:'Неверный формат ссылки', :allow_blank => true
-  validates_format_of :facebook, :with => /\A(http|https):\/\/facebook.com.*\z/, message:'Неверный формат ссылки', :allow_blank => true
 
+ 
   accepts_nested_attributes_for :areas, :image
 
 

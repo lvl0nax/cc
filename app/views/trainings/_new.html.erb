@@ -1,0 +1,387 @@
+<% @training = Training.new %>
+<%= form_for @training, :url => {:action => :create, :controller => :trainings}, :method => :post, :validate => true do |f| %>
+
+    <span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class => "name" %><span class="error"></span>
+    <div class="leftpart">
+      <span class="label">ОПИСАНИЕ</span>
+      <%= f.text_area :description %>
+      <span class="error"></span>
+      <div class="clr"></div>
+     
+
+      <div id='insert_train_coordinates'></div>
+      <div class="isideleft">
+        <span class="label">СТРАНА</span>
+        <%= f.text_field :nation, :class => "text fr", :style => "width:256px; margin-bottom: 5px;" %>
+        <div class="clr"></div>
+        <span class="label">ГОРОД</span>
+        <%= f.text_field :city, :class => "text fr", :style => "width:256px; margin-bottom: 5px;" %>
+        <div class="clr"></div>
+        <span class="label" style="float:left">УЛИЦА</span>
+
+        <div class="fr">
+          <%= f.text_field :street, :class => "text fl", :style => "width:184px;" %>
+          <span class="label" class="fl" style="margin: 0 5px; float:left;">ДОМ</span>
+          <%= f.text_field :building, :class => "text fr", :style => "width:22px;" %>
+        </div>
+        <div class="clr"></div>
+        <span class="label fl" style="margin-top: 11px;">МЕСТО</span><%= f.text_field :place, :class => "text fr", :style => "width:256px; margin-top: 8px;" %>
+        <div class="clr"></div>
+      </div>
+      <div class="isideright" id="map5" style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden;">
+        <script>
+            function google_maps5() {
+              var x_coor = $('#x_coordinate').val(),
+                  y_coor = $('#y_coordinate').val();
+                  if(x_coor == undefined){
+                    x_coor = 49.83209;
+                    y_coor = 23.975322;
+                  }
+                var latlng = new google.maps.LatLng(x_coor, y_coor); // Координаты карты
+                var settings = {
+                    zoom:12, // Выставляем параметры зума для карты
+                    center:latlng,
+                    mapTypeControl:false,
+                    mapTypeControlOptions:{style:google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+                    navigationControl:true,
+                    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL},
+                    mapTypeId:google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map5"), settings); // Выбираем див куда ставить карту
+                var myLatlng = new google.maps.LatLng(x_coor, y_coor);  // Координаты маркера
+                var myOptions = {
+                    zoom:12, // Выставляем параметры зума для маркера
+                    center:myLatlng,
+                    mapTypeId:google.maps.MapTypeId.ROADMAP
+                }
+                var map = new google.maps.Map(document.getElementById("map5"), myOptions);  // Выбираем див куда ставить маркер
+                var marker = new google.maps.Marker({
+                    position:myLatlng,
+                    map:map,
+                    title:"A"
+                });
+
+                google.maps.event.addListener(map,'click',function(event){
+                  addMarker(event.latLng);
+                  var x = event.latLng.Ya,
+                      y = event.latLng.Za;
+                  $.ajax({ url: "/trainings/new",  type: "GET", data: {x: x, y: y}  });
+                });
+
+                function addMarker(location) {
+                  marker.setPosition(location); 
+                  marker.setMap(map);          
+                  map.setCenter(location);           
+                }
+            }
+        </script>
+
+      </div>
+
+      <script type="text/javascript">
+          $("#map5init").click(function () {
+              google_maps5();
+          });
+
+      </script>
+
+      <div class="clr"></div>
+
+      <span class="label">ДАТА</span>
+
+      <div class="datesel300 large_select" style="width: 468px !important;">
+        <div class="ficha">
+          <%= f.date_select :start_date, :order => [:day, :month, :year] %>
+          <span style="margin: 0 8px">С</span>
+          <%= f.time_select :tmp_date %>
+          <span style="margin: 0 8px">ДО</span>
+
+          <%= f.time_select :tmp_end_date %>
+
+        </div>
+      </div>
+
+      <div class="clr"></div>      
+
+      <span class="label">ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ</span>
+
+      <div class="datesel300" style="width: 313px;">
+        <div class="ficha">
+        <%= f.date_select :request_date, :order => [:day, :month, :year] %>
+          <span style="margin: 0 8px">ДО</span>
+          <%= f.time_select :request_hour %>
+        </div>
+
+      </div>      
+
+      <div class="clr"></div>
+
+      <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
+      <%= f.text_field :hyperlink, :class => "siteaddress", :style => "margin-bottom: 5px;" %>
+      <div class="clr"></div>
+
+      <div class="weblinks">
+    <div id="socimgs">
+      <div class="inlblck">
+        ССЫЛКИ НА МЕРОПРИЯТИЯ НА СЕРВИСАХ: 
+      </div>    <br>
+      <div class="inlblck">
+        <%= image_tag "/assets/ltp.png", :onclick => "itemshow('timepad');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/llookatme.jpg", :onclick => "itemshow('lookatme');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lcityspb.jpg", :onclick => "itemshow('cityspb');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lafisha.jpg", :onclick => "itemshow('afisha');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lvk.png", :onclick => "itemshow('vk');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lfb.png", :onclick => "itemshow('fb');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/ltwitter.png", :onclick => "itemshow('twitter');"%>
+      </div>
+    </div>
+    <!--script>
+      function itemshow(sclass){
+        /*var str = "."+ sclass*/
+        var item = $("."+ sclass);
+        if (item.attr("active"))
+        {
+          item.fadeOut().removeAttr("active");
+        }
+        else
+        {
+          item.fadeIn().attr("active", "active");
+        }
+        item.find('input').enableClientSideValidations();
+      }
+    </script-->
+    <script>
+      function itemshow(sclass){
+        /*var str = "."+ sclass*/
+        var item = $("."+ sclass);
+        if (item.hasClass("active"))
+        {
+          item.removeClass("active");
+        }
+        else
+        {
+          item.addClass("active");
+        }
+        item.find('input').enableClientSideValidations();
+      }
+    </script> 
+
+
+      <% if @training.timepad %>
+        <div class="fields timepad">
+      <% else %>
+        <div class="fields timepad">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/ltp.png"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :timepad, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @training.lookatme %>
+        <div class="fields lookatme">
+      <% else %>
+        <div class="fields lookatme">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/llookatme.jpg"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :lookatme, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @training.cityspb %>
+        <div class="fields cityspb">
+      <% else %>
+        <div class="fields cityspb">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/lcityspb.jpg"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :cityspb, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @training.afisha %>
+        <div class="fields afisha">
+      <% else %>
+        <div class="fields afisha">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/lafisha.jpg"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :afisha, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+
+      <% if @training.vk %>
+        <div class="fields vk">
+      <% else %>
+        <div class="fields vk">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/lvk.png"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :vk, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @training.fb %>
+        <div class="fields fb">
+      <% else %>
+        <div class="fields fb">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/lfb.png"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :fb, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @training.twitter %>
+        <div class="fields twitter">
+      <% else %>
+        <div class="fields twitter">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/ltwitter.png"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :twitter, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+  </div>
+      <span class="label">СФЕРА:</span>
+
+      <div class="samvup sam1 sampk">
+        <div class="all">ВСЕ</div>
+        <div class="allCats">
+          <script type="text/javascript">
+              $(document).ready(function () {
+                  $(".catsItem").click(function () {
+                      var a = $(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
+                      if (a) {
+                          $(this).find(".descripting").addClass("act");
+                      } else {
+                          $(this).find(".descripting").removeClass("act");
+                      }
+                      ;
+                  });
+              });
+          </script>
+          <% Area.all.each do |area| %>
+              <div class="catsItem">
+                <label>
+                  <input type="checkbox" name="training[area_ids][]" id="area-<%= area.id %>" value="<%= area.id %>">
+                  <span class="descripting"><%= area.name %></span>
+
+                  <div class="clr"></div>
+                </label>
+              </div>
+          <% end %>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="rightpart">
+      <span class="label">ФОТО:</span>
+
+      <div class="photo">
+        <%= image_tag "contimg4.png" %>
+        <%= fields_for 'training[u_image]' do |img|%>
+            <%= img.file_field :photo %>
+        <% end %>
+        <input type="hidden" name='training[image_id]' id='training_hidden' >
+      </div>
+    </div>
+    <div class="clr"></div>
+
+
+    <div class="manycheck">
+      <div class="pchecks">
+        <span class="opl nopaid"><input type="radio" name="training[salary_type]" value="НЕОПЛАЧИВАЕМАЯ">НЕОПЛАЧИВАЕМАЯ</span>
+        <span class="opl paid"><input type="radio" name="training[salary_type]" value="ОПЛАЧИВАЕМАЯ">ОПЛАЧИВАЕМАЯ</span>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+
+    <% if current_user %>
+        <% if current_user.role.name == 'admin' %>
+            <span class="label" style="float: left; margin-top: 6px;">СТАТУС:</span>
+            <div style="margin: 5px 0 0 71px;"><%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %></div>
+        <% end %>
+    <% end %>
+
+    <span class="label fl" style="margin-right: 20px">ЗАНЯТОСТЬ:</span>
+    <div class="manycheck">
+      <div class="pchecks">
+        <% Training.employment.each do |employment| %>
+            <span class="opl"><input type="radio" name="training[employment]" value="<%= employment %>"><%= employment %></span>
+        <% end %>
+      </div>
+      <div class="clr"></div>
+    </div>
+
+    <div class="add">
+      <button type="submit">ДОБАВИТЬ</button>
+    </div>
+<% end %>
+<script>
+
+
+    $('form[action="/trainings"]').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            data:$(this).serialize(),
+            type:'post',
+            url:'<%= trainings_path %>',
+            dataType:'json',
+            statusCode:{
+                422:function (result) {
+                    var response = $.parseJSON(result.responseText);
+                    if (response.title)
+                        $('#training_title').next('.error').html(response.title[0]).fadeIn();
+                    else
+                        $('#training_title').next('.error').empty().fadeOut();
+
+                    if (response.description)
+                        $('#training_description').next('.error').html(response.description[0]).fadeIn();
+                    else
+                        $('#training_description').next('.error').empty().fadeOut();
+
+                }
+            }
+
+        }).done(function (result) {
+                    if (result) window.location = window.location;
+                   else {
+                       console.log(result);
+                    }
+                });
+    });
+</script>
+

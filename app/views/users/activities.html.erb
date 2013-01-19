@@ -1,64 +1,75 @@
-<div id='content'>
-	<% content_for :head do %>
-		<div class="title"><h2>МОЙ КАЛЕНДАРЬ (<%= @user.active_events %>)</h2></div>
-	<% end %>
-	<%if current_user == @user %>
-		<div id="celendar_content">
-			<div class="month_info">
-				<h1>
-					КАЛЕНДАРЬ 
-					<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
-					<%= @user.compinfo.name if @user.compinfo  %>
-				</h1>
-			</div>
-			<script type="text/javascript">
-				$(document).ready(function() {
-		    		$(".title_wrap").toggle(function (event) {	
-		    			event.preventDefault();
-						$(this).parents(".month_title").next().slideUp();
 
-					},function (event) {	
-		    			event.preventDefault();
-						$(this).parents(".month_title").next().slideDown();
-					});
-		    	});		    	
-			</script>
-			<%= render 'actions' %> 
+<% content_for :head do %>
+	<div class="title"><h2>МОЙ КАЛЕНДАРЬ (<%= @user.active_events %>)</h2></div>
+<% end %>
+<%if current_user == @user %>
+	<div id="celendar_content">
+		<div class="month_info">
+			<h1>
+				КАЛЕНДАРЬ 
+				<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
+				<%= @user.compinfo.name if @user.compinfo  %>
+			</h1>
 		</div>
-	<%end%>
-</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+	    		$(".title_wrap").toggle(function (event) {	
+	    			event.preventDefault();
+					$(this).parents(".month_title").next().slideUp();
+
+				},function (event) {	
+	    			event.preventDefault();
+					$(this).parents(".month_title").next().slideDown();
+				});
+	    	});		    	
+		</script>
+		<%= render 'actions' %> 
+	</div>
+<%end%>
+<script language="javascript">
+  $(function(){
+   $('.tv_sizeBig, .fjqtrans, .catsItem, .pchecks, .signature' ).jqTransform();
+  });
+ </script>
 <script type="text/javascript" language="javascript">
 
 	$(".monthcont").click(function () {	
 
-		var id_map = $(this).find('.mapwrap').attr('id');
-
+		var id_map = $(this).find('.mapwrap').attr('id'),
+			x = $(this).find('#x_coor').val(),
+			y = $(this).find('#y_coor').val();
+			
+		if((x == undefined)||(x == '')){
+            x = 49.83209;
+            y = 23.975322;
+        }
+        
 		if($(this).find('.mapwrap').data('type') != 'Grant'){
-			google_maps(id_map);
+			google_maps(id_map, x, y);
 		}		
 
-		$('.pk_popup').css({'display':'none'});
-		$(this).children(".pk_popup").fadeIn(600);
-		var w = ($(this).children(".pk_popup").width())/2;
-		$(this).children(".pk_popup").css({'margin-top':-w});
+		$('.pk_popupcd').css({'display':'none'});
+		$(this).children(".pk_popupcd").fadeIn(600);
+		var w = ($(this).children(".pk_popupcd").width())/2;
+		$(this).children(".pk_popupcd").css({'margin-top':-w});
 	});		
 
 	$(".close_popup").click(function () {
-		$(this).parent(".pk_popup").fadeOut(600);
+		$(this).parent(".pk_popupcd").fadeOut(600);
 	});
 
 	$(document).ready(function(){
-	   $('.pk_popup, .monthcont').click(function(event){
+	   $('.pk_popupcd, .monthcont').click(function(event){
 		   event.stopPropagation();
 	   });
 
 	}).click(function(){
-		$('.pk_popup').fadeOut(200);
+		$('.pk_popupcd').fadeOut(200);
 	});	
 
-	function google_maps(id_map) {
+	function google_maps(id_map, x, y) {
 
-	 var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
+	 var latlng = new google.maps.LatLng(x,y); // Координаты карты
 
 		var settings = {
 
@@ -80,7 +91,7 @@
 
 		var map = new google.maps.Map(document.getElementById(""+id_map), settings); // Выбираем див куда ставить карту
 
-		var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
+		var myLatlng = new google.maps.LatLng(x,y);  // Координаты маркера
 
 		var myOptions = {
 

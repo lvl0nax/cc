@@ -1,9 +1,15 @@
 #encoding: UTF-8
 class AreasController < ApplicationController
   before_filter :admin_only, :except => [:index, :list, :add_to_user]
+  before_filter :load_count
 
   # GET /areas
   # GET /areas.json
+
+  def load_count
+    @count = EventParent.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).count
+  end
+
   def index
     @title = "Интересующие сферы"
     return redirect_to root_path unless current_user
@@ -58,7 +64,7 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.save
-        format.html { redirect_to @area, notice: 'Сфера "' + @area.name + '". успешно создана' }
+        format.html { redirect_to @area, notice: 'Сфера "' + @area.name + '" успешно создана' }
         format.json { render json: @area, status: :created, location: @area }
       else
         format.html { render action: "new" }

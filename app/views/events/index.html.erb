@@ -1,23 +1,89 @@
-<script>
+<script>    
     function popup() {
-        $('.pk_popup').css({'display':'none'});
+      var id_map = $(this).find('.mapwrap').attr('id'),
+      x = $(this).find('#x_coor').val(),
+      y = $(this).find('#y_coor').val();
+      
+      if((x == undefined)||(x == '')){
+        x = 49.83209;
+        y = 23.975322;
+      }
+        
+      if($(this).find('.mapwrap').data('type') != 'Grant'){
+        google_maps(id_map, x, y);
+      }      
 
-        $('.bbg').addClass('bbgvisible');
+      $('.pk_popup').css({'display':'none'});
 
-        $(this).children(".pk_popup").fadeIn(600);
+      $('.bbg').addClass('bbgvisible');
 
-        var w = ($(this).children(".pk_popup").width())/2;
+      $(this).children(".pk_popup").fadeIn(600);
 
-        $(this).children(".pk_popup").css({'margin-top':-w + $(wintod).scrollTo()});
+      $('.fjqtrans, .catsItem, .pchecks, .descripting').jqTransform();
+
+      var w = ($(this).children(".pk_popup").width())/2;
+
+      //$(this).children(".pk_popup").css({'margin-top':-w + $(wintod).scrollTo()});
+
+    }
+
+    function google_maps(id_map, x, y) {
+
+       var latlng = new google.maps.LatLng(x, y); // Координаты карты
+
+        var settings = {
+
+          zoom: 12, // Выставляем параметры зума для карты
+
+          center: latlng,
+
+          mapTypeControl: false,
+
+          mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+
+          navigationControl: true,
+
+          navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+
+        };
+
+        var map = new google.maps.Map(document.getElementById(""+id_map), settings); // Выбираем див куда ставить карту
+
+        var myLatlng = new google.maps.LatLng(x, y);  // Координаты маркера
+
+        var myOptions = {
+
+          zoom: 12,  // Выставляем параметры зума для маркера
+
+          center: myLatlng,
+
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+
+        }  
+
+        var map = new google.maps.Map(document.getElementById(""+id_map), myOptions);  // Выбираем див куда ставить маркер
+
+        var marker = new google.maps.Marker({
+
+        position: myLatlng,
+
+        map: map,
+
+        title: "A"
+
+        });
     }
 </script>
 <div id="content">
+
   <%= form_for :filter, :url => sphere_path, :html => {:id => 'filter'} do |f| %>
       <div class="filterMain">
         <%= javascript_include_tag 'jquery.jqtransform' %>
         <script type="text/javascript">
             $(function () {
-                $('.fjqtrans, .catsItem, .pchecks').jqTransform();
+                $('.fjqtrans, .catsItem, .pchecks, .descripting').jqTransform();
             });
         </script>
         <%= javascript_include_tag 'sliding' %>
@@ -26,7 +92,7 @@
         <span class="lanelHead sizeBig">
           <span>Стажировки</span>
           <span class="fjqtrans">
-            <input type="checkbox" checked name="check_training" value="working">
+            <input type="checkbox" checked name="check_training" value="working"/>
           </span>
         </span>
           <span class="numerick"><%= @trainings_odobreno.count %></span>
@@ -40,6 +106,7 @@
               <div class="allCats">
                 <script type="text/javascript">
                     $(document).ready(function () {
+                      
                         $(".catsItem").click(function () {
                             var a = $(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
 
@@ -180,7 +247,7 @@
       <div class="clr"></div>
   <% end %>
 
-  <%= javascript_include_tag 'events' %>
+  <%= javascript_include_tag 'events' %>  
   <div class="monih12">
     <% @events.each do |event| %>        
         <%= render event %>
@@ -239,20 +306,24 @@
 //        $('#filter').update_index($elems.index(this));
 //    });
     $(".moncon").filter(function(){
-        return $(this).children('first').is('img');
+      return $(this).children('first').is('img');        
     }).click(popup);
 
 
     $(document).ready(function(){
         $('#filter').find('.jqTransformCheckbox').click(function(){$('form#filter').update_index()});
         $('.pk_popup, .moncon').click(function(event){
-
-            event.stopPropagation();
-
+            event.stopPropagation();       
         });
 
     });
+
+
+
+
+
 </script>
+
 <script type="text/javascript">
     // $(".moncon").mouseover();
     function hover (elem) {
@@ -263,4 +334,5 @@
         $(elem).children(".monthhover").css({'display':'none'});
         $(elem).children(".w203").css({'display':'block'});
     }
+     
 </script>

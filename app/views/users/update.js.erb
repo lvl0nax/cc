@@ -1,2 +1,9 @@
 $('#message_info').remove();
-$("#change_password").after("<div id='message_info'><%= @message %></div>");
+<%if @message == 'Error'%>
+$("#change_password").after("<div id='message_info' style='color:red'><%= @message %></div>");
+<%else if @message == 'Пароль изменен'%>
+$("#change_password").after("<div id='message_info' style='color:green'><%= @message %></div>");
+<%else%>
+$("#change_password").after("<div id='message_info' style='color:red'><%= @message %></div>");
+<%end%>
+<%end%>

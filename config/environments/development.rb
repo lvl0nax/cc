@@ -41,15 +41,15 @@ TestMongoid::Application.configure do
   config.assets.debug = true
 
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "gmail.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "monax.spam@gmail.com",
-    password: "code4fun"
-  }
+  ActionMailer::Base.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => "gmail.com",
+  :user_name            => "monax.spam@gmail.com",
+  :password             => "code4fun",
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
 
   #we should use
   # user_name: env["GMAIL_USERNAME"] => export GMAIL_USERNAME="name@gmail.com"

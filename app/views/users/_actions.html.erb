@@ -1,7 +1,7 @@
-<div class="monih12">
+
   <% @index = 1%>
   <% @years.each do |year| %>
-    <% @months.each_with_index do |month, index| %>
+    <% @months.each_with_index do |month, index| %>    
       <% if EventParent.month(index, year.to_i).count > 0 %>
         <div class="month_title">
           <div class="title_wrap">          
@@ -18,7 +18,7 @@
       <%end%>      
     <%end%>
   <%end%>  
-</div>
+
 <div class="clr"></div>
 <div class="clr"></div>
 <script>
@@ -27,11 +27,12 @@
       var id_event = $(this).attr('id');
       var str; 
       if ($(this).is(':checked')){
-        str = 'add';
+        str = 'remove';
       }
       else{
-        str = 'remove'
+        str = 'add'
       } 
+      //console.log(str);
       $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
                 jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
                 }

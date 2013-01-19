@@ -1,41 +1,74 @@
-<div id='content'>
-	<div id="celendar_content">
-		<div class="monih12">
-			<div class="month_info">
-				<% @index = 1%>
-				<% @items.each do |item|%>
-					<%= render 'created_event', :item => item, :index => @index %>
-					<% @index += 1%>
-				<%end%>
-			</div>
-			<div class="clr"></div>		
-		</div>
-		<div class="clr"></div>
-		<div class="clr"></div>
+<div id="celendar_content">
+	<div class="month_info">
+		<ul id="myitems" class="items">
+			<h1><%= link_to "КАЛЕНДАРЬ", activities_user_path(@user.id) %> | <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", created_event_path %></h1>
+		</ul>
 	</div>
+	<% @index = 1%>
+	<%
+		@years = %w[2012 2013]
+		@months =  %w[январь февраль март апрель май июнь июль август сентябрь октябрь ноябрь декабрь]
+	%>
+	<% @years.each do |year| %>
+		<% @months.each_with_index do |month, index| %>
+			<% if @items.month_user_events(index, year.to_i).count > 0 %>
+				<div class="month_title">
+	          		<div class="title_wrap">          
+	            		<span><%=month+" "+year%></span>          
+	          		</div>
+	        	</div>
+	        	<div class="month_info">				
+					<% @items.month_user_events(index, year.to_i).each do |item|%>
+						<%= render 'created_event', :item => item, :index => @index %>
+						<% @index += 1%>
+					<%end%>
+				</div>
+				<div class="clr"></div>
+			<%end%>
+		<%end%>
+	<%end%>		
+	<div class="clr"></div>
+	<div class="clr"></div>
 </div>
 <script type="text/javascript" language="javascript">
+	$(document).ready(function() {
+		$(".title_wrap").toggle(function (event) {	
+			event.preventDefault();
+			$(this).parents(".month_title").next().slideUp();
+
+		},function (event) {	
+			event.preventDefault();
+			$(this).parents(".month_title").next().slideDown();
+		});
+	});	
 
 	$(".monthcont").click(function () {
 	
-		var id_map = $(this).find('.mapwrap').attr('id');
-
+		var id_map = $(this).find('.mapwrap').attr('id'),
+			x = $(this).find('#x_coor').val(),
+			y = $(this).find('#y_coor').val();
+			
+		if((x == undefined)||(x == '')){
+            x = 49.83209;
+            y = 23.975322;
+        }
+        
 		if($(this).find('.mapwrap').data('type') != 'Grant'){
-			google_maps(id_map);
+			google_maps(id_map, x, y);
 		}		
 
-		$('.pk_popup').css({'display':'none'});
-		$(this).children(".pk_popup").fadeIn(600);
-		var w = ($(this).children(".pk_popup").width())/2;
-		$(this).children(".pk_popup").css({'margin-top':-w});
+		$('.pk_popupcd').css({'display':'none'});
+		$(this).children(".pk_popupcd").fadeIn(600);
+		var w = ($(this).children(".pk_popupcd").width())/2;
+		$(this).children(".pk_popupcd").css({'margin-top':-w});
 	});		
 
 	$(".close_popup").click(function () {
-		$(this).parent(".pk_popup").fadeOut(600);
+		$(this).parent(".pk_popupcd").fadeOut(600);
 	});
 
 	$(document).ready(function(){
-	   $('.pk_popup, .monthcont').click(function(event){
+	   $('.pk_popupcd, .monthcont').click(function(event){
 		   event.stopPropagation();
 	   });
 
@@ -43,10 +76,10 @@
       var id_event = $(this).attr('id');
       var str; 
       if ($(this).is(':checked')){
-        str = 'add';
+        str = 'remove';        
       }
       else{
-        str = 'remove'
+        str = 'add'
       } 
       $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
                 jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
@@ -71,12 +104,12 @@
     });
 
 	}).click(function(){
-		$('.pk_popup').fadeOut(200);
+		$('.pk_popupcd').fadeOut(200);
 	});
 
-	function google_maps(id_map) {
+	function google_maps(id_map, x, y) {
 
-	 var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
+	 var latlng = new google.maps.LatLng(x, y); // Координаты карты
 
 		var settings = {
 
@@ -98,7 +131,7 @@
 
 		var map = new google.maps.Map(document.getElementById(""+id_map), settings); // Выбираем див куда ставить карту
 
-		var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
+		var myLatlng = new google.maps.LatLng(x, y);  // Координаты маркера
 
 		var myOptions = {
 
@@ -124,3 +157,8 @@
 
 	}	
 </script>></div>
+<script language="javascript">
+  $(function(){
+   $('.tv_sizeBig, .fjqtrans, .catsItem, .pchecks, .signature' ).jqTransform();
+  });
+ </script>

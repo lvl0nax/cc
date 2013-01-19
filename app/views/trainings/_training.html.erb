@@ -1,28 +1,19 @@
 <div class="moncon" data-id="<%= training._id %>">
-    <div class="monthcont vio">
+  <div class="monthcont vio">
+    <span><%= Russian::l training.start_date, :format => :short %></span>
+    <span class="spright">стажировка</span>
+    <% if training.image_id.blank? %>
+      <%= image_tag "contimg6.png" %>
+    <% else %>
+      <%= image_tag Image.find(training.image_id).photo.thumb %>
+    <% end %>
+    <span><%= training.nation %></span>
+    <span class="spright"><%= training.start_date.strftime('%H:%M') %></span>
+    <span class="spsize"><%= training.title.truncate(16) %></span>
+    <div class="clr"></div>
+  </div>
 
-      <span><%= Russian::l training.start_date, :format => :short %></span>
-
-      <span class="spright">стажировка</span>
-
-      <% if training.image_id.blank? %>
-        <%= image_tag "contimg4.png" %>
-      <% else %>
-        <%= image_tag Image.find(training.image_id).photo.thumb %>
-      <% end %>
-
-      <span><%= training.nation %></span>
-
-      <span class="spright"><%= training.start_date.strftime('%H:%M') %></span>
-
-      <span class="spsize"><%= training.title.truncate(16) %></span>
-
-      <div class="clr"></div>
-
-    </div>
-
-<section class="pk_popup train">
-
+  <section class="pk_popup train">
   <div class="close_popup"></div>
 
   <div class="head">
@@ -31,11 +22,23 @@
 
     <div class="social">
 
-      <a href="" class="facebook"></a>
+      <% if training.fb.present? %>
+        <a href="<%= training.fb  %>" class="facebook" target='_blank'></a>
+      <%else%>
+        <a href="" class="facebook" ></a>
+      <%end%>
 
-      <a href="" class="twitter"></a>
+      <% if training.twitter.present? %>
+        <a href="<%= training.twitter %>" class="twitter"></a>
+      <%else%>
+        <a href="" class="twitter"></a>
+      <%end%>
 
-      <a href="" class="vk"></a>
+      <% if training.vk.present? %>
+        <a href="<%= training.vk  %>" class="vk" target='_blank'></a>
+      <%else%>
+        <a href="" class="vk" ></a>
+      <%end%> 
 
     </div>
 
@@ -43,152 +46,119 @@
 
   </div>
 
-
+  
 
   <div class="lside">
+    <% unless training.image_id.eql?('') %>
+      <%= image_tag Image.find(training.image_id).photo.thumb %>
+    <%else%>
+      <%= image_tag "contimg6.png" %>
+    <%end%>
 
-    <img src="images/trainimg.png" alt="" class="previmg" />
+      <div class="catsItem addtocallendar" >
+        <label>
+          
+          <span class="descripting" style='margin: 0 3px !important;'>ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
+            <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => training.id).present?%>
+              <input type="checkbox" name="" id="<%= training.id%>" class='signature' checked>
+            <%else%>
+              <input type="checkbox" name="" id="<%= training.id%>" class='signature'>
+            <%end%>
+          </span>
 
-    <div class="catsItem addtocallendar">
+          <div class="clr"></div>
 
-      <label>
+        </label>
 
-        <input type="checkbox" name="" id="">
+      </div>
 
-        <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
-
-        <div class="clr"></div>
-
-      </label>
-
-    </div>
+    <!-- <div class="addtocallendar"><label for="">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ <input type="checkbox" /></label></div> -->
 
   </div>
 
   <div class="rside">
 
-    <p><%= training.description %></p>
-
-
-    <!-- <h3>УСЛОВИЯ УЧАСТИЯ:</h3> -->
-
+    <p><%= training.description%></p>
 
     <div class="trainleft">
 
       <div class="trainstatus">
 
-        <div class="nopaid"><%= training.salary_type %></div>
+        <div class="nopaid"><%= training.salary_type%></div>
 
       </div>
 
       <div class="date_wrap">
 
-        <div class="date"><%= Russian::l training.start_date, :format => :short %></div>
+        <div class="date"><%= training.start_date.strftime("%d %B %Y")%></div>
 
-        <div class="time">C <span class="from"><%= training.start_date.strftime('%H:%m') %></span> ДО <span class="to"><%= training.end_date.strftime('%H:%m') %></span></div>
+        <div class="time"><span style='font-size:18px'>C <%= training.start_date.strftime("%H:%M")%> ДО <%= training.end_date.strftime("%H:%M")%></span></div>
 
       </div>
-
+        </br>
       <div class="whoadd">
+        <% unless training.owner.nil? %>
+          <% event_user = User.find(training.owner)%>
+          <% if event_user.resume? && event_user.resume.photo? %>
+                    <%= image_tag event_user.resume.photo.url(:thumb) %>
+              <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
+                  <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
+              <% else %>
+                  <%= image_tag 'ava.png' %>                
+              <% end %>
 
-        <img src="images/ava.png" alt="" />
+          <div class="text">
 
-        <% unless @owner.nil? %>
-        <div class="text">
+            ДОБАВИЛ:
 
-          ДОБАВИЛ:
-
-          <div class="username"><a href=""><%= @owner.name %></a></div>
-
-        </div>
-        <% end %>
+            <div class="username"><a href="">
+              
+              <% if event_user.resume%>
+              <%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+              <%end%>
+              <% if event_user.compinfo %>          
+                <%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+              <%end%>
+            </a></div>
+          </div>
+        <%end%>
       </div>
 
-
-
-      <div id="map" class="mapwrap">
-
-        <script>
-
-            function google_maps() {
-
-                var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
-
-                var settings = {
-
-                    zoom: 12, // Выставляем параметры зума для карты
-
-                    center: latlng,
-
-                    mapTypeControl: false,
-
-                    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-
-                    navigationControl: true,
-
-                    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-                };
-
-                var map = new google.maps.Map(document.getElementById("map"), settings); // Выбираем див куда ставить карту
-
-                var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
-
-                var myOptions = {
-
-                    zoom: 12,  // Выставляем параметры зума для маркера
-
-                    center: myLatlng,
-
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-                }
-
-                var map = new google.maps.Map(document.getElementById("map"), myOptions);  // Выбираем див куда ставить маркер
-
-                var marker = new google.maps.Marker({
-
-                    position: myLatlng,
-
-                    map: map,
-
-                    title: "A"
-
-                });
-
-            }
-
-        </script>
+      <div id="map<%= training.id%>" class="mapwrap">               
 
       </div>
+      <input type='hidden' value=<%=training.x_coordinate unless training.x_coordinate.nil?%> id='x_coor' >
+      <input type='hidden' value=<%=training.y_coordinate unless training.y_coordinate.nil?%> id='y_coor' >       
 
     </div>
 
     <div class="trainright">
 
-      <!-- <div class="takepart">ЗАНЯТОСТЬ: <span class="def">ЧАСТИЧНАЯ</span></div>  -->
+      <div class="takepart"> <span class="def"> ЗАНЯТОСТЬ:</span><%= training.employment%></div>
 
-      <h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>
+      <h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>      
 
+      <div class="term"><%= training.end_date.strftime("%d-%m-%Y, %H:%M")%></div>
 
-
-      <div class="term"><%= Russian::strftime(training.request_date, "%d %B %Y")%></div>
-
-      <a href="<%= training.hyperlink %>"><%= training.hyperlink %></a>
+      <a href=""><%= training.hyperlink%></a>
 
 
 
       <div class="address">
 
-      </div>
+        <%= training.nation%> <br />
+
+        <%= training.city%>, <br />
+
+        <%= training.street%>, <%= training.building%>  <br />
+
+        <%= training.place%> <br />        
+
+      </div>        
 
     </div>
 
-    <div class="clr"></div>
-
-
+    <div class="clr"></div>   
 
   </div>
 

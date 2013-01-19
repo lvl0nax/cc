@@ -1,5 +1,6 @@
 <%= javascript_include_tag :defaults %>
 <div id='content'>
+  <%= render 'admin_panel', :count => @count%>
   <h1>Список существующих сфер</h1>
 
   <table class="al" id="arealist" >

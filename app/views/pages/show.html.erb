@@ -1,4 +1,9 @@
 <div id='content'>
+	<% if current_user %>
+		<% if current_user.role?(:admin) %>
+			<%= render 'admin_panel', :count => @count%>
+		<%end%>
+	<%end%>
 	<div class="show-page">
 	  <h1><%= @page.title %></h1>
 

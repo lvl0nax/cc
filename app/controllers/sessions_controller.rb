@@ -8,6 +8,7 @@ class SessionsController < Devise::SessionsController
     resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
+
     render :json => true
   end
 end

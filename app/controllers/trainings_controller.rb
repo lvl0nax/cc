@@ -28,10 +28,14 @@ class TrainingsController < ApplicationController
   # GET /trainings/new
   # GET /trainings/new.json
   def new
+    unless params.nil?
+      @x = params[:x]
+      @y = params[:y]   
+    end
     @training = Training.new
 
     respond_to do |format|
-      format.html# new.html.erb
+      format.js { render :layout => false }# new.html.erb
       format.json { render json: @training }
     end
   end
@@ -44,14 +48,15 @@ class TrainingsController < ApplicationController
   # POST /trainings
   # POST /trainings.json
   def create
-    puts params.inspect
-    @training = Training.create(params[:training])
+   # puts params.inspect
+    @training = Training.new(params[:training])
     @training.write_attributes(owner: current_user.id) unless current_user.nil?
+    @malala = 'bfdgfdgdfg2222'
     respond_to do |format|
       if @training.save
-        #current_user.trainings << @training
-
-        cookies.delete :training_image unless cookies[:training_image].nil?
+        @malala = 'bfdgfdgdfg'
+        # deleting cookie with image id, if it exists
+       # cookies.delete :training_image unless cookies[:training_image].nil?
         format.html { redirect_to root_path, notice: 'Training was successfully created.' }
         format.json { render json: @training, status: :created, location: @training }
       else
@@ -59,6 +64,7 @@ class TrainingsController < ApplicationController
         format.json { render json: @training.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /trainings/1

@@ -9,7 +9,7 @@ class User
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   ## Database authenticatable
-  field :email,              :type => String, :default => ""
+  field :email,              :type => String , :default => ""
   field :nickname,              :type => String, :default => ""
   field :provider,              :type => String, :default => ""
   field :url,              :type => String, :default => ""
@@ -19,16 +19,15 @@ class User
   mount_uploader :photo, ImageUploader
   
   #validates_presence_of :name
-  validates_uniqueness_of  :email, :case_sensitive => false
+  #validates_uniqueness_of  :email, :case_sensitive => false
   attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name #,:name
   attr_accessible :nickname, :provider, :url, :username, :role, :compinfo
 
-  validates_presence_of :email, :message => 'Обязательно'
-  validates_presence_of :password, :message => 'Обязательно'
-  validates_presence_of :encrypted_password, :message => 'Обязательно'
-  validates_confirmation_of :password, :message => 'Пароли не совпадают'
-  validates_length_of :password, :minimum => 6, :message => 'Слишком короткий пароль (нужно 6 символов)'
-  validates_format_of :email, :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/, :message => 'Неверный email'
+  validates :password, :confirmation =>{:message=>"Пароли не совпадают"}, :length => {:minimum => 6,:message => 'Слишком короткий пароль (нужно 6 символов)'}
+  validates :email,:uniqueness => {:message=>"Такой e-mail уже зарегистрирован"}, :format => {:with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,
+                                                                                                               :message =>"E-mail имеет неверный формат" }
+
+  validates :password, :email, :presence => {:message=>"Обязательно"}
 
   ## Recoverable
   field :reset_password_token,   :type => String

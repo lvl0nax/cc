@@ -1,3 +1,8 @@
+ <script language="javascript">
+  $(function(){
+   $('.tv_sizeBig, .fjqtrans, .catsItem, .pchecks').jqTransform();
+  });
+ </script>
 <div id="content">
   <%= form_for @resume do |f| %>
   <div class="input_info">
@@ -5,9 +10,8 @@
       <span>ИМЯ</span>
       <div class="input_field">
         <%= f.text_field :name, :style => 'width:423px;'%>
-      </div>
-      <div class="clr"></div>
-
+      </div>      
+      <br><br>
       <span>ФАМИЛИЯ</span>
       <div class="input_field">
         <%= f.text_field :surname, :style => 'width:423px;' %>
@@ -15,19 +19,22 @@
       <div class="clr"></div>
 
       <span>ПОЛ</span>
-        <%= f.radio_button :sex, "Мужской" %>
-        <%= f.label :sex, "Мужской", :value => "Мужской" %>
-        <%= f.radio_button :sex, "Женский" %>
-        <%= f.label :sex, "Женский", :value => "Женский" %>
+      <div class='input_field'>
+        <%= f.select :sex, ['мужской','женский'], :class=>"select1" %>
+      </div>
       <div class="clr"></div>
 
       <span>ДАТА РОЖДЕНИЯ</span>
       <div class="input_field">
-        <%= f.text_field :birthday, :as => :date, :start_year => Date.today.year - 50,
-                    :end_year => Date.today.year - 10,
+        <script type="text/javascript">
+          jQuery(function () {
+            jQuery(".select1, .select2").selectbox();
+          });
+        </script>        
+        <%= f.date_select :birthday, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
                     :order => [:day, :month, :year] %>
       </div>
-      <div class="clr"></div>
+      <div class="clr"></div>      
 
       <span>МЕСТО ЖИТЕЛЬСТВА</span>
       <div class="input_field">
@@ -52,7 +59,8 @@
         </div>
         <div class="sub_info_row">
           ДАТА ОКОНЧАНИЯ
-          <%= f.text_field :experation, :style => 'width:423px;' %>
+          <%= f.date_select :experation, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
+                    :order => [:day, :month, :year] %>          
           <div class="clr"></div>
         </div>
       </div>
@@ -63,14 +71,20 @@
 
     <div class="info_row">
       <span>ОПЫТ РАБОТЫ</span>
-      <% @company_count = 0%>
       <%= f.fields_for :experience_works do |experience| %>
-        <% @company_count += 1%>
-        <%= render 'experience_work_fields', :f=>experience, :company_count => @company_count %>
+        <%= render 'experience_work_fields', :f => experience %>
       <%end%> 
       <div id='add_experience_work'>                       
         <%= link_to_add_association "ДОБАВИТЬ", f, :experience_works, :partial =>"experience_work_fields" %>
-      </div>      
+      </div>
+      <% if @user.resume.experience_works.count == 0%>
+        <script>
+          $(document).ready( function (){
+           $('.add_fields').trigger('click'); 
+          });
+        </script> 
+      <%end%>
+      <div class="clr"></div>     
     </div>
 
     <div class="sep"></div>
@@ -144,6 +158,10 @@
                 jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
                 }
       });
+      setTimeout(function(){
+        $('#message_info').remove();
+      }, 5000);
+      
     e.preventDefault();
     });     
   });

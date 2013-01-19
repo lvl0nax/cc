@@ -1,1 +1,2 @@
-<% redirect_to root_path %>
+<% redirect_to edit_compinfo_path(current_user.compinfo) if current_user.role == 'employer' %>
+<% redirect_to edit_resume_path(current_user.resume) if current_user.role == 'employee' %>

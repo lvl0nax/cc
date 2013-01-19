@@ -13,6 +13,10 @@ class CompinfosController < ApplicationController
     end
   end
 
+  def crop
+    @compinfo = current_user.compinfo
+  end
+
   # GET /compinfos/1
   # GET /compinfos/1.json
   def show
@@ -67,8 +71,9 @@ class CompinfosController < ApplicationController
         format.html { redirect_to @current_user, notice: 'Информация успешно обновлена. Благодарим Вас за регистрацию.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @compinfo.errors, status: :unprocessable_entity }
+        redirect_to :controler => 'resumes', :action => "crop", :id => current_user.id
+        #format.html { render action: "edit" }
+        #format.json { render json: @compinfo.errors, status: :unprocessable_entity }
       end
     end
   end

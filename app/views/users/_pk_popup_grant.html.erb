@@ -1,17 +1,35 @@
-<section class="pk_popup grant">
+<section class="pk_popupcd grant">
 	<div class="close_popup"></div>
 	<div class="head">
 		<h2><%= event.title %> — ГРАНТ</h2>
 		<div class="social">
-			<a href="" class="facebook"></a>
-			<a href="" class="twitter"></a>
-			<a href="" class="vk"></a>
+			<% if event.fb.present? %>
+				<a href="<%= event.fb  %>" class="facebook" target='_blank'></a>
+			<%else%>
+				<a href="" class="facebook" ></a>
+			<%end%>
+
+			<% if event.twitter.present? %>
+				<a href="<%= event.twitter %>" class="twitter"></a>
+			<%else%>
+				<a href="" class="twitter"></a>
+			<%end%>
+
+			<% if event.vk.present? %>
+				<a href="<%= event.vk  %>" class="vk" target='_blank'></a>
+			<%else%>
+				<a href="" class="vk" ></a>
+			<%end%>	
 		</div>
 		<div class="clr"></div>
 	</div>
 	<div class="lside">
-		<img src="images/previmg.png" alt="" class="previmg" />
-		<div class="catsItem addtocallendar">
+		<% unless event.image_id.eql?('') %>
+			<%= image_tag Image.find(event.image_id).photo.thumb %>
+		<%else%>
+			<%= image_tag "contimg4.png" %>
+		<%end%>
+		<div class="catsItem addtocallendar" style='position: relative;'>
 			<label>
 				<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
 					<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
@@ -28,15 +46,28 @@
 		</div>
 		</br>
 		<div class="whoadd">
-			<img src="images/ava.png" alt="" />
-			<div class="text">
-				ДОБАВИЛ:
-				<div class="username"><a href="">
-					<%= event_user = User.find(event.owner)%>
-					<%= event_user.resume.name + " " + event_user.resume.surname if event_user.resume %> 
-					<%= event_user.compinfo.name if event_user.compinfo  %>
-				</a></div>
-			</div>
+			<% unless event.owner.nil? %>
+				<% event_user = User.find(event.owner)%>
+				<% if event_user.resume? && event_user.resume.photo? %>
+	                <%= image_tag event_user.resume.photo.url(:thumb) %>
+		        <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
+		            <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
+		        <% else %>
+		            <%= image_tag 'ava.png' %>	              
+		        <% end %>
+				
+				<div class="text">
+					ДОБАВИЛ:
+					<div class="username"><a href="">					
+						<% unless event_user.resume.nil?%>
+							<%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+						<%end%>
+						<% unless event_user.compinfo.nil? %>					
+							<%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+						<%end%>
+					</a></div>
+				</div>
+			<%end%>
 		</div>
 		<div class="address">			
 		</div>

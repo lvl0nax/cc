@@ -20,7 +20,13 @@
     <% unless item.image_id.eql?('') %>
         <%= image_tag Image.find(item.image_id).photo.thumb %>
     <% else %>
-        <img src="images/contimg4.png" alt="">
+        <%if item.class.name.eql?('Grant')%>
+          <%= image_tag('contimg4.png')%>    
+        <%elsif item.class.name.eql?('Event')%>
+          <%= image_tag('contimg5.png')%>    
+        <%elsif item.class.name.eql?('Training')%>
+          <%= image_tag('contimg6.png')%>    
+        <%end%> 
     <% end %>
 
   <span><%= item.nation %></span>

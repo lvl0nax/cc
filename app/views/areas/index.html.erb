@@ -1,5 +1,7 @@
 <div id="content">
-
+  <%if current_user.role == "admin"%>
+    <%= render 'admin_panel', :count => @count%>
+  <%end%>
   <div id="sphere_used">
     <% current_user.areas.each do |area| %>
         <div class="su">

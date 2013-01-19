@@ -3,7 +3,7 @@
     <span><%= Russian::l event.start_date, :format => :short %></span>
     <span class="spright">Событие</span>
     <% if event.image_id.blank? %>
-        <%= image_tag "contimg6.png" %>
+        <%= image_tag "contimg5.png" %>
     <% else %>
         <%= image_tag Image.find(event.image_id).photo.thumb %>
     <% end %>
@@ -12,146 +12,129 @@
     <span class="spsize"><%= event.title.truncate(16) %></span>
     <div class="clr"></div>
   </div>
-  <section class="pk_popup grant">
+  <section class="pk_popup event">
+  <div class="close_popup"></div>
 
-    <div class="close_popup"></div>
+  <div class="head">
 
-    <div class="head">
+    <h2><%= event.title %> — СОБЫТИЕ</h2>
 
-      <h2><%= event.title %> — ТРЕНИРОВКА</h2>
+    <div class="social">
 
-      <div class="social">
+      <% if event.fb.present? %>
+        <a href="<%= event.fb  %>" class="facebook" target='_blank'></a>
+      <%else%>
+        <a href="" class="facebook" ></a>
+      <%end%>
 
-      </div>
+      <% if event.twitter.present? %>
+        <a href="<%= event.twitter %>" class="twitter"></a>
+      <%else%>
+        <a href="" class="twitter"></a>
+      <%end%>
 
-      <div class="clr"></div>
+      <% if event.vk.present? %>
+        <a href="<%= event.vk  %>" class="vk" target='_blank'></a>
+      <%else%>
+        <a href="" class="vk" ></a>
+      <%end%> 
 
     </div>
 
+    <div class="clr"></div>
 
+  </div>  
 
-    <div class="lside">
+  <div class="lside">
+    <% unless event.image_id.eql?('') %>
+      <%= image_tag Image.find(event.image_id).photo.thumb %>
+    <%else%>
+      <%= image_tag "contimg5.png" %>
+    <%end%>
 
-      <img src="images/previmg.png" alt="" class="previmg" />
+    <div class="catsItem addtocallendar" style='position: relative'>
 
-      <div class="catsItem addtocallendar">
+      <label>
+        <span class="descripting" style='margin: 0 3px !important;'>ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
+          <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
+            <input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
+          <%else%>
+            <input type="checkbox" name="" id="<%= event.id%>" class='signature'>
+          <%end%>
+        </span>               
 
-        <label>
+        <div class="clr"></div>
 
-          <input type="checkbox" name="" id="">
+      </label>
 
-          <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
+    </div>
 
-          <div class="clr"></div>
+    <div class="date_wrap">
 
-        </label>
+      <div class="date"><%= event.start_date.strftime("%d %B %Y") %></div>
 
-      </div>
+      <div class="time"><span style='font-size:18px'>C <%= event.start_date.strftime("%H:%M")%> ДО <%= event.end_date.strftime("%H:%M")%></span></div>
 
-      <div class="date_wrap">
-
-        <div class="date"><%= Russian::l event.start_date, :format => :short %></div>
-
-        <div class="time">C <span class="from"><%= event.start_date.strftime('%H:%m') %></span> ДО <span class="to"><%= event.end_date.strftime('%H:%m') %></span></div>
-
-      </div>
-
-      <div class="whoadd">
-
-        <img src="images/ava.png" alt="" />
+    </div>
+      </br>
+    <div class="whoadd">
+      <% unless event.owner.nil? %>
+        <% event_user = User.find(event.owner)%>
+        <% if event_user.resume? && event_user.resume.photo? %>
+                  <%= image_tag event_user.resume.photo.url(:thumb) %>
+            <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
+                <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
+            <% else %>
+                <%= image_tag 'ava.png' %>                
+            <% end %>
 
         <div class="text">
 
           ДОБАВИЛ:
 
-          <div class="username"><a href="">ПИРОГОВА НАТАЛЬЯ</a></div>
+          <div class="username"><a href="">
+            
+            <% if event_user.resume%>
+              <%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+            <%end%>
+            <% if event_user.compinfo %>          
+              <%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+            <%end%>
+          </a></div>
 
         </div>
-
-      </div>
-
-      <div class="address">
-
-        Новая Голландия <br />
-
-        Санкт-Петербург, <br />
-
-        Набережная Адмиралтейского канала, 2  <br />
-
-        "Айрис Новая Голландия":  +7 (812) 456 76 37  <br />
-
-        "Лето в Новой Голландии":  +7 (812) 971 05 10
-
-      </div>
-
+      <%end%>
     </div>
 
-    <div class="rside">
+    <div class="address">
 
+      <%= event.nation%> <br />
 
+      <%= event.city%>, <br />
 
+      <%= event.street%>, <%= event.building%>  <br />
 
+      <%= event.place%>
+      
+    </div>
 
-      <div class="term">25 ИЮЛЯ 2012</div>
+  </div>
 
+  <div class="rside">
+      <%= event.description%>   
 
-      <div id="map2" class="mapwrap">
+      <h3>ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ:</h3>    
 
-        <script>
+      <div class="term"><%= event.end_date.strftime("%d-%m-%Y, %H:%M")%></div>
 
-          function google_maps2() {
+      <a href=""><%= event.hyperlink%></a>
 
-                var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
-
-                var settings = {
-
-                    zoom: 12, // Выставляем параметры зума для карты
-
-                    center: latlng,
-
-                    mapTypeControl: false,
-
-                    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-
-                    navigationControl: true,
-
-                    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-                };
-
-                var map = new google.maps.Map(document.getElementById("map2"), settings); // Выбираем див куда ставить карту
-
-                var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
-
-                var myOptions = {
-
-                    zoom: 12,  // Выставляем параметры зума для маркера
-
-                    center: myLatlng,
-
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-
-                }
-
-                var map = new google.maps.Map(document.getElementById("map2"), myOptions);  // Выбираем див куда ставить маркер
-
-                var marker = new google.maps.Marker({
-
-                    position: myLatlng,
-
-                    map: map,
-
-                    title: "A"
-
-                });
-
-            }
-
-        </script>
+      
+      <div id="map<%= event.id%>" class="mapwrap">
 
       </div>
+      <input type='hidden' value=<%=event.x_coordinate unless event.x_coordinate.nil?%> id='x_coor' >
+      <input type='hidden' value=<%=event.y_coordinate unless event.y_coordinate.nil?%> id='y_coor' >
 
     </div>
 
@@ -159,3 +142,4 @@
 
   </section>
 </div>
+

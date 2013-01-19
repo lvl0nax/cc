@@ -1,4 +1,4 @@
-<section class="pk_popup train">
+<section class="pk_popupcd train">
 
 	<div class="close_popup"></div>
 
@@ -8,11 +8,23 @@
 
 		<div class="social">
 
-			<a href="" class="facebook"></a>
+			<% if event.fb.present? %>
+				<a href="<%= event.fb  %>" class="facebook" target='_blank'></a>
+			<%else%>
+				<a href="" class="facebook" ></a>
+			<%end%>
 
-			<a href="" class="twitter"></a>
+			<% if event.twitter.present? %>
+				<a href="<%= event.twitter %>" class="twitter"></a>
+			<%else%>
+				<a href="" class="twitter"></a>
+			<%end%>
 
-			<a href="" class="vk"></a>
+			<% if event.vk.present? %>
+				<a href="<%= event.vk  %>" class="vk" target='_blank'></a>
+			<%else%>
+				<a href="" class="vk" ></a>
+			<%end%>	
 
 		</div>
 
@@ -23,18 +35,22 @@
 	
 
 	<div class="lside">
+		<% unless event.image_id.eql?('') %>
+			<%= image_tag Image.find(event.image_id).photo.thumb %>
+		<%else%>
+			<%= image_tag "contimg6.png" %>
+		<%end%>
 
-		<img src="images/trainimg.png" alt="" class="previmg" />
-
-			<div class="catsItem addtocallendar">
-
+			<div class="catsItem addtocallendar" >
 				<label>
-					<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
-						<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
-					<%else%>
-						<input type="checkbox" name="" id="<%= event.id%>" class='signature'>
-					<%end%>
-					<span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
+					
+					<span class="descripting" style='margin: 0 3px !important;'>ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
+						<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
+							<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
+						<%else%>
+							<input type="checkbox" name="" id="<%= event.id%>" class='signature'>
+						<%end%>
+					</span>
 
 					<div class="clr"></div>
 
@@ -67,25 +83,38 @@
 			</div>
 				</br>
 			<div class="whoadd">
+				<% unless event.owner.nil? %>
+					<% event_user = User.find(event.owner)%>
+					<% if event_user.resume? && event_user.resume.photo? %>
+		                <%= image_tag event_user.resume.photo.url(:thumb) %>
+			        <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
+			            <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
+			        <% else %>
+			            <%= image_tag 'ava.png' %>	              
+			        <% end %>
 
-				<img src="images/ava.png" alt="" />
+					<div class="text">
 
-				<div class="text">
+						ДОБАВИЛ:
 
-					ДОБАВИЛ:
-
-					<div class="username"><a href="">
-						<%= event_user = User.find(event.owner)%>
-						<%= event_user.resume.name + " " + event_user.resume.surname if event_user.resume %> 
-						<%= event_user.compinfo.name if event_user.compinfo  %>
-					</a></div>
-				</div>
-
+						<div class="username"><a href="">
+							
+							<% if event_user.resume%>
+							<%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+							<%end%>
+							<% if event_user.compinfo %>					
+								<%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+							<%end%>
+						</a></div>
+					</div>
+				<%end%>
 			</div>
 
 			<div id="map<%= index%>" class="mapwrap">								
 
-			</div>				
+			</div>
+			<input type='hidden' value=<%=event.x_coordinate unless event.x_coordinate.nil?%> id='x_coor' >
+			<input type='hidden' value=<%=event.y_coordinate unless event.y_coordinate.nil?%> id='y_coor' >				
 
 		</div>
 

@@ -17,28 +17,40 @@
 		<div class="clr"></div>
 	</div>
 </div>
+<script language="javascript">
+  $(function(){
+   $('.tv_sizeBig, .fjqtrans, .catsItem, .pchecks, .signature' ).jqTransform();
+  });
+ </script>
 <script type="text/javascript" language="javascript">
 
 	$(".monthcont").click(function () {
 		
-		var id_map = $(this).find('.mapwrap').attr('id');
-
+		var id_map = $(this).find('.mapwrap').attr('id'),
+			x = $(this).find('#x_coor').val(),
+			y = $(this).find('#y_coor').val();
+			
+		if((x == undefined)||(x == '')){
+            x = 49.83209;
+            y = 23.975322;
+        }
+       
 		if($(this).find('.mapwrap').data('type') != 'Grant'){
-			google_maps(id_map);
+			google_maps(id_map, x, y);
 		}		
 
-		$('.pk_popup').css({'display':'none'});
-		$(this).children(".pk_popup").fadeIn(600);
-		var w = ($(this).children(".pk_popup").width())/2;
-		$(this).children(".pk_popup").css({'margin-top':-w});
+		$('.pk_popupcd').css({'display':'none'});
+		$(this).children(".pk_popupcd").fadeIn(600);
+		var w = ($(this).children(".pk_popupcd").width())/2;
+		$(this).children(".pk_popupcd").css({'margin-top':-w});
 	});		
 
 	$(".close_popup").click(function () {
-		$(this).parent(".pk_popup").fadeOut(600);
+		$(this).parent(".pk_popupcd").fadeOut(600);
 	});
 
 	$(document).ready(function(){
-	   $('.pk_popup, .monthcont').click(function(event){
+	   $('.pk_popupcd, .monthcont').click(function(event){
 		   event.stopPropagation();
 	   });
 
@@ -46,11 +58,12 @@
       var id_event = $(this).attr('id');
       var str; 
       if ($(this).is(':checked')){
-        str = 'add';
+        str = 'remove';        
       }
       else{
-        str = 'remove'
-      } 
+        str = 'add'        
+      }
+      //console.log(str); 
       $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
                 jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
                 }
@@ -58,12 +71,12 @@
     });
 
 	}).click(function(){
-		$('.pk_popup').fadeOut(200);
+		$('.pk_popupcd').fadeOut(200);
 	});	
 
-	function google_maps(id_map) {
+	function google_maps(id_map, x, y) {
 
-	 var latlng = new google.maps.LatLng(49.83209,23.975322); // Координаты карты
+	 var latlng = new google.maps.LatLng(x, y); // Координаты карты
 
 		var settings = {
 
@@ -85,7 +98,7 @@
 
 		var map = new google.maps.Map(document.getElementById(""+id_map), settings); // Выбираем див куда ставить карту
 
-		var myLatlng = new google.maps.LatLng(49.83209,23.975322);  // Координаты маркера
+		var myLatlng = new google.maps.LatLng(x, y);  // Координаты маркера
 
 		var myOptions = {
 
@@ -111,14 +124,14 @@
 
 	}
     $('.moncon').click(function() {
-        $('.pk_popup').css({'display':'none'});
+        $('.pk_popupcd').css({'display':'none'});
 
         $('.bbg').addClass('bbgvisible');
 
-        $(this).children(".pk_popup").fadeIn(600);
+        $(this).children(".pk_popupcd").fadeIn(600);
 
-        var w = ($(this).children(".pk_popup").width())/2;
+        var w = ($(this).children(".pk_popupcd").width())/2;
 
-        $(this).children(".pk_popup").css({'margin-top':-w + $(wintod).scrollTo()});
+        $(this).children(".pk_popupcd").css({'margin-top':-w + $(wintod).scrollTo()});
     });
 </script>

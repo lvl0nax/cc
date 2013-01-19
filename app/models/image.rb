@@ -5,4 +5,5 @@ class Image
   belongs_to :grant
   belongs_to :training
   belongs_to :event
+
 end

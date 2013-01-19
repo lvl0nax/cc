@@ -17,11 +17,16 @@
     <%end%>
   </span>
 
-
   <% unless event.image_id.eql?('') %>
     <%= image_tag Image.find(event.image_id).photo.thumb %>
   <% else %>
-    <img src="images/contimg4.png" alt="">
+    <%if event.class.name.eql?('Grant')%>
+      <%= image_tag('contimg4.png')%>    
+    <%elsif event.class.name.eql?('Event')%>
+      <%= image_tag('contimg5.png')%>    
+    <%elsif event.class.name.eql?('Training')%>
+      <%= image_tag('contimg6.png')%>    
+    <%end%>    
   <% end %>
   <span><%= event.nation %></span>
 

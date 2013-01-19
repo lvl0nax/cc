@@ -1,4 +1,19 @@
-<section class="pk_popup event">
+<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8">
+    new Ya.share({
+        element: 'twitter_id',
+        elementStyle: {
+            'type': 'none',
+            'quickServices': ['facebook','twitter','vkontakte']
+        },
+        link: 'http://allsoft.ru/promo/allsoft8let/?share=normal',
+        serviceSpecific: {
+            twitter: {
+                title: 'Результат теста: Дракон почти Ваш «конек»! Вы пока не можете преподавать Драконоведение, но на верном пути!'
+            }
+        }
+    });
+</script>
+<section class="pk_popupcd event">
 
 	<div class="close_popup"></div>
 
@@ -6,13 +21,16 @@
 
 		<h2><%= event.title %> — СОБЫТИЕ</h2>
 
-		<div class="social">
+      <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="facebook,twitter,vkontakte"></div>
+      <div class="social">
 
-			<a href="" class="facebook"></a>
+				<span id="facebook_id"><a href="" class="facebook" ></a></span>
 
-			<a href="" class="twitter"></a>
 
-			<a href="" class="vk"></a>
+			<span id="twitter_id" class="twitter">&nbsp;</span>
+
+
+				<a href="" class="vk" ></a>
 
 		</div>
 
@@ -21,18 +39,22 @@
 	</div>	
 
 	<div class="lside">
+		<% unless event.image_id.eql?('') %>
+			<%= image_tag Image.find(event.image_id).photo.thumb %>
+		<%else%>
+			<%= image_tag "contimg5.png" %>
+		<%end%>
 
-		<img src="images/previmg.png" alt="" class="previmg" />
-
-		<div class="catsItem addtocallendar">
+		<div class="catsItem addtocallendar" style='position: relative'>
 
 			<label>
-				<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
-					<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
-				<%else%>
-					<input type="checkbox" name="" id="<%= event.id%>" class='signature'>
-				<%end%>
-				<span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
+				<span class="descripting" style='margin: 0 3px !important;'>ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
+					<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
+						<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
+					<%else%>
+						<input type="checkbox" name="" id="<%= event.id%>" class='signature'>
+					<%end%>
+				</span>								
 
 				<div class="clr"></div>
 
@@ -49,21 +71,32 @@
 		</div>
 			</br>
 		<div class="whoadd">
+			<% unless event.owner.nil? %>
+				<% event_user = User.find(event.owner)%>
+				<% if event_user.resume? && event_user.resume.photo? %>
+	                <%= image_tag event_user.resume.photo.url(:thumb) %>
+		        <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
+		            <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
+		        <% else %>
+		            <%= image_tag 'ava.png' %>	              
+		        <% end %>
 
-			<img src="images/ava.png" alt="" />
+				<div class="text">
 
-			<div class="text">
+					ДОБАВИЛ:
 
-				ДОБАВИЛ:
+					<div class="username"><a href="">
+						
+						<% if event_user.resume%>
+							<%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+						<%end%>
+						<% if event_user.compinfo %>					
+							<%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+						<%end%>
+					</a></div>
 
-				<div class="username"><a href="">
-					<%= event_user = User.find(event.owner)%>
-					<%= event_user.resume.name + " " + event_user.resume.surname if event_user.resume %> 
-					<%= event_user.compinfo.name if event_user.compinfo  %>
-				</a></div>
-
-			</div>
-
+				</div>
+			<%end%>
 		</div>
 
 		<div class="address">
@@ -91,8 +124,10 @@
 		<a href=""><%= event.hyperlink%></a>		
 
 		<div id="map<%= index%>" class="mapwrap">
-			
+
 		</div>
+		<input type='hidden' value=<%=event.x_coordinate unless event.x_coordinate.nil?%> id='x_coor' >
+		<input type='hidden' value=<%=event.y_coordinate unless event.y_coordinate.nil?%> id='y_coor' >
 
 	</div>	
 

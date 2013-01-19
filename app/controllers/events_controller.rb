@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     @evs = Event.where(:status=>'ОДОБРЕНО')
     @evs = @evs.in(:area_ids=>params[:event][:areas]) if params[:event][:areas]
     @evs = @evs.in(:area_types=>params[:event][:area_types]) if params[:event][:area_types]
-    puts @evs.count
+    
   end unless params[:check_event].nil?
 
   if params[:training]
@@ -48,10 +48,10 @@ class EventsController < ApplicationController
     cookies[:month] = params[:month]
   end
 
-
+  puts @events
   years = %w[2012 2013]
-  years.each do |year|
-      months =  %w[jan feb mar apr may june july aug sept oct nov dec]
+  months =  %w[jan feb mar apr may june july aug sept oct nov dec]
+  years.each do |year|      
       months.each_with_index do |month, index|
         Grant.month(index, year.to_i).each do |grant|
           if @grants.nil?
@@ -91,7 +91,9 @@ class EventsController < ApplicationController
         end unless params[:check_training].nil?
 
         @events << Month.new(:number=>index, :name=>month)
+        
       end
+      #puts @events
   end
 
   @events = @events.paginate(:page => params[:page], :per_page => 12)
@@ -153,12 +155,17 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.json
   def new
+    unless params.nil?
+      @x = params[:x]
+      @y = params[:y]   
+    end
     @event = Event.new
 
     respond_to do |format|
-      format.html { render :layout => false }# new.html.erb
+      format.js { render :layout => false }# new.html.erb
       format.json { render json: @event }
     end
+    
   end
 
   # GET /events/1/edit
@@ -171,12 +178,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     @event.write_attributes(owner: current_user.id) unless current_user.nil?
+
     respond_to do |format|
       if @event.save
-
         # deleting cookie with image id, if it exists
         cookies.delete :event_image unless cookies[:event_image].nil?
-
         format.html { redirect_to root_path, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
@@ -245,7 +251,7 @@ class EventsController < ApplicationController
     #@items += Event.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
     #logger.debug @items
     #@items += Grant.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).where(:start_date.gte => DateTime.now).all.to_a
-
+    @count = EventParent.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).count
     @items = EventParent.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"])
     
     unless @items.blank?

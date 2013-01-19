@@ -1,0 +1,277 @@
+<% @grant = Grant.new %>
+<%= form_for @grant, :url => {:action=>:create, :controller => :grants}, :method => :post, :validate => true do |f|%>
+  <span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>'name' %><span class="error"></span>
+  <div class="leftpart">
+    <span class="label">ОПИСАНИЕ</span>
+    <%= f.text_area :description %><span class="error"></span>
+    <div class="clr"></div>
+
+    <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>
+    <%= f.text_field :hyperlink, :class => "siteaddress", :style => "margin-bottom: 5px;" %>
+    <div class="clr"></div>
+
+    <div class="weblinks">
+    <div id="socimgs">
+      <div class="inlblck">
+        ССЫЛКИ НА МЕРОПРИЯТИЯ НА СЕРВИСАХ: 
+
+      </div><br>
+
+      <div class="inlblck">
+        <%= image_tag "/assets/ltp.png", :onclick => "itemshow('timepad');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/llookatme.jpg", :onclick => "itemshow('lookatme');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lcityspb.jpg", :onclick => "itemshow('cityspb');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lafisha.jpg", :onclick => "itemshow('afisha');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lvk.png", :onclick => "itemshow('vk');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/lfb.png", :onclick => "itemshow('fb');"%>
+      </div>
+      <div class="inlblck">
+        <%= image_tag "/assets/ltwitter.png", :onclick => "itemshow('twitter');"%>
+      </div>
+    </div>
+    <!--script>
+      function itemshow(sclass){
+        /*var str = "."+ sclass*/
+        var item = $("."+ sclass);
+        if (item.attr("active"))
+        {
+          item.fadeOut().removeAttr("active");
+        }
+        else
+        {
+          item.fadeIn().attr("active", "active");
+        }
+        item.find('input').enableClientSideValidations();
+      }
+    </script-->
+    <script>
+      function itemshow(sclass){
+        /*var str = "."+ sclass*/
+        var item = $("."+ sclass);
+        if (item.hasClass("active"))
+        {
+          item.removeClass("active");
+        }
+        else
+        {
+          item.addClass("active");
+        }
+        item.find('input').enableClientSideValidations();
+      }
+    </script>    
+    
+
+      <% if @grant.timepad %>
+        <div class="fields timepad">
+      <% else %>
+        <div class="fields timepad">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/ltp.png"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :timepad, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @grant.lookatme %>
+        <div class="fields lookatme">
+      <% else %>
+        <div class="fields lookatme">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/llookatme.jpg"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :lookatme, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @grant.cityspb %>
+        <div class="fields cityspb">
+      <% else %>
+        <div class="fields cityspb">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/lcityspb.jpg"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :cityspb, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @grant.afisha %>
+        <div class="fields afisha">
+      <% else %>
+        <div class="fields afisha">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/lafisha.jpg"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :afisha, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+
+      <% if @grant.vk %>
+        <div class="fields vk">
+      <% else %>
+        <div class="fields vk">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/lvk.png"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :vk, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @grant.fb %>
+        <div class="fields fb">
+      <% else %>
+        <div class="fields fb">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/lfb.png"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :fb, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+      <% if @grant.twitter %>
+        <div class="fields twitter">
+      <% else %>
+        <div class="fields twitter">
+      <% end %>
+        <div class="inlblck" style='margin-bottom: 14px'>
+          <%= image_tag "/assets/ltwitter.png"%>
+        </div>
+        <div class='input'>
+          <%= f.text_field :twitter, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
+        </div>
+      </div>
+
+  </div>
+
+    <span class="label">СРОКИ ПОДАЧИ ЗАЯВОК</span>
+    <div class="datesel300 large_select">      
+      <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
+      <span style="margin: 0 8px;float:left;">ДО</span>
+      <div style="display: inline-block;position:relative; top:-5px;"><%= f.time_select :end_date %></div>
+    </div>
+    <div class="clr"></div>
+
+    <span class="label">СТРАНА:</span>
+
+    <%= f.text_field :nation, :class => "countpk" %><div class="clr"></div>  
+    <div class="clr"></div>
+
+  </div>
+  <div class="rightpart">
+    <span class="label">ФОТО:</span>
+    <div class="photo">
+      <%= image_tag "contimg6.png" %>
+      <%= fields_for 'grant[u_image]' do |img|%>
+          <%= img.file_field :photo %>
+      <% end %>
+      <input type="hidden" name='grant[image_id]' id='grant_hidden' >
+    </div>
+  </div>
+  <div class="clr"></div>
+  <div class="manycheck">
+    <span class="label fl" style="margin-right: 3px;margin-top: 2px;">СФЕРА:</span>
+    <div class="samvup sam1 sampkl">
+      <div class="all">ВСЕ</div>
+      <div class="allCats">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".catsItem").click(function () {
+                    var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
+                    if(a){
+                        $(this).find(".descripting").addClass("act");
+                    } else{
+                        $(this).find(".descripting").removeClass("act");
+                    }
+                });
+            });
+        </script>
+        <% Area.all.each do |area| %>
+            <div class="catsItem">
+              <label>
+                <input type="checkbox" name="grant[area_ids][]" value="<%= area.id %>" id="area-<%= area.id %>">
+                <span class="descripting"><%= area.name %></span>
+                <div class="clr"></div>
+              </label>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="clr"></div>
+    <div>
+    <% if current_user %>
+        <% if current_user.role.name == 'admin' %>
+              <span class="label" style="float: left; margin-top: 6px; margin-top: 2px;">СТАТУС:</span>
+              <div style="margin: 5px 0 0 77px;"><%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %></div>
+        <% end %>
+    <% end %>
+    </div>
+    <div class="clr"></div>
+    <span class="label fl" style="margin-top: 2px;">ЦЕЛЬ:</span>
+    <div class="pchecks">
+      <% Grant.directions.each do |direction| %>
+      <span class="opl">
+        <input type="radio" value="<%= direction %>" id="<%= direction %>" name="grant[direction]"/>
+        <label for="<%= direction %>"><%= direction %></label>
+      </span>
+      <% end %>
+    </div>
+  </div>
+  <div class="add">
+    <button type="submit">ДОБАВИТЬ</button>
+  </div>
+<% end %>
+<script>
+    $('form[action="/grants"]').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            data: $(this).serialize(),
+            type: 'post',
+            url: '<%= grants_path %>',
+            dataType: 'json',
+            statusCode:{
+                422:function(result){
+                    var response = $.parseJSON(result.responseText);
+                    if(response.title)
+                        $('#grant_title').next('.error').html(response.title[0]).fadeIn();
+                    else
+                        $('#grant_title').next('.error').empty().fadeOut();
+
+                    if(response.description)
+                        $('#grant_description').next('.error').html(response.description[0]).fadeIn();
+                    else
+                        $('#grant_description').next('.error').empty().fadeOut();
+
+                }
+            }
+
+        }).done(function(result){
+                if(result) window.location = window.location;
+                else
+                {
+                    console.log(result);
+                }
+                });
+    });
+</script>

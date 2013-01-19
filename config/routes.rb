@@ -61,7 +61,9 @@ TestMongoid::Application.routes.draw do
     get 'crop', :on => :member
   end
 
-  resources :compinfos
+  resources :compinfos do
+    get 'crop', :on => :member
+  end
 
   resources :pages
 

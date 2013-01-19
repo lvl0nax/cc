@@ -133,6 +133,7 @@ header {
   height: 135px;
   width: 850px;
   margin: 0 auto;
+  position: relative;
 }
 /*-----------------------------------------------------------------------------*/
 #content {
@@ -149,11 +150,12 @@ header {
   width: 100%;
   position: relative;
   background: white;
+
 }
 footer {
   margin: 0 auto;
   width: 850px;
-  height: 60px;
+  height: 60px;  
 }
 /* End  block #content:
 ------------------------------------ *//*=============================================================================*/
@@ -189,11 +191,22 @@ div.rowElem label {
   /*display: -moz-inline-block;*/
 
 }
+
+.inputsOnPI{
+  display: inline-block;
+  margin-left: 10px;
+}
+.descripting span.jqTransformCheckboxWrapper{
+  margin-top: -17px;
+  margin-left: -10px;
+  position: relative;  
+}
 span.jqTransformCheckboxWrapper {
   display: block;
+  position: relative;  
 }
 a.jqTransformCheckbox {
-  background-image: url("../images/checkbig.png");
+  background-image: url("../images/checkbigch.png");
   background-repeat: no-repeat;
   background-position: center top;
   vertical-align: middle;
@@ -224,8 +237,7 @@ a.jqTransformChecked {
 }
 .sizeBig .jqTransformCheckboxWrapper {
   margin-left: 3px;
-  padding-top: 2px;
-  float: right;
+  padding-top: 2px;  
 }
 .catsItem a.jqTransformCheckbox {
   background: url(../images/checknbgreen.png) top;
@@ -259,14 +271,14 @@ a.jqTransformChecked {
   float: left;
 }
 #sphere_available a.jqTransformCheckbox {
-  background: url(../images/checksp.png) no-repeat;
+  background: url(../assets/checksp.png) no-repeat;
   background-position: center top;
   background-size: cover;
   width: 12px;
   height: 11px;
 }
 #sphere_available a.jqTransformChecked {
-  background: url(../images/checksp.png) no-repeat !important;
+  background: url(../assets/checksp.png) no-repeat !important;
   background-position: center bottom !important;
   background-size: cover;
 }
@@ -430,11 +442,11 @@ a.jqTransformChecked {
   vertical-align: top;
 }
 .headerup .headerupwrap span.enter {
-  position: relative;
+  position: absolute;
   left: 50%;
+  top: 0;
   font-size: 14px;
   font-weight: bold;
-  float: left;
 }
 .headerup .headerupwrap span.enter a {
   border-left: none;
@@ -476,7 +488,6 @@ a.jqTransformChecked {
 }
 .headerup .headerupwrap a {
   line-height: 24px;
-  border-left: 1px solid #000;
   padding: 0 5px;
   font-size: 12px;
 }
@@ -518,7 +529,11 @@ a.jqTransformChecked {
   line-height: 21px;
 }
 header .logo {
-  margin-top: 40px;
+  width: 116px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+
 }
 header a {
   color: #77a48b;
@@ -528,20 +543,31 @@ header a:hover {
   text-decoration: underline;
 }
 .socmarg {
-  margin-left: 20px;
+  position: relative;
+  
 }
 .soc {
   margin-top: 45px;
+  position: relative;
+  left: 150px;
+  top: 80px;  
 }
 .soc:hover img {
   opacity: 0.8;
 }
 .city {
   margin-top: 50px;
+  position: relative;
+  top: 75px;
+}
+.city-a {
+  position: relative;
+  top: 76px;
+
 }
 .button {
   position: relative;
-  left: 581px;
+  left: 615px;
   font-size: 12px;
   width: 99px;
   height: 37px;
@@ -549,15 +575,15 @@ header a:hover {
   border: 1px solid #eeeeee;
 }
 .edd {
-  top: -5px;
-  left: 478px;
+  top: 61px;
+  left: 513px;
 }
 .eddlog {
   top: -10px;
   left: 590px;
 }
 .reg {
-  top: -60px;
+  top: -5px;
   z-index: 200;
 }
 .button:hover {
@@ -675,6 +701,20 @@ header a:hover {
   color: #354242;
 }
 .pk_popup {
+  position: absolute;
+  left: 50%;
+  z-index: 555;
+  margin-left: -310px;
+  top: 710px;
+}
+.pk_popupcd {
+  position:fixed;
+  left: 50%;
+  z-index: 555;
+  margin-left: -310px;
+  top: 53%;
+}
+.pk_popup {
   display: none;
   width: 620px;
   border: 3px solid #354242;
@@ -685,11 +725,7 @@ header a:hover {
   background-position: 0 0;
   /* position:fixed; */
 
-  position: absolute;
-  left: 50%;
-  z-index: 555;
-  margin-left: -310px;
-  top: 710px;
+  
 }
 .pk_popup .close_popup {
   width: 17px;
@@ -732,6 +768,9 @@ header a:hover {
 }
 .pk_popup .head .social .twitter {
   background-image: url("../images/twitter.png");
+  display: block;
+  height: 20px;
+  width: 20px;
   background-repeat: no-repeat;
   background-position: 0 0;
 }
@@ -764,12 +803,22 @@ header a:hover {
   margin-top: -25px;
   background: transparent;
   margin-bottom: 10px;
+  width: 180px;
+  display: block;
+  position: relative;
+  margin-left: 4px;
 }
 .pk_popup .lside .addtocallendar .jqTransformCheckbox {
   float: right !important;
   margin-top: 3px;
-  position: relative;
-  left: -85px;
+  position: absolute;
+  right: 3px;
+}
+.pk_popup .lside .addtocallendar span.jqTransformCheckboxWrapper {
+  display: block !important;
+  width: 170px;
+  height: 20px;
+  position: absolute !important;
 }
 .pk_popup .lside .date_wrap {
   font-size: 18px;
@@ -780,8 +829,8 @@ header a:hover {
   margin-bottom: 2px;
 }
 .pk_popup .lside .whoadd img {
-  width: 52px;
-  height: 44px;
+  width: 52px !important;
+  height: 44px !important;
 }
 .pk_popup .lside .whoadd .text {
   font-size: 10px;
@@ -826,6 +875,156 @@ header a:hover {
   width: 207px;
   height: 130px;
   margin-top: 19px;
+}
+.pk_popupcd {
+  display: none;
+  width: 620px;
+  border: 3px solid #354242;
+  border-bottom-width: 20px;
+  padding: 14px 22px;
+  background-image: url("../images/wbg.png");
+  background-repeat: repeat;
+  background-position: 0 0;
+  /* position:fixed; */
+
+  
+}
+.pk_popupcd .close_popup {
+  width: 17px;
+  height: 16px;
+  background-image: url("../images/grant_close.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  position: absolute;
+  top: -15px;
+  right: -16px;
+  display: block;
+}
+.pk_popupcd .close_popup:hover {
+  background-position: bottom !important;
+}
+.pk_popupcd .head {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.pk_popupcd .head h2 {
+  float: left;
+}
+.pk_popupcd .head .social {
+  float: right;
+}
+.pk_popupcd .head .social a {
+  display: block;
+  width: 21px;
+  height: 21px;
+  float: left;
+  margin-right: 5px;
+}
+.pk_popupcd .head .social .facebook {
+  background-image: url("../images/facebook.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.pk_popupcd .head .social .facebook:hover {
+  background-position: bottom;
+}
+.pk_popupcd .head .social .twitter {
+  background-image: url("../images/twitter.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.pk_popupcd .head .social .twitter:hover {
+  background-position: bottom;
+}
+.pk_popupcd .head .social .vk {
+  background-image: url("../images/vk.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin-right: 0;
+}
+.pk_popupcd .head .social .vk:hover {
+  background-position: bottom;
+}
+.pk_popupcd .lside {
+  float: left;
+  width: 333px;
+}
+.pk_popupcd .lside a {
+  color: #354242;
+}
+.pk_popupcd .lside a:hover {
+  text-decoration: underline;
+}
+.pk_popupcd .lside .addtocallendar {
+  height: 20px;
+  font-size: 14px;
+  color: #354242;
+  margin-top: -25px;
+  background: transparent;
+  margin-bottom: 10px;
+}
+.pk_popupcd .lside .addtocallendar .jqTransformCheckbox {
+  float: right !important;
+  margin-top: 3px;  
+}
+.pk_popupcd .lside .date_wrap {
+  font-size: 18px;
+  color: #354242;
+  margin-bottom: 17px;
+}
+.pk_popupcd .lside .date_wrap .date {
+  margin-bottom: 2px;
+}
+.pk_popupcd .lside .whoadd img {
+  width: 52px !important;
+  height: 44px !important;
+}
+.pk_popupcd .lside .whoadd .text {
+  font-size: 10px;
+  line-height: 12px;
+  margin-bottom: 50px;
+  color: #354242;
+}
+.pk_popupcd .lside .address {
+  color: #354242;
+  font-size: 10px;
+  line-height: 12px;
+}
+.pk_popupcd .rside {
+  float: right;
+  width: 275px;
+  color: #354242;
+  font-size: 10px;
+  line-height: 12px;
+}
+.pk_popupcd .rside p {
+  font-size: 10px;
+  line-height: 12px;
+  margin-bottom: 10px;
+}
+.pk_popupcd .rside h3 {
+  font-size: 18px;
+  margin-bottom: 2px;
+  line-height: 20px;
+}
+.pk_popupcd .rside .term {
+  margin-top: 24px;
+}
+.pk_popupcd .rside a {
+  color: #354242;
+  text-decoration: underline;
+  padding-top: 5px;
+}
+.pk_popupcd .rside a:hover {
+  text-decoration: none;
+}
+.pk_popupcd .rside .mapwrap {
+  width: 207px;
+  height: 130px;
+  margin-top: 19px;
+}
+.sbOptions {
+  z-index: 5 !important;
 }
 .event {
   border-color: #77a48b !important;
@@ -905,7 +1104,7 @@ header a:hover {
   margin-bottom: 10px;
 }
 .train .rside {
-  width: 485px !important;
+  width: 443px !important;
 }
 .train .rside h3 {
   color: #c9db57 !important;
@@ -940,8 +1139,8 @@ header a:hover {
   margin-bottom: 2px;
 }
 .train .rside .trainleft .whoadd img {
-  width: 52px;
-  height: 44px;
+  width: 52px !important;
+  height: 44px !important;
 }
 .train .rside .trainleft .whoadd .text {
   font-size: 10px;
@@ -950,7 +1149,7 @@ header a:hover {
   color: #354242;
 }
 .train .rside .trainright {
-  width: 265px;
+  width: 236px;
   float: right;
   margin-top: 5px;
 }
@@ -991,10 +1190,10 @@ header a:hover {
   width: 11px;
   height: 12px;
   border: 1px solid #c9c9c9;
-  background: url(../images/ex.png) top;
+  background: url(../assets/ex.png) top;
 }
 #sphere_used .su .ex:hover {
-  background: url(../images/ex.png) bottom;
+  background: url(../assets/ex.png) bottom;
   cursor: pointer;
 }
 #sphere_available {
@@ -1091,9 +1290,32 @@ header a:hover {
   font-size: 10px;
   line-height: 18px;
   float: left;
+  left: 5px;
 }
+#celendar_content .month_info .monthcont span.descripting {
+  font-size: 10px;
+  line-height: 18px;
+  float: left;
+  left: 1px;
+  position: relative;
+}
+#celendar_content .month_info .monthcont span.descripting .jqTransformCheckboxWrapper {
+  position: absolute;
+  right: -13px;
+}
+#celendar_content .pk_popupcd .lside .addtocallendar {
+  width: 170px;
+  position: relative;
+}
+#celendar_content .pk_popupcd .lside .addtocallendar .jqTransformCheckboxWrapper {
+  position: absolute;
+  right: 0;
+}
+
 #celendar_content .month_info .monthcont img {
   border: 1px solid #c8c8c8;
+  width: 170px;
+  height: 114px;
 }
 #celendar_content .month_info .monthcont .spright {
   float: right;
@@ -1129,6 +1351,16 @@ header a:hover {
 }
 #celendar_content .month_info .bla span {
   color: #354242;
+}
+.pk_popup .lside img {
+  width: 170px;
+  height: 112px;
+}
+.addtocallendar label span.descripting{
+  font-size: 10px;
+  line-height: 18px;
+  float: left;
+  position: absolute;
 }
 .notfound h1 {
   text-align: center;
@@ -1213,7 +1445,7 @@ header a:hover {
   border: 1px solid #c9db57;
 }
 .filterMain .filterStaz .vupad .sam2 span.descripting {
-  width: 293px !important;
+  width: 293px !important;  
 }
 .filterMain .filterStaz .vupad .samvup,
 .filterMain .filterStaz .vupad .sampk {
@@ -1252,7 +1484,7 @@ header a:hover {
 .filterMain .filterStaz .vupad .sampk .allCats {
   box-shadow: 2px 2px 3px -1px #eeeeee;
   position: absolute;
-  z-index: 5;
+  z-index: 10;
   width: 100%;
   background: white;
   text-transform: none;
@@ -1397,7 +1629,7 @@ header a:hover {
 .filterMain .filterSob .vupad .samvup .allCats {
   box-shadow: 2px 2px 3px -1px #eeeeee;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   background: white;
   text-transform: none;
@@ -1522,7 +1754,7 @@ header a:hover {
 .filterMain .filterGran .vupad .samvup .allCats {
   box-shadow: 2px 2px 3px -1px #eeeeee;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   background: white;
   text-transform: none;
@@ -1570,11 +1802,12 @@ header a:hover {
   width: 424px !important;
 }
 .sampkl {
-  width: 476px;
+  /*width: 476px;*/
+  width: 468px;
   float: left !important;
   margin-right: 0 !important;
   margin-top: 5px;
-  margin-left: 23px;
+  margin-left: 32px;
 }
 .sampkl .all {
   background-image: url(../images/arrdwn.png);
@@ -1583,7 +1816,7 @@ header a:hover {
 }
 .sampkl.act {
   box-shadow: 2px 2px 3px -1px #eeeeee;
-  width: 490px;
+  width: 468px;
   border: 1px solid #c9db57;
 }
 .sampkl .jqTransformCheckboxWrapper {
@@ -1594,7 +1827,7 @@ header a:hover {
 }
 .countpk {
   width: 300px;
-  margin-left: 17px;
+  margin-left: 23px;
 }
 .samvup {
   margin-right: 5px;
@@ -1627,7 +1860,7 @@ header a:hover {
 .samvup .allCats {
   box-shadow: 2px 2px 3px -1px #eeeeee;
   position: absolute;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   background: white;
   text-transform: none;
@@ -1659,7 +1892,7 @@ header a:hover {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 0;
   display: none;
 }
 .bbgvisible {
@@ -1670,7 +1903,7 @@ header a:hover {
   width: 100px;
   height: 1px;
   position: relative;
-  top: -97px;
+  top: -42px;
   right: -750px;
   z-index: 102;
 }
@@ -1709,7 +1942,7 @@ header a:hover {
   width: 850px;
   height: 1px;
   position: relative;
-  top: -6px;
+  top: 60px;
   right: 0px;
   z-index: 102;
 }
@@ -1905,19 +2138,17 @@ input,
 textarea {
   outline: none;
 }
-form span {
+form .somename {
   display: inline-block;
-  /*line-height: 25px;
+  line-height: 25px;
   margin-left: 20px;
-  margin-top: 10px;*/
+  margin-top: 10px;
 }
 form .spanmin {
   line-height: 13px;
   margin-bottom: -10px;
 }
 form input {
-  /* width: 220px; */
-
   border: 1px solid #c8c8c8;
   margin-top: 0px;
   padding: 2px 5px;
@@ -1972,10 +2203,12 @@ form .regtype img {
 .input_info .info_row {
   padding-top: 5px;
   padding-bottom: 5px;
+  width: 600px;
 }
 .input_info .info_row:hover {
   background: #cccccc;
 }
+
 .input_info .info_row span {
   float: left;
   width: 145px;
@@ -1984,7 +2217,7 @@ form .regtype img {
 }
 .input_info .info_row .input_field {
   width: 435px;
-  float: left;
+  float: right;
 }
 .input_info .info_row .input_field textarea {
   border: solid 1px #c9c9c9;
@@ -2051,19 +2284,20 @@ form .regtype img {
   width: 610px;
   overflow: hidden;
 }
-.persinalInformation .pi a {
+ .persinalInformation .pi .redd {
   width: 159px;
   height: 18px;
   position: absolute;
   left: 670px;
-  background: url(../images/button_bg.png);
+  background: url('button_bg.png');
   border: none;
   font-size: 15px;
   color: white;
   opacity: 0.2;
   filter: alpha(opacity=20);
+  text-align: center;
 }
-.persinalInformation .pi a:hover {
+.persinalInformation .pi .redd:hover {
   opacity: 1;
   filter: alpha(opacity=100);
   cursor: pointer;
@@ -2162,31 +2396,38 @@ form .regtype img {
     width: 102px;
     height: 87px;
     cursor: pointer;
+    position: relative;
+    z-index: 554;
+    border: none;
 }
 .photo_login img {
     z-index: 100;
     max-height: 80px;
     max-height: 80px;
+    border: none;
 }
 .photo_login .redact {
     margin-top: -30px;
     width: 90px;
     height: 20px;
     cursor: pointer;
-    background: #fff;
-    border: 1px solid #fff;
+    background: none;
+    border: none;
     color: #ffffff !important;
     font-size: 10px !important;
     display: none;
     z-index: 101;
+    padding: 0px !important;
+    position: relative;
 }
 .photo_login .redact:hover {
     text-decoration: none !important;
     color: #ffffff !important;
     font-size: 10px !important;
+    border: none;
 }
 .edd_header_2 {
-  top: -5px !important;
+  top: 61px !important;
   left: 611px!important;
 }
 .logouth2 {
@@ -2232,7 +2473,7 @@ form .regtype img {
   background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #9abc74), color-stop(0.82, #c7db57));
 }
 .large_select{
-    width: 383px !important;
+    width: 373px !important;
 }
 .large_select .sbHolder {
     width: 90px !important;
@@ -2274,6 +2515,7 @@ form .regtype img {
     float: none;
     display: inline-block;
     top: 6px;
+    margin-right: 0;
 }
 .large_select #grant_end_date_5i + div .sbSelector{
     width: 39px !important;
@@ -2377,6 +2619,7 @@ form .regtype img {
     width: 40px !important;
     float: none;
     display: inline-block;
+    margin-right: 0;
 
 }
 #event_tmp_end_date_5i + div.sbSelector {
@@ -2490,6 +2733,7 @@ form .regtype img {
 }
 #training_tmp_end_date_5i + div.sbHolder {
     width: 40px !important;
+    margin-right: 0;
 }
 
 
@@ -2516,11 +2760,14 @@ form .regtype img {
     display: inline-block;
     width: 40px !important;
 }
-span.error{
-    display: none;
+.error{
+    display: block;
     color: red;
 }
-
+.reger {
+  margin-left: 170px;
+  width: 170px !important;
+}
 .monih12 .monthhover {
     display: none;
     position: relative;
@@ -2602,6 +2849,7 @@ span.error{
   font-size: 10px;
   color: #C7D957;
   cursor: pointer;
+  float: right;
 }
 #add_experience_work:hover{
   border: 1px solid #333;
@@ -2612,3 +2860,83 @@ span.error{
 #add_experience_work a{
   color: #333;
 }
+
+ .input_field .sbHolder {
+  width: 70px !important;
+}
+.input_field .sbHolder .sbSelector {
+  width: 68px !important;
+}
+.input_field .sbHolder .sbOptions {
+  width: 70px !important;
+}
+.input_field .sbHolder {
+  float: left;
+  margin: 3px 0;
+}
+.info_row .sbHolder {
+  width: 70px !important;
+}
+.info_row .sbHolder .sbSelector {
+  width: 68px !important;
+}
+.info_row .sbHolder .sbOptions {
+  width: 70px !important;
+}
+.info_row .sbHolder {
+  float: left;
+  margin: 3px 0;
+}
+.sub_info_row .sbHolder {
+  width: 50px !important;
+}
+.sub_info_row .sbHolder .sbSelector {
+  width: 48px !important;
+}
+.sub_info_row .sbHolder .sbOptions {
+  width: 50px !important;
+}
+.sub_info_row .sbHolder {
+  float: left;
+  margin: 3px 0px;
+}
+
+.inlblck{
+  display: inline-block;
+}
+#socimgs img{
+  opacity: 0.5;
+}
+#socimgs img:hover{
+  opacity: 1;
+}
+
+.weblinks .input{
+  display: inline-block;
+  margin-top: -5px;
+  padding-left: 100px;
+}
+
+.input input{
+  width: 433px;
+}
+.fields {
+  display: none;
+}
+.active {
+  display: block !important;
+}
+.fields img{
+  position: absolute;
+
+}
+
+.field_with_errors .message{
+  color: red;
+}
+
+.field_with_errors{
+  margin-top: -13px;
+  margin-left: 3px;
+}
+

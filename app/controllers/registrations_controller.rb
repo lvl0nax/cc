@@ -33,6 +33,7 @@ class RegistrationsController < Devise::RegistrationsController
     else
       raise "ERROR! incorrect user params!"
     end
+
   end
 
   def show

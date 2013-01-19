@@ -43,11 +43,11 @@ class ResumesController < ApplicationController
     else
       redirect_to root_path
     end
-    #@user = current_user
+    @user = current_user
   end
 
   def crop
-    @resume = current_user.resume
+    @resume = current_user.resume    
   end
 
   # POST /resumes
@@ -55,6 +55,7 @@ class ResumesController < ApplicationController
   def create
     @resume = Resume.new(params[:resume])
     current_user.resume = @resume
+
     respond_to do |format|
       if current_user.save
         if params[:resume][:photo].present?
@@ -74,20 +75,20 @@ class ResumesController < ApplicationController
 
   # PUT /resumes/1
   # PUT /resumes/1.json
-  def update
+  def update    
     @resume = current_user.resume #Resume.find(params[:id])
 
     #respond_to do |format|
-      if @resume.update_attributes(params[:resume])
+      if @resume.update_attributes(params[:resume])           
         if params[:resume][:photo].present?
             render :crop
-        else
+        else                     
           redirect_to current_user, notice: 'Resume was successfully updated.'
           #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
           #format.json { head :ok }
         end
-      else
-        render action: "edit"
+      else        
+        redirect_to :controler => 'resumes', :action => "crop", :id => current_user.id
         # format.html { render action: "edit" }
         # format.json { render json: @resume.errors, status: :unprocessable_entity }
       end

@@ -8,23 +8,9 @@
 
 		<div class="social">
 
-			<% if event.fb.present? %>
-				<a href="<%= event.fb  %>" class="facebook" target='_blank'></a>
-			<%else%>
-				<a href="" class="facebook" ></a>
-			<%end%>
-
-			<% if event.twitter.present? %>
-				<a href="<%= event.twitter %>" class="twitter"></a>
-			<%else%>
-				<a href="" class="twitter"></a>
-			<%end%>
-
-			<% if event.vk.present? %>
-				<a href="<%= event.vk  %>" class="vk" target='_blank'></a>
-			<%else%>
-				<a href="" class="vk" ></a>
-			<%end%>	
+			<a  class="facebook" onclick = "facebook($(this))" id="aaaa" ></a>
+			<a onclick="twitter($(this))" class="twitter"> </a>
+			<a onclick="vkontakte($(this))" class="vk"> </a> 
 
 		</div>
 
@@ -124,7 +110,7 @@
 
 			<h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>	 		
 
-			<div class="term"><%= event.end_date.strftime("%d-%m-%Y, %H:%M")%></div>
+			<div class="term"><%= event.request_date.strftime("%d-%m-%Y, %H:%M")%></div>
 
 			<a href=""><%= event.hyperlink%></a>
 

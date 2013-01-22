@@ -88,7 +88,7 @@ class ResumesController < ApplicationController
           #format.json { head :ok }
         end
       else        
-        redirect_to :controler => 'resumes', :action => "crop", :id => current_user.id
+        redirect_to :controller => 'resumes', :action => "crop", :id => current_user.id
         # format.html { render action: "edit" }
         # format.json { render json: @resume.errors, status: :unprocessable_entity }
       end

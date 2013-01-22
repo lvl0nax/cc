@@ -20,7 +20,12 @@
 #     - Ноябрь
 #     - Декабрь
 
-en: 
+en:  
+  male: мужской
+  female: женский
+  College: высшее
+  Graduate School: высшее
+  Hight School: среднее
   date: 
     abbr_day_names: 
       - Sun

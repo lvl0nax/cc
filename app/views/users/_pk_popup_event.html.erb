@@ -1,18 +1,5 @@
-<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8">
-    new Ya.share({
-        element: 'twitter_id',
-        elementStyle: {
-            'type': 'none',
-            'quickServices': ['facebook','twitter','vkontakte']
-        },
-        link: 'http://allsoft.ru/promo/allsoft8let/?share=normal',
-        serviceSpecific: {
-            twitter: {
-                title: 'Результат теста: Дракон почти Ваш «конек»! Вы пока не можете преподавать Драконоведение, но на верном пути!'
-            }
-        }
-    });
-</script>
+    
+ 
 <section class="pk_popupcd event">
 
 	<div class="close_popup"></div>
@@ -20,18 +7,13 @@
 	<div class="head">
 
 		<h2><%= event.title %> — СОБЫТИЕ</h2>
+		
 
-      <div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="facebook,twitter,vkontakte"></div>
+
       <div class="social">
-
-				<span id="facebook_id"><a href="" class="facebook" ></a></span>
-
-
-			<span id="twitter_id" class="twitter">&nbsp;</span>
-
-
-				<a href="" class="vk" ></a>
-
+<a  class="facebook" onclick = "facebook($(this))" id="aaaa" ></a>
+<a onclick="twitter($(this))" class="twitter"> </a>
+<a onclick="vkontakte($(this))" class="vk"> </a> 			
 		</div>
 
 		<div class="clr"></div>
@@ -119,7 +101,7 @@
 
 		<h3>ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ:</h3>		
 
-		<div class="term"><%= event.end_date.strftime("%d-%m-%Y, %H:%M")%></div>
+		<div class="term"><%= event.request_date.strftime("%d-%m-%Y, %H:%M")%></div>
 
 		<a href=""><%= event.hyperlink%></a>		
 

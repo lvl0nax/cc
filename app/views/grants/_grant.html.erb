@@ -18,23 +18,9 @@
   <div class="head">
     <h2><%= grant.title %> — ГРАНТ</h2>
     <div class="social">
-      <% if grant.fb.present? %>
-        <a href="<%= grant.fb  %>" class="facebook" target='_blank'></a>
-      <%else%>
-        <a href="" class="facebook" ></a>
-      <%end%>
-
-      <% if grant.twitter.present? %>
-        <a href="<%= grant.twitter %>" class="twitter"></a>
-      <%else%>
-        <a href="" class="twitter"></a>
-      <%end%>
-
-      <% if grant.vk.present? %>
-        <a href="<%= grant.vk  %>" class="vk" target='_blank'></a>
-      <%else%>
-        <a href="" class="vk" ></a>
-      <%end%> 
+     <a  class="facebook" onclick = "facebook($(this))" id="aaaa" ></a>
+<a onclick="twitter($(this))" class="twitter"> </a>
+<a onclick="vkontakte($(this))" class="vk"> </a> 
     </div>
     <div class="clr"></div>
   </div>
@@ -46,10 +32,12 @@
     <%end%>
     <div class="catsItem addtocallendar" >
       <label>
-        <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => grant.id).present?%>
-          <input type="checkbox" name="" id="<%= grant.id%>" class='signature' checked>
-        <%else%>
-          <input type="checkbox" name="" id="<%= grant.id%>" class='signature'>
+        <%if user_signed_in? %>
+          <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => grant.id).present?%>
+            <input type="checkbox" name="" id="<%= grant.id%>" class='signature' checked>
+          <%else%>
+            <input type="checkbox" name="" id="<%= grant.id%>" class='signature'>
+          <%end%>
         <%end%>
         <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
         <div class="clr"></div>

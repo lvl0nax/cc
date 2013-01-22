@@ -231,7 +231,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
   require "omniauth-facebook"
-  config.omniauth :facebook, '264258700363830', '1c041bb45a07d310a93a0342dd4e775e',
+  config.omniauth :facebook, '467284030004822', 'aafe39928ddf00e6941e9891aca0fd69',
                   :strategy_class => OmniAuth::Strategies::Facebook
   require "omniauth-vkontakte"
   config.omniauth :vkontakte, '3272966', 'INpVcqf88Luc5K7Ts4wk',

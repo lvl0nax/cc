@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     puts role
     if role == 'employer'
       if not params[:user][:compinfo].nil? and params[:user][:compinfo][:photo] and not cookies[:with_photo]
-        puts 'x0'
+        # puts 'x0'
         user = User.new(params[:user])
         compinfo = Compinfo.new(params[:user][:compinfo])
         user.compinfo = compinfo
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
         return render :json => {:url => compinfo.photo.url}
         #якщо змінив картинку
       elsif params[:user][:compinfo][:photo] and cookies[:with_photo]
-        puts 'x1'
+        # puts 'x1'
         user = User.find(cookies[:with_photo])
         compinfo = Compinfo.new(params[:user][:compinfo])
         user.compinfo = compinfo
@@ -91,7 +91,7 @@ class UsersController < ApplicationController
         return render :json => {:url => compinfo.photo.url}
         #поставив картинку і перезагрузив сторінку
       elsif not params[:user][:compinfo][:photo] and cookies[:with_photo] and not params[:user]
-        puts 'x2'
+        # puts 'x2'
         cookies[:delete_user] = cookies[:with_photo]
         cookies.delete :with_photo
       end
@@ -102,7 +102,7 @@ class UsersController < ApplicationController
       temp = User.count
          #пошук юзера з картинкою
      if not cookies[:with_photo].nil?
-       puts 'x3'
+       # puts 'x3'
         @user = User.find(cookies[:with_photo]) if role =='employer'
        #загрузив фотку і вирішив створити МС
         if role == 'employee'
@@ -112,20 +112,20 @@ class UsersController < ApplicationController
         end
         #перезагрузив під-час реєстрації(видалення непотрібного юзера)
      elsif not cookies[:delete_user].nil?
-       puts 'x4'
+       # puts 'x4'
           user_delete =  User.find(cookies[:delete_user])
           user_delete.destroy
           cookies.delete :delete_user
       end
       #user without photo
       if cookies[:delete_user].nil? and cookies[:with_photo].nil?
-        puts 'x5'
+        # puts 'x5'
         puts params[:user]
         @user = User.new(params[:user])
       end
        @user.compinfo(:validate=>false)
       if @user.save
-        puts 'x6'
+        # puts 'x6'
         if temp == 0
           @user.role = Role.new(:name => "admin")
           @user.resume = Resume.new(params[:user][:resume])
@@ -145,12 +145,12 @@ class UsersController < ApplicationController
         render json:{ success:true, path:path }
       else
         if  @user.errors.count > 0 and not cookies[:with_photo]
-          puts 'x7'
+          # puts 'x7'
           return render json: @user.errors
         elsif not cookies[:with_photo].nil? and @user.errors.count > 0
-          puts 'x8'
+          # puts 'x8'
           if @user.update_attributes(params[:user])
-            puts 'x9'
+            # puts 'x9'
             @user.role = Role.new(:name => role)
             sign_in('user', @user)
             path = edit_compinfo_path(@user.compinfo)
@@ -158,7 +158,7 @@ class UsersController < ApplicationController
             puts @user.compinfo.photo.url
             return render :json => { :url => @user.compinfo.photo.url, success:true, path:path }
           else
-            puts 'x10'
+            # puts 'x10'
             return render json: @user.errors
           end
         end

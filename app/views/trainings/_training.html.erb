@@ -22,23 +22,9 @@
 
     <div class="social">
 
-      <% if training.fb.present? %>
-        <a href="<%= training.fb  %>" class="facebook" target='_blank'></a>
-      <%else%>
-        <a href="" class="facebook" ></a>
-      <%end%>
-
-      <% if training.twitter.present? %>
-        <a href="<%= training.twitter %>" class="twitter"></a>
-      <%else%>
-        <a href="" class="twitter"></a>
-      <%end%>
-
-      <% if training.vk.present? %>
-        <a href="<%= training.vk  %>" class="vk" target='_blank'></a>
-      <%else%>
-        <a href="" class="vk" ></a>
-      <%end%> 
+      <a  class="facebook" onclick = "facebook($(this))" id="aaaa" ></a>
+<a onclick="twitter($(this))" class="twitter"> </a>
+<a onclick="vkontakte($(this))" class="vk"> </a> 
 
     </div>
 
@@ -59,10 +45,12 @@
         <label>
           
           <span class="descripting" style='margin: 0 3px !important;'>ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
-            <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => training.id).present?%>
-              <input type="checkbox" name="" id="<%= training.id%>" class='signature' checked>
-            <%else%>
-              <input type="checkbox" name="" id="<%= training.id%>" class='signature'>
+            <%if user_signed_in? %>
+              <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => training.id).present?%>
+                <input type="checkbox" name="" id="<%= training.id%>" class='signature' checked>
+              <%else%>
+                <input type="checkbox" name="" id="<%= training.id%>" class='signature'>
+              <%end%>
             <%end%>
           </span>
 
@@ -138,7 +126,7 @@
 
       <h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>      
 
-      <div class="term"><%= training.end_date.strftime("%d-%m-%Y, %H:%M")%></div>
+      <div class="term"><%= training.request_date.strftime("%d-%m-%Y, %H:%M")%></div>
 
       <a href=""><%= training.hyperlink%></a>
 

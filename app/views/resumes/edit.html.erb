@@ -75,7 +75,7 @@
         <%= render 'experience_work_fields', :f => experience %>
       <%end%> 
       <div id='add_experience_work'>                       
-        <%= link_to_add_association "ДОБАВИТЬ", f, :experience_works, :partial =>"experience_work_fields" %>
+        <%= link_to_add_association "ДОБАВИТЬ", f, :experience_works %>
       </div>
       <% if @user.resume.experience_works.count == 0%>
         <script>

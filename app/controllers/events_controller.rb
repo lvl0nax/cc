@@ -12,18 +12,18 @@ class EventsController < ApplicationController
 
   @events = []
   existing_ids = []
-  if params[:grant]
+  if params[:grant]      
     @grants = Grant.where(:status=>'ОДОБРЕНО')
     @grants = @grants.in(:area_ids=>params[:grant][:areas]) if params[:grant][:areas]
     @grants = @grants.where(:direction=>params[:grant][:direction]) if params[:grant][:direction]
-  end unless params[:check_grant].nil?
+  end #unless params[:check_grant].nil?
 
   if params[:event]
     @evs = Event.where(:status=>'ОДОБРЕНО')
     @evs = @evs.in(:area_ids=>params[:event][:areas]) if params[:event][:areas]
     @evs = @evs.in(:area_types=>params[:event][:area_types]) if params[:event][:area_types]
     
-  end unless params[:check_event].nil?
+  end #unless params[:check_event].nil?
 
   if params[:training]
     @trainings = Training.where(:status=>'ОДОБРЕНО')
@@ -31,70 +31,78 @@ class EventsController < ApplicationController
     @trainings = @trainings.in(:salary_type => params[:training][:payments]) if params[:training][:payments]
     @trainings = @trainings.in(:owner => params[:training][:compinfos]) if params[:training][:compinfos]
 
-  end unless params[:check_training].nil?
+  end #unless params[:check_training].nil?
 
   if not params[:month].nil? or not cookies[:month].blank?
     month = params[:month].to_i % 12
     year = params[:month].to_i / 12
     now = DateTime.now.change(:month => month + 1, :year=> 2012 + year)
     @trainings = Training.where(:status=>'ОДОБРЕНО') if @trainings.nil?
-    @trainings = @trainings.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) unless params[:check_event].nil?
+    @trainings = @trainings.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_training].nil?
+    
 
     @evs = Event.where(:status=>'ОДОБРЕНО') if @evs.nil?
-    @evs = @evs.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) unless params[:check_training].nil?
+    @evs = @evs.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_event].nil?
+    
 
     @grants = Grant.where(:status=>'ОДОБРЕНО') if @grants.nil?
-    @grants = @grants.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) unless params[:check_grant].nil?
-    cookies[:month] = params[:month]
+    @grants = @grants.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_grant].nil?
+    
+    cookies[:month] = params[:month]   
   end
-
-  puts @events
+  
   years = %w[2012 2013]
   months =  %w[jan feb mar apr may june july aug sept oct nov dec]
   years.each do |year|      
       months.each_with_index do |month, index|
-        Grant.month(index, year.to_i).each do |grant|
-          if @grants.nil?
-            @events << grant
-            grant.visible = true
-            existing_ids << grant.id
-          else
-            @events << grant # if @grants.include?(grant)
-            existing_ids << grant.id if @grants.include?(grant)
-            grant.visible = true if @grants.include?(grant)
-          end          
-        end unless params[:check_grant].nil?
+        if Grant.month(index, year.to_i).count > 0 || Event.month(index, year.to_i).count > 0 || Training.month(index, year.to_i).count > 0
+          
+          @events << Month.new(:number=>index, :name=>month)           
+          Grant.month(index, year.to_i).each do |grant|           
+            if @grants.nil?
+              
+              @events << grant
+              grant.visible = true
+              existing_ids << grant.id
+            else            
+              @events << grant # if @grants.include?(grant)
+              existing_ids << grant.id if @grants.include?(grant)
+              grant.visible = true if @grants.include?(grant)
+            end          
+          end #if params[:check_grant].nil?
 
-        Event.month(index, year.to_i).each do |event|
-          if @evs.nil?
-            @events << event
-            event.visible = true
-            existing_ids << event.id
-          else
-            @events << event # if @grants.include?(grant)
-            existing_ids << event.id if @evs.include?(event)
-            event.visible = true if @evs.include?(event)
-          end
-        end unless params[:check_event].nil?
+          Event.month(index, year.to_i).each do |event|
+            if @evs.nil?
+              @events << event
+              event.visible = true
+              existing_ids << event.id
+            else
+              @events << event # if @grants.include?(grant)
+              existing_ids << event.id if @evs.include?(event)
+              event.visible = true if @evs.include?(event)
+            end
+          end #if params[:check_event].nil?
 
-        Training.month(index, year.to_i).each do |training|
-          if @trainings.nil?
-            @events << training
-            training.visible = true
-            existing_ids << training.id
-          else
+          Training.month(index, year.to_i).each do |training|
+            if @trainings.nil?
+              @events << training
+              training.visible = true
+              existing_ids << training.id
+            else
 
-            @events << training # if @grants.include?(grant)
-            existing_ids << training.id if @trainings.include?(training)
-            training.visible = true if @trainings.include?(training)
-          end
-        end unless params[:check_training].nil?
-
+              @events << training # if @grants.include?(grant)
+              existing_ids << training.id if @trainings.include?(training)
+              training.visible = true if @trainings.include?(training)
+            end
+          end #if params[:check_training].nil?        
+        end
+      end      
+    end
+    if @events.count == 0
+       months.each_with_index do |month, index|
         @events << Month.new(:number=>index, :name=>month)
-        
-      end
-      #puts @events
-  end
+       end
+    end
 
   @events = @events.paginate(:page => params[:page], :per_page => 12)
 

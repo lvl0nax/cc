@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'social-likes.min22' %>  
+
 <div id="headerWrap">
 
 <div class="headerup">
@@ -14,7 +16,7 @@
     </script>
 
     <% unless current_user %>
-        <span class="error" style="position: absolute; top: 0px; left: 260px;color: #ff0000; margin-left: 20%;"></span>
+        <span class="error_autor" style="position: absolute; top: 0px; left: 260px;color: #ff0000; margin-left: 20%;"></span>
 
         <span class="enter"><a href="#">ВОЙТИ</a></span>
 
@@ -40,7 +42,7 @@
             <%= f.label :password, 'ПАРОЛЬ' %>
             <%= f.password_field :password %>
             <%= f.submit "OK", :class=>"sub" %>
-            <%= @malala %>
+           
             <div class="clr"></div>
         <% end %>
         <script type="text/javascript">
@@ -54,11 +56,11 @@
                         url: $this.attr('action'),
                         dataType: 'json',
                         error: function(jqXHR, textStatus, errorThrown){
-                            $(".error").html($.parseJSON(jqXHR.responseText).error);
-                            $(".error").css('display','inline-block');
-                            $(".error").css('margin-left','1%');
+                            $(".error_autor").html($.parseJSON(jqXHR.responseText).error);
+                            $(".error_autor").css('display','inline-block');
+                            $(".error_autor").css('margin-left','1%');
                             setTimeout(function(){
-                                $('.error').hide();
+                                $('.error_autor').hide();
                             }, 5000);
                         }
                     }).done(function(result){
@@ -437,6 +439,49 @@
 
 </script>
 
+<script type="text/javascript">
+
+function facebook(val)
+{
+var TITLE = val.parent().parent().find("h2").html();
+var temp = new Array();
+temp = TITLE.split('—');
+TITLE = 'Центр карьеры.' + temp[0];
+//var type = $.trim(temp[1]);
+//var kind ="";
+//if type == "СТАЖИРОВКА"{kind = 'training'}
+//else if type == "СОБЫТИЕ"{kind = 'event'}
+//else {kind = 'grand'}
+var adress = 'http://'+location.host;
+var image_p = adress+val.parent().parent().parent().find('.lside').find('img').attr('src');
+
+    Share.facebook(adress,TITLE,image_p,'');
+}
+
+function twitter(val)
+{
+var TITLE = val.parent().parent().find("h2").html();
+var temp = new Array();
+temp = TITLE.split('—');
+TITLE = 'Центр карьеры.' + temp[0] + ' ' + 'http://'+location.host;
+var URL = 'http://'+location.host;
+
+Share.twitter(URL,TITLE);
+}
+
+function vkontakte(val)
+{
+var TITLE = val.parent().parent().find("h2").html();
+var temp = new Array();
+temp = TITLE.split('—');
+TITLE = 'Центр карьеры.' + temp[0];
+
+var adress = 'http://'+location.host;
+var image_p = adress+val.parent().parent().parent().find('.lside').find('img').attr('src');
+
+    Share.vkontakte(adress,TITLE,image_p,' ');
+}
+</script>
 </div>
 
 </div>

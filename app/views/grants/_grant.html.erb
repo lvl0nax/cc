@@ -9,7 +9,7 @@
     <% end %>
     <span><%= grant.nation %></span>
     <span class="spright"><%= grant.start_date.strftime('%H:%m') %></span>
-    <span class="spsize"><%= grant.title %></span>
+    <span class="spsize"><%= grant.title.truncate(16) %></span>
     <div class="clr"></div>
   </div>
   <section class="pk_popup grant">
@@ -61,12 +61,21 @@
         
         <div class="text">
           ДОБАВИЛ:
-          <div class="username"><a href="">         
-            <% unless event_user.resume.nil?%>
-              <%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
-            <%end%>
-            <% unless event_user.compinfo.nil? %>         
-              <%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+          <div class="username"><a href="">
+            <%if user_signed_in? %>         
+              <% unless event_user.resume.nil?%>
+                <%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+              <%end%>
+              <% unless event_user.compinfo.nil? %>         
+                <%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+              <%end%>
+            <%else%>
+              <% unless event_user.resume.nil?%>
+                <%= link_to event_user.resume.name + " " + event_user.resume.surname, '#'%>
+              <%end%>
+              <% unless event_user.compinfo.nil? %>         
+                <%= link_to event_user.compinfo.name, '#'%>
+              <%end%>
             <%end%>
           </a></div>
         </div>

@@ -78,7 +78,7 @@
           <p class="blackLower flr"><%= @user.resume.gender %></p>
           <div class="clr"></div>
           <p class="greenUpper fll">Дата рождения:</p>
-          <p class="blackLower flr"><%= @user.resume.birthday.strftime('%d/%m/%Y') %></p>
+          <p class="blackLower flr"><%= @user.resume.birthday.strftime('%d/%m/%Y') unless @user.resume.birthday.nil? %></p>
           <div class="clr"></div>
           <p class="greenUpper fll">Место жительства:</p>
           <p class="blackLower flr"><%= @user.resume.home %></p>

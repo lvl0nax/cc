@@ -234,6 +234,7 @@ Devise.setup do |config|
   config.omniauth :facebook, '467284030004822', 'aafe39928ddf00e6941e9891aca0fd69',
                   :strategy_class => OmniAuth::Strategies::Facebook
   require "omniauth-vkontakte"
-  config.omniauth :vkontakte, '3272966', 'INpVcqf88Luc5K7Ts4wk',
+  config.omniauth :vkontakte, '3376923', 'fTB3XQofxDZJIAG9FHDx',
                   :strategy_class => OmniAuth::Strategies::Vkontakte
+                  
 end

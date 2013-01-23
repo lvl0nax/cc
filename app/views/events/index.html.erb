@@ -27,6 +27,8 @@
 
     }
 
+
+
     function google_maps(id_map, x, y) {
 
        var latlng = new google.maps.LatLng(x, y); // Координаты карты
@@ -85,9 +87,7 @@
             $(function () {
                 $('.fjqtrans, .catsItem, .pchecks, .descripting').jqTransform();
             });
-            $('#train_filter').on('click', function(){
-              $('.moncon').show();
-            });
+
         </script>
         <%= javascript_include_tag 'sliding' %>
 
@@ -95,7 +95,7 @@
         <span class="lanelHead sizeBig">
           <span>Стажировки</span>
           <span class="fjqtrans">
-            <input type="checkbox" checked name="check_training" value="working" id='train_filter'/>
+            <input type="checkbox" checked name="check_training" value="working" />
           </span>
         </span>
           <span class="numerick"><%= @trainings_odobreno.count %></span>
@@ -317,7 +317,30 @@
         $('#filter').find('.jqTransformCheckbox').click(function(){$('form#filter').update_index()});
         $('.pk_popup, .moncon').click(function(event){
             event.stopPropagation();       
-        });
+        }).click(function () {
+          //$('.pk_popup').css({'display':'none'});
+          $(this).children(".pk_popup").fadeIn(600);
+          var w = ($(this).children(".pk_popup").width())/2;
+          $(this).children(".pk_popup").css({'margin-top':-w});
+
+           var id_map = $(this).find('.mapwrap').attr('id'),
+            x = $(this).find('#x_coor').val(),
+            y = $(this).find('#y_coor').val();
+            
+            if((x == undefined)||(x == '')){
+              x = 49.83209;
+              y = 23.975322;
+            }
+              
+            if($(this).find('.mapwrap').data('type') != 'Grant'){
+              google_maps(id_map, x, y);
+            } 
+
+
+      });    
+  $(".close_popup").click(function () {
+    $(this).parent(".pk_popup").fadeOut(600);
+  });       
 
     });
 
@@ -334,11 +357,11 @@
         $(elem).children(".w203").css({'display':'block'});
     }
 
-    $('.monthhover ul li').click(function(){
+    /*$('.monthhover ul li').click(function(){
       var m_array = ['jan', 'feb', 'mar', 'apr', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec']
       var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; });
       $('#filter').update_index($elems.index(this));
-      /*var train = $('#train_filter').attr('checked');
+      var train = $('#train_filter').attr('checked');
       if(train !='checked'){
         $('.moncon').hide();
       }
@@ -353,7 +376,7 @@
         $('.look_for').eq(0).attr('id', month);
         $('#'+month).attr('src', '/assets/'+month+'.png');   
         $('#'+month).parent('div.moncon').show();        
-      }*/
-    });
+      }
+    });*/
      
 </script>

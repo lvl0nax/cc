@@ -11,8 +11,6 @@ class Resume
   field :crop_y, :type => Integer
   field :crop_w, :type => Integer
   field :crop_h, :type => Integer
-
-
   
   field :name, :type => String
   field :surname, :type => String

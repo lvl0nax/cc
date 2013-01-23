@@ -1,4 +1,8 @@
 <%= javascript_include_tag 'social-likes.min22' %>  
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?76"></script>
+<script type="text/javascript">
+  VK.init({apiId: 3376923, onlyWidgets: true});
+</script>
 
 <div id="headerWrap">
 
@@ -7,13 +11,16 @@
   <div class="headerupwrap">
 
     <div style="display: inline;background-color: white; padding: 7px;">
-        <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+        <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>        
+        
         <div style="display: inline;" id="vk_like"></div>
     </div>
-
-    <script type="text/javascript">
+<script type="text/javascript">
+VK.Widgets.Like("vk_like", {type: "full"});
+</script>
+    <!--script type="text/javascript">
         VK.Widgets.Like("vk_like", {type: "mini", height: 18});
-    </script>
+    </script-->
 
     <% unless current_user %>
         <span class="error_autor" style="position: absolute; top: 0px; left: 260px;color: #ff0000; margin-left: 20%;"></span>
@@ -463,7 +470,7 @@ function twitter(val)
 var TITLE = val.parent().parent().find("h2").html();
 var temp = new Array();
 temp = TITLE.split('—');
-TITLE = 'Центр карьеры.' + temp[0] + ' ' + 'http://'+location.host;
+TITLE = 'Центр карьеры.' + temp[0];
 var URL = 'http://'+location.host;
 
 Share.twitter(URL,TITLE);

@@ -10,3 +10,8 @@ count += Grant.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:st
 	<%= link_to "НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ (#{@count})", not_approved_events_path %> |
 <%= link_to "РЕДАКТИРОВАНИЕ СТРАНИЦ", pages_path %>
 </div>
+<script>
+$(function () {
+                $('.fjqtrans, .catsItem, .pchecks').jqTransform();
+            });
+</script>

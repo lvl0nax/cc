@@ -30,3 +30,9 @@
     </ul>
     </div>
 </div>
+<script>
+$('.monthhover ul li').click(function(){      
+      var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; });
+      $('#filter').update_index($elems.index(this));  
+    });
+</script>

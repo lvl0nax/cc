@@ -100,12 +100,20 @@
             ДОБАВИЛ:
 
             <div class="username"><a href="">
-              
-              <% if event_user.resume%>
-              <%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
-              <%end%>
-              <% if event_user.compinfo %>          
-                <%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+              <%if user_signed_in? %>
+                <% if event_user.resume%>
+                <%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+                <%end%>
+                <% if event_user.compinfo %>          
+                  <%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+                <%end%>
+              <%else%>
+                <% if event_user.resume%>
+                <%= link_to event_user.resume.name + " " + event_user.resume.surname, '#'%>
+                <%end%>
+                <% if event_user.compinfo %>          
+                  <%= link_to event_user.compinfo.name, '#'%>
+                <%end%>
               <%end%>
             </a></div>
           </div>

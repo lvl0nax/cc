@@ -13,7 +13,7 @@
     <%elsif event.class.name.eql?('Event')%>
       событие
     <%elsif event.class.name.eql?('Training')%>
-      тренинг
+      стажировка
     <%end%>
   </span>
 
@@ -32,7 +32,7 @@
 
   <span class="spright"><%= event.start_date.strftime("%H:%M") %></span>
 
-  <span class="spsize"><%= event.title %></span>
+  <span class="spsize"><%= event.title.truncate(24) %></span>
 
   <%if event.class.name.eql?('Grant')%>
     <%= render 'pk_popup_grant', :event => event, :index => index %>

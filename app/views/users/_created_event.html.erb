@@ -11,9 +11,9 @@
     <%if item.class.name.eql?('Grant')%>
       грант
     <%elsif item.class.name.eql?('Event')%>
-      sobutie
+      событие
     <%elsif item.class.name.eql?('Training')%>
-      trening
+     стажировка
     <%end%>
   </span>
 
@@ -32,9 +32,19 @@
   <span><%= item.nation %></span>
 
   <span class="spright"><%= item.start_date.strftime("%H:%M") %></span>
-
-  <span class="spsize"><%= item.title %></span>
   
+  <% if item.nation.blank?%>
+    <%if item.title.length > 21%>
+      <span class="spsize"><%= item.title.truncate(24) %></span>
+    <%else%>
+      <span class="spsize"><%= item.title %></span>
+    <%end%>
+  <%else%>
+    <% if item.nation.length < 21%>
+      <span class="spsize">&nbsp;<%= item.title.truncate(25 - item.nation.length) %></span>
+    <%end%>
+  <%end%>
+
   <div class='edit_events' >
     <span class='stat' data-id='<%= item.id%>'> <%=item.status%> </span>    
   </div>

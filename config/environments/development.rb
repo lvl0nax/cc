@@ -14,19 +14,22 @@ TestMongoid::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  #config.action_mailer.raise_delivery_errors = false
+ 
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
   # A dummy setup for development - no deliveries, but logged
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }    
+
+  config.action_mailer.delivery_method = :smtp 
+
   config.action_mailer.raise_delivery_errors = true
+  
+  # A dummy setup for development - no deliveries, but logged 
+  
+  config.action_mailer.perform_deliveries = false
+  
   config.action_mailer.default :charset => "utf-8"
-
-
-
-
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -40,18 +43,24 @@ TestMongoid::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  #config.action_mailer.delivery_method = :letter_opener
 
-  ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :domain               => "gmail.com",
-  :user_name            => "monax.spam@gmail.com",
-  :password             => "code4fun",
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-}
-
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    # config.action_mailer.default_charset = "utf-8"
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.smtp_settings = {
+    :domain          => "gmail.com",
+    :address         => 'smtp.gmail.com',
+    :port            => 587,
+    :tls             => true,
+    :authentication  => :plain,
+    :user_name       => 'spam.ruby29@gmail.com',
+    :password        => 'spam.ruby'
+  }
   #we should use
   # user_name: env["GMAIL_USERNAME"] => export GMAIL_USERNAME="name@gmail.com"
   # password: ENV["GMAIL_PASSWORD"] => export GMAIL_PASSWORD="secret"
+
 end

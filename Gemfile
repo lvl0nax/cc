@@ -1,10 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.2'
-
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-gem 'vkontakte_api'
+
 gem 'execjs'
 gem 'therubyracer'
 gem 'json'
@@ -20,6 +19,7 @@ gem 'nifty-generators'
 gem 'tinymce_fm'
 
 gem "tlsmail"
+
 
 gem "will_paginate", "> 3.0"
 gem "will_paginate_mongoid"
@@ -83,3 +83,8 @@ group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
 end
+
+group :development do  
+  gem 'letter_opener'
+end
+

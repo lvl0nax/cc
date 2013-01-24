@@ -1,11 +1,12 @@
 # encoding: utf-8
 
 class UserMailer < ActionMailer::Base
-  default from: "monax.spam@gmail.com"
+  default from: "spam.ruby29@gmail.com"
 
   def info_email(user)
   	@user = user #initiate user #user.email,
-  	mail(to: "center.cariery@gmail.com")
+  	# mail(to: "center.cariery@gmail.com")
+    mail(to: "vadim.motsuch@gmail.com")
   end
 
   def spamer
@@ -17,7 +18,7 @@ class UserMailer < ActionMailer::Base
   def register(user)
     @user = user
     mail :to => user.email, :from => 'info@centercareer.ru', :subject => 'CareerCenter Registration'
-  end
+  end  
 
   def self.subscription
     content = mail(:subject => 'ЦЕНТР КАРЬЕРЫ').body.decoded

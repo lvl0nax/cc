@@ -14,7 +14,6 @@ class Users::OmniauthCallbacksController < ApplicationController
       type_ed = I18n.t request.env["omniauth.auth"][:extra][:raw_info][:education][count-1][:type] if count>0
       concentration = request.env["omniauth.auth"][:extra][:raw_info][:education][count-1][:concentration][0][:name] if count>0
       w_count = request.env["omniauth.auth"][:extra][:raw_info][:work].count
-
       # if w_count>0
         # st_date = request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:start_date]
       # tmp = st_date.split(".")
@@ -43,7 +42,7 @@ class Users::OmniauthCallbacksController < ApplicationController
         # @user.resume.save
           # @user.resume.experience_works = ExperienceWork.new(:experience_from=>st_date, :experience_to=>end_date,
           # :experience_company=>w_name, :experience_position=>w_pos)
-      @user.resume.experience_works_attribute = ExperienceWork.new()
+      # @user.resume.experience_works_attribute = ExperienceWork.new()
         
       end
       
@@ -58,7 +57,7 @@ class Users::OmniauthCallbacksController < ApplicationController
   def vkontakte
   	@user = User.find_for_vkontakte_oauth(request.env["omniauth.auth"], "employee")
     if @user.persisted?
-      @vk = VkontakteApi::Client.new
+      # @vk = VkontakteApi::Client.new
       uid = request.env["omniauth.auth"][:uid]
       # user_vk = @vk.users.get(uid: uid,fields: [:first_name, :last_name, :education, :university, :online, :counters])
       # education = user_vk

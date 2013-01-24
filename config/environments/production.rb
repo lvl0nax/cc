@@ -27,7 +27,19 @@ TestMongoid::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
-
+Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+  :domain          => "gmail.com",
+  :address         => 'smtp.gmail.com',
+  :port            => 587,
+  :tls             => true,
+  :authentication  => :plain,
+  :user_name       => 'spam.ruby29@gmail.com',
+  :password        => 'spam.ruby'
+}
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
@@ -54,7 +66,7 @@ TestMongoid::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false 
 
   # Enable threaded mode
   # config.threadsafe!

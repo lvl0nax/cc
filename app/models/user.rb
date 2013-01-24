@@ -69,7 +69,7 @@ class User
   accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
 
   def deliver_email
-    UserMailer.register(self).deliver
+    UserMailer2.register(self).deliver
   end
 
   def subscribe_to_unisender

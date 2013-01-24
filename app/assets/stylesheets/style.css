@@ -747,6 +747,8 @@ header a:hover {
 }
 .pk_popup .head h2 {
   float: left;
+  width: 545px;
+  line-height: 25px;
 }
 .pk_popup .head .social {
   float: right;
@@ -909,6 +911,8 @@ header a:hover {
 }
 .pk_popupcd .head h2 {
   float: left;
+  width: 545px;
+  line-height: 25px;
 }
 .pk_popupcd .head .social {
   float: right;
@@ -1432,20 +1436,20 @@ header a:hover {
   border: 1px solid #c9db57;
 }
 .filterMain .filterStaz .vupad .sam2 {
-  width: 329px;
+  width: 310px;
 }
 .filterMain .filterStaz .vupad .sam2 .all {
   background-image: url(../images/arrdwn.png);
-  background-position: 306px 4px;
+  background-position: 290px 4px;
   background-repeat: no-repeat;
 }
 .filterMain .filterStaz .vupad .sam2.act {
   box-shadow: 2px 2px 3px -1px #eeeeee;
-  width: 327px;
+  width: 310px;
   border: 1px solid #c9db57;
 }
 .filterMain .filterStaz .vupad .sam2 span.descripting {
-  width: 293px !important;  
+  width: 283px !important;  
 }
 .filterMain .filterStaz .vupad .samvup,
 .filterMain .filterStaz .vupad .sampk {
@@ -1671,7 +1675,7 @@ header a:hover {
 .filterMain .filterGran .pchecks .opl {
   color: white;
   display: inline-block;
-  margin: 0 15px 0 9px;
+  margin: 0 12px 0 9px;
   font-size: 11px;
 }
 .filterMain .filterGran .pchecks .opl span {

@@ -67,8 +67,6 @@ class UsersController < ApplicationController
   def valid
     role = params[:user][:role][:name]
       #з фото
-    puts "role"
-    puts role
     if role == 'employer'
       if not params[:user][:compinfo].nil? and params[:user][:compinfo][:photo] and not cookies[:with_photo]
         # puts 'x0'
@@ -120,11 +118,11 @@ class UsersController < ApplicationController
       #user without photo
       if cookies[:delete_user].nil? and cookies[:with_photo].nil?
         # puts 'x5'
-        puts params[:user]
         @user = User.new(params[:user])
       end
-       @user.compinfo(:validate=>false)
+       @user.compinfo(:validate=>false) if role == "employer"
       if @user.save
+        # UserMailer.register(@user).deliver
         # puts 'x6'
         if temp == 0
           @user.role = Role.new(:name => "admin")
@@ -134,6 +132,7 @@ class UsersController < ApplicationController
           @user.resume = Resume.new(params[:user][:resume]) if role == "employee"
           @user.compinfo = Compinfo.new(params[:user][:compinfo]) if role == "employer"
           cookies.delete :with_photo
+          @user.resume.save
         end
 
         flash[:register] = true

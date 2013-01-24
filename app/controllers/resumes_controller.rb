@@ -55,7 +55,6 @@ class ResumesController < ApplicationController
   def create
     @resume = Resume.new(params[:resume])
     current_user.resume = @resume
-
     respond_to do |format|
       if current_user.save
         if params[:resume][:photo].present?
@@ -77,9 +76,12 @@ class ResumesController < ApplicationController
   # PUT /resumes/1.json
   def update    
     @resume = current_user.resume #Resume.find(params[:id])
-
+ 
     #respond_to do |format|
-      if @resume.update_attributes(params[:resume])           
+     puts 'xxxxxxxxxxxxxxxxxxxxxxxx'     
+     puts params[:resume]
+      if @resume.update_attributes(params[:resume]) 
+
         if params[:resume][:photo].present?
             render :crop
         else                     

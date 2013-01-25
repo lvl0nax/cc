@@ -122,7 +122,7 @@
           <%= link_to 'РЕДАКТИРОВАТЬ', edit_resume_path(current_user.id), :class => 'redd' %>
           <p class="greenUpper fll wf">Подписатся на рассылку по интересующим меня сферам:</p>
           <div class="inputsOnPI">
-            <%if @user.resume.delivery_email.blank? %>
+            <%if @user.resume.delivery_email_enable.blank?  %>              
               <%= image_tag 'checkbigunch.png'%>            
             <%else%>
               <%= image_tag 'checkbigch.png'%>            

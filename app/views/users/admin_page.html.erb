@@ -9,9 +9,14 @@ count += Grant.any_in(:status => ["", "УДАЛЕНО", "НОВОЕ"]).where(:st
 	<%= link_to "CФЕРЫ", list_areas_path %> |
 	<%= link_to "НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ (#{@count})", not_approved_events_path %> |
 <%= link_to "РЕДАКТИРОВАНИЕ СТРАНИЦ", pages_path %>
+
+<div id='uni_send'>
+	<%= link_to "Uni Send", send_mails_path %>
 </div>
+
 <script>
 $(function () {
                 $('.fjqtrans, .catsItem, .pchecks').jqTransform();
             });
 </script>
+

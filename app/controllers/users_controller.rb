@@ -48,9 +48,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    puts params
+<<<<<<< HEAD
+    @user = User.find(params[:id])   
 
+=======
+    @user = User.find(params[:id])
+    
+>>>>>>> 7e10eafb8fe97a37f81f3a52cbbc6fc51fd74497
     if @user.valid_password?(params[:user][:current_password])
       if @user.update_attributes(params[:user])
         @message = 'Пароль изменен'
@@ -137,7 +141,7 @@ class UsersController < ApplicationController
 
         flash[:register] = true
 
-        sign_in('user', @user)
+        sign_in('user', @user)        
         path = edit_compinfo_path(@user.compinfo) if role == "employer"
         path = edit_resume_path(@user.resume) if role == "employee"
 
@@ -154,7 +158,7 @@ class UsersController < ApplicationController
             sign_in('user', @user)
             path = edit_compinfo_path(@user.compinfo)
             cookies.delete :with_photo
-            puts @user.compinfo.photo.url
+            
             return render :json => { :url => @user.compinfo.photo.url, success:true, path:path }
           else
             # puts 'x10'
@@ -185,5 +189,43 @@ class UsersController < ApplicationController
       item.visible = true
     end
     @user = current_user
+  end
+
+  def send_mails
+    @user_list = []
+    User.all.each do |user|
+      unless user.resume.nil?
+        if user.resume.delivery_email_enable == true or user.resume.delivery_phone_enable == true
+          @user_list << user
+        end
+      end
+    end
+    
+    @user_list.each do |user|
+      @event_list = []
+      user.areas.each do |u_area|
+        u_area.grants.each do |u_a_grant|
+          if u_a_grant.status == 'ОДОБРЕНО'
+            @event_list << u_a_grant
+          end
+        end
+        u_area.events.each do |u_a_event|
+          if u_a_event.status == 'ОДОБРЕНО'
+            @event_list << u_a_event
+          end
+        end
+        u_area.trainings.each do |u_a_training|
+          if u_a_training.status == 'ОДОБРЕНО'
+            @event_list << u_a_training
+          end
+        end
+      end
+      
+      str_name = user.resume.name + ' ' + user.resume.surname
+    end
+
+    puts 'XXXXX'*5
+    puts @user_list.count
+    redirect_to '/admin_page'
   end
 end

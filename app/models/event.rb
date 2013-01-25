@@ -39,6 +39,8 @@ class Event < EventParent
   has_and_belongs_to_many  :areas
   has_one :image
 
+  accepts_nested_attributes_for :areas, :image
+
   field :vk
   field :twitter
   field :afisha
@@ -58,7 +60,7 @@ class Event < EventParent
 
 
  
-  accepts_nested_attributes_for :areas, :image
+ 
 
 
  def self.payment

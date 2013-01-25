@@ -670,7 +670,7 @@ header a:hover {
   float: right;
 }
 .monih12 .monthcont .spsize {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 18px;
 }
 .monih12 .monthcont:hover {
@@ -700,13 +700,22 @@ header a:hover {
 .monih12 .bla span {
   color: #354242;
 }
-.pk_popup {
+/*.pk_popup {
   position: absolute;
   left: 50%;
   z-index: 555;
   margin-left: -310px;
   top: 710px;
+}*/
+
+.pk_popup {
+  position: absolute;
+  left: 50%;
+  z-index: 555;
+  margin-left: -310px;
+  top: 53%;
 }
+
 .pk_popupcd {
   position:fixed;
   left: 50%;
@@ -1086,9 +1095,9 @@ header a:hover {
 }
 .train .addtocallendar .jqTransformCheckbox {
   float: right !important;
-  margin-top: 23px !important;
+  /*margin-top: 23px !important;*/
   position: relative;
-  left: 0 !important;
+  /*left: 0 !important;*/
 }
 .train .head h2 {
   color: #c9db57 !important;
@@ -1103,7 +1112,7 @@ header a:hover {
   height: 20px;
   font-size: 14px;
   color: #354242;
-  margin-top: 25px;
+  /*margin-top: 25px;*/
   background: transparent;
   margin-bottom: 10px;
 }
@@ -2031,7 +2040,7 @@ header a:hover {
   margin-bottom: 10px;
 }
 .navadd form .label {
-  font-size: 12px;
+  font-size: 11px;
   color: #000;
   margin: 0;
 }
@@ -2431,8 +2440,12 @@ form .regtype img {
     border: none;
 }
 .edd_header_2 {
-  top: 61px !important;
-  left: 611px!important;
+  /*top: 61px !important;
+  left: 611px!important;*/
+  position: absolute !important;
+  right: 0 !important;
+  top: 67px !important;
+  left: auto !important;
 }
 .logouth2 {
   color: black;

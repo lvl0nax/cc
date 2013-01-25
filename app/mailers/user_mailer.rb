@@ -16,12 +16,14 @@ class UserMailer < ActionMailer::Base
   end
 
   def register(user)
+    @unisender2 ||= UniSender::Client.new("579fi6mwhe5ea7bj8z8sxt9htq44sygoyburwoto")
+    @unisender2.createList(:title => 'NewListUser')
     @user = user
     mail :to => user.email, :from => 'info@centercareer.ru', :subject => 'CareerCenter Registration'
   end  
 
   def self.subscription
-    content = mail(:subject => 'ЦЕНТР КАРЬЕРЫ').body.decoded
+    content = 'ЦЕНТР КАРЬЕРЫ'#mail(:subject => 'ЦЕНТР КАРЬЕРЫ').body.decoded
     self.unisender.send_email(
       :sender_name=> 'ЦЕНТР КАРЬЕРЫ', 
       :sender_email=>'uni.sender.gem@gmail.com',    
@@ -32,12 +34,14 @@ class UserMailer < ActionMailer::Base
   end
 
   def self.unisender
-    @unisender ||= UniSender::Client.new("5bbdgymgcpmbxkf4g9d9t8kxetfbpnsu6wgf573o")
+    @unisender ||= UniSender::Client.new("579fi6mwhe5ea7bj8z8sxt9htq44sygoyburwoto")
   end
 
-  def self.subscribe_lists
-    self.unisender.getLists['result'].map{|list| list['id'].to_i}
+  def self.subscribe_lists    
+    self.unisender.get_lists['result'].map{|list| list['id'].to_i}    
   end
+  #@client.get_lists['result'].each do |item|
+  #  puts "#{item['title']} #{item['id']}"
 
 
 end

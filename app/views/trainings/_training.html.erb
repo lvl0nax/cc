@@ -7,7 +7,7 @@
     <% else %>
       <%= image_tag Image.find(training.image_id).photo.thumb %>
     <% end %>
-    <span><%= training.nation %></span>
+    <span><%= training.nation %>&nbsp;</span>
     <span class="spright"><%= training.start_date.strftime('%H:%M') %></span>
     <span class="spsize"><%= training.title.truncate(16) %></span>
     <div class="clr"></div>

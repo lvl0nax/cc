@@ -7,7 +7,7 @@
     <% else %>
         <%= image_tag Image.find(grant.image_id).photo.thumb %>
     <% end %>
-    <span><%= grant.nation %></span>
+    <span><%= grant.nation %>&nbsp;</span>
     <span class="spright"><%= grant.start_date.strftime('%H:%m') %></span>
     <span class="spsize"><%= grant.title.truncate(16) %></span>
     <div class="clr"></div>
@@ -99,19 +99,5 @@
   </section>
 </div>
 <script>
-      $('.signature').on('click', function(){
-        var id_event = $(this).attr('id');
-        var str; 
-        if ($(this).is(':checked')){
-          str = 'remove';        
-        }
-        else{
-          str = 'add'
-        } 
-        $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
-                jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                }
-        });       
-        
-      });
+      
 </script>

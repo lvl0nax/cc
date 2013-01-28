@@ -97,7 +97,7 @@ $(document).ready(function () {
 
                 $(this).parents(".ffscr").animate({
 
-                    "height":"40px",
+                    "height":"60px",
 
                     "padding":"10px"
 

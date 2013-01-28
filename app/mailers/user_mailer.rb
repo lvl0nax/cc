@@ -40,8 +40,5 @@ class UserMailer < ActionMailer::Base
   def self.subscribe_lists    
     self.unisender.get_lists['result'].map{|list| list['id'].to_i}    
   end
-  #@client.get_lists['result'].each do |item|
-  #  puts "#{item['title']} #{item['id']}"
-
-
+  
 end

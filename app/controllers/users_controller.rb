@@ -48,13 +48,8 @@ class UsersController < ApplicationController
   end
 
   def update
-<<<<<<< HEAD
-    @user = User.find(params[:id])   
+    @user = User.find(params[:id])    
 
-=======
-    @user = User.find(params[:id])
-    
->>>>>>> 7e10eafb8fe97a37f81f3a52cbbc6fc51fd74497
     if @user.valid_password?(params[:user][:current_password])
       if @user.update_attributes(params[:user])
         @message = 'Пароль изменен'

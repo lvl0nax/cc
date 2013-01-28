@@ -209,6 +209,7 @@ a.jqTransformCheckbox {
   background-image: url("../images/checkbigch.png");
   background-repeat: no-repeat;
   background-position: center top;
+  background-size: cover;
   vertical-align: middle;
   height: 19px;
   width: 19px;
@@ -234,6 +235,7 @@ a.jqTransformChecked {
 .pchecks a.jqTransformChecked {
   background: url(../images/checkbigch.png) !important;
   background-position: center top !important;
+  background-size: cover;
 }
 .sizeBig .jqTransformCheckboxWrapper {
   margin-left: 3px;
@@ -246,6 +248,7 @@ a.jqTransformChecked {
 .catsItem a.jqTransformChecked {
   background: url(../images/checknbgreen.png) !important;
   background-position: center bottom !important;
+  background-size: cover;
 }
 .catsItem a.jqTransformCheckbox {
   width: 11px;
@@ -264,6 +267,7 @@ a.jqTransformChecked {
 .tv_sizeBig a.jqTransformChecked {
   background: url(../images/checkbigch.png) !important;
   background-position: center top !important;
+  background-size: cover;
 }
 .tv_sizeBig .jqTransformCheckboxWrapper {
   margin-left: 3px;
@@ -1545,7 +1549,7 @@ header a:hover {
   left: -6px;
 }
 .filterMain .filterSob {
-  height: 40px;
+  height: 60px;
   padding: 10px;
   background: url(../images/sobut_bg.png);
   margin-bottom: 5px;
@@ -1612,7 +1616,7 @@ header a:hover {
   width: 293px !important;
 }
 .filterMain .filterSob .vupad .samvup {
-  margin-right: 5px;
+  margin-bottom: 8px;
   display: inline-block;
   float: left;
   height: 15px;

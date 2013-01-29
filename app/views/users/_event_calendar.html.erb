@@ -32,7 +32,7 @@
 
   <span class="spright"><%= event.start_date.strftime("%H:%M") %></span>
 
-  <span class="spsize"><%= event.title.truncate(24) %></span>
+  <span class="spsize">&nbsp;<%= event.title.truncate(23) %></span>
 
   <%if event.class.name.eql?('Grant')%>
     <%= render 'pk_popup_grant', :event => event, :index => index %>

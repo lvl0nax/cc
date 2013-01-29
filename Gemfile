@@ -10,7 +10,7 @@ gem 'json'
 
 gem 'rspec-rails'
 gem 'database_cleaner'
-
+gem 'starling'
 gem 'mongoid', '3.0' #'2.4.11'
 gem 'bson_ext', :require => false
 gem 'devise'

@@ -9,11 +9,13 @@ class Users::OmniauthCallbacksController < ApplicationController
       description = request.env["omniauth.auth"][:info][:description]
 
       gender = I18n.t request.env["omniauth.auth"][:extra][:raw_info][:gender]
-      count = request.env["omniauth.auth"][:extra][:raw_info][:education].count
+      count = request.env["omniauth.auth"][:extra][:raw_info][:education].count if request.env["omniauth.auth"][:extra][:raw_info][:education]
+      if not count.nil?
       scool_name = request.env["omniauth.auth"][:extra][:raw_info][:education][count-1][:school][:name] if count>0
       type_ed = I18n.t request.env["omniauth.auth"][:extra][:raw_info][:education][count-1][:type] if count>0
       concentration = request.env["omniauth.auth"][:extra][:raw_info][:education][count-1][:concentration][0][:name] if count>0
-      w_count = request.env["omniauth.auth"][:extra][:raw_info][:work].count
+      end
+      # w_count = request.env["omniauth.auth"][:extra][:raw_info][:work].count
       # if w_count>0
         # st_date = request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:start_date]
       # tmp = st_date.split(".")
@@ -26,18 +28,12 @@ class Users::OmniauthCallbacksController < ApplicationController
           # elsif not end_date and w_count>0
         # end_date = Time.now
       # end
-      # puts 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
       # puts request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:employer][:name]
 
       # w_name = request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:employer][:name] if w_count>0
       # w_pos = request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:position][:name] if w_count>0
-      # puts 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-      # puts w_name
-      # puts w_pos
-      # puts st_date
-      # puts end_date
       if @user.resume.nil? 
-        @user.resume  = Resume.new(:name=>name,:surname=>l_name,:gender=>gender,:education=>type_ed,
+        @user.resume  = Resume.new(:name=>name,:surname=>l_name,:sex=>gender,:education=>type_ed,
           :university=>scool_name, :faculty=>concentration, :description=>description)
         # @user.resume.save
           # @user.resume.experience_works = ExperienceWork.new(:experience_from=>st_date, :experience_to=>end_date,
@@ -65,24 +61,26 @@ class Users::OmniauthCallbacksController < ApplicationController
       l_name = request.env["omniauth.auth"][:extra][:raw_info][:last_name]
       birthday = request.env["omniauth.auth"][:extra][:raw_info][:bdate]
       tmp = birthday.split(".")
-      birthday = tmp.join("-").to_date
+      unless tmp.count < 3
+        birthday = tmp.join("-").to_date
+      else 
+        birthday = nil
+      end
       location = request.env["omniauth.auth"][:info][:location]
      
-      gender = I18n.t request.env["omniauth.auth"][:extra][:raw_info][:sex]
-      if gender==1
+      gender = request.env["omniauth.auth"][:extra][:raw_info][:sex]
+      if gender == 1
         gender="женский"
-      elsif gender==2
+      elsif gender == 2
         gender="мужской"
       else
         gender==" "
       end
     
       if @user.resume.nil?
-        @user.resume  = Resume.new(:name=>name,:surname=>l_name,:gender=>gender, :birthday=>birthday, 
+        @user.resume  = Resume.new(:name=>name,:surname=>l_name,:sex=>gender, :birthday=>birthday, 
           :home=>location) 
       end
-  # @data = MultiJson.decode(@access_token.get("https://api.vk.com/method/getProfiles?uids=#{@access_token["user_id"]}&fields=nickname,domain,sex,birthdate,timezone,photo_big,rate,contacts,education"))["response"][0]
-      # puts @data
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Vkontakte"
       sign_in_and_redirect @user, :event => :authentication
     else

@@ -126,6 +126,7 @@ figure video {
   height: auto !important;
   min-height: 100%;
   min-width: 850px;
+  padding-bottom: 50px;
 }
 /* Header
 -----------------------------------------------------------------------------*/
@@ -151,6 +152,7 @@ header {
   position: fixed;
   bottom: 0px;
   background: white;
+  z-index: 1000;
 
 }
 footer {
@@ -715,11 +717,12 @@ header a:hover {
 }*/
 
 .pk_popup {
-  position: absolute;
-  left: 50%;
-  z-index: 555;
-  margin-left: -310px;
-  top: 53%;
+    left: 50%;
+    margin-left: -310px;
+    margin-top: -310px;
+    position: fixed;
+    top: 50%;
+    z-index: 555;
 }
 
 .pk_popupcd {
@@ -2284,9 +2287,9 @@ form .regtype img {
   margin-top: 10px;
   border: none;
   width: 100%;
-  height: 11px;
+  height: 18px;
   padding-bottom: 2px;
-  line-height: 1px;
+  line-height: 18px;
   background: #354242;
   border: 1px solid #919898;
   text-align: center;
@@ -2798,7 +2801,7 @@ form .regtype img {
 }
 .monih12 .monthhover ul {
     width: 223px;
-    height: 193px;
+    height: 189px;
     overflow: scroll;
 }
 .monih12 .monthhover ul li {

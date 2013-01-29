@@ -54,7 +54,7 @@ class TrainingsController < ApplicationController
     @malala = 'bfdgfdgdfg2222'
     respond_to do |format|
       if @training.save
-        @malala = 'bfdgfdgdfg'
+        
         # deleting cookie with image id, if it exists
        # cookies.delete :training_image unless cookies[:training_image].nil?
         format.html { redirect_to root_path, notice: 'Training was successfully created.' }

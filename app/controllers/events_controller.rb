@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   if not params[:month].nil? or not cookies[:month].blank?
     month = params[:month].to_i % 12
     year = params[:month].to_i / 12
-    now = DateTime.now.change(:month => month + 1, :year=> 2012 + year)
+    now = DateTime.now.change(:day => 1, :month => month + 1, :year=> 2012 + year)
     @trainings = Training.where(:status=>'ОДОБРЕНО') if @trainings.nil?
     @trainings = @trainings.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_training].nil?
     

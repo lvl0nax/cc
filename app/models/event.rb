@@ -24,13 +24,13 @@ class Event < EventParent
   field :y_coordinate, :type => Float
   field :visible, :type => Boolean
   field :payment, :type => Array
+  field :area_types, :type => Array
 
   validates_presence_of :title, :message => 'Обязательно'
   validates_presence_of :description, :message => 'Обязательно'
 
   mount_uploader :photo, ImageUploader
-
-  field :area_types, :type => Array
+  
 
   def self.area_types
     ["НАУЧНЫЕ КОНФЕРЕНЦИИ", "КАРЬЕРНЫЕ СОБЫТИЯ"]

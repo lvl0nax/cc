@@ -75,7 +75,7 @@
           <p class="blackLower flr"><%= @user.resume.surname %></p>
           <div class="clr"></div>
           <p class="greenUpper fll">Пол:</p>
-          <p class="blackLower flr"><%= @user.resume.gender %></p>
+          <p class="blackLower flr"><%= @user.resume.sex %></p>
           <div class="clr"></div>
           <p class="greenUpper fll">Дата рождения:</p>
           <p class="blackLower flr"><%= @user.resume.birthday.strftime('%d/%m/%Y') unless @user.resume.birthday.nil? %></p>
@@ -96,7 +96,11 @@
           <p class="blackLower flr"><%= @user.resume.faculty %></p>
           <div class="clr"></div>
           <p class="greenUpper fll">Дата окончания:</p>
-          <p class="blackLower flr"><%= @user.resume.experation.to_date.strftime('%d/%m/%Y') unless @user.resume.experation.nil? %></p>
+          <p class="blackLower flr">
+            <% unless @user.resume.experation.class.name.eql?('String') %>
+              <%= @user.resume.experation.to_date.strftime('%d/%m/%Y') unless @user.resume.experation.nil? %>
+            <%end%>
+          </p>
           <div class="clr"></div>
         </div>        
         <div class="pi">          

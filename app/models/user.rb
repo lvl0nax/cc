@@ -16,6 +16,7 @@ class User
   field :url,              :type => String, :default => ""
   field :username,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
+  field :timenow, :type=>Integer, :default=>0
   #field :name
   mount_uploader :photo, ImageUploader
   

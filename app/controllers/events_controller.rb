@@ -55,6 +55,7 @@ class EventsController < ApplicationController
   months =  %w[jan feb mar apr may june july aug sept oct nov dec]
   years.each do |year|      
       months.each_with_index do |month, index|
+        puts ''+year.to_s+' '+index.to_s
         if Grant.month(index, year.to_i).count > 0 || Event.month(index, year.to_i).count > 0 || Training.month(index, year.to_i).count > 0
           
           @events << Month.new(:number=>index, :name=>month)           

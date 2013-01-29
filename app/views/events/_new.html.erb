@@ -13,7 +13,7 @@
  
 
   <span class="label">ГОРОД</span><%= f.text_field :city, :class=>"text fr", :style=>"width:256px; margin-bottom: 5px;" %><div class="clr"></div>
-  <span class="label" style="float:left">УЛИЦА</span><div class="fr">
+  <span class="label" style="float:left">УЛИЦА</span><div class="fr" style="width:268px;">
   <%= f.text_field :street, :class=>"text fl", :style=>"width:184px;" %>
   <span class="label" class="fl" style="margin: 0 3px; float:left;">ДОМ</span>
   <%= f.text_field :building, :class=>"text fr", :style=>"width:22px;" %>
@@ -86,7 +86,7 @@
 <div class="datesel300 large_select" style="width: 491px !important;">
   <div class="ficha">
  <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
-  <span style="margin: 0 8px;float:left;">С</span>
+  <span style="margin: 0 5px;">С</span>
      <%= f.time_select :tmp_date %>
      <span style="margin: 0 2px">ДО</span>
      <%= f.time_select :tmp_end_date %>

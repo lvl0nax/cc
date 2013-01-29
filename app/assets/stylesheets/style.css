@@ -144,11 +144,12 @@ header {
 /* Footer
 -----------------------------------------------------------------------------*/
 #footerWrap {
-  height: 60px;
+  height: 85px;
   margin: -60px auto 0;
   min-width: 850px;
   width: 100%;
-  position: relative;
+  position: fixed;
+  bottom: 0px;
   background: white;
 
 }
@@ -570,8 +571,8 @@ header a:hover {
 
 }
 .button {
-  position: relative;
-  left: 615px;
+  position: absolute;
+  left: 582px;
   font-size: 12px;
   width: 99px;
   height: 37px;
@@ -579,15 +580,16 @@ header a:hover {
   border: 1px solid #eeeeee;
 }
 .edd {
-  top: 61px;
-  left: 513px;
+  top: 90px;
+  left: 750px;
 }
 .eddlog {
   top: -10px;
   left: 590px;
 }
 .reg {
-  top: -5px;
+  top: 40px;
+  left: 750px;
   z-index: 200;
 }
 .button:hover {
@@ -818,10 +820,10 @@ header a:hover {
   margin-top: -25px;
   background: transparent;
   margin-bottom: 10px;
-  width: 180px;
+  width: 195px;
   display: block;
   position: relative;
-  margin-left: 4px;
+  margin-left: 0px;
 }
 .pk_popup .lside .addtocallendar .jqTransformCheckbox {
   float: right !important;
@@ -831,9 +833,9 @@ header a:hover {
 }
 .pk_popup .lside .addtocallendar span.jqTransformCheckboxWrapper {
   display: block !important;
-  width: 170px;
+  width: 20px;
   height: 20px;
-  position: absolute !important;
+  float:right;
 }
 .pk_popup .lside .date_wrap {
   font-size: 18px;
@@ -1121,7 +1123,7 @@ header a:hover {
   margin-bottom: 10px;
 }
 .train .rside {
-  width: 443px !important;
+  width: 415px !important;
 }
 .train .rside h3 {
   color: #c9db57 !important;
@@ -1166,7 +1168,7 @@ header a:hover {
   color: #354242;
 }
 .train .rside .trainright {
-  width: 236px;
+  width: 200px;
   float: right;
   margin-top: 5px;
 }
@@ -1318,7 +1320,8 @@ header a:hover {
 }
 #celendar_content .month_info .monthcont span.descripting .jqTransformCheckboxWrapper {
   position: absolute;
-  right: -13px;
+  right: -14px;
+  top: 0;
 }
 #celendar_content .pk_popupcd .lside .addtocallendar {
   width: 170px;
@@ -1326,7 +1329,7 @@ header a:hover {
 }
 #celendar_content .pk_popupcd .lside .addtocallendar .jqTransformCheckboxWrapper {
   position: absolute;
-  right: 0;
+  right: 7px;
 }
 
 #celendar_content .month_info .monthcont img {
@@ -1376,8 +1379,7 @@ header a:hover {
 .addtocallendar label span.descripting{
   font-size: 10px;
   line-height: 18px;
-  float: left;
-  position: absolute;
+  /*float: right;*/
 }
 .notfound h1 {
   text-align: center;
@@ -1537,7 +1539,7 @@ header a:hover {
 .filterMain .filterStaz .pchecks .opl {
   color: black;
   display: inline-block;
-  margin: 0 9px;
+  margin: 0 3px;
   font-size: 11px;
 }
 .filterMain .filterStaz .pchecks .opl span {
@@ -1920,7 +1922,7 @@ header a:hover {
   width: 100px;
   height: 1px;
   position: relative;
-  top: -42px;
+  top: -4px;
   right: -750px;
   z-index: 102;
 }
@@ -1959,7 +1961,7 @@ header a:hover {
   width: 850px;
   height: 1px;
   position: relative;
-  top: 60px;
+  top: 84px;
   right: 0px;
   z-index: 102;
 }
@@ -2129,7 +2131,7 @@ header a:hover {
 .navadd form .manycheck .pchecks .opl {
   float: left;
   line-height: 29px;
-  margin-left: 5px;
+  margin-left: 1px;
   margin-top: -2px;
 }
 .navadd form .manycheck .pchecks .opl span {
@@ -2169,6 +2171,9 @@ form input {
   border: 1px solid #c8c8c8;
   margin-top: 0px;
   padding: 2px 5px;
+}
+.reginp {
+  width: 219px;
 }
 form .yourlogo {
   float: right;
@@ -2442,14 +2447,6 @@ form .regtype img {
     color: #ffffff !important;
     font-size: 10px !important;
     border: none;
-}
-.edd_header_2 {
-  /*top: 61px !important;
-  left: 611px!important;*/
-  position: absolute !important;
-  right: 0 !important;
-  top: 67px !important;
-  left: auto !important;
 }
 .logouth2 {
   color: black;
@@ -2787,7 +2784,7 @@ form .regtype img {
 }
 .reger {
   margin-left: 170px;
-  width: 170px !important;
+  width: 200px !important;
 }
 .monih12 .monthhover {
     display: none;
@@ -2972,4 +2969,16 @@ form .regtype img {
 }
 #twitter_id:hover {
   background-position: bottom;
+}
+
+
+.lside > img{
+  width:195px!important;
+}
+
+#celendar_content .pk_popupcd .lside .addtocallendar{
+  width:200px!important;
+}
+.lside .jqTransformCheckboxWrapper{
+  margin:0!important;
 }

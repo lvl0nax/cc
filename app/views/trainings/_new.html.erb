@@ -19,7 +19,7 @@
         <div class="clr"></div>
         <span class="label" style="float:left">УЛИЦА</span>
 
-        <div class="fr">
+        <div class="fr" style="width:268px;">
           <%= f.text_field :street, :class => "text fl", :style => "width:184px;" %>
           <span class="label" class="fl" style="margin: 0 3px; float:left;">ДОМ</span>
           <%= f.text_field :building, :class => "text fr", :style => "width:22px;" %>
@@ -310,7 +310,7 @@
       <span class="label">ФОТО:</span>
 
       <div class="photo">
-        <%= image_tag "contimg4.png" %>
+        <%= image_tag "contimg6.png" %>
         <%= fields_for 'training[u_image]' do |img|%>
             <%= img.file_field :photo %>
         <% end %>

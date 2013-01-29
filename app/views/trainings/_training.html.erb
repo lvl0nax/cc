@@ -44,7 +44,7 @@
       <div class="catsItem addtocallendar" >
         <label>
           
-          <span class="descripting" style='margin: 0 3px !important;'>ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
+          <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
             <%if user_signed_in? %>
               <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => training.id).present?%>
                 <input type="checkbox" name="" id="<%= training.id%>" class='signature' checked>

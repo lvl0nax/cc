@@ -2,22 +2,22 @@
     <div id='error_compinfo'></div>
     <div class="clr"></div>
     <%= f.fields_for @user.compinfo ||= Compinfo.new do |comp| %>
-        <span class='somename'>НАЗВАНИЕ КАМПАНИИ</span><%= comp.text_field :name %>
+        <span class='somename'>НАЗВАНИЕ КАМПАНИИ</span><%= comp.text_field :name, :class => "reginp"%>
         <span class='somename'>ЛОГОТИП</span><%= image_tag 'formlogobg.png', class:"yourlogo"%>
         <%= comp.file_field :photo, :style => 'display:none'%>
         <div class="clr"></div>
-        <span class='somename'>ГОРОД</span><%= comp.text_field :city %>
-        <span class='somename'>УЛИЦА</span><%= comp.text_field :street %>
-        <span class='somename'>ДОМ</span><%= comp.text_field :building %>
-        <span class="spanmin somename">КОНТАКТНАЯ  ИНФОМРАЦИЯ</span><%= comp.text_field :info %>
-        <span class='somename'>ССЫЛКА НА САЙТ</span><%= comp.text_field :hyperlink %>
+        <span class='somename'>ГОРОД</span><%= comp.text_field :city, :class => "reginp" %>
+        <span class='somename'>УЛИЦА</span><%= comp.text_field :street, :class => "reginp" %>
+        <span class='somename'>ДОМ</span><%= comp.text_field :building, :class => "reginp" %>
+        <span class="spanmin somename">КОНТАКТНАЯ  ИНФОМРАЦИЯ</span><%= comp.text_field :info, :class => "reginp" %>
+        <span class='somename'>ССЫЛКА НА САЙТ</span><%= comp.text_field :hyperlink, :class => "reginp" %>
     <% end %>
-    <span class='somename'>E-MAIL </span><%= f.text_field :email, :id => 'corp_email' %> <span class="error reger"></span>
+    <span class='somename'>E-MAIL </span><%= f.text_field :email, :id => 'corp_email', :class => "reginp" %> <span class="error reger"></span>
     <%= f.fields_for @user.role ||= Role.new do |role| %>
         <%= role.hidden_field :name, :value => 'employer' %>
     <% end %>
-    <span class='somename'>ПАРОЛЬ </span><%= f.password_field :password, :id => 'corp_password' %> <span class="error reger"></span>
-    <span class='somename'>ПАРОЛЬ ЕЩЕ РАЗ </span><%= f.password_field :password_confirmation, :id => 'corp_password_confirmation' %> <span class="error reger"></span>
+    <span class='somename'>ПАРОЛЬ </span><%= f.password_field :password, :id => 'corp_password', :class => "reginp" %> <span class="error reger"></span>
+    <span class='somename'>ПАРОЛЬ ЕЩЕ РАЗ </span><%= f.password_field :password_confirmation, :id => 'corp_password_confirmation', :class => "reginp" %> <span class="error reger"></span>
     <%= f.submit "ЗАРЕГИСТРИРОВАТЬСЯ", :class => "submitbtn" %>
 <% end %>
 </div>
@@ -33,13 +33,13 @@
         <% end %>
       </div>
       <%= f.fields_for @user.resume ||= Resume.new do |res| %>
-          <span class='somename'>ИМЯ</span><%= res.text_field :name %>
-          <span class='somename'>ФАМИЛИЯ</span><%= res.text_field :surname %>
-          <span class='somename'>ГОРОД</span><%= res.text_field :home %>
+          <span class='somename'>ИМЯ</span><%= res.text_field :name, :class => "reginp" %>
+          <span class='somename'>ФАМИЛИЯ</span><%= res.text_field :surname, :class => "reginp" %>
+          <span class='somename'>ГОРОД</span><%= res.text_field :home, :class => "reginp" %>
       <% end %>
-      <span class='somename'>E-MAIL </span><%= f.text_field :email, :id => 'email_user' %> <span class="error reger"></span>     
-      <span class='somename'>ПАРОЛЬ </span><%= f.password_field :password, :id => 'password_user' %> <span class="error reger"></span>
-      <span class='somename'>ПАРОЛЬ ЕЩЕ РАЗ </span><%= f.password_field :password_confirmation %> <span class="error reger"></span>
+      <span class='somename'>E-MAIL </span><%= f.text_field :email, :id => 'email_user', :class => "reginp" %> <span class="error reger"></span>     
+      <span class='somename'>ПАРОЛЬ </span><%= f.password_field :password, :id => 'password_user', :class => "reginp" %> <span class="error reger"></span>
+      <span class='somename'>ПАРОЛЬ ЕЩЕ РАЗ </span><%= f.password_field :password_confirmation, :class => "reginp" %> <span class="error reger"></span>
       <%= f.fields_for @user.role ||= Role.new do |role| %>
           <%= role.hidden_field :name, :value => 'employee' %>
       <% end %>

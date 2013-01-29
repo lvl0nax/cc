@@ -17,12 +17,12 @@ class EventParent
   end
 
   def self.month(index, year)
-    now = DateTime.now.change(:month => index + 1, :year => year)
+    now = DateTime.now.change(:day => 1, :month => index + 1, :year => year)   
     self.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}, :status=>'ОДОБРЕНО')
   end
 
   def self.month_user_events(index, year)
-    now = DateTime.now.change(:month => index + 1, :year => year)
+    now = DateTime.now.change(:day => 1, :month => index + 1, :year => year)
     self.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month})
   end
 

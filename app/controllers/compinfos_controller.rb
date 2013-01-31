@@ -64,18 +64,19 @@ class CompinfosController < ApplicationController
   # PUT /compinfos/1
   # PUT /compinfos/1.json
   def update
-    @compinfo = User.find(current_user).compinfo
-
-    respond_to do |format|
-      if @compinfo.update_attributes(params[:compinfo])
-        format.html { redirect_to @current_user, notice: 'Информация успешно обновлена. Благодарим Вас за регистрацию.' }
-        format.json { head :ok }
-      else
-        redirect_to :controler => 'resumes', :action => "crop", :id => current_user.id
-        #format.html { render action: "edit" }
-        #format.json { render json: @compinfo.errors, status: :unprocessable_entity }
+    @compinfo = current_user.compinfo
+    
+    if @compinfo.update_attributes(params[:compinfo])        
+      if params[:compinfo][:photo].present?
+        render :crop
+      else                     
+        redirect_to @current_user, notice: 'Resume was successfully updated.'        
       end
-    end
+    else
+      redirect_to :controller => 'compinfos', :action => "crop", :id => current_user.id
+      #format.html { render action: "edit" }
+      #format.json { render json: @compinfo.errors, status: :unprocessable_entity }
+    end    
   end
 
   # DELETE /compinfos/1

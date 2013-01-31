@@ -1,17 +1,39 @@
 <script>    
-    function popup() {
-      var id_map = $(this).find('.mapwrap').attr('id'),
-      x = $(this).find('#x_coor').val(),
-      y = $(this).find('#y_coor').val();
+    /*function popup() {
+      console.log('here')    
+      $(".moncon").off('click');
+      //$(".moncon").on('click', function () {
+        console.log('done')    
       
-      if((x == undefined)||(x == '')){
-        x = 49.83209;
-        y = 23.975322;
-      }
+        $('.pk_popup').css({'display':'none'});
+        $(this).children(".pk_popup").fadeIn(600);
+        var w = ($(this).children(".pk_popup").width())/2;
+        $(this).children(".pk_popup").css({'margin-top':-w});
+
+        $('.fjqtrans, .catsItem, .pchecks, .descripting').jqTransform();            
+
+        var id_map = $(this).find('.mapwrap').attr('id'),
+        x = $(this).find('#x_coor').val(),
+        y = $(this).find('#y_coor').val();
         
-      if($(this).find('.mapwrap').data('type') != 'Grant'){
-        google_maps(id_map, x, y);
-      } 
+        if((x == undefined)||(x == '')){
+          x = 49.83209;
+          y = 23.975322;
+        }
+          
+        if($(this).find('.mapwrap').data('type') != 'Grant'){
+          google_maps(id_map, x, y);
+        }
+      
+      //});
+
+      $(".close_popup").click(function () {
+        $(this).parent(".pk_popup").fadeOut(600);
+      });    
+
+      $('.pk_popup, .moncon').click(function(event){
+        event.stopPropagation();
+      });
 
       $('.signature').on('click', function(){
         var id_event = $(this).attr('id');
@@ -27,23 +49,8 @@
               jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
                 }
         });
-      });     
-
-      $('.pk_popup').css({'display':'none'});
-
-      $('.bbg').addClass('bbgvisible');
-
-      $(this).children(".pk_popup").fadeIn(600);
-
-      $('.fjqtrans, .catsItem, .pchecks, .descripting').jqTransform();
-
-      var w = ($(this).children(".pk_popup").width())/2;
-
-      //$(this).children(".pk_popup").css({'margin-top':-w + $(wintod).scrollTo()});
-
-    }
-
-
+      });      
+    }*/
 
     function google_maps(id_map, x, y) {
 
@@ -268,8 +275,8 @@
 
   <%= javascript_include_tag 'events' %>
   <div class="monih12">    
-    <% @events.each do |event| %>        
-      <%= render event %>
+    <% @events.each do |event| %>              
+        <%= render event %>      
     <% end %>    
   </div>
 
@@ -282,93 +289,113 @@
 <script>
     $.fn.update_index = update_index;
 
-
-    function update_index(data) {
-        var $form = $(this);
-        if ($form.is('form#filter')) {
-            // Now we will do all the stuff
-            $.ajax({
-                url:'<%= events_path %>.json',
-                data:$form.serialize() + '&' + ids_on_page() + '&month=' + data,
-                type:'get',
-                dataType:'json'
-            }).done(function (result) {
-                        if(result.delete){
-                            for(var id in result.delete){
-                                $('.moncon[data-id="'+result.delete[id]+'"]').fadeOut();
-                            }
-                        }
-                        if(result.show){
-                            for(var id in result.show){
-                                $('.moncon[data-id="'+result.show[id]+'"]').fadeIn();
-                            }
-                        }
-                    });
-        }
+    function update_index(data, year) {
+      var $form = $(this);
+      if ($form.is('form#filter')) {
+          // Now we will do all the stuff
+          $.ajax({
+              url:'<%= events_path %>.json',
+              data:$form.serialize() + '&' + ids_on_page() + '&month=' + data + '&year=' + year,
+              type:'get',
+              dataType:'json'
+          }).done(function (result) {
+                      if(result.delete){
+                          for(var id in result.delete){
+                              $('.moncon[data-id="'+result.delete[id]+'"]').fadeOut();
+                          }
+                      }
+                      if(result.show){
+                          for(var id in result.show){
+                              $('.moncon[data-id="'+result.show[id]+'"]').fadeIn();
+                          }
+                      }
+                  });
+      }
     }
 
     function ids_on_page() {
-        var $ids = [];
-        $('.moncon').filter(function () {
-            return ($(this).data('id')) != undefined;
-        }).each(function (index, elem) {
-            $ids.push(($(elem).data('id')));
-        });
-        var query = "";
-        for(var elem in $ids)
-           query += 'grants[]=' + $ids[elem] + '&';
+      var $ids = [];
+      $('.moncon').filter(function () {
+          return ($(this).data('id')) != undefined;
+      }).each(function (index, elem) {
+          $ids.push(($(elem).data('id')));
+      });
+      var query = "";
+      for(var elem in $ids)
+         query += 'grants[]=' + $ids[elem] + '&';
 
-        return query;
+      return query;
     }
 
     $(".moncon").filter(function(){
       return $(this).children('first').is('img');        
     })
 
-
     $(document).ready(function(){
-      $('#filter').find('.jqTransformCheckbox').click(function(){$('form#filter').update_index()});
-        $('.pk_popup, .moncon').click(function(event){
-            event.stopPropagation();       
-        });
-        $('.moncon').live("click", popup);
-/*
-        .click(function () {
+      $('#filter').find('.jqTransformCheckbox').click(function(){$('form#filter').update_index()});      
+      
+      /*$(window).ready(function(){
+        console.log('cool2');
+        $('.moncon').eq(1).trigger('click')        
+      });*/
+
+      $('.moncon').on('click', function(){
+        console.log('here');
+        $('.pk_popup').css({'display':'none'});
+        $(this).children(".pk_popup").fadeIn(600);
+        
+        $(".moncon").off('click');
+        $(".moncon").on('click', function () {
+          console.log('done');
+          $('.fjqtrans, .catsItem, .pchecks, .descripting').jqTransform(); 
+        
           $('.pk_popup').css({'display':'none'});
           $(this).children(".pk_popup").fadeIn(600);
+          //var w = ($(this).children(".pk_popup").width())/2;
 
-           var id_map = $(this).find('.mapwrap').attr('id'),
-            x = $(this).find('#x_coor').val(),
-            y = $(this).find('#y_coor').val();
+          //$(this).children(".pk_popup").css({'margin-top':-w});
+          //$(this).children(".pk_popup").css({'margin-top':-w + $(wintod).scrollTo()});          
+
+          var id_map = $(this).find('.mapwrap').attr('id'),
+          x = $(this).find('#x_coor').val(),
+          y = $(this).find('#y_coor').val();
+          
+          if((x == undefined)||(x == '')){
+            x = 49.83209;
+            y = 23.975322;
+          }
             
-            if((x == undefined)||(x == '')){
-              x = 49.83209;
-              y = 23.975322;
-            }
-              
-            if($(this).find('.mapwrap').data('type') != 'Grant'){
-              google_maps(id_map, x, y);
-            }
-        });   */ 
-      $(".close_popup").click(function () {
-        $(this).parent(".pk_popup").fadeOut(600);
-      });
-
-      /*$('.signature').on('click', function(){
-        var id_event = $(this).attr('id');
-        var str; 
-        if ($(this).is(':checked')){
-          str = 'remove';        
-        }
-        else{
-          str = 'add'
-        } 
-        console.log(str);
-        $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
-              jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                }
+          if($(this).find('.mapwrap').data('type') != 'Grant'){
+            google_maps(id_map, x, y);
+          }
+        
         });
-      });*/
+
+        $(".close_popup").click(function () {
+          $(this).parent(".pk_popup").fadeOut(600);
+        });    
+
+        $('.pk_popup, .moncon').click(function(event){
+          event.stopPropagation();
+        });
+
+        $('.signature').on('click', function(){
+          var id_event = $(this).attr('id');
+          var str; 
+          if ($(this).is(':checked')){
+            str = 'remove';        
+          }
+          else{
+            str = 'add'
+          } 
+          console.log(str);
+          $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {
+                jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                  }
+          });
+        });
+
+      });
     });
 
 </script>

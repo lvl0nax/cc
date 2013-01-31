@@ -75,26 +75,22 @@ class ResumesController < ApplicationController
   # PUT /resumes/1
   # PUT /resumes/1.json
   def update    
-    @resume = current_user.resume #Resume.find(params[:id])
- 
-    #respond_to do |format|
-     puts 'xxxxxxxxxxxxxxxxxxxxxxxx'     
-     puts params[:resume]
-      if @resume.update_attributes(params[:resume]) 
+    @resume = current_user.resume #Resume.find(params[:id]) 
+    
+    if @resume.update_attributes(params[:resume]) 
 
-        if params[:resume][:photo].present?
-            render :crop
-        else                     
-          redirect_to current_user, notice: 'Resume was successfully updated.'
-          #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
-          #format.json { head :ok }
-        end
-      else        
-        redirect_to :controller => 'resumes', :action => "crop", :id => current_user.id
-        # format.html { render action: "edit" }
-        # format.json { render json: @resume.errors, status: :unprocessable_entity }
+      if params[:resume][:photo].present?
+          render :crop
+      else                     
+        redirect_to current_user, notice: 'Resume was successfully updated.'
+        #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
+        #format.json { head :ok }
       end
-    #end
+    else        
+      redirect_to :controller => 'resumes', :action => "crop", :id => current_user.id
+      # format.html { render action: "edit" }
+      # format.json { render json: @resume.errors, status: :unprocessable_entity }
+    end    
   end
 
   # DELETE /resumes/1

@@ -68,16 +68,18 @@ class UsersController < ApplicationController
       #з фото
     if role == 'employer'
       if not params[:user][:compinfo].nil? and params[:user][:compinfo][:photo] and not cookies[:with_photo]
+        puts 'x1'*10
         user = User.new(params[:user])
         compinfo = Compinfo.new(params[:user][:compinfo])
         user.compinfo = compinfo
         compinfo.save!
+        # user.after_create.reject!{|callback| callback.method.to_s == 'deliver_email'}
         user.save(:validate=>false)
         cookies[:with_photo] = user._id
-
         return render :json => {:url => compinfo.photo.url}
         #якщо змінив картинку
       elsif params[:user][:compinfo][:photo] and cookies[:with_photo]
+        puts 'x2'*10
         user = User.find(cookies[:with_photo])
         compinfo = Compinfo.new(params[:user][:compinfo])
         user.compinfo = compinfo
@@ -86,16 +88,18 @@ class UsersController < ApplicationController
         return render :json => {:url => compinfo.photo.url}
         #поставив картинку і перезагрузив сторінку
       elsif not params[:user][:compinfo][:photo] and cookies[:with_photo] and not params[:user]
+         puts 'x3'*10
         cookies[:delete_user] = cookies[:with_photo]
         cookies.delete :with_photo
       end
     end
 
     if role == "employer" or role == "employee"
-      
+       puts 'x4'*10
       temp = User.count
          #пошук юзера з картинкою
      if not cookies[:with_photo].nil?
+       puts 'x5'*10
         @user = User.find(cookies[:with_photo]) if role =='employer'
        #загрузив фотку і вирішив створити МС
         if role == 'employee'
@@ -105,16 +109,19 @@ class UsersController < ApplicationController
         end
         #перезагрузив під-час реєстрації(видалення непотрібного юзера)
      elsif not cookies[:delete_user].nil?
+       puts 'x6'*10
           user_delete =  User.find(cookies[:delete_user])
           user_delete.destroy
           cookies.delete :delete_user
       end
       #user without photo
       if cookies[:delete_user].nil? and cookies[:with_photo].nil?
+         puts 'x7'*10
         @user = User.new(params[:user])
       end
        @user.compinfo(:validate=>false) if role == "employer"
       if @user.save
+         puts 'x8'*10
         if temp == 0
           @user.role = Role.new(:name => "admin")
           @user.resume = Resume.new(params[:user][:resume])
@@ -136,10 +143,14 @@ class UsersController < ApplicationController
 
         render json:{ success:true, path:path }
       else
+
         if  @user.errors.count > 0 and not cookies[:with_photo]
+          puts 'x9'*10
           return render json: @user.errors
         elsif not cookies[:with_photo].nil? and @user.errors.count > 0
           if @user.update_attributes(params[:user])
+            UserMailer2.register(@user).deliver
+            puts 'x10'*10
             @user.role = Role.new(:name => role)
             sign_in('user', @user)
             path = edit_compinfo_path(@user.compinfo)

@@ -96,10 +96,7 @@
           <p class="blackLower flr"><%= @user.resume.faculty %></p>
           <div class="clr"></div>
           <p class="greenUpper fll">Дата окончания:</p>
-          <p class="blackLower flr">
-            <% unless @user.resume.experation.class.name.eql?('String') %>
-              <%= @user.resume.experation.to_date.strftime('%d/%m/%Y') unless @user.resume.experation.nil? %>
-            <%end%>
+          <p class="blackLower flr"><%= @user.resume.experation.to_date.strftime('%d/%m/%Y') unless @user.resume.experation.nil? %>            
           </p>
           <div class="clr"></div>
         </div>        
@@ -107,7 +104,7 @@
           <%= link_to 'РЕДАКТИРОВАТЬ', edit_resume_path(current_user.id), :class => 'redd' %>
           <% @experiences = @user.resume.experience_works%>
           <% @experiences.each do |experience|%>
-            <p class="blackLower flr mf"><span class="greenLower">с</span> <%= experience.experience_from.strftime('%d/%m/%Y') %> <span class="greenLower">по</span> <%= experience.experience_to.strftime('%d/%m/%Y') %></p>
+            <p class="blackLower flr mf"><span class="greenLower">с</span> <%= experience.experience_from.strftime('%d/%m/%Y') unless experience.experience_from.nil? %> <span class="greenLower">по</span> <%= experience.experience_to.strftime('%d/%m/%Y') unless experience.experience_to.nil? %></p>
             <div class="clr"></div>
             <p class="blackLower flr mf"><%= experience.experience_company %></p>
             <div class="clr"></div>

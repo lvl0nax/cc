@@ -10,7 +10,7 @@
 		@months =  %w[январь февраль март апрель май июнь июль август сентябрь октябрь ноябрь декабрь]
 	%>
 	<% @years.each do |year| %>
-		<% @months.each_with_index do |month, index| %>
+		<% @months.each_with_index do |month, index| %>			
 			<% if @items.month_user_events(index, year.to_i).count > 0 %>
 				<div class="month_title">
 	          		<div class="title_wrap">          
@@ -156,7 +156,7 @@
 	  }); 
 
 	}	
-</script>></div>
+</script></div>
 <script language="javascript">
   $(function(){
    $('.tv_sizeBig, .fjqtrans, .catsItem, .pchecks, .signature' ).jqTransform();

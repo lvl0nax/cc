@@ -2,37 +2,36 @@
     <%= image_tag month.name + '.png', :class=>'w203 look_for', :id => month.name %>
   <div class="monthhover">
     <ul>
-      <li class="now">январь</li>
-      <li>февраль</li>
-      <li>март</li>
-      <li>апрель</li>
-      <li>май</li>
-      <li>июнь</li>
-      <li>июль</li>
-      <li>август</li>
-      <li>сентябрь</li>
-      <li>октябрь</li>
-      <li>ноябрь</li>
-      <li>декабрь</li>
-      <li class="year"><span>2013</span></li>
-      <li>январь</li>
-      <li>февраль</li>
-      <li>март</li>
-      <li>апрель</li>
-      <li>май</li>
-      <li>июнь</li>
-      <li>июль</li>
-      <li>август</li>
-      <li>сентябрь</li>
-      <li>октябрь</li>
-      <li>ноябрь</li>
-      <li>декабрь</li>
+      <% months = %w[январь февраль март апрель май июнь июль август сентябрь октябрь ноябрь декабрь]        
+        part_months = []
+        years = [Time.now.year, Time.now.year+1]
+        month_now = Time.now.month-1
+        @index_one = 0
+        @index_two = month_now
+        (12 - month_now).times{
+          part_months[@index_one] = months[@index_two]
+          @index_one += 1
+          @index_two += 1
+        }
+        
+      %>
+      <%years.each do |year|%>
+        <li class="year"><span><%=year%></span></li>
+        <%part_months.each_with_index do |month, index|%>
+          <li data-num='<%= month_now + index%>' data-year='<%= year%>'><%= month%></li>
+        <%end%>
+        <%part_months = []
+        part_months = months
+        month_now = 0
+        %>
+      <%end%>      
     </ul>
     </div>
 </div>
 <script>
 $('.monthhover ul li').click(function(){      
-      var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; });
-      $('#filter').update_index($elems.index(this));  
+      var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; }); 
+      //console.log($(this).data('num')+ " " + $(this).data('year'))
+      $('#filter').update_index($(this).data('num'), $(this).data('year'));  
     });
 </script>

@@ -49,5 +49,8 @@
 	<div class="for_new_line"></div>
 	<label class="phone-show">ВАШ МОБИЛЬНЫЙ ТЕЛЕФОН</label><div class = "dv show"><%= @resume.delivery_phone %></div>
 	<div class="line"></div>
+	<label>Аккаунт Vkontakte</label><div class = "dv "><%= @connection.vk_id %></div>
+	<label>Аккаунт Facebook</label><div class = "dv "><%= @connection.fb_id %></div>
+	<div class="line"></div>
 
 	<%= link_to "РЕДАКТИРОВАТЬ", edit_resume_path(@resume) %>

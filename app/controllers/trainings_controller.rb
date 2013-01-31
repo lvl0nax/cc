@@ -95,10 +95,6 @@ class TrainingsController < ApplicationController
     end
   end
 
-  def send_mail
-    UserMailer.info_email(current_user).deliver
-  end
-
   def add_participant
     @training = Training.find(params[:id])
     current_user.trainings << @training

@@ -5,9 +5,9 @@ class EventsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @trainings_odobreno = Training.where(:status=>'ОДОБРЕНО')
-    @grants_odobreno = Grant.where(:status=>'ОДОБРЕНО')
-    @events_odobreno = Event.where(:status=>'ОДОБРЕНО')
+    @trainings_odobreno = Training.where(:status=>'ОДОБРЕНО', :request_date => {'$gte' => Time.now})
+    @grants_odobreno = Grant.where(:status=>'ОДОБРЕНО', :start_date => {'$gte' => Time.now})
+    @events_odobreno = Event.where(:status=>'ОДОБРЕНО', :request_date => {'$gte' => Time.now})
 
 
   @events = []
@@ -34,9 +34,9 @@ class EventsController < ApplicationController
   end #unless params[:check_training].nil?
 
   if not params[:month].nil? or not cookies[:month].blank?
-    month = params[:month].to_i % 12
-    year = params[:month].to_i / 12
-    now = DateTime.now.change(:day => 1, :month => month + 1, :year=> 2012 + year)
+    month = params[:month].to_i
+    year = params[:year].to_i
+    now = DateTime.now.change(:day => 1, :month => month + 1, :year=> year)
     @trainings = Training.where(:status=>'ОДОБРЕНО') if @trainings.nil?
     @trainings = @trainings.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_training].nil?
     
@@ -54,8 +54,7 @@ class EventsController < ApplicationController
   years = %w[2012 2013]
   months =  %w[jan feb mar apr may june july aug sept oct nov dec]
   years.each do |year|      
-      months.each_with_index do |month, index|
-        puts ''+year.to_s+' '+index.to_s
+      months.each_with_index do |month, index|        
         if Grant.month(index, year.to_i).count > 0 || Event.month(index, year.to_i).count > 0 || Training.month(index, year.to_i).count > 0
           
           @events << Month.new(:number=>index, :name=>month)           
@@ -72,7 +71,7 @@ class EventsController < ApplicationController
             end          
           end #if params[:check_grant].nil?
 
-          Event.month(index, year.to_i).each do |event|
+          Event.month(index, year.to_i).each do |event|            
             if @evs.nil?
               @events << event
               event.visible = true
@@ -103,7 +102,7 @@ class EventsController < ApplicationController
        months.each_with_index do |month, index|
         @events << Month.new(:number=>index, :name=>month)
        end
-    end
+    end   
 
   @events = @events.paginate(:page => params[:page], :per_page => 12)
 

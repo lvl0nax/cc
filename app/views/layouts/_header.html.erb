@@ -26,7 +26,7 @@
         <script type="text/javascript">
 
             $(document).ready(function () {
-
+                
                 $(".enter").click(function (e) {
                     e.preventDefault();
                     $("#autorization").css({'display':'block'});
@@ -78,7 +78,7 @@
             <div class="photo_login">
                 <%if current_user.resume.photo?%>
                     <%= image_tag current_user.resume.photo.url(:thumb) %>
-                    <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact'%>
+                    <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
                 <%else%>
                     <%= image_tag 'nophoto.jpg' %>
                     <%= link_to 'ДОБАВИТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
@@ -89,7 +89,7 @@
             <div class="photo_login">
                 <%if current_user.compinfo.photo?%>
                     <%= image_tag current_user.compinfo.photo.url(:thumb) %>
-                    <%= link_to 'РЕДАКТИРОВАТЬ', crop_compinfo_path(current_user.id), :class => 'redact'%>
+                    <%= link_to 'РЕДАКТИРОВАТЬ', crop_compinfo_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
                 <%else%>
                     <%= image_tag 'nophoto.jpg' %>
                     <%= link_to 'ДОБАВИТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
@@ -111,7 +111,9 @@
 
 <script type="text/javascript">
 
+
     $(document).ready(function () {
+
 
         $(".samvup .all").click(function () {
 

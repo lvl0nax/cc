@@ -64,13 +64,13 @@ class User
 
   accepts_nested_attributes_for :resume, :autosave=> true
 
-  after_create :deliver_email, :subscribe_to_unisender
+  after_create :deliver_email
 
 
   accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
 
-  def deliver_email    
-    UserMailer2.register(self).deliver
+  def deliver_email   
+    UserMailer2.register(self).deliver unless self.email == ""
   end
 
   def subscribe_to_unisender
@@ -179,12 +179,12 @@ class User
                    :provider => access_token.provider, 
                    :url => access_token.info.urls.Facebook, 
                    :username => access_token.extra.raw_info.name, 
-                   # :name => access_token.extra.raw_info.name, 
                    :nickname => access_token.extra.raw_info.username, 
                    :email => access_token.extra.raw_info.email, 
                    :password => Devise.friendly_token[0,20],
                    :role => Role.new(:name => 'employee')
        )
+
     end
   end
 

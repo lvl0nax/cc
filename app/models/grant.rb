@@ -59,5 +59,4 @@ class Grant < EventParent
   def end_date=(params)
      self.start_date = self.start_date.change(:hour=>params.to_datetime.hour, :min=>params.to_datetime.min)
   end
-
 end

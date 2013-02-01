@@ -1,9 +1,9 @@
 <%if item.class.name.eql?('Grant')%>
-  <div class="monthcont bla" style='position: relative' id='<%= item.id %>'>
+  <div class="monthcont bla" style='position: relative' data-id='<%= item.id %>'>
 <%elsif item.class.name.eql?('Event')%>
-  <div class="monthcont gre" style='position: relative' id='<%= item.id %>'>
+  <div class="monthcont gre" style='position: relative' data-id='<%= item.id %>'>
 <%elsif item.class.name.eql?('Training')%>
-  <div class="monthcont yel" style='position: relative' id='<%= item.id %>'>
+  <div class="monthcont yel" style='position: relative' data-id='<%= item.id %>'>
 <%end%>
   <span><%= item.start_date.strftime("%d %b %y") %></span>
 

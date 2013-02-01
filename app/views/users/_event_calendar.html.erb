@@ -1,9 +1,9 @@
 <%if event.class.name.eql?('Grant')%>
-  <div class="monthcont bla" id="<%= event._id %>">
+  <div class="monthcont bla" data-id="<%= event._id %>">
 <%elsif event.class.name.eql?('Event')%>
-  <div class="monthcont gre" id="<%= event._id %>">
+  <div class="monthcont gre" data-id="<%= event._id %>">
 <%elsif event.class.name.eql?('Training')%>
-  <div class="monthcont yel" id="<%= event._id %>">
+  <div class="monthcont yel" data-id="<%= event._id %>">
 <%end%>
   <span><%= event.start_date.strftime("%d %b %y") %></span>
 

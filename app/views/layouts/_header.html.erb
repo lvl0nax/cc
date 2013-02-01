@@ -455,7 +455,7 @@ function facebook(val)
     //if type == "СТАЖИРОВКА"{kind = 'training'}
     //else if type == "СОБЫТИЕ"{kind = 'event'}
     //else {kind = 'grand'}
-    var id = val.parent().parent().parent().parent().attr("id");
+    var id = val.parent().parent().parent().parent().data("id");
     var adress = 'http://'+location.host+'?event_id='+id;
     var image_p = "http://"+location.host+val.parent().parent().parent().find('.lside').find('img').attr('src');
 
@@ -468,7 +468,7 @@ var TITLE = val.parent().parent().find("h2").html();
 var temp = new Array();
 temp = TITLE.split('—');
 TITLE = 'Центр карьеры.' + temp[0];
-var id = val.parent().parent().parent().parent().attr("id");
+var id = val.parent().parent().parent().parent().data("id");
 var URL = 'http://'+location.host+'?event_id='+id;;
 
 Share.twitter(URL,TITLE);
@@ -480,7 +480,7 @@ function vkontakte(val)
     var temp = new Array();
     temp = TITLE.split('—');
     TITLE = 'Центр карьеры.' + temp[0];
-    var id = val.parent().parent().parent().parent().attr("id");
+    var id = val.parent().parent().parent().parent().data("id");
     var adress = 'http://'+location.host+'?event_id='+id;
     var image_p = "http://"+location.host+val.parent().parent().parent().find('.lside').find('img').attr('src');
 

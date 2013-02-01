@@ -41,7 +41,7 @@ TestMongoid::Application.routes.draw do
       get 'add_participant'
       get 'del_participant'
     end
-  end
+  end  
 
   resources :events do
     member do

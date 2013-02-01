@@ -13,9 +13,10 @@
   <% @pages.each do |page| %>
     <tr>
       <td><%= page.title %></td>
-      <td><%= link_to 'Показать ', page %> &nbsp </td>
-      <td><%= link_to 'Редактировать ', edit_page_path(page) %> &nbsp </td>
-      <td><%= link_to 'Удалить ', page, confirm: 'Вы уверены?', method: :delete %></td>
+      <td><%= link_to 'Показать ', page %> &nbsp; </td>
+      <td><%= link_to 'Редактировать ', edit_page_path(page) %> &nbsp; </td>
+      <td><%= link_to 'Удалить ', page, confirm: 'Вы уверены?', method: :delete %>&nbsp;</td>
+      <td><%=link_to page_path(page), page_path(page)%></td>
     </tr>
   <% end %>
   </table>

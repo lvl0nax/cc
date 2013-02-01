@@ -478,8 +478,8 @@ var TITLE = val.parent().parent().find("h2").html();
 var temp = new Array();
 temp = TITLE.split('—');
 TITLE = 'Центр карьеры.' + temp[0];
-
-var adress = 'http://'+location.host;
+var id = val.parent().parent().parent().parent().attr("id");
+var adress = 'http://'+location.host+'?event_id='+id;
 var image_p = adress+val.parent().parent().parent().find('.lside').find('img').attr('src');
 
     Share.vkontakte(adress,TITLE,image_p,' ');

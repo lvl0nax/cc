@@ -495,7 +495,7 @@ a.jqTransformChecked {
 }
 .headerup .headerupwrap a {
   line-height: 24px;
-  padding: 0 5px;
+  padding: 0 1px;
   font-size: 12px;
 }
 .headerup .headerupwrap a:hover {

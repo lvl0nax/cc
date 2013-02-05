@@ -294,14 +294,9 @@
         </div>
     <% end %>
   </div>
-  </div>
-  <% if current_user %>
-      <% if current_user.role.name == 'admin' %>
-          <span class="label" style="float: left; margin-top: 6px;">СТАТУС:</span>
-          <div style="margin: 5px 0 0 71px;"><%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %></div>
-      <% end %>
-  <% end %>
+  </div>  
 
+  <span class="label fl" style="margin-right: 20px">ЗАНЯТОСТЬ:</span>
   <div class="manycheck">
     <div class="pchecks">
       <span class="opl"><input type="radio" name="event[area_types]" id="" value="НАУЧНЫЕ КОНФЕРЕНЦИИ">НАУЧНЫЕ КОНФЕРЕНЦИИ </span>
@@ -309,6 +304,13 @@
     </div>
     <div class="clr"></div>
   </div>
+
+  <% if current_user %>
+      <% if current_user.role.name == 'admin' %>
+          <span class="label" style="float: left; margin-top: 6px;">СТАТУС:</span>
+          <div style="margin: 5px 0 0 71px;"><%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %></div>
+      <% end %>
+  <% end %>
 </div>
 
 <div class="rightpart">
@@ -350,7 +352,7 @@
             }
 
         }).done(function(result){
-                    if(result) window.location = window.location;
+                    if(result) window.location = 'http://'+window.location.host;
                     else
                     {
                         console.log(result);

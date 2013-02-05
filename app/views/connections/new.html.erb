@@ -1,0 +1,9 @@
+<%= form_tag '/create_resume_from_social_vk', :method => :get, :class => "soc-form", :id=>'vk_form' do %>
+ <a href="#" class="popex">&nbsp;</a>
+ <span>Заполните форму</span>
+<br>
+  Email
+  <%= email_field_tag  'user_email', nil , :class => "inp" %>
+  <%= submit_tag "Отправить", :class => "sfb" %>
+  <span class="error_soc" style="color: #ff0000;"></span>
+<% end %>

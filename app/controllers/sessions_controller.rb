@@ -9,6 +9,7 @@ class SessionsController < Devise::SessionsController
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     rozsilka_check(User.first.timenow)
     sign_in(resource_name, resource)
+    $user_id = resource.id
     render :json => true
   end
 
@@ -24,6 +25,23 @@ class SessionsController < Devise::SessionsController
 
   def unisender
     @unisender ||= UniSender::Client.new("579fi6mwhe5ea7bj8z8sxt9htq44sygoyburwoto")
+  end
+
+  def destroy
+    redirect_path = after_sign_out_path_for(resource_name)
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    set_flash_message :notice, :signed_out if signed_out && is_navigational_format?
+    $facebook_id = nil
+    $vk_id = nil
+    $user_id = nil
+    $token = nil
+    $flag = nil
+    # We actually need to hardcode this as Rails default responder doesn't
+    # support returning empty response on GET request
+    respond_to do |format|
+      format.all { head :no_content }
+      format.any(*navigational_formats) { redirect_to redirect_path }
+    end
   end
 
 end

@@ -1,6 +1,6 @@
-<div class="moncon" data-id="<%= event._id %>">
+<div class="moncon" data-id="<%= event._id %>" id='<%= event._id %>'>
   <div class="monthcont gre">
-    <span><%= Russian::l event.start_date, :format => :short %></span>
+    <span><%= Russian::strftime(event.start_date, "%d %B")%></span>
     <span class="spright">Событие</span>
     <% if event.image_id.blank? %>
         <%= image_tag "contimg5.png" %>
@@ -59,7 +59,7 @@
 
     <div class="date_wrap">
 
-      <div class="date"><%= event.start_date.strftime("%d %B %Y") %></div>
+      <div class="date"><%= Russian::strftime(event.start_date, "%d %B %Y") %></div>
 
       <div class="time"><span style='font-size:18px'>C <%= event.start_date.strftime("%H:%M")%> ДО <%= event.end_date.strftime("%H:%M")%></span></div>
 
@@ -73,7 +73,7 @@
             <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
                 <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
             <% else %>
-                <%= image_tag 'ava.png' %>                
+                <%= image_tag 'nophoto.jpg' %>                
             <% end %>
 
         <div class="text">
@@ -124,6 +124,12 @@
       <div class="term"><%= event.request_date.strftime("%d-%m-%Y, %H:%M")%></div>
 
       <a href=""><%= event.hyperlink%></a>
+      </br>
+
+      <div class="takepart"> 
+        <span class="def" style='color: #77A48B'> ЗАНЯТОСТЬ: &nbsp;</span>
+        <%= event.area_types%>
+      </div>
 
       
       <div id="map<%= event.id%>" class="mapwrap">

@@ -1,6 +1,6 @@
-<div class="moncon" data-id="<%= grant._id %>">
+<div class="moncon" data-id="<%= grant._id %>" id="<%= grant._id %>">
   <div class="monthcont bla">
-    <span><%= Russian::l grant.start_date, :format => :short %></span>
+    <span><%= Russian::strftime(grant.start_date, "%d %B") %></span>
     <span class="spright">грант</span>
     <% if grant.image_id.blank? %>
         <%= image_tag "contimg4.png" %>
@@ -44,7 +44,7 @@
       </label>
     </div>
     <div class="date_wrap">
-      <div class="date"><%= grant.start_date.strftime("%d %B %Y") %></div>
+      <div class="date"><%= Russian::strftime(grant.start_date, "%d %B %Y") %></div>
       <div class="time"><span style='font-size:18px'>C 09:00 ДО <%= grant.start_date.strftime(" %H:%M ") %></span></div>
     </div>
     </br>
@@ -56,7 +56,7 @@
             <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
                 <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
             <% else %>
-                <%= image_tag 'ava.png' %>                
+                <%= image_tag 'nophoto.jpg' %>                
             <% end %>
         
         <div class="text">
@@ -87,7 +87,7 @@
   <div class="rside">
     <p><%= grant.description %></p>   
     <h3>СРОК ПОДАЧИ ЗАЯВОК:</h3>
-    <div class="term"><%= grant.start_date.strftime("%d %B %Y") %></div>
+    <div class="term"><%=  Russian::strftime(grant.start_date, "%d %B %Y") %></div>
     <a href=""><%= grant.hyperlink%></a>
     <div id="map<%= grant.id%>" class="mapwrap" data-type='<%=grant._type%>'>
     <div>

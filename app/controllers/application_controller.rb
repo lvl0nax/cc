@@ -15,4 +15,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_url if current_user.role.name != 'admin'
   end
 
+
+
 end

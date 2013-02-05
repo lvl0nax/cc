@@ -1,20 +1,27 @@
 <div id="content">
-    <h1>Выбор аватара</h1>
+    <h1 class="ava-title">Выбор аватара</h1>
     <%= javascript_include_tag 'jquery.Jcrop.min' %>
     <%= javascript_include_tag 'jquery.color' %>
     <%= javascript_include_tag 'jquery.uniform.min' %>
     <%= javascript_include_tag 'resume' %>
     <% unless @resume.nil? %>
-    <%= image_tag @resume.photo.url(:large), id: "cropbox" %>
-
+        <%= image_tag @resume.photo.url(:large), id: "cropbox" %>
+        <div style="overflow: hidden; width: 100px; height: 100px;">                    
+            <%= image_tag @resume.photo.url, id: "preview" %>
+        </div>
+        <div style="overflow: hidden; width: 54px; height: 46px;">                    
+            <%= image_tag @resume.photo.url, id: "preview2" %>
+        </div>
+    
         <%= simple_form_for @resume do |f| %>
 
             <div id="resume">
-                <p style='color:green'>
+                <div class="ava-sep"></div>
+                <p class="ava-text">
                     *Файл должен бить не больше 5Mb, формат jpg или jpeg.
                 </p>
                 <p>
-                <%= f.input :photo, :label => "АВАТАР"  %>
+                <%= f.input :photo, :label => "АВАТАР", :class=>"ava-btn"  %>
                 </p>                
             </div>
 
@@ -24,7 +31,7 @@
             <%= f.hidden_field "crop_#{attribute}" %>
           <% end %>
           <div class="actions">
-            <%= f.submit "Сохранить" %>
+            <%= f.submit "Сохранить", :class=>"ava-btn" %>
           </div>
         <% end %>
     <% end %>

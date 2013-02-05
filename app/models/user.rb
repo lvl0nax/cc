@@ -53,6 +53,9 @@ class User
   has_and_belongs_to_many :trainings
   has_and_belongs_to_many :grants
   has_and_belongs_to_many :events
+
+  has_one :connection
+
   has_many :requests
   has_many :user_events
 
@@ -60,14 +63,24 @@ class User
   
   has_and_belongs_to_many :areas
 
+
+
   field :directions, :type => Array
 
   accepts_nested_attributes_for :resume, :autosave=> true
 
-  after_create :deliver_email
+  after_create :deliver_email, :subscribe_to_unisender, :create_connection
 
+
+
+  
 
   accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
+
+
+  def create_connection
+    self.connection = Connection.create(:user_id => self.id)
+  end
 
   def deliver_email   
     UserMailer2.register(self).deliver unless self.email == ""
@@ -171,39 +184,72 @@ class User
   end
 
   def self.find_for_facebook_oauth(access_token, role)
-    puts access_token.to_yaml
-    if  user = User.where(:email => access_token.info.email).first
-        user
-    else 
-       user = User.create!(
-                   :provider => access_token.provider, 
-                   :url => access_token.info.urls.Facebook, 
-                   :username => access_token.extra.raw_info.name, 
-                   :nickname => access_token.extra.raw_info.username, 
-                   :email => access_token.extra.raw_info.email, 
-                   :password => Devise.friendly_token[0,20],
-                   :role => Role.new(:name => 'employee')
-       )
-
+    if user = User.where(:id => $user_id).first
+      user.connection.update_attribute(:facebook_id,access_token.uid)
+      return user
+    elsif Connection.where(:facebook_id => access_token.uid).first
+      user = Connection.where(:facebook_id => access_token.uid).first.user 
+      return user
+    else    
+      #user = "facebook"
+      $flag = "ololo"
+      $vk_id = nil
+      $facebook_id = access_token.uid
+      $token = access_token
+      $flag = "exists"
+                  # :provider => access_token.provider, 
+                  #  :url => access_token.info.urls.Facebook, 
+                  #   :username => access_token.extra.raw_info.name, 
+                  #   # :name => access_token.extra.raw_info.name, 
+                  #   :nickname => access_token.extra.raw_info.username, 
+                  #   :email => access_token.extra.raw_info.email, 
+                  #   :password => Devise.friendly_token[0,20],
+                  #  :role => Role.new(:name => 'employee')
+       
+      return nil
+   
     end
   end
 
   def self.find_for_vkontakte_oauth(access_token, role)
-    puts access_token.to_yaml
-    if user = User.where(:url => access_token.info.urls.Vkontakte).first
-      user
-    else 
-      @user = User.create!(
-                   :provider => access_token.provider, 
-                   :url => access_token.info.urls.Vkontakte, 
-                   :username => access_token.info.name, 
-                   # :name => access_token.info.name, 
-                   :nickname => access_token.extra.raw_info.domain, 
-                   :email => access_token.extra.raw_info.screen_name + '@vk.com',
-                   :password => Devise.friendly_token[0,20],
-                   :role => Role.new(:name => 'employee')
-      )
+    if User.where(:id => $user_id).first
+      user = User.where(:id => $user_id).first
+      user.connection.update_attribute(:vkontakte_id,access_token.uid)
+      return user
+    elsif Connection.where(:vkontakte_id => access_token.uid).first
+       user = Connection.where(:vkontakte_id => access_token.uid).first.user 
+       return user
+     else
+       #user = "facebook"
+       $facebook_id = nil
+       $vk_id = access_token.uid
+       $token = access_token
+       $flag = "exists"
+    #               # :provider => access_token.provider, 
+    #               #  :url => access_token.info.urls.Facebook, 
+    #               #   :username => access_token.extra.raw_info.name, 
+    #               #   # :name => access_token.extra.raw_info.name, 
+    #               #   :nickname => access_token.extra.raw_info.username, 
+    #               #   :email => access_token.extra.raw_info.email, 
+    #               #   :password => Devise.friendly_token[0,20],
+    #               #  :role => Role.new(:name => 'employee')
+       
+       return nil
     end
+    # if user = User.where(:url => access_token.info.urls.Vkontakte).first
+    #   user
+    # else 
+    #   @user = User.create!(
+    #                :provider => access_token.provider, 
+    #                :url => access_token.info.urls.Vkontakte, 
+    #                :username => access_token.info.name, 
+    #                # :name => access_token.info.name, 
+    #                :nickname => access_token.extra.raw_info.domain, 
+    #                :email => access_token.extra.raw_info.screen_name + '@vk.com',
+    #                :password => Devise.friendly_token[0,20],
+    #                :role => Role.new(:name => 'employee')
+    #   )
+    # end
   end
 
   def area_ids=(ids)

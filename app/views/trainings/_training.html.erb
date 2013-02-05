@@ -1,6 +1,6 @@
-<div class="moncon" data-id="<%= training._id %>">
+<div class="moncon" data-id="<%= training._id %>" id="<%= training._id %>">
   <div class="monthcont vio">
-    <span><%= Russian::l training.start_date, :format => :short %></span>
+    <span><%= Russian::strftime(training.start_date, "%d %B %Y") %></span>
     <span class="spright">стажировка</span>
     <% if training.image_id.blank? %>
       <%= image_tag "contimg6.png" %>
@@ -78,7 +78,7 @@
 
       <div class="date_wrap">
 
-        <div class="date"><%= training.start_date.strftime("%d %B %Y")%></div>
+        <div class="date"><%= Russian::strftime(training.start_date, "%d %B %Y")%></div>
 
         <div class="time"><span style='font-size:18px'>C <%= training.start_date.strftime("%H:%M")%> ДО <%= training.end_date.strftime("%H:%M")%></span></div>
 
@@ -92,7 +92,7 @@
               <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
                   <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
               <% else %>
-                  <%= image_tag 'ava.png' %>                
+                  <%= image_tag 'nophoto.jpg' %>                
               <% end %>
 
           <div class="text">
@@ -128,9 +128,7 @@
 
     </div>
 
-    <div class="trainright">
-
-      <div class="takepart"> <span class="def"> ЗАНЯТОСТЬ:</span><%= training.employment%></div>
+    <div class="trainright">      
 
       <h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>      
 

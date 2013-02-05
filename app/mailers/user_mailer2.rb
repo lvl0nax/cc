@@ -3,15 +3,15 @@ class UserMailer2 < ActionMailer::Base
   default from: "spam.ruby29@gmail.com"
 
  def info_email(user)
-  	@user = user #initiate user #user.email,
+    @user = user #initiate user #user.email,
     mail(to: "vadim.motsuch@gmail.com")
   end
 
  def register(user)
     @user = user
-    mail(:to => user.email,from: "info@centercareer.ru", :subject => "Регистрация на сайте ЦЕНТР КАРЬЕРЫ")
+    @link = "<a href='"+root_url+"'>Личном Кабинете</a>"
+    mail(:to => user.email,from: "info@centercareer.ru", :subject => "Welcome to My Awesome Site")
     id = unisender.getLists()['result'].first['id']
-
  end
 
 
@@ -25,13 +25,13 @@ end
 
 
 def subscribe(list_id, email, phone,name,overwrite)
-	unisender.subscribe(:list_ids=>list_id, :fields=>{:email=>""+email+"", :phone=>phone, :Name=>""+name+""},
-		:overwrite=>overwrite)
+  unisender.subscribe(:list_ids=>list_id, :fields=>{:email=>""+email+"", :phone=>phone, :Name=>""+name+""},
+    :overwrite=>overwrite)
 end
 
   def spamer(id)
-  	## TODO: initialize @users variable correctly
-  	@user_list = []
+    ## TODO: initialize @users variable correctly
+    @user_list = []
     User.all.each do |user|
       unless user.resume.nil?
         if user.resume.delivery_email_enable == true or user.resume.delivery_phone_enable == true
@@ -72,7 +72,7 @@ end
       :email=>email,
       :sender_name=> 'ЦЕНТР КАРЬЕРЫ', 
       :sender_email=>'spam.ruby29@gmail.com',    
-      :subject=>'Информационная рассылка', 
+      :subject=>'Рассылка', 
       :list_id=> id, 
       :lang=>'en',
       :body=> content)
@@ -103,6 +103,9 @@ end
 
   def content(name, event_list,adress)
   array = get_content_list(event_list,adress)
+# f = File.new('file2.html', 'w')
+# f.puts(array)
+# f.close
   content = '<meta charset="UTF-8">
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>
@@ -176,7 +179,7 @@ end
               <table>
                 <tr>
                   <td rowspan="2" valign="top" align="left">
-                   <a href="'+adress+'"><font size="1" color="#77a087" face="Verdana">ПОДРОБНЕЕ ></font></a><br>
+                   <a href="'+adress+'?event_id='+train.id.to_s+'"><font size="1" color="#77a087" face="Verdana">ПОДРОБНЕЕ ></font></a><br>
                     <a href="#"><font size="1" color="white" face="Verdana">+ В GOOGLE КАЛЕНДАРЬ</font></a>
                   </td>
                 </tr>
@@ -230,7 +233,7 @@ end
                   <table width="570" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="white">
                     <tr>
                       <td rowspan="2" valign="top" align="left">
-                        <a href="'+adress+'"><font size="1" color="#354242" face="Verdana">ПОДРОБНЕЕ ></font></a><br>
+                        <a href="'+adress+'?event_id='+grant.id.to_s+'"><font size="1" color="#354242" face="Verdana">ПОДРОБНЕЕ ></font></a><br>
                         <a href="https://www.google.com/calendar"><font size="1" color="#354242" face="Verdana">+ В GOOGLE КАЛЕНДАРЬ ></font></a>
                       </td>
                     </tr>
@@ -288,7 +291,7 @@ end
                   <table width="570" align="center" cellpadding="0" cellspacing="0" border="0" bgcolor="white">
                     <tr>
                       <td rowspan="2" valign="top" align="left">
-                        <a href="'+adress+'"><font size="1" color="#77a087" face="Verdana">ПОДРОБНЕЕ ></font></a><br>
+                        <a href="'+adress+'?event_id='+event.id.to_s+'"><font size="1" color="#77a087" face="Verdana">ПОДРОБНЕЕ ></font></a><br>
                         <a href="https://www.google.com/calendar"><font size="1" color="#77a087" face="Verdana">+ В GOOGLE КАЛЕНДАРЬ ></font></a>
                       </td>
                     </tr>

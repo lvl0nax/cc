@@ -121,12 +121,14 @@ class UsersController < ApplicationController
       end
        @user.compinfo(:validate=>false) if role == "employer"
       if @user.save
+        $user_id = @user.id
          puts 'x8'*10
         if temp == 0
           @user.role = Role.new(:name => "admin")
           @user.resume = Resume.new(params[:user][:resume])
           @user.timenow = Time.now.to_i
         else
+          puts 'x8else'*10
           @user.role = Role.new(:name => role)
           @user.resume = Resume.new(params[:user][:resume]) if role == "employee"
           @user.compinfo = Compinfo.new(params[:user][:compinfo]) if role == "employer"

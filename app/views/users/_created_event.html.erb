@@ -5,7 +5,7 @@
 <%elsif item.class.name.eql?('Training')%>
   <div class="monthcont yel" style='position: relative' data-id='<%= item.id %>'>
 <%end%>
-  <span><%= item.start_date.strftime("%d %b %y") %></span>
+  <span><%= Russian::strftime(item.start_date, "%d %B %Y") %></span>
 
   <span class="spright">
     <%if item.class.name.eql?('Grant')%>

@@ -1,21 +1,35 @@
+# -*- encoding : utf-8 -*-
+
 class User
   include Mongoid::Document
+  include Mongoid::MultiParameterAttributes
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   ## Database authenticatable
-  field :email,              :type => String, :default => ""
+  field :email,              :type => String , :default => ""
+  field :nickname,              :type => String, :default => ""
+  field :provider,              :type => String, :default => ""
+  field :url,              :type => String, :default => ""
+  field :username,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
-  field :name
-  validates_presence_of :name
-  validates_uniqueness_of :name, :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  field :timenow, :type=>Integer, :default=>0
+  #field :name
+  mount_uploader :photo, ImageUploader
+  
+  #validates_presence_of :name
+  #validates_uniqueness_of  :email, :case_sensitive => false
+  attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name #,:name
+  attr_accessible :nickname, :provider, :url, :username, :role, :compinfo
 
-  validates_presence_of :email
-  validates_presence_of :encrypted_password
+  validates :password, :confirmation =>{:message=>"Пароли не совпадают"}, :length => {:minimum => 6,:message => 'Слишком короткий пароль (нужно 6 символов)'}
+  validates :email,:uniqueness => {:message=>"Такой e-mail уже зарегистрирован"}, :format => {:with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,
+                                                                                                               :message =>"E-mail имеет неверный формат" }
+
+  validates :password, :email, :presence => {:message=>"Обязательно"}
 
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -30,27 +44,245 @@ class User
   field :last_sign_in_at,    :type => Time
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
+  field :provider,           :type => String
 
-  embedded_one :role
+  embeds_one :role
+  embeds_one :compinfo
+  embeds_one :resume
 
-  ## Confirmable
-  # field :confirmation_token,   :type => String
-  # field :confirmed_at,         :type => Time
-  # field :confirmation_sent_at, :type => Time
-  # field :unconfirmed_email,    :type => String # Only if using reconfirmable
+  has_and_belongs_to_many :trainings
+  has_and_belongs_to_many :grants
+  has_and_belongs_to_many :events
 
-  ## Lockable
-  # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
-  # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
-  # field :locked_at,       :type => Time
+  has_one :connection
 
-  ## Token authenticatable
-  # field :authentication_token, :type => String
+  has_many :requests
+  has_many :user_events
+
+  has_many :authentications
+  
+  has_and_belongs_to_many :areas
+
+
+
+  field :directions, :type => Array
+
+  accepts_nested_attributes_for :resume, :autosave=> true
+
+<<<<<<< HEAD
+  after_create :deliver_email, :subscribe_to_unisender, :create_connection
+=======
+  after_create :deliver_email
+>>>>>>> 5ae5d6b22620f568560b10a14823373b791f9d33
+
+  
+
+  accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
+
+<<<<<<< HEAD
+  def create_connection
+    self.connection = Connection.create(:user_id => self.id)
+  end
+
+  def deliver_email    
+    UserMailer2.register(self).deliver
+=======
+  def deliver_email   
+    UserMailer2.register(self).deliver unless self.email == ""
+>>>>>>> 5ae5d6b22620f568560b10a14823373b791f9d33
+  end
+
+  def subscribe_to_unisender
+    #UserMailer.subscription
+  end
+
+  def available_areas
+    areas_t = []
+    Area.all.each do |area|
+      areas_t << area unless self.area_ids.include?(area)
+    end
+    puts areas_t.inspect
+    areas_t
+  end
+
+  def active_events
+    trainings.where(:start_date.gt => Time.now).count +
+    events.where(:start_date.gt => Time.now).count +
+    grants.where(:start_date.gt => Time.now).count    
+  end
+
+  def name 
+    unless self.resume.blank?
+      return self.resume.name
+    end
+    unless self.compinfo.blank?
+      return self.compinfo.name
+    end
+    unless self.provider.blank?
+      return self.username
+    end
+    unless self.email.blank?
+      return self.email.split("@").first
+    end
+      self.id
+  end
 
   def role?(role)
+      self.role.try(:name).to_s == role.to_s
+  end
 
-      return self.role.to_s == role.to_s
+  def role_name
+    self.role.name
+  end
 
+  #TODO: testing!!!
+  def requested_event(evnt)
+    !!self.requests.detect {|r| r.requestable_id == evnt._id}
+  end
+
+  def self.employers
+    @@users = []
+    User.all.each{|u| @@users << u if u.try(:role_name) == "employer"}
+    @@users
+  end
+  def self.employees
+    @@users = []
+    User.all.each{|u| @@users << u if u.try(:role_name) == "employee"}
+    @@users
+  end
+
+  def self.admins
+    where(role_name: "admin")
+  end
+
+   def actions
+    actions = []
+    actions.concat( Event.where(:status => "ОДОБРЕНО").any_in(:id => self.event_ids).to_a)
+    actions.concat( Grant.where(:status => "ОДОБРЕНО").any_in(:id => self.grant_ids).to_a)
+    actions.concat( Training.where(:status => "ОДОБРЕНО").any_in(:id => self.training_ids).to_a)
+
+    months  = Month.all.to_a.keep_if do |m|
+      actions.any? { |a| a.start_date.month.to_i == m.number }
+    end
+
+    actions.concat(months)
+    actions.sort!{|x,y| x.start_date <=> y.start_date}
+  end
+  
+  def created_actions
+    acts = []
+    acts.concat( Event.where(:owner => self.id).to_a)
+    acts.concat( Grant.where(:owner => self.id).to_a)
+    acts.concat( Training.where(:owner => self.id).to_a)
+    months  = Month.all.to_a.keep_if do |m|
+      acts.any? { |a| a.start_date.month.to_i == m.number }
+    end
+    acts.concat(months)
+
+    acts.sort!{|x,y| x.start_date <=> y.start_date}
+  end
+
+  def avatar
+    if self.role?("employee")
+      self.resume.photo
+    else
+    end
+  end
+
+  def self.find_for_facebook_oauth(access_token, role)
+<<<<<<< HEAD
+    if user = User.where(:id => $user_id).first
+      user.connection.update_attribute(:facebook_id,access_token.uid)
+      return user
+    elsif Connection.where(:facebook_id => access_token.uid).first
+      user = Connection.where(:facebook_id => access_token.uid).first.user 
+      return user
+    else    
+      #user = "facebook"
+      $flag = "ololo"
+      $vk_id = nil
+      $facebook_id = access_token.uid
+      $token = access_token
+      $flag = "exists"
+                  # :provider => access_token.provider, 
+                  #  :url => access_token.info.urls.Facebook, 
+                  #   :username => access_token.extra.raw_info.name, 
+                  #   # :name => access_token.extra.raw_info.name, 
+                  #   :nickname => access_token.extra.raw_info.username, 
+                  #   :email => access_token.extra.raw_info.email, 
+                  #   :password => Devise.friendly_token[0,20],
+                  #  :role => Role.new(:name => 'employee')
+       
+      return nil
+=======
+    puts access_token.to_yaml
+    if  user = User.where(:email => access_token.info.email).first
+        user
+    else 
+       user = User.create!(
+                   :provider => access_token.provider, 
+                   :url => access_token.info.urls.Facebook, 
+                   :username => access_token.extra.raw_info.name, 
+                   :nickname => access_token.extra.raw_info.username, 
+                   :email => access_token.extra.raw_info.email, 
+                   :password => Devise.friendly_token[0,20],
+                   :role => Role.new(:name => 'employee')
+       )
+
+>>>>>>> 5ae5d6b22620f568560b10a14823373b791f9d33
+    end
+  end
+
+  def self.find_for_vkontakte_oauth(access_token, role)
+    if User.where(:id => $user_id).first
+      user = User.where(:id => $user_id).first
+      user.connection.update_attribute(:vkontakte_id,access_token.uid)
+      return user
+    elsif Connection.where(:vkontakte_id => access_token.uid).first
+       user = Connection.where(:vkontakte_id => access_token.uid).first.user 
+       return user
+     else
+       #user = "facebook"
+       $facebook_id = nil
+       $vk_id = access_token.uid
+       $token = access_token
+       $flag = "exists"
+    #               # :provider => access_token.provider, 
+    #               #  :url => access_token.info.urls.Facebook, 
+    #               #   :username => access_token.extra.raw_info.name, 
+    #               #   # :name => access_token.extra.raw_info.name, 
+    #               #   :nickname => access_token.extra.raw_info.username, 
+    #               #   :email => access_token.extra.raw_info.email, 
+    #               #   :password => Devise.friendly_token[0,20],
+    #               #  :role => Role.new(:name => 'employee')
+       
+       return nil
+    end
+    # if user = User.where(:url => access_token.info.urls.Vkontakte).first
+    #   user
+    # else 
+    #   @user = User.create!(
+    #                :provider => access_token.provider, 
+    #                :url => access_token.info.urls.Vkontakte, 
+    #                :username => access_token.info.name, 
+    #                # :name => access_token.info.name, 
+    #                :nickname => access_token.extra.raw_info.domain, 
+    #                :email => access_token.extra.raw_info.screen_name + '@vk.com',
+    #                :password => Devise.friendly_token[0,20],
+    #                :role => Role.new(:name => 'employee')
+    #   )
+    # end
+  end
+
+  def area_ids=(ids)
+    self.areas = nil
+    ids.each do |id|
+      self.areas << Area.where(:id => id)
+    end unless ids.nil?
+  end
+
+  def self.compinfo_names
+     User.where(:compinfo => {'$ne' => nil})
   end
 
 end

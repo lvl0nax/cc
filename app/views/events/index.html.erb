@@ -2,10 +2,10 @@
 <script>
   $(document).ready(function(){    
     $(window).ready(function(){      
-      var event_id = $('#show_popup').val();      
+      var event_id = $('#show_popup').val();
       if(event_id != ''){        
         $('#'+event_id).trigger('click');
-      }      
+      }
     });
   });
 
@@ -58,6 +58,132 @@
         });
     }
 </script>
+<% if $flag %>
+<div class="soc-reg-form"></div>  
+<%= render :template => 'connections/new'%>
+<%= form_tag '/find_connection', :method => :get, :class => "soc-form", :id=>'connect' do %>
+<span> <%= @message %></span>
+ <a href="#" class="popex">&nbsp;</a>
+ <% if $facebook_id %>
+<%=link_to "Создать новый аккаунт из соцсети", create_resume_from_social_facebook_path %>
+<% elsif $vk_id %>
+<script type="text/javascript">
+            $(document).ready(function () {
+                $('#create_vk_link').click(function(){
+                  $('#connect').hide();
+                  $('#vk_form').show();
+                });
+                (function($){
+                $('#vk_form').submit(function(e){
+                    var $this = $(this);
+                    e.preventDefault();
+                    $.ajax({
+                        data: $this.serialize(),
+                        type: 'get',
+                        url: $this.attr('action'),
+                        dataType: 'json',
+                        error: function(jqXHR, textStatus, errorThrown){
+                          $(".error_soc").html(jqXHR.responseText);
+                        },
+                        success: function(data){
+                          window.location = "http://" + window.location.host;
+                        }
+                    })//.done(function(result){
+                      //          if(result) window.location = "http://" + window.location.host;
+                      //      });
+                });
+            })
+                    (jQuery);
+              });
+        </script>
+<%=link_to "Создать новый аккаунт из соцсети", '#', :id => "create_vk_link" %>
+
+<% end %>
+<br>
+<span>Заполните форму</span>
+<br>
+  Email
+  <%= email_field_tag  'user_email', nil , :class => "inp" %>
+  Пароль
+  <%= password_field_tag 'pass', nil ,:class=> "inp"%>
+  <span class="error_soc" style="color: #ff0000;"></span>
+  <%= submit_tag "Отправить", :class => "sfb" %>
+<% end %>
+   <div class="clr"></div>
+
+    <script type="text/javascript">
+            (function($){
+                $('#connect').submit(function(e){
+                    var $this = $(this);
+                    e.preventDefault();
+                    $.ajax({
+                        data: $this.serialize(),
+                        type: 'get',
+                        url: $this.attr('action'),
+                        dataType: 'json',
+                        error: function(jqXHR, textStatus, errorThrown){
+                            $(".error_soc").html($.parseJSON(jqXHR.responseText).error);
+                            $(".error_soc").css('display','inline-block');
+                            $(".error_soc").css('margin-left','1%');
+                            setTimeout(function(){
+                                $('.error_soc').hide();
+                            }, 5000);
+                        },
+                        success: function(data){
+                          if ( data.errors ){
+                            $(".error_soc").html(data.errors);
+                          }
+                          else{
+                            $('.error_soc').hide();
+                            window.location = "http://" + window.location.host;
+                          }
+                        }
+                    })//.done(function(result){
+                      //          if(result) window.location = "http://" + window.location.host;
+                      //      });
+                });
+            })
+                    (jQuery);
+        </script>
+
+ <script type="text/javascript">
+$(document).ready(function () {
+
+
+                          $(".soc-reg-form").fadeIn({'display':'block'});
+                          $(".soc-form").fadeIn({'display':'block'});
+
+                        });     
+
+
+                      </script>
+                      <script type="text/javascript">
+
+                        $(document).ready(function () {
+
+                          $(".soc-reg-form, .popex").click(function (event) { 
+                            event.preventDefault();
+                          $(".soc-reg-form").fadeOut({'display':'none'});
+                          $(".soc-form").fadeOut({'display':'none'});
+
+                        });     
+
+                        });
+
+                      </script>
+
+
+
+<% end %>
+   
+
+
+
+
+
+
+
+
 <div id="content">
 
   <%= form_for :filter, :url => sphere_path, :html => {:id => 'filter'} do |f| %>
@@ -349,6 +475,8 @@
 
 </script>
 
+
+
 <script type="text/javascript">
     function hover (elem) {
         $(elem).children(".monthhover").css({'display':'block'});
@@ -359,3 +487,5 @@
         $(elem).children(".w203").css({'display':'block'});
     }   
 </script>
+
+

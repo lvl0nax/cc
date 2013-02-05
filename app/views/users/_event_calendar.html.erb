@@ -5,7 +5,7 @@
 <%elsif event.class.name.eql?('Training')%>
   <div class="monthcont yel" data-id="<%= event._id %>">
 <%end%>
-  <span><%= event.start_date.strftime("%d %b %y") %></span>
+  <span><%= Russian::strftime(event.start_date, "%d %B %Y") %></span>
 
   <span class="spright">
     <%if event.class.name.eql?('Grant')%>

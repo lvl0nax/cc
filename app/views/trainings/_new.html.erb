@@ -334,17 +334,7 @@
             <span class="label" style="float: left; margin-top: 6px;">СТАТУС:</span>
             <div style="margin: 5px 0 0 71px;"><%= f.select :status, options_for_select([["НОВОЕ", "НОВОЕ"], ["УДАЛЕНО", "УДАЛЕНО"], ["ОДОБРЕНО", "ОДОБРЕНО"]]) %></div>
         <% end %>
-    <% end %>
-
-    <span class="label fl" style="margin-right: 20px">ЗАНЯТОСТЬ:</span>
-    <div class="manycheck">
-      <div class="pchecks">
-        <% Training.employment.each do |employment| %>
-            <span class="opl"><input type="radio" name="training[employment]" value="<%= employment %>"><%= employment %></span>
-        <% end %>
-      </div>
-      <div class="clr"></div>
-    </div>
+    <% end %>   
 
     <div class="add">
       <button type="submit">ДОБАВИТЬ</button>
@@ -377,7 +367,7 @@
             }
 
         }).done(function (result) {
-                    if (result) window.location = window.location;
+                    if (result) window.location = 'http://'+window.location.host;
                    else {
                        console.log(result);
                     }

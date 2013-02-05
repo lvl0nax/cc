@@ -4,6 +4,16 @@ TestMongoid::Application.routes.draw do
   
   resources :authentications
 
+   get "/create_connection" => "connections#new"
+
+   get "/find_connection" => "connections#find"
+
+    get "/choose" => "connections#choose"
+
+  get "/create_resume_from_social_facebook" => "connections#create_resume_from_social_facebook"
+
+  get "/create_resume_from_social_vk" => "connections#create_resume_from_social_vk"
+
   get "omniauth_callbacks/facebook"
 
   #get "omniauth_callbacks/vkontakte"
@@ -73,7 +83,7 @@ TestMongoid::Application.routes.draw do
     :sessions => "sessions",
     :omniauth_callbacks => "users/omniauth_callbacks"
   } do
-    get "sign_out", :to => "devise/sessions#destroy"
+    get "sign_out", :to => "sessions#destroy"
     resources :resumes
     resources :compinfos
   end

@@ -3,8 +3,9 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
+# gem 'libv8' ,'~> 3.11.8.7', :platforms => :ruby
 gem 'execjs'
+# gem 'therubyracer','0.11.1',:require => 'v8', :platforms => :ruby
 gem 'therubyracer'
 gem 'json'
 
@@ -84,7 +85,12 @@ group :test do
   gem 'turn', '~> 0.8.3', :require => false
 end
 
-group :development do  
+group :development do
+  gem 'binding_of_caller'
+  gem 'better_errors'  
   gem 'letter_opener'
+  gem 'meta_request'
 end
+
+
 

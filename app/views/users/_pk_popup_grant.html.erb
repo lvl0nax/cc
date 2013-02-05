@@ -27,7 +27,7 @@
 			</label>
 		</div>
 		<div class="date_wrap">
-			<div class="date"><%= event.start_date.strftime("%d %B %Y") %></div>
+			<div class="date"><%= Russian::strftime(event.start_date, "%d %B %Y") %></div>
 			<div class="time"><span style='font-size:18px'>C 09:00 ДО <%= event.start_date.strftime(" %H:%M ") %></span></div>
 		</div>
 		</br>
@@ -39,7 +39,7 @@
 		        <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
 		            <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
 		        <% else %>
-		            <%= image_tag 'ava.png' %>	              
+		            <%= image_tag 'nophoto.jpg' %>	              
 		        <% end %>
 				
 				<div class="text">
@@ -61,7 +61,7 @@
 	<div class="rside">
 		<p><%= event.description %></p>		
 		<h3>СРОК ПОДАЧИ ЗАЯВОК:</h3>
-		<div class="term"><%= event.start_date.strftime("%d %B %Y") %></div>
+		<div class="term"><%= Russian::strftime(event.start_date, "%d %B %Y") %></div>
 		<a href=""><%= event.hyperlink%></a>
 		<div id="map<%= index%>" class="mapwrap" data-type='<%=event._type%>'>
 		<div>

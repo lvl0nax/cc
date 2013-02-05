@@ -7,7 +7,7 @@ class Grant < EventParent
 
   field :nation
   field :hyperlink, :type => String # Link to external site with/without registration to event
-  field :end_date, :type => DateTime
+  field :end_date, :type => Time
   field :visible, :type => Boolean
   field :direction, :type => Array
 

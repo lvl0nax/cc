@@ -62,7 +62,7 @@
 
 			<div class="date_wrap">
 
-				<div class="date"><%= event.start_date.strftime("%d %B %Y")%></div>
+				<div class="date"><%= Russian::strftime(event.start_date, "%d %B %Y") %></div>
 
 				<div class="time"><span style='font-size:18px'>C <%= event.start_date.strftime("%H:%M")%> ДО <%= event.end_date.strftime("%H:%M")%></span></div>
 
@@ -76,7 +76,7 @@
 			        <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
 			            <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
 			        <% else %>
-			            <%= image_tag 'ava.png' %>	              
+			            <%= image_tag 'nophoto.jpg' %>	              
 			        <% end %>
 
 					<div class="text">
@@ -105,8 +105,6 @@
 		</div>
 
 		<div class="trainright">
-
-			<div class="takepart"> <span class="def"> ЗАНЯТОСТЬ:</span><%= event.employment%></div>
 
 			<h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>	 		
 

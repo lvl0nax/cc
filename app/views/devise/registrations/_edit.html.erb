@@ -3,7 +3,7 @@
 	<%= form_for current_user, :url => user_path(current_user), :html => { :method => :put, :id=>'user_form' } do |f| %>
 	 
 	  <div class="sub_info_row">
-	  	<div><%= f.label "Пароль" %> <i>(Если Вы не хотите менять пароль, оставьте поле пустым)</i><br />
+	  	<div><%= f.label "Новый пароль" %><br />
 	  	<%= f.password_field :password, :autocomplete => "off" %></div>
 	  	<div class="clr"></div>
 	  </div>

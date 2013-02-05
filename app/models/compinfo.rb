@@ -21,7 +21,7 @@ class Compinfo
   after_update :crop_avatar
 
   validate :picture_size_validation, :if => "photo?"
-  validates_format_of :photo, :with => %r{\.(jpg|jpeg)$}i, :message => "Неверный формат"
+  validates_format_of :photo, :with => %r{\.(jpg|jpeg)$}i, :message => "Неверный формат", :if => "photo?"
 
 
   def picture_size_validation

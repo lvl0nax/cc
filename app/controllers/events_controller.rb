@@ -12,45 +12,78 @@ class EventsController < ApplicationController
 
 
   @events = []
-  existing_ids = []
-  if params[:grant]      
-    @grants = Grant.where(:status=>'ОДОБРЕНО')
-    @grants = @grants.in(:area_ids=>params[:grant][:areas]) if params[:grant][:areas]
-    @grants = @grants.where(:direction=>params[:grant][:direction]) if params[:grant][:direction]
-  end #unless params[:check_grant].nil?
-
-  if params[:event]
-    @evs = Event.where(:status=>'ОДОБРЕНО')
-    @evs = @evs.in(:area_ids=>params[:event][:areas]) if params[:event][:areas]
-    @evs = @evs.in(:area_types=>params[:event][:area_types]) if params[:event][:area_types]
+  existing_ids = []      
     
-  end #unless params[:check_event].nil?
+    if params[:grant]      
+      @grants = Grant.where(:status=>'ОДОБРЕНО')
+      @grants = @grants.in(:area_ids=>params[:grant][:areas]) if params[:grant][:areas]
+      @grants = @grants.where(:direction=>params[:grant][:direction]) if params[:grant][:direction]
+    end# unless params[:check_grant].nil?
 
-  if params[:training]
-    @trainings = Training.where(:status=>'ОДОБРЕНО')
-    @trainings = @trainings.in(:area_ids=>params[:training][:areas]) if params[:training][:areas]
-    @trainings = @trainings.in(:salary_type => params[:training][:payments]) if params[:training][:payments]
-    @trainings = @trainings.in(:owner => params[:training][:compinfos]) if params[:training][:compinfos]
+    if params[:event]
+      @evs = Event.where(:status=>'ОДОБРЕНО')
+      @evs = @evs.in(:area_ids=>params[:event][:areas]) if params[:event][:areas]
+      @evs = @evs.in(:area_types=>params[:event][:area_types]) if params[:event][:area_types]
+      
+    end #unless params[:check_event].nil?
 
-  end #unless params[:check_training].nil?
+    if params[:training]
+      @trainings = Training.where(:status=>'ОДОБРЕНО')
+      @trainings = @trainings.in(:area_ids=>params[:training][:areas]) if params[:training][:areas]
+      @trainings = @trainings.in(:salary_type => params[:training][:payments]) if params[:training][:payments]
+      @trainings = @trainings.in(:owner => params[:training][:compinfos]) if params[:training][:compinfos]
 
-  if not params[:month].nil? or not cookies[:month].blank?    
-    month = params[:month].to_i
-    year = params[:year].to_i
-    now = DateTime.now.change(:day => 1, :month => month + 1, :year=> year)
-    @trainings = Training.where(:status=>'ОДОБРЕНО') if @trainings.nil?
-    @trainings = @trainings.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_training].nil?
-    
+    end #unless params[:check_training].nil?
+  
 
-    @evs = Event.where(:status=>'ОДОБРЕНО') if @evs.nil?
-    @evs = @evs.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_event].nil?
+  if not params[:month].nil? or not cookies[:month].blank?         
+     month = params[:month].to_i
+     year = params[:year].to_i
+     now = DateTime.now.change(:day => 1, :month => month + 1, :year=> year)
+     @trainings = Training.where(:status=>'ОДОБРЕНО') if @trainings.nil?
+     @trainings = @trainings.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_training].nil?
     
 
-    @grants = Grant.where(:status=>'ОДОБРЕНО') if @grants.nil?
-    @grants = @grants.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_grant].nil?
+     @evs = Event.where(:status=>'ОДОБРЕНО') if @evs.nil?
+     @evs = @evs.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_event].nil?
     
-    cookies[:month] = params[:month]   
-  end
+
+     @grants = Grant.where(:status=>'ОДОБРЕНО') if @grants.nil?
+     @grants = @grants.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) if params[:check_grant].nil?
+    
+     cookies[:month] = params[:month]   
+      
+     if not params[:month].eql?('undefined')
+       month = params[:month].to_i
+       year = params[:year].to_i
+       now = DateTime.now.change(:day => 1, :month => month + 1, :year=> year)
+       
+       @trainings = Training.where(:status=>'ОДОБРЕНО') if @trainings.nil?
+       unless params[:check_training].nil?
+        @trainings = @trainings.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month})
+       else
+        @trainings =[]
+       end
+             
+       @evs = Event.where(:status=>'ОДОБРЕНО') if @evs.nil?
+       unless params[:check_event].nil?
+        @evs = @evs.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month})
+       else
+        @evs = []
+       end
+
+       @grants = Grant.where(:status=>'ОДОБРЕНО') if @grants.nil?
+       unless params[:check_grant].nil?
+        @grants = @grants.where(:start_date => {'$gte' => now.beginning_of_month,'$lt' => now.end_of_month}) 
+       else
+        @grants = []
+       end
+      
+       cookies[:month] = params[:month]
+        
+
+     end
+  end  
   
   years = %w[2012 2013]
   months =  %w[jan feb mar apr may june july aug sept oct nov dec]
@@ -139,10 +172,8 @@ class EventsController < ApplicationController
     params[:events].each do |event|
       @ids_to_delete << event
     end
-  end
-
-  puts "x" * 100
-  puts cookies[:user_id]
+  end  
+  
     respond_to do |format|
       format.html
       format.json { render json: { delete:@ids_to_delete, show:@ids_to_show } }

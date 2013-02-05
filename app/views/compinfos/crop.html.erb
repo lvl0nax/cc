@@ -7,10 +7,10 @@
     <% unless @compinfo.nil? %>
     <%= image_tag @compinfo.photo.url(:large), id: "cropbox" %>
     <div style="overflow: hidden; width: 100px; height: 100px;">                    
-        <%= image_tag @resume.photo.url, id: "preview" %>
+        <%= image_tag @compinfo.photo.url, id: "preview" %>
     </div>
     <div style="overflow: hidden; width: 54px; height: 46px;">                    
-        <%= image_tag @resume.photo.url, id: "preview2" %>
+        <%= image_tag @compinfo.photo.url, id: "preview2" %>
     </div>
 
         <%= simple_form_for @compinfo do |f| %>

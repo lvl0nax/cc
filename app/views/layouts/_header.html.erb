@@ -90,7 +90,7 @@
                     <%= link_to 'РЕДАКТИРОВАТЬ', crop_compinfo_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
                 <%else%>
                     <%= image_tag 'nophoto.jpg' %>
-                    <%= link_to 'ДОБАВИТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
+                    <%= link_to 'ДОБАВИТЬ', crop_compinfo_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
                 <%end%>                
             </div>        
         <% end %>
@@ -476,7 +476,6 @@ Share.twitter(URL,TITLE);
 
 function vkontakte(val)
 {
-
     var TITLE = val.parent().parent().find("h2").html();
     var temp = new Array();
     temp = TITLE.split('—');
@@ -484,7 +483,6 @@ function vkontakte(val)
     var id = val.parent().parent().parent().parent().data("id");
     var adress = 'http://'+location.host+'?event_id='+id;
     var image_p = "http://"+location.host+val.parent().parent().parent().find('.lside').find('img').attr('src');
-
         Share.vkontakte(adress,TITLE,image_p,' ');
 }
 </script>

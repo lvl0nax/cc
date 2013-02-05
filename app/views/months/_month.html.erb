@@ -30,7 +30,7 @@
 </div>
 <script>
 $('.monthhover ul li').click(function(){      
-      var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; }); 
+      //var $elems=$(this).parent().children().filter(function(){ return $(this).children().size()==0; }); 
       //console.log($(this).data('num')+ " " + $(this).data('year'))
       $('#filter').update_index($(this).data('num'), $(this).data('year'));  
     });

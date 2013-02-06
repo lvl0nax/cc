@@ -28,7 +28,11 @@
       <div class="input_field">
         <script type="text/javascript">
           jQuery(function () {
-            jQuery(".select1, .select2").selectbox();
+            jQuery("#resume_sex ,"+ "#resume_birthday_3i,#resume_birthday_2i,#resume_birthday_1i,"+
+              "#resume_experation_3i,"+
+              "#resume_experation_2i,"+
+              "#resume_experation_1i,"+
+              ".class2_3i").selectbox();
           });
         </script>        
         <%= f.date_select :birthday, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
@@ -45,7 +49,7 @@
     <div class="sep"></div>
     <div class="info_row">
       <span>ОБРАЗОВАНИЕ</span>
-      <div class="input_field">
+      <div class="input_field" id='education_fields'>
         <%= f.text_field :education, :style => 'width:423px;' %>
         <div class="sub_info_row">
           ВУЗ
@@ -56,11 +60,13 @@
           ФАКУЛЬТЕТ
           <%= f.text_field :faculty, :style => 'width:423px;' %>
           <div class="clr"></div>
-        </div>
-        <div class="sub_info_row">
-          ДАТА ОКОНЧАНИЯ
-          <%= f.date_select :experation, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
-                    :order => [:day, :month, :year] %>          
+        </div>       
+
+        <div class="sub_info_row" id='remove_empty'>
+          <span style="padding-left:0;">ДАТА ОКОНЧАНИЯ</span>
+          <div class="new-sel"><%= f.date_select :experation, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
+                    :order => [:day, :month, :year] %></div>          
+
           <div class="clr"></div>
         </div>
       </div>
@@ -71,7 +77,7 @@
 
     <div class="info_row">
       <span>ОПЫТ РАБОТЫ</span>
-      <%= f.fields_for :experience_works do |experience| %>
+      <%= f.fields_for  :experience_works do |experience| %>
         <%= render 'experience_work_fields', :f => experience %>
       <%end%> 
       <div id='add_experience_work'>                       
@@ -134,13 +140,47 @@
     </div>
     <div class="clr"></div>
     <div class="info_row">
-      <button>СОХРАНИТЬ</button>
+      <button id='resume_save'>СОХРАНИТЬ</button>
     </div>
   </div>
   <%end%>
 </div>
 <script>  
-  $(document).ready( function (){ 
+  $(document).ready( function (){
+
+     /*$('.add_fields').on('click', function(){
+      if ($('.company').val() == ''){
+        $('.delete_experience_work').find('img').trigger('click');        
+      }
+     });*/
+
+      $('#resume_save').on('mousedown', function(){    
+        var index = 0
+        $('#education_fields').find('input').each(function(){
+          if($(this).val() === ''){
+            index ++;
+          }
+        });
+        if(index === 3){
+          $('#remove_empty').remove();
+        }        
+        $('.company').each(function(){          
+          if ($(this).val() === ''){          
+            $(this).parent().parent().find('.delete_experience_work').find('a').trigger('click');        
+          }
+        })
+      });
+      $('.add_fields').on('click', function(){    
+        $('.company').each(function(){          
+          if ($(this).val() == ''){          
+            $(this).parent().parent().find('.delete_experience_work').find('a').trigger('click');        
+          }
+        })
+      });
+
+     /*$('.delete_experience_work').on('click', function(arg){
+      console.log(arg.target.nodeName);
+     })*/
     
     $('.edit').on('click', function(event){
       event.preventDefault();

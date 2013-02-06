@@ -10,19 +10,41 @@ class UserMailer2 < ActionMailer::Base
  def register(user)
     @user = user
     @link = "<a href='"+root_url+"'>Личном Кабинете</a>"
-    mail(:to => user.email,from: "info@centercareer.ru", :subject => "Welcome to My Awesome Site")
-    id = unisender.getLists()['result'].first['id']
+    mail(:to => user.email,from: "info@centercareer.ru", :subject => "Регистрация на сайте Центр Карьеры")
+    # id = unisender.getLists()['result'].first['id']
+    # send_mail_template(id,@user)
+    
  end
 
 
-def send_mail_template(id,name)
-    @content = content(name)
+def send_mail_template(id,user)
+    @content = register_content(user)
     id_mes = unisender.createEmailMessage(:sender_name=>'ЦЕНТР КАРЬЕРЫ', :sender_email=>'spam.ruby29@gmail.com',
-    :subject=>'You need your stuff', :list_id=>id, :lang=>'en',
+    :subject=>'Регистрация на сайте Центр Карьеры', :list_id=>id, :lang=>'en',
     :body=>@content)['result']['message_id']
     unisender.createCampaign(id_mes,2)
 end
 
+def register_content(user)
+  content = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+</head>
+<body>
+<p><font color="#2E7BE4"><em><strong>Здравствуйте!</strong></em></font></p>
+<p align="justify">Здесь находится текст Вашего письма, <strong><font color="#CA9E64">при получении адресатом письма, данный участок текста будет коричневого цвета</font></strong>. При создании писем используйте стандартные HTML теги для корректного отображения элементов форматирования текста, при просмотре получателем, как с использованием веб-интерфейсов (Yandex.ru, Mail.ru, Email.ru и т.п.), так и с использованием почтовых сборщиков (Outlook, The Bat и т.п.).</p>
+<p>
+  <font color="#2E7BE4"><strong><i>С Уважением</i></strong><br>
+    <strong>EMailFinder</strong><br>
+    <strong>8&nbsp;900&nbsp;800-00-00</strong><br>
+  <em><a href="mailto:info@emailfinder.ru">info@emailfinder.ru</a></em></font>
+</p>
+</body>
+</html>'
+return content
+end
 
 def subscribe(list_id, email, phone,name,overwrite)
   unisender.subscribe(:list_ids=>list_id, :fields=>{:email=>""+email+"", :phone=>phone, :Name=>""+name+""},

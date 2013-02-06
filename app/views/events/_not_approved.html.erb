@@ -34,13 +34,13 @@
   <span class="spright"><%= item.start_date.strftime("%H:%M") %></span>
 
   <% if item.nation.blank?%>
-    <%if item.title.length > 21%>
+    <%if item.title.length > 20%>
       <span class="spsize"><%= item.title.truncate(24) %></span>
     <%else%>
       <span class="spsize"><%= item.title %></span>
     <%end%>
   <%else%>
-    <% if item.nation.length < 21%>
+    <% if item.nation.length < 18%>
       <span class="spsize">&nbsp;<%= item.title.truncate(25 - item.nation.length) %></span>
     <%end%>
   <%end%>

@@ -5,14 +5,18 @@
     <%= javascript_include_tag 'jquery.uniform.min' %>
     <%= javascript_include_tag 'compinfo' %>
     <% unless @compinfo.nil? %>
-    <%= image_tag @compinfo.photo.url(:large), id: "cropbox" %>
-    <div style="overflow: hidden; width: 100px; height: 100px;">                    
-        <%= image_tag @compinfo.photo.url, id: "preview" %>
-    </div>
-    <div style="overflow: hidden; width: 54px; height: 46px;">                    
-        <%= image_tag @compinfo.photo.url, id: "preview2" %>
-    </div>
-
+    <% if @compinfo.photo.url(:large) %>
+        <%= image_tag @compinfo.photo.url(:large), id: "cropbox" %>
+        <div style="overflow: hidden; width: 100px; height: 100px;">                    
+            <%= image_tag @compinfo.photo.url, id: "preview" %>
+        </div>
+        <div style="overflow: hidden; width: 54px; height: 46px;">                    
+            <%= image_tag @compinfo.photo.url, id: "preview2" %>
+        </div>
+    <% else %>
+        <br>        
+            <img id="" src = "/assets/nophoto.jpg">  
+        <% end %>
         <%= simple_form_for @compinfo do |f| %>
 
             <div id="compinfo">

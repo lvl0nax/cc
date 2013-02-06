@@ -5,14 +5,18 @@
     <%= javascript_include_tag 'jquery.uniform.min' %>
     <%= javascript_include_tag 'resume' %>
     <% unless @resume.nil? %>
-        <%= image_tag @resume.photo.url(:large), id: "cropbox" %>
-        <div style="overflow: hidden; width: 100px; height: 100px;">                    
-            <%= image_tag @resume.photo.url, id: "preview" %>
-        </div>
-        <div style="overflow: hidden; width: 54px; height: 46px;">                    
-            <%= image_tag @resume.photo.url, id: "preview2" %>
-        </div>
-    
+        <% if @resume.photo.url(:large) %>
+            <%= image_tag @resume.photo.url(:large), id: "cropbox" %>
+            <div style="overflow: hidden; width: 100px; height: 100px;">                    
+                <%= image_tag @resume.photo.url, id: "preview" %>
+            </div>
+            <div style="overflow: hidden; width: 54px; height: 46px;">                    
+                <%= image_tag @resume.photo.url, id: "preview2" %>
+            </div>
+        <% else %>
+            <br>        
+            <img id="" src = "/assets/nophoto.jpg">  
+        <% end %>
         <%= simple_form_for @resume do |f| %>
 
             <div id="resume">

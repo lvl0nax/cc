@@ -319,7 +319,7 @@ a.jqTransformChecked {
   text-decoration: none;
   overflow: hidden;
   position: absolute;
-  padding: 0 0 0 3px;
+  padding: 0 0 0 2px;
   text-align: left;
   left: 0;
   top: 0;
@@ -344,7 +344,7 @@ a.jqTransformChecked {
 .sbHolder .sbOptions li {
   padding: 2px 0;
   border-bottom: 1px dotted #cccccc;
-  margin: 0 3px;
+  margin: 0px;
 }
 .sbHolder .sbOptions li:last-of-type {
   border: none;
@@ -2910,13 +2910,22 @@ form .regtype img {
   margin: 3px 0;
 }
 .sub_info_row .sbHolder {
-  width: 50px !important;
+  width: 61px !important;
 }
 .sub_info_row .sbHolder .sbSelector {
-  width: 48px !important;
+  width: 61px !important;
 }
 .sub_info_row .sbHolder .sbOptions {
-  width: 50px !important;
+  width: 61px !important;
+}
+.sub_info_row .new-sel .sbHolder {
+  width: 68px !important;
+}
+.sub_info_row .new-sel .sbHolder .sbSelector {
+  width: 68px !important;
+}
+.sub_info_row .new-sel .sbHolder .sbOptions {
+  width: 68px !important;
 }
 .sub_info_row .sbHolder {
   float: left;
@@ -2935,8 +2944,8 @@ form .regtype img {
 
 .weblinks .input{
   display: inline-block;
-  margin-top: -5px;
-  padding-left: 100px;
+  margin-top: 10px;
+  padding-left: 99px;
 }
 
 .input input{

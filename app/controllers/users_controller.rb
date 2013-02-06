@@ -121,8 +121,8 @@ class UsersController < ApplicationController
       end
        @user.compinfo(:validate=>false) if role == "employer"
       if @user.save
+        # UserMailer2.register(@user).deliver
         $user_id = @user.id
-         puts 'x8'*10
         if temp == 0
           @user.role = Role.new(:name => "admin")
           @user.resume = Resume.new(params[:user][:resume])

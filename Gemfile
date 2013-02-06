@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.2'
+gem 'jquery-rails'
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 # gem 'libv8' ,'~> 3.11.8.7', :platforms => :ruby
@@ -65,8 +67,7 @@ group :assets do
   gem 'jquery-fileupload-rails'
 
 end
-
-gem 'jquery-rails'
+# gem 'roadie'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -87,7 +88,7 @@ end
 
 group :development do
   gem 'binding_of_caller'
-  gem 'better_errors'  
+  #gem 'better_errors'  
   gem 'letter_opener'
   gem 'meta_request'
 end

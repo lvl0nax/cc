@@ -57,6 +57,7 @@ TestMongoid::Application.configure do
     :user_name       => 'spam.ruby29@gmail.com',
     :password        => 'spam.ruby'
   }
+ 
   #we should use
   # user_name: env["GMAIL_USERNAME"] => export GMAIL_USERNAME="name@gmail.com"
   # password: ENV["GMAIL_PASSWORD"] => export GMAIL_PASSWORD="secret"

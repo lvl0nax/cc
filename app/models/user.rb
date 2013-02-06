@@ -71,10 +71,6 @@ class User
 
   after_create :deliver_email, :subscribe_to_unisender, :create_connection
 
-
-
-  
-
   accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
 
 
@@ -82,7 +78,7 @@ class User
     self.connection = Connection.create(:user_id => self.id)
   end
 
-  def deliver_email   
+  def deliver_email
     UserMailer2.register(self).deliver unless self.email == ""
   end
 

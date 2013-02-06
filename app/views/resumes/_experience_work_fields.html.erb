@@ -2,14 +2,14 @@
   <div class="input_field fr">
     <div class="sub_info_row">
       <span style='margin-left:-10px; width: 85px;'>КОМПАНИЯ</span> 
-      <%= f.text_field :experience_company, :style => "width: 280px;"%>
+      <%= f.text_field :experience_company, :style => "width: 280px;", :class => 'company' %>
       <div class="clr"></div>
     </div>
     <div class="sub_info_row">
-      <div class="fl">
-        <span style='width:10px; margin-left: -10px;'>C</span>
+      <div class="fl" >
+        <span style='width:25px; margin-left: -10px;'>C</span>
         <%= f.date_select :experience_from, :start_year => 1950, :end_year => Date.today.year,
-                      :order => [:day, :month, :year], :class => "fl", :style => "width: 170px;" %>    
+                      :order => [:day, :month, :year], :style => "width: 170px;" %>    
        </div>
       <div class="fr">
         <span style='width:20px;'>ПО</span>
@@ -25,8 +25,12 @@
       <div class="clr"></div>
     </div>
     <div class="delete_experience_work">
-      УДАЛИТЬ <%= link_to_remove_association image_tag('delete.png'), f %>          
+      УДАЛИТЬ <%= link_to_remove_association image_tag('delete.png'), f, :id => 'del' %>          
     </div>  
   </div>
   <div class="clr"></div>
 </div>
+<script>
+// console.log($("#exper_fl select").attr("id"));
+$(".fl select, .fr select").selectbox();
+</script>

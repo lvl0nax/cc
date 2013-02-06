@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 
+
   <!-- <meta property="og:type" content="article">
 <meta property="og:url" content="{page_url}">
 <meta property="og:title" content="{title}">
@@ -12,7 +13,7 @@
   <% cookies.delete :month unless cookies[:month].nil?%>
   <title><%=title%></title>
   <%= stylesheet_link_tag 'application' %>
-  <%= javascript_include_tag 'application' %>
+ <%= javascript_include_tag "application"%>
   <%= csrf_meta_tag %>
 
   <script type="text/javascript" src="//vk.com/js/api/openapi.js?74"></script>

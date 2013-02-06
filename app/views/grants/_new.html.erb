@@ -232,7 +232,7 @@
     <div class="pchecks">
       <% Grant.directions.each do |direction| %>
       <span class="opl">
-        <input type="radio" value="<%= direction %>" id="<%= direction %>" name="grant[direction]"/>
+        <input type="checkbox" value="<%= direction %>" id="<%= direction %>" name="grant[direction]"/>
         <label for="<%= direction %>"><%= direction %></label>
       </span>
       <% end %>

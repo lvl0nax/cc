@@ -136,7 +136,8 @@ class EventsController < ApplicationController
        months.each_with_index do |month, index|
         @events << Month.new(:number=>index, :name=>month)
        end
-    end   
+    end 
+
 
   @events = @events.paginate(:page => params[:page], :per_page => 12)
 
@@ -324,6 +325,9 @@ class EventsController < ApplicationController
   def event_delete
     @event = EventParent.find(params[:event_id])
     @event.destroy
+    # @count = EventParent.any_in(:status => [nil, "УДАЛЕНО", "НОВОЕ"]).count
+    # @count -=1 unless @count == 0 
     render :text => ''
   end
+
 end

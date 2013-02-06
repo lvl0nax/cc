@@ -2,7 +2,7 @@
 	<h1>Страница Администратора</h1>
 	</br>
 	<%= link_to "CФЕРЫ", list_areas_path %> |
-	<%= link_to "НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ (#{@count})", not_approved_events_path %> |
+	<%= link_to "НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ (#{@count})", not_approved_events_path, :title=>"not_approved" %> |
 <%= link_to "РЕДАКТИРОВАНИЕ СТРАНИЦ", pages_path %>
 	<div id="celendar_content">
 		<div class="monih12">
@@ -66,21 +66,43 @@
 	  });
 
       $('.odobreno, .delete').on('click', function(e){
-      	console.log('rrrrrrrrrr');
       	e.preventDefault();
       	var event_id = $(this).data('id');
 		var str;
-		$('#'+event_id+'.monthcont').hide();
+		
 		if($(this).attr('class') == 'odobreno'){
-			str = 'event_status';
+			if (confirm("Опубликовать событие?")) {
+				  str = 'event_status';
+				  $('#'+event_id+'.monthcont').hide();
+				} else {
+					if (e.stopPropagation) { // существует ли метод?
+					    // Стандартно:
+					    e.stopPropagation();
+					  } else {
+					    // Вариант IE
+					    e.cancelBubble = true;
+					  }
+				  str = "";
+				}
+			//str = 'event_status';
 		}
 		else if($(this).attr('class') == 'delete'){
 			str = 'event_delete';
+			 $('#'+event_id+'.monthcont').hide();
 		}
+		if (str.length > 0)
+		{
 		$.ajax({ url: "/events/"+str, type: "POST", data:{ event_id: event_id},  beforeSend:function(jqXHR, settings) {
             	jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
             				}
-  		});
+  		}).done(function (result) {
+                          var count_str = $("#content").find("[title='not_approved']").html();
+                          var regex = /[0-9]{1,4}/ ;
+                          var sign = regex.exec(count_str);
+                          sign -=1;
+                          $("#content").find("[title='not_approved']").html("НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ ("+sign+")");
+                        })	
+		}
 	  });
 
 	}).click(function(){

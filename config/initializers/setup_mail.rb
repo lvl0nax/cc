@@ -1,4 +1,7 @@
 ActionMailer::Base.default_url_options[:host] = "localhost:3000"
+# (Errbit::Application.config.action_mailer.default_url_options ||= {}).tap do |default|
+#   default.merge! :host => Errbit::Config.host
+# end
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :domain          => "gmail.com",

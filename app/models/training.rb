@@ -4,6 +4,8 @@ class Training < EventParent
   #has_many :requests, as: :requestable
   has_and_belongs_to_many :users #participants, class_name: "User", inverse_of: :tractivity
   #belongs_to :user
+  field :number, type: Integer
+
 
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions

@@ -1,22 +1,55 @@
-<div id='content'>
+<div id='content' style='padding: 0 0 10px'>
 	<ul id="myitems" class="items">
-		<h1><%= link_to "КАЛЕНДАРЬ", activities_user_path(@user.id) %> | <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", created_event_path %></h1>
+		<h1><%= link_to "КАЛЕНДАРЬ", userevents_user_path(@user.id) %> | <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", created_event_path %></h1>
 	</ul>
-	</br>
-	<div id="celendar_content">
-		<div class="monih12">
-			<div class="month_info">
-				<% @index = 1%>
-				<% @action_events.each do |a_event|%>
-					<%= render 'event_calendar', :event => a_event, :index => @index %>
-					<% @index += 1%>			
-				<%end%>
-			</div>
-			<div class="clr"></div>		
-		</div>
-		<div class="clr"></div>
-	</div>
 </div>
+<div id="celendar_content">
+	<div class="month_info">
+		<h1>
+			КАЛЕНДАРЬ 
+			<%= @user.resume.name + " " + @user.resume.surname if @user.resume %> 
+			<%= @user.compinfo.name if @user.compinfo  %>
+		</h1>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+    		$(".title_wrap").toggle(function (event) {	
+    			event.preventDefault();
+				$(this).parents(".month_title").next().slideUp();
+
+			},function (event) {	
+    			event.preventDefault();
+				$(this).parents(".month_title").next().slideDown();
+			});
+    	});		    	
+	</script>
+	<% @years = %w[2012 2013]
+	   @months =  %w[январь февраль март апрель май июнь июль август сентябрь октябрь ноябрь декабрь] %>
+	<% @index = 1%>
+	<% @years.each do |year| %>
+	    <% @months.each_with_index do |month, index| %>
+		    <%@check_event = @action_events.select{|event| event.start_date.month == index+1 && event.start_date.year == year.to_i} %>
+		   	<% if @check_event.count > 0 %>
+			   <div class="month_title">
+	          		<div class="title_wrap">          
+	            		<span><%=month+" "+year%></span>          
+	          		</div>
+	        	</div> 
+	        	<div class="month_info">				
+					<% @check_event.each do |item|%>
+						<%= render 'created_event', :item => item, :index => @index %>
+						<% @index += 1%>
+					<%end%>
+				</div>
+				<div class="clr"></div>
+	        <%end%>
+	    <%end%>
+    <%end%>    
+		
+	<div class="clr"></div>			
+	<div class="clr"></div>
+</div>
+
 <script language="javascript">
   $(function(){
    $('.tv_sizeBig, .fjqtrans, .catsItem, .pchecks, .signature' ).jqTransform();

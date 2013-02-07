@@ -267,7 +267,19 @@
             }
 
         }).done(function(result){
-                if(result) window.location = 'http://'+window.location.host;
+                str = String(window.location);
+                
+                if(result)
+                {
+                  if (str.indexOf("?")== -1)
+                  {
+                    window.location = window.location
+                  }
+                  else
+                  {
+                    window.location = 'http://'+window.location.host;
+                  }
+                }  
                 else
                 {
                     console.log(result);

@@ -4,7 +4,8 @@ class Grant < EventParent
   has_many :requests, as: :requestable
   has_and_belongs_to_many :users
   #belongs_to :user
-
+  field :number, type: Integer
+  
   field :nation
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :end_date, :type => Time

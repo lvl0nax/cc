@@ -79,7 +79,10 @@ class User
   end
 
   def deliver_email
-    UserMailer2.register(self).deliver unless self.email == ""
+#     mailer = mock
+# mailer.register(:deliver)
+# UserMailer2.register(:signup).and_return(mailer)
+  UserMailer2.register(self) unless self.email == ""
   end
 
   def subscribe_to_unisender

@@ -4,6 +4,7 @@
 	<%= link_to "CФЕРЫ", list_areas_path %> |
 	<%= link_to "НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ (#{@count})", not_approved_events_path, :title=>"not_approved" %> |
 <%= link_to "РЕДАКТИРОВАНИЕ СТРАНИЦ", pages_path %>
+	<div id='message_info' style='color:green'></div>
 	<div id="celendar_content">
 		<div class="monih12">
 			<div class="month_info">
@@ -54,7 +55,7 @@
 	      var id_event = $(this).attr('id');
 	      var str; 
 	      if ($(this).is(':checked')){
-	        str = 'remove';
+	        str = 'remove';	        
 	      }
 	      else{
 	        str = 'add'
@@ -71,24 +72,40 @@
 		var str;
 		
 		if($(this).attr('class') == 'odobreno'){
-			if (confirm("Опубликовать событие?")) {
-				  str = 'event_status';
-				  $('#'+event_id+'.monthcont').hide();
-				} else {
-					if (e.stopPropagation) { // существует ли метод?
-					    // Стандартно:
-					    e.stopPropagation();
-					  } else {
-					    // Вариант IE
-					    e.cancelBubble = true;
-					  }
-				  str = "";
-				}
-			//str = 'event_status';
+			str = 'event_status';
+			$('#'+event_id+'.monthcont').hide();
+			$('#message_info').remove();
+			var name_event = $(this).parent().parent().find('.spright').first().text();
+			var text_event = $(this).parent().parent().data('eventname');
+			name_event += ' '+ text_event;
+			if(name_event.indexOf("грант") !== -1){
+				name_event += ' одобрен.'
+			}
+			else if(name_event.indexOf("стажировка") !== -1){
+				name_event += ' одобрена.'				
+			}
+			else if(name_event.indexOf("событие") !== -1){
+				name_event += ' одобрено.'				
+			}
+			$('#celendar_content').before('<div id="message_info" style="color:green">'+name_event.toUpperCase()+'</div>');
 		}
 		else if($(this).attr('class') == 'delete'){
 			str = 'event_delete';
-			 $('#'+event_id+'.monthcont').hide();
+			$('#'+event_id+'.monthcont').hide();
+			$('#message_info').remove();
+			var name_event = $(this).parent().parent().find('.spright').first().text();
+			var text_event = $(this).parent().parent().data('eventname');
+			name_event += ' '+ text_event;
+			if(name_event.indexOf("грант") !== -1){
+				name_event += ' удален.'
+			}
+			else if(name_event.indexOf("стажировка") !== -1){
+				name_event += ' удалена.'				
+			}
+			else if(name_event.indexOf("событие") !== -1){
+				name_event += ' удалено.'				
+			}
+			$('#celendar_content').before('<div id="message_info" style="color:red">'+ name_event.toUpperCase() +'</div>');
 		}
 		if (str.length > 0)
 		{
@@ -101,7 +118,7 @@
                           var sign = regex.exec(count_str);
                           sign -=1;
                           $("#content").find("[title='not_approved']").html("НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ ("+sign+")");
-                        })	
+                        })
 		}
 	  });
 

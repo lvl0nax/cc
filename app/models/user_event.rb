@@ -1,6 +1,7 @@
 class UserEvent
   include Mongoid::Document
-
+  include Mongoid::MultiParameterAttributes
+  
   field :user_id, :type => Integer
   field :event_parent_id, :type => Integer
 

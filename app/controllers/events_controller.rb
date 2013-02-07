@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'will_paginate/array'
 class EventsController < ApplicationController
+  include EventsHelper
 
   load_and_authorize_resource
 
@@ -132,12 +133,13 @@ class EventsController < ApplicationController
         end
       end      
     end
+    #@events = sort_array_events(@events)
+    
     if @events.count == 0
-       months.each_with_index do |month, index|
+        months.each_with_index do |month, index|
         @events << Month.new(:number=>index, :name=>month)
        end
     end 
-
 
   @events = @events.paginate(:page => params[:page], :per_page => 12)
 

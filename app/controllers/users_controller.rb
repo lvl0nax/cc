@@ -32,14 +32,18 @@ class UsersController < ApplicationController
   def userevents
     @user = User.find(params[:id])
     @userevents = UserEvent.where(:user_id => @user.id)
+    #@action_events = Mongoid::Criteria.new(EventParent)
     @action_events = []
     @userevents.each do |ue|
-      @action_events += EventParent.where(:id => ue.event_parent_id, :status => 'ОДОБРЕНО').to_a
+      @action_events += EventParent.where(:id => ue.event_parent_id, :status => 'ОДОБРЕНО') 
+    end        
+    @action_events.each do |ae|
+      puts ae.start_date.year
     end
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @evnts }
-    end
+    #respond_to do |format|
+    #  format.html # new.html.erb
+    #  format.json { render json: @evnts }
+    #end
   end
 
   def admin_page
@@ -187,6 +191,7 @@ class UsersController < ApplicationController
     @items.each do |item|
       item.visible = true
     end
+    
 
     @user = current_user
   end

@@ -1,14 +1,14 @@
 <div id="celendar_content">
 	<div class="month_info">
 		<ul id="myitems" class="items">
-			<h1><%= link_to "КАЛЕНДАРЬ", activities_user_path(@user.id) %> | <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", created_event_path %></h1>
+			<h1><%= link_to "КАЛЕНДАРЬ", userevents_user_path(@user.id) %> | <%= link_to "СОЗДАННЫЕ МЕРОПРИЯТИЯ", created_event_path %></h1>
 		</ul>
 	</div>
 	<% @index = 1%>
 	<%
 		@years = %w[2012 2013]
 		@months =  %w[январь февраль март апрель май июнь июль август сентябрь октябрь ноябрь декабрь]
-	%>
+	%>	
 	<% @years.each do |year| %>
 		<% @months.each_with_index do |month, index| %>			
 			<% if @items.month_user_events(index, year.to_i).count > 0 %>

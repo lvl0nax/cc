@@ -10,12 +10,62 @@ class UserMailer2 < ActionMailer::Base
  def register(user)
     @user = user
     @link = "<a href='"+root_url+"'>Личном Кабинете</a>"
-    mail(:to => user.email,from: "info@centercareer.ru", :subject => "Регистрация на сайте Центр Карьеры")
-    # id = unisender.getLists()['result'].first['id']
-    # send_mail_template(id,@user)
     
+    # mail(:to => user.email,from: "info@centercareer.ru", :subject => "Регистрация на сайте Центр Карьеры", :content_type => 'text/html')
+    id = unisender.getLists()['result'].first['id']
+    send_mail_reg(id,@user)
+
  end
 
+  # def register(user)
+  #   recipients   user.email
+  #   subject      "New account information"
+  #   from         "system@example.com"
+  #   body         :user => recipient
+  #   content_type "text/html"
+  # end
+
+  def send_mail_reg(id,user)
+    content = content_register(user)
+     unisender.sendEmail(
+      :email=>user.email,
+      :sender_name=> 'ЦЕНТР КАРЬЕРЫ', 
+      :sender_email=>'spam.ruby29@gmail.com',    
+      :subject=>'Регистрация на сайте Центр Карьеры', 
+      :list_id=> id, 
+      :lang=>'ru',
+      :body=> content)
+    
+  end
+
+  def content_register(user)
+    user_name =  user.name
+    user_email = user.email
+    user_password = user.password
+    content = '<!DOCTYPE html>
+    <html>
+      <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+      </head>
+      <body>
+        <p>Спасибо за регистрацию!</p>
+
+    <p>Здравствуйте, '+user_name+' !</p>
+
+    <p>Для того чтобы закончить регистрацию и приступить 
+    к составлению своего собственного календаря Вам присвоены 
+    логин и пароль на нашем сайте. Их необходимо использовать при 
+    первом входе на сайт, далее они могут быть изменены в <a href="'+root_url+'">Личном Кабинете</a></p>
+
+    <p>логин: '+user_email+' <br />
+    пароль: '+user_password+'</p>
+
+    <p>С уважением,<br />
+    http://careercenter.ru</p>
+      </body>
+    </html>'
+    return content
+  end
 
 def send_mail_template(id,user)
     @content = register_content(user)

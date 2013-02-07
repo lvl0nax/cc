@@ -6,11 +6,18 @@
     <%= javascript_include_tag 'compinfo' %>
     <% unless @compinfo.nil? %>
     <% if @compinfo.photo.url(:large) %>
-        <%= image_tag @compinfo.photo.url(:large), id: "cropbox" %>
-        <div style="overflow: hidden; width: 100px; height: 100px;">                    
+        <div class='fl'>
+            <%= image_tag @compinfo.photo.url(:large), id: "cropbox" %>
+        </div>
+        <div class='fl' style='width: 181px; margin-left:10px; margin-bottom: 30px'>
+            <span class="av-redact-title2">Миниатюры фотографии</span>
+         Выберите область на основной фотографии, которая будет отображаться в миниатюрах на сайте
+
+        </div>
+        <div style="overflow: hidden; width: 100px; height: 100px; margin: 0 10px;" class='fl'>                    
             <%= image_tag @compinfo.photo.url, id: "preview" %>
         </div>
-        <div style="overflow: hidden; width: 54px; height: 46px;">                    
+        <div style="overflow: hidden; width: 54px; height: 46px;" class='fl'>
             <%= image_tag @compinfo.photo.url, id: "preview2" %>
         </div>
     <% else %>

@@ -1,9 +1,9 @@
 <%if item.class.name.eql?('Grant')%>
-  <div class="monthcont bla" style='position: relative' data-id='<%= item.id %>' id='<%= item.id %>'>
+  <div class="monthcont bla" style='position: relative' data-id='<%= item.id %>' id='<%= item.id %>' data-eventname='<%= item.title %>'>
 <%elsif item.class.name.eql?('Event')%>
-  <div class="monthcont gre" style='position: relative' data-id='<%= item.id %>' id='<%= item.id %>'>
+  <div class="monthcont gre" style='position: relative' data-id='<%= item.id %>' id='<%= item.id %>' data-eventname='<%= item.title %>'>
 <%elsif item.class.name.eql?('Training')%>
-  <div class="monthcont yel" style='position: relative' data-id='<%= item.id %>' id='<%= item.id %>'>
+  <div class="monthcont yel" style='position: relative' data-id='<%= item.id %>' id='<%= item.id %>' data-eventname='<%= item.title %>'>
 <%end%>
   <span><%= Russian::strftime(item.start_date, "%d %B %Y") %></span>
 

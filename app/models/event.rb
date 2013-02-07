@@ -4,6 +4,7 @@ class Event < EventParent
   #has_many :requests, as: :requestable
   #belongs_to :user
   has_and_belongs_to_many :users#, class_name: "User", inverse_of: :evactivity
+  field :number, type: Integer
 
   field :hyperlink, :type => String # Link to external site with/without registration to event
   field :cond # conditions for registrations to the event

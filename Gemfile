@@ -4,13 +4,11 @@ gem 'rails', '3.2.2'
 gem 'jquery-rails'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-# gem 'libv8' ,'~> 3.11.8.7', :platforms => :ruby
+
 gem 'execjs'
 # gem 'therubyracer','0.11.1',:require => 'v8', :platforms => :ruby
 gem 'therubyracer'
 gem 'json'
-
 gem 'rspec-rails'
 gem 'database_cleaner'
 gem 'starling'

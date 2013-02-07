@@ -4,16 +4,15 @@ module EventsHelper
 		arr = []
 		array_events.each do |event|
 			if not event.class.name.eql?('Month')
-				arr << event
-			else
-				arr.sort_by! {|e| e.start_date}				
-				new_array << arr
-				new_array << event
-				arr = []
+				arr += event.to_a
+			 else
+			 	arr.sort_by! {|e| e.start_date}				
+			 	new_array += arr
+			 	new_array += event.to_a
+			 	arr = []
 			end
 		end		
-		arr.sort_by! {|e| e.start_date}
-		#puts arr
-		new_array << arr
+		arr.sort_by! {|e| e.start_date}		
+		new_array += arr
 	end
 end

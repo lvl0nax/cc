@@ -133,7 +133,7 @@ class EventsController < ApplicationController
         end
       end      
     end
-    #@events = sort_array_events(@events)
+    @events = sort_array_events(@events)
     
     if @events.count == 0
         months.each_with_index do |month, index|

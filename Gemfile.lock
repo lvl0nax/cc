@@ -91,6 +91,7 @@ GEM
     faraday_middleware-parse_oj (0.1)
       faraday_middleware (~> 0.8)
       oj (~> 1.2)
+    geocoder (1.1.6)
     hashie (1.2.0)
     hike (1.2.1)
     htmlentities (4.3.1)
@@ -270,6 +271,7 @@ DEPENDENCIES
   database_cleaner
   devise
   execjs
+  geocoder
   jquery-fileupload-rails
   jquery-rails
   json

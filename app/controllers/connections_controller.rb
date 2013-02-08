@@ -1,10 +1,31 @@
 # -*- encoding : utf-8 -*-
 class ConnectionsController < ActionController::Base
- after_filter :set_flag_to_nil
-# private
-   def set_flag_to_nil
+
+after_filter :set_flag_to_nil
+
+  def set_flag_to_nil
      $flag = nil
+     $facebook_id = nil
+     $vkontakte_id = nil
+     $token = nil
+     
    end
+
+   
+
+   def find_location
+    location = Geocoder.coordinates(params[:location])
+    render :json => (location)
+  end
+   
+def set_to_nil
+     $flag = nil
+     $facebook_id = nil
+     $vkontakte_id = nil
+     $token = nil
+     render :json =>""
+   end
+
  
   def new
     
@@ -15,9 +36,9 @@ class ConnectionsController < ActionController::Base
     if @user && @user.valid_password?(params[:pass])
   	 sign_in('user', @user)
        if $vk_id
-         a = Connection.where(:user_id => @user.id).first.update_attribute(:vkontakte_id, $vk_id)
+         @user.connection.update_attribute(:vkontakte_id, $vk_id)
        elsif $facebook_id
-         a = Connection.where(:user_id => @user.id).first.update_attribute(:facebook_id, $facebook_id)
+         @user.connection.update_attribute(:facebook_id, $facebook_id)
        end
      render :json => ( @user && @user.valid_password?(params[:pass]) )
     else
@@ -50,11 +71,12 @@ class ConnectionsController < ActionController::Base
   	@user.resume  = Resume.new(:name=>name,:surname=>l_name,:sex=>gender,:education=>type_ed,
             :university=>scool_name, :faculty=>concentration,:description=>description)
   	@user.resume.save
-  	Connection.where(:user_id => @user.id).first.update_attribute(:facebook_id, $token.uid)
+  	@user.connection = Connection.new(:facebook_id =>$token.uid)
   	sign_in_and_redirect('user', @user)
   end
 
   def create_resume_from_social_vk
+    puts params[:user_email]
     @user = User.new(
                      :provider => $token.provider, 
                      :url => $token.info.urls.Vkontakte, 
@@ -66,6 +88,7 @@ class ConnectionsController < ActionController::Base
                      :password => Devise.friendly_token[0,20],
                      :role => Role.new(:name => 'employee')
                      )
+    @user.email
    unless @user.errors.full_messages.empty?
       render :json => "Email не может быть пустым."
     else
@@ -98,9 +121,8 @@ class ConnectionsController < ActionController::Base
               :home=>location) 
             @user.resume.save
           end
-      a = Connection.where(:user_id => @user.id).first
-      Connection.where(:user_id => @user.id).first.update_attribute(:vkontakte_id, $token.uid)
-    	sign_in('user', @user)
+      @user.connection = Connection.new(:vkontakte_id =>$token.uid)
+    	sign_in_and_redirect('user', @user)
     end
   end
 

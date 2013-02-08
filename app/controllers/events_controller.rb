@@ -5,6 +5,8 @@ class EventsController < ApplicationController
 
   load_and_authorize_resource
 
+  
+
   def index
     @event_id = params[:event_id]
     @trainings_odobreno = Training.where(:status=>'ОДОБРЕНО', :request_date => {'$gte' => Time.now})

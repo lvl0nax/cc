@@ -64,8 +64,9 @@
 <%= form_tag '/find_connection', :method => :get, :class => "soc-form", :id=>'connect' do %>
 <span> <%= @message %></span>
  <a href="#" class="popex">&nbsp;</a>
+ Если у Вас нет созданного аккаунта нажмите на следующую ссылку - 
  <% if $facebook_id %>
-<%=link_to "Создать новый аккаунт из соцсети", create_resume_from_social_facebook_path %>
+<%=link_to "создать новый аккаунт из соцсети", create_resume_from_social_facebook_path , :class => "link_to_create"%>
 <% elsif $vk_id %>
 <script type="text/javascript">
             $(document).ready(function () {
@@ -75,7 +76,6 @@
                 });
                 (function($){
                 $('#vk_form').submit(function(e){
-                    var $this = $(this);
                     e.preventDefault();
                     $.ajax({
                         data: $this.serialize(),
@@ -96,11 +96,11 @@
                     (jQuery);
               });
         </script>
-<%=link_to "Создать новый аккаунт из соцсети", '#', :id => "create_vk_link" %>
+<%=link_to "Создать новый аккаунт из соцсети", '#', :id => "create_vk_link", :class => "link_to_create" %>
 
 <% end %>
 <br>
-<span>Заполните форму</span>
+<span>Если хотите связать аккаунт c существующим заполните форму:</span>
 <br>
   Email
   <%= email_field_tag  'user_email', nil , :class => "inp" %>
@@ -135,7 +135,7 @@
                           }
                           else{
                             $('.error_soc').hide();
-                            window.location = "http://" + window.location.host;
+                            //window.location = "http://" + window.location.host;
                           }
                         }
                     })//.done(function(result){
@@ -160,14 +160,19 @@ $(document).ready(function () {
                       <script type="text/javascript">
 
                         $(document).ready(function () {
-
-                          $(".soc-reg-form, .popex").click(function (event) { 
+  
+                         $(".popex, .soc-reg-form").click(function (event) {    
                             event.preventDefault();
+                            $.ajax({
+                        type: 'post',
+                        url: "/delete_globall",
+                        dataType: "json",
+                        success: function(data){
                           $(".soc-reg-form").fadeOut({'display':'none'});
                           $(".soc-form").fadeOut({'display':'none'});
-
-                        });     
-
+                        }
+                    })
+                             }); 
                         });
 
                       </script>

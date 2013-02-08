@@ -22,8 +22,9 @@ class User
   
   #validates_presence_of :name
   #validates_uniqueness_of  :email, :case_sensitive => false
-  attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name #,:name
-  attr_accessible :nickname, :provider, :url, :username, :role, :compinfo
+  attr_accessible  :email, :password, :password_confirmation, :remember_me, :role_name,
+  :connection_user_id, :connection_facebook_id, :connection_vkontakte_id #,:name
+  attr_accessible :nickname, :provider, :url, :username, :role, :compinfo, :connection
 
   validates :password, :confirmation =>{:message=>"Пароли не совпадают"}, :length => {:minimum => 6,:message => 'Слишком короткий пароль (нужно 6 символов)'}
   validates :email,:uniqueness => {:message=>"Такой e-mail уже зарегистрирован"}, :format => {:with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/,
@@ -47,6 +48,7 @@ class User
   field :provider,           :type => String
 
   embeds_one :role
+  embeds_one :connection
   embeds_one :compinfo
   embeds_one :resume
 
@@ -54,7 +56,7 @@ class User
   has_and_belongs_to_many :grants
   has_and_belongs_to_many :events
 
-  has_one :connection
+  # has_one :connection
 
   has_many :requests
   has_many :user_events
@@ -69,19 +71,22 @@ class User
 
   accepts_nested_attributes_for :resume, :autosave=> true
 
-  after_create :deliver_email, :subscribe_to_unisender, :create_connection
-
+  after_create :deliver_email, :subscribe_to_unisender
+  # before_destroy :destroy_connection
   accepts_nested_attributes_for :role, :autosave=> true, :reject_if => :all_blank
+  accepts_nested_attributes_for :connection, :autosave=> true
 
+  def destroy_connection
+    puts 'xxxx'*10
+    puts Connection.where(:user_id=>self.id).first
+    # Connection.where(:user_id=>self.id).first.destroy
+  end
 
   def create_connection
     self.connection = Connection.create(:user_id => self.id)
   end
 
   def deliver_email
-#     mailer = mock
-# mailer.register(:deliver)
-# UserMailer2.register(:signup).and_return(mailer)
   UserMailer2.register(self) unless self.email == ""
   end
 
@@ -183,72 +188,32 @@ class User
   end
 
   def self.find_for_facebook_oauth(access_token, role)
-    if user = User.where(:id => $user_id).first
-      user.connection.update_attribute(:facebook_id,access_token.uid)
-      return user
-    elsif Connection.where(:facebook_id => access_token.uid).first
-      user = Connection.where(:facebook_id => access_token.uid).first.user 
-      return user
+    if user = User.find_with_facebook(access_token.uid)
+    return user
     else    
       #user = "facebook"
-      $flag = "ololo"
       $vk_id = nil
       $facebook_id = access_token.uid
       $token = access_token
-      $flag = "exists"
-                  # :provider => access_token.provider, 
-                  #  :url => access_token.info.urls.Facebook, 
-                  #   :username => access_token.extra.raw_info.name, 
-                  #   # :name => access_token.extra.raw_info.name, 
-                  #   :nickname => access_token.extra.raw_info.username, 
-                  #   :email => access_token.extra.raw_info.email, 
-                  #   :password => Devise.friendly_token[0,20],
-                  #  :role => Role.new(:name => 'employee')
-       
+      $flag = "exists"       
       return nil
-   
     end
   end
 
   def self.find_for_vkontakte_oauth(access_token, role)
-    if User.where(:id => $user_id).first
-      user = User.where(:id => $user_id).first
-      user.connection.update_attribute(:vkontakte_id,access_token.uid)
+    somefile = File.open("file.rb", "w")
+      somefile.puts access_token.uid
+      somefile.close
+    if user =  User.find_with_vkontakte(access_token.uid)
+     
       return user
-    elsif Connection.where(:vkontakte_id => access_token.uid).first
-       user = Connection.where(:vkontakte_id => access_token.uid).first.user 
-       return user
      else
-       #user = "facebook"
        $facebook_id = nil
        $vk_id = access_token.uid
        $token = access_token
        $flag = "exists"
-    #               # :provider => access_token.provider, 
-    #               #  :url => access_token.info.urls.Facebook, 
-    #               #   :username => access_token.extra.raw_info.name, 
-    #               #   # :name => access_token.extra.raw_info.name, 
-    #               #   :nickname => access_token.extra.raw_info.username, 
-    #               #   :email => access_token.extra.raw_info.email, 
-    #               #   :password => Devise.friendly_token[0,20],
-    #               #  :role => Role.new(:name => 'employee')
-       
        return nil
     end
-    # if user = User.where(:url => access_token.info.urls.Vkontakte).first
-    #   user
-    # else 
-    #   @user = User.create!(
-    #                :provider => access_token.provider, 
-    #                :url => access_token.info.urls.Vkontakte, 
-    #                :username => access_token.info.name, 
-    #                # :name => access_token.info.name, 
-    #                :nickname => access_token.extra.raw_info.domain, 
-    #                :email => access_token.extra.raw_info.screen_name + '@vk.com',
-    #                :password => Devise.friendly_token[0,20],
-    #                :role => Role.new(:name => 'employee')
-    #   )
-    # end
   end
 
   def area_ids=(ids)
@@ -260,6 +225,33 @@ class User
 
   def self.compinfo_names
      User.where(:compinfo => {'$ne' => nil})
+  end
+
+  def self.find_with_vkontakte(v_id)      
+      User.all.to_a.each do |user|
+        somefile = File.open("file.rb", "w")
+      somefile.puts user.connection.vkontakte_id
+      somefile.close
+         
+        if user.connection.vkontakte_id == v_id
+          return user
+        else
+          return nil
+        end
+
+      end
+      return nil
+  end
+
+  def self.find_with_facebook(f_id)    
+    User.all.to_a.each do |user|
+      if user.connection.facebook_id == f_id
+        return user
+        else
+        return nil
+      end
+    end
+    return nil
   end
 
 end

@@ -9,7 +9,7 @@ class UserMailer2 < ActionMailer::Base
 
  def register(user)
     @user = user
-    @link = "<a href='"+root_url+"'>Личном Кабинете</a>"
+    @link = root_url
     
     # mail(:to => user.email,from: "info@centercareer.ru", :subject => "Регистрация на сайте Центр Карьеры", :content_type => 'text/html')
     id = unisender.getLists()['result'].first['id']

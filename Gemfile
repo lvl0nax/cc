@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.2'
 gem 'jquery-rails'
-
+gem 'geocoder'
 # Bundle edge Rails instead:
 
 gem 'execjs'

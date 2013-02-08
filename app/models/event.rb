@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Event < EventParent
-
+  include Geocoder::Model
   #has_many :requests, as: :requestable
   #belongs_to :user
   has_and_belongs_to_many :users#, class_name: "User", inverse_of: :evactivity
@@ -32,6 +32,16 @@ class Event < EventParent
 
   mount_uploader :photo, ImageUploader
   
+
+ #after_create :collect_coordinates
+
+  def collect_coordinates
+    puts "x"*30
+    self.coordinates = Geocoder.coordinates("#{nation}, #{city} ,#{street}, #{building}")
+    puts self.coordinates
+    puts "x"*30
+    self.save
+  end
 
   def self.area_types
     ["НАУЧНЫЕ КОНФЕРЕНЦИИ", "КАРЬЕРНЫЕ СОБЫТИЯ"]

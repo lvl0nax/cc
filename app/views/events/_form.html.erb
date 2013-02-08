@@ -2,6 +2,10 @@
 <%= simple_form_for @event, :validate => true  do |f| %>
   <div id="close" onclick="closeItemPopup()">X</div>
   <div class="name_form">ЯРМАРКА ppppppВАКАНСИЙ, ПРЕЗЕНТАЦИЯ, МАСTЕР-КЛАСС, КЕЙС-ТУРНИР, КОНФЕРЕНЦИЯ</div>
+
+  
+<%= link_to "Find Place", find_event_path, id: "find_place"%>
+  
   <%= f.input :title, :label => "НАЗВАНИЕ", :wrapper_html => { :class => 'first_field' } %>
   <div id="geo-map-zone">
     <div id="search-area" class="h" style="">
@@ -151,4 +155,6 @@
   </div>
 
   <%= f.button :submit, :value => "ДОБАВИТЬ" %>
+
+
 <% end %>

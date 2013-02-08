@@ -103,4 +103,9 @@ class Users::OmniauthCallbacksController < ApplicationController
   def failure
     render :text => params.inspect
   end
+
+  def self.vk
+    User.all.to_a
+  end
+
 end

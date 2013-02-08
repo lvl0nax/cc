@@ -15,6 +15,7 @@ class SessionsController < Devise::SessionsController
 
   def rozsilka_check(old)
 
+
     if Time.now.to_i - old > 1209600  #1209600(2 недели) можно изменить на любое число (сек)
       User.first.update_attribute(:timenow,Time.now.to_i)
       id = unisender.getLists()['result'].first['id']

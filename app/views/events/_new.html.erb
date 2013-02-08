@@ -33,25 +33,25 @@
             }
          
 
-          var latlng = new google.maps.LatLng(x_coor,y_coor); // Координаты карты
-          var settings = {
-              zoom: 12, // Выставляем параметры зума для карты
-              center: latlng,
-              mapTypeControl: false,
-              mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-              navigationControl: true,
-              navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          var map = new google.maps.Map(document.getElementById("map4i"), settings); // Выбираем див куда ставить карту
+          // var latlng = new google.maps.LatLng(x_coor,y_coor); // Координаты карты
+          // var settings = {
+          //     zoom: 12, // Выставляем параметры зума для карты
+          //     center: latlng,
+          //     mapTypeControl: false,
+          //     mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+          //     navigationControl: true,
+          //     navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+          //     mapTypeId: google.maps.MapTypeId.ROADMAP
+          // };
+          // var map = new google.maps.Map(document.getElementById("map4i"), settings); // Выбираем див куда ставить карту
           var myLatlng = new google.maps.LatLng(x_coor,y_coor);  // Координаты маркера
-          var myOptions = {
+          myOptions = {
               zoom: 12,  // Выставляем параметры зума для маркера
               center: myLatlng,
               mapTypeId: google.maps.MapTypeId.ROADMAP
           }
-          var map = new google.maps.Map(document.getElementById("map4i"), myOptions);  // Выбираем див куда ставить маркер
-          var marker = new google.maps.Marker({
+          map = new google.maps.Map(document.getElementById("map4i"), myOptions);  // Выбираем див куда ставить маркер
+          marker = new google.maps.Marker({
               position: myLatlng,
               map: map,
               title: "A"
@@ -166,7 +166,7 @@
         {
           item.addClass("active");
         }
-        item.find('input').enableClientSideValidations();
+        item.find('soc-link-input').enableClientSideValidations();
       }
     </script> 
 
@@ -179,7 +179,7 @@
         <div class="inlblck" style='margin-bottom: 14px'>
           <%= image_tag "/assets/ltp.png"%>
         </div>
-        <div class='input'>
+        <div class='soc-link-input'>
           <%= f.text_field :timepad, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
         </div>
       </div>
@@ -192,7 +192,7 @@
         <div class="inlblck" style='margin-bottom: 14px'>
           <%= image_tag "/assets/llookatme.jpg"%>
         </div>
-        <div class='input'>
+        <div class='soc-link-input'>
           <%= f.text_field :lookatme, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
         </div>
       </div>
@@ -205,7 +205,7 @@
         <div class="inlblck" style='margin-bottom: 14px'>
           <%= image_tag "/assets/lcityspb.jpg"%>
         </div>
-        <div class='input'>
+        <div class='soc-link-input'>
           <%= f.text_field :cityspb, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
         </div>
       </div>
@@ -218,7 +218,7 @@
         <div class="inlblck" style='margin-bottom: 14px'>
           <%= image_tag "/assets/lafisha.jpg"%>
         </div>
-        <div class='input'>
+        <div class='soc-link-input'>
           <%= f.text_field :afisha, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
         </div>
       </div>
@@ -232,7 +232,7 @@
         <div class="inlblck" style='margin-bottom: 14px'>
           <%= image_tag "/assets/lvk.png"%>
         </div>
-        <div class='input'>
+        <div class='soc-link-input'>
           <%= f.text_field :vk, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
         </div>
       </div>
@@ -245,7 +245,7 @@
         <div class="inlblck" style='margin-bottom: 14px'>
           <%= image_tag "/assets/lfb.png"%>
         </div>
-        <div class='input'>
+        <div class='soc-link-input'>
           <%= f.text_field :fb, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
         </div>
       </div>
@@ -258,7 +258,7 @@
         <div class="inlblck" style='margin-bottom: 14px'>
           <%= image_tag "/assets/ltwitter.png"%>
         </div>
-        <div class='input'>
+        <div class='soc-link-input'>
           <%= f.text_field :twitter, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
         </div>
       </div>
@@ -372,3 +372,67 @@
                 });
     });
 </script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            
+            function addMarker(location) {
+            marker.setPosition(location); 
+            marker.setMap(map);          
+       
+            map.setCenter(location);           
+          }
+         
+
+            var nation, city, street, building, location,x,y = "";
+            city = "";
+            street = "";
+            building = "";
+            nation = "";
+
+          
+          function find_place(){
+            location = nation + ", " + city + ", " + street+", " + building;
+            $.ajax({         
+                   data:{ location: location},
+                   type: 'get',
+                   url: "/location" + "?location=" + location,
+                   dataType: 'json',
+                   success: function(data){
+                   console.log(typeof(data));
+                   if (data == undefined){
+                     x = 59.9089;
+                     y = 30.3352499;
+                    }
+                   else{
+                      x = data[0];
+                      y = data[1];
+                    }
+                  }
+                }).done(function() {
+                  myLatlng = new google.maps.LatLng(x,y);
+                      addMarker(myLatlng);
+                      $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
+                    });
+            }
+            $("#event_nation").keyup(function(){
+              nation = $(this).val();
+              find_place();
+            })
+            $("#event_city").keyup(function(){
+              city = $(this).val();
+              find_place();  
+            })
+            $("#event_street").keyup(function(){
+              street = $(this).val();
+              find_place();  
+            })
+
+            $("#event_building").keyup(function(){
+              building = $(this).val();
+              find_place();
+            })
+            
+       })
+    
+    </script>

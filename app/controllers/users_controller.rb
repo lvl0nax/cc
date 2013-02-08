@@ -130,11 +130,13 @@ class UsersController < ApplicationController
         if temp == 0
           @user.role = Role.new(:name => "admin")
           @user.resume = Resume.new(params[:user][:resume])
+          @user.connection = Connection.new
           @user.timenow = Time.now.to_i
         else
-          puts 'x8else'*10
+          
           @user.role = Role.new(:name => role)
           @user.resume = Resume.new(params[:user][:resume]) if role == "employee"
+          @user.connection = Connection.new if role == "employee"
           @user.compinfo = Compinfo.new(params[:user][:compinfo]) if role == "employer"
           cookies.delete :with_photo
           @user.resume.save if role == "employee"

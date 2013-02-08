@@ -3,6 +3,8 @@ TestMongoid::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
   
   resources :authentications
+  
+   post "/delete_globall" => "connections#set_to_nil"
 
    get "/create_connection" => "connections#new"
 
@@ -163,6 +165,8 @@ TestMongoid::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'events#index' 
 
+
+  get "/location" => "connections#find_location"
   #root :to => 'users'
 
   # See how all your routes lay out with "rake routes"

@@ -495,10 +495,16 @@ $(document).ready(function () {
           var id_event = $(this).attr('id');
           var str; 
           if ($(this).is(':checked')){
-            str = 'remove';        
+            str = 'remove';
+            $(".av-redact-bg").fadeIn();
+            $(".calendar_deleted").fadeIn();
+            $(".calendar_added").fadeOut();            
           }
           else{
             str = 'add'
+            $(".calendar_deleted").fadeOut();
+            $(".av-redact-bg").fadeIn();
+            $(".calendar_added").fadeIn();            
           } 
           console.log(str);
           $.ajax({ url: "/add_remove_event", type: "POST", data:{ id_event: id_event, str: str},  beforeSend:function(jqXHR, settings) {

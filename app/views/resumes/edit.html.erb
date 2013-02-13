@@ -29,8 +29,6 @@
         <script type="text/javascript">
           jQuery(function () {
             jQuery("#resume_sex ,"+ "#resume_birthday_3i,#resume_birthday_2i,#resume_birthday_1i,"+
-              "#resume_experation_3i,"+
-              "#resume_experation_2i,"+
               "#resume_experation_1i,"+
               ".class2_3i").selectbox();
           });
@@ -52,7 +50,7 @@
       <div class="input_field" id='education_fields'>
         <%= f.text_field :education, :style => 'width:423px;' %>
         <div class="sub_info_row">
-          ВУЗ
+          <span>ВУЗ</span>
           <%= f.text_field :university, :style => 'width:423px;' %>
           <div class="clr"></div>
         </div>
@@ -64,8 +62,7 @@
 
         <div class="sub_info_row" id='remove_empty'>
           <span style="padding-left:0;">ДАТА ОКОНЧАНИЯ</span>
-          <div class="new-sel"><%= f.date_select :experation, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
-                    :order => [:day, :month, :year] %></div>          
+          <div class="new-sel"><%= f.date_select :experation, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10, :discard_day => true, :discard_month => true, :order => [:year] %></div>          
 
           <div class="clr"></div>
         </div>

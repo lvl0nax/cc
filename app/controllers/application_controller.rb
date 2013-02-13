@@ -19,10 +19,10 @@ class ApplicationController < ActionController::Base
 
   def load_resume
     if user_signed_in?
-      if current_user.role.eql?('employer')
-        @compinfo = current_user.compinfo
+      if current_user.role.name.eql?('employer')
+        @compinfo = current_user.compinfo        
       else        
-        @resume = current_user.resume
+        @resume = current_user.resume        
       end
     end
   end

@@ -37,7 +37,7 @@ Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   :port            => 587,
   :tls             => true,
   :authentication  => :plain,
-  :user_name       => 'spam.ruby29@gmail.com',
+  :user_name       => 'centercareer0@gmail.com',
   :password        => 'spam.ruby'
 }
   # Defaults to Rails.root.join("public/assets")

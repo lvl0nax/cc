@@ -52,18 +52,23 @@ def set_to_nil
     unless @user.blank?
       render :json => "Пользователь с таким email уже зарегестрирован."
     else
+      @username = $token.extra.raw_info.name if $token.extra.raw_info.name
+      @name = $token.extra.raw_info.name if $token.extra.raw_info.name
+      @nickname = $token.extra.raw_info.username if $token.extra.raw_info.username
+      
       @user = User.create(:provider => $token.provider, 
         :url => $token.info.urls.Facebook, 
-        :username => $token.extra.raw_info.name, 
-        :name => $token.extra.raw_info.name, 
-        :nickname => $token.extra.raw_info.username, 
+        :username => @username, 
+        :name => @name, 
+        :nickname => @nickname, 
         :email => $token.extra.raw_info.email, 
         :password => Devise.friendly_token[0,20],
         :role => Role.new(:name => 'employee'))
+
     name = $token.info.first_name
     l_name = $token.info.last_name
     description = $token.info.description
-    gender = I18n.t $token[:extra][:raw_info][:gender]
+    gender = I18n.t $token[:extra][:raw_info][:gender] if $token[:extra][:raw_info][:gender]
      count = $token[:extra][:raw_info][:education].count if $token[:extra][:raw_info][:education]
         if not count.nil?
           scool_name = $token[:extra][:raw_info][:education][count-1][:school][:name] if count>0
@@ -76,9 +81,7 @@ def set_to_nil
     @user.connection = Connection.new(:facebook_id =>$token.uid)
     set_flag_to_nil
     sign_in_and_redirect('user', @user)
-    end
-   
-  	
+    end	
   end
 
   def create_resume_from_social_vk

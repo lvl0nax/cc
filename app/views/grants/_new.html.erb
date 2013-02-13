@@ -182,7 +182,7 @@
   <div class="rightpart">
     <span class="label">ФОТО:</span>
     <div class="photo">
-      <%= image_tag "contimg4.png" %>
+      <%= image_tag "contimg4.png", :title => 'Добавить фото' %>
       <%= fields_for 'grant[u_image]' do |img|%>
           <%= img.file_field :photo %>
       <% end %>

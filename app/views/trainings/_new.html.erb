@@ -310,7 +310,7 @@
       <span class="label">ФОТО:</span>
 
       <div class="photo">
-        <%= image_tag "contimg6.png" %>
+        <%= image_tag "training6.png", :title => 'Добавить фото'%>
         <%= fields_for 'training[u_image]' do |img|%>
             <%= img.file_field :photo %>
         <% end %>

@@ -61,7 +61,8 @@
                             }, 5000);
                         }
                     }).done(function(result){
-                                if(result) window.location = window.location;
+                                // alert(window.location.host);
+                                if(result) window.location = 'http://'+window.location.host;
                             });
                 });
             })
@@ -210,7 +211,7 @@
                 <%= f.submit "Сохранить", :class=>"avabtn1", :id => 'save_resume_ava' %>
                 <div class="clr"></div>
             <% end %>
-        <%else%>
+        <%else%>            
             <script type="text/javascript">
 
                 $(document).ready(function () {
@@ -326,8 +327,7 @@
                 <% end %>                                    
                 <%= f.submit "Сохранить", :class=>"avabtn1", :id => 'save_resume_ava' %>
                 <div class="clr"></div>
-            <% end %>
-            
+            <% end %>            
         <%end%>
         <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", profile_path, :class => 'header2menuitem3' %>
         <%= link_to 'интересующие сферы', areas_path, :class=>"header2menuitem2" %>

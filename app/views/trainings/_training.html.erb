@@ -3,7 +3,7 @@
     <span><%= Russian::strftime(training.start_date, "%d %B %Y") %></span>
     <span class="spright">стажировка</span>
     <% if training.image_id.blank? %>
-      <%= image_tag "contimg6.png" %>
+      <%= image_tag "contimg61.png" %>
     <% else %>
       <%= image_tag Image.find(training.image_id).photo.thumb %>
     <% end %>
@@ -38,7 +38,7 @@
     <% unless training.image_id.eql?('') %>
       <%= image_tag Image.find(training.image_id).photo.thumb %>
     <%else%>
-      <%= image_tag "contimg6.png" %>
+      <%= image_tag "contimg61.png" %>
     <%end%>
 
       <div class="catsItem addtocallendar" style="margin-top:0;">

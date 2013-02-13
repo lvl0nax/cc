@@ -58,18 +58,18 @@
               map: map,
               title: "A"
           });
-          // google.maps.event.addListener(map,'click',function(event){
-          //   addMarker(event.latLng);
-          //   var x = event.latLng.Ya,
-          //       y = event.latLng.Za;
-          //   $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
-          // });
+          google.maps.event.addListener(map,'click',function(event){
+            addMarker(event.latLng);
+            var x = event.latLng.Ya,
+                y = event.latLng.Za;
+            $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
+          });
 
-          // function addMarker(location) {
-          //   marker.setMap(map);          
-          //   map.setCenter(location);
-          //   marker.setPosition(location);            
-          // }
+          function addMarker(location) {
+            marker.setMap(map);          
+            map.setCenter(location);
+            marker.setPosition(location);            
+          }
       }
   </script>
 </div>
@@ -289,7 +289,7 @@
     <% Area.all.each do |area| %>
         <div class="catsItem">
           <label>
-            <input type="checkbox" name="area-<%= area.id %>" id="area-<%= area.id %>">
+            <input type="checkbox" name="event[area_ids][]" value='<%= area.id %>' id="area-<%= area.id %>">
             <span class="descripting"><%= area.name %></span>
             <div class="clr"></div>
           </label>
@@ -318,7 +318,7 @@
 <div class="rightpart">
   <span class="label">ФОТО:</span>
   <div class="photo">
-    <%= image_tag "contimg5.png" %>
+    <%= image_tag "contimg5.png", :title => 'Добавить фото' %>
     <%= fields_for 'event[u_image]' do |img|%>
         <%= img.file_field :photo %>
     <% end %>

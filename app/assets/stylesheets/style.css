@@ -2032,7 +2032,6 @@ header a:hover {
   color: #77a48b;
 }
 .bbg {
-  background-image: url("../images/bbg.png");
   background-repeat: repeat;
   background-position: 0 0;
   position: fixed;
@@ -2239,6 +2238,9 @@ header a:hover {
   height: 183px;
   overflow: hidden;
   text-align: center;
+}
+.navadd form .rightpart .photo img:hover {
+  cursor: pointer;
 }
 .navadd form .add {
   float: right;

@@ -1,6 +1,6 @@
 # encoding: utf-8
 class UserMailer2 < ActionMailer::Base
-  default from: "spam.ruby29@gmail.com"
+  default from: "centercareer0@gmail.com"
 
  def info_email(user)
     @user = user #initiate user #user.email,
@@ -30,7 +30,7 @@ class UserMailer2 < ActionMailer::Base
      unisender.sendEmail(
       :email=>user.email,
       :sender_name=> 'ЦЕНТР КАРЬЕРЫ', 
-      :sender_email=>'spam.ruby29@gmail.com',    
+      :sender_email=>'centercareer0@gmail.com',    
       :subject=>'Регистрация на сайте Центр Карьеры', 
       :list_id=> id, 
       :lang=>'ru',
@@ -61,7 +61,7 @@ class UserMailer2 < ActionMailer::Base
     пароль: '+user_password+'</p>
 
     <p>С уважением,<br />
-    http://careercenter.ru</p>
+    http://centercareer.ru</p>
       </body>
     </html>'
     return content
@@ -69,7 +69,7 @@ class UserMailer2 < ActionMailer::Base
 
 def send_mail_template(id,user)
     @content = register_content(user)
-    id_mes = unisender.createEmailMessage(:sender_name=>'ЦЕНТР КАРЬЕРЫ', :sender_email=>'spam.ruby29@gmail.com',
+    id_mes = unisender.createEmailMessage(:sender_name=>'ЦЕНТР КАРЬЕРЫ', :sender_email=>'centercareer0@gmail.com',
     :subject=>'Регистрация на сайте Центр Карьеры', :list_id=>id, :lang=>'en',
     :body=>@content)['result']['message_id']
     unisender.createCampaign(id_mes,2)
@@ -143,7 +143,7 @@ end
     unisender.sendEmail(
       :email=>email,
       :sender_name=> 'ЦЕНТР КАРЬЕРЫ', 
-      :sender_email=>'spam.ruby29@gmail.com',    
+      :sender_email=>'centercareer0@gmail.com',    
       :subject=>'Рассылка', 
       :list_id=> id, 
       :lang=>'en',

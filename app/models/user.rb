@@ -205,9 +205,9 @@ class User
   end
 
   def self.find_for_vkontakte_oauth(access_token, role)
-    if user =  User.find_with_vkontakte(access_token.uid)
+    if @user =  User.find_with_vkontakte(access_token.uid)
      
-      return user
+      return @user
      else
        $facebook_id = nil
        $vk_id = access_token.uid
@@ -228,17 +228,21 @@ class User
      User.where(:compinfo => {'$ne' => nil})
   end
 
-  def self.find_with_vkontakte(v_id)      
+  def self.find_with_vkontakte(v_id)  
+   @flag = false
+    @user_v      
       User.all.to_a.each do |user|
-         
-        if user.connection.vkontakte_id == v_id
-          return user
+        if user.connection.vkontakte_id == v_id.to_s
+          @flag = true
+          @user_v = user
+          return @user_v
         else
-          return nil
+          @flag = false
         end
-
       end
+      if not @flag
       return nil
+      end
   end
 
   def self.find_with_facebook(f_id) 
@@ -248,13 +252,12 @@ class User
       if user.connection.facebook_id == f_id
         @flag = true
         @user_f = user
+        return @user_f
       else
         @flag = false
       end
     end
-    if @flag
-      return @user_f
-    else 
+    if not @flag
       return nil
     end
   end

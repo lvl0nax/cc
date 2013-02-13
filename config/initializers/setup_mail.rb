@@ -9,6 +9,6 @@ ActionMailer::Base.smtp_settings = {
   :address         => 'smtp.gmail.com',
   :port            => 587,
   :authentication  => :plain,
-  :user_name       => 'spam.ruby29@gmail.com',
+  :user_name       => 'centercareer0@gmail.com',
   :password        => 'spam.ruby'
 }

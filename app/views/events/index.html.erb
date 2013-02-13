@@ -92,7 +92,7 @@ $(document).ready(function () {
                 
                 $('#vk_form').find(".sfb").click(function(e){
                   e.preventDefault();
-                  alert($(this).prev().prev().val());
+                  
                     $.ajax({
                         type: "get",
                         data: {user_email : $(this).prev().prev().val()},
@@ -311,8 +311,8 @@ $(document).ready(function () {
               <div class="allCats">
                 <% Area.all.each do |area| %>
                     <div class="catsItem">
-                      <label>
-                        <%= f.check_box :check_area_event, :name => "", :id => "" %>
+                      <label>                        
+                        <input type="checkbox" name="event[areas][]" value="<%= area._id %>"/>
                         <span class="descripting"><%= area.name %></span>
 
                         <div class="clr"></div>

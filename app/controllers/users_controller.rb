@@ -157,7 +157,7 @@ class UsersController < ApplicationController
           return render json: @user.errors
         elsif not cookies[:with_photo].nil? and @user.errors.count > 0
           if @user.update_attributes(params[:user])
-            UserMailer2.register(@user).deliver
+            UserMailer2.register(@user)
             puts 'x10'*10
             @user.role = Role.new(:name => role)
             sign_in('user', @user)

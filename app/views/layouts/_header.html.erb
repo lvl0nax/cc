@@ -75,7 +75,7 @@
             <div class="photo_login">
                 <%if current_user.resume.photo?%>
                     <%= image_tag current_user.resume.photo.url(:thumb) %>
-                    <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>                    
+                    <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
                 <%else%>
                     <%= image_tag 'nophoto.jpg' %>
                     <%= link_to 'ДОБАВИТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
@@ -93,57 +93,69 @@
                 <%end%>                
             </div>        
         <% end %>
-        <script type="text/javascript">
+        <% unless @resume.nil? %>
+            <script type="text/javascript">
 
-            $(document).ready(function () {
-                $(".redact").click(function (event) {             
-                    event.preventDefault();
-                    $(".av-redact-bg").fadeIn();
-                    $(".av-redact").fadeIn();
-                }); 
-                $(".av-exit").click(function (event) { 
-                    event.preventDefault();
-                    $(".av-redact-bg").fadeOut();
-                    $(".av-redact").fadeOut();
-                });
-
-                $('#save_resume_ava').click(function(e){
-                    e.preventDefault();
-                    
-                    var data = $('#resume_photo').serialize();
-
-                    console.log($('#resume_photo'));
-                });
-                var resume_id = $('.av-redact-bg').data('id');
-                $('.redact2').click(function(e){
-                    e.preventDefault();
-                    $('#resume_photo').trigger('click');    
-                });
-                $('#resume_photo').fileupload({
-                    url: '/resumes/'+resume_id,                    
-                    dataType: 'json',
-                    done: function (e, data) {
+                $(document).ready(function () {
+                    $(".redact").click(function (event) {             
+                        event.preventDefault();
                         $(".av-redact-bg").fadeIn();
-                    $(".av-redact").fadeIn();                        
-                        $('.jcrop-tracker').last().next().next().attr('src', data.result.url);
-                        $('.jcrop-tracker').last().prev().children().children().attr('src', data.result.url);
-                        $('.ava2').children().attr('src', data.result.url);
-                        $('.ava3').children().attr('src', data.result.url);                   
-                     
-                    }
-                });                
-            });       
-            
-            
+                        $(".av-redact").fadeIn();
+                    }); 
+                    $(".avabtn1, .av-exit").click(function (event) { 
+                        event.preventDefault();
+                        $(".av-redact-bg").fadeOut();
+                        $(".av-redact").fadeOut();
+                    });
+                    
+                    var resume_id = $('.av-redact-bg').data('id');
+                    
+                    $('#resume_photo').fileupload({
+                        url: '/update_avatar/'+resume_id,                    
+                        dataType: 'json',
+                        done: function (e, data) {
+                            $(".av-redact-bg").fadeIn();
+                        $(".av-redact").fadeIn();                        
+                            if (data.result.error != undefined){
+                                $('#load_img_error').html(data.result.error)
+                            }
+                            else{                                
+                                if($('.ava1').children().attr('src') != '/assets/nophoto2.jpg'){
+                                    $('.jcrop-tracker').last().next().next().attr('src', data.result.url);
+                                    $('.jcrop-tracker').last().prev().children().children().attr('src', data.result.url);                        
 
-        </script>
-
-        <%= javascript_include_tag 'jquery.Jcrop.min' %>
-        <%= javascript_include_tag 'jquery.color' %>
-        <%= javascript_include_tag 'jquery.uniform.min' %>
-        <%= javascript_include_tag 'resume' %>
-        <div class="av-redact-bg" data-id='<%= @resume.id%>'></div>
-        <% unless @resume.nil? %>            
+                                    $('.ava2').children().attr('src', data.result.url);
+                                    $('.ava3').children().attr('src', data.result.url);
+                                }
+                                else{
+                                    window.location = window.location    
+                                }
+                                
+                                $('#load_img_error').html('')   
+                            }
+                        }
+                    });
+                    $('#save_resume_ava').live('click', function(e){
+                        e.preventDefault();
+                        var $form = $('form.simple_form');
+                        var data_crop = $form.serialize();                    
+                        $.ajax({ url: '/update_avatar/'+resume_id, type: "PUT", dataType: 'json', data: data_crop,  beforeSend:function(jqXHR, settings) {
+                            jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                            },
+                            success: function(data, e){                            
+                                $('.photo_login').children().attr('src', data.url);
+                            }
+                        });
+                            
+                        
+                    })
+                });
+            </script>                    
+            <%= javascript_include_tag 'jquery.Jcrop.min' %>
+            <%= javascript_include_tag 'jquery.color' %>
+            <%= javascript_include_tag 'jquery.uniform.min' %>
+            <%= javascript_include_tag 'resume' %>
+            <div class="av-redact-bg" data-id='<%= @resume.id%>'></div>
             <%= simple_form_for @resume, :html => {:class=>"av-redact"}, :id => 'resume_avatar' do |f| %>
                 <span class="av-redact-title">
                     Редактирование аватара
@@ -166,21 +178,29 @@
                         </div>
                     </div>
                 <%else%>
-                    <img id="" src = "/assets/nophoto.jpg">
+                    <div class="ava1">
+                        <img id="cropbox" src = "/assets/nophoto2.jpg" >
+                    </div>
                     <div class="av-rb">
                         <p class="av-inf1">
                             <span class="av-redact-title2">Миниатюры фотографии</span>
                             Выберите область на основной фотографии, которая будет отображаться в миниатюрах на сайте
-                        </p>
-                        <div class="ava2"><img src=""></div>
-                        <div class="ava3"><img src=""></div>
+                        </p>                        
+                         <div class="ava2" style="overflow: hidden; width: 100px; height: 100px;">
+                            <%= image_tag '/assets/nophoto.jpg', id: "preview" %>
+                        </div>
+                        <div class="ava3" style="overflow: hidden; width: 54px; height: 46px;">
+                            <%= image_tag '/assets/nophoto.jpg', id: "preview2" %>
+                        </div>
                     </div>
                 <%end%>
                 <div class="clr"></div>
-                
-                *Файл должен бить не больше 5Mb, формат jpg или jpeg.
+                <div style='color:green'>
+                    *Файл должен бить не больше 5Mb, формат jpg или jpeg.
+                </div>                
+                <div id='load_img_error' style="color:red"></div>
                 <div class="clr"></div>
-                <button class="av-exit avabtn1">Отмена</button>
+                <button class="avabtn1">Отмена</button>
                 <div class="avabtn2">
                     <%= f.input :photo, :label => "|", :style => 'width:300px' %>
                 </div>
@@ -190,6 +210,124 @@
                 <%= f.submit "Сохранить", :class=>"avabtn1", :id => 'save_resume_ava' %>
                 <div class="clr"></div>
             <% end %>
+        <%else%>
+            <script type="text/javascript">
+
+                $(document).ready(function () {
+                    $(".redact").click(function (event) {             
+                        event.preventDefault();
+                        $(".av-redact-bg").fadeIn();
+                        $(".av-redact").fadeIn();
+                    }); 
+                    $(".avabtn1, .av-exit").click(function (event) { 
+                        event.preventDefault();
+                        $(".av-redact-bg").fadeOut();
+                        $(".av-redact").fadeOut();
+                    });
+                    
+                    var resume_id = $('.av-redact-bg').data('id');
+                    
+                    $('#compinfo_photo').fileupload({
+                        url: '/update_avatar_comp/'+resume_id,                    
+                        dataType: 'json',
+                        done: function (e, data) {
+                            $(".av-redact-bg").fadeIn();
+                        $(".av-redact").fadeIn();                        
+                            if (data.result.error != undefined){
+                                $('#load_img_error').html(data.result.error)
+                            }
+                            else{                                
+                                if($('.ava1').children().attr('src') != '/assets/nophoto2.jpg'){
+                                    $('.jcrop-tracker').last().next().next().attr('src', data.result.url);
+                                    $('.jcrop-tracker').last().prev().children().children().attr('src', data.result.url);                        
+
+                                    $('.ava2').children().attr('src', data.result.url);
+                                    $('.ava3').children().attr('src', data.result.url);
+                                }
+                                else{
+                                    window.location = window.location    
+                                }
+                                
+                                $('#load_img_error').html('')   
+                            }
+                        }
+                    });
+                    $('#save_resume_ava').live('click', function(e){
+                        e.preventDefault();
+                        var $form = $('form.simple_form');
+                        var data_crop = $form.serialize();                    
+                        $.ajax({ url: '/update_avatar_comp/'+resume_id, type: "PUT", dataType: 'json', data: data_crop,  beforeSend:function(jqXHR, settings) {
+                            jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                            },
+                            success: function(data, e){                            
+                                $('.photo_login').children().attr('src', data.url);
+                            }
+                        });
+                            
+                        
+                    })
+                });
+            </script>  
+            <%= javascript_include_tag 'jquery.Jcrop.min' %>
+            <%= javascript_include_tag 'jquery.color' %>
+            <%= javascript_include_tag 'jquery.uniform.min' %>
+            <%= javascript_include_tag 'compinfo' %>
+            <div class="av-redact-bg" data-id='<%= @compinfo.id%>'></div>
+            <%= simple_form_for @compinfo, :html => {:class=>"av-redact"}, :id => 'resume_avatar' do |f| %>
+                <span class="av-redact-title">
+                    Редактирование аватара
+                    <a href="#" class="av-exit av-popex">&nbsp;</a>
+                </span>
+                <% if @compinfo.photo.url(:large) %>
+                    <div class="ava1">
+                        <%= image_tag @compinfo.photo.url(:large), id: "cropbox"%>
+                    </div>
+                    <div class="av-rb">
+                        <p class="av-inf1">
+                            <span class="av-redact-title2">Миниатюры фотографии</span>
+                            Выберите область на основной фотографии, которая будет отображаться в миниатюрах на сайте
+                        </p>
+                        <div class="ava2" style="overflow: hidden; width: 100px; height: 100px;">
+                            <%= image_tag @compinfo.photo.url, id: "preview" %>
+                        </div>
+                        <div class="ava3" style="overflow: hidden; width: 54px; height: 46px;">
+                            <%= image_tag @compinfo.photo.url, id: "preview2" %>
+                        </div>
+                    </div>
+                <%else%>
+                    <div class="ava1">
+                        <img id="" src = "/assets/nophoto2.jpg" >
+                    </div>
+                    <div class="av-rb">
+                        <p class="av-inf1">
+                            <span class="av-redact-title2">Миниатюры фотографии</span>
+                            Выберите область на основной фотографии, которая будет отображаться в миниатюрах на сайте
+                        </p>                        
+                         <div class="ava2" style="overflow: hidden; width: 100px; height: 100px;">
+                            <img src='', id = "" >
+                        </div>
+                        <div class="ava3" style="overflow: hidden; width: 54px; height: 46px;">
+                            <img src='', id = "" >
+                        </div>
+                    </div>
+                <%end%>
+                <div class="clr"></div>
+                <div style='color:green'>
+                    *Файл должен бить не больше 5Mb, формат jpg или jpeg.
+                </div>                
+                <div id='load_img_error' style="color:red"></div>
+                <div class="clr"></div>
+                <button class="avabtn1">Отмена</button>
+                <div class="avabtn2">
+                    <%= f.input :photo, :label => "|", :style => 'width:300px' %>
+                </div>
+                <% %w[x y w h].each do |attribute| %>
+                    <%= f.hidden_field "crop_#{attribute}" %>
+                <% end %>                                    
+                <%= f.submit "Сохранить", :class=>"avabtn1", :id => 'save_resume_ava' %>
+                <div class="clr"></div>
+            <% end %>
+            
         <%end%>
         <%= link_to "ЛИЧНАЯ ИНФОРМАЦИЯ", profile_path, :class => 'header2menuitem3' %>
         <%= link_to 'интересующие сферы', areas_path, :class=>"header2menuitem2" %>

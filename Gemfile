@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.2'
 gem 'jquery-rails'
-gem 'geocoder'
+
 # Bundle edge Rails instead:
 
 gem 'execjs'
@@ -13,6 +13,8 @@ gem 'rspec-rails'
 gem 'database_cleaner'
 gem 'starling'
 gem 'mongoid', '3.0' #'2.4.11'
+
+gem 'geocoder'
 gem 'bson_ext', :require => false
 gem 'devise'
 gem 'cancan'

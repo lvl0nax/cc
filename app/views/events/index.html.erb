@@ -34,11 +34,8 @@
         var map = new google.maps.Map(document.getElementById(""+id_map), settings); // Выбираем див куда ставить карту
 
         var myLatlng = new google.maps.LatLng(x, y);  // Координаты маркера
-
         var myOptions = {
-
           zoom: 12,  // Выставляем параметры зума для маркера
-
           center: myLatlng,
 
           mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -46,15 +43,10 @@
         }  
 
         var map = new google.maps.Map(document.getElementById(""+id_map), myOptions);  // Выбираем див куда ставить маркер
-
         var marker = new google.maps.Marker({
-
         position: myLatlng,
-
         map: map,
-
         title: "A"
-
         });
     }
 </script>
@@ -66,34 +58,55 @@
  <a href="#" class="popex">&nbsp;</a>
  Если у Вас нет созданного аккаунта нажмите на следующую ссылку - 
  <% if $facebook_id %>
-<%=link_to "создать новый аккаунт из соцсети", create_resume_from_social_facebook_path , :class => "link_to_create"%>
+<%=link_to "создать новый аккаунт из соцсети",'#', :class => "link_to_create" , :id =>"fb_form"%>
+<script type="text/javascript">
+$(document).ready(function () {
+   $('#fb_form').click(function(){
+                    $.ajax({
+                       // data: $this.serialize(),
+                        type: 'get',
+                        url: "/create_resume_from_social_facebook",
+                        dataType: 'json',
+                        error: function(jqXHR, textStatus, errorThrown){
+                          if(jqXHR.responseText)
+                          {
+                          $(".error_soc").html(jqXHR.responseText);  
+                          }
+                          
+                        },
+                        success: function(data){
+                          window.location = "http://" + window.location.host;
+                        }
+                    })
+})
+ })
+</script>
 <% elsif $vk_id %>
 <script type="text/javascript">
             $(document).ready(function () {
+             
                 $('#create_vk_link').click(function(){
                   $('#connect').hide();
                   $('#vk_form').show();
                 });
-                (function($){
-                $('#vk_form').submit(function(e){
-                    e.preventDefault();
+                
+                $('#vk_form').find(".sfb").click(function(e){
+                  e.preventDefault();
+                  alert($(this).prev().prev().val());
                     $.ajax({
-                        data: $this.serialize(),
-                        type: 'get',
-                        url: $this.attr('action'),
+                        type: "get",
+                        data: {user_email : $(this).prev().prev().val()},
+                        url: "/create_resume_from_social_vk",
                         dataType: 'json',
                         error: function(jqXHR, textStatus, errorThrown){
                           $(".error_soc").html(jqXHR.responseText);
                         },
                         success: function(data){
-                          window.location = "http://" + window.location.host;
+                         window.location = "http://" + window.location.host;
                         }
-                    })//.done(function(result){
-                      //          if(result) window.location = "http://" + window.location.host;
-                      //      });
-                });
-            })
-                    (jQuery);
+                    })
+                });                   
+                            
               });
         </script>
 <%=link_to "Создать новый аккаунт из соцсети", '#', :id => "create_vk_link", :class => "link_to_create" %>
@@ -135,7 +148,8 @@
                           }
                           else{
                             $('.error_soc').hide();
-                            //window.location = "http://" + window.location.host;
+
+                            window.location = "http://" + window.location.host;
                           }
                         }
                     })//.done(function(result){
@@ -440,6 +454,15 @@ $(document).ready(function () {
       $('.moncon').live('click', function(){        
         $('.pk_popup').css({'display':'none'});
         $(this).children(".pk_popup").fadeIn(600);
+        //---------------------------------
+        var scroll = $(window).scrollTop();
+        if (scroll < 390) {
+          $(this).children(".pk_popup").css({"top":"430px"});
+        } else {
+          var scrollpl = scroll+100;
+          $(this).children(".pk_popup").css({'top':scrollpl});
+        }
+
         run_google_map($(this));
         $('.fjqtrans, .catsItem, .pchecks, .descripting').jqTransform(); 
         
@@ -447,7 +470,16 @@ $(document).ready(function () {
         $(".moncon").on('click', function () {          
           $('.fjqtrans, .catsItem, .pchecks, .descripting').jqTransform();         
           $('.pk_popup').css({'display':'none'});
-          $(this).children(".pk_popup").fadeIn(600);                
+          $(this).children(".pk_popup").fadeIn(600);
+          //---------------------------------
+          var scroll = $(window).scrollTop();
+          if (scroll < 390) {
+            $(this).children(".pk_popup").css({"top":"430px"});
+          } else {
+            var scrollpl = scroll+100;
+            $(this).children(".pk_popup").css({'top':scrollpl});
+          }
+
           run_google_map($(this));        
         });
 
@@ -492,5 +524,7 @@ $(document).ready(function () {
         $(elem).children(".w203").css({'display':'block'});
     }   
 </script>
+
+
 
 

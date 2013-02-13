@@ -14,7 +14,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 201;
+  z-index: 800;
   background: #000000;
   background: rgba(0,0,0,.8);
 }
@@ -844,18 +844,19 @@ header a:hover {
 .pk_popup {
     left: 50%;
     margin-left: -310px;
-    margin-top: -310px;
-    position: fixed;
-    top: 50%;
+    /*margin-top: -310px;*/
+    /*position: fixed;*/
+    position: absolute;
+    top: 100px;
     z-index: 555;
 }
 
 .pk_popupcd {
-  position:fixed;
+  position: absolute;
   left: 50%;
   z-index: 555;
   margin-left: -310px;
-  top: 53%;
+  top: 100px;
 }
 .pk_popup {
   display: none;
@@ -866,9 +867,6 @@ header a:hover {
   background-image: url("../images/wbg.png");
   background-repeat: repeat;
   background-position: 0 0;
-  /* position:fixed; */
-
-  
 }
 .pk_popup .close_popup {
   width: 17px;
@@ -945,10 +943,10 @@ header a:hover {
   height: 20px;
   font-size: 14px;
   color: #354242;
-  margin-top: -25px;
+  
   background: transparent;
   margin-bottom: 10px;
-  width: 195px;
+  width: 125px;
   display: block;
   position: relative;
   margin-left: 0px;
@@ -1432,6 +1430,7 @@ header a:hover {
   padding: 0 16px;
   border: 1px solid #c8c8c8;
   border-bottom: 4px solid #c8c8c8;
+  position: static !important;
 }
 #celendar_content .month_info .monthcont span {
   font-size: 10px;
@@ -2543,11 +2542,11 @@ form .regtype img {
 }
 .photo_login {
     float: right;
-    width: 102px;
-    height: 87px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     position: relative;
-    z-index: 554;
+    z-index: 99;
     border: none;
 }
 .photo_login img {
@@ -2965,8 +2964,8 @@ form .regtype img {
 }
 
 .edit_events{
-  position: absolute;
-  bottom: 0;  
+  /*position: absolute;
+  bottom: 0;  */
 }
 
 .edit_events .odobreno{
@@ -3111,7 +3110,7 @@ form .regtype img {
 
 
 .lside > img{
-  width:195px!important;
+  width:125px!important;
 }
 
 #celendar_content .pk_popupcd .lside .addtocallendar{
@@ -3289,21 +3288,6 @@ form .regtype img {
   margin: 5px 0;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-.av-redact-bg {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 201;
-  background: #000000;
-  background: rgba(0,0,0,.8);
-}
 .av-redact {
   position: absolute;
   display: none;
@@ -3360,7 +3344,7 @@ form .regtype img {
   margin: 5px;
 }
 .avabtn2 {
-  width: 150px;
+  width: 257px;
   float: left;
   display: block;
   background-image: linear-gradient(right, #9abc74 0%, #c7db57 82%);
@@ -3413,4 +3397,62 @@ form .regtype img {
   margin: 5px;
 }
 
->>>>>>> 44fcd86a15bbf070e7084032a91087903cac1f3f
+
+
+
+
+.ok-sub-redact{
+  position: fixed;
+  display: none;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  width: 400px;
+  z-index: 100001;
+  background: #ffffff;
+}
+.ok-sub-redact .ok-sub-redact-title{
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  width: 390px;
+  display: block;
+  padding: 5px !important;
+  font-size: 20px;
+  font-weight: bold;
+  background-image: linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -o-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -moz-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -webkit-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -ms-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #9abc74), color-stop(0.82, #c7db57));
+}
+ .avabtn-ok {
+  display: block;
+  background-image: linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -o-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -moz-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -webkit-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -ms-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #9abc74), color-stop(0.82, #c7db57));
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px auto;
+}
+
+.ok-sub-popex {
+  float: right;
+  display: block;
+  height: 12px;
+  width: 11px;
+  border-left: none !important;
+  padding: 0 !important;
+  background: url(../images/ex.png) left top;
+}
+.ok-sub-popex:hover {
+  background: url(../images/ex.png) left bottom;
+}
+
+

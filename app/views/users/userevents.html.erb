@@ -37,7 +37,7 @@
 	        	</div> 
 	        	<div class="month_info">				
 					<% @check_event.each do |item|%>
-						<%= render 'created_event', :item => item, :index => @index %>
+						<%= render 'userevents', :item => item, :index => @index %>
 						<% @index += 1%>
 					<%end%>
 				</div>
@@ -49,7 +49,29 @@
 	<div class="clr"></div>			
 	<div class="clr"></div>
 </div>
+<!-- Add and delete calendar section -->
+      <div class=""></div> 
+      <div class="ok-sub-redact calendar_added">
+       <span class="ok-sub-redact-title">
+        Центр карьеры
+        <a href="#" class="av-exit av-popex">&nbsp;</a>
+       </span>
+       <span>Вы добавили событие в календарь</span>
+       <a href="#" class="av-exit avabtn-ok">OK</a>
+       <div class="clr"></div>
+      </div>
 
+<div class=""></div> 
+      <div class="ok-sub-redact calendar_deleted">
+       <span class="ok-sub-redact-title">
+        Центр карьеры
+        <a href="#" class="av-exit av-popex">&nbsp;</a>
+       </span>
+       <span>Вы удалили событие из календаря</span>
+       <a href="#" class="av-exit avabtn-ok">OK</a>
+       <div class="clr"></div>
+      </div>
+       <!-- END add and delete calendar section -->
 <script language="javascript">
   $(function(){
    $('.tv_sizeBig, .fjqtrans, .catsItem, .pchecks, .signature' ).jqTransform();
@@ -74,8 +96,14 @@
 
 		$('.pk_popupcd').css({'display':'none'});
 		$(this).children(".pk_popupcd").fadeIn(600);
-		var w = ($(this).children(".pk_popupcd").width())/2;
-		$(this).children(".pk_popupcd").css({'margin-top':-w});
+		//----------------------------
+        var scroll = $(window).scrollTop();
+        if (scroll > 100) {
+          var scrollpl = scroll+100;
+          $(this).children(".pk_popupcd").css({'top':scrollpl});
+        }		
+		//var w = ($(this).children(".pk_popupcd").width())/2;
+		//$(this).children(".pk_popupcd").css({'margin-top':-w});
 	});		
 
 	$(".close_popup").click(function () {
@@ -104,7 +132,7 @@
     });
 
 	}).click(function(){
-		$('.pk_popupcd').fadeOut(200);
+		// $('.pk_popupcd').fadeOut(200);
 	});	
 
 	function google_maps(id_map, x, y) {
@@ -162,9 +190,39 @@
         $('.bbg').addClass('bbgvisible');
 
         $(this).children(".pk_popupcd").fadeIn(600);
+        //-------------------------------
+        var scroll = $(window).scrollTop();
+        if (scroll > 100) {
+          var scrollpl = scroll+100;
+          $(this).children(".pk_popupcd").css({'top':scrollpl});
+        }
+        //var w = ($(this).children(".pk_popupcd").width())/2;
 
-        var w = ($(this).children(".pk_popupcd").width())/2;
-
-        $(this).children(".pk_popupcd").css({'margin-top':-w + $(wintod).scrollTo()});
+        //$(this).children(".pk_popupcd").css({'margin-top':-w + $(wintod).scrollTo()});
     });
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+      
+      $(".signature").click(function (event) {
+        if ($(this).is(':checked')){
+          $(".av-redact-bg").fadeIn();
+        $(".calendar_deleted").fadeIn();
+        $(".calendar_added").fadeOut();
+        }
+        else{
+          $(".calendar_deleted").fadeOut();
+        $(".av-redact-bg").fadeIn();
+          $(".calendar_added").fadeIn();
+        }
+     }); 
+
+       $(".av-exit, .avabtn-ok, .av-redact-bg").click(function (event) { 
+       $(".av-redact-bg").fadeOut();
+       $(".calendar_added").fadeOut();
+       $(".calendar_deleted").fadeOut();
+     });   
+    
+     })
 </script>

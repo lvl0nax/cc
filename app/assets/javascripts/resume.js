@@ -30,7 +30,7 @@ $(function() {
 
     $('#cropbox').Jcrop({
       aspectRatio: 1,
-      setSelect: [0, 0, 600, 600],
+      setSelect: [0, 0, 380, 600],
       onSelect: update,
       onChange: update
     });
@@ -43,7 +43,7 @@ function update(coords) {
   $('#resume_crop_w').val(coords.w);
   $('#resume_crop_h').val(coords.h);
   updatePreview(coords);
-  updatePreview2(coords);
+  updatePreview2(coords);  
 };
 
 function updatePreview(coords) {

@@ -32,7 +32,8 @@
               y_coor = 30.330505;
             }
          
-
+        // x_coor = 30;
+        // y_coor = 30;
           // var latlng = new google.maps.LatLng(x_coor,y_coor); // Координаты карты
           // var settings = {
           //     zoom: 12, // Выставляем параметры зума для карты
@@ -44,7 +45,8 @@
           //     mapTypeId: google.maps.MapTypeId.ROADMAP
           // };
           // var map = new google.maps.Map(document.getElementById("map4i"), settings); // Выбираем див куда ставить карту
-          var myLatlng = new google.maps.LatLng(x_coor,y_coor);  // Координаты маркера
+          var myLatlng = new google.maps.LatLng(x_coor,y_coor);
+          console.log("init myLatlng:" + myLatlng);  // Координаты маркера
           myOptions = {
               zoom: 12,  // Выставляем параметры зума для маркера
               center: myLatlng,
@@ -56,25 +58,25 @@
               map: map,
               title: "A"
           });
-          google.maps.event.addListener(map,'click',function(event){
-            addMarker(event.latLng);
-            var x = event.latLng.Ya,
-                y = event.latLng.Za;
-            $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
-          });
+          // google.maps.event.addListener(map,'click',function(event){
+          //   addMarker(event.latLng);
+          //   var x = event.latLng.Ya,
+          //       y = event.latLng.Za;
+          //   $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
+          // });
 
-          function addMarker(location) {
-            marker.setPosition(location); 
-            marker.setMap(map);          
-       
-            map.setCenter(location);           
-          }
+          // function addMarker(location) {
+          //   marker.setMap(map);          
+          //   map.setCenter(location);
+          //   marker.setPosition(location);            
+          // }
       }
   </script>
 </div>
 
 <script type="text/javascript">
     $("#map4init").click(function(){
+
         google_maps4();
     });
 
@@ -375,64 +377,61 @@
 
 <script type="text/javascript">
         $(document).ready(function () {
-            
             function addMarker(location) {
             marker.setPosition(location); 
             marker.setMap(map);          
-       
             map.setCenter(location);           
-          }
+           }
          
 
-            var nation, city, street, building, location,x,y = "";
-            city = "";
-            street = "";
-            building = "";
-            nation = "";
+             var nation, city, street, building, location,x,y = "";
+             city = "";
+             street = "";
+             building = "";
+             nation = "";
 
           
-          function find_place(){
-            location = nation + ", " + city + ", " + street+", " + building;
-            $.ajax({         
-                   data:{ location: location},
-                   type: 'get',
-                   url: "/location" + "?location=" + location,
-                   dataType: 'json',
-                   success: function(data){
-                   console.log(typeof(data));
-                   if (data == undefined){
-                     x = 59.9089;
-                     y = 30.3352499;
-                    }
+           function find_place(){
+             location = nation + ", " + city + ", " + street+", " + building;
+             $.ajax({         
+                    data:{ location: location},
+                    type: 'post',
+                    url: "/post_find_location",
+                    dataType: 'json',
+                    success: function(data){
+                    if (data == undefined){
+                      x = 59.90802;
+                      y = 30.330505;
+                     }
                    else{
-                      x = data[0];
-                      y = data[1];
-                    }
-                  }
-                }).done(function() {
-                  myLatlng = new google.maps.LatLng(x,y);
-                      addMarker(myLatlng);
-                      $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
-                    });
-            }
-            $("#event_nation").keyup(function(){
-              nation = $(this).val();
-              find_place();
-            })
-            $("#event_city").keyup(function(){
-              city = $(this).val();
-              find_place();  
-            })
-            $("#event_street").keyup(function(){
-              street = $(this).val();
-              find_place();  
-            })
+                       x = data[0];
+                       y = data[1];
+                     }
+                   }
+                 }).done(function() {
+                   myLatlng = new google.maps.LatLng(x,y);
+                       addMarker(myLatlng);
+                       $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
+                     });
+             }
+             $("#event_nation").keyup(function(){
+               nation = $(this).val();
+               find_place();
+             })
+             $("#event_city").keyup(function(){
+               city = $(this).val();
+               find_place();  
+             })
+             $("#event_street").keyup(function(){
+               street = $(this).val();
+               find_place();  
+             })
 
-            $("#event_building").keyup(function(){
-              building = $(this).val();
-              find_place();
-            })
+             $("#event_building").keyup(function(){
+               building = $(this).val();
+               find_place();
+             })
             
-       })
+        })
     
     </script>

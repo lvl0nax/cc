@@ -145,3 +145,51 @@
   </section>
 </div>
 
+<div class=""></div> 
+      <div class="ok-sub-redact calendar_added">
+       <span class="ok-sub-redact-title">
+        Центр карьеры
+        <a href="#" class="av-exit av-popex">&nbsp;</a>
+       </span>
+       <span>Вы добавили событие в календарь</span>
+       <a href="#" class="av-exit avabtn-ok">OK</a>
+       <div class="clr"></div>
+      </div>
+
+<div class=""></div> 
+      <div class="ok-sub-redact calendar_deleted">
+       <span class="ok-sub-redact-title">
+        Центр карьеры
+        <a href="#" class="av-exit av-popex">&nbsp;</a>
+       </span>
+       <span>Вы удалили событие из календаря</span>
+       <a href="#" class="av-exit avabtn-ok">OK</a>
+       <div class="clr"></div>
+      </div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+      
+      $(".signature").click(function (event) {
+        if ($(this).is(':checked')){
+          $(".av-redact-bg").fadeIn();
+        $(".calendar_deleted").fadeIn();
+        $(".calendar_added").fadeOut();
+        }
+        else{
+          $(".calendar_deleted").fadeOut();
+        $(".av-redact-bg").fadeIn();
+          $(".calendar_added").fadeIn();
+        }
+     }); 
+
+       $(".av-exit, .avabtn-ok, .av-redact-bg").click(function (event) { 
+       $(".av-redact-bg").fadeOut();
+       $(".calendar_added").fadeOut();
+       $(".calendar_deleted").fadeOut();
+     });   
+    
+     })
+</script>
+

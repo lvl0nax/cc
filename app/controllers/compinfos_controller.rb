@@ -79,6 +79,29 @@ class CompinfosController < ApplicationController
     end    
   end
 
+  def update_avatar_comp
+    @compinfo = current_user.compinfo #Resume.find(params[:id]) 
+    
+    if @compinfo.update_attributes(params[:compinfo]) 
+
+      if params[:compinfo][:photo].present?        
+        return render :json => {:url => @compinfo.photo.url(:large)}
+        #render :crop
+      else
+        #redirect_to current_user, notice: 'Resume was successfully updated.'
+        #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
+        
+        return render :json => {:url => @compinfo.photo.url(:thumb)}
+        #return render :json => {:url => compinfo.photo.url}
+      end
+    else      
+      return render :json => {:error => 'Ошибка загрузки фотографии'}
+      #redirect_to :controller => 'resumes', :action => "crop", :id => current_user.id
+      #format.html { render action: "edit" }
+       #format.json { render json: @resume.errors, status: :unprocessable_entity }
+    end  
+  end
+
   # DELETE /compinfos/1
   # DELETE /compinfos/1.json
   def destroy

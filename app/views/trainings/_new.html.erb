@@ -389,73 +389,71 @@
 </script>
 
 <script type="text/javascript">
-        $(document).ready(function () {
-            var nation, city, street, building, location,x,y = "";
-            city = "";
-            street = "";
-            building = "";
-            nation = "";
+          $(document).ready(function () {
+             // alert("google_maps5 load");
+             // google_maps5();
+             var nation, city, street, building, location,x,y = "";
+             city = "";
+             street = "";
+             building = "";
+             nation = "";
             
-           function addMarker(location) {
-            marker.setPosition(location); 
-            marker.setMap(map);          
-       
-            map.setCenter(location);           
-          }
+            function addMarker(location) {
+             marker.setPosition(location); 
+                marker.setMap(map);          
+                    map.setCenter(location);           
+           }
 
         
 
-             function find_place(){
-              location = nation + ", " + city + ", " + street+", " + building;
-              console.log(location);
-              $.ajax(
+              function find_place(){
+               location = nation + ", " + city + ", " + street+", " + building;
+               $.ajax(
                 
-              {         
+               {         
 
-                        data:{ location: location},
-                        type: 'get',
-                        url: "/location" + "?location=" + location,
-                        dataType: 'json',
-                        success: function(data){
-                        console.log(location);
-                        if (data == undefined){
-                          x = 59.9089;
-                          y = 30.3352499;
-                        }
-                        else{
-                          x = data[0];
-                          y = data[1];
-                            }
-                        }
-                    }).done(function() {
-                      coordinates = new google.maps.LatLng(x,y);
-                      addMarker(coordinates);
-                      $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: x}  });
-                    });
-            }
+                         data:{ location: location},
+                          type: 'post',
+                          url: "/post_find_location",
+                         success: function(data){
+                         if (data == undefined){
+                           x = 59.90802;
+                           y = 30.330505;
+                         }
+                         else{
+                           x = data[0];
+                           y = data[1];
+                             }
+                         }
+                     }).done(function() {
+                       coordinates = new google.maps.LatLng(x,y);
+                       addMarker(coordinates);
+                       $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: x}  });
+                     });
+             }
 
-            //inspect training field for search
+             //inspect training field for search
 
-            $("#training_nation").keyup(function(){
-              nation = $(this).val();
-              find_place();
-            })
-            $("#training_city").keyup(function(){
-              city = $(this).val();
-              find_place();  
-            })
-            $("#training_street").keyup(function(){
-              street = $(this).val();
-              find_place();  
-            })
+             $("#training_nation").keyup(function(){
+               nation = $(this).val();
+               find_place();
+             })
+             $("#training_city").keyup(function(){
+               city = $(this).val();
+               find_place();  
+             })
+             $("#training_street").keyup(function(){
+               street = $(this).val();
+               find_place();  
+             })
 
-            $("#training_building").keyup(function(){
-              building = $(this).val();
-              find_place();  
-            })
+             $("#training_building").keyup(function(){
+               building = $(this).val();
+               find_place();  
+             })
 
             
-       })
+         })
     
     </script>
 

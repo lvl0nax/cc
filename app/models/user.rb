@@ -77,7 +77,6 @@ class User
   accepts_nested_attributes_for :connection, :autosave=> true
 
   def destroy_connection
-    puts 'xxxx'*10
     puts Connection.where(:user_id=>self.id).first
     # Connection.where(:user_id=>self.id).first.destroy
   end
@@ -188,10 +187,15 @@ class User
   end
 
   def self.find_for_facebook_oauth(access_token, role)
-    if user = User.find_with_facebook(access_token.uid)
-    return user
-    else    
-      #user = "facebook"
+    # f = File.new("file.rb","w")
+    # f.puts (access_token.uid.class.name)
+    # f.close
+    if @user = User.find_with_facebook(access_token.uid)
+    return @user
+    else  
+      # f = File.open("file.rb",'w')
+      # f.puts ("underfind")
+      # f.close  
       $vk_id = nil
       $facebook_id = access_token.uid
       $token = access_token
@@ -201,9 +205,6 @@ class User
   end
 
   def self.find_for_vkontakte_oauth(access_token, role)
-    somefile = File.open("file.rb", "w")
-      somefile.puts access_token.uid
-      somefile.close
     if user =  User.find_with_vkontakte(access_token.uid)
      
       return user
@@ -229,9 +230,6 @@ class User
 
   def self.find_with_vkontakte(v_id)      
       User.all.to_a.each do |user|
-        somefile = File.open("file.rb", "w")
-      somefile.puts user.connection.vkontakte_id
-      somefile.close
          
         if user.connection.vkontakte_id == v_id
           return user
@@ -243,15 +241,22 @@ class User
       return nil
   end
 
-  def self.find_with_facebook(f_id)    
+  def self.find_with_facebook(f_id) 
+  @flag = false
+  @user_f  
     User.all.to_a.each do |user|
       if user.connection.facebook_id == f_id
-        return user
-        else
-        return nil
+        @flag = true
+        @user_f = user
+      else
+        @flag = false
       end
     end
-    return nil
+    if @flag
+      return @user_f
+    else 
+      return nil
+    end
   end
-
+ 
 end

@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
 class Event < EventParent
-  include Geocoder::Model
   #has_many :requests, as: :requestable
   #belongs_to :user
   has_and_belongs_to_many :users#, class_name: "User", inverse_of: :evactivity

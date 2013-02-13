@@ -72,11 +72,13 @@ TestMongoid::Application.routes.draw do
   resources :resumes do
     get 'crop', :on => :member
   end
+  put "update_avatar/:id" => "resumes#update_avatar"
 
   resources :compinfos do
     get 'crop', :on => :member
   end
-
+  put "update_avatar_comp/:id" => "compinfos#update_avatar_comp"
+  
   resources :pages
 
 
@@ -166,7 +168,8 @@ TestMongoid::Application.routes.draw do
   root :to => 'events#index' 
 
 
-  get "/location" => "connections#find_location"
+
+  post "/post_find_location" => "connections#post_find_location"
   #root :to => 'users'
 
   # See how all your routes lay out with "rake routes"

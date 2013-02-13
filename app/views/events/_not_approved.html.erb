@@ -44,10 +44,10 @@
       <span class="spsize">&nbsp;<%= item.title.truncate(25 - item.nation.length) %></span>
     <%end%>
   <%end%>
-  
+  <div class="clr"></div>
   <div class='edit_events' >
-    <span class='odobreno' data-id='<%= item.id%>'> ОДОБРЕНО </span>
-    <span class='delete' data-id='<%= item.id%>'> УДАЛИТЬ </span>
+    <span class='odobreno' data-id='<%= item.id%>' > ОДОБРЕНО </span>
+    <span class='delete' data-id='<%= item.id%>' > УДАЛИТЬ </span>
   </div>
 
   <%if item.class.name.eql?('Grant')%>
@@ -59,3 +59,136 @@
   <%end%>
     
 </div>
+
+
+
+
+
+
+<!-- $(document).ready(function () {
+      //   $(".odobreno").on('click', function(e) {
+      //    e.preventDefault();
+      //    console.log("click odobreno");
+      //     var event_id = $(this).data('id');
+      //     var val = ($(this).parent().parent().find(".spsize").html());
+      //     console.log(val);
+          
+            
+      //       str = 'add';
+      //       $.ajax({ url: "/events/"+str, type: "POST", data:{ event_id: event_id},  beforeSend:function(jqXHR, settings) {
+      //         jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      //               }
+      // }).done(function (result) {
+      //     $('#info').before('<div id="message_info" style="color:green">'+val+" одобрено"+'</div>');
+      //       $(".av-redact-bg").fadeIn();
+      //       $(".odobreno_popup").fadeIn();
+
+      //       $("#message_info").remove();
+      //       var count_str = $("#content").find("[title='not_approved']").html();
+      //       var regex = /[0-9]{1,4}/ ;
+      //       var sign = regex.exec(count_str);
+      //       sign -=1;
+      //      $("#content").find("[title='not_approved']").html("НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ ("+sign+")");
+      //                    })
+
+      // });
+
+
+      //   $(".delete").click(function () {
+      //     //$("#message_info").remove();
+      //     var event_id = $(this).data('id');
+      //     var val = ($(this).parent().parent().find(".spsize").html());
+      //       $(".av-redact-bg").fadeIn();
+      //       $(".odobreno_popup").fadeIn();
+      //       $('#info').before('<div id="message_info" style="color:red">'+val+" удалено"+'</div>');
+      //       str = 'remove';
+      //        $.ajax({ url: "/events/"+str, type: "POST", data:{ event_id: event_id},  beforeSend:function(jqXHR, settings) {
+      //         jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      //               }
+      // }).done(function (result) {
+      //                      var count_str = $("#content").find("[title='not_approved']").html();
+      //                      var regex = /[0-9]{1,4}/ ;
+      //                      var sign = regex.exec(count_str);
+      //                      sign -=1;
+      //                     $("#content").find("[title='not_approved']").html("НЕОДОБРЕННЫЕ МЕРОПРИЯТИЯ ("+sign+")");
+      //                    })
+
+      // });
+
+// $(".av-exit, .avabtn-ok, .av-redact-bg").click(function (event) { 
+//          event.preventDefault();
+//       $(".av-redact-bg").fadeOut();
+//       $(".ok-sub-redact").fadeOut();
+
+//      });  
+
+//       });
+ -->
+
+        
+
+
+        
+ <!--    //     var event_id = $(this).data('id');
+    // var str;
+    //   $('#message_info').remove();
+    // if($(this).attr('class') == 'odobreno'){
+    //   str = 'event_status';
+    //   $('#'+event_id+'.monthcont').hide();
+    //   var name_event = $(this).parent().parent().find('.spright').first().text();
+    //   var text_event = $(this).parent().parent().data('eventname');
+    //   name_event += ' '+ text_event;
+    //   if(name_event.indexOf("грант") !== -1){
+    //     name_event += ' одобрен.'
+    //   }
+    //   else if(name_event.indexOf("стажировка") !== -1){
+    //     name_event += ' одобрена.'        
+    //   }
+    //   else if(name_event.indexOf("событие") !== -1){
+    //     name_event += ' одобрено.'        
+    //   }
+    //   $('#odobreno_event').before('<div id="message_info" style="color:green">'+name_event.toUpperCase()+'</div>');
+    //    $(".av-redact-bg").fadeIn();
+    //    $(".odobreno_popup").fadeIn();
+
+    // }
+    // else if($(this).attr('class') == 'delete'){
+    //   str = 'event_delete';
+    //   $('#'+event_id+'.monthcont').hide();
+    //   $('#message_info').remove();
+      
+    //   var name_event = $(this).parent().parent().find('.spright').first().text();
+    //   var text_event = $(this).parent().parent().data('eventname');
+    //   name_event += ' '+ text_event;
+    //   if(name_event.indexOf("грант") !== -1){
+    //     name_event += ' удален.'
+    //   }
+    //   else if(name_event.indexOf("стажировка") !== -1){
+    //     name_event += ' удалена.'       
+    //   }
+    //   else if(name_event.indexOf("событие") !== -1){
+    //     name_event += ' удалено.'       
+    //   }
+      
+    // }
+//       var name_event = $(this).parent().parent().find('.spright').first().text(); 
+//       console.log(name_event);
+      // $('#odobreno_event').before('<div id="message_info" style="color:red">'+name_event.toUpperCase()+'</div>');
+      //  $(".av-redact-bg").fadeIn();
+      //  $(".odobreno_popup").fadeIn();
+
+      // }); 
+
+        
+
+
+//       $(".delete").click(function (event) { 
+//       var name_event = $(this).parent().parent().find('.spright').first().text();
+//          event.preventDefault();
+//       $(".av-redact-bg").fadeIn();
+//       $(".delete_popup").fadeIn();
+//      }); 
+
+ -->
+
+      

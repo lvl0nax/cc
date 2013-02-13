@@ -2,7 +2,7 @@ $(function() {
 
     $('#cropbox').Jcrop({
       aspectRatio: 1,
-      setSelect: [0, 0, 600, 600],
+      setSelect: [0, 0, 380, 600],
       onSelect: update,
       onChange: update
     });
@@ -28,7 +28,7 @@ function updatePreview(coords) {
 }
 
 function updatePreview2(coords) {
-  return $('#preview').css({
+  return $('#preview2').css({
     width: Math.round(54 / coords.w * $('#cropbox').width()) + 'px',
     height: Math.round(46 / coords.h * $('#cropbox').height()) + 'px',
     marginLeft: '-' + Math.round(54 / coords.w * coords.x) + 'px',

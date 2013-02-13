@@ -18,3 +18,7 @@ development:
         - localhost:27017
       options:
         consistency: :strong
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOHQ_URL'] %>

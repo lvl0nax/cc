@@ -41,17 +41,19 @@
       <%= image_tag "contimg6.png" %>
     <%end%>
 
-      <div class="catsItem addtocallendar" >
+      <div class="catsItem addtocallendar" style="margin-top:0;">
         <label>
           
-          <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
-            <%if user_signed_in? %>
+          <span class="descripting">ДОБАВИТЬ<br>
+           В МОЙ  
+           <%if user_signed_in? %>
               <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => training.id).present?%>
                 <input type="checkbox" name="" id="<%= training.id%>" class='signature' checked>
               <%else%>
                 <input type="checkbox" name="" id="<%= training.id%>" class='signature'>
               <%end%>
-            <%end%>
+            <%end%><br>
+            КАЛЕНДАРЬ
           </span>
 
           <div class="clr"></div>

@@ -76,23 +76,45 @@ class ResumesController < ApplicationController
   # PUT /resumes/1.json
   def update    
     @resume = current_user.resume #Resume.find(params[:id]) 
-    puts 'xxxxxxxxxxxxxxxxxxxxx'*5
+
     if @resume.update_attributes(params[:resume]) 
 
       if params[:resume][:photo].present?
-          return render :json => {:url => @resume.photo.url(:large)}
-          #render :crop
+          #return render :json => {:url => @resume.photo.url(:large)}
+          render :crop
       else
-        #redirect_to current_user, notice: 'Resume was successfully updated.'
+        redirect_to current_user, notice: 'Resume was successfully updated.'
         #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
-        format.json { head :ok }
-        #return render :json => {:url => compinfo.photo.url}
+        #return render :json => {:url => @resume.photo.url(:large)}
       end
     else        
-      #redirect_to :controller => 'resumes', :action => "crop", :id => current_user.id
+      redirect_to :controller => 'resumes', :action => "crop", :id => current_user.id
       #format.html { render action: "edit" }
        #format.json { render json: @resume.errors, status: :unprocessable_entity }
     end    
+  end
+
+  def update_avatar
+    @resume = current_user.resume #Resume.find(params[:id]) 
+
+    if @resume.update_attributes(params[:resume]) 
+
+      if params[:resume][:photo].present?        
+        return render :json => {:url => @resume.photo.url(:large)}
+        #render :crop
+      else
+        #redirect_to current_user, notice: 'Resume was successfully updated.'
+        #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
+        
+        return render :json => {:url => @resume.photo.url(:thumb)}
+        #return render :json => {:url => compinfo.photo.url}
+      end
+    else      
+      return render :json => {:error => 'Ошибка загрузки фотографии'}
+      #redirect_to :controller => 'resumes', :action => "crop", :id => current_user.id
+      #format.html { render action: "edit" }
+       #format.json { render json: @resume.errors, status: :unprocessable_entity }
+    end  
   end
 
   # DELETE /resumes/1

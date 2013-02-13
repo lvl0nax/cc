@@ -43,11 +43,7 @@
     <% if item.nation.length < 21%>
       <span class="spsize">&nbsp;<%= item.title.truncate(24 - item.nation.length) %></span>
     <%end%>
-  <%end%>
-<div class="clr"></div>
-  <div class='edit_events' >
-    <span class='stat' data-id='<%= item.id%>'> <%=item.status%> </span>    
-  </div>
+  <%end%>  
 
   <%if item.class.name.eql?('Grant')%>
     <%= render 'users/pk_popup_grant', :event => item, :index => index%>

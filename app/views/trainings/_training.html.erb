@@ -1,4 +1,4 @@
-<div class="moncon" data-id="<%= training._id %>" id="<%= training._id %>">
+<div class="moncon stazir_hider" data-id="<%= training._id %>" id="<%= training._id %>" data-tags='<%= training.class.name%>'>
   <div class="monthcont vio">
     <span><%= Russian::strftime(training.start_date, "%d %B %Y") %></span>
     <span class="spright">стажировка</span>
@@ -44,8 +44,7 @@
       <div class="catsItem addtocallendar" style="margin-top:0;">
         <label>
           
-          <span class="descripting">ДОБАВИТЬ<br>
-           В МОЙ  
+          <span class="descripting">ДОБАВИТЬ В МОЙ  
            <%if user_signed_in? %>
               <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => training.id).present?%>
                 <input type="checkbox" name="" id="<%= training.id%>" class='signature' checked>

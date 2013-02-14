@@ -29,6 +29,7 @@
 			classToggleOpen: "sbToggleOpen",
 			classToggle: "sbToggle",
 			speed: 200,
+			menuSpeed: "fast",
 			effect: "slide", // "slide" or "fade"
 			onChange: null, //Define a callback function when the selectbox is changed
 			onOpen: null, //Define a callback function when the selectbox is open

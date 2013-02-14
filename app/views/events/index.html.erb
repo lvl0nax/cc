@@ -50,14 +50,14 @@
         });
     }
 </script>
-<% if $flag %>
+<% if cookies[:flag] %>
 <div class="soc-reg-form"></div>  
 <%= render :template => 'connections/new'%>
 <%= form_tag '/find_connection', :method => :get, :class => "soc-form", :id=>'connect' do %>
 <span> <%= @message %></span>
  <a href="#" class="popex">&nbsp;</a>
  Если у Вас нет созданного аккаунта нажмите на следующую ссылку - 
- <% if $facebook_id %>
+ <% if cookies[:fb_id] %>
 <%=link_to "создать новый аккаунт из соцсети",'#', :class => "link_to_create" , :id =>"fb_form"%>
 <script type="text/javascript">
 $(document).ready(function () {
@@ -81,7 +81,7 @@ $(document).ready(function () {
 })
  })
 </script>
-<% elsif $vk_id %>
+<% elsif cookies[:vk_id] %>
 <script type="text/javascript">
             $(document).ready(function () {
              
@@ -168,8 +168,6 @@ $(document).ready(function () {
                           $(".soc-form").fadeIn({'display':'block'});
 
                         });     
-
-
                       </script>
                       <script type="text/javascript">
 
@@ -190,18 +188,7 @@ $(document).ready(function () {
                         });
 
                       </script>
-
-
-
 <% end %>
-   
-
-
-
-
-
-
-
 
 <div id="content">
 
@@ -501,6 +488,9 @@ $(document).ready(function () {
             $(".calendar_added").fadeOut();            
           }
           else{
+        $(".av-redact-bg").fadeIn();
+        $(".calendar_deleted").fadeIn();
+        $(".calendar_added").fadeOut();
             str = 'add'
             $(".calendar_deleted").fadeOut();
             $(".av-redact-bg").fadeIn();

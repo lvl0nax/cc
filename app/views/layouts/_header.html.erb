@@ -121,7 +121,7 @@
                                 $('#load_img_error').html(data.result.error)
                             }
                             else{                                
-                                if($('.ava1').children().attr('src') != '/assets/nophoto2.jpg'){
+                                if($('.ava1').children().attr('src') != '/assets/nophoto2.jpg'){                                    
                                     $('.jcrop-tracker').last().next().next().attr('src', data.result.url);
                                     $('.jcrop-tracker').last().prev().children().children().attr('src', data.result.url);                        
 
@@ -143,7 +143,8 @@
                         $.ajax({ url: '/update_avatar/'+resume_id, type: "PUT", dataType: 'json', data: data_crop,  beforeSend:function(jqXHR, settings) {
                             jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
                             },
-                            success: function(data, e){                            
+                            success: function(data, e){
+                                console.log($('.photo_login').children())
                                 $('.photo_login').children().attr('src', data.url);
                             }
                         });
@@ -401,7 +402,7 @@
 
             $('.eddWup').removeClass('eddWupact');
 
-            $('.bbg').removeClass('bbgvisible');
+            //$('.bbg').removeClass('bbgvisible');
 
             //newadd end
 
@@ -411,7 +412,7 @@
 
             $('.regWup').toggleClass('regWupact');
 
-            $('.bbg').toggleClass('bbgvisible');
+            //$('.bbg').toggleClass('bbgvisible');
 
         });
 
@@ -425,7 +426,7 @@
 
             $('.eddWup').toggleClass('eddWupact');
 
-            $('.bbg').toggleClass('bbgvisible');
+            //$('.bbg').toggleClass('bbgvisible');
 
         });
 

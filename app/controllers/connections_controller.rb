@@ -4,10 +4,10 @@ class ConnectionsController < ActionController::Base
 # after_filter :set_flag_to_nil
 
   def set_flag_to_nil
-     $flag = nil
-     $facebook_id = nil
-     $vkontakte_id = nil
-     $token = nil
+     cookies.delete :flag
+     cookies.delete :fb_id 
+     cookies.delete :vk_id
+     cookies.delete :token
    end
 
   def post_find_location
@@ -15,12 +15,19 @@ class ConnectionsController < ActionController::Base
      render :json => (location)
   end
    
-def set_to_nil
-     $flag = nil
-     $facebook_id = nil
-     $vkontakte_id = nil
-     $token = nil
+   def set_to_nil
+    cookies.delete :flag
+     cookies.delete :fb_id 
+     cookies.delete :vk_id
+     cookies.delete :token
      render :json =>""
+   end
+
+   def set_user_model_fb_cookies
+      cookies.delete :vk_id  if cookies[:vk_id] 
+      cookies[:fb_id] = access_token.uid
+      cookies[:token] = access_token
+      cookies[:flag] = "exists"
    end
 
  
@@ -32,10 +39,10 @@ def set_to_nil
     @user = User.where(:email => params[:user_email]).first
     if @user && @user.valid_password?(params[:pass])
   	 
-       if $vk_id
-         @user.connection.update_attribute(:vkontakte_id, $vk_id)
-       elsif $facebook_id
-         @user.connection.update_attribute(:facebook_id, $facebook_id)
+       if cookies[:vk_id]
+         @user.connection.update_attribute(:vkontakte_id, cookies[:vk_id])
+       elsif cookies[:fb_id]
+         @user.connection.update_attribute(:facebook_id, cookies[:fb_id])
        end
      render :json => ( @user && @user.valid_password?(params[:pass]) )
      set_flag_to_nil
@@ -48,37 +55,40 @@ def set_to_nil
   end
 
   def create_resume_from_social_facebook
-    @user = User.where(:email=>$token.extra.raw_info.email).to_a
+    @obj = JSON.parse(cookies[:token])
+    @user = User.where(:email=>@obj["email"]).to_a
     unless @user.blank?
       render :json => "Пользователь с таким email уже зарегестрирован."
     else
-      @username = $token.extra.raw_info.name if $token.extra.raw_info.name
-      @name = $token.extra.raw_info.name if $token.extra.raw_info.name
-      @nickname = $token.extra.raw_info.username if $token.extra.raw_info.username
-      
-      @user = User.create(:provider => $token.provider, 
-        :url => $token.info.urls.Facebook, 
+
+      @username = @obj["name"] if @obj["name"]
+      @name = @obj["name"] if @obj["name"]
+      @nickname = @obj["username"] if @obj["username"]
+      @user = User.create(:provider => @obj["provider"], 
+        :url => @obj["urls"] , 
         :username => @username, 
         :name => @name, 
         :nickname => @nickname, 
-        :email => $token.extra.raw_info.email, 
+        :email => @obj["email"], 
         :password => Devise.friendly_token[0,20],
         :role => Role.new(:name => 'employee'))
 
-    name = $token.info.first_name
-    l_name = $token.info.last_name
-    description = $token.info.description
-    gender = I18n.t $token[:extra][:raw_info][:gender] if $token[:extra][:raw_info][:gender]
-     count = $token[:extra][:raw_info][:education].count if $token[:extra][:raw_info][:education]
+
+    # UserMailer2.register(@user)
+    name = @obj["first_name"]
+    l_name = @obj["last_name"]
+    description = @obj["description"]
+    gender = I18n.t @obj["gender"] if @obj["gender"]
+     count = @obj["education"].count if @obj["education"]
         if not count.nil?
-          scool_name = $token[:extra][:raw_info][:education][count-1][:school][:name] if count>0
-          type_ed = I18n.t $token[:extra][:raw_info][:education][count-1][:type] if count>0
-          concentration = $token[:extra][:raw_info][:education][count-1][:concentration][count-1][:name] if concentration
+          scool_name = @obj["ed_name"] if count>0
+          type_ed = I18n.t @obj["ed_type"] if count>0
+          concentration = @obj["ed_concentration"] if concentration
         end
     @user.resume  = Resume.new(:name=>name,:surname=>l_name,:sex=>gender,:education=>type_ed,
             :university=>scool_name, :faculty=>concentration,:description=>description)
     @user.resume.save
-    @user.connection = Connection.new(:facebook_id =>$token.uid)
+    @user.connection = Connection.new(:facebook_id =>@obj["uid"])
     set_flag_to_nil
     sign_in_and_redirect('user', @user)
     end	
@@ -89,12 +99,13 @@ def set_to_nil
     unless @user.blank?
       render :json => "Пользователь с таким email уже зарегестрирован."
     else
+      @obj = JSON.parse(cookies[:token])
       @user = User.new(
-                     :provider => $token.provider, 
-                     :url => $token.info.urls.Vkontakte, 
-                     :username => $token.info.name, 
+                     :provider => @obj["provider"], 
+                     :url => @obj["urls"], 
+                     :username => @obj["username"], 
                      # :name => access_token.info.name, 
-                     :nickname => $token.extra.raw_info.domain, 
+                     :nickname => @obj["nickname"], #xxx?
                      #:email => request.GET[:email],
                      :email => params[:user_email],
                      :password => Devise.friendly_token[0,20],
@@ -106,9 +117,9 @@ def set_to_nil
     else
       render :json => "true"
       @user.save
-          name = $token[:extra][:raw_info][:first_name] if $token[:extra][:raw_info][:first_name]
-          l_name = $token[:extra][:raw_info][:last_name] if $token[:extra][:raw_info][:last_name]
-          birthday = $token[:extra][:raw_info][:bdate] if $token[:extra][:raw_info][:bdate]
+          name = @obj["first_name"] if @obj["first_name"]
+          l_name = @obj["last_name"] if @obj["last_name"]
+          birthday = @obj["bdate"] if @obj["bdate"]
           if birthday
             tmp = birthday.split(".") 
             unless tmp.count < 3
@@ -117,9 +128,9 @@ def set_to_nil
               birthday = nil
             end
           end
-          location = $token[:info][:location]
+          location = @obj[:location]
          
-          gender = $token[:extra][:raw_info][:sex]
+          gender = @obj["gender"]
           if gender == 1
             gender="женский"
           elsif gender == 2
@@ -133,7 +144,7 @@ def set_to_nil
               :home=>location) 
             @user.resume.save
           end
-      @user.connection = Connection.new(:vkontakte_id =>$token.uid)
+      @user.connection = Connection.new(:vkontakte_id =>@obj["uid"])
       set_flag_to_nil
       sign_in('user', @user)
     end

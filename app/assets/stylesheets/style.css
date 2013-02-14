@@ -681,8 +681,9 @@ header a:hover {
 .soc {
   margin-top: 45px;
   position: relative;
-  left: 150px;
-  top: 80px;  
+  left: 207px;
+  top: 80px;
+  margin-left: 5px;  
 }
 .soc:hover img {
   opacity: 0.8;
@@ -707,16 +708,16 @@ header a:hover {
   border: 1px solid #eeeeee;
 }
 .edd {
-  top: 90px;
-  left: 750px;
+  top: 95px;
+  left: 743px;
 }
 .eddlog {
   top: -10px;
   left: 590px;
 }
 .reg {
-  top: 40px;
-  left: 750px;
+  top: 55px;
+  left: 743px;
   z-index: 200;
 }
 .button:hover {
@@ -970,6 +971,7 @@ header a:hover {
 }
 .pk_popup .lside .date_wrap .date {
   margin-bottom: 2px;
+  display: inline-block;
 }
 .pk_popup .lside .whoadd img {
   width: 52px !important;
@@ -1551,6 +1553,8 @@ header a:hover {
   background: url(../images/stazur_bg.png);
   margin-bottom: 5px;
   position: relative;
+  width: 818px;
+left: 3px;
 }
 .filterMain .filterStaz .vupad {
   margin-bottom: 5px;
@@ -1683,6 +1687,8 @@ header a:hover {
   background: url(../images/sobut_bg.png);
   margin-bottom: 5px;
   position: relative;
+  width: 818px;
+left: 3px;
 }
 .filterMain .filterSob .pchecks {
   color: white;
@@ -1805,6 +1811,8 @@ header a:hover {
   background: url(../images/grantu_bg.png);
   margin-bottom: 5px;
   position: relative;
+  width: 818px;
+left: 3px;
 }
 .filterMain .filterGran .pchecks {
   color: white;
@@ -2048,21 +2056,25 @@ header a:hover {
   width: 100px;
   height: 1px;
   position: relative;
-  top: -4px;
-  right: -750px;
+  top: 13px;
+  right: -779px;
   z-index: 102;
 }
 .regWup div.regUp {
-  width: 430px;
+  width: 416px;
   border: 1px solid #eee;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 37px;
   background: white;
+}
+
+.tabsformsblock{
+  padding-bottom:3px;
 }
 .regWup div.regUp .controls {
   display: inline-block;
-  width: 166px;
+  width: 159px;
   border-right: #EEE 1px solid;
   height: 35px;
   border-bottom: #EEE 1px solid;
@@ -2087,15 +2099,16 @@ header a:hover {
   width: 850px;
   height: 1px;
   position: relative;
-  top: 84px;
-  right: 0px;
+  top: 89px;
+  right: 8px;
   z-index: 102;
 }
 .eddWup div.eddUp {
-  width: 850px;
-  border: 1px solid #eee;
+  width: 838px;
+  border: 1px solid #EEE;
   position: absolute;
   top: 0;
+  padding-bottom: 4px;
   right: 0;
   background: #9cbd73;
   background: -moz-linear-gradient(-45deg, #c9db57 0%, #77a48b 100%);
@@ -2306,21 +2319,25 @@ form input {
 }
 form .yourlogo {
   float: right;
-  width: 230px;
+  width: 228px;
   height: 230px;
   margin-top: 5px;
   margin-right: 29px;
+  border: 1px solid #c8c8c8;
 }
 form .submitbtn {
   display: block;
-  width: 430px;
+  width: 416px;
   height: 27px;
   border: none;
   cursor: pointer;
   color: #fff;
   background: url(../images/404bg.png);
   background-size: cover;
-  margin-top: 20px;
+  margin-top: 24px;
+}
+.marginfix {
+  margin-top: 83px !important;
 }
 form .regtype {
   color: #77a188;
@@ -2329,7 +2346,8 @@ form .regtype {
   margin-top: 10px;
 }
 form .regtype img {
-  margin-right: 5px;
+  margin-right: -24px;
+  margin-left: 26px;
 }
 .input_info input {
   height: 17px;

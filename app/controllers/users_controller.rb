@@ -15,10 +15,8 @@ class UsersController < ApplicationController
   end
 
   def activities
-
     @years = %w[2012 2013]
     @months =  %w[январь февраль март апрель май июнь июль август сентябрь октябрь ноябрь декабрь]
-
     #logger.debug "--------------------------------------------"
     @user = User.find(params[:id])
     @actions = @user.actions
@@ -162,8 +160,7 @@ class UsersController < ApplicationController
             @user.role = Role.new(:name => role)
             sign_in('user', @user)
             path = edit_compinfo_path(@user.compinfo)
-            cookies.delete :with_photo
-            
+            cookies.delete :with_photo 
             return render :json => { :url => @user.compinfo.photo.url, success:true, path:path }
           else
             return render json: @user.errors

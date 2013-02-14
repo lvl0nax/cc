@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Users::OmniauthCallbacksController < ApplicationController
   def facebook
-  	@user = User.find_for_facebook_oauth(request.env["omniauth.auth"], "employee")
+  	@user = find_for_facebook_oauth(request.env["omniauth.auth"], "employee")
     if @user
       if @user.persisted?
         name = request.env["omniauth.auth"][:info][:first_name]
@@ -15,31 +15,10 @@ class Users::OmniauthCallbacksController < ApplicationController
           type_ed = I18n.t request.env["omniauth.auth"][:extra][:raw_info][:education][count-1][:type] if count>0
           concentration = request.env["omniauth.auth"][:extra][:raw_info][:education][count-1][:concentration][count-1][:name] if concentration
         end
-        # w_count = request.env["omniauth.auth"][:extra][:raw_info][:work].count
-        # if w_count>0
-          # st_date = request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:start_date]
-        # tmp = st_date.split(".")
-        # st_date = (tmp.join("-")+"-"+"01").to_date
-          # end_date = request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:end_date]
-          # tmp = end_date.split(".")
-          # end_date = (tmp.join("-")+"-"+"01").to_date
-           # elsif w_count=0 
-            # end_date = "0"
-            # elsif not end_date and w_count>0
-          # end_date = Time.now
-        # end 
-        # puts request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:employer][:name]
-
-        # w_name = request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:employer][:name] if w_count>0
-        # w_pos = request.env["omniauth.auth"][:extra][:raw_info][:work][w_count-1][:position][:name] if w_count>0
+        
         if @user.resume.nil? 
           @user.resume  = Resume.new(:name=>name,:surname=>l_name,:sex=>gender,:education=>type_ed,
             :university=>scool_name, :faculty=>concentration,:description=>description)
-          # @user.resume.save
-            # @user.resume.experience_works = ExperienceWork.new(:experience_from=>st_date, :experience_to=>end_date,
-            # :experience_company=>w_name, :experience_position=>w_pos)
-        # @user.resume.experience_works_attribute = ExperienceWork.new()
-          
         end
         
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
@@ -55,15 +34,10 @@ class Users::OmniauthCallbacksController < ApplicationController
   end
 
   def vkontakte
-  	@user = User.find_for_vkontakte_oauth(request.env["omniauth.auth"], "employee")
+  	@user = find_for_vkontakte_oauth(request.env["omniauth.auth"], "employee")
     if @user
       if @user.persisted?
-        # @vk = VkontakteApi::Client.new
         uid = request.env["omniauth.auth"][:uid]
-        # user_vk = @vk.users.get(uid: uid,fields: [:first_name, :last_name, :education, :university, :online, :counters])
-        # education = user_vk
-        puts "VK info"
-        puts request.env["omniauth.auth"]
         name = request.env["omniauth.auth"][:extra][:raw_info][:first_name]
         l_name = request.env["omniauth.auth"][:extra][:raw_info][:last_name]
         birthday = request.env["omniauth.auth"][:extra][:raw_info][:bdate]
@@ -108,4 +82,92 @@ class Users::OmniauthCallbacksController < ApplicationController
     User.all.to_a
   end
 
+  def find_for_facebook_oauth(access_token, role)
+    if @user = find_with_facebook(access_token.uid)
+    return @user
+    else
+      @education = ""
+      @ed_name = ""
+      @ed_concentration = ""   
+      @count = access_token.extra.raw_info.education.count
+      
+      if @count>0
+      @education = access_token.extra.raw_info.education
+      @ed_name = access_token.extra.raw_info.education[@count-1][:school][:name]
+      @ed_type = access_token[:extra][:raw_info][:education][@count-1][:type]
+      @ed_concentration = access_token[:extra][:raw_info][:education][@count-1][:concentration][0][:name] if not access_token[:extra][:raw_info][:education][@count-1][:concentration][0][:name].nil?
+      end
+      
+      @obj = {:uid=>access_token.uid,:email=>access_token.extra.raw_info.email, :urls=>access_token.info.urls.Facebook,
+:provider=>access_token.provider,:name=>access_token.extra.raw_info.name, :username=>access_token.extra.raw_info.username,
+:first_name=>access_token.info.first_name, :last_name=>access_token.info.last_name, :description=>access_token.info.description,
+:gender=>access_token.extra.raw_info.gender, :education=>@education, :ed_name=>@ed_name, :ed_type=>@ed_type, 
+:ed_concentration=>@ed_concentration
+}
+      cookies.delete :vk_id  if cookies[:vk_id] 
+      cookies[:fb_id] = access_token.uid
+      cookies[:token] = {:value=>@obj.to_json}
+      # f = File.new("file2.rb", "w")
+      # f.puts(cookies[:token])
+      # # f.puts(access_token)
+      # f.close
+      cookies[:flag] = "exists"       
+      return nil
+    end
+  end
+
+  def find_with_facebook(f_id) 
+  @flag = false
+  @user_f  
+    User.all.to_a.each do |user|
+      if user.connection.facebook_id == f_id
+        @flag = true
+        @user_f = user
+        return @user_f
+      else
+        @flag = false
+      end
+    end
+    if not @flag
+      return nil
+    end
+  end
+
+
+def find_for_vkontakte_oauth(access_token, role)
+    if @user =  find_with_vkontakte(access_token.uid)
+     
+      return @user
+     else
+      puts access_token.inspect
+      @obj = {:uid=>access_token.uid,:urls=>access_token.info.urls.Vkontakte,
+:provider=>access_token.provider, :username=>access_token.info.name,:nickname => access_token.extra.raw_info.domain,
+:first_name=>access_token.extra.raw_info.first_name, :last_name=>access_token.extra.raw_info.last_name,
+:gender=>access_token.extra.raw_info.sex,:bdate =>access_token.extra.raw_info.bdate, :location=>access_token.info.location
+}
+
+       cookies.delete :fb_id  if cookies[:fb_id]
+       cookies[:vk_id] = access_token.uid
+       cookies[:token] = {:value=>@obj.to_json}
+       cookies[:flag] = "exists"
+       return nil
+    end
+  end
+
+  def find_with_vkontakte(v_id)  
+   @flag = false
+    @user_v      
+      User.all.to_a.each do |user|
+        if user.connection.vkontakte_id == v_id.to_s
+          @flag = true
+          @user_v = user
+          return @user_v
+        else
+          @flag = false
+        end
+      end
+      if not @flag
+      return nil
+      end
+  end
 end

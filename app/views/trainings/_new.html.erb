@@ -54,7 +54,7 @@
                     center:myLatlng,
                     mapTypeId:google.maps.MapTypeId.ROADMAP
                 }
-                map = new google.maps.Map(document.getElementById("map5"), myOptions);  // Выбираем див куда ставить маркер
+                var map = new google.maps.Map(document.getElementById("map5"), myOptions);  // Выбираем див куда ставить маркер
                 marker = new google.maps.Marker({
                     position:myLatlng,
                     map:map,
@@ -390,21 +390,12 @@
 
 <script type="text/javascript">
           $(document).ready(function () {
-             // alert("google_maps5 load");
-             // google_maps5();
+             
              var nation, city, street, building, location,x,y = "";
              city = "";
              street = "";
              building = "";
              nation = "";
-            
-            function addMarker(location) {
-             marker.setPosition(location); 
-                marker.setMap(map);          
-                    map.setCenter(location);           
-           }
-
-        
 
               function find_place(){
                location = nation + ", " + city + ", " + street+", " + building;
@@ -427,6 +418,18 @@
                          }
                      }).done(function() {
                        coordinates = new google.maps.LatLng(x,y);
+                       myOptions = {
+                        zoom:12, // Выставляем параметры зума для маркера
+                        center:coordinates,
+                        mapTypeId:google.maps.MapTypeId.ROADMAP
+                      }
+                      var map = new google.maps.Map(document.getElementById("map5"), myOptions);
+
+                        function addMarker(location) {
+                          marker.setMap(map);          
+                          map.setCenter(location);
+                          marker.setPosition(location);            
+                        }
                        addMarker(coordinates);
                        $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: x}  });
                      });
@@ -451,6 +454,10 @@
                building = $(this).val();
                find_place();  
              })
+
+             $('.controls').click(function(){                
+                google_maps5();
+             });
 
             
          })

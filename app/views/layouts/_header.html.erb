@@ -204,7 +204,7 @@
                 <div class="clr"></div>
                 <button class="avabtn1">Отмена</button>
                 <div class="avabtn2">
-                    <%= f.input :photo, :label => "|", :style => 'width:300px' %>
+                    <%= f.file_field :photo, :style => 'width:300px' %>
                 </div>
                 <% %w[x y w h].each do |attribute| %>
                     <%= f.hidden_field "crop_#{attribute}" %>
@@ -321,7 +321,7 @@
                 <div class="clr"></div>
                 <button class="avabtn1">Отмена</button>
                 <div class="avabtn2">
-                    <%= f.input :photo, :label => "|", :style => 'width:300px' %>
+                    <%= f.file_field :photo, :style => 'width:300px' %>
                 </div>
                 <% %w[x y w h].each do |attribute| %>
                     <%= f.hidden_field "crop_#{attribute}" %>

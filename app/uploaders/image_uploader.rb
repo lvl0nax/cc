@@ -37,7 +37,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
 
-  version :large do
+  version :large do    
     resize_to_limit(380, 600)
   end
   
@@ -58,7 +58,7 @@ class ImageUploader < CarrierWave::Uploader::Base
         img.crop!(x, y, w, h)
       end
     else
-      resize_to_limit(200, 200)
+      resize_to_limit(380, 600)
     end  
   end
 

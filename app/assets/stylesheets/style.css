@@ -1457,8 +1457,9 @@ header a:hover {
   position: relative;
 }
 #celendar_content .pk_popupcd .lside .addtocallendar .jqTransformCheckboxWrapper {
-  position: absolute;
-  right: 7px;
+position: absolute;
+right: -14px;
+top: 0;
 }
 
 #celendar_content .month_info .monthcont img {
@@ -3134,7 +3135,9 @@ form .regtype img {
 }
 
 #celendar_content .pk_popupcd .lside .addtocallendar{
-  width:200px!important;
+width: 115px!important;
+height: 33px;
+margin-top: -1px;
 }
 .lside .jqTransformCheckboxWrapper{
   margin:0!important;

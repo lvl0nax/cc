@@ -23,7 +23,7 @@
   <span class="label fl" style="margin-top: 11px;">МЕСТО</span><%= f.text_field :place, :class=>"text fr", :style=>"width:256px; margin-top: 8px;" %><div class="clr"></div>
 </div>
 <div class="isideright" id="map4i">
-  <script>
+  <script>  
       function google_maps4() {
         var x_coor = $('#x_coordinate').val(),
             y_coor = $('#y_coordinate').val();
@@ -46,13 +46,13 @@
           // };
           // var map = new google.maps.Map(document.getElementById("map4i"), settings); // Выбираем див куда ставить карту
           var myLatlng = new google.maps.LatLng(x_coor,y_coor);
-          console.log("init myLatlng:" + myLatlng);  // Координаты маркера
+          //console.log("init myLatlng:" + myLatlng);  // Координаты маркера
           myOptions = {
               zoom: 12,  // Выставляем параметры зума для маркера
               center: myLatlng,
               mapTypeId: google.maps.MapTypeId.ROADMAP
           }
-          map = new google.maps.Map(document.getElementById("map4i"), myOptions);  // Выбираем див куда ставить маркер
+          var map = new google.maps.Map(document.getElementById("map4i"), myOptions);  // Выбираем див куда ставить маркер
           marker = new google.maps.Marker({
               position: myLatlng,
               map: map,
@@ -70,7 +70,7 @@
             map.setCenter(location);
             marker.setPosition(location);            
           }
-      }
+      }      
   </script>
 </div>
 
@@ -376,12 +376,7 @@
 </script>
 
 <script type="text/javascript">
-        $(document).ready(function () {
-            function addMarker(location) {
-            marker.setPosition(location); 
-            marker.setMap(map);          
-            map.setCenter(location);           
-           }
+        $(document).ready(function () {       
          
 
              var nation, city, street, building, location,x,y = "";
@@ -410,6 +405,18 @@
                    }
                  }).done(function() {
                    myLatlng = new google.maps.LatLng(x,y);
+                   myOptions = {
+                    zoom: 12,  // Выставляем параметры зума для маркера
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                   }
+                   var map = new google.maps.Map(document.getElementById("map4i"), myOptions);
+
+                    function addMarker(location) {
+                      marker.setMap(map);          
+                      map.setCenter(location);
+                      marker.setPosition(location);            
+                    }
                        addMarker(myLatlng);
                        $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
                      });
@@ -431,6 +438,10 @@
                building = $(this).val();
                find_place();
              })
+
+             $('.controls').click(function(){              
+                google_maps4();                
+             });
             
         })
     

@@ -25,7 +25,7 @@ class UserMailer2 < ActionMailer::Base
   #   content_type "text/html"
   # end
 
-  def send_mail_reg(id,user)
+  def send_mail_reg(id,user)    
     content = content_register(user)
      unisender.sendEmail(
       :email=>user.email,
@@ -47,7 +47,7 @@ class UserMailer2 < ActionMailer::Base
       <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
       </head>
-      <body>
+      <body>        
         <p>Спасибо за регистрацию!</p>
 
     <p>Здравствуйте, '+user_name+' !</p>
@@ -55,7 +55,7 @@ class UserMailer2 < ActionMailer::Base
     <p>Для того чтобы закончить регистрацию и приступить 
     к составлению своего собственного календаря Вам присвоены 
     логин и пароль на нашем сайте. Их необходимо использовать при 
-    первом входе на сайт, далее они могут быть изменены в <a href="'+root_url+'">Личном Кабинете</a></p>
+    первом входе на сайт, далее они могут быть изменены в <a href="http://cc.net-simple.ru">Личном Кабинете</a></p>
 
     <p>логин: '+user_email+' <br />
     пароль: '+user_password+'</p>
@@ -198,7 +198,7 @@ end
       <table width="650" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td height="55"><font size="3" color="#354242" face="Verdana">ЖЕЛАЕМ УСПЕХА, ВАШ ЦЕНТР КАРЬЕРЫ</font></td>
-          <td align="right"><a><font size="3" color="#77a087" face="Tahoma">carrereeeecenter.ru</font></a></td>
+          <td align="right"><a><font size="3" color="#77a087" face="Tahoma">centercareer.ru</font></a></td>
         </tr>
       </table>
     </td>
@@ -236,7 +236,7 @@ end
                   <td valign="top" align="left">
                     <font size="3" color="white" face="Verdana">'+title+'</font><br>
                     <font size="1" color="white" face="Verdana">&nbsp;</font><br>
-                    <font size="2" color="white" face="Verdana">строк подачи резюме с '+ train.start_date.strftime("%d %m") +' до '+ train.request_date.strftime("%d %m") +'</font>
+                    <font size="2" color="white" face="Verdana">строк подачи резюме с '+ Russian::strftime(event.start_date, "%d %B") +' до '+ Russian::strftime(event.request_date, "%d %B") +'</font>
                     <font size="1" color="white" face="Verdana">&nbsp;</font><br>
                     <font size="1" color="white" face="Verdana">&nbsp;</font><br>
                   </td>
@@ -271,10 +271,10 @@ end
       else
         img = adress + "assets/contimg4.png"
       end
-    if grant.nation
-      nation = grant.nation 
+      if grant.nation
+        nation = grant.nation 
       else
-      nation = ""
+        nation = ""
       end
     grant_content = '<table width="630" align="center" cellpadding="2" cellspacing="0" border="0" bgcolor="#354242">
         <tr>
@@ -291,7 +291,7 @@ end
                       <td>
                         <font size="3" color="#354242" face="Verdana">'+title+'</font><br>
                         <font size="1" color="#354242" face="Verdana">&nbsp;</font><br>
-                        <font size="2" color="#354242" face="Verdana">строк подачи резюме с 9.00 до '+ grant.start_date.strftime("%d %m") +'</font>
+                        <font size="2" color="#354242" face="Verdana">строк подачи резюме с 9:00 до '+ grant.start_date.strftime("%H:%M") +'</font>
                         <font size="1" color="#354242" face="Verdana">&nbsp;</font><br>
                         <font size="1" color="#354242" face="Verdana">&nbsp;</font><br>
                       </td>
@@ -328,10 +328,10 @@ end
       else
         img = adress + "assets/contimg5.png"
       end
-      if train.nation
-      nation = event.nation 
+      if event.nation
+        nation = event.nation 
       else
-      nation = ""
+        nation = ""
       end
     event_content = '<table width="630" align="center" cellpadding="2" cellspacing="0" border="0" bgcolor="#77a087">
         <tr>
@@ -347,8 +347,8 @@ end
                       </td>
                       <td>
                         <font size="3" color="#77a087" face="Verdana">'+title+'</font><br>
-                        <font size="1" color="#77a087" face="Verdana">&nbsp;</font><br>
-                        <font size="2" color="#77a087" face="Verdana">строк подачи резюме с '+ event.start_date.strftime("%d %m") +' до '+ event.request_date.strftime("%d %m") +'</font>
+                        <font size="1" color="#77a087" face="Verdana">&nbsp;</font><br>                                                                                            
+                        <font size="2" color="#77a087" face="Verdana">строк подачи резюме с '+ Russian::strftime(event.start_date, "%d %B") +' до '+ Russian::strftime(event.request_date, "%d %B") +'</font>
                         <font size="1" color="#77a087" face="Verdana">&nbsp;</font><br>
                         <font size="1" color="#77a087" face="Verdana">&nbsp;</font><br>
                       </td>

@@ -1,8 +1,8 @@
 <input type='hidden' value='<%= @event_id %>' id='show_popup'>
 <script>
   $(document).ready(function(){    
-    $(window).ready(function(){      
-      var event_id = $('#show_popup').val();
+    $(window).ready(function(){
+      var event_id = $('#show_popup').val();      
       if(event_id != ''){        
         $('#'+event_id).trigger('click');
       }

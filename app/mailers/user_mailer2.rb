@@ -115,17 +115,17 @@ end
       @event_list = []
       user.areas.each do |u_area|
         u_area.grants.each do |u_a_grant|
-          if u_a_grant.status == 'ОДОБРЕНО'
+          if u_a_grant.status == 'ОДОБРЕНО' and u_a_grant.start_date > Time.now
             @event_list << u_a_grant
           end
         end
         u_area.events.each do |u_a_event|
-          if u_a_event.status == 'ОДОБРЕНО'
+          if u_a_event.status == 'ОДОБРЕНО' and u_a_event.request_date > Time.now
             @event_list << u_a_event
           end
         end
         u_area.trainings.each do |u_a_training|
-          if u_a_training.status == 'ОДОБРЕНО'
+          if u_a_training.status == 'ОДОБРЕНО' and u_a_training.request_date > Time.now
             @event_list << u_a_training
           end
         end
@@ -137,7 +137,7 @@ end
 
 
   def send_ind_email(id,name,email,event_list)
-    adress = root_url
+    adress = "http://cc.net-simple.ru" #root_url
     content = content(name,event_list,adress)
     
     unisender.sendEmail(
@@ -211,10 +211,10 @@ end
   end
 
   def content_training(train,adress)
-    title = train.title.to_s
+    title = train.title
     img=""
       unless train.image_id.eql?("")
-        img = Image.find(train.image_id).photo.thumb
+        img = Image.find(train.image_id).photo.thumb.to_s
       else
         img = adress + "assets/contimg6.png"
       end
@@ -236,7 +236,7 @@ end
                   <td valign="top" align="left">
                     <font size="3" color="white" face="Verdana">'+title+'</font><br>
                     <font size="1" color="white" face="Verdana">&nbsp;</font><br>
-                    <font size="2" color="white" face="Verdana">строк подачи резюме с '+ Russian::strftime(event.start_date, "%d %B") +' до '+ Russian::strftime(event.request_date, "%d %B") +'</font>
+                    <font size="2" color="white" face="Verdana">строк подачи резюме с '+ Russian::strftime(train.start_date, "%d %B") +' до '+ Russian::strftime(train.request_date, "%d %B") +'</font>
                     <font size="1" color="white" face="Verdana">&nbsp;</font><br>
                     <font size="1" color="white" face="Verdana">&nbsp;</font><br>
                   </td>
@@ -264,7 +264,7 @@ end
   end
 
   def content_grant(grant,adress)
-    title = grant.title.to_s
+    title = grant.title
     img=""
       unless grant.image_id.eql?("")
         img = adress + Image.find(grant.image_id).photo.thumb.to_s
@@ -321,10 +321,10 @@ end
   end
 
   def content_event(event,adress)
-    title = event.title.to_s
+    title = event.title
     img=""
       unless event.image_id.eql?("")
-        img = Image.find(event.image_id).photo.thumb
+        img = Image.find(event.image_id).photo.thumb.to_s
       else
         img = adress + "assets/contimg5.png"
       end

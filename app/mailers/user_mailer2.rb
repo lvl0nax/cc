@@ -181,14 +181,14 @@ end
   content = '<meta charset="UTF-8">
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr>
-    <td><img width="100%" src="'+adress+'assets/header.png" alt=""></td>
+    <td><img width="100%" src="'+adress+'/assets/header.png" alt=""></td>
   </tr>
   <tr>
     <td align="center">
       <table width="650" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td height="90"><font size="4" color="#354242" face="Verdana">УВАЖАЕМЫЙ, <font size="4" color="#77a087" face="Verdana">'+name+'!</font></font></td>
-          <td align="right"><img src="'+adress+'assets/logo.png" alt=""></td>
+          <td align="right"><img src="'+adress+'/assets/logo.png" alt=""></td>
         </tr>
         <tr>
           <td rowspan="2"><font size="2" color="#354242" face="Tahoma">Предлагаем Вам ознакомится с самыми интересными карьерными и професиональными мероприятиями, подобраными в соответствии с Вашыми интересами. Пополнить список интересующих Вас сфер можно в <a href="'+adress+'"><font size="2" color="#77a087" face="Tahoma">личном кабинете </font></a></font></td>
@@ -204,7 +204,7 @@ end
     </td>
   </tr>
   <tr>
-    <td><img width="100%" src="'+adress+'assets/header.png" alt=""></td>
+    <td><img width="100%" src="'+adress+'/assets/header.png" alt=""></td>
   </tr>
 </table>'
     return content
@@ -214,9 +214,9 @@ end
     title = train.title
     img=""
       unless train.image_id.eql?("")
-        img = Image.find(train.image_id).photo.thumb.to_s
+        img = adress + Image.find(train.image_id).photo.thumb.to_s
       else
-        img = adress + "assets/contimg6.png"
+        img = adress + "/assets/contimg6.png"
       end
       if train.nation
       nation = train.nation 
@@ -240,7 +240,7 @@ end
                     <font size="1" color="white" face="Verdana">&nbsp;</font><br>
                     <font size="1" color="white" face="Verdana">&nbsp;</font><br>
                   </td>
-                  <td width="10" align="left"><img src="'+adress+'assets/separator.png" alt=""></td>
+                  <td width="10" align="left"><img src="'+adress+'/assets/separator.png" alt=""></td>
                       <td width="110" cellpadding="0"><font size="1" color="#77a087" face="Verdana">
                        '+train.start_date.strftime("%d/%m/%Y")+'<br>
                         '+nation+'<br>
@@ -269,7 +269,7 @@ end
       unless grant.image_id.eql?("")
         img = adress + Image.find(grant.image_id).photo.thumb.to_s
       else
-        img = adress + "assets/contimg4.png"
+        img = adress + "/assets/contimg4.png"
       end
       if grant.nation
         nation = grant.nation 
@@ -295,7 +295,7 @@ end
                         <font size="1" color="#354242" face="Verdana">&nbsp;</font><br>
                         <font size="1" color="#354242" face="Verdana">&nbsp;</font><br>
                       </td>
-                      <td width="10" align="left"><img src="'+adress+'assets/separator.png" alt=""></td>
+                      <td width="10" align="left"><img src="'+adress+'/assets/separator.png" alt=""></td>
                       <td width="110" cellpadding="0"><font size="1" color="#354242" face="Verdana">
                         '+grant.start_date.strftime("%d/%m/%Y")+'<br>
                         '+nation+'<br>
@@ -324,9 +324,9 @@ end
     title = event.title
     img=""
       unless event.image_id.eql?("")
-        img = Image.find(event.image_id).photo.thumb.to_s
+        img = adress + Image.find(event.image_id).photo.thumb.to_s
       else
-        img = adress + "assets/contimg5.png"
+        img = adress + "/assets/contimg5.png"
       end
       if event.nation
         nation = event.nation 
@@ -352,7 +352,7 @@ end
                         <font size="1" color="#77a087" face="Verdana">&nbsp;</font><br>
                         <font size="1" color="#77a087" face="Verdana">&nbsp;</font><br>
                       </td>
-                      <td width="10" align="left"><img src="'+adress+'assets/separator.png" alt=""></td>
+                      <td width="10" align="left"><img src="'+adress+'/assets/separator.png" alt=""></td>
                       <td width="110" cellpadding="0"><font size="1" color="#77a087" face="Verdana">
                        '+event.start_date.strftime("%d/%m/%Y")+'<br>
                         '+nation+'<br>

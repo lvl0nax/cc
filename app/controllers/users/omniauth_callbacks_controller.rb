@@ -82,7 +82,7 @@ class Users::OmniauthCallbacksController < ApplicationController
     User.all.to_a
   end
 
-  def find_for_facebook_oauth(access_token, role)
+  def find_for_facebook_oauth(access_token, role)    
     if @user = find_with_facebook(access_token.uid)
     return @user
     else

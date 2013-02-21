@@ -45,24 +45,22 @@
       <div class="clr"></div>
     </div>
     <div class="sep"></div>
-    <div class="info_row">
-      <span>ОБРАЗОВАНИЕ</span>
-      <div class="input_field" id='education_fields'>
-        <%= f.text_field :education, :style => 'width:423px;' %>
+    <div class="info_row">      
+      <div class="input_field" id='education_fields' style="float:left; padding-left: 10px; width: 589px;">        
         <div class="sub_info_row">
           <span style="padding-left:0;">ВУЗ</span>
-          <%= f.text_field :university, :style => 'width:278px; margin-right:0; float:right;' %>
+          <%= f.text_field :university, :style => 'width:422px; margin-right:0; float:right;' %>
           <div class="clr"></div>
         </div>
         <div class="sub_info_row">
           <span style="padding-left:0;">ФАКУЛЬТЕТ</span>
-          <%= f.text_field :faculty, :style => 'width:278px; margin-right:0; float:right;' %>
+          <%= f.text_field :faculty, :style => 'width:422px; margin-right:0; float:right;' %>
           <div class="clr"></div>
         </div>       
 
         <div class="sub_info_row" id='remove_empty'>
-          <span style="padding-left:0;">ДАТА ОКОНЧАНИЯ</span>
-          <div class="new-sel"><%= f.date_select :experation, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10, :discard_day => true, :discard_month => true, :order => [:year] %></div>          
+          <span style="padding-left:0; width:154px;">ГОД ОКОНЧАНИЯ</span>
+          <div class="new-sel"><%= f.date_select :experation, :start_year => Date.today.year - 50, :end_year => Date.today.year, :discard_day => true, :discard_month => true, :order => [:year] %></div>          
 
           <div class="clr"></div>
         </div>
@@ -78,7 +76,7 @@
         <%= render 'experience_work_fields', :f => experience %>
       <%end%> 
       <div id='add_experience_work'>                       
-        <%= link_to_add_association "ДОБАВИТЬ", f, :experience_works %>
+        <%= link_to_add_association "ДОБАВИТЬ", f, :experience_works, :style => "display:block; width:100%; height: 100%;" %>
       </div>
       <% if @user.resume.experience_works.count == 0%>
         <script>

@@ -1,10 +1,10 @@
 <%  @event = Event.new %>
 <%= form_for @event, :url => {:action=>:create, :controller=>:events}, :method=>:post, :validate => true do |f|%>
 <div class="stext">ЯРМАРКА ВАКАНСИЙ, ПРЕЗЕНТАЦИЯ, МАСТЕР-КЛАСС, КЕЙС-ТУРНИР, КОНФЕРЕЦИЯ</div>
-<span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>"name" %><span class="error"></span>
+<span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>"name" %><span class="error" style="margin-left: -4px; width: 79px;"></span>
 <div class="leftpart">
 <span class="label">ОПИСАНИЕ</span>
-<%= f.text_area :description %><span class="error"></span>
+<%= f.text_area :description %><span class="error" style="margin-left: -4px; width: 79px;"></span>
 <div class="clr"></div>
 
 <div class="isideleft"> 

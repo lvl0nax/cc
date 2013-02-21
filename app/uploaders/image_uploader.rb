@@ -42,8 +42,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   version :thumb do
-    process :crop
-    resize_to_fill(139, 130)
+    #process :crop
+    resize_to_limit(250, 185)
   end
 
   def crop

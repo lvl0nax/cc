@@ -41,11 +41,13 @@ class Users::OmniauthCallbacksController < ApplicationController
         name = request.env["omniauth.auth"][:extra][:raw_info][:first_name]
         l_name = request.env["omniauth.auth"][:extra][:raw_info][:last_name]
         birthday = request.env["omniauth.auth"][:extra][:raw_info][:bdate]
-        tmp = birthday.split(".") unless birthday.nil?
-        unless tmp.count < 3
-          birthday = tmp.join("-").to_date
-        else 
-          birthday = nil
+        unless birthday.nil?
+          tmp = birthday.split(".")
+          unless tmp.count < 3
+            birthday = tmp.join("-").to_date
+          else 
+            birthday = nil
+          end
         end
         location = request.env["omniauth.auth"][:info][:location]
        

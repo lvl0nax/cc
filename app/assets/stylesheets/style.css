@@ -1,3 +1,6 @@
+textarea {
+  font-family: 'Verdana', serif !important;
+}
 .link_to_create{
   color: grey;
 }
@@ -379,8 +382,8 @@ a.jqTransformChecked {
   background-size: cover;
 }
 .catsItem a.jqTransformCheckbox {
-  width: 11px;
-  height: 11px;
+  width: 13px;
+  height: 14px;
   float: left;
 }
 .pchecks a.jqTransformCheckbox {
@@ -970,6 +973,7 @@ header a:hover {
   margin-bottom: 17px;
 }
 .pk_popup .lside .date_wrap .date {
+  margin-top: 10px;
   margin-bottom: 2px;
   display: inline-block;
 }
@@ -1596,7 +1600,7 @@ left: 3px;
   border: 1px solid #c9db57;
 }
 .filterMain .filterStaz .vupad .sam2 span.descripting {
-  width: 283px !important;  
+  width: 279px !important;  
 }
 .filterMain .filterStaz .vupad .samvup,
 .filterMain .filterStaz .vupad .sampk {
@@ -3482,4 +3486,55 @@ form input[type=file]{
   width: 100px;
 }
 
-
+#mask
+{  
+  position: relative;
+  margin: 5px;
+  float: left;
+  width:315px; /* ширина рисунка */    
+  height:30px;     
+  padding:4px 0 0 4px;     
+  background: url(im/file.png) no-repeat 0 0;
+} 
+.fileInput {  
+  position:absolute;/* позиционируем настоящий <font id="tag"><input type="file"></font> */
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor:pointer; /*изменим курсор для симпотичности*/
+  /* задаем нулевую видимость для разных браузеров*/
+  -ms-filter:"progid:DXImageTransFORM.Microsoft.Alpha(opacity=0)";
+  filter:progid:DXImageTransFORM.Microsoft.Alpha(opacity=0); 
+  -moz-opacity:0; 
+  -khtml-opacity:0; 
+  opacity:0;
+} 
+#fileInputText
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  background:#ffffff;
+  border:1px solid #cccccc;
+  width:213px;
+  height: 24px;
+  margin: 0 !important;
+  font-size:11px;
+  color:#300;
+} 
+.file-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 95px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-family: 'Arial';
+  background-image: linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -o-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -moz-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -webkit-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -ms-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #9abc74), color-stop(0.82, #c7db57));
+}

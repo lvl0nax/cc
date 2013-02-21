@@ -34,7 +34,7 @@
         </script>
 
         <%= form_for :user, :url => { :action => :create, :controller => :sessions }, :html=>{:id=>'autorization'} do |f| %>
-            <%= f.label :email, 'ЛОГИН'%>
+            <%= f.label :email, 'E-MAIL'%>
             <%= f.text_field :email %>
             <%= f.label :password, 'ПАРОЛЬ' %>
             <%= f.password_field :password %>
@@ -203,8 +203,10 @@
                 <div id='load_img_error' style="color:red"></div>
                 <div class="clr"></div>
                 <button class="avabtn1">Отмена</button>
-                <div class="avabtn2">
-                    <%= f.file_field :photo, :style => 'width:214px', :class => "avabtn2" %>
+                <div id="mask">
+                   <input type="text" id="fileInputText" size='47'/>
+                   <div class="file-btn">Загрузить</div>
+                   <%= f.file_field :photo, :style => 'width:100%', :class => "fileInput", :onchange => "document.getElementById('fileInputText').value = this.value;" %>
                 </div>
                 <% %w[x y w h].each do |attribute| %>
                     <%= f.hidden_field "crop_#{attribute}" %>
@@ -320,8 +322,10 @@
                 <div id='load_img_error' style="color:red"></div>
                 <div class="clr"></div>
                 <button class="avabtn1">Отмена</button>
-                <div class="avabtn2">
-                    <%= f.file_field :photo, :style => 'width:214px' %>
+                <div id="mask">
+                   <input type="text" id="fileInputText" size='47'/>
+                   <div class="file-btn">Загрузить</div>
+                   <%= f.file_field :photo, :style => 'width:100%', :class => "fileInput", :onchange => "document.getElementById('fileInputText').value = this.value;" %>
                 </div>
                 <% %w[x y w h].each do |attribute| %>
                     <%= f.hidden_field "crop_#{attribute}" %>

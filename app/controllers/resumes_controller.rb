@@ -98,8 +98,9 @@ class ResumesController < ApplicationController
     @resume = current_user.resume #Resume.find(params[:id]) 
 
     if @resume.update_attributes(params[:resume]) 
+      puts 'wwwwwwwwwwwwww'*3
 
-      if params[:resume][:photo].present?        
+      if params[:resume][:photo].present?
         return render :json => {:url => @resume.photo.url(:large)}
         #render :crop
       else

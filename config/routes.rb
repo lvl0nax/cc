@@ -96,7 +96,7 @@ TestMongoid::Application.routes.draw do
   post "add_remove_event" => "users#add_remove_event"
   get 'created_event' => "users#created_event"
   get 'send_mails'=> 'users#send_mails'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   get "/profile" => "users#show"
 

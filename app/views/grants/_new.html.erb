@@ -1,9 +1,9 @@
 <% @grant = Grant.new %>
 <%= form_for @grant, :url => {:action=>:create, :controller => :grants}, :method => :post, :validate => true do |f|%>
-  <span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>'name' %><span class="error"></span>
+  <span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class=>'name' %><span class="error" style="margin-left: -4px; width: 79px;"></span>
   <div class="leftpart">
     <span class="label">ОПИСАНИЕ</span>
-    <%= f.text_area :description %><span class="error"></span>
+    <%= f.text_area :description %><span class="error" style="margin-left: -4px; width: 79px;"></span>
     <div class="clr"></div>
 
     <span class="label">ССЫЛКА НА САЙТ ИЛИ РЕГИСТРАЦИЮ</span>

@@ -1,11 +1,11 @@
 <% @training = Training.new %>
 <%= form_for @training, :url => {:action => :create, :controller => :trainings}, :method => :post, :validate => true do |f| %>
 
-    <span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class => "name" %><span class="error"></span>
+    <span class="label">НАЗВАНИЕ</span><%= f.text_field :title, :class => "name" %><span class="error" style="margin-left: -4px; width: 79px;"></span>
     <div class="leftpart">
       <span class="label">ОПИСАНИЕ</span>
       <%= f.text_area :description %>
-      <span class="error"></span>
+      <span class="error" style="margin-left: -4px; width: 79px;"></span>
       <div class="clr"></div>
      
 

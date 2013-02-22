@@ -10,9 +10,7 @@ development:
   options:
     raise_not_found_error: false
   sessions:
-    default:  &defaults
-      use_utc: false
-      use_activesupport_time_zone: true
+    default:  &defaults    
       database: test_mongoid_production
       hosts:
         - localhost:27017

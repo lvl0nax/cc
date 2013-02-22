@@ -8,7 +8,7 @@
         <%= image_tag Image.find(event.image_id).photo.thumb %>
     <% end %>
     <span><%= event.nation %>&nbsp;</span>
-    <span class="spright"><%= event.start_date.strftime('%H:%m') %></span>
+    <span class="spright"><%= event.start_date.strftime("%H:%M") %></span>
     <span class="spsize"><%= event.title.truncate(16) %></span>
     <div class="clr"></div>
   </div>

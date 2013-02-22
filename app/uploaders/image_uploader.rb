@@ -46,6 +46,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     resize_to_limit(250, 185)
   end
 
+  version :small do
+    process :crop
+    resize_to_fill(130, 130)
+  end  
+
   def crop
     return unless defined? model.crop_x
     if model.crop_x.present?

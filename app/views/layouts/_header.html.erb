@@ -75,7 +75,7 @@
         <% if current_user.resume? %>
             <div class="photo_login">
                 <%if current_user.resume.photo?%>
-                    <%= image_tag current_user.resume.photo.url(:thumb) %>
+                    <%= image_tag current_user.resume.photo.url(:small) %>
                     <%= link_to 'РЕДАКТИРОВАТЬ', crop_resume_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
                 <%else%>
                     <%= image_tag 'nophoto.jpg' %>
@@ -86,7 +86,7 @@
         <% elsif current_user.compinfo? %>
             <div class="photo_login">
                 <%if current_user.compinfo.photo?%>
-                    <%= image_tag current_user.compinfo.photo.url(:thumb) %>
+                    <%= image_tag current_user.compinfo.photo.url(:small) %>
                     <%= link_to 'РЕДАКТИРОВАТЬ', crop_compinfo_path(current_user.id), :class => 'redact', :style => 'text-align:center'%>
                 <%else%>
                     <%= image_tag 'nophoto.jpg' %>
@@ -352,18 +352,25 @@
 
     $(document).ready(function () {
 
-
         $(".samvup .all").click(function () {
 
             var a =$(this).hasClass("act");
 
             if(a){
-
+                $(".samvup .all").removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
                 $(this).removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
 
             } else{
-
+                $(".samvup .all").removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
                 $(this).addClass("act").next().slideDown().parents(".samvup").addClass("act");
+                var yourClick = true;
+                $(document).bind('click.myEvent', function (event) {
+                  if (!yourClick && $(event.target).closest('.samvup').length == 0) {
+                    $(".samvup .all").removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
+                    $(document).unbind('click.myEvent');
+                  }
+                  yourClick = false;
+                });
 
             }
 

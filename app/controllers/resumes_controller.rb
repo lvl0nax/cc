@@ -107,7 +107,7 @@ class ResumesController < ApplicationController
         #redirect_to current_user, notice: 'Resume was successfully updated.'
         #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
         
-        return render :json => {:url => @resume.photo.url(:thumb)}
+        return render :json => {:url => @resume.photo.url(:small)}
         #return render :json => {:url => compinfo.photo.url}
       end
     else      

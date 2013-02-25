@@ -69,9 +69,9 @@
       <% unless event.owner.nil? %>
         <% event_user = User.find(event.owner)%>
         <% if event_user.resume? && event_user.resume.photo? %>
-                  <%= image_tag event_user.resume.photo.url(:thumb) %>
+                  <%= image_tag event_user.resume.photo.url(:small) %>
             <% elsif event_user.compinfo? && event_user.compinfo.photo? %>          
-                <%= image_tag event_user.compinfo.photo.url(:thumb) %>           
+                <%= image_tag event_user.compinfo.photo.url(:small) %>           
             <% else %>
                 <%= image_tag 'nophoto.jpg' %>                
             <% end %>

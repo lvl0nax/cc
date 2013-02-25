@@ -54,7 +54,7 @@
                     center:myLatlng,
                     mapTypeId:google.maps.MapTypeId.ROADMAP
                 }
-                var map = new google.maps.Map(document.getElementById("map5"), myOptions);  // Выбираем див куда ставить маркер
+                map = new google.maps.Map(document.getElementById("map5"), myOptions);  // Выбираем див куда ставить маркер
                 marker = new google.maps.Marker({
                     position:myLatlng,
                     map:map,
@@ -63,8 +63,8 @@
 
                 google.maps.event.addListener(map,'click',function(event){
                   addMarker(event.latLng);
-                  var x = event.latLng.Ya,
-                      y = event.latLng.Za;
+                  var x = event.latLng.lat(),
+                      y = event.latLng.lng();
                   $.ajax({ url: "/trainings/new",  type: "GET", data: {x: x, y: y}  });
                 });
 
@@ -174,7 +174,7 @@
         {
           item.addClass("active");
         }
-        item.find('soc-link-input').enableClientSideValidations();
+        item.find('input').enableClientSideValidations();
       }
     </script> 
 
@@ -423,7 +423,7 @@
                         center:coordinates,
                         mapTypeId:google.maps.MapTypeId.ROADMAP
                       }
-                      var map = new google.maps.Map(document.getElementById("map5"), myOptions);
+                      //var map = new google.maps.Map(document.getElementById("map5"), myOptions);
 
                         function addMarker(location) {
                           marker.setMap(map);          

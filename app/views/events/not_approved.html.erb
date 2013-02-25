@@ -125,19 +125,19 @@
                         $('#message_info').remove();
                         var name_event = $(this).parent().parent().find('.spright').first().text();
                         var text_event = $(this).parent().parent().data('eventname');
-                        name_event += ' '+ text_event;
+                        name_event2 = ' " '+ text_event+' "';
                         if(name_event.indexOf("грант") !== -1){
-                                name_event += ' одобрен.'
+                                name_event2 += ' одобрен.'
                         }
                         else if(name_event.indexOf("стажировка") !== -1){
-                                name_event += ' одобрена.'                              
+                                name_event2 += ' одобрена.'                              
                         }
                         else if(name_event.indexOf("событие") !== -1){
-                                name_event += ' одобрено.'                              
+                                name_event2 += ' одобрено.'                              
                         }
                         $(".av-redact-bg").fadeIn();
                         $(".odobreno_popup").fadeIn();
-                        $('#info').before('<div id="message_info" style="color:green">'+name_event +'</div>');
+                        $('#info').before('<div id="message_info" style="color:green"><b>'+name_event.toUpperCase() +'</b>'+ name_event2.toUpperCase() +'</div>');
                 }
                 else if($(this).attr('class') == 'delete'){
                         str = 'event_delete';
@@ -145,19 +145,19 @@
                         $('#message_info').remove();
                         var name_event = $(this).parent().parent().find('.spright').first().text();
                         var text_event = $(this).parent().parent().data('eventname');
-                        name_event += ' '+ text_event;
+                        name_event2 = ' " '+ text_event+' "';
                         if(name_event.indexOf("грант") !== -1){
-                                name_event += ' удален.'
+                                name_event2 += ' удален.'
                         }
                         else if(name_event.indexOf("стажировка") !== -1){
-                                name_event += ' удалена.'                               
+                                name_event2 += ' удалена.'                               
                         }
                         else if(name_event.indexOf("событие") !== -1){
-                                name_event += ' удалено.'                               
+                                name_event2 += ' удалено.'                               
                         }
                         $(".av-redact-bg").fadeIn();
                         $(".odobreno_popup").fadeIn();
-                        $('#info').before('<div id="message_info" style="color:red">'+ name_event.toUpperCase() +'</div>');
+                        $('#info').before('<div id="message_info" style="color:red"><b>'+ name_event.toUpperCase() +'</b>'+ name_event2.toUpperCase() +'</div>');
                 }
                 if (str.length > 0)
                 {

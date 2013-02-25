@@ -185,14 +185,13 @@ class UsersController < ApplicationController
   end
 
   def created_event
-    @items = EventParent.where(:owner => current_user.id)
+    @items = EventParent.where(:owner => params[:id])
     
     @items.each do |item|
       item.visible = true
-    end
-    
+    end    
 
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
 end

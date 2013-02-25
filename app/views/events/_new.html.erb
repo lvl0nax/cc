@@ -52,23 +52,23 @@
               center: myLatlng,
               mapTypeId: google.maps.MapTypeId.ROADMAP
           }
-          var map = new google.maps.Map(document.getElementById("map4i"), myOptions);  // Выбираем див куда ставить маркер
-          marker = new google.maps.Marker({
+          map2 = new google.maps.Map(document.getElementById("map4i"), myOptions);  // Выбираем див куда ставить маркер
+          marker2 = new google.maps.Marker({
               position: myLatlng,
-              map: map,
+              map: map2,
               title: "A"
           });
-          google.maps.event.addListener(map,'click',function(event){
+          google.maps.event.addListener(map2,'click',function(event){
             addMarker(event.latLng);
-            var x = event.latLng.Ya,
-                y = event.latLng.Za;
+            var x = event.latLng.lat(),
+                y = event.latLng.lng();                
             $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });
           });
 
           function addMarker(location) {
-            marker.setMap(map);          
-            map.setCenter(location);
-            marker.setPosition(location);            
+            marker2.setMap(map2);          
+            map2.setCenter(location);
+            marker2.setPosition(location);
           }
       }      
   </script>
@@ -168,7 +168,7 @@
         {
           item.addClass("active");
         }
-        item.find('soc-link-input').enableClientSideValidations();
+        item.find('input').enableClientSideValidations();
       }
     </script> 
 
@@ -181,7 +181,7 @@
         <div class="inlblck" style='margin-bottom: 14px'>
           <%= image_tag "/assets/ltp.png"%>
         </div>
-        <div class='soc-link-input'>
+        <div class='soc-link-input'>        
           <%= f.text_field :timepad, :placeholder => 'Укажите ссылку на мероприятие на выбранном сервисе'  %>
         </div>
       </div>
@@ -410,12 +410,12 @@
                     center: myLatlng,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                    }
-                   var map = new google.maps.Map(document.getElementById("map4i"), myOptions);
+                   //var map = new google.maps.Map(document.getElementById("map4i"), myOptions);
 
                     function addMarker(location) {
-                      marker.setMap(map);          
-                      map.setCenter(location);
-                      marker.setPosition(location);            
+                      marker2.setMap(map2);          
+                      map2.setCenter(location);
+                      marker2.setPosition(location);            
                     }
                        addMarker(myLatlng);
                        $.ajax({ url: "/events/new",   type: "GET", data: {x: x, y: y}  });

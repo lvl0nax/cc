@@ -93,8 +93,7 @@ TestMongoid::Application.routes.draw do
   end
 
   post "valid" => "users#valid"
-  post "add_remove_event" => "users#add_remove_event"
-  get 'created_event' => "users#created_event"
+  post "add_remove_event" => "users#add_remove_event"  
   get 'send_mails'=> 'users#send_mails'
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
@@ -110,6 +109,7 @@ TestMongoid::Application.routes.draw do
     member do
       get "activities"
       get "userevents"      
+      get "created_event"
       #get "admin_page"
     end
   end

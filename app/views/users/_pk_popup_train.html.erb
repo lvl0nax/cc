@@ -108,7 +108,7 @@
 
 			<h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>	 		
 
-			<div class="term"><%= event.request_date.strftime("%d-%m-%Y, %H:%M")%></div>
+			<div class="term"><%= Russian::strftime(event.request_date, "%d %B %Y, %H:%M") %></div>
 
 			<a href=""><%= event.hyperlink%></a>
 

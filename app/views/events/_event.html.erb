@@ -41,7 +41,7 @@
     <div class="catsItem addtocallendar" style='position: relative'>
 
       <label>
-        <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ
+        <span class="descripting"><span class="add_c_text">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
           <%if user_signed_in? %>
             <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
               <input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
@@ -121,16 +121,10 @@
 
       <h3>ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ:</h3>    
 
-      <div class="term"><%= event.request_date.strftime("%d-%m-%Y, %H:%M")%></div>
+      <div class="term"><%= Russian::strftime(event.request_date, "%d %B %Y, %H:%M") %></div>
 
       <a href=""><%= event.hyperlink%></a>
       </br>
-
-      <div class="takepart"> 
-        <span class="def" style='color: #77A48B'> ЗАНЯТОСТЬ: &nbsp;</span>
-        <%= event.area_types%>
-      </div>
-
       
       <div id="map<%= event.id%>" class="mapwrap">
 

@@ -892,7 +892,7 @@ header a:hover {
 }
 .pk_popup .head h2 {
   float: left;
-  width: 545px;
+ /*width: 545px;*/
   line-height: 25px;
 }
 .pk_popup .head .social {
@@ -903,7 +903,7 @@ header a:hover {
   width: 21px;
   height: 21px;
   float: left;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 .pk_popup .head .social .facebook {
   background-image: url("../images/facebook.png");
@@ -925,7 +925,7 @@ header a:hover {
   background-position: bottom;
 }
 .pk_popup .head .social .vk {
-  background-image: url("../images/vk.png");
+  background-image: url("../images/vk2.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-right: 0;
@@ -943,17 +943,30 @@ header a:hover {
 .pk_popup .lside a:hover {
   text-decoration: underline;
 }
+.event .lside .addtocallendar {
+  background: #77A48B;
+}
+.grant .lside .addtocallendar {
+  background: #ccc;
+}
 .pk_popup .lside .addtocallendar {
   height: 20px;
   font-size: 14px;
   color: #354242;
-  
-  background: transparent;
   margin-bottom: 10px;
-  width: 125px;
+  margin-top: -19px;
+  padding-left: 10px;
+  width: 322px;
   display: block;
   position: relative;
   margin-left: 0px;
+}
+.train .lside .addtocallendar {
+  width: 194px;
+  padding-left: 0 !important;
+}
+.pk_popup .lside .addtocallendar .add_c_text {
+  float: left;
 }
 .pk_popup .lside .addtocallendar .jqTransformCheckbox {
   float: right !important;
@@ -965,7 +978,7 @@ header a:hover {
   display: block !important;
   width: 20px;
   height: 20px;
-  float:right;
+  float: left;
 }
 .pk_popup .lside .date_wrap {
   font-size: 18px;
@@ -1059,7 +1072,7 @@ header a:hover {
 }
 .pk_popupcd .head h2 {
   float: left;
-  width: 545px;
+/*  width: 545px;*/
   line-height: 25px;
 }
 .pk_popupcd .head .social {
@@ -1070,7 +1083,7 @@ header a:hover {
   width: 21px;
   height: 21px;
   float: left;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 .pk_popupcd .head .social .facebook {
   background-image: url("../images/facebook.png");
@@ -1089,7 +1102,7 @@ header a:hover {
   background-position: bottom;
 }
 .pk_popupcd .head .social .vk {
-  background-image: url("../images/vk.png");
+  background-image: url("../images/vk2.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   margin-right: 0;
@@ -1202,6 +1215,9 @@ header a:hover {
 .event .lside .date_wrap {
   color: #77a48b !important;
 }
+.event .lside .date_wrap .time span {
+  color: #77A48B !important;
+}
 .event .rside h3 {
   color: #77a48b !important;
 }
@@ -1243,7 +1259,7 @@ header a:hover {
   color: #c9db57 !important;
 }
 .train .lside {
-  width: 120px !important;
+  width: 190px !important;
 }
 .train .lside .date_wrap {
   color: #c9db57 !important;
@@ -1253,7 +1269,7 @@ header a:hover {
   font-size: 14px;
   color: #354242;
   /*margin-top: 25px;*/
-  background: transparent;
+  background: #C9DB57;
   margin-bottom: 10px;
 }
 .train .rside {
@@ -1269,6 +1285,10 @@ header a:hover {
   width: 207px;
   float: left;
   margin-top: 5px;
+}
+.train .lside > img{
+  width: 190px!important;
+  max-height: 160px;
 }
 .train .rside .trainleft .nopaid {
   font-size: 11px;
@@ -1287,6 +1307,9 @@ header a:hover {
   color: #c9db57 !important;
   margin-bottom: 17px;
   line-height: 19px;
+}
+.train .rside .trainleft .date_wrap .time span {
+  color: #c9db57 !important;
 }
 .train .rside .trainleft .date_wrap .date {
   margin-bottom: 2px;
@@ -1463,9 +1486,9 @@ header a:hover {
   position: relative;
 }
 #celendar_content .pk_popupcd .lside .addtocallendar .jqTransformCheckboxWrapper {
-position: absolute;
+/*position: absolute;
 right: -14px;
-top: 0;
+top: 0;*/
 }
 
 #celendar_content .month_info .monthcont img {
@@ -1488,7 +1511,7 @@ top: 0;
   border-bottom: 4px solid #c9db57;
 }
 #celendar_content .month_info .yel span {
-  color: #c9db57;
+  color: #354242;
 }
 #celendar_content .month_info .vio {
   border-bottom: 4px solid #9b88a5;
@@ -1500,7 +1523,7 @@ top: 0;
   border-bottom: 4px solid #77a48b;
 }
 #celendar_content .month_info .gre span {
-  color: #77a48b;
+  color: #354242;
 }
 #celendar_content .month_info .bla {
   border-bottom: 4px solid #354242;
@@ -1509,8 +1532,8 @@ top: 0;
   color: #354242;
 }
 .pk_popup .lside img {
-  width: 170px;
-  height: 112px;
+  /*width: 170px;*/
+  /*height: 112px;*/
 }
 .addtocallendar label span.descripting{
   font-size: 10px;
@@ -3067,7 +3090,7 @@ form .regtype img {
   width: 61px !important;
 }
 .sub_info_row .sbHolder .sbOptions {
-  width: 61px !important;
+  width: 62px !important;
 }
 .sub_info_row .new-sel .sbHolder {
   width: 68px !important;
@@ -3138,16 +3161,30 @@ form .regtype img {
 
 
 .lside > img{
-  width:125px!important;
+  width: 332px !important;
+  height: 232px !important;
 }
 
 #celendar_content .pk_popupcd .lside .addtocallendar{
-width: 115px!important;
-height: 33px;
-margin-top: -1px;
+width: 323px!important;
+height: 20px;
+padding-left: 10px;
+margin-top: -25px;
+}
+#celendar_content .train .lside .addtocallendar{
+width: 194px!important;
+}
+#celendar_content .event .lside .addtocallendar{
+background: #77A48B;
+}
+#celendar_content .grant .lside .addtocallendar{
+background: #ccc;
 }
 .lside .jqTransformCheckboxWrapper{
   margin:0!important;
+}
+#celendar_content .month_info .monthcont span.descripting .add_c_text {
+  float: left;
 }
 
 /*popup for connecting account*/
@@ -3542,4 +3579,9 @@ form input[type=file]{
   background-image: -webkit-linear-gradient(right, #9abc74 0%, #c7db57 82%);
   background-image: -ms-linear-gradient(right, #9abc74 0%, #c7db57 82%);
   background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #9abc74), color-stop(0.82, #c7db57));
+}
+
+.ui-datepicker-trigger{
+  position:relative;
+  top: 3px;
 }

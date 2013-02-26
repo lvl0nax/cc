@@ -41,18 +41,18 @@
       <%= image_tag "contimg61.png" %>
     <%end%>
 
-      <div class="catsItem addtocallendar" style="margin-top:0;">
+      <div class="catsItem addtocallendar">
         <label>
           
-          <span class="descripting">ДОБАВИТЬ В МОЙ  
+          <span class="descripting"><span class="add_c_text">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>  
            <%if user_signed_in? %>
               <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => training.id).present?%>
                 <input type="checkbox" name="" id="<%= training.id%>" class='signature' checked>
               <%else%>
                 <input type="checkbox" name="" id="<%= training.id%>" class='signature'>
               <%end%>
-            <%end%><br>
-            КАЛЕНДАРЬ
+            <%end%>
+            
           </span>
 
           <div class="clr"></div>
@@ -133,8 +133,8 @@
 
       <h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>      
 
-      <div class="term"><%= training.request_date.strftime("%d-%m-%Y, %H:%M")%></div>
-
+      <div class="term"><%= Russian::strftime(training.request_date, "%d %B %Y, %H:%M") %></div>
+        
       <a href=""><%= training.hyperlink%></a>
 
 

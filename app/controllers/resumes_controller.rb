@@ -97,8 +97,7 @@ class ResumesController < ApplicationController
   def update_avatar
     @resume = current_user.resume #Resume.find(params[:id]) 
 
-    if @resume.update_attributes(params[:resume]) 
-      puts 'wwwwwwwwwwwwww'*3
+    if @resume.update_attributes(params[:resume])       
 
       if params[:resume][:photo].present?
         return render :json => {:url => @resume.photo.url(:large)}

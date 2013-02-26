@@ -17,12 +17,13 @@
 		<%end%>
 		<div class="catsItem addtocallendar" style='position: relative;'>
 			<label>
+				<span class="descripting" style='margin: 0 3px !important;'><span class="add_c_text">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span></span>				
 				<% if UserEvent.where(:user_id => current_user.id, :event_parent_id => event.id).present?%>
 					<input type="checkbox" name="" id="<%= event.id%>" class='signature' checked>
 				<%else%>
 					<input type="checkbox" name="" id="<%= event.id%>" class='signature'>
 				<%end%>
-				<span class="descripting" style='margin: 0 3px !important;'>ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
+
 				<div class="clr"></div>
 			</label>
 		</div>

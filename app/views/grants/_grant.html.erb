@@ -32,6 +32,7 @@
     <%end%>
     <div class="catsItem addtocallendar" >
       <label>
+        <span class="descripting"><span class="add_c_text">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
         <%if user_signed_in? %>
           <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => grant.id).present?%>
             <input type="checkbox" name="" id="<%= grant.id%>" class='signature' checked>
@@ -39,7 +40,7 @@
             <input type="checkbox" name="" id="<%= grant.id%>" class='signature'>
           <%end%>
         <%end%>
-        <span class="descripting">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>
+      </span>
         <div class="clr"></div>
       </label>
     </div>

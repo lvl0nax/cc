@@ -29,7 +29,7 @@
     <%end%>    
   <% end %>
 
-  <span><%= item.nation.truncate(28) %> </span>
+  <span><%= item.nation.truncate(28) unless item.nation.nil? %> </span>
 
   <span class="spright"><%= item.start_date.strftime("%H:%M") %></span>
 

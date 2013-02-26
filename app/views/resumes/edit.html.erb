@@ -32,8 +32,9 @@
               "#resume_experation_1i,"+
               ".class2_3i").selectbox();
           });
-        </script>        
-        <%= f.date_select :birthday, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
+        </script>
+        <%= f.text_field :birthday, :type => :date %>
+        <%#= f.date_select :birthday, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
                     :order => [:day, :month, :year] %>
       </div>
       <div class="clr"></div>      
@@ -59,8 +60,10 @@
         </div>       
 
         <div class="sub_info_row" id='remove_empty'>
-          <span style="padding-left:0; width:154px;">ГОД ОКОНЧАНИЯ</span>
-          <div class="new-sel"><%= f.date_select :experation, :start_year => Date.today.year - 50, :end_year => Date.today.year, :discard_day => true, :discard_month => true, :order => [:year] %></div>          
+          <span style="padding-left:0; width:154px;">ДАТА ОКОНЧАНИЯ</span>
+          <div class="new-sel"><%#= f.date_select :experation, :start_year => Date.today.year - 40, :end_year => Date.today.year + 10, :discard_day => true, :discard_month => true, :order => [:year] %>
+          <%= f.text_field :experation, :type => :date %>
+          </div>          
 
           <div class="clr"></div>
         </div>

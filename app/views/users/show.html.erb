@@ -95,7 +95,7 @@
           <p class="greenUpper fll">факультет:</p>
           <p class="blackLower flr"><%= @user.resume.faculty %></p>
           <div class="clr"></div>
-          <p class="greenUpper fll">Дата окончания:</p>
+          <p class="greenUpper fll">Год окончания:</p>
           <p class="blackLower flr"><%= @user.resume.experation.to_date.strftime('%Y') unless @user.resume.experation.nil? %>           
           </p>
           <div class="clr"></div>

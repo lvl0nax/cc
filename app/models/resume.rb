@@ -45,5 +45,21 @@ class Resume
   def crop_avatar
     photo.recreate_versions! if crop_x.present?
   end
-  
+
+
+  def birthday_formatted
+    self.birthday.strftime('%d.%m.%Y') if self.birthday?
+  end
+ 
+  def birthday_formatted=(value)
+    self.birthday = Time.zone.parse(value)
+  end  
+
+  def experation_formatted
+    self.experation.strftime('%d.%m.%Y') if self.experation?
+  end
+ 
+  def experation_formatted=(value)
+    self.experation = Time.zone.parse(value)
+  end  
 end

@@ -1,3 +1,5 @@
+ <%= stylesheet_link_tag 'anytime' %>
+ <%= javascript_include_tag "anytime"%>
  <script language="javascript">
   $(function(){
    $('.tv_sizeBig, .fjqtrans, .catsItem, .pchecks').jqTransform();
@@ -32,8 +34,16 @@
               "#resume_experation_1i,"+
               ".class2_3i").selectbox();
           });
+          $(document).ready(function() {
+            $('.date-select').each(function(index, element) {
+              var elem = $(element),
+              options = { format: '%d.%m.%Y', labelTitle: elem.data('title') }; 
+              //options = { format: '%H:%i %d.%m.%Y', labelTitle: elem.data('title') }; 
+              AnyTime.picker( elem.attr('id'), options );
+            });
+          });
         </script>
-        <%= f.text_field :birthday, :type => :date %>
+        <%= f.text_field :birthday_formatted, :class => 'date-select', "data-title" => 'Календарь' %>
         <%#= f.date_select :birthday, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
                     :order => [:day, :month, :year] %>
       </div>
@@ -62,7 +72,7 @@
         <div class="sub_info_row" id='remove_empty'>
           <span style="padding-left:0; width:154px;">ДАТА ОКОНЧАНИЯ</span>
           <div class="new-sel"><%#= f.date_select :experation, :start_year => Date.today.year - 40, :end_year => Date.today.year + 10, :discard_day => true, :discard_month => true, :order => [:year] %>
-          <%= f.text_field :experation, :type => :date %>
+          <%= f.text_field :experation_formatted, :class => 'date-select', "data-title" => 'Календарь' %>          
           </div>          
 
           <div class="clr"></div>

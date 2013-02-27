@@ -72,10 +72,9 @@ $(document).ready(function () {
                           {
                           $(".error_soc").html(jqXHR.responseText);  
                           }
-                          
                         },
                         success: function(data){
-                          window.location = "http://" + window.location.host;
+                          window.location = "http://" + window.location.host+data.url;
                         }
                     })
 })
@@ -99,14 +98,15 @@ $(document).ready(function () {
                         url: "/create_resume_from_social_vk",
                         dataType: 'json',
                         error: function(jqXHR, textStatus, errorThrown){
+                  
                           $(".error_soc").html(jqXHR.responseText);
                         },
                         success: function(data){
-                         window.location = "http://" + window.location.host;
+                          alert(window.location.host+data.url);
+                         window.location = "http://" + window.location.host+'/'+data.url;
                         }
                     })
-                });                   
-                            
+                });                               
               });
         </script>
 <%=link_to "Создать новый аккаунт из соцсети", '#', :id => "create_vk_link", :class => "link_to_create" %>

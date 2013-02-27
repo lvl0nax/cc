@@ -94,10 +94,24 @@
       <% if @user.resume.experience_works.count == 0%>
         <script>
           $(document).ready( function (){
-           $('.add_fields').trigger('click'); 
+           $('.add_fields').trigger('click');            
           });
         </script> 
       <%end%>
+      <!--script>
+      $(document).ready( function (){
+      $('.add_fields').on('click', function(){        
+            $('.date-select').each(function(index, element) {
+              var elem = $(element),
+              options = { format: '%d.%m.%Y', labelTitle: elem.data('title') }; 
+              //options = { format: '%H:%i %d.%m.%Y', labelTitle: elem.data('title') }; 
+              console.log('done');
+              AnyTime.picker( elem.attr('id'), options );
+              console.log('done2');
+            });
+           })
+      });
+      </script-->
       <div class="clr"></div>     
     </div>
 

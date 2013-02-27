@@ -184,37 +184,6 @@ class User
     end
   end
 
-  # def self.find_for_facebook_oauth(access_token, role)
-  #   # f = File.new("file.rb","w")
-  #   # f.puts (access_token.uid.class.name)
-  #   # f.close
-  #   if @user = User.find_with_facebook(access_token.uid)
-  #   return @user
-  #   else
-  #     @c = ConnectionsController.new
-  #     @c.set_user_model_fb_cookies
-  #     # cookies.delete :vk_id  if cookies[:vk_id] 
-  #     # cookies[:fb_id] = access_token.uid
-  #     # cookies[:token] = access_token
-  #     # cookies[:flag] = "exists"       
-  #     return nil
-  #   end
-  # end
-
-  # def self.find_for_vkontakte_oauth(access_token, role)
-  #   if @user =  User.find_with_vkontakte(access_token.uid)
-     
-  #     return @user
-  #    else
-
-  #      cookies.delete :fb_id  if cookies[:fb_id]
-  #      cookies[:vk_id] = access_token.uid
-  #      cookies[:token] = access_token
-  #      cookies[:flag] = "exists"
-  #      return nil
-  #   end
-  # end
-
   def area_ids=(ids)
     self.areas = nil
     ids.each do |id|
@@ -226,38 +195,5 @@ class User
      User.where(:compinfo => {'$ne' => nil})
   end
 
-  # def self.find_with_vkontakte(v_id)  
-  #  @flag = false
-  #   @user_v      
-  #     User.all.to_a.each do |user|
-  #       if user.connection.vkontakte_id == v_id.to_s
-  #         @flag = true
-  #         @user_v = user
-  #         return @user_v
-  #       else
-  #         @flag = false
-  #       end
-  #     end
-  #     if not @flag
-  #     return nil
-  #     end
-  # end
-
-  # def self.find_with_facebook(f_id) 
-  # @flag = false
-  # @user_f  
-  #   User.all.to_a.each do |user|
-  #     if user.connection.facebook_id == f_id
-  #       @flag = true
-  #       @user_f = user
-  #       return @user_f
-  #     else
-  #       @flag = false
-  #     end
-  #   end
-  #   if not @flag
-  #     return nil
-  #   end
-  # end
  
 end

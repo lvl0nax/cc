@@ -38,10 +38,9 @@
             <%= f.text_field :email %>
             <%= f.label :password, 'ПАРОЛЬ' %>
             <%= f.password_field :password %>
-            <%= f.submit "OK", :class=>"sub" %>
-           
+            <%= f.submit "OK", :class=>"sub" %>            
             <div class="clr"></div>
-        <% end %>
+        <% end %>        
         <script type="text/javascript">
             (function($){
                 $('#autorization').submit(function(e){
@@ -120,8 +119,10 @@
                             if (data.result.error != undefined){
                                 $('#load_img_error').html(data.result.error)
                             }
-                            else{                                
-                                if($('.ava1').children().attr('src') != '/assets/nophoto2.jpg'){                                    
+                            else{
+                                $('#load_img_error').html('')      
+                                window.location = window.location                                 
+                                /*if($('.ava1').children().attr('src') != '/assets/nophoto2.jpg'){                                    
                                     $('.jcrop-tracker').last().next().next().attr('src', data.result.url);
                                     $('.jcrop-tracker').last().prev().children().children().attr('src', data.result.url);                        
 
@@ -130,9 +131,8 @@
                                 }
                                 else{
                                     window.location = window.location    
-                                }
+                                } */                               
                                 
-                                $('#load_img_error').html('')   
                             }
                         }
                     });
@@ -240,8 +240,10 @@
                             if (data.result.error != undefined){
                                 $('#load_img_error').html(data.result.error)
                             }
-                            else{                                
-                                if($('.ava1').children().attr('src') != '/assets/nophoto2.jpg'){
+                            else{   
+                                window.location = window.location
+                                $('#load_img_error').html('')                                    
+                                /*if($('.ava1').children().attr('src') != '/assets/nophoto2.jpg'){
                                     $('.jcrop-tracker').last().next().next().attr('src', data.result.url);
                                     $('.jcrop-tracker').last().prev().children().children().attr('src', data.result.url);                        
 
@@ -252,7 +254,7 @@
                                     window.location = window.location    
                                 }
                                 
-                                $('#load_img_error').html('')   
+                                $('#load_img_error').html('')   */
                             }
                         }
                     });

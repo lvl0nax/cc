@@ -23,6 +23,12 @@ class Users::OmniauthCallbacksController < ApplicationController
         
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
         sign_in_and_redirect @user, :event => :authentication
+        # sign_in('user', @user) # , :event => :authentication
+        # path = edit_compinfo_url(@user.resume)
+        # puts 'x'*100
+        # puts path
+        # asbghjkljkhg
+        # redirect_to path
       else
         flash[:notice] = "authentication error"
         redirect_to root_path
@@ -90,15 +96,19 @@ class Users::OmniauthCallbacksController < ApplicationController
     else
       @education = ""
       @ed_name = ""
-      @ed_concentration = ""   
-      @count = access_token.extra.raw_info.education.count
+      @ed_concentration = ""  
       
-      if @count>0
-      @education = access_token.extra.raw_info.education
-      @ed_name = access_token.extra.raw_info.education[@count-1][:school][:name]
-      @ed_type = access_token[:extra][:raw_info][:education][@count-1][:type]
-      @ed_concentration = access_token[:extra][:raw_info][:education][@count-1][:concentration][0][:name] if not access_token[:extra][:raw_info][:education][@count-1][:concentration][0][:name].nil?
-      end
+      if access_token.extra.raw_info.education
+        @count = access_token.extra.raw_info.education.count 
+      
+        if @count>0
+          @education = access_token.extra.raw_info.education
+          @ed_name = access_token.extra.raw_info.education[@count-1][:school][:name]
+          @ed_type = access_token[:extra][:raw_info][:education][@count-1][:type]
+          @ed_concentration = access_token[:extra][:raw_info][:education][@count-1][:concentration][0][:name] if not access_token[:extra][:raw_info][:education][@count-1][:concentration][0][:name].nil?
+        end
+      end 
+      
       
       @obj = {:uid=>access_token.uid,:email=>access_token.extra.raw_info.email, :urls=>access_token.info.urls.Facebook,
 :provider=>access_token.provider,:name=>access_token.extra.raw_info.name, :username=>access_token.extra.raw_info.username,

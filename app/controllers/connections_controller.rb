@@ -79,18 +79,21 @@ class ConnectionsController < ActionController::Base
     l_name = @obj["last_name"]
     description = @obj["description"]
     gender = I18n.t @obj["gender"] if @obj["gender"]
-     count = @obj["education"].count if @obj["education"]
+     count = @obj["education"].count unless @obj["education"].blank?
         if not count.nil?
           scool_name = @obj["ed_name"] if count>0
           type_ed = I18n.t @obj["ed_type"] if count>0
-          concentration = @obj["ed_concentration"] if concentration
+          concentration = @obj["ed_concentration"] if @obj["ed_concentration"]
         end
     @user.resume  = Resume.new(:name=>name,:surname=>l_name,:sex=>gender,:education=>type_ed,
             :university=>scool_name, :faculty=>concentration,:description=>description)
     @user.resume.save
     @user.connection = Connection.new(:facebook_id =>@obj["uid"])
     set_flag_to_nil
-    sign_in_and_redirect('user', @user)
+    @path = edit_resume_path(@user.resume) 
+    sign_in('user', @user)
+    render :json => { :url=> @path }
+    # redirect_to path
     end	
   end
 
@@ -115,7 +118,16 @@ class ConnectionsController < ActionController::Base
    unless @user.errors.full_messages.empty?
       render :json => "Email не может быть пустым."
     else
-      render :json => "true"
+      # @path = edit_resume_path(@user.resume)
+      # puts 'x'*50
+      # render :json => "hgmjhkjkgg"
+      # puts @path
+      # fgfdgdgdg
+      # format.json { render json: @path, status: true }
+      # resumes/512dd6ff818f7c1e510000a0/edit
+      @path = "resumes/"+@user.id.to_s+"/edit"
+      render :json => {:status => "true",:url=> @path}
+    
       @user.save
           name = @obj["first_name"] if @obj["first_name"]
           l_name = @obj["last_name"] if @obj["last_name"]

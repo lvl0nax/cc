@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
     root_path
   end  
 
+  #def after_sign_in_path_for(resource)
+    # puts 'x'*100
+    # puts resource
+    # edit_resume_path(current_user.id)
+ #end
+
   def admin_only
     redirect_to root_url if current_user.nil?
     redirect_to root_url if current_user.role.name != 'admin'

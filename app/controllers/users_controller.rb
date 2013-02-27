@@ -70,8 +70,8 @@ class UsersController < ApplicationController
       #з фото
     if role == 'employer'
       if not params[:user][:compinfo].nil? and params[:user][:compinfo][:photo] and not cookies[:with_photo]
-        puts 'x1'*10
         user = User.new(params[:user])
+        user.connection = Connection.new
         compinfo = Compinfo.new(params[:user][:compinfo])
         user.compinfo = compinfo
         compinfo.save!
@@ -97,11 +97,9 @@ class UsersController < ApplicationController
     end
 
     if role == "employer" or role == "employee"
-       puts 'x4'*10
       temp = User.count
          #пошук юзера з картинкою
      if not cookies[:with_photo].nil?
-       puts 'x5'*10
         @user = User.find(cookies[:with_photo]) if role =='employer'
        #загрузив фотку і вирішив створити МС
         if role == 'employee'
@@ -111,14 +109,12 @@ class UsersController < ApplicationController
         end
         #перезагрузив під-час реєстрації(видалення непотрібного юзера)
      elsif not cookies[:delete_user].nil?
-       puts 'x6'*10
           user_delete =  User.find(cookies[:delete_user])
           user_delete.destroy
           cookies.delete :delete_user
       end
       #user without photo
       if cookies[:delete_user].nil? and cookies[:with_photo].nil?
-         puts 'x7'*10
         @user = User.new(params[:user])
       end
        @user.compinfo(:validate=>false) if role == "employer"
@@ -134,7 +130,7 @@ class UsersController < ApplicationController
           
           @user.role = Role.new(:name => role)
           @user.resume = Resume.new(params[:user][:resume]) if role == "employee"
-          @user.connection = Connection.new if role == "employee"
+          @user.connection = Connection.new
           @user.compinfo = Compinfo.new(params[:user][:compinfo]) if role == "employer"
           cookies.delete :with_photo
           @user.resume.save if role == "employee"
@@ -146,17 +142,14 @@ class UsersController < ApplicationController
         sign_in('user', @user)        
         path = edit_compinfo_path(@user.compinfo) if role == "employer"
         path = edit_resume_path(@user.resume) if role == "employee"
-
         render json:{ success:true, path:path }
       else
 
         if  @user.errors.count > 0 and not cookies[:with_photo]
-          puts 'x9'*10
           return render json: @user.errors
         elsif not cookies[:with_photo].nil? and @user.errors.count > 0
           if @user.update_attributes(params[:user])
             UserMailer2.register(@user)
-            puts 'x10'*10
             @user.role = Role.new(:name => role)
             sign_in('user', @user)
             path = edit_compinfo_path(@user.compinfo)

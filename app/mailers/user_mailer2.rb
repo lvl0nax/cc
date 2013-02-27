@@ -17,13 +17,6 @@ class UserMailer2 < ActionMailer::Base
 
  end
 
-  # def register(user)
-  #   recipients   user.email
-  #   subject      "New account information"
-  #   from         "system@example.com"
-  #   body         :user => recipient
-  #   content_type "text/html"
-  # end
 
   def send_mail_reg(id,user)    
     content = content_register(user)

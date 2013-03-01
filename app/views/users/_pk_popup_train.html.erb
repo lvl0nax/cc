@@ -86,17 +86,32 @@
 						<div class="username"><a href="">
 							
 							<% if event_user.resume%>
-							<%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+								<% if event_user.resume.name.present? or event_user.resume.surname.present?%>
+									<%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+								<% else %>
+				                    <%= link_to event_user.email, userevents_user_path(event_user)%>
+				                <% end %>
 							<%end%>
-							<% if event_user.compinfo %>					
-								<%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+							<% if event_user.compinfo %>
+								<%if event_user.compinfo.name.present? %> 					
+									<%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+								<% else %>
+				                    <%= link_to event_user.email, userevents_user_path(event_user) %>
+				                <% end %>
 							<%end%>
 						</a></div>
 					</div>
+				<%else%>
+					<div class="text">
+			            ДОБАВИЛ:
+			            <div class="username"><a href="">
+			              Added by Unregisterd user
+			            </a></div>
+			        </div>
 				<%end%>
 			</div>
 
-			<div id="map<%= index%>" class="mapwrap">								
+			<div id="map<%= index%>" class="mapwrap">
 
 			</div>
 			<input type='hidden' value=<%=event.x_coordinate unless event.x_coordinate.nil?%> id='x_coor' >
@@ -105,6 +120,46 @@
 		</div>
 
 		<div class="trainright">
+
+			<div id="socimgs">
+        <% if event.timepad.present? %>
+          <div class="inlblck marg1 fr">
+            <%= link_to image_tag("/assets/ltp.png"), event.timepad, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if event.lookatme.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/llookatme.jpg"), event.lookatme, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if event.cityspb.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/lcityspb.jpg"), event.cityspb, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if event.afisha.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/lafisha.jpg"), event.afisha, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if event.vk.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/lvk.png"), event.vk, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if event.fb.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/lfb.png"), event.fb, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if event.twitter.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/ltwitter.png"), event.twitter, :target => '_blank' %>
+          </div>
+        <% end %>
+        <div class="clr"></div>
+    </div>
+    <br/>
 
 			<h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>	 		
 

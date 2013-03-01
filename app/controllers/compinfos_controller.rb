@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class CompinfosController < ApplicationController
+  
   # GET /compinfos
   # GET /compinfos.json
 

@@ -81,7 +81,7 @@ TestMongoid::Application.routes.draw do
   
   resources :pages
 
-
+  get 'renew_password' => 'users#renew_password'
   devise_for :users, :controllers => { 
     :registrations => "registrations",
     :sessions => "sessions",

@@ -3,9 +3,9 @@
     <span><%= Russian::strftime(training.start_date, "%d %B %Y") %></span>
     <span class="spright">стажировка</span>
     <% if training.image_id.blank? %>
-      <%= image_tag "contimg61.png" %>
+      <%= image_tag "contimg61.png", :class => "ev-img" %>
     <% else %>
-      <%= image_tag Image.find(training.image_id).photo.thumb %>
+      <%= image_tag Image.find(training.image_id).photo.thumb, :class => "ev-img" %>
     <% end %>
     <span><%= training.nation %>&nbsp;</span>
     <span class="spright"><%= training.start_date.to_time.strftime('%H:%M') %></span>    
@@ -44,16 +44,17 @@
       <div class="catsItem addtocallendar">
         <label>
           
-          <span class="descripting"><span class="add_c_text">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>  
-           <%if user_signed_in? %>
+          <%if user_signed_in? %>
+            <span class="descripting"><span class="add_c_text">ДОБАВИТЬ В МОЙ КАЛЕНДАРЬ</span>  
+           
               <% if UserEvent.where(:user_id => current_user.id, :event_parent_id => training.id).present?%>
                 <input type="checkbox" name="" id="<%= training.id%>" class='signature' checked>
               <%else%>
                 <input type="checkbox" name="" id="<%= training.id%>" class='signature'>
               <%end%>
-            <%end%>
-            
-          </span>
+                        
+            </span>
+          <%end%>
 
           <div class="clr"></div>
 
@@ -103,21 +104,44 @@
             <div class="username"><a href="">
               <%if user_signed_in? %>
                 <% if event_user.resume%>
-                <%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+                  <% if event_user.resume.name.present? or event_user.resume.surname.present?%>
+                    <%= link_to event_user.resume.name + " " + event_user.resume.surname, userevents_user_path(event_user)%>
+                  <% else %>
+                    <%= link_to event_user.email, userevents_user_path(event_user)%>
+                  <% end %>
                 <%end%>
-                <% if event_user.compinfo %>          
-                  <%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+                <% if event_user.compinfo %>
+                  <%if event_user.compinfo.name.present? %>         
+                    <%= link_to event_user.compinfo.name, userevents_user_path(event_user) %>
+                  <% else %>
+                    <%= link_to event_user.email, userevents_user_path(event_user) %>
+                  <% end %>
                 <%end%>
               <%else%>
                 <% if event_user.resume%>
-                <%= link_to event_user.resume.name + " " + event_user.resume.surname, '#'%>
+                  <% if event_user.resume.name.present? or event_user.resume.surname.present?%>
+                    <%= link_to event_user.resume.name + " " + event_user.resume.surname, '#'%>
+                  <% else %>
+                    <%= link_to event_user.email, '#'%>
+                  <% end %>
                 <%end%>
-                <% if event_user.compinfo %>          
-                  <%= link_to event_user.compinfo.name, '#'%>
+                <% if event_user.compinfo %>
+                  <%if event_user.compinfo.name.present? %>          
+                    <%= link_to event_user.compinfo.name, '#'%>
+                  <% else %>
+                    <%= link_to event_user.email, '#' %>
+                  <% end %>
                 <%end%>
               <%end%>
             </a></div>
           </div>
+        <% else %>
+          <div class="text">
+            ДОБАВИЛ:
+            <div class="username"><a href="">
+              Added by Unregisterd user
+            </a></div>
+        </div>
         <%end%>
       </div>
 
@@ -129,7 +153,48 @@
 
     </div>
 
-    <div class="trainright">      
+    <div class="trainright">
+
+      <div id="socimgs">
+
+        <% if training.timepad.present? %>
+          <div class="inlblck marg1 fr">
+            <%= link_to image_tag("/assets/ltp.png"), training.timepad, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if training.lookatme.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/llookatme.jpg"), training.lookatme, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if training.cityspb.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/lcityspb.jpg"), training.cityspb, :target => '_blank'%>
+          </div>
+        <% end %>
+        <% if training.afisha.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/lafisha.jpg"), training.afisha, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if training.vk.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/lvk.png"), training.vk, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if training.fb.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/lfb.png"), training.fb, :target => '_blank' %>
+          </div>
+        <% end %>
+        <% if training.twitter.present? %>
+          <div class="inlblck fr marg1">
+            <%= link_to image_tag("/assets/ltwitter.png"), training.twitter, :target => '_blank' %>
+          </div>
+        <% end %>
+        <div class="clr"></div>
+    </div>
+    <br/>      
 
       <h3>ПОСЛЕДНИЙ СРОК ПОДАЧИ ЗАЯВОК:</h3>      
 

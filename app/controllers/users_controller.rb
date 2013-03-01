@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
+  #before_filter :authenticate_user!
   def show
     @title = "Информация о компании"
     @user = current_user
@@ -185,6 +186,18 @@ class UsersController < ApplicationController
     end    
 
     @user = User.find(params[:id])
+  end
+
+  def renew_password
+    puts 'xxxxxxxxx'*5
+    
+    @user = User.where(:email => params[:email]).first
+    unless @user.nil?
+      return render :json => { :message => 'Письмо с паролем отправлено на вашу почту.' }
+    else
+      return render :json => { :message => 'Email - не верный!' }
+    end
+    
   end
 
 end

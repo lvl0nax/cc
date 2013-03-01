@@ -16,6 +16,7 @@
     <% unless current_user %>
         <span class="error_autor" style="position: absolute; top: 0px; left: 260px;color: #ff0000; margin-left: 20%;"></span>
         <span class="enter"><a href="#">ВОЙТИ</a></span>
+         <span class="info_email" style="position: absolute; top: 0px; left: 260px;color: #ff0000; margin-left: 20%;"></span>
         
          <span> <%= @message %></span>
 
@@ -27,13 +28,48 @@
                     e.preventDefault();
                     $("#autorization").css({'display':'block'});
                     $(".enter").css({'visibility':'hidden'});
+                    $("#pass_renew").css({'display':'none'});
+                });
+                $("#renew_password").on('click', function(e){
+                    e.preventDefault();
+                    $("#autorization").css({'display':'none'});
+                    $("#pass_renew").css({'display':'block'});
+                    $(".enter").css({'visibility':'visible'});
+                });
+                $("#pass_but").on('click', function(e){
+                    e.preventDefault();
+                    var email = $('#email_email').val();
+                    $('#email_email').val('');
+                    $.ajax({ url: '/renew_password', type: "GET", data:{ email : email},  beforeSend:function(jqXHR, settings) {
+                            jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                            },
+                            success: function(data, e){
+                                console.log(data.message)
+                                $(".info_email").html(data.message);
+                                $(".info_email").css('display','inline-block');
+                                $(".info_email").css('margin-left','1%');
+                            setTimeout(function(){
+                                $('.info_email').hide();
+                            }, 5000);
+                                //$('.photo_login').children().attr('src', data.url);
+                            }
+                    });
+
                 });
 
             });
 
         </script>
 
+        <%= form_for :email, :url => { :action => :renew_password, :controller => :users }, :html=>{:id=>'pass_renew'} do |f| %>
+            <%= f.label :email, 'E-MAIL'%>
+            <%= f.text_field :email, :style => 'width: 100px' %>
+            <%= f.submit "OK", :class=>"sub", :id => 'pass_but' %>            
+            <div class="clr"></div>
+        <% end %>
+
         <%= form_for :user, :url => { :action => :create, :controller => :sessions }, :html=>{:id=>'autorization'} do |f| %>
+        <%= link_to 'Востановить пароль', '#', :style => 'color:blue;', :id => 'renew_password' %>
             <%= f.label :email, 'E-MAIL'%>
             <%= f.text_field :email %>
             <%= f.label :password, 'ПАРОЛЬ' %>

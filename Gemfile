@@ -6,8 +6,10 @@ gem 'jquery-rails'
 # Bundle edge Rails instead:
 
 gem 'execjs'
-# gem 'therubyracer','0.11.1',:require => 'v8', :platforms => :ruby
-gem 'therubyracer'
+
+gem 'therubyracer','0.11.1',:require => 'v8', :platforms => :ruby
+
+#gem 'therubyracer'
 gem 'json'
 gem 'rspec-rails'
 gem 'database_cleaner'

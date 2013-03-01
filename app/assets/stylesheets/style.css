@@ -595,6 +595,18 @@ a.jqTransformChecked {
   z-index: 1000;
   display: none;
 }
+
+.headerup .headerupwrap #pass_renew {
+  /*height: 21px;
+  padding-bottom: 3px;*/
+  position: absolute;
+  top: -2px;
+  right: 0px;
+  
+  /*z-index: 1000;*/
+  display: none;
+}
+
 .headerup .headerupwrap #autorization span {
   margin: 0px;
   font-weight: bold;
@@ -962,7 +974,7 @@ header a:hover {
   margin-left: 0px;
 }
 .train .lside .addtocallendar {
-  width: 194px;
+  width: 190px;
   padding-left: 0 !important;
 }
 .pk_popup .lside .addtocallendar .add_c_text {
@@ -1491,7 +1503,13 @@ right: -14px;
 top: 0;*/
 }
 
-#celendar_content .month_info .monthcont img {
+#celendar_content .month_info .monthcont .ev-img {
+  border: 1px solid #c8c8c8;
+  /*width: 170px;
+  height: 114px;*/
+}
+
+.img_set{
   border: 1px solid #c8c8c8;
   width: 170px;
   height: 114px;
@@ -3166,13 +3184,13 @@ form .regtype img {
 }
 
 #celendar_content .pk_popupcd .lside .addtocallendar{
-width: 323px!important;
+width: 322px!important;
 height: 20px;
 padding-left: 10px;
-margin-top: -25px;
+margin-top: -24px;
 }
 #celendar_content .train .lside .addtocallendar{
-width: 194px!important;
+width: 191px!important;
 }
 #celendar_content .event .lside .addtocallendar{
 background: #77A48B;
@@ -3585,3 +3603,8 @@ form input[type=file]{
   position:relative;
   top: 3px;
 }
+
+.marg1 {
+  margin: 2px;
+}
+

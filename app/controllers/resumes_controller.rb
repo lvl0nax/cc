@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ResumesController < ApplicationController
+  
   require 'devise'
   # GET /resumes
   # GET /resumes.json

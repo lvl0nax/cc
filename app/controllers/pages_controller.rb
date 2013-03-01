@@ -1,5 +1,6 @@
 #encoding: UTF-8
 class PagesController < ApplicationController
+
   before_filter :set_locale, :load_count
   include TinymceFm::Filemanager
 

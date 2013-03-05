@@ -1,6 +1,6 @@
 <div class="moncon sobut_hider" data-id="<%= event._id %>" id='<%= event._id %>' data-tags='<%= event.class.name%>'>
   <div class="monthcont gre">
-    <span><%= Russian::strftime(event.start_date, "%d %B")%></span>
+    <span><%= Russian::strftime(event.start_date, "%d %B %Y")%></span>
     <span class="spright">Событие</span>
     <% if event.image_id.blank? %>
         <%= image_tag "contimg5.png", :class => "ev-img" %>

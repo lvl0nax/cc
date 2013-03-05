@@ -93,10 +93,10 @@
         <div class="ficha">
           <%= f.date_select :start_date, :order => [:day, :month, :year] %>
           <span style="margin: 0 7px">С</span>
-          <%= f.time_select :tmp_date %>
+          <%= f.time_select :tmp_date, :default => { :hour => '00', :minute => '00' } %>
           <span style="margin: 0 2px">ДО</span>
 
-          <%= f.time_select :tmp_end_date %>
+          <%= f.time_select :tmp_end_date, :default => { :hour => '00', :minute => '00' } %>
 
         </div>
       </div>
@@ -109,7 +109,7 @@
         <div class="ficha">
         <%= f.date_select :request_date, :order => [:day, :month, :year] %>
           <span style="margin: 0 4px">ДО</span>
-          <%= f.time_select :request_hour %>
+          <%= f.time_select :request_hour, :default => { :hour => '00', :minute => '00' } %>
         </div>
 
       </div>      

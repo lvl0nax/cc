@@ -4,7 +4,7 @@
 
   <div class="headerupwrap">
 
-    <div style="display: inline; padding: 7px;">
+    <div class="soc-api" style="display: inline;">
         <div class="fb-like" style="display: inline;" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
         <div style="display: inline;" id="vk_like"></div>
     </div>
@@ -403,15 +403,25 @@
 
     $(document).ready(function () {
 
+
         $(".samvup .all").click(function () {
 
             var a =$(this).hasClass("act");
 
             if(a){
+
                 $(".samvup .all").removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
                 $(this).removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
 
-            } else{
+            } else {
+
+                var b =$(".sbToggle").hasClass("sbToggleOpen");
+                if( b )
+                {
+                    $(".sbToggle").removeClass("sbToggleOpen");
+                    $(".sbOptions").removeAttr("style").css({'display':'none'});
+                }
+               
                 $(".samvup .all").removeClass("act").next().slideUp().parents(".samvup").removeClass("act");
                 $(this).addClass("act").next().slideDown().parents(".samvup").addClass("act");
                 var yourClick = true;

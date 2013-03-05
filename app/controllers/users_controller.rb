@@ -188,13 +188,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def renew_password
-    #puts 'xxxxxxxxx'*5
-    
-    @user = User.where(:email => params[:email]).first
-    #puts ::AES.decrypt(@user.encrypted_password, Devise.pepper)
-     #puts Digest::AES256.hexdigest(@user.encrypted_password)
-     #puts @user.encrypted_password     
+  def renew_password        
+    @user = User.where(:email => params[:email]).first    
     unless @user.nil?
       @user.send_password_reset
       return render :json => { :message => 'Письмо с паролем отправлено на вашу почту.' }
@@ -212,7 +207,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def update_password
+  def update_password    
     @user = User.find(params[:id])    
 
     #if @user.valid_password?(params[:user][:current_password])

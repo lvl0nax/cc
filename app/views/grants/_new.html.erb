@@ -55,6 +55,7 @@
       }
     </script-->
     <script>
+
       function itemshow(sclass){
         /*var str = "."+ sclass*/
         var item = $("."+ sclass);
@@ -169,7 +170,7 @@
     <div class="datesel300 large_select">      
       <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
       <span style="margin: 0 5px;float:left;">ДО</span>
-      <div style="display: inline-block;position:relative; top:-5px;"><%= f.time_select :end_date %></div>
+      <div style="display: inline-block;position:relative; top:-5px;"><%= f.time_select :end_date, :default => { :hour => '00', :minute => '00' } %></div>
     </div>
     <div class="clr"></div>
 
@@ -197,6 +198,8 @@
       <div class="allCats">
         <script type="text/javascript">
             $(document).ready(function () {
+
+
                 $(".catsItem").click(function () {
                     var a =$(this).find(".jqTransformCheckbox").hasClass("jqTransformChecked");
                     if(a){
@@ -218,6 +221,8 @@
         <% end %>
       </div>
     </div>
+
+
     <div class="clr"></div>
     <div>
     <% if current_user %>
@@ -243,6 +248,10 @@
   </div>
 <% end %>
 <script>
+
+
+
+
     $('form[action="/grants"]').submit(function(e){
         e.preventDefault();
         $.ajax({

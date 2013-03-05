@@ -1505,8 +1505,8 @@ top: 0;*/
 
 #celendar_content .month_info .monthcont .ev-img {
   border: 1px solid #c8c8c8;
-  /*width: 170px;
-  height: 114px;*/
+  width: 170px;
+  height: 114px;
 }
 
 .img_set{
@@ -3635,4 +3635,14 @@ form input[type=file]{
 .password_error{
   color: red;
   margin-left: 10px;
+}
+.soc-api {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  padding: 2px;
+  width: 200px;
+  height: 20px;
+  background-color: #ffffff;
 }

@@ -38,7 +38,7 @@ class UserMailer2 < ActionMailer::Base
  end
 
  def content_reset_password(user)
-  @url = reset_password_url(user.reset_password_token).to_s
+  @url = 'http://cc.net-simple.ru/reset_password/'+user.reset_password_token.to_s
   @content = 'To reset your password click the URL below.</br>'+@url+'</br>If you did not request your password to be reset please ignore this email and your password will stay as it is.'
   
   return @content

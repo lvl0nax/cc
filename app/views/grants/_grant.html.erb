@@ -1,6 +1,6 @@
 <div class="moncon grants_hider" data-id="<%= grant._id %>" id="<%= grant._id %>" data-tags='<%= grant.class.name%>'>
   <div class="monthcont bla">
-    <span><%= Russian::strftime(grant.start_date, "%d %B") %></span>
+    <span><%= Russian::strftime(grant.start_date, "%d %B %Y") %></span>
     <span class="spright">грант</span>
     <% if grant.image_id.blank? %>
         <%= image_tag "contimg4.png", :class => "ev-img" %>

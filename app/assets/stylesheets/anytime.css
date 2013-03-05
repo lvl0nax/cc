@@ -48,7 +48,7 @@
  *  be sized according to its contents; therefore, width and height
  *  should NOT be specified. */
 div.AnyTime-win {
-  background-color:#F0F0F1;
+  background-color:#ffffff;
   border:3px solid #9cbd73;
   font:normal normal normal xx-small/normal sans-serif;
   padding-bottom:0.2em;
@@ -75,7 +75,7 @@ div.AnyTime-win {
  *  contains .AnyTime-x-btn. */
 .AnyTime-pkr .AnyTime-hdr {
   background-color:#9cbd73;
-  color:#606062;
+  color:#ffffff;
   font-family:Arial,Helvetica,sans-serif;
   font-size:medium;
   font-weight:normal;

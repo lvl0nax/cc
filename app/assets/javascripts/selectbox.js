@@ -110,6 +110,10 @@
 				"class": inst.settings.classSelector,
 				"click": function (e) {
 					e.preventDefault();
+					$(".samvup").removeClass("act");
+					$(".all").removeClass("act");
+					$(".allCats").css({'display':'none'});
+
 					closeOthers.apply($(this), []);
 					var uid = $(this).attr("id").split("_")[1];
 					if (self._state[uid]) {

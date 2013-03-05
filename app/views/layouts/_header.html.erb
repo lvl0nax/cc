@@ -14,8 +14,8 @@
     </script>    
 
     <% unless current_user %>
-        <span class="error_autor" style="position: absolute; top: 0px; left: 260px;color: #ff0000; margin-left: 20%;"></span>
-        <span class="enter"><a href="#">ВОЙТИ</a></span>
+        <span class="error_autor" style="position: absolute; top: 0px; left: 150px;color: #ff0000; margin-left: 20%;"></span>
+        <span class="enter"><a href="#">ВОЙТИ</a></span>        
          <span class="info_email" style="position: absolute; top: 0px; left: 260px;color: #ff0000; margin-left: 20%;"></span>
         
          <span> <%= @message %></span>
@@ -39,26 +39,37 @@
                 $("#pass_but").on('click', function(e){
                     e.preventDefault();
                     var email = $('#email_email').val();
-                    $('#email_email').val('');
-                    $.ajax({ url: '/renew_password', type: "GET", data:{ email : email},  beforeSend:function(jqXHR, settings) {
-                            jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
-                            },
-                            success: function(data, e){
-                                console.log(data.message)
-                                $(".info_email").html(data.message);
-                                $(".info_email").css('display','inline-block');
-                                $(".info_email").css('margin-left','1%');
-                            setTimeout(function(){
-                                $('.info_email').hide();
-                            }, 5000);
-                                //$('.photo_login').children().attr('src', data.url);
-                            }
-                    });
-
+                    $('#email_email').val('');                    
+                    if((email != '')&&(email != ' ')){
+                        $.ajax({ url: '/renew_password', type: "GET", data:{ email : email},  beforeSend:function(jqXHR, settings) {
+                                jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+                                },
+                                success: function(data, e){
+                                    //console.log(data.message)
+                                    $(".info_email").html(data.message);
+                                    $(".info_email").css('display','inline-block');
+                                    $(".enter").css('display','none');
+                                    $(".info_email").css('margin-left','1%');
+                                setTimeout(function(){
+                                    $('.info_email').hide();
+                                    $('.enter').show();
+                                }, 5000);
+                                    //$('.photo_login').children().attr('src', data.url);
+                                }
+                        });
+                    }
+                    else{
+                        $(".info_email").html('Email - не верный!');
+                        $(".info_email").css('display','inline-block');
+                        $(".enter").css('display','none');
+                        $(".info_email").css('margin-left','1%');
+                        setTimeout(function(){
+                            $('.info_email').hide();
+                            $('.enter').show();
+                        }, 5000);
+                    }
                 });
-
             });
-
         </script>
 
         <%= form_for :email, :url => { :action => :renew_password, :controller => :users }, :html=>{:id=>'pass_renew'} do |f| %>
@@ -69,7 +80,7 @@
         <% end %>
 
         <%= form_for :user, :url => { :action => :create, :controller => :sessions }, :html=>{:id=>'autorization'} do |f| %>
-        <%= link_to 'Востановить пароль', '#', :style => 'color:blue;', :id => 'renew_password' %>
+        <%= link_to 'Востановить пароль?', '#', :id => 'renew_password', :class => "new_pas" %>
             <%= f.label :email, 'E-MAIL'%>
             <%= f.text_field :email %>
             <%= f.label :password, 'ПАРОЛЬ' %>
@@ -175,7 +186,8 @@
                     $('#save_resume_ava').live('click', function(e){
                         e.preventDefault();
                         var $form = $('form.simple_form');
-                        var data_crop = $form.serialize();                    
+                        var data_crop = $form.serialize();
+
                         $.ajax({ url: '/update_avatar/'+resume_id, type: "PUT", dataType: 'json', data: data_crop,  beforeSend:function(jqXHR, settings) {
                             jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
                             },
@@ -309,6 +321,7 @@
                         
                     })
                 });
+
             </script>  
             <%= javascript_include_tag 'jquery.Jcrop.min' %>
             <%= javascript_include_tag 'jquery.color' %>

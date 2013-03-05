@@ -3607,4 +3607,32 @@ form input[type=file]{
 .marg1 {
   margin: 2px;
 }
+.new_pas {
+  color: blue !important;
+  margin-right: 10px;
+  font-family: 'Verdana', serif !important;
+}
+.update-pass input {
+  width: 200px;
+  margin: 5px 0;
+}
+.appas-sub {
+  cursor: pointer;
+  width: 212px !important;
+  color: #ffffff;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  font-family: 'Arial';
+  background-image: linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -o-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -moz-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -webkit-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -ms-linear-gradient(right, #9abc74 0%, #c7db57 82%);
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #9abc74), color-stop(0.82, #c7db57));
+}
 
+.password_error{
+  color: red;
+  margin-left: 10px;
+}

@@ -137,7 +137,7 @@ class UsersController < ApplicationController
           @user.resume.save if role == "employee"
           @user.compinfo.save if role == "employer"
         end
-
+        
         flash[:register] = true
 
         sign_in('user', @user)        
@@ -189,15 +189,44 @@ class UsersController < ApplicationController
   end
 
   def renew_password
-    puts 'xxxxxxxxx'*5
+    #puts 'xxxxxxxxx'*5
     
     @user = User.where(:email => params[:email]).first
+    #puts ::AES.decrypt(@user.encrypted_password, Devise.pepper)
+     #puts Digest::AES256.hexdigest(@user.encrypted_password)
+     #puts @user.encrypted_password     
     unless @user.nil?
+      @user.send_password_reset
       return render :json => { :message => 'Письмо с паролем отправлено на вашу почту.' }
     else
       return render :json => { :message => 'Email - не верный!' }
     end
     
+  end
+
+  def reset_password
+    @user = User.where(:reset_password_token => params[:token]).first
+    @token = params[:token]
+    unless params[:message].nil?
+      @message = 'Ошибка пароля!'
+    end
+  end
+
+  def update_password
+    @user = User.find(params[:id])    
+
+    #if @user.valid_password?(params[:user][:current_password])
+      if @user.update_attributes(params[:user])
+        @message = 'Пароль изменен'
+        sign_in('user', @user)
+        redirect_to root_path
+      else
+        redirect_to :action => 'reset_password', :token => params[:token], :message => :true
+      end
+    #else
+    #  @message = 'Старый пароль не совпадает'
+    #end
+
   end
 
 end

@@ -7,9 +7,10 @@ class User
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable#, :encryptable
 
   ## Database authenticatable
+  #field :encryptable, :type => String
   field :email,              :type => String , :default => ""
   field :nickname,              :type => String, :default => ""
   field :provider,              :type => String, :default => ""
@@ -17,6 +18,8 @@ class User
   field :username,              :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
   field :timenow, :type=>Integer, :default=>0
+  #field :password_reset_sent_at, :type => DateTime
+  #field :password_reset_token, :type => String
   #field :name
   mount_uploader :photo, ImageUploader
   
@@ -147,7 +150,7 @@ class User
   end
 
   def self.admins
-    where(role_name: "admin")
+    where(role_name: "admWz4y9j7WJ,Md7HN5lTfBin")
   end
 
    def actions
@@ -195,5 +198,17 @@ class User
      User.where(:compinfo => {'$ne' => nil})
   end
 
+  def send_password_reset
+    self.reset_password_token = generate_token(:reset_password_token)    
+    self.reset_password_sent_at = Time.zone.now    
+    self.save(:validate => false)
+    UserMailer2.password_reset(self)
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64      
+    end #while User.exists?(column => self[column])
+  end
  
 end

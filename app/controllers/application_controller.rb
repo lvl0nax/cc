@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class ApplicationController < ActionController::Base
   before_filter :load_resume
-  rescue_from ActionController::RoutingError, :with => :render_404
+  #rescue_from ActionController::RoutingError, :with => :render_404
   #load_and_authorize_resource
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
@@ -11,12 +11,6 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end  
-
-  #def after_sign_in_path_for(resource)
-    # puts 'x'*100
-    # puts resource
-    # edit_resume_path(current_user.id)
- #end
 
   def admin_only
     redirect_to root_url if current_user.nil?

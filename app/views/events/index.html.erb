@@ -1,6 +1,7 @@
 <input type='hidden' value='<%= @event_id %>' id='show_popup'>
+
 <script>
-  $(document).ready(function(){    
+  $(document).ready(function(){
     $(window).ready(function(){
       var event_id = $('#show_popup').val();      
       if(event_id != ''){        
@@ -74,11 +75,14 @@ $(document).ready(function () {
                           }
                         },
                         success: function(data){
+                          resume_id = data.resume_id;
+                          console.log($('#social_photo'));
+                          console.log(resume_id);
                           window.location = "http://" + window.location.host+data.url;
-                        }
-                    })
-})
- })
+                        }//success
+                    })//ajax
+}) //click
+ }) //end document_ready
 </script>
 <% elsif cookies[:vk_id] %>
 <script type="text/javascript">
@@ -102,7 +106,7 @@ $(document).ready(function () {
                           $(".error_soc").html(jqXHR.responseText);
                         },
                         success: function(data){
-                          alert(window.location.host+data.url);
+                          
                          window.location = "http://" + window.location.host+'/'+data.url;
                         }
                     })
@@ -143,7 +147,7 @@ $(document).ready(function () {
                             }, 5000);
                         },
                         success: function(data){
-                          if ( data.errors ){
+                          if (data.errors){
                             $(".error_soc").html(data.errors);
                           }
                           else{

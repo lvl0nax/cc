@@ -96,9 +96,12 @@ class ResumesController < ApplicationController
   end
 
   def update_avatar
-    @resume = current_user.resume #Resume.find(params[:id]) 
+    @resume = current_user.resume #if current_user #Resume.find(params[:id]) 
+    #@resume = Resume.where(:id=>params[:resume]) if params[:resume]
 
-    if @resume.update_attributes(params[:resume])       
+    puts (@resume.inspect)
+
+    if @resume.update_attributes(params[:resume])  
 
       if params[:resume][:photo].present?
         return render :json => {:url => @resume.photo.url(:large)}
@@ -106,7 +109,6 @@ class ResumesController < ApplicationController
       else
         #redirect_to current_user, notice: 'Resume was successfully updated.'
         #format.html { redirect_to current_user, notice: 'Resume was successfully updated.' }
-        
         return render :json => {:url => @resume.photo.url(:small)}
         #return render :json => {:url => compinfo.photo.url}
       end
@@ -114,7 +116,7 @@ class ResumesController < ApplicationController
       return render :json => {:error => 'Ошибка загрузки фотографии'}
       #redirect_to :controller => 'resumes', :action => "crop", :id => current_user.id
       #format.html { render action: "edit" }
-       #format.json { render json: @resume.errors, status: :unprocessable_entity }
+      #format.json { render json: @resume.errors, status: :unprocessable_entity }
     end  
   end
 

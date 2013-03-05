@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Users::OmniauthCallbacksController < ApplicationController
+  require 'open-uri'
+
   def facebook
   	@user = find_for_facebook_oauth(request.env["omniauth.auth"], "employee")
     if @user
@@ -23,12 +25,7 @@ class Users::OmniauthCallbacksController < ApplicationController
         
         flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
         sign_in_and_redirect @user, :event => :authentication
-        # sign_in('user', @user) # , :event => :authentication
-        # path = edit_compinfo_url(@user.resume)
-        # puts 'x'*100
-        # puts path
-        # asbghjkljkhg
-        # redirect_to path
+        
       else
         flash[:notice] = "authentication error"
         redirect_to root_path
@@ -108,21 +105,21 @@ class Users::OmniauthCallbacksController < ApplicationController
           @ed_concentration = access_token[:extra][:raw_info][:education][@count-1][:concentration][0][:name] if not access_token[:extra][:raw_info][:education][@count-1][:concentration][0][:name].nil?
         end
       end 
-      
+
+      @image = access_token.info.image if access_token.info.image
+
       
       @obj = {:uid=>access_token.uid,:email=>access_token.extra.raw_info.email, :urls=>access_token.info.urls.Facebook,
 :provider=>access_token.provider,:name=>access_token.extra.raw_info.name, :username=>access_token.extra.raw_info.username,
 :first_name=>access_token.info.first_name, :last_name=>access_token.info.last_name, :description=>access_token.info.description,
 :gender=>access_token.extra.raw_info.gender, :education=>@education, :ed_name=>@ed_name, :ed_type=>@ed_type, 
-:ed_concentration=>@ed_concentration
+:ed_concentration=>@ed_concentration, :image=>@image
 }
+# , :photo=> 
       cookies.delete :vk_id  if cookies[:vk_id] 
       cookies[:fb_id] = access_token.uid
       cookies[:token] = {:value=>@obj.to_json}
-      # f = File.new("file2.rb", "w")
-      # f.puts(cookies[:token])
-      # # f.puts(access_token)
-      # f.close
+      cookies[:photo] = @large_foto
       cookies[:flag] = "exists"       
       return nil
     end
@@ -151,12 +148,13 @@ def find_for_vkontakte_oauth(access_token, role)
      
       return @user
      else
+ 
       puts access_token.inspect
       @obj = {:uid=>access_token.uid,:urls=>access_token.info.urls.Vkontakte,
 :provider=>access_token.provider, :username=>access_token.info.name,:nickname => access_token.extra.raw_info.domain,
 :first_name=>access_token.extra.raw_info.first_name, :last_name=>access_token.extra.raw_info.last_name,
-:gender=>access_token.extra.raw_info.sex,:bdate =>access_token.extra.raw_info.bdate, :location=>access_token.info.location
-}
+:gender=>access_token.extra.raw_info.sex,:bdate =>access_token.extra.raw_info.bdate, :location=>access_token.info.location,
+:photo=>access_token.extra.raw_info.photo_big }
 
        cookies.delete :fb_id  if cookies[:fb_id]
        cookies[:vk_id] = access_token.uid
@@ -182,4 +180,7 @@ def find_for_vkontakte_oauth(access_token, role)
       return nil
       end
   end
+
+ 
+
 end

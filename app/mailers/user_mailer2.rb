@@ -17,6 +17,33 @@ class UserMailer2 < ActionMailer::Base
 
  end
 
+ def password_reset(user)   
+  @user = user    
+  #mail(:to => @user.email, from: "info@centercareer.ru", :subject => "Востановление пароля")  
+  id = unisender.getLists()['result'].first['id']
+  send_password_reset(id, @user)
+  puts 'uuuuu'*10
+ end
+
+ def send_password_reset(id, user)
+  content = content_reset_password(user)
+     unisender.sendEmail(
+      :email=>user.email,
+      :sender_name=> 'ЦЕНТР КАРЬЕРЫ', 
+      :sender_email=>'centercareer0@gmail.com',    
+      :subject=>'Востановление пароля', 
+      :list_id=> id,
+      :lang=>'ru',
+      :body=> content)
+ end
+
+ def content_reset_password(user)
+  @url = reset_password_url(user.reset_password_token).to_s
+  @content = 'To reset your password click the URL below.</br>'+@url+'</br>If you did not request your password to be reset please ignore this email and your password will stay as it is.'
+  
+  return @content
+ end
+
 
   def send_mail_reg(id,user)    
     content = content_register(user)

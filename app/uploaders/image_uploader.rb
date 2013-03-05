@@ -1,8 +1,5 @@
 # encoding: utf-8
-
 class ImageUploader < CarrierWave::Uploader::Base
-  #include CarrierWave::RMagick
-
   #process :resize_to_fit => [800, 800]
 
   #version :thumb do

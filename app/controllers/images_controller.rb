@@ -5,6 +5,9 @@ class ImagesController < ApplicationController
     unless params[:grant].nil?
 
       if cookies[:grant_image].nil? # Cheking if we have image uploaded
+        f = File.new("grant.rb","w")
+        f.puts(params[:grant][:u_image])
+        f.close
         @image = Image.new(params[:grant][:u_image]) # Creating new image
 
         if @image.save

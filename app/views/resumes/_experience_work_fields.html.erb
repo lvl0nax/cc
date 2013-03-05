@@ -8,13 +8,13 @@
     <div class="sub_info_row">
       <div class="fl" >
         <span style='width:25px; margin-left: -10px;'>C</span>        
-        <%= f.text_field :experience_from_formatted, :class => 'date-select', "data-title" => 'Календарь' %>
+        <%= f.text_field :experience_from_formatted, :style => 'width:170px;', :class => 'date-select', "data-title" => 'Календарь' %>
         <%#= f.date_select :experience_from, :start_year => 1950, :end_year => Date.today.year,
                       :order => [:day, :month, :year], :style => "width: 170px;" %>    
        </div>
       <div class="fr">
         <span style='width:20px;'>ПО</span>
-        <%= f.text_field :experience_to_formatted, :class => 'date-select', "data-title" => 'Календарь' %>        
+        <%= f.text_field :experience_to_formatted, :style => 'width:170px;', :class => 'date-select', "data-title" => 'Календарь' %>        
         <%#= f.date_select :experience_to, :start_year => 1950, :end_year => Date.today.year,
                       :order => [:day, :month, :year], :style => "width: 170px;" %>      
        </div>

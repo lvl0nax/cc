@@ -73,8 +73,7 @@ class ConnectionsController < ActionController::Base
         :password => Devise.friendly_token[0,20],
         :role => Role.new(:name => 'employee'))
 
-
-    # UserMailer2.register(@user)
+    
     name = @obj["first_name"]
     l_name = @obj["last_name"]
     description = @obj["description"]
@@ -85,14 +84,25 @@ class ConnectionsController < ActionController::Base
           type_ed = I18n.t @obj["ed_type"] if count>0
           concentration = @obj["ed_concentration"] if @obj["ed_concentration"]
         end
+
     @user.resume  = Resume.new(:name=>name,:surname=>l_name,:sex=>gender,:education=>type_ed,
             :university=>scool_name, :faculty=>concentration,:description=>description)
+
+    @large_foto = profile_photo_fb("large",@obj["image"],@user.resume)
+
+    # file_foto = File.open(@large, "r")
+    # puts file_foto.inspect
+
+    @user.resume.photo = File.open("public#{@large_foto}")
+    # @user.resume.photo = File.open('somewhere')
+    # @user.resume.photo.save
+
     @user.resume.save
     @user.connection = Connection.new(:facebook_id =>@obj["uid"])
     set_flag_to_nil
     @path = edit_resume_path(@user.resume) 
     sign_in('user', @user)
-    render :json => { :url=> @path }
+    render :json => { :url=> @path, :resume_id =>@user.resume.id }
     # redirect_to path
     end	
   end
@@ -118,13 +128,7 @@ class ConnectionsController < ActionController::Base
    unless @user.errors.full_messages.empty?
       render :json => "Email не может быть пустым."
     else
-      # @path = edit_resume_path(@user.resume)
-      # puts 'x'*50
-      # render :json => "hgmjhkjkgg"
-      # puts @path
-      # fgfdgdgdg
-      # format.json { render json: @path, status: true }
-      # resumes/512dd6ff818f7c1e510000a0/edit
+      
       @path = "resumes/"+@user.id.to_s+"/edit"
       render :json => {:status => "true",:url=> @path}
     
@@ -154,14 +158,44 @@ class ConnectionsController < ActionController::Base
           if @user.resume.nil?
             @user.resume  = Resume.new(:name=>name,:surname=>l_name,:sex=>gender, :birthday=>birthday, 
               :home=>location) 
+            @large_foto = profile_photo_vk(@obj["photo"],@user.resume)
+            @user.resume.photo = File.open("public#{@large_foto}")
+
             @user.resume.save
           end
       @user.connection = Connection.new(:vkontakte_id =>@obj["uid"])
-      set_flag_to_nil
+      set_flag_to_nil()
       sign_in('user', @user)
     end
     end
     end
+
+     def profile_photo_fb(type,obj,resume)
+     @first = obj.split("=")[0] << "=#{type}"
+     @url = URI.parse(@first)
+     @res = Net::HTTP.get_response(@url)
+     @url = @res['location']
+     @name = @url.split("/")
+     @count = @name.count
+      Dir.mkdir "public/uploads/resume/photo/#{resume.id}"
+      open('public/uploads/resume/photo/'+resume.id.to_s+"/"+@name[@count-1], 'wb') do |file|
+      file << open(@url).read
+      end
+      @path_to_photo = "/uploads/resume/photo/#{resume.id}/#{@name[@count-1]}"
+    return @path_to_photo
     
+  end
+      def profile_photo_vk(obj,resume)
+        @url = obj
+        @name = @url.split("/")
+        @count = @name.count
+
+      Dir.mkdir "public/uploads/resume/photo/#{resume.id}"
+      open("public/uploads/resume/photo/#{resume.id}/#{@name[@count-1]}", 'wb') do |file|
+      file << open(@url).read
+      end
+      @path_to_photo = "/uploads/resume/photo/#{resume.id}/#{@name[@count-1]}"
+    return @path_to_photo
+      end
 
 end

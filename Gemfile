@@ -93,7 +93,6 @@ group :development do
   #gem 'better_errors'  
   gem 'letter_opener'
   gem 'meta_request'
+  #gem 'devise_aes_encryptable'
 end
-
-
 

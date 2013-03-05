@@ -5,8 +5,7 @@ class Resume
   embedded_in :User
 
  # attr_accessible :experience_works_attributes, :photo, :name, :surname, :sex, :home, :education, :university, :faculty, :description, :delivery_email_enable, :delivery_email, :delivery_phone_enable, :delivery_phone, :birthday, :experation
-
-  
+ 
   field :crop_x, :type => Integer
   field :crop_y, :type => Integer
   field :crop_w, :type => Integer

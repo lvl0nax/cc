@@ -52,8 +52,6 @@ div.AnyTime-win {
   border:3px solid #9cbd73;
   font:normal normal normal xx-small/normal sans-serif;
   padding-bottom:0.2em;
-  -moz-border-radius:6px;
-  -webkit-border-radius:6px;
 }
 /*  .AnyTime-pkr is the Date/Time picker, inserted into the page immediately 
  *  after the input (text field) to which it corresponds.  The picker
@@ -83,8 +81,6 @@ div.AnyTime-win {
   margin:0;
   padding:0 0 0.4em 0;
   text-align:center;
-  -moz-border-radius:2px;
-  -webkit-border-radius:2px;
 }
 /*  .AnyTime-x-btn is a pseudo-button that, when clicked, causes the entire
  *  picker to disappear (the picker also disappears if the user clicks 
@@ -99,8 +95,8 @@ div.AnyTime-win {
   margin:0.3em;
   text-align:center;
   width:1.5em;
-  -moz-border-radius:0.4em;
-  -webkit-border-radius:0.4em;
+  /*-moz-border-radius:0.4em;
+  -webkit-border-radius:0.4em;*/
 }
 /*  .AnyTime-btn is a pseudo-button for selection of a format field value.
  *  Both height and float:left should be specified, but width is usually
@@ -117,8 +113,8 @@ div.AnyTime-win {
   margin-bottom:1px;
   margin-right:1px;
   padding-top:0.1em;
-  -moz-border-radius:0.4em;
-  -webkit-border-radius:0.4em;
+  /*-moz-border-radius:0.4em;
+  -webkit-border-radius:0.4em;*/
 }
 /*  .AnyTime-body contains everything in thee picker except the title bar.
  *  Because the picker attempts to size itself automatically based on

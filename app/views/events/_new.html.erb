@@ -87,7 +87,7 @@
 <span class="label">ДАТА</span>
 <div class="datesel300 large_select" style="width: 491px !important;">
   <div class="ficha">
- <%= f.date_select :start_date, :order=>[:day, :month, :year] %>
+ <%= f.date_select :start_date, :default => 1.days.from_now, :order=>[:day, :month, :year] %>
   <span style="margin: 0 5px;">С</span>
      <%= f.time_select :tmp_date, :default => { :hour => '00', :minute => '00' } %>
      <span style="margin: 0 2px">ДО</span>
@@ -100,7 +100,7 @@
 <span class="label">ПОСЛЕДНИЙ СРОК РЕГИСТРАЦИИ</span>
 <div class="datesel300" style="width: 313px;">
   <div class="ficha">
-    <%= f.date_select :request_date, :order=>[:day, :month, :year] %>
+    <%= f.date_select :request_date, :default => 1.days.from_now,  :order=>[:day, :month, :year] %>
 
 
      <span style="margin: 0 4px">ДО</span>
@@ -119,6 +119,17 @@
       <div class="inlblck">
         ССЫЛКИ НА МЕРОПРИЯТИЯ НА СЕРВИСАХ: 
       </div><br>
+
+      <div class="mind_added_bg"></div>
+      <div class="ok-sub-redact mind_added">
+       <span class="ok-sub-redact-title">
+        Центр карьеры
+       </span>
+       <span>Cпасибо, ваше мероприятие будет проверено модератором и после одобрения появится на сайте</span>
+       <!--a href="#" class="av-exit avabtn-ok">OK</a-->
+       <div class="clr"></div>
+      </div>
+
       <div class="inlblck">
         <%= image_tag "/assets/ltp.png", :onclick => "itemshow('timepad');"%>
       </div>
@@ -354,24 +365,25 @@
             }
 
         }).done(function(result){
-                    str = String(window.location);
-                
-                if(result)
-                {
-                  if (str.indexOf("?")== -1)
-                  {
-                    window.location = window.location
+                str = String(window.location);
+                $('.mind_added').fadeIn();
+                $('.mind_added_bg').fadeIn();
+                setTimeout(function(){
+                  if(result){
+                    if (str.indexOf("?")== -1)
+                    {
+                      window.location = window.location
+                    }
+                    else
+                    {
+                      window.location = 'http://'+window.location.host;
+                    }
+                  }  
+                  else{
+                      console.log(result);
                   }
-                  else
-                  {
-                    window.location = 'http://'+window.location.host;
-                  }
-                }  
-                else
-                {
-                    console.log(result);
-                }
-                });
+                }, 3000)  
+              });
     });
 </script>
 

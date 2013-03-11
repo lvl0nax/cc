@@ -9,7 +9,7 @@
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:image" content="{image_url}"> -->
-
+  <%= favicon_link_tag 'favicon.ico' %>
   <% cookies.delete :month unless cookies[:month].nil?%>
   <title><%=title%></title>
   <%= stylesheet_link_tag 'application' %>

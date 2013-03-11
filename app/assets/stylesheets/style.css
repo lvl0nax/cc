@@ -3608,7 +3608,7 @@ form input[type=file]{
   margin: 2px;
 }
 .new_pas {
-  color: blue !important;
+  color: white !important;
   margin-right: 10px;
   font-family: 'Verdana', serif !important;
 }
@@ -3639,10 +3639,10 @@ form input[type=file]{
 .soc-api {
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: -35px;
   overflow: hidden;
   padding: 2px;
-  width: 200px;
+  width: 180px;
   height: 20px;
   background-color: #ffffff;
 }

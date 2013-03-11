@@ -258,6 +258,21 @@ $(document).ready(function () {
                     $(document).ready(function () {
                         $(".descripting, .jqTransformCheckbox").click(function () {
                             $(this).parents(".catsItem").find(".descripting").toggleClass("act");
+                            if ($(this).parents(".catsItem").find(".descripting").hasClass("act")) {
+                              var a = $(this).parents(".catsItem").find(".descripting").html();
+                              $(this).parents(".samvup").find(".all").html(a);
+                            } else if($(this).parents(".samvup").find(".descripting.act")){
+                              var a = $(this).parents(".samvup").find(".descripting.act").eq(0).html();
+                              $(this).parents(".samvup").find(".all").html(a);
+                            };
+
+                            if ($(this).parents(".samvup").find(".descripting.act").length < 1) {
+                              $(this).parents(".samvup").find(".all").html("ВСЕ");
+                            };
+
+
+                             
+
                         });
                     });
                 </script>

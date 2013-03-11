@@ -39,9 +39,19 @@
               var elem = $(element),
               options = { format: '%d.%m.%Y', labelTitle: elem.data('title') }; 
               //options = { format: '%H:%i %d.%m.%Y', labelTitle: elem.data('title') }; 
-              AnyTime.picker( elem.attr('id'), options );
+              AnyTime.picker( elem.attr('id'), options );              
             });
-          });
+            $('.add_fields').on('click', function(){
+              setTimeout( function(){
+                var added_experience = $('.nested-fields').last();
+                added_experience.find('.date-select').each(function(index, element){
+                  var elem = $(element),                  
+                  options = { format: '%d.%m.%Y', labelTitle: elem.data('title') };
+                  AnyTime.picker( elem.attr('id'), options );
+                });                
+              },500)
+            });
+          });          
         </script>
         <%= f.text_field :birthday_formatted, :class => 'date-select', "data-title" => 'Календарь' %>
         <%#= f.date_select :birthday, :start_year => Date.today.year - 50, :end_year => Date.today.year - 10,
